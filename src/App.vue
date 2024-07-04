@@ -2,7 +2,6 @@
 import {RouterView} from 'vue-router';
 import {useActivityStore} from '@/stores/activityStore';
 import {storeToRefs} from 'pinia';
-import Welcome from '@/components/Welcome.vue';
 import NavBar from '@/components/NavBar.vue';
 
 const {settings} = storeToRefs(useActivityStore());
@@ -11,8 +10,7 @@ const {settings} = storeToRefs(useActivityStore());
 <template>
   <div class="app">
     <NavBar v-if="settings.startDate" />
-    <Welcome v-if="!settings.startDate" />
-    <RouterView v-else />
+    <RouterView />
   </div>
 </template>
 

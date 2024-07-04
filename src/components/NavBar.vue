@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import {RouterLink} from 'vue-router';
+import IconComponent from '@/components/IconComponent.vue';
 </script>
 <template>
   <nav class="nav">
-    <RouterLink to="/" class="nav__home-link">Eat your veggies</RouterLink>
-    <div class="nav__buttons">
-      <RouterLink to="/settings">S</RouterLink>
+    <RouterLink to="/log" class="nav__link nav__link--log">Eat your veggies</RouterLink>
+    <div class="flex gap-2">
+      <RouterLink class="nav__link" to="/settings">
+        <IconComponent icon="cog" />
+      </RouterLink>
     </div>
   </nav>
 </template>
@@ -15,13 +18,17 @@ import {RouterLink} from 'vue-router';
   @apply flex justify-between items-center;
 }
 
-.nav__home-link {
-  font-family: 'Bungee Shade', system-ui;
-  font-size: 6vw;
-  @apply uppercase sm:text-3xl;
+.nav__link {
+  @apply fill-white;
+  @apply rounded-full;
+  &:hover {
+    @apply text-slate-200 fill-slate-200;
+  }
 }
 
-.nav__buttons {
-  @apply flex gap-2;
+.nav__link--log {
+  font-family: 'Bungee Shade', system-ui;
+  font-size: 6vw;
+  @apply uppercase sm:text-3xl rounded-md;
 }
 </style>

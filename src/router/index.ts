@@ -9,6 +9,17 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      beforeEnter: () => {
+        const {settings} = useActivityStore();
+        if (settings.startDate) {
+          return {name: 'log', replace: true};
+        }
+      },
+    },
+    {
+      path: '/log',
+      name: 'log',
+      component: () => import('@/views/LogView.vue'),
     },
     {
       path: '/settings',
@@ -21,7 +32,7 @@ const router = createRouter({
 router.beforeEach((to) => {
   const {settings} = useActivityStore();
   if (to.name !== 'home' && !settings.startDate) {
-    return {name: 'home'};
+    return {name: 'home', replace: true};
   }
 });
 

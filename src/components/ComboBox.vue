@@ -23,6 +23,7 @@ const {toggleIngredient} = activityStore;
 
 const selected = ref<string | null>(null);
 const query = ref('');
+const input = ref<InstanceType<typeof ComboboxInput> | null>(null);
 
 const translatedIngredients = computed(() => {
   const collator = new Intl.Collator(locale.value);
@@ -49,17 +50,23 @@ const add = (newIngredient: string) => {
   }
 };
 
-const existingIngredients = computed(() => activity.value.map(({ingredient}) => ingredient));
+const focus = () => {
+  input.value?.$el.focus();
+};
+
+defineExpose({focus});
 </script>
 <template>
   <Combobox
     nullable
+    id="ingredient"
     v-model="selected"
     @update:modelValue="add"
     as="div"
     class="relative w-full h-12 max-w-[500px]"
   >
     <ComboboxInput
+      ref="input"
       class="w-full h-full border-none py-2 px-4 text-lg rounded-full text-gray-900"
       @change="query = $event.target.value"
     />
