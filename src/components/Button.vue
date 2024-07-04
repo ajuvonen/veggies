@@ -16,7 +16,8 @@ withDefaults(
 </template>
 <style scoped lang="scss">
 .button {
-  @apply px-4 py-2 text-white uppercase rounded-md;
+  letter-spacing: 1px;
+  @apply px-4 py-2 text-white font-semibold text-sm uppercase rounded-md;
   @apply bg-sky-400;
 
   &:hover {

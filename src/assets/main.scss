@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 :focus {
-  outline: 2px solid white;
-  outline-offset: 3px;
+  outline: solid;
+  @apply outline-2 outline-offset-[3px] outline-pink-500;
 }
