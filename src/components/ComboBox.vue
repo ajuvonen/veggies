@@ -70,7 +70,7 @@ const existingIngredients = computed(() => activity.value.map(({ingredient}) => 
       @after-leave="query = ''"
     >
       <ComboboxOptions
-        class="absolute mt-2 max-h-60 w-full overflow-auto rounded-md bg-slate-100 py-1 text-base shadow-lg ring-1 ring-black/5"
+        class="absolute mt-2 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5"
       >
         <div
           v-if="filteredIngredients.length === 0 && query !== ''"
@@ -88,7 +88,7 @@ const existingIngredients = computed(() => activity.value.map(({ingredient}) => 
           <li
             class="select-none py-2 px-4"
             :class="{
-              'bg-sky-500 text-slate-100': active,
+              'bg-sky-500 text-white': active,
               'text-gray-900': !active,
             }"
           >

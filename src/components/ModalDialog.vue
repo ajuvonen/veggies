@@ -49,7 +49,7 @@ defineProps<{
 
 .modal-dialog {
   @apply w-full max-w-md transform overflow-hidden rounded-md p-4 align-middle shadow-xl;
-  @apply bg-slate-100;
+  @apply bg-white;
 }
 
 .modal-dialog__title {
