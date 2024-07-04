@@ -3,6 +3,11 @@
   "general": {
     "start": "Aloita"
   },
+  "ingredients": {
+    "carrot": "Porkkana",
+    "corn": "Maissi",
+    "lettuce": "Lehtisalaatti"
+  },
   "welcome": {
     "paragraph": "Elä terveellisemmin syömällä 40 kasvista ja hedelmää joka viikko. Seuraa onnistumistasi tämän ilmaisen sovelluksen avulla."
   }

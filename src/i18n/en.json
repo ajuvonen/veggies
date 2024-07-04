@@ -3,6 +3,11 @@
   "general": {
     "start": "Start"
   },
+  "ingredients": {
+    "carrot": "Carrot",
+    "corn": "Corn",
+    "lettuce": "Lettuce"
+  },
   "welcome": {
     "paragraph": "Adopt a healthy lifestyle by eating 40 fruits and vegetables each week. Track your progress easily with this free app."
   }
