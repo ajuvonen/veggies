@@ -8,7 +8,7 @@ defineEmits(['click']);
 </template>
 <style scoped lang="scss">
 button {
-  @apply p-4 text-white uppercase;
+  @apply px-4 py-2 text-white uppercase;
   @apply bg-sky-400 rounded-md;
 
   &:hover {
