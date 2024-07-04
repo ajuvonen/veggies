@@ -1,6 +1,7 @@
 {
   "app-title": "Eat Your Veggies",
   "general": {
+    "close": "Close",
     "start": "Start"
   },
   "ingredients": {
@@ -9,6 +10,9 @@
     "lettuce": "Lettuce"
   },
   "welcome": {
+    "infoTitle": "What is this about?",
+    "infoContent": "Eat veggies, be happy",
+    "info": "Learn more",
     "paragraph": "Adopt a healthy lifestyle by eating 40 fruits and vegetables each week. Track your progress easily with this free app."
   }
 }

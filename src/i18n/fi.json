@@ -1,6 +1,7 @@
 {
   "app-title": "Eat Your Veggies",
   "general": {
+    "close": "Sulje",
     "start": "Aloita"
   },
   "ingredients": {
@@ -9,6 +10,9 @@
     "lettuce": "Lehtisalaatti"
   },
   "welcome": {
+    "infoTitle": "What is this about?",
+    "infoContent": "Eat veggies, be happy",
+    "info": "Learn more",
     "paragraph": "Elä terveellisemmin syömällä 40 kasvista ja hedelmää joka viikko. Seuraa onnistumistasi tämän ilmaisen sovelluksen avulla."
   }
 }
