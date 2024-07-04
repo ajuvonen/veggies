@@ -2,6 +2,7 @@
   "app-title": "Eat Your Veggies",
   "general": {
     "close": "Sulje",
+    "noResults": "Ei tuloksia",
     "reset": "Tyhjennä",
     "start": "Aloita"
   },

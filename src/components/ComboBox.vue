@@ -83,7 +83,7 @@ defineExpose({focus});
           v-if="filteredIngredients.length === 0 && query !== ''"
           class="select-none px-4 py-2 text-gray-700"
         >
-          Nothing found.
+          {{ $t('general.noResults') }}
         </div>
 
         <ComboboxOption

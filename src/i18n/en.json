@@ -2,6 +2,7 @@
   "app-title": "Eat Your Veggies",
   "general": {
     "close": "Close",
+    "noResults": "No results",
     "reset": "Reset",
     "start": "Start"
   },
