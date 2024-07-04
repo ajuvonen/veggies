@@ -2,6 +2,7 @@
   "app-title": "Eat Your Veggies",
   "general": {
     "close": "Sulje",
+    "reset": "Tyhjennä",
     "start": "Aloita"
   },
   "ingredients": {
