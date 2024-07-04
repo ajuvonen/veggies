@@ -17,6 +17,7 @@
   "dependencies": {
     "@fontsource/bungee-shade": "^5.0.20",
     "@headlessui/vue": "^1.7.22",
+    "@mdi/js": "^7.4.47",
     "@vueuse/core": "^10.11.0",
     "luxon": "^3.4.4",
     "pinia": "^2.1.7",
