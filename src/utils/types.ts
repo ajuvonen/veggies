@@ -1,8 +1,10 @@
+import type {DateTime} from 'luxon';
+
 export type Action = {
   ingredient: string;
-  date: Date;
+  date: DateTime;
 };
 
 export type Settings = {
-  startDate: Date | null;
+  startDate: DateTime | null;
 };

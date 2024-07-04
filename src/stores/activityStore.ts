@@ -10,7 +10,7 @@ const localStorageOptions = {
       v
         ? JSON.parse(v, (key, value) => {
             if (['startDate', 'date'].includes(key) && value) {
-              return DateTime.fromISO(value).toJSDate();
+              return DateTime.fromISO(value);
             }
             return value;
           })
@@ -32,6 +32,21 @@ export const useActivityStore = defineStore('activity', () => {
 
   const activity = useStorage<Action[]>('veggies-activity', [], localStorage, localStorageOptions);
 
+  const toggleIngredient = (newIngredient: string) => {
+    const now = DateTime.now();
+    const existing = activity.value.find(
+      ({ingredient, date}) => ingredient === newIngredient && date.hasSame(now, 'week'),
+    );
+    if (!existing) {
+      activity.value.push({
+        ingredient: newIngredient,
+        date: now,
+      });
+    } else {
+      activity.value = activity.value.filter((action) => action !== existing);
+    }
+  };
+
   const $reset = () => {
     settings.value = {
       startDate: null,
@@ -39,5 +54,5 @@ export const useActivityStore = defineStore('activity', () => {
     activity.value = [];
   };
 
-  return {settings, activity, $reset};
+  return {settings, activity, toggleIngredient, $reset};
 });

@@ -7,7 +7,7 @@ import Button from '@/components/Button.vue';
 const {settings} = storeToRefs(useActivityStore());
 
 const start = () => {
-  settings.value.startDate = DateTime.now().startOf('week').toJSDate();
+  settings.value.startDate = DateTime.now().startOf('week');
 };
 </script>
 <template>
