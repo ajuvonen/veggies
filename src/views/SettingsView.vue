@@ -14,7 +14,7 @@ const reset = () => {
 </script>
 
 <template>
-  <Button variant="danger" @click="reset()">{{ $t('general.reset') }}</Button>
+  <Button variant="danger" icon="trashCan" @click="reset()">{{ $t('general.reset') }}</Button>
 </template>
 
 <style scoped lang="scss"></style>

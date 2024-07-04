@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {mdiCogOutline, mdiTrashCan} from '@mdi/js';
 
-type IconString = 'cog' | 'trashCan';
+export type IconString = 'cog' | 'trashCan';
 
 defineProps<{
   icon: IconString;
