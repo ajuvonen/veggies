@@ -14,5 +14,7 @@ config.plugins.VueWrapper.install(dataTestIdPlugin);
 
 // Reset handlers after each test
 afterEach(() => {
+  // Clear local storage so state is fresh for each test
+  localStorage.clear();
   config.global.plugins[0] = createTestingPinia();
 });
