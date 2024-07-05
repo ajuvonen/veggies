@@ -4,7 +4,7 @@ import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
-import Button from '@/components/Button.vue';
+import ButtonComponent from '@/components/ButtonComponent.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
 
 const router = useRouter();
@@ -24,15 +24,15 @@ const start = () => {
     {{ $t('welcome.paragraph') }}
   </p>
   <p class="welcome__paragraph flex gap-2">
-    <Button @click="dialogOpen = true">{{ $t('welcome.info') }}</Button>
-    <Button @click="start()">{{ $t('general.start') }}</Button>
+    <ButtonComponent @click="dialogOpen = true">{{ $t('welcome.info') }}</ButtonComponent>
+    <ButtonComponent @click="start()">{{ $t('general.start') }}</ButtonComponent>
   </p>
   <ModalDialog :open="dialogOpen" :title="$t('welcome.infoTitle')" @close="dialogOpen = false">
     <template #content>
       {{ $t('welcome.infoContent') }}
     </template>
     <template #buttons>
-      <Button @click="dialogOpen = false">{{ $t('general.close') }}</Button>
+      <ButtonComponent @click="dialogOpen = false">{{ $t('general.close') }}</ButtonComponent>
     </template>
   </ModalDialog>
 </template>

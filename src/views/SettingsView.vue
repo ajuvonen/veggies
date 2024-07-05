@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useActivityStore} from '@/stores/activityStore';
-import Button from '@/components/Button.vue';
+import ButtonComponent from '@/components/ButtonComponent.vue';
 import {useRouter} from 'vue-router';
 
 const router = useRouter();
@@ -14,7 +14,9 @@ const reset = () => {
 </script>
 
 <template>
-  <Button variant="danger" icon="trashCan" @click="reset()">{{ $t('general.reset') }}</Button>
+  <ButtonComponent variant="danger" icon="trashCan" @click="reset()">{{
+    $t('general.reset')
+  }}</ButtonComponent>
 </template>
 
 <style scoped lang="scss"></style>
