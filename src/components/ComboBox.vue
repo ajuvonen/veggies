@@ -15,12 +15,16 @@ import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS} from '@/utils/constants';
 const {t, locale} = useI18n();
 
 const activityStore = useActivityStore();
-const {activity} = storeToRefs(activityStore);
+const {currentIngredients} = storeToRefs(activityStore);
 const {toggleIngredient} = activityStore;
 
 const selected = ref<string | null>(null);
 const query = ref('');
 const input = ref<InstanceType<typeof ComboboxInput> | null>(null);
+
+onMounted(() => {
+  input.value?.$el.focus();
+});
 
 const translatedIngredients = computed(() => {
   const collator = new Intl.Collator(locale.value);
@@ -32,15 +36,17 @@ const translatedIngredients = computed(() => {
     .sort((a, b) => collator.compare(a.translation, b.translation));
 });
 
-const filteredIngredients = computed(() =>
-  translatedIngredients.value.filter(
-    (ingredient) =>
-      !query.value ||
-      ingredient.translation
-        .toLowerCase()
-        .replace(/\s+/g, '')
-        .includes(query.value.toLowerCase().replace(/\s+/g, '')),
-  ),
+const filteredIngredients = computed(
+  () => (category: string) =>
+    translatedIngredients.value.filter(
+      (ingredient) =>
+        ingredient.category === category &&
+        (!query.value ||
+          ingredient.translation
+            .toLowerCase()
+            .replace(/\s+/g, '')
+            .includes(query.value.toLowerCase().replace(/\s+/g, ''))),
+    ),
 );
 
 const add = (newIngredient: string) => {
@@ -50,9 +56,20 @@ const add = (newIngredient: string) => {
   }
 };
 
-onMounted(() => {
-  input.value?.$el.focus();
-});
+const getOptionClasses = (ingredient: string, active: boolean) => {
+  const exists = currentIngredients.value.includes(ingredient);
+  const textClass = active ? 'text-white' : 'text-gray-900';
+  let bgClass = 'bg-white';
+  if (active && exists) {
+    bgClass = 'bg-red-500';
+  } else if (active) {
+    bgClass = 'bg-sky-500';
+  } else if (exists) {
+    bgClass = 'bg-green-300';
+  }
+
+  return `${textClass} ${bgClass}`;
+};
 </script>
 <template>
   <Combobox
@@ -83,20 +100,66 @@ onMounted(() => {
         >
           {{ $t('general.noResults') }}
         </div>
-
+        <div class="select-none py-2 px-2 bg-slate-300 text-gray-900">Vegetables</div>
         <ComboboxOption
-          v-for="ingredient in filteredIngredients"
+          v-for="ingredient in filteredIngredients('vegetable')"
           :key="ingredient.key"
           :value="ingredient.key"
           v-slot="{active}"
         >
-          <li
-            class="select-none py-2 px-4"
-            :class="{
-              'bg-sky-500 text-white': active,
-              'text-gray-900': !active,
-            }"
-          >
+          <li class="select-none py-2 px-4" :class="getOptionClasses(ingredient.key, active)">
+            <span class="block truncate">
+              {{ ingredient.translation }}
+            </span>
+          </li>
+        </ComboboxOption>
+        <div class="select-none py-2 px-2 bg-slate-300 text-gray-900">Fruits</div>
+        <ComboboxOption
+          v-for="ingredient in filteredIngredients('fruit')"
+          :key="ingredient.key"
+          :value="ingredient.key"
+          v-slot="{active}"
+        >
+          <li class="select-none py-2 px-4" :class="getOptionClasses(ingredient.key, active)">
+            <span class="block truncate">
+              {{ ingredient.translation }}
+            </span>
+          </li>
+        </ComboboxOption>
+        <div class="select-none py-2 px-2 bg-slate-300 text-gray-900">Leafy Greens</div>
+        <ComboboxOption
+          v-for="ingredient in filteredIngredients('leafy')"
+          :key="ingredient.key"
+          :value="ingredient.key"
+          v-slot="{active}"
+        >
+          <li class="select-none py-2 px-4" :class="getOptionClasses(ingredient.key, active)">
+            <span class="block truncate">
+              {{ ingredient.translation }}
+            </span>
+          </li>
+        </ComboboxOption>
+        <div class="select-none py-2 px-2 bg-slate-300 text-gray-900">Roots</div>
+        <ComboboxOption
+          v-for="ingredient in filteredIngredients('root')"
+          :key="ingredient.key"
+          :value="ingredient.key"
+          v-slot="{active}"
+        >
+          <li class="select-none py-2 px-4" :class="getOptionClasses(ingredient.key, active)">
+            <span class="block truncate">
+              {{ ingredient.translation }}
+            </span>
+          </li>
+        </ComboboxOption>
+        <div class="select-none py-2 px-2 bg-slate-300 text-gray-900">Beans</div>
+        <ComboboxOption
+          v-for="ingredient in filteredIngredients('bean')"
+          :key="ingredient.key"
+          :value="ingredient.key"
+          v-slot="{active}"
+        >
+          <li class="select-none py-2 px-4" :class="getOptionClasses(ingredient.key, active)">
             <span class="block truncate">
               {{ ingredient.translation }}
             </span>
