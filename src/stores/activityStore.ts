@@ -2,6 +2,7 @@ import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import type {Action, Settings} from '@/utils/types';
+import {computed} from 'vue';
 
 const localStorageOptions = {
   mergeDefaults: true,
@@ -47,6 +48,12 @@ export const useActivityStore = defineStore('activity', () => {
     }
   };
 
+  const currentIngredients = computed(() =>
+    activity.value
+      .filter(({date}) => date.hasSame(DateTime.now(), 'week'))
+      .map(({ingredient}) => ingredient),
+  );
+
   const $reset = () => {
     settings.value = {
       startDate: null,
@@ -54,5 +61,5 @@ export const useActivityStore = defineStore('activity', () => {
     activity.value = [];
   };
 
-  return {settings, activity, toggleIngredient, $reset};
+  return {settings, activity, currentIngredients, toggleIngredient, $reset};
 });
