@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, computed} from 'vue';
+import {ref, computed, onMounted} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {
   Combobox,
@@ -10,10 +10,7 @@ import {
 } from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import {storeToRefs} from 'pinia';
-
-const props = defineProps<{
-  ingredients: string[];
-}>();
+import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS} from '@/utils/constants';
 
 const {t, locale} = useI18n();
 
@@ -27,16 +24,19 @@ const input = ref<InstanceType<typeof ComboboxInput> | null>(null);
 
 const translatedIngredients = computed(() => {
   const collator = new Intl.Collator(locale.value);
-  return props.ingredients
-    .map((ingredient) => t(`ingredients.${ingredient}`))
-    .sort((a, b) => collator.compare(a, b));
+  return [...FRUITS, ...VEGETABLES, ...LEAFIES, ...ROOTS, ...BEANS]
+    .map((ingredient) => ({
+      ...ingredient,
+      translation: t(`ingredients.${ingredient.key}`),
+    }))
+    .sort((a, b) => collator.compare(a.translation, b.translation));
 });
 
 const filteredIngredients = computed(() =>
   translatedIngredients.value.filter(
     (ingredient) =>
       !query.value ||
-      ingredient
+      ingredient.translation
         .toLowerCase()
         .replace(/\s+/g, '')
         .includes(query.value.toLowerCase().replace(/\s+/g, '')),
@@ -50,11 +50,9 @@ const add = (newIngredient: string) => {
   }
 };
 
-const focus = () => {
+onMounted(() => {
   input.value?.$el.focus();
-};
-
-defineExpose({focus});
+});
 </script>
 <template>
   <Combobox
@@ -88,8 +86,8 @@ defineExpose({focus});
 
         <ComboboxOption
           v-for="ingredient in filteredIngredients"
-          :key="ingredient"
-          :value="ingredient"
+          :key="ingredient.key"
+          :value="ingredient.key"
           v-slot="{active}"
         >
           <li
@@ -100,7 +98,7 @@ defineExpose({focus});
             }"
           >
             <span class="block truncate">
-              {{ ingredient }}
+              {{ ingredient.translation }}
             </span>
           </li>
         </ComboboxOption>
