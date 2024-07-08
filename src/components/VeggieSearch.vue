@@ -12,7 +12,7 @@ const {t, locale} = useI18n();
 const activityStore = useActivityStore();
 const {toggleIngredient} = activityStore;
 
-const selected = ref<string | null>(null);
+const selected = ref<string[]>([]);
 const query = ref('');
 const input = ref<InstanceType<typeof ComboboxInput> | null>(null);
 
@@ -43,16 +43,17 @@ const filteredIngredients = computed(
     ),
 );
 
-const add = (newIngredient: string) => {
-  if (newIngredient) {
-    toggleIngredient(newIngredient);
-    selected.value = null;
+const add = ([ingredient]: string[]) => {
+  if (ingredient) {
+    toggleIngredient(ingredient);
+    selected.value = [];
   }
 };
 </script>
 <template>
   <Combobox
     nullable
+    multiple
     id="ingredient"
     v-model="selected"
     @update:modelValue="add"
@@ -69,7 +70,7 @@ const add = (newIngredient: string) => {
       <ComboboxOptions class="veggie-search__options">
         <div
           v-if="filteredIngredients().length === 0 && query !== ''"
-          class="select-none px-4 py-2 text-gray-700"
+          class="veggie-search__no-results"
         >
           {{ $t('general.noResults') }}
         </div>
@@ -92,5 +93,10 @@ const add = (newIngredient: string) => {
 .veggie-search__options {
   @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-md shadow-lg ring-1;
   @apply bg-white ring-black/5;
+}
+
+.veggie-search__no-results {
+  @apply select-none px-4 py-2;
+  @apply text-gray-700;
 }
 </style>
