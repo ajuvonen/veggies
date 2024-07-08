@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {Dialog, DialogPanel, DialogTitle, TransitionRoot} from '@headlessui/vue';
+import ButtonComponent from '@/components/ButtonComponent.vue';
 
 defineEmits(['close']);
 defineProps<{
@@ -28,8 +29,11 @@ defineProps<{
           <div class="mt-4">
             <slot name="content"></slot>
           </div>
-          <div v-if="$slots.buttons" class="modal-dialog__buttons">
+          <div class="modal-dialog__buttons">
             <slot name="buttons"></slot>
+            <ButtonComponent v-if="!$slots.buttons" @click="$emit('close')">{{
+              $t('general.close')
+            }}</ButtonComponent>
           </div>
         </DialogPanel>
       </div>

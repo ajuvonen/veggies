@@ -31,9 +31,6 @@ const start = () => {
     <template #content>
       {{ $t('welcome.infoContent') }}
     </template>
-    <template #buttons>
-      <ButtonComponent @click="dialogOpen = false">{{ $t('general.close') }}</ButtonComponent>
-    </template>
   </ModalDialog>
 </template>
 <style scoped lang="scss">
