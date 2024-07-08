@@ -52,6 +52,6 @@ const getOptionClasses = (ingredient: string, active: boolean) => {
 }
 
 .veggie-search__option {
-  @apply select-none py-2 px-4;
+  @apply select-none py-2 px-4 capitalize;
 }
 </style>
