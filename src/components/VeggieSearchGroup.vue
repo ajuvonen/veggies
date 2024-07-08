@@ -1,15 +1,33 @@
 <script setup lang="ts">
+import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
 import {ComboboxOption} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import type {TranslatedIngredient} from '@/utils/types';
 
-defineProps<{
+const props = defineProps<{
   ingredients: TranslatedIngredient[];
-  groupName: string;
+  group: string;
 }>();
 
 const {currentIngredients} = storeToRefs(useActivityStore());
+
+const getGroupEmojis = computed(() => {
+  switch (props.group) {
+    case 'fruit':
+      return '🍎';
+    case 'vegetable':
+      return '🥦';
+    case 'leafy':
+      return '🥬';
+    case 'root':
+      return '🥕';
+    case 'bean':
+      return '🫛';
+    default:
+      return '';
+  }
+});
 
 const getOptionClasses = (ingredient: string, active: boolean) => {
   const exists = currentIngredients.value.includes(ingredient);
@@ -29,7 +47,10 @@ const getOptionClasses = (ingredient: string, active: boolean) => {
 
 <template>
   <template v-if="ingredients.length">
-    <div class="veggie-search__group">{{ groupName }}</div>
+    <div class="veggie-search__group">
+      <span aria-hidden="true">{{ getGroupEmojis }}</span>
+      <span>{{ $t(`veggie-search.${group}`) }} ({{ ingredients.length }})</span>
+    </div>
     <ComboboxOption
       v-for="ingredient in ingredients"
       :key="ingredient.key"
@@ -47,7 +68,8 @@ const getOptionClasses = (ingredient: string, active: boolean) => {
 
 <style scoped lang="scss">
 .veggie-search__group {
-  @apply select-none py-2 px-2;
+  @apply flex justify-start gap-2;
+  @apply select-none p-2 pr-4;
   @apply bg-slate-300 text-gray-900;
 }
 

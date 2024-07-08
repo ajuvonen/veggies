@@ -59,20 +59,14 @@ const add = (newIngredient: string) => {
     as="div"
     class="relative w-full h-12 max-w-[500px]"
   >
-    <ComboboxInput
-      ref="input"
-      class="w-full h-full border-none py-2 px-4 text-lg rounded-full text-gray-900"
-      @change="query = $event.target.value"
-    />
+    <ComboboxInput ref="input" class="veggie-search__input" @change="query = $event.target.value" />
     <TransitionRoot
-      leave="transition ease-in duration-100"
+      leave="ease-in duration-100"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
       @after-leave="query = ''"
     >
-      <ComboboxOptions
-        class="absolute mt-2 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5"
-      >
+      <ComboboxOptions class="veggie-search__options">
         <div
           v-if="filteredIngredients().length === 0 && query !== ''"
           class="select-none px-4 py-2 text-gray-700"
@@ -82,10 +76,21 @@ const add = (newIngredient: string) => {
         <VeggieSearchGroup
           v-for="group in Category"
           :key="group"
-          :groupName="$t(`veggie-search.${group}`)"
+          :group="group"
           :ingredients="filteredIngredients(group)"
         />
       </ComboboxOptions>
     </TransitionRoot>
   </Combobox>
 </template>
+<style lang="scss" scoped>
+.veggie-search__input {
+  @apply w-full h-full border-none py-2 px-4 text-lg rounded-full;
+  @apply text-gray-900;
+}
+
+.veggie-search__options {
+  @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-md shadow-lg ring-1;
+  @apply bg-white ring-black/5;
+}
+</style>
