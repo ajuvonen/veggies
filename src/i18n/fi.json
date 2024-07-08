@@ -11,6 +11,13 @@
     "corn": "Maissi",
     "lettuce": "Lehtisalaatti"
   },
+  "veggie-search": {
+    "bean": "Herneet ja palkokasvit",
+    "fruit": "Hedelmät ja marjat",
+    "leafy": "Lehtivihreät",
+    "root": "Juurekset",
+    "vegetable": "Vihannekset"
+  },
   "welcome": {
     "infoTitle": "What is this about?",
     "infoContent": "Eat veggies, be happy",

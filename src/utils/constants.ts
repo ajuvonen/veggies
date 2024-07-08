@@ -1,4 +1,6 @@
-export const FRUITS = [
+import {Category, type Ingredient} from './types';
+
+export const FRUITS: Ingredient[] = [
   'apple',
   'apricot',
   'banana',
@@ -43,9 +45,9 @@ export const FRUITS = [
   'strawberry',
   'tangerine',
   'watermelon',
-].map((ingredient) => ({key: ingredient, category: 'fruit'}));
+].map((ingredient) => ({key: ingredient, category: Category.Fruit}));
 
-export const LEAFIES = [
+export const LEAFIES: Ingredient[] = [
   'arugula',
   'basil',
   'bok choy',
@@ -66,9 +68,9 @@ export const LEAFIES = [
   'spinach',
   'swiss chard',
   'watercress',
-].map((ingredient) => ({key: ingredient, category: 'leafy'}));
+].map((ingredient) => ({key: ingredient, category: Category.Leafy}));
 
-export const ROOTS = [
+export const ROOTS: Ingredient[] = [
   'beet',
   'black radish',
   'burdock root',
@@ -93,9 +95,9 @@ export const ROOTS = [
   'turnip',
   'wasabi',
   'yam',
-].map((ingredient) => ({key: ingredient, category: 'root'}));
+].map((ingredient) => ({key: ingredient, category: Category.Root}));
 
-export const VEGETABLES = [
+export const VEGETABLES: Ingredient[] = [
   'artichoke',
   'asparagus',
   'bell pepper',
@@ -113,18 +115,15 @@ export const VEGETABLES = [
   'fennel',
   'jicama',
   'okra',
-  'peas',
   'pumpkin',
   'radish',
   'rhubarb',
-  'snap pea',
-  'snow pea',
   'squash',
   'tomato',
   'zucchini',
-].map((ingredient) => ({key: ingredient, category: 'vegetable'}));
+].map((ingredient) => ({key: ingredient, category: Category.Vegetable}));
 
-export const BEANS = [
+export const BEANS: Ingredient[] = [
   'adzuki bean',
   'black bean',
   'black-eyed pea',
@@ -143,10 +142,13 @@ export const BEANS = [
   'lima bean',
   'mung bean',
   'navy bean',
+  'peas',
   'pinto bean',
   'red bean',
+  'snap pea',
+  'snow pea',
   'soybean',
   'split pea',
   'white bean',
   'yardlong bean',
-].map((ingredient) => ({key: ingredient, category: 'bean'}));
+].map((ingredient) => ({key: ingredient, category: Category.Bean}));

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ComboBox from '@/components/ComboBox.vue';
+import VeggieSearch from '@/components/VeggieSearch.vue';
 </script>
 <template>
-  <ComboBox />
+  <VeggieSearch />
 </template>

@@ -11,6 +11,13 @@
     "corn": "Corn",
     "lettuce": "Lettuce"
   },
+  "veggie-search": {
+    "bean": "Beans & Legumes",
+    "fruit": "Fruits & Berries",
+    "leafy": "Leafy Greens",
+    "root": "Roots & Bulbs",
+    "vegetable": "Vegetables"
+  },
   "welcome": {
     "infoTitle": "What is this about?",
     "infoContent": "Eat veggies, be happy",
