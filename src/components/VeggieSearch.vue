@@ -31,10 +31,10 @@ const translatedIngredients = computed<TranslatedIngredient[]>(() => {
 });
 
 const filteredIngredients = computed(
-  () => (category: Category) =>
+  () => (category?: Category) =>
     translatedIngredients.value.filter(
       (ingredient) =>
-        ingredient.category === category &&
+        (!category || ingredient.category === category) &&
         (!query.value ||
           ingredient.translation
             .toLowerCase()
@@ -74,7 +74,7 @@ const add = (newIngredient: string) => {
         class="absolute mt-2 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5"
       >
         <div
-          v-if="filteredIngredients.length === 0 && query !== ''"
+          v-if="filteredIngredients().length === 0 && query !== ''"
           class="select-none px-4 py-2 text-gray-700"
         >
           {{ $t('general.noResults') }}
