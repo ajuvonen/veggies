@@ -8,7 +8,8 @@ import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
 import {entries, groupBy, pipe, prop, sortBy} from 'remeda';
 import useDateTime from '@/hooks/dateTime';
 import {useActivityStore} from '@/stores/activityStore';
-import type {Ingredient} from '@/utils/types';
+import type {Category, Ingredient} from '@/utils/types';
+import {CATEGORY_EMOJI} from '@/utils/constants';
 
 ChartJS.register(ArcElement, Tooltip);
 ChartJS.register(ChartDataLabels);
@@ -27,9 +28,8 @@ const chartData = computed(() => {
     sortBy(([_, {length}]) => length),
   );
 
-  console.log(ingredients);
   return {
-    labels: ingredients.map(([category]) => t(`categories.${category}`)),
+    labels: ingredients.map(prop(0)),
     datasets: [
       {
         data: ingredients.map(([_, {length}]) => length),
@@ -43,16 +43,29 @@ const chartOptions: ChartOptions<'doughnut'> = {
   responsive: true,
   maintainAspectRatio: true,
   plugins: {
+    tooltip: {
+      callbacks: {
+        title: ([{label}]) => t(`categories.${label}`),
+      },
+      boxPadding: 5,
+    },
     datalabels: {
       color: '#fff',
       anchor: 'center',
       align: 'center',
+      borderRadius: 50, // Optional: sets the corner radius of the background circle
+      backgroundColor: '#fff',
       font: {
-        weight: 'bold',
+        size: 25,
       },
-      formatter: (_, context: Context) => {
-        return context.chart.data.labels![context.dataIndex];
+      padding: {
+        top: 3,
+        bottom: 3,
+        left: 1,
+        right: 1,
       },
+      formatter: (_, context: Context) =>
+        CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
     },
   },
 };
