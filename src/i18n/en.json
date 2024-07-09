@@ -4,7 +4,8 @@
     "close": "Close",
     "noResults": "No results",
     "reset": "Reset",
-    "start": "Start"
+    "start": "Start",
+    "weekInterval": "Week {0}"
   },
   "ingredients": {
     "adzuki bean": "adzuki bean",

@@ -4,7 +4,8 @@
     "close": "Sulje",
     "noResults": "Ei tuloksia",
     "reset": "Tyhjennä",
-    "start": "Aloita"
+    "start": "Aloita",
+    "weekInterval": "Viikko {0}"
   },
   "ingredients": {
     "adzuki bean": "adsukipapu",
