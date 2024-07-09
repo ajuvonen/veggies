@@ -1,4 +1,9 @@
-import {Category, type Ingredient} from './types';
+import {Category, type Ingredient, type Locale} from './types';
+
+export const DATE_FORMATS: Record<Locale, string> = {
+  en: 'MM/dd/yyyy',
+  fi: 'dd.MM.yyyy',
+};
 
 export const FRUITS: Ingredient[] = [
   'apple',
