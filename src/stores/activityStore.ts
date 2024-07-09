@@ -1,8 +1,8 @@
+import {computed} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import type {Action, Settings} from '@/utils/types';
-import {computed} from 'vue';
+import type {Activity, Ingredient, Settings, TranslatedIngredient} from '@/utils/types';
 
 const localStorageOptions = {
   mergeDefaults: true,
@@ -31,35 +31,59 @@ export const useActivityStore = defineStore('activity', () => {
     localStorageOptions,
   );
 
-  const activity = useStorage<Action[]>('veggies-activity', [], localStorage, localStorageOptions);
+  const activities = useStorage<Activity[]>(
+    'veggies-activity',
+    [],
+    localStorage,
+    localStorageOptions,
+  );
 
-  const toggleIngredient = (newIngredient: string) => {
+  const toggleIngredient = (newIngredient: Ingredient | TranslatedIngredient) => {
     const now = DateTime.now();
-    const existing = activity.value.find(
-      ({ingredient, date}) => ingredient === newIngredient && date.hasSame(now, 'week'),
+    const existing = activities.value.find(
+      ({ingredient, date}) => ingredient.key === newIngredient.key && date.hasSame(now, 'week'),
     );
     if (!existing) {
-      activity.value.push({
-        ingredient: newIngredient,
+      activities.value.push({
+        ingredient: {
+          key: newIngredient.key,
+          category: newIngredient.category,
+        },
         date: now,
       });
     } else {
-      activity.value = activity.value.filter((action) => action !== existing);
+      activities.value = activities.value.filter((activity) => activity !== existing);
     }
   };
 
-  const currentIngredients = computed(() =>
-    activity.value
+  const getCurrentIngredients = computed(() =>
+    activities.value
       .filter(({date}) => date.hasSame(DateTime.now(), 'week'))
       .map(({ingredient}) => ingredient),
+  );
+
+  const getIngredientsForWeek = computed(
+    () => (weekIndex: number) =>
+      activities.value
+        .filter(({date}) =>
+          date.hasSame(settings.value.startDate?.plus({weeks: weekIndex})!, 'week'),
+        )
+        .map(({ingredient}) => ingredient),
   );
 
   const $reset = () => {
     settings.value = {
       startDate: null,
     };
-    activity.value = [];
+    activities.value = [];
   };
 
-  return {settings, activity, currentIngredients, toggleIngredient, $reset};
+  return {
+    settings,
+    activities,
+    getCurrentIngredients,
+    getIngredientsForWeek,
+    toggleIngredient,
+    $reset,
+  };
 });

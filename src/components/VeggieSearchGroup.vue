@@ -7,13 +7,13 @@ import type {TranslatedIngredient} from '@/utils/types';
 
 const props = defineProps<{
   ingredients: TranslatedIngredient[];
-  group: string;
+  category: string;
 }>();
 
-const {currentIngredients} = storeToRefs(useActivityStore());
+const {getCurrentIngredients} = storeToRefs(useActivityStore());
 
 const getGroupEmojis = computed(() => {
-  switch (props.group) {
+  switch (props.category) {
     case 'fruit':
       return '🍎';
     case 'vegetable':
@@ -30,7 +30,9 @@ const getGroupEmojis = computed(() => {
 });
 
 const getOptionClasses = (ingredient: string, active: boolean) => {
-  const exists = currentIngredients.value.includes(ingredient);
+  const exists = getCurrentIngredients.value.some(
+    (existingIngredient) => existingIngredient.key === ingredient,
+  );
   const textClass = active ? 'text-white' : 'text-gray-900';
   let bgClass = 'bg-white';
   if (active && exists) {
@@ -49,12 +51,12 @@ const getOptionClasses = (ingredient: string, active: boolean) => {
   <template v-if="ingredients.length">
     <div class="veggie-search__group">
       <span aria-hidden="true">{{ getGroupEmojis }}</span>
-      <span>{{ $t(`veggie-search.${group}`) }} ({{ ingredients.length }})</span>
+      <span>{{ $t(`categories.${category}`) }} ({{ ingredients.length }})</span>
     </div>
     <ComboboxOption
       v-for="ingredient in ingredients"
       :key="ingredient.key"
-      :value="ingredient.key"
+      :value="ingredient"
       v-slot="{active}"
     >
       <li class="veggie-search__option" :class="getOptionClasses(ingredient.key, active)">

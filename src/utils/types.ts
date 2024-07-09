@@ -10,8 +10,8 @@ export enum Category {
   Bean = 'bean',
 }
 
-export type Action = {
-  ingredient: string;
+export type Activity = {
+  ingredient: Ingredient;
   date: DateTime;
 };
 

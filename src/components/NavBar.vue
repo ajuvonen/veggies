@@ -4,7 +4,7 @@ import IconComponent from '@/components/IconComponent.vue';
 </script>
 <template>
   <nav class="nav">
-    <RouterLink to="/log" class="nav__link nav__link--log">{{ $t('app-title') }}</RouterLink>
+    <RouterLink to="/log" class="nav__link nav__link--log">{{ $t('general.appTitle') }}</RouterLink>
     <div class="flex gap-2">
       <RouterLink class="nav__link" to="/settings">
         <IconComponent icon="cog" />

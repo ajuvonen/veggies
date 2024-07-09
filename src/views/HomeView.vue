@@ -19,7 +19,7 @@ const start = () => {
 };
 </script>
 <template>
-  <h1 class="welcome__title">{{ $t('app-title') }}</h1>
+  <h1 class="welcome__title">{{ $t('general.appTitle') }}</h1>
   <p class="welcome__paragraph">
     {{ $t('welcome.paragraph') }}
   </p>

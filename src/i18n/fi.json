@@ -1,6 +1,6 @@
 {
-  "app-title": "Eat Your Veggies",
   "general": {
+    "appTitle": "Eat Your Veggies",
     "close": "Sulje",
     "noResults": "Ei tuloksia",
     "reset": "Tyhjennä",
@@ -144,12 +144,16 @@
     "yardlong bean": "parsapapu",
     "zucchini": "kesäkurpitsa"
   },
-  "veggie-search": {
+  "categories": {
     "bean": "Herneet ja palkokasvit",
     "fruit": "Hedelmät ja marjat",
     "leafy": "Lehtivihreät",
     "root": "Juurekset",
     "vegetable": "Vihannekset"
+  },
+  "weekStatus": {
+    "bottomLabel": "Kasvista",
+    "topLabel": "Yhteensä"
   },
   "welcome": {
     "infoTitle": "What is this about?",

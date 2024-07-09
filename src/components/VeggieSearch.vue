@@ -43,7 +43,7 @@ const filteredIngredients = computed(
     ),
 );
 
-const add = ([ingredient]: string[]) => {
+const add = ([ingredient]: TranslatedIngredient[]) => {
   if (ingredient) {
     toggleIngredient(ingredient);
     selected.value = [];
@@ -75,10 +75,10 @@ const add = ([ingredient]: string[]) => {
           {{ $t('general.noResults') }}
         </div>
         <VeggieSearchGroup
-          v-for="group in Category"
-          :key="group"
-          :group="group"
-          :ingredients="filteredIngredients(group)"
+          v-for="category in Category"
+          :key="category"
+          :category="category"
+          :ingredients="filteredIngredients(category)"
         />
       </ComboboxOptions>
     </TransitionRoot>
