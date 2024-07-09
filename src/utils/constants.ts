@@ -5,6 +5,14 @@ export const DATE_FORMATS: Record<Locale, string> = {
   fi: 'dd.MM.yyyy',
 };
 
+export const CATEGORY_EMOJI = {
+  [Category.Fruit]: '🍎',
+  [Category.Vegetable]: '🥦',
+  [Category.Leafy]: '🥬',
+  [Category.Root]: '🥕',
+  [Category.Bean]: '🫛',
+};
+
 export const FRUITS: Ingredient[] = [
   'apple',
   'apricot',
