@@ -4,7 +4,7 @@ import IconComponent from '@/components/IconComponent.vue';
 </script>
 <template>
   <nav class="nav">
-    <RouterLink to="/log" class="nav__link nav__link--log">Eat your veggies</RouterLink>
+    <RouterLink to="/log" class="nav__link nav__link--log">{{ $t('app-title') }}</RouterLink>
     <div class="flex gap-2">
       <RouterLink class="nav__link" to="/settings">
         <IconComponent icon="cog" />
@@ -29,6 +29,6 @@ import IconComponent from '@/components/IconComponent.vue';
 .nav__link--log {
   font-family: 'Bungee Shade', system-ui;
   font-size: 6vw;
-  @apply uppercase sm:text-3xl rounded-md;
+  @apply uppercase sm:text-4xl rounded-md;
 }
 </style>
