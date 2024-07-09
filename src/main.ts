@@ -5,6 +5,7 @@ import router from '@/router';
 import i18n from '@/i18n';
 
 import '@fontsource/bungee-shade';
+import '@fontsource-variable/nunito';
 import '@/assets/main.scss';
 
 const app = createApp(App);

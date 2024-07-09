@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Nunito Variable', sans-serif;
+}
+
 :focus {
   outline: solid;
   @apply outline-2 outline-offset-[3px] outline-gray-700;
