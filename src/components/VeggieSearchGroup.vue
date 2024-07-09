@@ -3,31 +3,17 @@ import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
 import {ComboboxOption} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
-import type {TranslatedIngredient} from '@/utils/types';
+import type {Category, TranslatedIngredient} from '@/utils/types';
+import {CATEGORY_EMOJI} from '@/utils/constants';
 
 const props = defineProps<{
   ingredients: TranslatedIngredient[];
-  category: string;
+  category: Category;
 }>();
 
 const {getCurrentIngredients} = storeToRefs(useActivityStore());
 
-const getGroupEmojis = computed(() => {
-  switch (props.category) {
-    case 'fruit':
-      return '🍎';
-    case 'vegetable':
-      return '🥦';
-    case 'leafy':
-      return '🥬';
-    case 'root':
-      return '🥕';
-    case 'bean':
-      return '🫛';
-    default:
-      return '';
-  }
-});
+const getGroupEmoji = computed(() => CATEGORY_EMOJI[props.category]);
 
 const getOptionClasses = (ingredient: string, active: boolean) => {
   const exists = getCurrentIngredients.value.some(
@@ -50,7 +36,7 @@ const getOptionClasses = (ingredient: string, active: boolean) => {
 <template>
   <template v-if="ingredients.length">
     <div class="veggie-search__group">
-      <span aria-hidden="true">{{ getGroupEmojis }}</span>
+      <span aria-hidden="true">{{ getGroupEmoji }}</span>
       <span>{{ $t(`categories.${category}`) }} ({{ ingredients.length }})</span>
     </div>
     <ComboboxOption
