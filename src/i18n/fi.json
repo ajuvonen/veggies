@@ -9,7 +9,6 @@
   "general": {
     "appTitle": "Eat Your Veggies",
     "close": "Sulje",
-    "noResults": "Ei tuloksia",
     "reset": "Tyhjennä",
     "start": "Aloita",
     "weekInterval": "Viikko {0}"
@@ -158,6 +157,10 @@
   "settings": {
     "locale": "Kieli",
     "title": "Asetukset"
+  },
+  "veggieSearch": {
+    "noResults": "Ei tuloksia",
+    "search": "Etsi kasviksia"
   },
   "weekStatus": {
     "bottomLabel": "Kasvista",

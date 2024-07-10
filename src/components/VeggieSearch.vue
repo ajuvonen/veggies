@@ -60,7 +60,13 @@ const add = ([ingredient]: TranslatedIngredient[]) => {
     as="div"
     class="relative w-full h-12 max-w-md"
   >
-    <ComboboxInput ref="input" class="veggie-search__input" @change="query = $event.target.value" />
+    <ComboboxInput
+      ref="input"
+      class="veggie-search__input"
+      @change="query = $event.target.value"
+      :aria-label="$t('veggieSearch.search')"
+      :placeholder="$t('veggieSearch.search')"
+    />
     <TransitionRoot
       leave="ease-in duration-100"
       leaveFrom="opacity-100"
@@ -72,7 +78,7 @@ const add = ([ingredient]: TranslatedIngredient[]) => {
           v-if="filteredIngredients().length === 0 && query !== ''"
           class="veggie-search__no-results"
         >
-          {{ $t('general.noResults') }}
+          {{ $t('veggieSearch.noResults') }}
         </div>
         <VeggieSearchGroup
           v-for="category in Category"

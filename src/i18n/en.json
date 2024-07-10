@@ -9,7 +9,6 @@
   "general": {
     "appTitle": "Eat Your Veggies",
     "close": "Close",
-    "noResults": "No results",
     "reset": "Reset",
     "start": "Start",
     "weekInterval": "Week {0}"
@@ -158,6 +157,10 @@
   "settings": {
     "locale": "Language",
     "title": "Settings"
+  },
+  "veggieSearch": {
+    "noResults": "No results",
+    "search": "Search for veggies"
   },
   "weekStatus": {
     "bottomLabel": "Veggies",

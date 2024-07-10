@@ -16,4 +16,12 @@ describe('VeggieSearch', () => {
     expect(wrapper.findAll('.veggie-search__group').length).toBe(1);
     expect(wrapper.find('.veggie-search__option').text()).toContain('tomato');
   });
+
+  it('displays no results', async () => {
+    const wrapper = mount(VeggieSearch);
+    const input = wrapper.find('.veggie-search__input');
+    await input.setValue('test');
+    expect(wrapper.find('.veggie-search__option').exists()).toBe(false);
+    expect(wrapper.find('.veggie-search__no-results').isVisible()).toBe(true);
+  });
 });
