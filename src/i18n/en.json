@@ -1,4 +1,11 @@
 {
+  "categories": {
+    "bean": "Beans & Legumes",
+    "fruit": "Fruits & Berries",
+    "leafy": "Leafy Greens",
+    "root": "Roots & Bulbs",
+    "vegetable": "Vegetables"
+  },
   "general": {
     "appTitle": "Eat Your Veggies",
     "close": "Close",
@@ -144,12 +151,13 @@
     "yardlong bean": "yardlong bean",
     "zucchini": "zucchini"
   },
-  "categories": {
-    "bean": "Beans & Legumes",
-    "fruit": "Fruits & Berries",
-    "leafy": "Leafy Greens",
-    "root": "Roots & Bulbs",
-    "vegetable": "Vegetables"
+  "locales": {
+    "en": "English",
+    "fi": "Suomi"
+  },
+  "settings": {
+    "locale": "Language",
+    "title": "Settings"
   },
   "weekStatus": {
     "bottomLabel": "Veggies",

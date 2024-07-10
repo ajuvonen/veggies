@@ -58,7 +58,7 @@ const add = ([ingredient]: TranslatedIngredient[]) => {
     v-model="selected"
     @update:modelValue="add"
     as="div"
-    class="relative w-full h-12 max-w-[500px]"
+    class="relative w-full h-12 max-w-md"
   >
     <ComboboxInput ref="input" class="veggie-search__input" @change="query = $event.target.value" />
     <TransitionRoot
