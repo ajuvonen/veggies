@@ -1,4 +1,11 @@
 {
+  "categories": {
+    "bean": "Herneet ja palkokasvit",
+    "fruit": "Hedelmät ja marjat",
+    "leafy": "Lehtivihreät",
+    "root": "Juurekset",
+    "vegetable": "Vihannekset"
+  },
   "general": {
     "appTitle": "Eat Your Veggies",
     "close": "Sulje",
@@ -144,12 +151,13 @@
     "yardlong bean": "parsapapu",
     "zucchini": "kesäkurpitsa"
   },
-  "categories": {
-    "bean": "Herneet ja palkokasvit",
-    "fruit": "Hedelmät ja marjat",
-    "leafy": "Lehtivihreät",
-    "root": "Juurekset",
-    "vegetable": "Vihannekset"
+  "locales": {
+    "en": "English",
+    "fi": "Suomi"
+  },
+  "settings": {
+    "locale": "Kieli",
+    "title": "Asetukset"
   },
   "weekStatus": {
     "bottomLabel": "Kasvista",

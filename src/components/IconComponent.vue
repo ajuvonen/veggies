@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {mdiCogOutline, mdiTrashCan} from '@mdi/js';
+import {mdiCogOutline, mdiRadioboxBlank, mdiRadioboxMarked, mdiTrashCan} from '@mdi/js';
 
-export type IconString = 'cog' | 'trashCan';
+export type IconString = 'cog' | 'radioboxBlank' | 'radioboxMarked' | 'trashCan';
 
 defineProps<{
   icon: IconString;
@@ -9,6 +9,8 @@ defineProps<{
 
 const icons = {
   cog: mdiCogOutline,
+  radioboxBlank: mdiRadioboxBlank,
+  radioboxMarked: mdiRadioboxMarked,
   trashCan: mdiTrashCan,
 };
 </script>
