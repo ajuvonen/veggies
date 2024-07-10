@@ -16,6 +16,7 @@ export type Activity = {
 };
 
 export type Settings = {
+  locale: Locale;
   startDate: DateTime | null;
 };
 

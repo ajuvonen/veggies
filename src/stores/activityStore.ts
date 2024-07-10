@@ -25,6 +25,7 @@ export const useActivityStore = defineStore('activity', () => {
   const settings = useStorage<Settings>(
     'veggies-settings',
     {
+      locale: 'en',
       startDate: null,
     },
     localStorage,
@@ -73,6 +74,7 @@ export const useActivityStore = defineStore('activity', () => {
 
   const $reset = () => {
     settings.value = {
+      locale: 'en',
       startDate: null,
     };
     activities.value = [];
