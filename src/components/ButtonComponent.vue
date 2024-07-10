@@ -33,7 +33,8 @@ withDefaults(
 .button--primary {
   @apply bg-sky-400;
 
-  &:hover {
+  &:hover,
+  &:focus {
     @apply bg-sky-500;
   }
 }
@@ -41,7 +42,8 @@ withDefaults(
 .button--danger {
   @apply bg-red-500;
 
-  &:hover {
+  &:hover,
+  &:focus {
     @apply bg-red-600;
   }
 }
