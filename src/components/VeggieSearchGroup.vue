@@ -26,7 +26,7 @@ const getOptionClasses = (ingredient: string, active: boolean) => {
   } else if (active) {
     bgClass = 'bg-sky-500';
   } else if (exists) {
-    bgClass = 'bg-green-300';
+    bgClass = 'bg-sky-200';
   }
 
   return `${textClass} ${bgClass}`;

@@ -31,13 +31,14 @@ const {settings} = storeToRefs(useActivityStore());
 }
 
 .locale-changer__option {
+  letter-spacing: 1px;
   @apply flex gap-2;
   @apply cursor-pointer rounded-md px-4 py-2;
-  @apply bg-sky-400 fill-white;
+  @apply bg-sky-500 fill-white;
 
   &:hover,
   &:focus {
-    @apply bg-sky-500;
+    @apply bg-sky-600;
   }
 }
 </style>
