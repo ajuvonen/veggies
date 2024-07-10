@@ -6,7 +6,6 @@ import {Chart as ChartJS, ArcElement, Tooltip, type Plugin, type ChartOptions} f
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
 import {entries, groupBy, pipe, prop, sortBy} from 'remeda';
-import useDateTime from '@/hooks/dateTime';
 import {useActivityStore} from '@/stores/activityStore';
 import type {Category, Ingredient} from '@/utils/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
@@ -17,8 +16,6 @@ ChartJS.register(ChartDataLabels);
 const {t} = useI18n();
 
 const {getCurrentIngredients} = storeToRefs(useActivityStore());
-
-const {getTotalWeeks, getDateInterval} = useDateTime();
 
 const chartData = computed(() => {
   const ingredients = pipe(
@@ -66,21 +63,17 @@ const chartOptions: ChartOptions<'doughnut'> = {
 </script>
 <template>
   <div class="week-status">
-    <h1 class="text-xl">
-      {{ $t('general.weekInterval', [getTotalWeeks]) }}
-    </h1>
-    <span class="text-xs">{{ getDateInterval(getTotalWeeks - 1) }}</span>
     <div class="relative">
       <Doughnut
         :data="chartData"
         :plugins="[ChartDataLabels as Plugin<'doughnut'>]"
         :options="chartOptions"
       />
-      <div class="week-status__center-label">
+      <h1 class="week-status__center-label">
         <span>{{ $t('weekStatus.topLabel') }}</span>
         <span class="text-6xl">{{ getCurrentIngredients.length }}</span>
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
-      </div>
+      </h1>
     </div>
   </div>
 </template>
