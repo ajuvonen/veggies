@@ -53,17 +53,11 @@ const chartOptions: ChartOptions<'doughnut'> = {
       color: '#fff',
       anchor: 'center',
       align: 'center',
-      borderRadius: 50, // Optional: sets the corner radius of the background circle
-      backgroundColor: '#fff',
       font: {
         size: 25,
       },
-      padding: {
-        top: 3,
-        bottom: 3,
-        left: 1,
-        right: 1,
-      },
+      textShadowColor: '#fff',
+      textShadowBlur: 10,
       formatter: (_, context: Context) =>
         CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
     },
