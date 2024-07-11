@@ -2,10 +2,11 @@
 import {ref, computed, onMounted} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {Combobox, ComboboxInput, ComboboxOptions, TransitionRoot} from '@headlessui/vue';
+import {useElementBounding, useWindowSize} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, GRAINS} from '@/utils/constants';
 import {Category, type TranslatedIngredient} from '@/utils/types';
-import VeggieSearchGroup from './VeggieSearchGroup.vue';
+import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 
 const {t, locale} = useI18n();
 
@@ -15,6 +16,10 @@ const {toggleIngredient} = activityStore;
 const selected = ref<string[]>([]);
 const query = ref('');
 const input = ref<InstanceType<typeof ComboboxInput> | null>(null);
+
+const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
+const {top} = useElementBounding(optionsElement);
+const {height} = useWindowSize();
 
 onMounted(() => {
   input.value?.$el.focus();
@@ -49,6 +54,10 @@ const add = ([{key, category}]: TranslatedIngredient[]) => {
     selected.value = [];
   }
 };
+
+const getAvailableHeightForOptions = computed(
+  () => `max-height: calc(${height.value}px - ${top.value}px - 1rem)`,
+);
 </script>
 <template>
   <Combobox
@@ -73,7 +82,11 @@ const add = ([{key, category}]: TranslatedIngredient[]) => {
       leaveTo="opacity-0"
       @after-leave="query = ''"
     >
-      <ComboboxOptions class="veggie-search__options">
+      <ComboboxOptions
+        class="veggie-search__options"
+        ref="optionsElement"
+        :style="getAvailableHeightForOptions"
+      >
         <div
           v-if="filteredIngredients().length === 0 && query !== ''"
           class="veggie-search__no-results"
@@ -97,7 +110,7 @@ const add = ([{key, category}]: TranslatedIngredient[]) => {
 }
 
 .veggie-search__options {
-  @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-md shadow-lg ring-1;
+  @apply absolute mt-2 w-full overflow-auto rounded-md shadow-lg ring-1;
   @apply bg-white ring-black/5;
 }
 

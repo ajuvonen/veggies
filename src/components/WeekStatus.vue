@@ -54,7 +54,7 @@ const chartOptions: ChartOptions<'doughnut'> = {
         size: 25,
       },
       textShadowColor: '#fff',
-      textShadowBlur: 10,
+      textShadowBlur: 2,
       formatter: (_, context: Context) =>
         CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
     },
