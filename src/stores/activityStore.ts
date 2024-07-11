@@ -63,9 +63,8 @@ export const useActivityStore = defineStore('activity', () => {
         .map(({ingredient}) => ingredient),
   );
 
-  const getFavorites = computed(() => {
-    console.log(DateTime.now().toMillis());
-    const favorites = pipe(
+  const getFavorites = computed(() =>
+    pipe(
       activities.value,
       filter(({ingredient: {key}}) => !getExistingActivityByIngredient.value(key)),
       map(prop('ingredient')),
@@ -74,10 +73,8 @@ export const useActivityStore = defineStore('activity', () => {
       sortBy([([_, {length}]) => length, 'desc']),
       map(([key, ingredients]) => [key, ingredients[0].category] as [string, Category]),
       take(10),
-    );
-    console.log(DateTime.now().toMillis());
-    return favorites;
-  });
+    ),
+  );
 
   // Actions
   const toggleIngredient = (key: string, category: Category) => {

@@ -80,7 +80,7 @@ const chartOptions: ChartOptions<'doughnut'> = {
 <style lang="scss" scoped>
 .week-status {
   @apply flex flex-col gap-2 items-center justify-center;
-  @apply mb-4 uppercase;
+  @apply uppercase;
 }
 
 :deep(canvas) {
