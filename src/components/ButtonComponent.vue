@@ -4,7 +4,7 @@ import IconComponent, {type IconString} from '@/components/IconComponent.vue';
 defineEmits(['click']);
 withDefaults(
   defineProps<{
-    variant?: 'primary' | 'danger';
+    variant?: 'primary' | 'danger' | 'tag';
     icon?: IconString;
   }>(),
   {
@@ -30,13 +30,18 @@ withDefaults(
   }
 }
 
-.button--primary {
+.button--primary,
+.button--tag {
   @apply bg-sky-500;
 
   &:hover,
   &:focus {
     @apply bg-sky-600;
   }
+}
+
+.button--tag {
+  @apply rounded-full;
 }
 
 .button--danger {
