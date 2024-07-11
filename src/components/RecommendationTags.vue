@@ -1,21 +1,26 @@
 <script lang="ts" setup>
-import {storeToRefs} from 'pinia';
-import {useActivityStore} from '@/stores/activityStore';
-import ButtonComponent from './ButtonComponent.vue';
+import ButtonComponent from '@/components/ButtonComponent.vue';
 
-const activityStore = useActivityStore();
-const {favorites} = storeToRefs(activityStore);
-const {toggleVeggie} = activityStore;
+defineProps<{
+  favorites: string[];
+}>();
+
+defineEmits(['toggle']);
 </script>
-
 <template>
-  <div class="flex flex-wrap justify-center gap-2 max-w-lg">
+  <div class="recommendations">
     <ButtonComponent
       v-for="veggie in favorites"
       :key="veggie"
       variant="tag"
-      @click="toggleVeggie(veggie)"
+      @click="$emit('toggle', veggie)"
       >{{ $t(`veggies.${veggie}`) }}</ButtonComponent
     >
   </div>
 </template>
+<style scoped lang="scss">
+.recommendations {
+  @apply flex flex-wrap justify-center gap-2;
+  @apply max-w-lg;
+}
+</style>

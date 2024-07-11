@@ -3,16 +3,14 @@ import {ref, computed, onMounted} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {Combobox, ComboboxInput, ComboboxOptions, TransitionRoot} from '@headlessui/vue';
 import {useElementBounding, useWindowSize} from '@vueuse/core';
-import {useActivityStore} from '@/stores/activityStore';
 import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, GRAINS} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import {getCategoryForVeggie} from '@/utils/helpers';
 
-const {t, locale} = useI18n();
+const emit = defineEmits(['toggle']);
 
-const activityStore = useActivityStore();
-const {toggleVeggie} = activityStore;
+const {t, locale} = useI18n();
 
 const selected = ref<string[]>([]);
 const query = ref('');
@@ -51,10 +49,8 @@ const filteredveggies = computed(
 );
 
 const add = ([{veggie}]: TranslatedListing[]) => {
-  if (veggie) {
-    toggleVeggie(veggie);
-    selected.value = [];
-  }
+  emit('toggle', veggie);
+  selected.value = [];
 };
 
 const getAvailableHeightForOptions = computed(

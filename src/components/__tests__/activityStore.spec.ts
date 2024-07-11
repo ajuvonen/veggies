@@ -16,7 +16,7 @@ describe('activityStore', () => {
   it('adds veggies', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('tomato');
-    expect(activityStore.activities.length).toBe(2);
+    expect(activityStore.activities).toHaveLength(2);
     expect(activityStore.activities.some(({veggie}) => veggie === 'tomato')).toBe(true);
     expect(activityStore.activities.some(({veggie}) => veggie === 'cucumber')).toBe(true);
   });
@@ -24,7 +24,7 @@ describe('activityStore', () => {
   it('removes veggies', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('cucumber');
-    expect(activityStore.activities.length).toBe(0);
+    expect(activityStore.activities).toHaveLength(0);
   });
 
   it('veggie toggle does not affect previous week', () => {
@@ -34,9 +34,9 @@ describe('activityStore', () => {
     };
     activityStore.activities.push(lastWeekAction);
     activityStore.toggleVeggie('tomato');
-    expect(activityStore.activities.length).toBe(2);
+    expect(activityStore.activities).toHaveLength(2);
     activityStore.toggleVeggie('tomato');
-    expect(activityStore.activities.length).toBe(1);
+    expect(activityStore.activities).toHaveLength(1);
     expect(activityStore.activities[0]).toEqual(lastWeekAction);
   });
 
@@ -48,7 +48,7 @@ describe('activityStore', () => {
     });
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('tomato');
-    expect(activityStore.currentveggies.length).toBe(2);
+    expect(activityStore.currentveggies).toHaveLength(2);
     expect(activityStore.currentveggies.includes('tomato')).toBe(true);
     expect(activityStore.currentveggies.includes('cucumber')).toBe(true);
   });
@@ -62,12 +62,12 @@ describe('activityStore', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('tomato');
 
-    expect(activityStore.veggiesForWeek(0).length).toBe(1);
+    expect(activityStore.veggiesForWeek(0)).toHaveLength(1);
     expect(activityStore.veggiesForWeek(0).includes('apple')).toBe(true);
-    expect(activityStore.veggiesForWeek(1).length).toBe(2);
+    expect(activityStore.veggiesForWeek(1)).toHaveLength(2);
     expect(activityStore.veggiesForWeek(1).includes('tomato')).toBe(true);
     expect(activityStore.veggiesForWeek(1).includes('cucumber')).toBe(true);
-    expect(activityStore.veggiesForWeek(2).length).toBe(0);
+    expect(activityStore.veggiesForWeek(2)).toHaveLength(0);
   });
 
   it('shows favorites', () => {
@@ -99,7 +99,7 @@ describe('activityStore', () => {
       },
     );
 
-    expect(activityStore.favorites.length).toBe(3);
+    expect(activityStore.favorites).toHaveLength(3);
     expect(activityStore.favorites[0]).toBe('wheat');
     expect(activityStore.favorites[1]).toBe('apple');
     expect(activityStore.favorites[2]).toBe('cucumber');
@@ -125,7 +125,7 @@ describe('activityStore', () => {
     activityStore.toggleVeggie('wheat');
     activityStore.toggleVeggie('apple');
 
-    expect(activityStore.favorites.length).toBe(1);
+    expect(activityStore.favorites).toHaveLength(1);
     expect(activityStore.favorites[0]).toBe('cucumber');
   });
 
@@ -179,6 +179,6 @@ describe('activityStore', () => {
       },
     );
 
-    expect(activityStore.favorites.length).toBe(10);
+    expect(activityStore.favorites).toHaveLength(10);
   });
 });
