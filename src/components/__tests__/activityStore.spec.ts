@@ -80,4 +80,120 @@ describe('activityStore', () => {
 
     expect(activityStore.getIngredientsForWeek(2).length).toBe(0);
   });
+
+  it('shows favorites', () => {
+    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 3});
+    activityStore.activities.push(
+      {
+        ingredient: {key: 'wheat', category: Category.Grain},
+        date: DateTime.now().startOf('week').minus({days: 8}),
+      },
+      {
+        ingredient: {key: 'wheat', category: Category.Grain},
+        date: DateTime.now().startOf('week').minus({days: 15}),
+      },
+      {
+        ingredient: {key: 'wheat', category: Category.Grain},
+        date: DateTime.now().startOf('week').minus({days: 22}),
+      },
+      {
+        ingredient: {key: 'apple', category: Category.Fruit},
+        date: DateTime.now().startOf('week').minus({days: 8}),
+      },
+      {
+        ingredient: {key: 'apple', category: Category.Fruit},
+        date: DateTime.now().startOf('week').minus({days: 15}),
+      },
+      {
+        ingredient: {key: 'cucumber', category: Category.Vegetable},
+        date: DateTime.now().startOf('week').minus({days: 8}),
+      },
+    );
+
+    expect(activityStore.getFavorites.length).toBe(3);
+    expect(activityStore.getFavorites[0][0]).toBe('wheat');
+    expect(activityStore.getFavorites[0][1]).toBe(Category.Grain);
+    expect(activityStore.getFavorites[1][0]).toBe('apple');
+    expect(activityStore.getFavorites[1][1]).toBe(Category.Fruit);
+    expect(activityStore.getFavorites[2][0]).toBe('cucumber');
+    expect(activityStore.getFavorites[2][1]).toBe(Category.Vegetable);
+  });
+
+  it('excludes this week from favorites', () => {
+    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 3});
+    activityStore.activities.push(
+      {
+        ingredient: {key: 'wheat', category: Category.Grain},
+        date: DateTime.now().startOf('week').minus({days: 8}),
+      },
+      {
+        ingredient: {key: 'apple', category: Category.Fruit},
+        date: DateTime.now().startOf('week').minus({days: 15}),
+      },
+      {
+        ingredient: {key: 'cucumber', category: Category.Vegetable},
+        date: DateTime.now().startOf('week').minus({days: 8}),
+      },
+    );
+
+    activityStore.toggleIngredient('wheat', Category.Grain);
+    activityStore.toggleIngredient('apple', Category.Fruit);
+
+    expect(activityStore.getFavorites.length).toBe(1);
+    expect(activityStore.getFavorites[0][0]).toBe('cucumber');
+    expect(activityStore.getFavorites[0][1]).toBe(Category.Vegetable);
+  });
+
+  it('shows only ten favorites', () => {
+    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
+    const date = DateTime.now().startOf('week').minus({days: 1});
+    activityStore.activities.push(
+      {
+        ingredient: {key: 'wheat', category: Category.Grain},
+        date,
+      },
+      {
+        ingredient: {key: 'rye', category: Category.Grain},
+        date,
+      },
+      {
+        ingredient: {key: 'rice', category: Category.Grain},
+        date,
+      },
+      {
+        ingredient: {key: 'apple', category: Category.Fruit},
+        date,
+      },
+      {
+        ingredient: {key: 'raspberry', category: Category.Fruit},
+        date,
+      },
+      {
+        ingredient: {key: 'cucumber', category: Category.Vegetable},
+        date,
+      },
+      {
+        ingredient: {key: 'tomato', category: Category.Vegetable},
+        date,
+      },
+      {
+        ingredient: {key: 'onion', category: Category.Root},
+        date,
+      },
+      {
+        ingredient: {key: 'garlic', category: Category.Root},
+        date,
+      },
+      {
+        ingredient: {key: 'endive', category: Category.Leafy},
+        date,
+      },
+      {
+        ingredient: {key: 'lettuce', category: Category.Leafy},
+        date,
+      },
+    );
+
+    expect(activityStore.getFavorites.length).toBe(10);
+  });
 });

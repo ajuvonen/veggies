@@ -2,7 +2,8 @@ import {computed} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import type {Activity, Category, Settings} from '@/utils/types';
+import type {Activity, Category, Ingredient, Settings} from '@/utils/types';
+import {entries, filter, groupBy, map, pipe, prop, sortBy, take} from 'remeda';
 
 const localStorageOptions = {
   mergeDefaults: true,
@@ -39,28 +40,18 @@ export const useActivityStore = defineStore('activity', () => {
     localStorageOptions,
   );
 
-  const toggleIngredient = (key: string, category: Category) => {
-    const now = DateTime.now();
-    const existing = activities.value.find(
-      ({ingredient, date}) => ingredient.key === key && date.hasSame(now, 'week'),
-    );
-    if (!existing) {
-      activities.value.push({
-        ingredient: {
-          key,
-          category,
-        },
-        date: now,
-      });
-    } else {
-      activities.value = activities.value.filter((activity) => activity !== existing);
-    }
-  };
-
+  // Computed getters
   const getCurrentIngredients = computed(() =>
     activities.value
       .filter(({date}) => date.hasSame(DateTime.now(), 'week'))
       .map(({ingredient}) => ingredient),
+  );
+
+  const getExistingActivityByIngredient = computed(
+    () => (key: string) =>
+      activities.value.find(
+        ({ingredient, date}) => ingredient.key === key && date.hasSame(DateTime.now(), 'week'),
+      ),
   );
 
   const getIngredientsForWeek = computed(
@@ -71,6 +62,38 @@ export const useActivityStore = defineStore('activity', () => {
         )
         .map(({ingredient}) => ingredient),
   );
+
+  const getFavorites = computed(() => {
+    console.log(DateTime.now().toMillis());
+    const favorites = pipe(
+      activities.value,
+      filter(({ingredient: {key}}) => !getExistingActivityByIngredient.value(key)),
+      map(prop('ingredient')),
+      groupBy(prop('key')),
+      entries<Record<string, Ingredient[]>>,
+      sortBy([([_, {length}]) => length, 'desc']),
+      map(([key, ingredients]) => [key, ingredients[0].category] as [string, Category]),
+      take(10),
+    );
+    console.log(DateTime.now().toMillis());
+    return favorites;
+  });
+
+  // Actions
+  const toggleIngredient = (key: string, category: Category) => {
+    const existing = getExistingActivityByIngredient.value(key);
+    if (!existing) {
+      activities.value.push({
+        ingredient: {
+          key,
+          category,
+        },
+        date: DateTime.now(),
+      });
+    } else {
+      activities.value = activities.value.filter((activity) => activity !== existing);
+    }
+  };
 
   const $reset = () => {
     settings.value = {
@@ -85,6 +108,7 @@ export const useActivityStore = defineStore('activity', () => {
     activities,
     getCurrentIngredients,
     getIngredientsForWeek,
+    getFavorites,
     toggleIngredient,
     $reset,
   };
