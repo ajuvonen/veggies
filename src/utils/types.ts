@@ -8,6 +8,7 @@ export enum Category {
   Leafy = 'leafy',
   Root = 'root',
   Bean = 'bean',
+  Grain = 'grain',
 }
 
 export type Activity = {

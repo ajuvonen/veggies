@@ -11,6 +11,7 @@ export const CATEGORY_EMOJI = {
   [Category.Leafy]: '🥬',
   [Category.Root]: '🥕',
   [Category.Bean]: '🫛',
+  [Category.Grain]: '🌾',
 };
 
 export const FRUITS: Ingredient[] = [
@@ -173,3 +174,40 @@ export const BEANS: Ingredient[] = [
   'white bean',
   'yardlong bean',
 ].map((ingredient) => ({key: ingredient, category: Category.Bean}));
+
+export const GRAINS: Ingredient[] = [
+  'almond',
+  'amaranth',
+  'barley',
+  'brazil nut',
+  'buckwheat',
+  'bulgur',
+  'cashew nut',
+  'chia seed',
+  'couscous',
+  'farro',
+  'flaxseed',
+  'hazelnut',
+  'hemp seed',
+  'kamut',
+  'macadamia nut',
+  'millet',
+  'oat',
+  'peanut',
+  'pecan nut',
+  'pistachio nut',
+  'pumpkin seed',
+  'quinoa',
+  'rice',
+  'rye',
+  'safflower seed',
+  'sesame seed',
+  'sorghum',
+  'spelt',
+  'sunflower seed',
+  'teff',
+  'triticale',
+  'walnut',
+  'wild rice',
+  'wheat',
+].map((ingredient) => ({key: ingredient, category: Category.Grain}));

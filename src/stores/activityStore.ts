@@ -2,7 +2,7 @@ import {computed} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import type {Activity, Ingredient, Settings, TranslatedIngredient} from '@/utils/types';
+import type {Activity, Category, Settings} from '@/utils/types';
 
 const localStorageOptions = {
   mergeDefaults: true,
@@ -39,16 +39,16 @@ export const useActivityStore = defineStore('activity', () => {
     localStorageOptions,
   );
 
-  const toggleIngredient = (newIngredient: Ingredient | TranslatedIngredient) => {
+  const toggleIngredient = (key: string, category: Category) => {
     const now = DateTime.now();
     const existing = activities.value.find(
-      ({ingredient, date}) => ingredient.key === newIngredient.key && date.hasSame(now, 'week'),
+      ({ingredient, date}) => ingredient.key === key && date.hasSame(now, 'week'),
     );
     if (!existing) {
       activities.value.push({
         ingredient: {
-          key: newIngredient.key,
-          category: newIngredient.category,
+          key,
+          category,
         },
         date: now,
       });

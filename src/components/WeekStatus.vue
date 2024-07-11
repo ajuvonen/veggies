@@ -30,7 +30,7 @@ const chartData = computed(() => {
     datasets: [
       {
         data: ingredients.map(([_, {length}]) => length),
-        backgroundColor: ['#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
+        backgroundColor: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
       },
     ],
   };

@@ -15,14 +15,14 @@ describe('activityStore', () => {
   });
 
   it('adds ingredients', () => {
-    activityStore.toggleIngredient({key: 'cucumber', category: Category.Vegetable});
-    activityStore.toggleIngredient({key: 'tomato', category: Category.Vegetable});
+    activityStore.toggleIngredient('cucumber', Category.Vegetable);
+    activityStore.toggleIngredient('tomato', Category.Vegetable);
     expect(activityStore.activities.length).toBe(2);
   });
 
   it('removes ingredients', () => {
-    activityStore.toggleIngredient({key: 'cucumber', category: Category.Vegetable});
-    activityStore.toggleIngredient({key: 'cucumber', category: Category.Vegetable});
+    activityStore.toggleIngredient('cucumber', Category.Vegetable);
+    activityStore.toggleIngredient('cucumber', Category.Vegetable);
     expect(activityStore.activities.length).toBe(0);
   });
 
@@ -32,9 +32,9 @@ describe('activityStore', () => {
       date: DateTime.now().startOf('week').minus({weeks: 1}),
     };
     activityStore.activities.push(lastWeekAction);
-    activityStore.toggleIngredient({key: 'tomato', category: Category.Vegetable});
+    activityStore.toggleIngredient('tomato', Category.Vegetable);
     expect(activityStore.activities.length).toBe(2);
-    activityStore.toggleIngredient({key: 'tomato', category: Category.Vegetable});
+    activityStore.toggleIngredient('tomato', Category.Vegetable);
     expect(activityStore.activities[0]).toEqual(lastWeekAction);
   });
 
@@ -44,8 +44,8 @@ describe('activityStore', () => {
       ingredient: {key: 'apple', category: Category.Fruit},
       date: DateTime.now().startOf('week').minus({days: 1}),
     });
-    activityStore.toggleIngredient({key: 'cucumber', category: Category.Vegetable});
-    activityStore.toggleIngredient({key: 'tomato', category: Category.Vegetable});
+    activityStore.toggleIngredient('cucumber', Category.Vegetable);
+    activityStore.toggleIngredient('tomato', Category.Vegetable);
     expect(activityStore.getCurrentIngredients.length).toBe(2);
     expect(
       activityStore.getCurrentIngredients.some((ingredient) => ingredient.key === 'tomato'),
@@ -62,8 +62,8 @@ describe('activityStore', () => {
       ingredient: {key: 'apple', category: Category.Fruit},
       date: DateTime.now().startOf('week').minus({days: 1}),
     });
-    activityStore.toggleIngredient({key: 'cucumber', category: Category.Vegetable});
-    activityStore.toggleIngredient({key: 'tomato', category: Category.Vegetable});
+    activityStore.toggleIngredient('cucumber', Category.Vegetable);
+    activityStore.toggleIngredient('tomato', Category.Vegetable);
 
     expect(activityStore.getIngredientsForWeek(0).length).toBe(1);
     expect(

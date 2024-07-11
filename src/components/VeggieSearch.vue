@@ -3,7 +3,7 @@ import {ref, computed, onMounted} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {Combobox, ComboboxInput, ComboboxOptions, TransitionRoot} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
-import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS} from '@/utils/constants';
+import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, GRAINS} from '@/utils/constants';
 import {Category, type TranslatedIngredient} from '@/utils/types';
 import VeggieSearchGroup from './VeggieSearchGroup.vue';
 
@@ -22,7 +22,7 @@ onMounted(() => {
 
 const translatedIngredients = computed<TranslatedIngredient[]>(() => {
   const collator = new Intl.Collator(locale.value);
-  return [...FRUITS, ...VEGETABLES, ...LEAFIES, ...ROOTS, ...BEANS]
+  return [...FRUITS, ...VEGETABLES, ...LEAFIES, ...ROOTS, ...BEANS, ...GRAINS]
     .map((ingredient) => ({
       ...ingredient,
       translation: t(`ingredients.${ingredient.key}`),
@@ -43,9 +43,9 @@ const filteredIngredients = computed(
     ),
 );
 
-const add = ([ingredient]: TranslatedIngredient[]) => {
-  if (ingredient) {
-    toggleIngredient(ingredient);
+const add = ([{key, category}]: TranslatedIngredient[]) => {
+  if (key && category) {
+    toggleIngredient(key, category);
     selected.value = [];
   }
 };
