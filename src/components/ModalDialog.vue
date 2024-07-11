@@ -29,7 +29,7 @@ defineProps<{
           <div class="mt-4">
             <slot name="content"></slot>
           </div>
-          <div class="modal-dialog__buttons">
+          <div class="modal-dialog__buttons outline-override">
             <slot name="buttons"></slot>
             <ButtonComponent v-if="!$slots.buttons" @click="$emit('close')">{{
               $t('general.close')

@@ -7,6 +7,9 @@ body {
 }
 
 :focus {
-  outline: solid;
-  @apply outline-2 outline-offset-[3px] outline-gray-700;
+  @apply outline outline-2 outline-offset-[3px] outline-sky-500;
+}
+
+:not(.outline-override) > :focus {
+  @apply outline-white;
 }
