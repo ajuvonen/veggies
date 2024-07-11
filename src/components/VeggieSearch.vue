@@ -5,13 +5,14 @@ import {Combobox, ComboboxInput, ComboboxOptions, TransitionRoot} from '@headles
 import {useElementBounding, useWindowSize} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, GRAINS} from '@/utils/constants';
-import {Category, type TranslatedIngredient} from '@/utils/types';
+import {Category, type TranslatedListing} from '@/utils/types';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
+import {getCategoryForVeggie} from '@/utils/helpers';
 
 const {t, locale} = useI18n();
 
 const activityStore = useActivityStore();
-const {toggleIngredient} = activityStore;
+const {toggleVeggie} = activityStore;
 
 const selected = ref<string[]>([]);
 const query = ref('');
@@ -25,32 +26,33 @@ onMounted(() => {
   input.value?.$el.focus();
 });
 
-const translatedIngredients = computed<TranslatedIngredient[]>(() => {
+const allVeggies = computed(() => {
   const collator = new Intl.Collator(locale.value);
   return [...FRUITS, ...VEGETABLES, ...LEAFIES, ...ROOTS, ...BEANS, ...GRAINS]
-    .map((ingredient) => ({
-      ...ingredient,
-      translation: t(`ingredients.${ingredient.key}`),
+    .map<TranslatedListing>((veggie) => ({
+      veggie,
+      category: getCategoryForVeggie(veggie),
+      translation: t(`veggies.${veggie}`),
     }))
     .sort((a, b) => collator.compare(a.translation, b.translation));
 });
 
-const filteredIngredients = computed(
+const filteredveggies = computed(
   () => (category?: Category) =>
-    translatedIngredients.value.filter(
-      (ingredient) =>
-        (!category || ingredient.category === category) &&
+    allVeggies.value.filter(
+      (item) =>
+        (!category || item.category === category) &&
         (!query.value ||
-          ingredient.translation
+          item.translation
             .toLowerCase()
             .replace(/\s+/g, '')
             .includes(query.value.toLowerCase().replace(/\s+/g, ''))),
     ),
 );
 
-const add = ([{key, category}]: TranslatedIngredient[]) => {
-  if (key && category) {
-    toggleIngredient(key, category);
+const add = ([{veggie}]: TranslatedListing[]) => {
+  if (veggie) {
+    toggleVeggie(veggie);
     selected.value = [];
   }
 };
@@ -63,7 +65,7 @@ const getAvailableHeightForOptions = computed(
   <Combobox
     nullable
     multiple
-    id="ingredient"
+    id="veggie-search"
     v-model="selected"
     @update:modelValue="add"
     as="div"
@@ -88,7 +90,7 @@ const getAvailableHeightForOptions = computed(
         :style="getAvailableHeightForOptions"
       >
         <div
-          v-if="filteredIngredients().length === 0 && query !== ''"
+          v-if="filteredveggies().length === 0 && query !== ''"
           class="veggie-search__no-results"
         >
           {{ $t('veggieSearch.noResults') }}
@@ -97,7 +99,7 @@ const getAvailableHeightForOptions = computed(
           v-for="category in Category"
           :key="category"
           :category="category"
-          :ingredients="filteredIngredients(category)"
+          :items="filteredveggies(category)"
         />
       </ComboboxOptions>
     </TransitionRoot>

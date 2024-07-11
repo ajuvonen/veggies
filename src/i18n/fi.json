@@ -14,7 +14,7 @@
     "start": "Aloita",
     "weekInterval": "Viikko {0}"
   },
-  "ingredients": {
+  "veggies": {
     "adzuki bean": "adsukipapu",
     "almond": "manteli",
     "amaranth": "amarantti",

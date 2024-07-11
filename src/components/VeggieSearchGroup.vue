@@ -3,22 +3,20 @@ import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
 import {ComboboxOption} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
-import type {Category, TranslatedIngredient} from '@/utils/types';
+import type {Category, TranslatedListing} from '@/utils/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 
 const props = defineProps<{
-  ingredients: TranslatedIngredient[];
+  items: TranslatedListing[];
   category: Category;
 }>();
 
-const {getCurrentIngredients} = storeToRefs(useActivityStore());
+const {currentveggies} = storeToRefs(useActivityStore());
 
 const getGroupEmoji = computed(() => CATEGORY_EMOJI[props.category]);
 
-const getOptionClasses = (ingredient: string, active: boolean) => {
-  const exists = getCurrentIngredients.value.some(
-    (existingIngredient) => existingIngredient.key === ingredient,
-  );
+const getOptionClasses = (veggie: string, active: boolean) => {
+  const exists = currentveggies.value.includes(veggie);
   const textClass = active ? 'text-white' : 'text-gray-900';
   let bgClass = 'bg-white';
   if (active && exists) {
@@ -34,20 +32,15 @@ const getOptionClasses = (ingredient: string, active: boolean) => {
 </script>
 
 <template>
-  <template v-if="ingredients.length">
+  <template v-if="items.length">
     <div class="veggie-search__group">
       <span aria-hidden="true">{{ getGroupEmoji }}</span>
-      <span>{{ $t(`categories.${category}`) }} ({{ ingredients.length }})</span>
+      <span>{{ $t(`categories.${category}`) }} ({{ items.length }})</span>
     </div>
-    <ComboboxOption
-      v-for="ingredient in ingredients"
-      :key="ingredient.key"
-      :value="ingredient"
-      v-slot="{active}"
-    >
-      <li class="veggie-search__option" :class="getOptionClasses(ingredient.key, active)">
+    <ComboboxOption v-for="item in items" :key="item.veggie" :value="item" v-slot="{active}">
+      <li class="veggie-search__option" :class="getOptionClasses(item.veggie, active)">
         <span class="block truncate">
-          {{ ingredient.translation }}
+          {{ item.translation }}
         </span>
       </li>
     </ComboboxOption>

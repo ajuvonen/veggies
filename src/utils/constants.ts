@@ -1,4 +1,4 @@
-import {Category, type Ingredient, type Locale} from './types';
+import {Category, type Locale} from './types';
 
 export const DATE_FORMATS: Record<Locale, string> = {
   en: 'MM/dd/yyyy',
@@ -14,7 +14,7 @@ export const CATEGORY_EMOJI = {
   [Category.Grain]: '🌾',
 };
 
-export const FRUITS: Ingredient[] = [
+export const FRUITS = [
   'apple',
   'apricot',
   'banana',
@@ -60,9 +60,9 @@ export const FRUITS: Ingredient[] = [
   'strawberry',
   'tangerine',
   'watermelon',
-].map((ingredient) => ({key: ingredient, category: Category.Fruit}));
+];
 
-export const LEAFIES: Ingredient[] = [
+export const LEAFIES = [
   'arugula',
   'basil',
   'bok choy',
@@ -89,9 +89,9 @@ export const LEAFIES: Ingredient[] = [
   'sprouts',
   'swiss chard',
   'watercress',
-].map((ingredient) => ({key: ingredient, category: Category.Leafy}));
+];
 
-export const ROOTS: Ingredient[] = [
+export const ROOTS = [
   'beet',
   'black radish',
   'burdock root',
@@ -120,9 +120,9 @@ export const ROOTS: Ingredient[] = [
   'white onion',
   'yam',
   'yellow beet',
-].map((ingredient) => ({key: ingredient, category: Category.Root}));
+];
 
-export const VEGETABLES: Ingredient[] = [
+export const VEGETABLES = [
   'artichoke',
   'asparagus',
   'avocado',
@@ -146,9 +146,9 @@ export const VEGETABLES: Ingredient[] = [
   'squash',
   'tomato',
   'zucchini',
-].map((ingredient) => ({key: ingredient, category: Category.Vegetable}));
+];
 
-export const BEANS: Ingredient[] = [
+export const BEANS = [
   'adzuki bean',
   'black bean',
   'black-eyed pea',
@@ -173,9 +173,9 @@ export const BEANS: Ingredient[] = [
   'split pea',
   'white bean',
   'yardlong bean',
-].map((ingredient) => ({key: ingredient, category: Category.Bean}));
+];
 
-export const GRAINS: Ingredient[] = [
+export const GRAINS = [
   'almond',
   'amaranth',
   'barley',
@@ -210,4 +210,4 @@ export const GRAINS: Ingredient[] = [
   'walnut',
   'wild rice',
   'wheat',
-].map((ingredient) => ({key: ingredient, category: Category.Grain}));
+];

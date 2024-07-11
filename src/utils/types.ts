@@ -12,7 +12,7 @@ export enum Category {
 }
 
 export type Activity = {
-  ingredient: Ingredient;
+  veggie: string;
   date: DateTime;
 };
 
@@ -21,11 +21,11 @@ export type Settings = {
   startDate: DateTime | null;
 };
 
-export type Ingredient = {
-  key: string;
+export type Listing = {
+  veggie: string;
   category: Category;
 };
 
-export type TranslatedIngredient = Ingredient & {
+export type TranslatedListing = Listing & {
   translation: string;
 };

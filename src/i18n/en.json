@@ -14,7 +14,7 @@
     "start": "Start",
     "weekInterval": "Week {0}"
   },
-  "ingredients": {
+  "veggies": {
     "adzuki bean": "adzuki bean",
     "almond": "almond",
     "amaranth": "amaranth",

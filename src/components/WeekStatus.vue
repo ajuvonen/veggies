@@ -5,31 +5,36 @@ import {storeToRefs} from 'pinia';
 import {Chart as ChartJS, ArcElement, Tooltip, type Plugin, type ChartOptions} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
-import {entries, groupBy, pipe, prop, sortBy} from 'remeda';
+import {entries, groupBy, map, pipe, prop, sortBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
-import type {Category, Ingredient} from '@/utils/types';
+import type {Category, Listing} from '@/utils/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
+import {getCategoryForVeggie} from '@/utils/helpers';
 
 ChartJS.register(ArcElement, Tooltip);
 ChartJS.register(ChartDataLabels);
 
 const {t} = useI18n();
 
-const {getCurrentIngredients} = storeToRefs(useActivityStore());
+const {currentveggies} = storeToRefs(useActivityStore());
 
 const chartData = computed(() => {
-  const ingredients = pipe(
-    getCurrentIngredients.value,
+  const veggies = pipe(
+    currentveggies.value,
+    map((veggie) => ({
+      veggie,
+      category: getCategoryForVeggie(veggie),
+    })),
     groupBy(prop('category')),
-    entries<Record<string, Ingredient[]>>,
-    sortBy(([_, {length}]) => length),
+    entries<Record<string, Listing[]>>,
+    sortBy(([, {length}]) => length),
   );
 
   return {
-    labels: ingredients.map(prop(0)),
+    labels: veggies.map(prop(0)),
     datasets: [
       {
-        data: ingredients.map(([_, {length}]) => length),
+        data: veggies.map(([, {length}]) => length),
         backgroundColor: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
       },
     ],
@@ -71,7 +76,7 @@ const chartOptions: ChartOptions<'doughnut'> = {
       />
       <h1 class="week-status__center-label">
         <span>{{ $t('weekStatus.topLabel') }}</span>
-        <span class="text-6xl">{{ getCurrentIngredients.length }}</span>
+        <span class="text-6xl">{{ currentveggies.length }}</span>
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
       </h1>
     </div>

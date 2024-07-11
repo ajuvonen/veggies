@@ -4,18 +4,18 @@ import {useActivityStore} from '@/stores/activityStore';
 import ButtonComponent from './ButtonComponent.vue';
 
 const activityStore = useActivityStore();
-const {getFavorites} = storeToRefs(activityStore);
-const {toggleIngredient} = activityStore;
+const {favorites} = storeToRefs(activityStore);
+const {toggleVeggie} = activityStore;
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-center gap-2">
+  <div class="flex flex-wrap justify-center gap-2 max-w-lg">
     <ButtonComponent
-      v-for="[key, category] in getFavorites"
-      :key="key"
+      v-for="veggie in favorites"
+      :key="veggie"
       variant="tag"
-      @click="toggleIngredient(key, category)"
-      >{{ $t(`ingredients.${key}`) }}</ButtonComponent
+      @click="toggleVeggie(veggie)"
+      >{{ $t(`veggies.${veggie}`) }}</ButtonComponent
     >
   </div>
 </template>

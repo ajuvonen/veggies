@@ -2,7 +2,7 @@ import {computed} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import type {Activity, Category, Ingredient, Settings} from '@/utils/types';
+import type {Activity, Settings} from '@/utils/types';
 import {entries, filter, groupBy, map, pipe, prop, sortBy, take} from 'remeda';
 
 const localStorageOptions = {
@@ -41,51 +41,41 @@ export const useActivityStore = defineStore('activity', () => {
   );
 
   // Computed getters
-  const getCurrentIngredients = computed(() =>
-    activities.value
-      .filter(({date}) => date.hasSame(DateTime.now(), 'week'))
-      .map(({ingredient}) => ingredient),
+  const currentveggies = computed(() =>
+    activities.value.filter(({date}) => date.hasSame(DateTime.now(), 'week')).map(prop('veggie')),
   );
 
-  const getExistingActivityByIngredient = computed(
-    () => (key: string) =>
-      activities.value.find(
-        ({ingredient, date}) => ingredient.key === key && date.hasSame(DateTime.now(), 'week'),
-      ),
-  );
-
-  const getIngredientsForWeek = computed(
+  const veggiesForWeek = computed(
     () => (weekIndex: number) =>
       activities.value
         .filter(({date}) =>
           date.hasSame(settings.value.startDate?.plus({weeks: weekIndex})!, 'week'),
         )
-        .map(({ingredient}) => ingredient),
+        .map(prop('veggie')),
   );
 
-  const getFavorites = computed(() =>
+  const favorites = computed(() =>
     pipe(
       activities.value,
-      filter(({ingredient: {key}}) => !getExistingActivityByIngredient.value(key)),
-      map(prop('ingredient')),
-      groupBy(prop('key')),
-      entries<Record<string, Ingredient[]>>,
-      sortBy([([_, {length}]) => length, 'desc']),
-      map(([key, ingredients]) => [key, ingredients[0].category] as [string, Category]),
+      filter(({veggie}) => !currentveggies.value.includes(veggie)),
+      groupBy(prop('veggie')),
+      entries<Record<string, Activity[]>>,
+      sortBy([([, {length}]) => length, 'desc']),
+      map(prop(0)),
       take(10),
     ),
   );
 
   // Actions
-  const toggleIngredient = (key: string, category: Category) => {
-    const existing = getExistingActivityByIngredient.value(key);
+  const toggleVeggie = (veggie: string) => {
+    const now = DateTime.now();
+    const existing = activities.value.find(
+      (activity) => activity.veggie === veggie && activity.date.hasSame(now, 'week'),
+    );
     if (!existing) {
       activities.value.push({
-        ingredient: {
-          key,
-          category,
-        },
-        date: DateTime.now(),
+        veggie,
+        date: now,
       });
     } else {
       activities.value = activities.value.filter((activity) => activity !== existing);
@@ -103,10 +93,10 @@ export const useActivityStore = defineStore('activity', () => {
   return {
     settings,
     activities,
-    getCurrentIngredients,
-    getIngredientsForWeek,
-    getFavorites,
-    toggleIngredient,
+    currentveggies,
+    veggiesForWeek,
+    favorites,
+    toggleVeggie,
     $reset,
   };
 });
