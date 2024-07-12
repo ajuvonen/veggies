@@ -33,16 +33,14 @@ const getOptionClasses = (veggie: string, active: boolean) => {
 
 <template>
   <template v-if="items.length">
-    <div class="veggie-search__group">
+    <li class="veggie-search__group">
       <span aria-hidden="true">{{ getGroupEmoji }}</span>
       <span>{{ $t(`categories.${category}`) }} ({{ items.length }})</span>
-    </div>
+    </li>
     <ComboboxOption v-for="item in items" :key="item.veggie" :value="item" v-slot="{active}">
-      <li class="veggie-search__option" :class="getOptionClasses(item.veggie, active)">
-        <span class="block truncate">
-          {{ item.translation }}
-        </span>
-      </li>
+      <span class="veggie-search__option" :class="getOptionClasses(item.veggie, active)">
+        {{ item.translation }}
+      </span>
     </ComboboxOption>
   </template>
 </template>
@@ -55,6 +53,6 @@ const getOptionClasses = (veggie: string, active: boolean) => {
 }
 
 .veggie-search__option {
-  @apply select-none py-2 px-4 capitalize;
+  @apply block truncate py-2 px-4 capitalize select-none;
 }
 </style>

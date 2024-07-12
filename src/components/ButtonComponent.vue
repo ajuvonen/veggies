@@ -22,7 +22,7 @@ withDefaults(
 .button {
   letter-spacing: 1px;
   @apply flex gap-2;
-  @apply px-4 py-2 font-semibold text-sm uppercase rounded-md;
+  @apply px-4 py-2 font-semibold text-sm uppercase rounded-md select-none;
   @apply bg-sky-400 fill-white text-white;
 
   &:hover {
