@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LogView > renders 1`] = `
+"<div data-v-fdfb3d60="" class="week-status">
+  <div data-v-fdfb3d60="" class="relative"><canvas data-v-fdfb3d60="" role="img">
+      <p></p>
+    </canvas>
+    <h1 data-v-fdfb3d60="" class="week-status__center-label"><span data-v-fdfb3d60="">This Week</span><span data-v-fdfb3d60="" class="text-6xl">0</span><span data-v-fdfb3d60="">Veggies</span></h1>
+  </div>
+</div>
+<div id="veggie-search" class="relative w-full h-12 max-w-md" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-1" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" class="veggie-search__input" aria-label="Search for veggies" placeholder="Search for veggies">
+  <!---->
+</div>
+<div data-v-70505d9e="" class="recommendations"></div>"
+`;
