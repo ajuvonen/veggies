@@ -8,8 +8,7 @@ import IconComponent from '@/components/IconComponent.vue';
       $t('general.appTitle')
     }}</RouterLink>
     <div class="flex gap-2">
-      <RouterLink class="nav__link" to="/settings" :aria-label="$t('views.settings')"
-        >{>
+      <RouterLink class="nav__link" to="/settings" :aria-label="$t('views.settings')">
         <IconComponent icon="cog" size="6vw" class="nav__link-icon" />
       </RouterLink>
     </div>
