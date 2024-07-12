@@ -3,9 +3,15 @@ import {mdiCogOutline, mdiRadioboxBlank, mdiRadioboxMarked, mdiTrashCan} from '@
 
 export type IconString = 'cog' | 'radioboxBlank' | 'radioboxMarked' | 'trashCan';
 
-defineProps<{
-  icon: IconString;
-}>();
+withDefaults(
+  defineProps<{
+    icon: IconString;
+    size?: string;
+  }>(),
+  {
+    size: '1.25rem',
+  },
+);
 
 const icons = {
   cog: mdiCogOutline,
@@ -15,7 +21,7 @@ const icons = {
 };
 </script>
 <template>
-  <svg viewBox="0 0 24 24" aria-hidden="true" class="w-5 h-5">
+  <svg viewBox="0 0 24 24" aria-hidden="true" :style="{width: size, height: size}">
     <path :d="icons[icon]" class="transition-all"></path>
   </svg>
 </template>

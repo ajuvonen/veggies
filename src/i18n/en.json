@@ -208,6 +208,12 @@
     "noResults": "No results",
     "search": "Search for veggies"
   },
+  "views": {
+    "home": "Home",
+    "log": "Track Progress",
+    "settings": "Settings",
+    "stats": "Stats"
+  },
   "weekStatus": {
     "bottomLabel": "Veggies",
     "topLabel": "This Week"

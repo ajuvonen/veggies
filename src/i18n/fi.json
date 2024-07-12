@@ -208,6 +208,12 @@
     "noResults": "Ei tuloksia",
     "search": "Etsi kasviksia"
   },
+  "views": {
+    "home": "Etusivu",
+    "log": "Seuraa edistymistä",
+    "settings": "Asetukset",
+    "stats": "Tilastot"
+  },
   "weekStatus": {
     "bottomLabel": "Kasvista",
     "topLabel": "Tällä Viikolla"

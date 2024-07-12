@@ -4,10 +4,13 @@ import IconComponent from '@/components/IconComponent.vue';
 </script>
 <template>
   <nav class="nav">
-    <RouterLink to="/log" class="nav__link nav__link--log">{{ $t('general.appTitle') }}</RouterLink>
+    <RouterLink to="/log" class="nav__link nav__link--log" :aria-label="$t('views.log')">{{
+      $t('general.appTitle')
+    }}</RouterLink>
     <div class="flex gap-2">
-      <RouterLink class="nav__link" to="/settings">
-        <IconComponent icon="cog" />
+      <RouterLink class="nav__link" to="/settings" :aria-label="$t('views.settings')"
+        >{>
+        <IconComponent icon="cog" size="6vw" class="nav__link-icon" />
       </RouterLink>
     </div>
   </nav>
@@ -30,5 +33,9 @@ import IconComponent from '@/components/IconComponent.vue';
   font-family: 'Bungee Shade', system-ui;
   font-size: 6vw;
   @apply uppercase sm:text-4xl rounded-md;
+}
+
+.nav__link-icon {
+  @apply max-h-9 min-h-5 max-w-9 min-w-5;
 }
 </style>
