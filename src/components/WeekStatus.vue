@@ -68,7 +68,7 @@ const chartOptions: ChartOptions<'doughnut'> = {
 </script>
 <template>
   <div class="week-status">
-    <div class="relative">
+    <div class="relative" v-if="currentveggies.length">
       <Doughnut
         :data="chartData"
         :plugins="[ChartDataLabels as Plugin<'doughnut'>]"
@@ -80,12 +80,13 @@ const chartOptions: ChartOptions<'doughnut'> = {
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
       </h1>
     </div>
+    <div v-else>Test</div>
   </div>
 </template>
 <style lang="scss" scoped>
 .week-status {
-  @apply flex flex-col gap-2 items-center justify-center;
-  @apply uppercase;
+  @apply flex flex-col items-center justify-center;
+  @apply uppercase w-[300px] h-[300px];
 }
 
 :deep(canvas) {

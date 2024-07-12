@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {RouterLink} from 'vue-router';
-import IconComponent from '@/components/IconComponent.vue';
 </script>
 <template>
   <nav class="nav">

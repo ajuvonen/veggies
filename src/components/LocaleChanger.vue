@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {storeToRefs} from 'pinia';
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
-import IconComponent from '@/components/IconComponent.vue';
 import {useActivityStore} from '@/stores/activityStore';
 
 const {settings} = storeToRefs(useActivityStore());

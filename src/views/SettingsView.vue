@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {useRouter} from 'vue-router';
 import {useActivityStore} from '@/stores/activityStore';
-import ButtonComponent from '@/components/ButtonComponent.vue';
 import LocaleChanger from '@/components/LocaleChanger.vue';
 
 const router = useRouter();

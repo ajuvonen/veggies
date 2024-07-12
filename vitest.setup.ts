@@ -3,8 +3,15 @@ import {config, mount} from '@vue/test-utils';
 import {createTestingPinia} from '@pinia/testing';
 import i18n from './src/i18n';
 import router from './src/router';
+import ButtonComponent from './src/components/ButtonComponent.vue';
+import IconComponent from './src/components/IconComponent.vue';
 
 config.global.plugins = [i18n, router];
+
+config.global.components = {
+  ButtonComponent,
+  IconComponent,
+};
 
 const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
   findByTestId: (testId: string) => wrapper.find(`[data-test-id='${testId}']`),

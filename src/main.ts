@@ -8,8 +8,14 @@ import '@fontsource/bungee-shade';
 import '@fontsource-variable/nunito';
 import '@/assets/main.scss';
 
+import IconComponent from '@/components/IconComponent.vue';
+import ButtonComponent from '@/components/ButtonComponent.vue';
+
 const app = createApp(App);
-app.use(createPinia());
-app.use(router);
-app.use(i18n);
-app.mount('#app');
+app
+  .use(createPinia())
+  .use(router)
+  .use(i18n)
+  .component('IconComponent', IconComponent)
+  .component('ButtonComponent', ButtonComponent)
+  .mount('#app');

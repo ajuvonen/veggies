@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {Dialog, DialogPanel, DialogTitle, TransitionRoot} from '@headlessui/vue';
-import ButtonComponent from '@/components/ButtonComponent.vue';
 
 defineEmits(['close']);
 defineProps<{

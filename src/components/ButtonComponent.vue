@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconComponent, {type IconString} from '@/components/IconComponent.vue';
+import {type IconString} from '@/components/IconComponent.vue';
 
 defineEmits(['click']);
 withDefaults(

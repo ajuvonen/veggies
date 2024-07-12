@@ -4,7 +4,6 @@ import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
-import ButtonComponent from '@/components/ButtonComponent.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
 
 const router = useRouter();

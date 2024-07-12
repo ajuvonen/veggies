@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import ButtonComponent from '@/components/ButtonComponent.vue';
-
 defineProps<{
   favorites: string[];
 }>();
