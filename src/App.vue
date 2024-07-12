@@ -25,7 +25,6 @@ watch(
   ([_, newName]) => {
     document.title = t('general.appTitleAppend', [t(`views.${newName?.toString()}`)]);
   },
-  {immediate: true},
 );
 </script>
 
