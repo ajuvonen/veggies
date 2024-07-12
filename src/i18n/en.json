@@ -9,6 +9,7 @@
   },
   "general": {
     "appTitle": "Eat Your Veggies",
+    "appTitleAppend": "Eat Your Veggies - {0}",
     "close": "Close",
     "reset": "Reset",
     "start": "Start",

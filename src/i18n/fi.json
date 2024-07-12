@@ -9,6 +9,7 @@
   },
   "general": {
     "appTitle": "Eat Your Veggies",
+    "appTitleAppend": "Eat Your Veggies - {0}",
     "close": "Sulje",
     "reset": "Tyhjennä",
     "start": "Aloita",
@@ -210,7 +211,7 @@
   },
   "views": {
     "home": "Etusivu",
-    "log": "Seuraa edistymistä",
+    "log": "Seuraa Edistymistäsi",
     "settings": "Asetukset",
     "stats": "Tilastot"
   },

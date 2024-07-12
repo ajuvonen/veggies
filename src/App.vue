@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import {watch} from 'vue';
-import {useI18n, type Locale} from 'vue-i18n';
-import {RouterView} from 'vue-router';
-import {useActivityStore} from '@/stores/activityStore';
 import {storeToRefs} from 'pinia';
+import {useI18n, type Locale} from 'vue-i18n';
+import {RouterView, useRoute} from 'vue-router';
+import {useActivityStore} from '@/stores/activityStore';
 import NavBar from '@/components/NavBar.vue';
 
-const {locale} = useI18n();
+const {t, locale} = useI18n();
+
+const route = useRoute();
 
 const {settings} = storeToRefs(useActivityStore());
 
@@ -14,6 +16,14 @@ watch(
   () => settings.value.locale,
   (newLocale: Locale) => {
     locale.value = newLocale;
+  },
+  {immediate: true},
+);
+
+watch(
+  () => [locale.value, route.name],
+  ([_, newName]) => {
+    document.title = t('general.appTitleAppend', [t(`views.${newName?.toString()}`)]);
   },
   {immediate: true},
 );
