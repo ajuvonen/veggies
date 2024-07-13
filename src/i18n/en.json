@@ -217,7 +217,8 @@
   },
   "weekStatus": {
     "bottomLabel": "Veggies",
-    "topLabel": "This Week"
+    "topLabel": "This Week",
+    "veggiesOfTheWeek": "Veggies of the Week"
   },
   "welcome": {
     "infoTitle": "What is this about?",

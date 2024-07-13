@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChartScreenReaderTable > mounts 1`] = `
+"<table class="sr-only" id="my-chart">
+  <caption>Amount of veggies</caption>
+  <thead>
+    <tr>
+      <!--v-if-->
+      <th>Grains</th>
+      <th>Vegetables</th>
+      <th>Roots &amp; Bulbs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>"
+`;
+
+exports[`ChartScreenReaderTable > mounts with row headers 1`] = `
+"<table class="sr-only" id="my-chart">
+  <caption>Amount of veggies</caption>
+  <thead>
+    <tr>
+      <td></td>
+      <th>Fruits</th>
+      <th>Grains</th>
+      <th>Leafy Greens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Week 1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Week 2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Week 3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>"
+`;

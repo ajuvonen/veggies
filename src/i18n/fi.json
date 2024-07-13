@@ -217,7 +217,8 @@
   },
   "weekStatus": {
     "bottomLabel": "Kasvista",
-    "topLabel": "Tällä Viikolla"
+    "topLabel": "Tällä Viikolla",
+    "veggiesOfTheWeek": "Veggies of the Week"
   },
   "welcome": {
     "infoTitle": "What is this about?",
