@@ -10,6 +10,7 @@ import {useActivityStore} from '@/stores/activityStore';
 import type {Category, Listing} from '@/utils/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
+import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 
 ChartJS.register(ArcElement, Tooltip);
 ChartJS.register(ChartDataLabels);
@@ -80,7 +81,7 @@ const chartOptions: ChartOptions<'doughnut'> = {
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
       </h1>
     </div>
-    <div v-else>Test</div>
+    <FrontPageAnimation v-else />
   </div>
 </template>
 <style lang="scss" scoped>
