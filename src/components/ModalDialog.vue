@@ -52,12 +52,11 @@ defineProps<{
 
 .modal-dialog {
   @apply w-full max-w-md transform overflow-hidden rounded-md p-4 align-middle shadow-xl;
-  @apply bg-white;
+  @apply bg-white text-gray-900;
 }
 
 .modal-dialog__title {
   @apply text-lg font-medium leading-6;
-  @apply text-gray-900;
 }
 
 .modal-dialog__buttons {

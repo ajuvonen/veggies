@@ -15,12 +15,11 @@ import {RouterLink} from 'vue-router';
 </template>
 <style scoped lang="scss">
 .nav {
-  @apply w-full p-4 top-0 fixed;
+  @apply w-full;
   @apply flex justify-between items-center;
 }
 
 .nav__link {
-  @apply fill-white;
   @apply rounded-full;
   &:hover {
     @apply text-slate-200 fill-slate-200;

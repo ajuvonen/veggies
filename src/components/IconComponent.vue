@@ -1,7 +1,24 @@
 <script setup lang="ts">
-import {mdiCogOutline, mdiRadioboxBlank, mdiRadioboxMarked, mdiTrashCan} from '@mdi/js';
+import {
+  mdiArrowDown,
+  mdiCarrot,
+  mdiCogOutline,
+  mdiFruitPear,
+  mdiFruitWatermelon,
+  mdiRadioboxBlank,
+  mdiRadioboxMarked,
+  mdiTrashCan,
+} from '@mdi/js';
 
-export type IconString = 'cog' | 'radioboxBlank' | 'radioboxMarked' | 'trashCan';
+export type IconString =
+  | 'carrot'
+  | 'cog'
+  | 'downArrow'
+  | 'pear'
+  | 'radioboxBlank'
+  | 'radioboxMarked'
+  | 'trashCan'
+  | 'watermelon';
 
 withDefaults(
   defineProps<{
@@ -14,10 +31,14 @@ withDefaults(
 );
 
 const icons = {
+  carrot: mdiCarrot,
   cog: mdiCogOutline,
+  downArrow: mdiArrowDown,
+  pear: mdiFruitPear,
   radioboxBlank: mdiRadioboxBlank,
   radioboxMarked: mdiRadioboxMarked,
   trashCan: mdiTrashCan,
+  watermelon: mdiFruitWatermelon,
 };
 </script>
 <template>

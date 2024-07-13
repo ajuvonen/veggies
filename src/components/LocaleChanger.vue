@@ -33,7 +33,7 @@ const {settings} = storeToRefs(useActivityStore());
   letter-spacing: 1px;
   @apply flex gap-2;
   @apply cursor-pointer rounded-md px-4 py-2;
-  @apply bg-sky-500 fill-white;
+  @apply bg-sky-500;
 
   &:hover,
   &:focus {
