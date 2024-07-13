@@ -7,5 +7,3 @@ declare module 'vue' {
     IconComponent: typeof IconComponent;
   }
 }
-
-export {};
