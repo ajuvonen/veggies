@@ -25,7 +25,7 @@ defineProps<{
       <div class="modal-dialog__container">
         <DialogPanel class="modal-dialog">
           <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
-          <div class="mt-4">
+          <div class="modal-dialog__content">
             <slot name="content"></slot>
           </div>
           <div class="modal-dialog__buttons outline-override">
@@ -51,16 +51,21 @@ defineProps<{
 }
 
 .modal-dialog {
-  @apply w-full max-w-md transform overflow-hidden rounded-md p-4 align-middle shadow-xl;
-  @apply bg-white text-gray-900;
+  @apply w-full max-w-md overflow-hidden rounded-md p-4 shadow-xl;
+  @apply flex flex-col gap-4;
+  @apply bg-white;
 }
 
 .modal-dialog__title {
-  @apply text-lg font-medium leading-6;
+  @apply text-lg leading-6;
+}
+
+.modal-dialog__title,
+.modal-dialog__content {
+  @apply text-gray-900;
 }
 
 .modal-dialog__buttons {
-  @apply mt-4;
   @apply flex gap-2 justify-end;
 }
 </style>

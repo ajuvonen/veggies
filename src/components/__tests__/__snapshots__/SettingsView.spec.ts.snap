@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`SettingsView > renders 1`] = `
-"<h1 class="settings__title">Settings</h1>
+"<h1>Settings</h1>
 <div class="mx-auto w-full max-w-sm text-sm uppercase" id="headlessui-radiogroup-1" role="radiogroup">
   <div data-v-7747040a="" class="locale-changer__container"><label data-v-7747040a="" id="headlessui-label-2">Language</label>
     <div data-v-7747040a="" id="headlessui-radiogroup-option-3" role="radio" aria-checked="true" tabindex="0" data-headlessui-state="checked" class="locale-changer__option"><svg data-v-7747040a="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
