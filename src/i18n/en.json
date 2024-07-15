@@ -10,6 +10,8 @@
   "general": {
     "appTitle": "Eat Your Veggies",
     "appTitleAppend": "Eat Your Veggies - {0}",
+    "clickToAdd": "Click to add {0}",
+    "clickToRemove": "Click to remove {0}",
     "close": "Close",
     "reset": "Reset",
     "start": "Start",
@@ -205,6 +207,9 @@
     "locale": "Language",
     "title": "Settings"
   },
+  "stats": {
+    "thisWeeksVeggies": "This week's veggies"
+  },
   "veggieSearch": {
     "noResults": "No Results",
     "search": "Search For Veggies"
@@ -213,7 +218,7 @@
     "home": "Home",
     "log": "Track Progress",
     "settings": "Settings",
-    "stats": "Stats"
+    "stats": "Statistics"
   },
   "weekStatus": {
     "bottomLabel": "Veggies",

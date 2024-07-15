@@ -10,6 +10,8 @@
   "general": {
     "appTitle": "Eat Your Veggies",
     "appTitleAppend": "Eat Your Veggies - {0}",
+    "clickToAdd": "Klikkaa lisätäksesi {0}",
+    "clickToRemove": "Klikkaa poistaaksesi {0}",
     "close": "Sulje",
     "reset": "Tyhjennä",
     "start": "Aloita",
@@ -204,6 +206,9 @@
   "settings": {
     "locale": "Kieli",
     "title": "Asetukset"
+  },
+  "stats": {
+    "thisWeeksVeggies": "Tämän viikon kasvikset"
   },
   "veggieSearch": {
     "noResults": "Ei tuloksia",
