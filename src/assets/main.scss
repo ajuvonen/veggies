@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Nunito Variable', sans-serif;
+  @apply text-white fill-white;
 }
 
 :focus {
