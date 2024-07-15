@@ -10,8 +10,8 @@
   "general": {
     "appTitle": "Eat Your Veggies",
     "appTitleAppend": "Eat Your Veggies - {0}",
-    "clickToAdd": "Click to add {0}",
-    "clickToRemove": "Click to remove {0}",
+    "clickToAdd": "Add {0}",
+    "clickToRemove": "Remove {0}",
     "close": "Close",
     "reset": "Reset",
     "start": "Start",

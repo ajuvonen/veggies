@@ -61,11 +61,10 @@ const getAvailableHeightForOptions = computed(
   <Combobox
     nullable
     multiple
-    id="veggie-search"
     v-model="selected"
     @update:modelValue="add"
     as="div"
-    class="relative w-full h-12 max-w-lg"
+    class="relative w-full h-12 max-w-lg z-10"
   >
     <ComboboxInput
       ref="input"
