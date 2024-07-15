@@ -13,7 +13,7 @@ withDefaults(
 );
 </script>
 <template>
-  <button @click="$emit('click')" :class="`button button--${variant}`">
+  <button @click="$emit('click')" :class="`button button--${variant} flex-container`">
     <IconComponent v-if="icon" :icon="icon" />
     <slot></slot>
   </button>
@@ -21,7 +21,6 @@ withDefaults(
 <style scoped lang="scss">
 .button {
   letter-spacing: 1px;
-  @apply flex gap-2;
   @apply px-4 py-2 font-semibold text-sm uppercase rounded-md select-none;
   @apply bg-sky-400;
 

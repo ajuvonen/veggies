@@ -14,3 +14,7 @@ body {
 :not(.outline-override) > :focus {
   @apply outline-white;
 }
+
+.flex-container {
+  @apply flex gap-2;
+}

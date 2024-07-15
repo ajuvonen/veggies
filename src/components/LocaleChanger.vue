@@ -14,7 +14,7 @@ const {settings} = storeToRefs(useActivityStore());
         :key="locale"
         :value="locale"
         v-slot="{checked}"
-        class="locale-changer__option"
+        class="locale-changer__option flex-container"
       >
         <IconComponent :icon="checked ? 'radioboxMarked' : 'radioboxBlank'" />
         <RadioGroupLabel as="p" class="text-sm">
@@ -31,7 +31,6 @@ const {settings} = storeToRefs(useActivityStore());
 
 .locale-changer__option {
   letter-spacing: 1px;
-  @apply flex gap-2;
   @apply cursor-pointer rounded-md px-4 py-2;
   @apply bg-sky-500;
 

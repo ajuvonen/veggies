@@ -22,7 +22,7 @@ const start = () => {
   <p class="sm:text-center">
     {{ $t('welcome.paragraph') }}
   </p>
-  <div class="flex gap-2">
+  <div class="flex-container">
     <ButtonComponent @click="dialogOpen = true">{{ $t('welcome.info') }}</ButtonComponent>
     <ButtonComponent @click="start()">{{ $t('general.start') }}</ButtonComponent>
   </div>

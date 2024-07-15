@@ -2,6 +2,7 @@
 import {
   mdiArrowDown,
   mdiCarrot,
+  mdiChartBar,
   mdiCogOutline,
   mdiFruitPear,
   mdiFruitWatermelon,
@@ -12,6 +13,7 @@ import {
 
 export type IconString =
   | 'carrot'
+  | 'chart'
   | 'cog'
   | 'downArrow'
   | 'pear'
@@ -32,6 +34,7 @@ withDefaults(
 
 const icons = {
   carrot: mdiCarrot,
+  chart: mdiChartBar,
   cog: mdiCogOutline,
   downArrow: mdiArrowDown,
   pear: mdiFruitPear,
