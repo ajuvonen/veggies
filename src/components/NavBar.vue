@@ -1,12 +1,24 @@
 <script setup lang="ts">
+import {storeToRefs} from 'pinia';
 import {RouterLink} from 'vue-router';
+import {useActivityStore} from '@/stores/activityStore';
+
+const {activities} = storeToRefs(useActivityStore());
 </script>
 <template>
   <nav class="nav">
     <RouterLink to="/log" class="nav__link nav__link--log" :aria-label="$t('views.log')">{{
       $t('general.appTitle')
     }}</RouterLink>
-    <div class="flex gap-2">
+    <div class="flex-container">
+      <RouterLink
+        v-if="activities.length"
+        class="nav__link"
+        to="/stats"
+        :aria-label="$t('views.stats')"
+      >
+        <IconComponent icon="chart" size="6vw" class="nav__link-icon" />
+      </RouterLink>
       <RouterLink class="nav__link" to="/settings" :aria-label="$t('views.settings')">
         <IconComponent icon="cog" size="6vw" class="nav__link-icon" />
       </RouterLink>
@@ -33,6 +45,6 @@ import {RouterLink} from 'vue-router';
 }
 
 .nav__link-icon {
-  @apply max-h-9 min-h-5 max-w-9 min-w-5;
+  @apply max-h-7 min-h-5 max-w-7 min-w-5;
 }
 </style>

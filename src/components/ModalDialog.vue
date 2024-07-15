@@ -29,10 +29,9 @@ defineProps<{
             <slot name="content"></slot>
           </div>
           <div class="modal-dialog__buttons outline-override flex-container">
-            <slot name="buttons"></slot>
-            <ButtonComponent v-if="!$slots.buttons" @click="$emit('close')">{{
-              $t('general.close')
-            }}</ButtonComponent>
+            <slot name="buttons">
+              <ButtonComponent @click="$emit('close')">{{ $t('general.close') }}</ButtonComponent>
+            </slot>
           </div>
         </DialogPanel>
       </div>

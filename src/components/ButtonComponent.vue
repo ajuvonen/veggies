@@ -1,19 +1,31 @@
 <script setup lang="ts">
+import {computed} from 'vue';
 import {type IconString} from '@/components/IconComponent.vue';
 
 defineEmits(['click']);
-withDefaults(
+
+export type ButtonVariant = 'primary' | 'danger' | 'tag';
+
+const props = withDefaults(
   defineProps<{
-    variant?: 'primary' | 'danger' | 'tag';
+    variant?: ButtonVariant | ButtonVariant[];
     icon?: IconString;
   }>(),
   {
     variant: 'primary',
   },
 );
+
+const getVariants = computed(() => {
+  if (Array.isArray(props.variant)) {
+    return props.variant.map((variant) => `button--${variant}`).join(' ');
+  }
+
+  return `button--${props.variant}`;
+});
 </script>
 <template>
-  <button @click="$emit('click')" :class="`button button--${variant} flex-container`">
+  <button @click="$emit('click')" :class="`button ${getVariants} flex-container`">
     <IconComponent v-if="icon" :icon="icon" />
     <slot></slot>
   </button>
@@ -21,7 +33,7 @@ withDefaults(
 <style scoped lang="scss">
 .button {
   letter-spacing: 1px;
-  @apply px-4 py-2 font-semibold text-sm uppercase rounded-md select-none;
+  @apply text-nowrap px-4 py-2 font-semibold text-sm uppercase rounded-md select-none;
   @apply bg-sky-400;
 
   &:hover {
