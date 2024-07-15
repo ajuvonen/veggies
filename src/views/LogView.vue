@@ -18,6 +18,7 @@ const {toggleVeggie} = activityStore;
     @click="(veggie) => toggleVeggie(veggie)"
   >
     <template #item="{item}">
+      <IconComponent icon="plus" />
       <span
         :aria-label="$t(`general.clickToAdd`, [$t(`veggies.${item}`)])"
         :title="$t(`general.clickToAdd`, [$t(`veggies.${item}`)])"

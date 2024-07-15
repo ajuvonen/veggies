@@ -12,6 +12,7 @@ const {toggleVeggie} = activityStore;
   <h2>{{ $t('stats.thisWeeksVeggies') }}</h2>
   <TagsComponent :items="currentveggies" :variant="['tag', 'danger']" @click="toggleVeggie">
     <template #item="{item}">
+      <IconComponent icon="minus" />
       <span
         :aria-label="$t(`general.clickToRemove`, [$t(`veggies.${item}`)])"
         :title="$t(`general.clickToRemove`, [$t(`veggies.${item}`)])"

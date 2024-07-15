@@ -6,6 +6,8 @@ import {
   mdiCogOutline,
   mdiFruitPear,
   mdiFruitWatermelon,
+  mdiMinus,
+  mdiPlus,
   mdiRadioboxBlank,
   mdiRadioboxMarked,
   mdiTrashCan,
@@ -16,7 +18,9 @@ export type IconString =
   | 'chart'
   | 'cog'
   | 'downArrow'
+  | 'minus'
   | 'pear'
+  | 'plus'
   | 'radioboxBlank'
   | 'radioboxMarked'
   | 'trashCan'
@@ -37,7 +41,9 @@ const icons = {
   chart: mdiChartBar,
   cog: mdiCogOutline,
   downArrow: mdiArrowDown,
+  minus: mdiMinus,
   pear: mdiFruitPear,
+  plus: mdiPlus,
   radioboxBlank: mdiRadioboxBlank,
   radioboxMarked: mdiRadioboxMarked,
   trashCan: mdiTrashCan,
