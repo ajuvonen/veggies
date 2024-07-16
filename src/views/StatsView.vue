@@ -1,17 +1,30 @@
 <script lang="ts" setup>
-import {ref} from 'vue';
+import {computed, ref} from 'vue';
 import {storeToRefs} from 'pinia';
+import {useI18n} from 'vue-i18n';
 import {Listbox, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import {COLORS} from '@/utils/constants';
 
+const {t, locale} = useI18n();
+
 const activityStore = useActivityStore();
 const {currentveggies} = storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 
 const selectedStat = ref(0);
+
+const translatedVeggies = computed(() => {
+  const collator = new Intl.Collator(locale.value);
+  return currentveggies.value
+    .map((veggie) => ({
+      veggie,
+      translation: t(`veggies.${veggie}`),
+    }))
+    .sort((a, b) => collator.compare(a.translation, b.translation));
+});
 
 const getOptionClasses = (active: boolean, selected: boolean) => {
   const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-slate-900';
@@ -47,19 +60,11 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
   <div class="w-full h-full">
     <TagsComponent
       v-if="selectedStat === 0"
-      :items="currentveggies"
+      :items="translatedVeggies"
       :variant="['tag', 'danger']"
+      icon="minus"
       @click="toggleVeggie"
-    >
-      <template #item="{item}">
-        <IconComponent icon="minus" />
-        <span
-          :aria-label="$t(`general.clickToRemove`, [$t(`veggies.${item}`)])"
-          :title="$t(`general.clickToRemove`, [$t(`veggies.${item}`)])"
-          >{{ $t(`veggies.${item}`) }}</span
-        >
-      </template>
-    </TagsComponent>
+    />
     <WeeklyAmountsChart v-if="selectedStat === 1" />
   </div>
 </template>

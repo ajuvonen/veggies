@@ -1,9 +1,14 @@
 <script lang="ts" setup>
 import type {ButtonVariant} from '@/components/ButtonComponent.vue';
+import type {IconString} from '@/components/IconComponent.vue';
 
 withDefaults(
   defineProps<{
-    items: string[];
+    items: {
+      veggie: string;
+      translation: string;
+    }[];
+    icon: IconString;
     variant?: ButtonVariant | ButtonVariant[];
   }>(),
   {
@@ -15,9 +20,10 @@ defineEmits(['click']);
 </script>
 <template>
   <TransitionGroup name="list" tag="ul" class="tags__container flex-container">
-    <li v-for="item in items" :key="item" class="tags__tag">
-      <ButtonComponent :variant="variant" @click="$emit('click', item)"
-        ><slot name="item" :item="item">{{ item }}</slot></ButtonComponent
+    <li v-for="item in items" :key="item.veggie" class="tags__tag">
+      <ButtonComponent :variant="variant" @click="$emit('click', item.veggie)">
+        <IconComponent :icon="icon" />
+        {{ item.translation }}</ButtonComponent
       >
     </li>
   </TransitionGroup>
