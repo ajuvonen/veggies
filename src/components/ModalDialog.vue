@@ -61,7 +61,7 @@ defineProps<{
 
 .modal-dialog__title,
 .modal-dialog__content {
-  @apply text-gray-900;
+  @apply text-slate-900;
 }
 
 .modal-dialog__buttons {

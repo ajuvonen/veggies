@@ -14,7 +14,7 @@ const {toggleVeggie} = activityStore;
 const selectedStat = ref(0);
 
 const getOptionClasses = (active: boolean, selected: boolean) => {
-  const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-gray-900';
+  const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-slate-900';
   let bgClass = 'transparent';
   if (active) {
     bgClass = 'bg-sky-500';

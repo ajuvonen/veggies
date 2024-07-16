@@ -17,7 +17,7 @@ const getGroupEmoji = computed(() => CATEGORY_EMOJI[props.category]);
 
 const getOptionClasses = (veggie: string, active: boolean) => {
   const exists = currentveggies.value.includes(veggie);
-  const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-gray-900';
+  const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-slate-900';
   let bgClass = `bg-[${COLORS.offWhite}]`;
   if (active && exists) {
     bgClass = 'bg-red-500';
@@ -49,7 +49,7 @@ const getOptionClasses = (veggie: string, active: boolean) => {
 .veggie-search__group {
   @apply flex justify-start gap-2;
   @apply select-none p-2 pr-4;
-  @apply bg-slate-300 text-gray-900;
+  @apply bg-slate-300 text-slate-900;
 }
 
 .veggie-search__option {

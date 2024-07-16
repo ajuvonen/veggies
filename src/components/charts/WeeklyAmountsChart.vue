@@ -56,7 +56,7 @@ defineExpose({chartData});
     :data="chartData"
     data-test-id="weekly-amounts-chart"
     aria-describedby="weekly-amounts-chart-table"
-    class="max-w-lg bg-[#fafafa] rounded-md border-gray-900"
+    class="max-w-lg bg-[#fafafa] rounded-md"
   />
   <ChartScreenReaderTable
     id="weekly-amounts-chart-table"

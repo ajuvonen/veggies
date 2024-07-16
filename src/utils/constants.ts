@@ -8,7 +8,7 @@ export const DATE_FORMATS: Record<Locale, string> = {
 export const COLORS = {
   chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
   chartColorsAlternate: ['#f87171', '#fbbf24', '#a3e635', '#34d399', '#22d3ee', '#60a5fa'],
-  darkGrey: '#111827',
+  darkGrey: '#0f172a',
   offWhite: '#fafafa',
 };
 
