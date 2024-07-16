@@ -17,7 +17,8 @@
   }
 
   .dropdown-list-option {
-    @apply block truncate button-like rounded-none;
+    @apply block truncate h-12 button-like rounded-none;
+    @apply flex items-center;
   }
 }
 
