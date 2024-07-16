@@ -4,7 +4,7 @@ import {storeToRefs} from 'pinia';
 import {ComboboxOption} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import type {Category, TranslatedListing} from '@/utils/types';
-import {CATEGORY_EMOJI} from '@/utils/constants';
+import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 
 const props = defineProps<{
   items: TranslatedListing[];
@@ -17,8 +17,8 @@ const getGroupEmoji = computed(() => CATEGORY_EMOJI[props.category]);
 
 const getOptionClasses = (veggie: string, active: boolean) => {
   const exists = currentveggies.value.includes(veggie);
-  const textClass = active ? 'text-white' : 'text-gray-900';
-  let bgClass = 'bg-white';
+  const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-gray-900';
+  let bgClass = `bg-[${COLORS.offWhite}]`;
   if (active && exists) {
     bgClass = 'bg-red-500';
   } else if (active) {
@@ -38,7 +38,7 @@ const getOptionClasses = (veggie: string, active: boolean) => {
       <span>{{ $t(`categories.${category}`) }} ({{ items.length }})</span>
     </li>
     <ComboboxOption v-for="item in items" :key="item.veggie" :value="item" v-slot="{active}">
-      <span class="veggie-search__option" :class="getOptionClasses(item.veggie, active)">
+      <span :class="[getOptionClasses(item.veggie, active), 'veggie-search__option']">
         {{ item.translation }}
       </span>
     </ComboboxOption>
@@ -53,6 +53,6 @@ const getOptionClasses = (veggie: string, active: boolean) => {
 }
 
 .veggie-search__option {
-  @apply block truncate py-2 px-4 capitalize select-none;
+  @apply dropdown-list-option;
 }
 </style>

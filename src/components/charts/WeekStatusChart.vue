@@ -57,7 +57,6 @@ const chartOptions = computed(
           boxPadding: 5,
         },
         datalabels: {
-          color: '#fff',
           anchor: 'center',
           align: 'center',
           font: {

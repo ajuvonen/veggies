@@ -31,7 +31,7 @@ const {settings} = storeToRefs(useActivityStore());
 
 .locale-changer__option {
   letter-spacing: 1px;
-  @apply cursor-pointer rounded-md px-4 py-2;
+  @apply cursor-pointer button-like;
   @apply bg-sky-500;
 
   &:hover,

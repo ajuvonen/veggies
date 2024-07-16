@@ -37,8 +37,8 @@ watch(
 
 <style scoped>
 .app {
-  @apply h-screen p-4 overflow-x-hidden overflow-y-scroll;
+  @apply h-screen p-4 overflow-hidden;
   @apply flex flex-col items-center justify-start gap-8;
-  @apply bg-gradient-to-b from-sky-500 to-sky-800 to-80%;
+  @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80%;
 }
 </style>

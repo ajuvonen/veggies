@@ -52,7 +52,7 @@ defineProps<{
 .modal-dialog {
   @apply w-full max-w-md overflow-hidden rounded-md p-4 shadow-xl;
   @apply flex flex-col gap-4;
-  @apply bg-white;
+  @apply bg-[#fafafa];
 }
 
 .modal-dialog__title {

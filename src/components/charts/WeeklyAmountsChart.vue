@@ -37,7 +37,7 @@ const chartData = computed(() => {
           .value(weekIndex)
           .filter((veggie) => getCategoryForVeggie(veggie) === category).length,
     ),
-    backgroundColor: COLORS.chartColors[index],
+    backgroundColor: COLORS.chartColorsAlternate[index],
   }));
 
   return {
@@ -56,20 +56,13 @@ defineExpose({chartData});
     :data="chartData"
     data-test-id="weekly-amounts-chart"
     aria-describedby="weekly-amounts-chart-table"
-    class="max-w-lg bg-white rounded-md border-gray-900"
+    class="max-w-lg bg-[#fafafa] rounded-md border-gray-900"
   />
   <ChartScreenReaderTable
     id="weekly-amounts-chart-table"
-    :title="$t('stats.weeklyAmounts')"
+    :title="$t('stats.0')"
     :columnHeaders="chartData.labels"
     :rowHeaders="chartData.datasets.map(prop('label'))"
     :data="chartData.datasets.map(prop('data'))"
   />
 </template>
-<style lang="scss" scoped>
-// canvas {
-//   background: white;
-//   border: 2px solid black;
-//   border-radius: 14px;
-// }
-</style>

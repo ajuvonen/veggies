@@ -33,7 +33,7 @@ const getVariants = computed(() => {
 <style scoped lang="scss">
 .button {
   letter-spacing: 1px;
-  @apply text-nowrap px-4 py-2 font-semibold text-sm uppercase rounded-md select-none;
+  @apply button-like;
   @apply bg-sky-400;
 
   &:hover {
