@@ -46,5 +46,8 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
       datalabels: {
         display: false,
       },
+      tooltip: {
+        boxPadding: 5,
+      },
     },
   }) as ChartOptions<T>;
