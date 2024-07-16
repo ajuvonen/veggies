@@ -2,6 +2,7 @@
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
+import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 
 const activityStore = useActivityStore();
 const {currentveggies} = storeToRefs(activityStore);
@@ -20,4 +21,5 @@ const {toggleVeggie} = activityStore;
       >
     </template>
   </TagsComponent>
+  <WeeklyAmountsChart />
 </template>

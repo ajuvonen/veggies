@@ -208,7 +208,9 @@
     "title": "Settings"
   },
   "stats": {
-    "thisWeeksVeggies": "This week's veggies"
+    "thisWeeksVeggies": "This week's veggies",
+    "weeklyAmounts": "Weekly amounts",
+    "week": "Week {0}"
   },
   "veggieSearch": {
     "noResults": "No Results",

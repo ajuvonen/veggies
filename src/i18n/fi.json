@@ -208,7 +208,9 @@
     "title": "Asetukset"
   },
   "stats": {
-    "thisWeeksVeggies": "Tämän viikon kasvikset"
+    "thisWeeksVeggies": "Tämän viikon kasvikset",
+    "weeklyAmounts": "Viikoittainen yhteenveto",
+    "week": "Viikko {0}"
   },
   "veggieSearch": {
     "noResults": "Ei tuloksia",

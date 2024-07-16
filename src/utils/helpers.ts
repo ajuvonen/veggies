@@ -1,6 +1,7 @@
 import {useMemoize} from '@vueuse/core';
-import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS} from '@/utils/constants';
+import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
+import type {ChartOptions, ChartTypeRegistry} from 'chart.js';
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
   if (FRUITS.includes(veggie)) {
@@ -16,3 +17,34 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
   }
   return Category.Grain;
 });
+
+export const getChartOptions = <T extends keyof ChartTypeRegistry>(
+  grids: boolean = false,
+  stacked: boolean = false,
+) =>
+  ({
+    responsive: true,
+    maintainAspectRatio: !grids,
+    color: COLORS.darkGrey,
+    scales: grids
+      ? {
+          y: {
+            ticks: {
+              precision: 0,
+            },
+            stacked,
+          },
+          x: {
+            ticks: {
+              precision: 0,
+            },
+            stacked,
+          },
+        }
+      : undefined,
+    plugins: {
+      datalabels: {
+        display: false,
+      },
+    },
+  }) as ChartOptions<T>;

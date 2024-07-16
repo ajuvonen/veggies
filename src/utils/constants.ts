@@ -5,6 +5,11 @@ export const DATE_FORMATS: Record<Locale, string> = {
   fi: 'dd.MM.yyyy',
 };
 
+export const COLORS = {
+  chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
+  darkGrey: '#111827',
+};
+
 export const CATEGORY_EMOJI = {
   [Category.Fruit]: '🍎',
   [Category.Vegetable]: '🥦',

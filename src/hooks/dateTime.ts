@@ -23,6 +23,10 @@ export default function useDateTime() {
     Math.ceil(DateTime.now().diff(settings.value.startDate!, 'week').weeks),
   );
 
+  const getWeekStarts = computed(() =>
+    Array(getTotalWeeks.value - 1).map((_, index) => getWeekStart.value(index)),
+  );
+
   const getDateInterval = computed(() => (weekIndex: number) => {
     const formattedStart = getWeekStart
       .value(weekIndex)
@@ -35,5 +39,5 @@ export default function useDateTime() {
     return `${formattedStart} - ${formattedEnd}`;
   });
 
-  return {getTotalWeeks, getDateInterval};
+  return {getTotalWeeks, getWeekStarts, getDateInterval};
 }
