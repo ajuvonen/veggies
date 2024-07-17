@@ -5,7 +5,6 @@ import {Listbox, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
-import {COLORS} from '@/utils/constants';
 
 const activityStore = useActivityStore();
 const {currentVeggies} = storeToRefs(activityStore);
@@ -14,7 +13,7 @@ const {toggleVeggie} = activityStore;
 const selectedStat = ref(0);
 
 const getOptionClasses = (active: boolean, selected: boolean) => {
-  const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-slate-900';
+  const textClass = active ? 'text-slate-50' : 'text-slate-900';
   let bgClass = 'transparent';
   if (active) {
     bgClass = 'bg-sky-500';

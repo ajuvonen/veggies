@@ -13,7 +13,7 @@
 
   .dropdown-list-container {
     @apply absolute mt-2 w-full overflow-x-hidden rounded-md shadow-lg ring-2;
-    @apply bg-[#fafafa] ring-black/5;
+    @apply bg-slate-50 ring-black/5;
   }
 
   .dropdown-list-option {
@@ -24,7 +24,7 @@
 
 body {
   font-family: 'Nunito Variable', sans-serif;
-  @apply text-[#fafafa] fill-[#fafafa];
+  @apply text-slate-50 fill-slate-50;
 }
 
 :focus {
@@ -32,5 +32,5 @@ body {
 }
 
 :not(.outline-override) > :focus {
-  @apply outline-[#fafafa];
+  @apply outline-slate-50;
 }

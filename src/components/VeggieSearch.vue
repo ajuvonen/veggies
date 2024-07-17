@@ -102,7 +102,7 @@ const getAvailableHeightForOptions = computed(
 <style lang="scss" scoped>
 .veggie-search__input {
   @apply w-full h-full py-2 px-4 text-lg rounded-full;
-  @apply text-slate-900 bg-[#fafafa];
+  @apply text-slate-900 bg-slate-50;
 }
 
 .veggie-search__options {

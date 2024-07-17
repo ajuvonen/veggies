@@ -9,7 +9,6 @@ export const COLORS = {
   chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
   chartColorsAlternate: ['#fdc5f5', '#f7aef8', '#b388eb', '#8093f1', '#79b8f4', '#72ddf7'],
   darkGrey: '#0f172a',
-  offWhite: '#fafafa',
 };
 
 export const CATEGORY_EMOJI = {

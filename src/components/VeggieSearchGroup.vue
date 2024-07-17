@@ -2,7 +2,7 @@
 import {computed} from 'vue';
 import {ComboboxOption} from '@headlessui/vue';
 import type {Category, TranslatedListing} from '@/utils/types';
-import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
+import {CATEGORY_EMOJI} from '@/utils/constants';
 
 const props = defineProps<{
   items: TranslatedListing[];
@@ -12,8 +12,8 @@ const props = defineProps<{
 const getGroupEmoji = computed(() => CATEGORY_EMOJI[props.category]);
 
 const getOptionClasses = (active: boolean, selected: boolean) => {
-  const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-slate-900 fill-slate-900';
-  let bgClass = `bg-[${COLORS.offWhite}]`;
+  const textClass = active ? 'text-slate-50' : 'text-slate-900 fill-slate-900';
+  let bgClass = `bg-slate-50`;
   if (active) {
     bgClass = 'bg-sky-500';
   } else if (selected) {
