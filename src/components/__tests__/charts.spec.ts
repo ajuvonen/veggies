@@ -16,7 +16,7 @@ describe('charts', () => {
       shallow: true,
       props: {
         // Three roots, two vegetables, one leafy green
-        currentveggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
+        currentVeggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
       },
     });
     const {

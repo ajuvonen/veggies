@@ -4,15 +4,15 @@ import {useActivityStore} from '@/stores/activityStore';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import WeekStatusChart from '@/components/charts/WeekStatusChart.vue';
 
-const {currentveggies} = storeToRefs(useActivityStore());
+const {currentVeggies} = storeToRefs(useActivityStore());
 </script>
 <template>
   <div class="week-status">
-    <div class="relative" v-if="currentveggies.length">
-      <WeekStatusChart :currentveggies="currentveggies" />
+    <div class="relative" v-if="currentVeggies.length">
+      <WeekStatusChart :currentVeggies="currentVeggies" />
       <h1 class="week-status__center-label">
         <span>{{ $t('weekStatus.topLabel') }}</span>
-        <span class="text-6xl">{{ currentveggies.length }}</span>
+        <span class="text-6xl">{{ currentVeggies.length }}</span>
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
       </h1>
     </div>

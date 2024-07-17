@@ -1,30 +1,17 @@
 <script lang="ts" setup>
-import {computed, ref} from 'vue';
+import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
-import {useI18n} from 'vue-i18n';
 import {Listbox, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import {COLORS} from '@/utils/constants';
 
-const {t, locale} = useI18n();
-
 const activityStore = useActivityStore();
-const {currentveggies} = storeToRefs(activityStore);
+const {currentVeggies} = storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 
 const selectedStat = ref(0);
-
-const translatedVeggies = computed(() => {
-  const collator = new Intl.Collator(locale.value);
-  return currentveggies.value
-    .map((veggie) => ({
-      veggie,
-      translation: t(`veggies.${veggie}`),
-    }))
-    .sort((a, b) => collator.compare(a.translation, b.translation));
-});
 
 const getOptionClasses = (active: boolean, selected: boolean) => {
   const textClass = active ? `text-[${COLORS.offWhite}]` : 'text-slate-900';
@@ -59,7 +46,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
   </Listbox>
   <TagsComponent
     v-if="selectedStat === 0"
-    :items="translatedVeggies"
+    :veggies="currentVeggies"
     :variant="['tag', 'danger']"
     icon="minus"
     @click="toggleVeggie"

@@ -12,7 +12,7 @@ exports[`LogView > renders 1`] = `
     <path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" class="transition-all"></path>
   </svg>
 </div>
-<div class="relative w-full h-12 max-w-lg z-10" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-1" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" class="veggie-search__input" aria-label="Search For Veggies" placeholder="Search For Veggies">
+<div class="relative w-full h-12 z-10" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-1" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" class="veggie-search__input" aria-label="Search For Veggies" placeholder="Search For Veggies">
   <!---->
 </div>
 <transition-group-stub data-v-cd627eac="" name="list" tag="ul" appear="false" persisted="false" css="true" class="tags__container flex-container"></transition-group-stub>"

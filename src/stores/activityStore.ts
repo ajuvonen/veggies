@@ -41,7 +41,7 @@ export const useActivityStore = defineStore('activity', () => {
   );
 
   // Computed getters
-  const currentveggies = computed(() =>
+  const currentVeggies = computed(() =>
     activities.value.filter(({date}) => date.hasSame(DateTime.now(), 'week')).map(prop('veggie')),
   );
 
@@ -57,7 +57,7 @@ export const useActivityStore = defineStore('activity', () => {
   const favorites = computed(() =>
     pipe(
       activities.value,
-      filter(({veggie}) => !currentveggies.value.includes(veggie)),
+      filter(({veggie}) => !currentVeggies.value.includes(veggie)),
       groupBy(prop('veggie')),
       entries<Record<string, Activity[]>>,
       sortBy([([, {length}]) => length, 'desc']),
@@ -93,7 +93,7 @@ export const useActivityStore = defineStore('activity', () => {
   return {
     settings,
     activities,
-    currentveggies,
+    currentVeggies,
     veggiesForWeek,
     favorites,
     toggleVeggie,

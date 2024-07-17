@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import {ref, computed, onMounted} from 'vue';
+import {ref, computed, onMounted, watch} from 'vue';
 import {useI18n} from 'vue-i18n';
+import {difference, first} from 'remeda';
 import {Combobox, ComboboxInput, ComboboxOptions, TransitionRoot} from '@headlessui/vue';
 import {useElementBounding, useWindowSize} from '@vueuse/core';
 import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, GRAINS} from '@/utils/constants';
@@ -10,9 +11,13 @@ import {getCategoryForVeggie} from '@/utils/helpers';
 
 const emit = defineEmits(['toggle']);
 
+const props = defineProps<{
+  selected: string[];
+}>();
+
 const {t, locale} = useI18n();
 
-const selected = ref<string[]>([]);
+const selected = ref(props.selected);
 const query = ref('');
 const input = ref<InstanceType<typeof ComboboxInput> | null>(null);
 
@@ -48,24 +53,18 @@ const filteredveggies = computed(
     ),
 );
 
-const add = ([{veggie}]: TranslatedListing[]) => {
-  emit('toggle', veggie);
-  selected.value = [];
-};
+watch(selected, (newValue, oldValue) => {
+  const added = difference(newValue, oldValue);
+  const deleted = difference(oldValue, newValue);
+  emit('toggle', first(added.concat(deleted)));
+});
 
 const getAvailableHeightForOptions = computed(
   () => `max-height: calc(${height.value}px - ${top.value}px - 1rem)`,
 );
 </script>
 <template>
-  <Combobox
-    nullable
-    multiple
-    v-model="selected"
-    @update:modelValue="add"
-    as="div"
-    class="relative w-full h-12 z-10"
-  >
+  <Combobox nullable multiple v-model="selected" as="div" class="relative w-full h-12 z-10">
     <ComboboxInput
       ref="input"
       class="veggie-search__input"

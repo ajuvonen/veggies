@@ -1,13 +1,13 @@
 <script lang="ts" setup>
+import {computed} from 'vue';
+import {useI18n} from 'vue-i18n';
 import type {ButtonVariant} from '@/components/ButtonComponent.vue';
 import type {IconString} from '@/components/IconComponent.vue';
 
-withDefaults(
+defineEmits(['click']);
+const props = withDefaults(
   defineProps<{
-    items: {
-      veggie: string;
-      translation: string;
-    }[];
+    veggies: string[];
     icon: IconString;
     variant?: ButtonVariant | ButtonVariant[];
   }>(),
@@ -16,14 +16,24 @@ withDefaults(
   },
 );
 
-defineEmits(['click']);
+const {t, locale} = useI18n();
+
+const translatedVeggies = computed(() => {
+  const collator = new Intl.Collator(locale.value);
+  return props.veggies
+    .map((veggie) => ({
+      veggie,
+      translation: t(`veggies.${veggie}`),
+    }))
+    .sort((a, b) => collator.compare(a.translation, b.translation));
+});
 </script>
 <template>
   <TransitionGroup name="list" tag="ul" class="tags__container flex-container">
-    <li v-for="item in items" :key="item.veggie" class="tags__tag">
-      <ButtonComponent :variant="variant" @click="$emit('click', item.veggie)">
+    <li v-for="{veggie, translation} in translatedVeggies" :key="veggie" class="tags__tag">
+      <ButtonComponent :variant="variant" @click="$emit('click', veggie)">
         <IconComponent :icon="icon" />
-        {{ item.translation }}</ButtonComponent
+        {{ translation }}</ButtonComponent
       >
     </li>
   </TransitionGroup>

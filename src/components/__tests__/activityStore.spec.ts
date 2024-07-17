@@ -48,9 +48,9 @@ describe('activityStore', () => {
     });
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('tomato');
-    expect(activityStore.currentveggies).toHaveLength(2);
-    expect(activityStore.currentveggies.includes('tomato')).toBe(true);
-    expect(activityStore.currentveggies.includes('cucumber')).toBe(true);
+    expect(activityStore.currentVeggies).toHaveLength(2);
+    expect(activityStore.currentVeggies.includes('tomato')).toBe(true);
+    expect(activityStore.currentVeggies.includes('cucumber')).toBe(true);
   });
 
   it("shows specific week's veggies", () => {

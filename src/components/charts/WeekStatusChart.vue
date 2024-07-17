@@ -14,14 +14,14 @@ ChartJS.register(ArcElement, Tooltip);
 ChartJS.register(ChartDataLabels);
 
 const props = defineProps<{
-  currentveggies: string[];
+  currentVeggies: string[];
 }>();
 
 const {t} = useI18n();
 
 const chartData = computed(() => {
   const veggies = pipe(
-    props.currentveggies,
+    props.currentVeggies,
     map((veggie) => ({
       veggie,
       category: getCategoryForVeggie(veggie),
