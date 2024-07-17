@@ -8,21 +8,21 @@ const {currentVeggies} = storeToRefs(useActivityStore());
 </script>
 <template>
   <div class="week-status">
-    <div class="relative" v-if="currentVeggies.length">
+    <template v-if="currentVeggies.length">
       <WeekStatusChart :currentVeggies="currentVeggies" />
       <h1 class="week-status__center-label">
         <span>{{ $t('weekStatus.topLabel') }}</span>
         <span class="text-6xl">{{ currentVeggies.length }}</span>
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
       </h1>
-    </div>
+    </template>
     <FrontPageAnimation v-else />
   </div>
 </template>
 <style lang="scss" scoped>
 .week-status {
   @apply flex flex-col items-center justify-center;
-  @apply uppercase w-[300px] h-[300px];
+  @apply relative uppercase w-full min-h-[300px] max-h-[350px];
 }
 
 :deep(canvas) {

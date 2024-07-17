@@ -25,10 +25,16 @@ useAnimate(
 );
 </script>
 <template>
-  <div class="flex w-full justify-between">
+  <div class="front-page-animation__icon-container">
     <IconComponent icon="watermelon" size="5rem" />
     <IconComponent icon="carrot" size="5rem" />
     <IconComponent icon="pear" size="5rem" />
   </div>
   <IconComponent ref="arrow" icon="downArrow" size="10rem" />
 </template>
+<style scoped lang="scss">
+.front-page-animation__icon-container {
+  @apply flex w-full justify-between;
+  @apply max-w-sm;
+}
+</style>
