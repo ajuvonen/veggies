@@ -47,7 +47,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
   <TagsComponent
     v-if="selectedStat === 0"
     :veggies="currentVeggies"
-    :variant="['tag', 'danger']"
+    :variant="['tag', 'remove']"
     icon="minus"
     @click="toggleVeggie"
   />
