@@ -51,18 +51,20 @@ const chartOptions = computed(() => getChartOptions<'bar'>(true, true));
 defineExpose({chartData});
 </script>
 <template>
-  <Bar
-    :options="chartOptions"
-    :data="chartData"
-    data-test-id="weekly-amounts-chart"
-    aria-describedby="weekly-amounts-chart-table"
-    class="max-w-lg bg-[#fafafa] rounded-md"
-  />
-  <ChartScreenReaderTable
-    id="weekly-amounts-chart-table"
-    :title="$t('stats.0')"
-    :columnHeaders="chartData.labels"
-    :rowHeaders="chartData.datasets.map(prop('label'))"
-    :data="chartData.datasets.map(prop('data'))"
-  />
+  <div class="h-full w-full">
+    <Bar
+      :options="chartOptions"
+      :data="chartData"
+      data-test-id="weekly-amounts-chart"
+      aria-describedby="weekly-amounts-chart-table"
+      class="bg-[#fafafa] rounded-md"
+    />
+    <ChartScreenReaderTable
+      id="weekly-amounts-chart-table"
+      :title="$t('stats.0')"
+      :columnHeaders="chartData.labels"
+      :rowHeaders="chartData.datasets.map(prop('label'))"
+      :data="chartData.datasets.map(prop('data'))"
+    />
+  </div>
 </template>

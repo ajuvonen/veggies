@@ -38,7 +38,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
 };
 </script>
 <template>
-  <Listbox v-model="selectedStat" class="relative w-full max-w-lg z-10" as="div">
+  <Listbox v-model="selectedStat" class="relative w-full z-10" as="div">
     <ListboxButton class="stats__list-box-button">
       <span class="block truncate">{{ $t(`stats.${selectedStat}`) }}</span>
       <IconComponent icon="chevron" />
@@ -57,16 +57,14 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
       </ListboxOptions>
     </Transition>
   </Listbox>
-  <div class="w-full h-full">
-    <TagsComponent
-      v-if="selectedStat === 0"
-      :items="translatedVeggies"
-      :variant="['tag', 'danger']"
-      icon="minus"
-      @click="toggleVeggie"
-    />
-    <WeeklyAmountsChart v-if="selectedStat === 1" />
-  </div>
+  <TagsComponent
+    v-if="selectedStat === 0"
+    :items="translatedVeggies"
+    :variant="['tag', 'danger']"
+    icon="minus"
+    @click="toggleVeggie"
+  />
+  <WeeklyAmountsChart v-if="selectedStat === 1" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {

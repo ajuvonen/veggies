@@ -30,7 +30,7 @@ defineEmits(['click']);
 </template>
 <style lang="scss" scoped>
 .tags__container {
-  @apply max-w-lg relative;
+  @apply relative;
   @apply flex-wrap justify-center;
 }
 

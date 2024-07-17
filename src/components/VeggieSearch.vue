@@ -64,7 +64,7 @@ const getAvailableHeightForOptions = computed(
     v-model="selected"
     @update:modelValue="add"
     as="div"
-    class="relative w-full h-12 max-w-lg z-10"
+    class="relative w-full h-12 z-10"
   >
     <ComboboxInput
       ref="input"

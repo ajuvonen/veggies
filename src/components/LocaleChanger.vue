@@ -6,7 +6,7 @@ import {useActivityStore} from '@/stores/activityStore';
 const {settings} = storeToRefs(useActivityStore());
 </script>
 <template>
-  <RadioGroup v-model="settings.locale" class="mx-auto w-full max-w-sm text-sm uppercase">
+  <RadioGroup v-model="settings.locale" class="mx-auto w-full text-sm uppercase">
     <div class="locale-changer__container">
       <RadioGroupLabel>{{ $t('settings.locale') }}</RadioGroupLabel>
       <RadioGroupOption
