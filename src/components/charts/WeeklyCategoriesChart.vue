@@ -6,21 +6,21 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import {Line} from 'vue-chartjs';
+import {Bar} from 'vue-chartjs';
 import {prop, range} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
-import {getChartOptions} from '@/utils/helpers';
-import useDateTime from '@/hooks/dateTime';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
+import {Category} from '@/utils/types';
+import useDateTime from '@/hooks/dateTime';
+import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Title);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const {t} = useI18n();
 
@@ -30,46 +30,42 @@ const {getTotalWeeks} = useDateTime();
 
 const chartData = computed(() => {
   const weekRange = range(Math.max(getTotalWeeks.value - 5, 0), getTotalWeeks.value);
+  const datasets = Object.values(Category).map((category, index) => ({
+    label: t(`categories.${category}`),
+    data: weekRange.map(
+      (weekIndex) =>
+        veggiesForWeek
+          .value(weekIndex)
+          .filter((veggie) => getCategoryForVeggie(veggie) === category).length,
+    ),
+    backgroundColor: COLORS.chartColorsAlternate[index],
+  }));
 
   return {
     labels: weekRange.map((weekIndex) => t('stats.week', [weekIndex + 1])),
-    datasets: [
-      {
-        data: weekRange.map((weekIndex) => veggiesForWeek.value(weekIndex).length),
-        borderColor: COLORS.chartColorsAlternate[2],
-        backgroundColor: COLORS.chartColorsAlternate[2],
-      },
-    ],
+    datasets: datasets.filter(({data}) => data.some((value) => value)),
   };
 });
 
-const chartOptions = computed(() => {
-  const defaultChartOptions = getChartOptions<'line'>(t('stats.weeklyAmounts'), true, false);
-  return {
-    ...defaultChartOptions,
-    plugins: {
-      ...defaultChartOptions.plugins,
-      legend: {
-        display: false,
-      },
-    },
-  };
-});
+const chartOptions = computed(() =>
+  getChartOptions<'bar'>(t('stats.weeklyCategories'), true, true),
+);
 
 defineExpose({chartData});
 </script>
 <template>
   <div class="h-full w-full bg-slate-50 rounded-md">
-    <Line
+    <Bar
       :options="chartOptions"
       :data="chartData"
-      data-test-id="weekly-amounts-chart"
-      aria-describedby="weekly-amounts-chart-table"
+      data-test-id="weekly-categories-chart"
+      aria-describedby="weekly-categories-chart-table"
     />
     <ChartScreenReaderTable
-      id="weekly-amounts-chart-table"
-      :title="$t('stats.weeklyAmounts')"
+      id="weekly-categories-chart-table"
+      :title="$t('stats.0')"
       :columnHeaders="chartData.labels"
+      :rowHeaders="chartData.datasets.map(prop('label'))"
       :data="chartData.datasets.map(prop('data'))"
     />
   </div>

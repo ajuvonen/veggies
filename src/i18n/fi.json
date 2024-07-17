@@ -209,8 +209,10 @@
   },
   "stats": {
     "0": "Tämän viikon kasvikset",
-    "1": "Viikoittainen yhteenveto",
-    "week": "Viikko {0}"
+    "1": "Viikkotilastot",
+    "week": "Vko {0}",
+    "weeklyAmounts": "Lukumäärät viikoittain",
+    "weeklyCategories": "Kategoriat viikoittain"
   },
   "veggieSearch": {
     "noResults": "Ei tuloksia",

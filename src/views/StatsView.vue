@@ -5,6 +5,7 @@ import {Listbox, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
+import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 
 const activityStore = useActivityStore();
 const {currentVeggies} = storeToRefs(activityStore);
@@ -51,6 +52,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
     @click="toggleVeggie"
   />
   <WeeklyAmountsChart v-if="selectedStat === 1" />
+  <WeeklyCategoriesChart v-if="selectedStat === 1" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {

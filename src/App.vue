@@ -14,7 +14,7 @@ const {settings} = storeToRefs(useActivityStore());
 
 watch(
   () => settings.value.locale,
-  (newLocale: Locale) => {
+  (newLocale) => {
     locale.value = newLocale;
   },
   {immediate: true},
@@ -22,7 +22,7 @@ watch(
 
 watch(
   () => [locale.value, route.name],
-  ([_, newName]) => {
+  ([, newName]) => {
     document.title = t('general.appTitleAppend', [t(`views.${newName?.toString()}`)]);
   },
 );

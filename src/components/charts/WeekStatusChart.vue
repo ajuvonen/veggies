@@ -46,6 +46,9 @@ const chartOptions = computed(
   () =>
     ({
       ...getChartOptions<'doughnut'>(),
+      layout: {
+        padding: 0,
+      },
       plugins: {
         legend: {
           display: false,

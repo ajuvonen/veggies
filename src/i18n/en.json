@@ -209,8 +209,10 @@
   },
   "stats": {
     "0": "This week's veggies",
-    "1": "Weekly amounts",
-    "week": "Week {0}"
+    "1": "Weekly statistics",
+    "week": "Wk {0}",
+    "weeklyAmounts": "Weekly Amounts",
+    "weeklyCategories": "Weekly Categories"
   },
   "veggieSearch": {
     "noResults": "No Results",

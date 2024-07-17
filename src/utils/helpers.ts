@@ -19,30 +19,53 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
 });
 
 export const getChartOptions = <T extends keyof ChartTypeRegistry>(
+  title: string = '',
   grids: boolean = false,
   stacked: boolean = false,
 ) =>
   ({
     responsive: true,
     maintainAspectRatio: !grids,
-    color: COLORS.darkGrey,
+    layout: {
+      padding: 16,
+    },
     scales: grids
       ? {
           y: {
+            beginAtZero: true,
             ticks: {
               precision: 0,
+              color: COLORS.darkGrey,
             },
             stacked,
           },
           x: {
+            beginAtZero: true,
             ticks: {
               precision: 0,
+              color: COLORS.darkGrey,
             },
             stacked,
           },
         }
       : undefined,
     plugins: {
+      title: {
+        display: !!title,
+        color: COLORS.darkGrey,
+        text: title,
+        font: {
+          family: 'Nunito Variable, sans-serif',
+          size: 18,
+          weight: 'normal',
+          style: 'normal',
+        },
+      },
+      legend: {
+        labels: {
+          color: COLORS.darkGrey,
+        },
+      },
       datalabels: {
         display: false,
       },
