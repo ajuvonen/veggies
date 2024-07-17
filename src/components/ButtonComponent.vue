@@ -4,7 +4,7 @@ import {type IconString} from '@/components/IconComponent.vue';
 
 defineEmits(['click']);
 
-export type ButtonVariant = 'primary' | 'danger' | 'tag';
+export type ButtonVariant = 'primary' | 'danger' | 'tag' | 'remove';
 
 const props = withDefaults(
   defineProps<{
@@ -35,6 +35,7 @@ const getVariants = computed(() => {
   letter-spacing: 1px;
   @apply button-like;
   @apply bg-sky-400;
+  @apply items-center;
 
   &:hover {
     @apply bg-sky-500;
@@ -52,11 +53,20 @@ const getVariants = computed(() => {
 }
 
 .button--tag {
-  @apply rounded-full;
+  @apply rounded-full text-xs;
 }
 
 .button--danger {
   @apply bg-red-500;
+
+  &:hover,
+  &:focus {
+    @apply bg-red-600;
+  }
+}
+
+.button--remove {
+  @apply bg-green-500;
 
   &:hover,
   &:focus {
