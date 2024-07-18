@@ -45,6 +45,8 @@ export const useActivityStore = defineStore('activity', () => {
     activities.value.filter(({date}) => date.hasSame(DateTime.now(), 'week')).map(prop('veggie')),
   );
 
+  const allVeggies = computed(() => activities.value.map(prop('veggie')));
+
   const veggiesForWeek = computed(
     () => (weekIndex: number) =>
       activities.value
@@ -59,7 +61,7 @@ export const useActivityStore = defineStore('activity', () => {
       activities.value,
       filter(({veggie}) => !currentVeggies.value.includes(veggie)),
       groupBy(prop('veggie')),
-      entries<Record<string, Activity[]>>,
+      entries(),
       sortBy([([, {length}]) => length, 'desc']),
       map(prop(0)),
       take(10),
@@ -94,6 +96,7 @@ export const useActivityStore = defineStore('activity', () => {
     settings,
     activities,
     currentVeggies,
+    allVeggies,
     veggiesForWeek,
     favorites,
     toggleVeggie,

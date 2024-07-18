@@ -40,7 +40,42 @@ describe('activityStore', () => {
     expect(activityStore.activities[0]).toEqual(lastWeekAction);
   });
 
-  it("shows this week's veggies", () => {
+  it('returns all veggies', () => {
+    const now = DateTime.now();
+    const lastWeek = now.minus({weeks: 1});
+    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
+    activityStore.activities.push(
+      {
+        veggie: 'apple',
+        date: now,
+      },
+      {
+        veggie: 'tomato',
+        date: now,
+      },
+      {
+        veggie: 'eggplant',
+        date: lastWeek,
+      },
+      {
+        veggie: 'broccoli',
+        date: lastWeek,
+      },
+      {
+        veggie: 'ginger',
+        date: lastWeek,
+      },
+      {
+        veggie: 'apple',
+        date: lastWeek,
+      },
+    );
+
+    const allVeggies = activityStore.allVeggies;
+    expect(allVeggies).toEqual(['apple', 'tomato', 'eggplant', 'broccoli', 'ginger', 'apple']);
+  });
+
+  it("returns this week's veggies", () => {
     activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
     activityStore.activities.push({
       veggie: 'apple',
@@ -53,7 +88,7 @@ describe('activityStore', () => {
     expect(activityStore.currentVeggies.includes('cucumber')).toBe(true);
   });
 
-  it("shows specific week's veggies", () => {
+  it("returns specific week's veggies", () => {
     activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
     activityStore.activities.push({
       veggie: 'apple',
@@ -70,7 +105,7 @@ describe('activityStore', () => {
     expect(activityStore.veggiesForWeek(2)).toHaveLength(0);
   });
 
-  it('shows favorites', () => {
+  it('returns favorites', () => {
     activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 3});
     activityStore.activities.push(
       {
@@ -129,7 +164,7 @@ describe('activityStore', () => {
     expect(activityStore.favorites[0]).toBe('cucumber');
   });
 
-  it('shows only ten favorites', () => {
+  it('returns only ten favorites', () => {
     activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
     const date = DateTime.now().startOf('week').minus({days: 1});
     activityStore.activities.push(
