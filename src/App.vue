@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {watch} from 'vue';
 import {storeToRefs} from 'pinia';
-import {useI18n, type Locale} from 'vue-i18n';
+import {useI18n} from 'vue-i18n';
 import {RouterView, useRoute} from 'vue-router';
 import {useActivityStore} from '@/stores/activityStore';
 import NavBar from '@/components/NavBar.vue';

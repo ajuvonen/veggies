@@ -16,11 +16,16 @@ withDefaults(
   <div class="category-status">
     <template v-if="veggies.length">
       <CategoryStatusChart :veggies="veggies" :totals="totals" />
-      <h1 class="category-status__center-label">
-        <span>{{ $t(totals ? 'weekStatus.topLabelTotal' : 'weekStatus.topLabel') }}</span>
+      <i18n-t
+        scope="global"
+        keypath="categoryStatus.centerLabel"
+        tag="h1"
+        class="category-status__center-label"
+      >
+        <span>{{ $t(totals ? 'categoryStatus.topLabelTotal' : 'categoryStatus.topLabel') }}</span>
         <span :class="totals ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
-        <span>{{ $t('weekStatus.bottomLabel') }}</span>
-      </h1>
+        <span>{{ $t('categoryStatus.bottomLabel') }}</span>
+      </i18n-t>
     </template>
     <FrontPageAnimation v-else />
   </div>

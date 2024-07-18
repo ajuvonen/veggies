@@ -7,6 +7,14 @@
     "root": "Juurekset",
     "vegetable": "Vihannekset"
   },
+  "categoryStatus": {
+    "bottomLabel": "Kasvista",
+    "centerLabel": "{0} {1} {2}",
+    "topLabel": "Tällä Viikolla",
+    "topLabelTotal": "Yhteensä",
+    "veggiesOfTheWeek": "Viikon kasvikset",
+    "veggiesTotal": "Kaikki kasvikset yhteensä"
+  },
   "general": {
     "appTitle": "Eat Your Veggies",
     "appTitleAppend": "Eat Your Veggies - {0}",
@@ -241,13 +249,6 @@
     "log": "Seuraa Edistymistäsi",
     "settings": "Asetukset",
     "stats": "Tilastot"
-  },
-  "weekStatus": {
-    "bottomLabel": "Kasvista",
-    "topLabel": "Tällä Viikolla",
-    "topLabelTotal": "Yhteensä",
-    "veggiesOfTheWeek": "Viikon kasvikset",
-    "veggiesTotal": "Kaikki kasvikset yhteensä"
   },
   "welcome": {
     "infoTitle": "What is this about?",

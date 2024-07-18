@@ -7,6 +7,14 @@
     "root": "Roots And Bulbs",
     "vegetable": "Vegetables"
   },
+  "categoryStatus": {
+    "bottomLabel": "Veggies",
+    "centerLabel": "{0} {1} {2}",
+    "topLabel": "This Week",
+    "topLabelTotal": "In Total",
+    "veggiesOfTheWeek": "Veggies of the Week",
+    "veggiesTotal": "All Veggies in Total"
+  },
   "general": {
     "appTitle": "Eat Your Veggies",
     "appTitleAppend": "Eat Your Veggies - {0}",
@@ -241,13 +249,6 @@
     "log": "Track Progress",
     "settings": "Settings",
     "stats": "Statistics"
-  },
-  "weekStatus": {
-    "bottomLabel": "Veggies",
-    "topLabel": "This Week",
-    "topLabelTotal": "In total",
-    "veggiesOfTheWeek": "Veggies of the Week",
-    "veggiesTotal": "All Veggies in Total"
   },
   "welcome": {
     "infoTitle": "What is this about?",

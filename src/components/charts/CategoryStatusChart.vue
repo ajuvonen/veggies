@@ -74,7 +74,7 @@ defineExpose({chartData});
   <Doughnut :data="chartData" :options="chartOptions" aria-describedby="category-status-table" />
   <ChartScreenReaderTable
     id="category-status-table"
-    :title="totals ? $t('weekStatus.veggiesTotal') : $t('weekStatus.veggiesOfTheWeek')"
+    :title="totals ? $t('categoryStatus.veggiesTotal') : $t('categoryStatus.veggiesOfTheWeek')"
     :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
     :data="[chartData.datasets[0].data]"
   />
