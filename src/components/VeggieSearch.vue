@@ -10,7 +10,6 @@ import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import {getCategoryForVeggie} from '@/utils/helpers';
 
 const emit = defineEmits(['toggle']);
-
 const props = defineProps<{
   selected: string[];
 }>();

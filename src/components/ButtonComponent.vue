@@ -2,10 +2,9 @@
 import {computed} from 'vue';
 import {type IconString} from '@/components/IconComponent.vue';
 
-defineEmits(['click']);
-
 export type ButtonVariant = 'primary' | 'danger' | 'tag' | 'remove';
 
+defineEmits(['click']);
 const props = withDefaults(
   defineProps<{
     variant?: ButtonVariant | ButtonVariant[];
