@@ -48,9 +48,6 @@ const chartOptions = computed(() => {
     ...defaultChartOptions,
     plugins: {
       ...defaultChartOptions.plugins,
-      legend: {
-        display: false,
-      },
     },
   };
 });

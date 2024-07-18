@@ -8,17 +8,18 @@ import {
   Tooltip,
   LinearScale,
   CategoryScale,
+  Title,
   type ChartOptions,
 } from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
-import {entries, groupBy, map, pipe, prop, sortBy} from 'remeda';
+import {filter, map, pipe, prop, sortBy} from 'remeda';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
-import type {Category} from '@/utils/types';
+import {Category} from '@/utils/types';
 
-ChartJS.register(Tooltip, ArcElement, RadialLinearScale, LinearScale, CategoryScale);
+ChartJS.register(Tooltip, ArcElement, RadialLinearScale, LinearScale, CategoryScale, Title);
 ChartJS.register(ChartDataLabels);
 
 const props = defineProps<{
@@ -29,13 +30,12 @@ const {t} = useI18n();
 
 const chartData = computed(() => {
   const veggies = pipe(
-    props.veggies,
-    map((veggie) => ({
-      veggie,
-      category: getCategoryForVeggie(veggie),
-    })),
-    groupBy(prop('category')),
-    entries(),
+    Object.values(Category),
+    map((category) => [
+      category,
+      props.veggies.filter((veggie) => getCategoryForVeggie(veggie) === category),
+    ]),
+    filter(([, {length}]) => !!length),
     sortBy(([, {length}]) => length),
   );
 
@@ -50,44 +50,41 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(
-  () =>
-    ({
-      ...getChartOptions<'polarArea'>(),
-      scales: {
-        r: {
-          ticks: {
-            display: false,
-          },
-          grid: {
-            display: false,
-          },
-        },
-      },
-      plugins: {
-        legend: {
+const chartOptions = computed(() => {
+  const defaultOptions = getChartOptions<'polarArea'>(
+    t('stats.allTimeCategories'),
+    false,
+    false,
+    true,
+  );
+  return {
+    ...defaultOptions,
+    scales: {
+      r: {
+        ticks: {
           display: false,
         },
-        tooltip: {
-          callbacks: {
-            title: ([{label}]) => t(`categories.${label}`),
-          },
-          boxPadding: 5,
-        },
-        datalabels: {
-          anchor: 'center',
-          align: 'center',
-          font: {
-            size: 25,
-          },
-          textShadowColor: '#fff',
-          textShadowBlur: 3,
-          formatter: (_, context: Context) =>
-            CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
+        grid: {
+          display: false,
         },
       },
-    }) as ChartOptions<'polarArea'>,
-);
+    },
+    plugins: {
+      ...defaultOptions.plugins,
+      tooltip: {
+        callbacks: {
+          title: ([{label}]) => t(`categories.${label}`),
+        },
+        boxPadding: 5,
+      },
+      datalabels: {
+        ...defaultOptions.plugins?.datalabels,
+        formatter: (_, context: Context) =>
+          CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
+      },
+    },
+  } as ChartOptions<'polarArea'>;
+});
 
 defineExpose({chartData});
 </script>

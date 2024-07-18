@@ -10,7 +10,7 @@ const {favorites, currentVeggies} = storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 </script>
 <template>
-  <WeekStatus />
+  <WeekStatus :veggies="currentVeggies" />
   <VeggieSearch :selected="currentVeggies" @toggle="toggleVeggie" />
   <TagsComponent
     :veggies="favorites"

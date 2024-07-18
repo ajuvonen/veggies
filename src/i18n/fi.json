@@ -211,7 +211,7 @@
     "0": "Tämän viikon kasvikset",
     "1": "Viimeiset viisi viikkoa",
     "2": "Kokonaistilastot",
-    "allTimeCategories": "Kokonaiskulutus",
+    "allTimeCategories": "Vertailu kategorioittain",
     "week": "Vko {0}",
     "weeklyAmounts": "Lukumäärät viikoittain",
     "weeklyCategories": "Kategoriat viikoittain"

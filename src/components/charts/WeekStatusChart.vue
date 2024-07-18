@@ -4,8 +4,8 @@ import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, ArcElement, Tooltip, type ChartOptions} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
-import {entries, groupBy, map, pipe, prop, sortBy} from 'remeda';
-import type {Category} from '@/utils/types';
+import {filter, map, pipe, prop, sortBy} from 'remeda';
+import {Category} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
@@ -21,13 +21,12 @@ const {t} = useI18n();
 
 const chartData = computed(() => {
   const veggies = pipe(
-    props.veggies,
-    map((veggie) => ({
-      veggie,
-      category: getCategoryForVeggie(veggie),
-    })),
-    groupBy(prop('category')),
-    entries(),
+    Object.values(Category),
+    map((category) => [
+      category,
+      props.veggies.filter((veggie) => getCategoryForVeggie(veggie) === category),
+    ]),
+    filter(([, {length}]) => !!length),
     sortBy(([, {length}]) => length),
   );
 
@@ -42,37 +41,26 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(
-  () =>
-    ({
-      ...getChartOptions<'doughnut'>(),
-      layout: {
-        padding: 0,
+const chartOptions = computed(() => {
+  const defaultOptions = getChartOptions<'doughnut'>('', false, false, true);
+  return {
+    ...defaultOptions,
+    plugins: {
+      ...defaultOptions.plugins,
+      tooltip: {
+        callbacks: {
+          title: ([{label}]) => t(`categories.${label}`),
+        },
+        boxPadding: 5,
       },
-      plugins: {
-        legend: {
-          display: false,
-        },
-        tooltip: {
-          callbacks: {
-            title: ([{label}]) => t(`categories.${label}`),
-          },
-          boxPadding: 5,
-        },
-        datalabels: {
-          anchor: 'center',
-          align: 'center',
-          font: {
-            size: 25,
-          },
-          textShadowColor: '#fff',
-          textShadowBlur: 3,
-          formatter: (_, context: Context) =>
-            CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
-        },
+      datalabels: {
+        ...defaultOptions.plugins?.datalabels,
+        formatter: (_, context: Context) =>
+          CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
       },
-    }) as ChartOptions<'doughnut'>,
-);
+    },
+  } as ChartOptions<'doughnut'>;
+});
 
 defineExpose({chartData});
 </script>

@@ -9,18 +9,20 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend,
+  type ChartOptions,
 } from 'chart.js';
 import {Bar} from 'vue-chartjs';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {prop, range} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
-import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 import {Category} from '@/utils/types';
-import useDateTime from '@/hooks/dateTime';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
+import useDateTime from '@/hooks/dateTime';
+import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
+ChartJS.register(ChartDataLabels);
 
 const {t} = useI18n();
 
@@ -31,7 +33,7 @@ const {getTotalWeeks} = useDateTime();
 const chartData = computed(() => {
   const weekRange = range(Math.max(getTotalWeeks.value - 5, 0), getTotalWeeks.value);
   const datasets = Object.values(Category).map((category, index) => ({
-    label: t(`categories.${category}`),
+    label: category,
     data: weekRange.map(
       (weekIndex) =>
         veggiesForWeek
@@ -47,9 +49,21 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() =>
-  getChartOptions<'bar'>(t('stats.weeklyCategories'), true, true),
-);
+const chartOptions = computed(() => {
+  const defaultOptions = getChartOptions<'bar'>(t('stats.weeklyCategories'), true, true, true);
+  return {
+    ...defaultOptions,
+    plugins: {
+      ...defaultOptions.plugins,
+      tooltip: {
+        callbacks: {
+          label: ({dataset: {label}}) => t(`categories.${label}`),
+        },
+        boxPadding: 5,
+      },
+    },
+  } as ChartOptions<'bar'>;
+});
 
 defineExpose({chartData});
 </script>

@@ -1,7 +1,8 @@
 import {useMemoize} from '@vueuse/core';
-import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, COLORS} from '@/utils/constants';
-import {Category} from '@/utils/types';
 import type {ChartOptions, ChartTypeRegistry} from 'chart.js';
+import type {Context} from 'chartjs-plugin-datalabels';
+import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, COLORS, CATEGORY_EMOJI} from '@/utils/constants';
+import {Category} from '@/utils/types';
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
   if (FRUITS.includes(veggie)) {
@@ -22,10 +23,14 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
   title: string = '',
   grids: boolean = false,
   stacked: boolean = false,
+  withIcons: boolean = false,
 ) =>
   ({
     responsive: true,
     maintainAspectRatio: !grids,
+    layout: {
+      padding: 0,
+    },
     scales: grids
       ? {
           y: {
@@ -59,12 +64,23 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
         },
       },
       legend: {
-        labels: {
-          color: COLORS.offWhite,
-        },
+        display: false,
       },
       datalabels: {
-        display: false,
+        ...(withIcons
+          ? {
+              anchor: 'center',
+              align: 'center',
+              font: {
+                size: 25,
+              },
+              textShadowColor: '#fff',
+              textShadowBlur: 3,
+              formatter: (_, {dataset: {label}}: Context) => CATEGORY_EMOJI[label as Category],
+            }
+          : {
+              display: false,
+            }),
       },
       tooltip: {
         boxPadding: 5,

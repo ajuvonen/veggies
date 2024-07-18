@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import {storeToRefs} from 'pinia';
-import {useActivityStore} from '@/stores/activityStore';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import WeekStatusChart from '@/components/charts/WeekStatusChart.vue';
 
-const {currentVeggies} = storeToRefs(useActivityStore());
+defineProps<{
+  veggies: string[];
+}>();
 </script>
 <template>
   <div class="week-status">
-    <template v-if="currentVeggies.length">
-      <WeekStatusChart :currentVeggies="currentVeggies" />
+    <template v-if="veggies.length">
+      <WeekStatusChart :veggies="veggies" />
       <h1 class="week-status__center-label">
         <span>{{ $t('weekStatus.topLabel') }}</span>
-        <span class="text-6xl">{{ currentVeggies.length }}</span>
+        <span class="text-6xl">{{ veggies.length }}</span>
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
       </h1>
     </template>
