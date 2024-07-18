@@ -28,22 +28,22 @@ const atMostVeggies = computed(() =>
   <div class="chart-background status__container">
     <div class="status__item">
       <span class="text-xs">{{ $t('stats.grid1.topLabel') }}</span>
-      <span class="text-6xl">{{ getTotalWeeks }}</span>
+      <span class="text-5xl">{{ getTotalWeeks }}</span>
       <span class="text-xs">{{ $t('stats.grid1.bottomLabel') }}</span>
     </div>
     <div class="status__item">
       <span class="text-xs">{{ $t('stats.grid2.topLabel') }}</span>
-      <span class="text-6xl">{{ over30Veggies }}<span class="text-xs">%</span></span>
+      <span class="text-5xl">{{ over30Veggies }}<span class="text-xs">%</span></span>
       <span class="text-xs">{{ $t('stats.grid2.bottomLabel') }}</span>
     </div>
     <div class="status__item">
       <span class="text-xs">{{ $t('stats.grid3.topLabel') }}</span>
-      <span class="text-6xl">{{ uniqueVeggies }}</span>
+      <span class="text-5xl">{{ uniqueVeggies }}</span>
       <span class="text-xs">{{ $t('stats.grid3.bottomLabel') }}</span>
     </div>
     <div class="status__item">
       <span class="text-xs">{{ $t('stats.grid4.topLabel') }}</span>
-      <span class="text-6xl">{{ atMostVeggies }}</span>
+      <span class="text-5xl">{{ atMostVeggies }}</span>
       <span class="text-xs">{{ $t('stats.grid4.bottomLabel') }}</span>
     </div>
   </div>

@@ -13,12 +13,12 @@ withDefaults(
 );
 </script>
 <template>
-  <div class="week-status">
+  <div class="category-status">
     <template v-if="veggies.length">
       <CategoryStatusChart :veggies="veggies" :totals="totals" />
-      <h1 class="week-status__center-label">
+      <h1 class="category-status__center-label">
         <span>{{ $t(totals ? 'weekStatus.topLabelTotal' : 'weekStatus.topLabel') }}</span>
-        <span class="text-6xl">{{ veggies.length }}</span>
+        <span :class="totals ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
       </h1>
     </template>
@@ -26,7 +26,7 @@ withDefaults(
   </div>
 </template>
 <style lang="scss" scoped>
-.week-status {
+.category-status {
   @apply flex flex-col items-center justify-center;
   @apply relative uppercase w-full min-h-[300px] max-h-[350px];
 }
@@ -35,7 +35,7 @@ withDefaults(
   @apply relative z-10;
 }
 
-.week-status__center-label {
+.category-status__center-label {
   @apply flex flex-col items-center justify-center;
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs;
 }
