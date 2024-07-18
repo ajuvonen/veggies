@@ -4,6 +4,7 @@ import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import WeekStatusChart from '@/components/charts/WeekStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
+import WeeklyAmountsChart from '../charts/WeeklyAmountsChart.vue';
 
 describe('charts', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
@@ -91,5 +92,61 @@ describe('charts', () => {
     expect(datasets[3].data).toEqual([0, 0, 0, 1, 0]);
     expect(datasets[4].label).toBe('Grains, Nuts, And Seeds');
     expect(datasets[4].data).toEqual([0, 0, 2, 0, 0]);
+  });
+
+  it('prepares data for WeeklyAmountsChart', () => {
+    const now = DateTime.now();
+    const lastWeek = now.minus({weeks: 1});
+    const twoWeeksAgo = now.minus({weeks: 2});
+    const fiveWeeksAgo = now.minus({weeks: 5});
+
+    activityStore.settings.startDate = fiveWeeksAgo.startOf('week');
+    activityStore.activities.push(
+      {
+        veggie: 'onion',
+        date: now,
+      },
+      {
+        veggie: 'tomato',
+        date: now,
+      },
+      {
+        veggie: 'apple',
+        date: now,
+      },
+      {
+        veggie: 'pineapple',
+        date: now,
+      },
+      {
+        veggie: 'carrot',
+        date: lastWeek,
+      },
+      {
+        veggie: 'pinto bean',
+        date: lastWeek,
+      },
+      {
+        veggie: 'oat',
+        date: twoWeeksAgo,
+      },
+      {
+        veggie: 'wheat',
+        date: twoWeeksAgo,
+      },
+      {
+        veggie: 'endive',
+        date: fiveWeeksAgo,
+      },
+    );
+
+    const wrapper = mount(WeeklyAmountsChart, {
+      shallow: true,
+    });
+
+    const {labels, datasets} = wrapper.vm.chartData;
+    expect(labels).toEqual(['Wk 2', 'Wk 3', 'Wk 4', 'Wk 5', 'Wk 6']);
+    expect(datasets).toHaveLength(1);
+    expect(datasets[0].data).toEqual([0, 0, 2, 2, 4]);
   });
 });
