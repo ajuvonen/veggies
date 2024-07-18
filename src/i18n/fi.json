@@ -211,10 +211,26 @@
     "0": "Tämän viikon kasvikset",
     "1": "Viimeiset viisi viikkoa",
     "2": "Kokonaistilastot",
-    "allTimeCategories": "Vertailu kategorioittain",
+    "allTimeCategories": "Vertailu ryhmittäin",
+    "grid1": {
+      "topLabel": "Yhteensä",
+      "bottomLabel": "Viikkoa"
+    },
+    "grid2": {
+      "topLabel": "Viikoista",
+      "bottomLabel": "Yli 30 kasvista"
+    },
+    "grid3": {
+      "topLabel": "Yhteensä",
+      "bottomLabel": "Uniikkia kasvista"
+    },
+    "grid4": {
+      "topLabel": "Enimmillään",
+      "bottomLabel": "Kasvista viikossa"
+    },
     "week": "Vko {0}",
     "weeklyAmounts": "Lukumäärät viikoittain",
-    "weeklyCategories": "Kategoriat viikoittain"
+    "weeklyCategories": "Ryhmät viikoittain"
   },
   "veggieSearch": {
     "noResults": "Ei tuloksia",
@@ -229,7 +245,9 @@
   "weekStatus": {
     "bottomLabel": "Kasvista",
     "topLabel": "Tällä Viikolla",
-    "veggiesOfTheWeek": "Veggies of the Week"
+    "topLabelTotal": "Yhteensä",
+    "veggiesOfTheWeek": "Viikon kasvikset",
+    "veggiesTotal": "Kaikki kasvikset yhteensä"
   },
   "welcome": {
     "infoTitle": "What is this about?",

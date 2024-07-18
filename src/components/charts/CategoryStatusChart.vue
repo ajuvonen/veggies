@@ -13,9 +13,15 @@ import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 ChartJS.register(ArcElement, Tooltip);
 ChartJS.register(ChartDataLabels);
 
-const props = defineProps<{
-  veggies: string[];
-}>();
+const props = withDefaults(
+  defineProps<{
+    veggies: string[];
+    totals?: boolean;
+  }>(),
+  {
+    totals: false,
+  },
+);
 
 const {t} = useI18n();
 
@@ -35,7 +41,7 @@ const chartData = computed(() => {
     datasets: [
       {
         data: veggies.map(([, {length}]) => length),
-        backgroundColor: [...COLORS.chartColors],
+        backgroundColor: [...(props.totals ? COLORS.chartColorsAlternate : COLORS.chartColors)],
       },
     ],
   };

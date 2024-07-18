@@ -2,7 +2,7 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
-import WeekStatusChart from '@/components/charts/WeekStatusChart.vue';
+import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import AllTimeCategoriesChart from '@/components/charts/AllTimeCategoriesChart.vue';
@@ -13,8 +13,8 @@ describe('charts', () => {
     activityStore = useActivityStore();
   });
 
-  it('prepares data for WeekStatusChart', () => {
-    const wrapper = mount(WeekStatusChart, {
+  it('prepares data for CategoryStatusChart', () => {
+    const wrapper = mount(CategoryStatusChart, {
       shallow: true,
       props: {
         // Three roots, two vegetables, one leafy green

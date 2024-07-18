@@ -1,17 +1,23 @@
 <script setup lang="ts">
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
-import WeekStatusChart from '@/components/charts/WeekStatusChart.vue';
+import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 
-defineProps<{
-  veggies: string[];
-}>();
+withDefaults(
+  defineProps<{
+    veggies: string[];
+    totals?: boolean;
+  }>(),
+  {
+    totals: false,
+  },
+);
 </script>
 <template>
   <div class="week-status">
     <template v-if="veggies.length">
-      <WeekStatusChart :veggies="veggies" />
+      <CategoryStatusChart :veggies="veggies" :totals="totals" />
       <h1 class="week-status__center-label">
-        <span>{{ $t('weekStatus.topLabel') }}</span>
+        <span>{{ $t(totals ? 'weekStatus.topLabelTotal' : 'weekStatus.topLabel') }}</span>
         <span class="text-6xl">{{ veggies.length }}</span>
         <span>{{ $t('weekStatus.bottomLabel') }}</span>
       </h1>

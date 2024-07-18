@@ -12,7 +12,7 @@ const props = withDefaults(
     variant?: ButtonVariant | ButtonVariant[];
   }>(),
   {
-    variant: 'primary',
+    variant: () => 'primary',
   },
 );
 

@@ -6,7 +6,8 @@ import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
-import AllTimeCategoriesChart from '@/components/charts/AllTimeCategoriesChart.vue';
+import AllTimeStatus from '@/components/AllTimeStatus.vue';
+import CategoryStatus from '@/components/CategoryStatus.vue';
 
 const activityStore = useActivityStore();
 const {currentVeggies, allVeggies} = storeToRefs(activityStore);
@@ -59,7 +60,8 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
   />
   <WeeklyAmountsChart v-if="selectedStat === 1" />
   <WeeklyCategoriesChart v-if="selectedStat === 1" />
-  <AllTimeCategoriesChart v-if="selectedStat === 2" :veggies="allVeggies" />
+  <AllTimeStatus v-if="selectedStat === 2" />
+  <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {

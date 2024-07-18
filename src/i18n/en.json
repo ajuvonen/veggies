@@ -212,6 +212,22 @@
     "1": "Last five weeks",
     "2": "All time",
     "allTimeCategories": "Comparison By Categories",
+    "grid1": {
+      "topLabel": "In Total",
+      "bottomLabel": "Weeks"
+    },
+    "grid2": {
+      "topLabel": "Of Weeks",
+      "bottomLabel": "Over 30 Veggies"
+    },
+    "grid3": {
+      "topLabel": "In Total",
+      "bottomLabel": "Unique Veggies"
+    },
+    "grid4": {
+      "topLabel": "At most",
+      "bottomLabel": "Veggies in a Week"
+    },
     "week": "Wk {0}",
     "weeklyAmounts": "Weekly Amounts",
     "weeklyCategories": "Weekly Categories"
@@ -229,7 +245,9 @@
   "weekStatus": {
     "bottomLabel": "Veggies",
     "topLabel": "This Week",
-    "veggiesOfTheWeek": "Veggies of the Week"
+    "topLabelTotal": "In total",
+    "veggiesOfTheWeek": "Veggies of the Week",
+    "veggiesTotal": "All Veggies in Total"
   },
   "welcome": {
     "infoTitle": "What is this about?",

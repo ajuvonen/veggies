@@ -89,7 +89,7 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <div class="w-full h-full">
+  <div class="chart-background">
     <PolarArea
       :options="chartOptions"
       :data="chartData"
