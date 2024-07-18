@@ -6,9 +6,10 @@ import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
+import AllTimeCategoriesChart from '@/components/charts/AllTimeCategoriesChart.vue';
 
 const activityStore = useActivityStore();
-const {currentVeggies} = storeToRefs(activityStore);
+const {currentVeggies, allVeggies} = storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 
 const selectedStat = ref(0);
@@ -36,7 +37,12 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
       leave-to-class="opacity-0"
     >
       <ListboxOptions class="stats__list-box-options">
-        <ListboxOption v-slot="{active, selected}" v-for="item in [0, 1]" :key="item" :value="item">
+        <ListboxOption
+          v-slot="{active, selected}"
+          v-for="item in [0, 1, 2]"
+          :key="item"
+          :value="item"
+        >
           <li :class="[getOptionClasses(active, selected), 'stats__list-box-option']">
             {{ $t(`stats.${item}`) }}
           </li>
@@ -53,6 +59,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
   />
   <WeeklyAmountsChart v-if="selectedStat === 1" />
   <WeeklyCategoriesChart v-if="selectedStat === 1" />
+  <AllTimeCategoriesChart v-if="selectedStat === 2" :veggies="allVeggies" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {

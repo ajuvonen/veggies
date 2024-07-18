@@ -209,7 +209,9 @@
   },
   "stats": {
     "0": "This week's veggies",
-    "1": "Weekly statistics",
+    "1": "Last five weeks",
+    "2": "All time",
+    "allTimeCategories": "All Time Consumption",
     "week": "Wk {0}",
     "weeklyAmounts": "Weekly Amounts",
     "weeklyCategories": "Weekly Categories"

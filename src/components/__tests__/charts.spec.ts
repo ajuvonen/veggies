@@ -4,7 +4,8 @@ import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import WeekStatusChart from '@/components/charts/WeekStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
-import WeeklyAmountsChart from '../charts/WeeklyAmountsChart.vue';
+import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
+import AllTimeCategoriesChart from '@/components/charts/AllTimeCategoriesChart.vue';
 
 describe('charts', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
@@ -17,7 +18,23 @@ describe('charts', () => {
       shallow: true,
       props: {
         // Three roots, two vegetables, one leafy green
-        currentVeggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
+        veggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
+      },
+    });
+    const {
+      labels,
+      datasets: [{data}],
+    } = wrapper.vm.chartData;
+    expect(labels).toEqual(['leafy', 'vegetable', 'root']);
+    expect(data).toEqual([1, 2, 3]);
+  });
+
+  it('prepares data for AllTimeCategoriesChart', () => {
+    const wrapper = mount(AllTimeCategoriesChart, {
+      shallow: true,
+      props: {
+        // Three roots, two vegetables, one leafy green
+        veggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
       },
     });
     const {

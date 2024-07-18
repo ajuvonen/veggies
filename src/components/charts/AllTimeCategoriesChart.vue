@@ -1,16 +1,24 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {Chart as ChartJS, ArcElement, Tooltip, type ChartOptions} from 'chart.js';
-import {Doughnut} from 'vue-chartjs';
-import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  ArcElement,
+  Tooltip,
+  LinearScale,
+  CategoryScale,
+  type ChartOptions,
+} from 'chart.js';
+import {PolarArea} from 'vue-chartjs';
 import {entries, groupBy, map, pipe, prop, sortBy} from 'remeda';
-import type {Category} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
-import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
+import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
+import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
+import type {Category} from '@/utils/types';
 
-ChartJS.register(ArcElement, Tooltip);
+ChartJS.register(Tooltip, ArcElement, RadialLinearScale, LinearScale, CategoryScale);
 ChartJS.register(ChartDataLabels);
 
 const props = defineProps<{
@@ -36,7 +44,7 @@ const chartData = computed(() => {
     datasets: [
       {
         data: veggies.map(([, {length}]) => length),
-        backgroundColor: [...COLORS.chartColors],
+        backgroundColor: [...COLORS.chartColorsAlternate],
       },
     ],
   };
@@ -45,9 +53,16 @@ const chartData = computed(() => {
 const chartOptions = computed(
   () =>
     ({
-      ...getChartOptions<'doughnut'>(),
-      layout: {
-        padding: 0,
+      ...getChartOptions<'polarArea'>(),
+      scales: {
+        r: {
+          ticks: {
+            display: false,
+          },
+          grid: {
+            display: false,
+          },
+        },
       },
       plugins: {
         legend: {
@@ -71,17 +86,24 @@ const chartOptions = computed(
             CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
         },
       },
-    }) as ChartOptions<'doughnut'>,
+    }) as ChartOptions<'polarArea'>,
 );
 
 defineExpose({chartData});
 </script>
 <template>
-  <Doughnut :data="chartData" :options="chartOptions" aria-describedby="week-status-table" />
-  <ChartScreenReaderTable
-    id="week-status-table"
-    :title="$t('weekStatus.veggiesOfTheWeek')"
-    :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
-    :data="[chartData.datasets[0].data]"
-  />
+  <div class="w-full h-full">
+    <PolarArea
+      :options="chartOptions"
+      :data="chartData"
+      data-test-id="all-time-categories-chart"
+      aria-describedby="all-time-categories-chart-table"
+    />
+    <ChartScreenReaderTable
+      id="all-time-categories-chart-table"
+      :title="$t('stats.allTimeCategories')"
+      :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
+      :data="[chartData.datasets[0].data]"
+    />
+  </div>
 </template>
