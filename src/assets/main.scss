@@ -20,6 +20,10 @@
     @apply block truncate h-12 button-like rounded-none;
     @apply flex items-center justify-between;
   }
+
+  .chart-background {
+    @apply w-full h-full;
+  }
 }
 
 body {

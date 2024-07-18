@@ -54,7 +54,7 @@ const chartOptions = computed(() =>
 defineExpose({chartData});
 </script>
 <template>
-  <div class="h-full w-full bg-slate-50 rounded-md">
+  <div class="chart-background">
     <Bar
       :options="chartOptions"
       :data="chartData"

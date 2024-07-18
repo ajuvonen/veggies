@@ -26,16 +26,13 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
   ({
     responsive: true,
     maintainAspectRatio: !grids,
-    layout: {
-      padding: 16,
-    },
     scales: grids
       ? {
           y: {
             beginAtZero: true,
             ticks: {
               precision: 0,
-              color: COLORS.darkGrey,
+              color: COLORS.offWhite,
             },
             stacked,
           },
@@ -43,7 +40,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
             beginAtZero: true,
             ticks: {
               precision: 0,
-              color: COLORS.darkGrey,
+              color: COLORS.offWhite,
             },
             stacked,
           },
@@ -52,7 +49,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
     plugins: {
       title: {
         display: !!title,
-        color: COLORS.darkGrey,
+        color: COLORS.offWhite,
         text: title,
         font: {
           family: 'Nunito Variable, sans-serif',
@@ -63,7 +60,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
       },
       legend: {
         labels: {
-          color: COLORS.darkGrey,
+          color: COLORS.offWhite,
         },
       },
       datalabels: {

@@ -10,7 +10,6 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
 import {Line} from 'vue-chartjs';
 import {prop, range} from 'remeda';
@@ -20,7 +19,7 @@ import useDateTime from '@/hooks/dateTime';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Title);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Title);
 
 const {t} = useI18n();
 
@@ -59,7 +58,7 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <div class="h-full w-full bg-slate-50 rounded-md">
+  <div class="chart-background">
     <Line
       :options="chartOptions"
       :data="chartData"

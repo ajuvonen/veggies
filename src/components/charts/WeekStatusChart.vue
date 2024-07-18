@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {Chart as ChartJS, ArcElement, Tooltip, type Plugin, type ChartOptions} from 'chart.js';
+import {Chart as ChartJS, ArcElement, Tooltip, type ChartOptions} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
 import {entries, groupBy, map, pipe, prop, sortBy} from 'remeda';
-import type {Category, Listing} from '@/utils/types';
+import type {Category} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
@@ -27,7 +27,7 @@ const chartData = computed(() => {
       category: getCategoryForVeggie(veggie),
     })),
     groupBy(prop('category')),
-    entries<Record<string, Listing[]>>,
+    entries(),
     sortBy(([, {length}]) => length),
   );
 
@@ -77,12 +77,7 @@ const chartOptions = computed(
 defineExpose({chartData});
 </script>
 <template>
-  <Doughnut
-    :data="chartData"
-    :plugins="[ChartDataLabels as Plugin<'doughnut'>]"
-    :options="chartOptions"
-    aria-describedby="week-status-table"
-  />
+  <Doughnut :data="chartData" :options="chartOptions" aria-describedby="week-status-table" />
   <ChartScreenReaderTable
     id="week-status-table"
     :title="$t('weekStatus.veggiesOfTheWeek')"
