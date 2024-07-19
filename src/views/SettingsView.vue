@@ -20,5 +20,3 @@ const reset = () => {
     $t('general.reset')
   }}</ButtonComponent>
 </template>
-
-<style scoped lang="scss"></style>

@@ -11,7 +11,7 @@ useAnimate(
     // Appear with full opacity
     {opacity: 0, transform: 'translateY(0px)'},
     {opacity: 1, transform: 'translateY(0px)', offset: 0.1333},
-    // Move down 100px and fade to 80% over next 500ms
+    // Move down 100px and fade to 80%
     {opacity: 0.8, transform: 'translateY(60px)', offset: 0.4667},
     // Stay at 100px and fade out completely
     {opacity: 0, transform: 'translateY(60px)'},
