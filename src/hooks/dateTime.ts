@@ -24,7 +24,7 @@ export default function useDateTime() {
   );
 
   const getWeekStarts = computed(() =>
-    Array(getTotalWeeks.value - 1).map((_, index) => getWeekStart.value(index)),
+    [...Array(getTotalWeeks.value)].map((_, index) => getWeekStart.value(index)),
   );
 
   const getDateInterval = computed(() => (weekIndex: number) => {
