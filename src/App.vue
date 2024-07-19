@@ -10,7 +10,7 @@ const {t, locale} = useI18n();
 
 const route = useRoute();
 
-const {settings} = storeToRefs(useActivityStore());
+const {settings, allVeggies} = storeToRefs(useActivityStore());
 
 watch(
   () => settings.value.locale,
@@ -30,7 +30,7 @@ watch(
 
 <template>
   <div class="app">
-    <NavBar v-if="settings.startDate" />
+    <NavBar v-if="settings.startDate" :showStats="!!allVeggies.length" />
     <div class="app__container">
       <RouterView />
     </div>

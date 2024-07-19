@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import {storeToRefs} from 'pinia';
 import {RouterLink} from 'vue-router';
-import {useActivityStore} from '@/stores/activityStore';
-
-const {activities} = storeToRefs(useActivityStore());
+defineProps<{
+  showStats: boolean;
+}>();
 </script>
 <template>
   <nav class="nav">
@@ -11,12 +10,7 @@ const {activities} = storeToRefs(useActivityStore());
       $t('general.appTitle')
     }}</RouterLink>
     <div class="flex-container">
-      <RouterLink
-        v-if="activities.length"
-        class="nav__link"
-        to="/stats"
-        :aria-label="$t('views.stats')"
-      >
+      <RouterLink v-if="showStats" class="nav__link" to="/stats" :aria-label="$t('views.stats')">
         <IconComponent icon="chart" size="6vw" class="nav__link-icon" />
       </RouterLink>
       <RouterLink class="nav__link" to="/settings" :aria-label="$t('views.settings')">
