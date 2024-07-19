@@ -27,24 +27,24 @@ const atMostVeggies = computed(() =>
 <template>
   <div class="chart-background status__container">
     <div class="status__item">
-      <span class="text-xs">{{ $t('stats.grid1.topLabel') }}</span>
+      <span>{{ $t('stats.grid1.topLabel') }}</span>
       <span class="text-5xl">{{ getTotalWeeks }}</span>
-      <span class="text-xs">{{ $t('stats.grid1.bottomLabel') }}</span>
+      <span>{{ $t('stats.grid1.bottomLabel') }}</span>
     </div>
     <div class="status__item">
-      <span class="text-xs">{{ $t('stats.grid2.topLabel') }}</span>
+      <span>{{ $t('stats.grid2.topLabel') }}</span>
       <span class="text-5xl">{{ over30Veggies }}<span class="text-xs">%</span></span>
-      <span class="text-xs">{{ $t('stats.grid2.bottomLabel') }}</span>
+      <span>{{ $t('stats.grid2.bottomLabel') }}</span>
     </div>
     <div class="status__item">
-      <span class="text-xs">{{ $t('stats.grid3.topLabel') }}</span>
+      <span>{{ $t('stats.grid3.topLabel') }}</span>
       <span class="text-5xl">{{ uniqueVeggies }}</span>
-      <span class="text-xs">{{ $t('stats.grid3.bottomLabel') }}</span>
+      <span>{{ $t('stats.grid3.bottomLabel') }}</span>
     </div>
     <div class="status__item">
-      <span class="text-xs">{{ $t('stats.grid4.topLabel') }}</span>
+      <span>{{ $t('stats.grid4.topLabel') }}</span>
       <span class="text-5xl">{{ atMostVeggies }}</span>
-      <span class="text-xs">{{ $t('stats.grid4.bottomLabel') }}</span>
+      <span>{{ $t('stats.grid4.bottomLabel') }}</span>
     </div>
   </div>
 </template>
@@ -56,5 +56,6 @@ const atMostVeggies = computed(() =>
 
 .status__item {
   @apply flex flex-col items-center justify-center;
+  @apply text-xs;
 }
 </style>
