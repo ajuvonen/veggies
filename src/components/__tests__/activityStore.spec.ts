@@ -2,9 +2,15 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {createPinia, setActivePinia} from 'pinia';
+import type {Week} from '@/utils/types';
 
 describe('activityStore', () => {
+  const thisWeek = DateTime.now().startOf('week');
+  const lastWeek = thisWeek.minus({weeks: 1});
+  const twoWeeksAgo = thisWeek.minus({weeks: 2});
+  const threeWeeksAgo = thisWeek.minus({weeks: 3});
   let activityStore: ReturnType<typeof useActivityStore>;
+
   beforeEach(() => {
     // creates a fresh pinia and makes it active
     // so it's automatically picked up by any useStore() call
@@ -16,203 +22,139 @@ describe('activityStore', () => {
   it('adds veggies', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('tomato');
-    expect(activityStore.activities).toHaveLength(2);
-    expect(activityStore.activities.some(({veggie}) => veggie === 'tomato')).toBe(true);
-    expect(activityStore.activities.some(({veggie}) => veggie === 'cucumber')).toBe(true);
+    expect(activityStore.weeks).toHaveLength(1);
+    expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'tomato']);
   });
 
   it('removes veggies', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('cucumber');
-    expect(activityStore.activities).toHaveLength(0);
+    expect(activityStore.weeks).toHaveLength(1);
+    expect(activityStore.weeks[0].veggies).toHaveLength(0);
   });
 
   it('veggie toggle does not affect previous week', () => {
-    const lastWeekAction = {
-      veggie: 'tomato',
-      date: DateTime.now().startOf('week').minus({weeks: 1}),
+    const lastWeekItem: Week = {
+      veggies: ['tomato'],
+      startDate: lastWeek,
     };
-    activityStore.activities.push(lastWeekAction);
+    activityStore.weeks.push(lastWeekItem);
     activityStore.toggleVeggie('tomato');
-    expect(activityStore.activities).toHaveLength(2);
+    expect(activityStore.weeks).toHaveLength(2);
+    expect(activityStore.weeks[1].veggies).toHaveLength(1);
     activityStore.toggleVeggie('tomato');
-    expect(activityStore.activities).toHaveLength(1);
-    expect(activityStore.activities[0]).toEqual(lastWeekAction);
+    expect(activityStore.weeks[1].veggies).toHaveLength(0);
+    expect(activityStore.weeks[0]).toEqual(lastWeekItem);
   });
 
   it('returns all veggies', () => {
-    const now = DateTime.now();
-    const lastWeek = now.minus({weeks: 1});
-    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
-    activityStore.activities.push(
+    activityStore.settings.startDate = lastWeek;
+    activityStore.weeks.push(
       {
-        veggie: 'apple',
-        date: now,
+        startDate: lastWeek,
+        veggies: ['eggplant', 'broccoli', 'ginger', 'apple'],
       },
       {
-        veggie: 'tomato',
-        date: now,
-      },
-      {
-        veggie: 'eggplant',
-        date: lastWeek,
-      },
-      {
-        veggie: 'broccoli',
-        date: lastWeek,
-      },
-      {
-        veggie: 'ginger',
-        date: lastWeek,
-      },
-      {
-        veggie: 'apple',
-        date: lastWeek,
+        startDate: thisWeek,
+        veggies: ['apple', 'tomato'],
       },
     );
 
     const allVeggies = activityStore.allVeggies;
-    expect(allVeggies).toEqual(['apple', 'tomato', 'eggplant', 'broccoli', 'ginger', 'apple']);
+    expect(allVeggies).toEqual(['eggplant', 'broccoli', 'ginger', 'apple', 'apple', 'tomato']);
   });
 
   it("returns this week's veggies", () => {
-    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
-    activityStore.activities.push({
-      veggie: 'apple',
-      date: DateTime.now().startOf('week').minus({days: 1}),
-    });
-    activityStore.toggleVeggie('cucumber');
-    activityStore.toggleVeggie('tomato');
-    expect(activityStore.currentVeggies).toHaveLength(2);
-    expect(activityStore.currentVeggies.includes('tomato')).toBe(true);
-    expect(activityStore.currentVeggies.includes('cucumber')).toBe(true);
+    activityStore.settings.startDate = lastWeek;
+    activityStore.weeks.push(
+      {
+        startDate: lastWeek,
+        veggies: ['cucumber', 'tomato'],
+      },
+      {
+        startDate: thisWeek,
+        veggies: ['cucumber', 'tomato'],
+      },
+    );
+    expect(activityStore.currentVeggies).toEqual(['cucumber', 'tomato']);
   });
 
   it("returns specific week's veggies", () => {
-    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
-    activityStore.activities.push({
-      veggie: 'apple',
-      date: DateTime.now().startOf('week').minus({days: 1}),
-    });
-    activityStore.toggleVeggie('cucumber');
-    activityStore.toggleVeggie('tomato');
+    activityStore.settings.startDate = lastWeek;
+    activityStore.weeks.push(
+      {
+        veggies: ['apple'],
+        startDate: lastWeek,
+      },
+      {
+        veggies: ['cucumber', 'tomato'],
+        startDate: thisWeek,
+      },
+    );
 
-    expect(activityStore.veggiesForWeek(0)).toHaveLength(1);
-    expect(activityStore.veggiesForWeek(0).includes('apple')).toBe(true);
-    expect(activityStore.veggiesForWeek(1)).toHaveLength(2);
-    expect(activityStore.veggiesForWeek(1).includes('tomato')).toBe(true);
-    expect(activityStore.veggiesForWeek(1).includes('cucumber')).toBe(true);
-    expect(activityStore.veggiesForWeek(2)).toHaveLength(0);
+    expect(activityStore.veggiesForWeek(lastWeek)).toEqual(['apple']);
+    expect(activityStore.veggiesForWeek(thisWeek)).toEqual(['cucumber', 'tomato']);
+    expect(activityStore.veggiesForWeek(threeWeeksAgo)).toEqual([]);
   });
 
   it('returns favorites', () => {
-    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 3});
-    activityStore.activities.push(
+    activityStore.settings.startDate = threeWeeksAgo;
+    activityStore.weeks.push(
       {
-        veggie: 'wheat',
-        date: DateTime.now().startOf('week').minus({days: 8}),
+        startDate: threeWeeksAgo,
+        veggies: ['wheat', 'apple', 'cucumber'],
       },
       {
-        veggie: 'wheat',
-        date: DateTime.now().startOf('week').minus({days: 15}),
+        startDate: twoWeeksAgo,
+        veggies: ['wheat', 'apple'],
       },
       {
-        veggie: 'wheat',
-        date: DateTime.now().startOf('week').minus({days: 22}),
-      },
-      {
-        veggie: 'apple',
-        date: DateTime.now().startOf('week').minus({days: 8}),
-      },
-      {
-        veggie: 'apple',
-        date: DateTime.now().startOf('week').minus({days: 15}),
-      },
-      {
-        veggie: 'cucumber',
-        date: DateTime.now().startOf('week').minus({days: 8}),
+        startDate: lastWeek,
+        veggies: ['cucumber'],
       },
     );
 
-    expect(activityStore.favorites).toHaveLength(3);
-    expect(activityStore.favorites[0]).toBe('wheat');
-    expect(activityStore.favorites[1]).toBe('apple');
-    expect(activityStore.favorites[2]).toBe('cucumber');
+    expect(activityStore.favorites).toEqual(['wheat', 'apple', 'cucumber']);
   });
 
   it('excludes this week from favorites', () => {
-    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 3});
-    activityStore.activities.push(
+    activityStore.settings.startDate = twoWeeksAgo;
+    activityStore.weeks.push(
       {
-        veggie: 'wheat',
-        date: DateTime.now().startOf('week').minus({days: 8}),
+        veggies: ['wheat', 'apple'],
+        startDate: thisWeek,
       },
       {
-        veggie: 'apple',
-        date: DateTime.now().startOf('week').minus({days: 15}),
+        veggies: ['cucumber', 'wheat'],
+        startDate: lastWeek,
       },
       {
-        veggie: 'cucumber',
-        date: DateTime.now().startOf('week').minus({days: 8}),
+        veggies: ['apple'],
+        startDate: twoWeeksAgo,
       },
     );
 
-    activityStore.toggleVeggie('wheat');
-    activityStore.toggleVeggie('apple');
-
-    expect(activityStore.favorites).toHaveLength(1);
-    expect(activityStore.favorites[0]).toBe('cucumber');
+    expect(activityStore.favorites).toEqual(['cucumber']);
   });
 
   it('returns only ten favorites', () => {
-    activityStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 1});
-    const date = DateTime.now().startOf('week').minus({days: 1});
-    activityStore.activities.push(
-      {
-        veggie: 'wheat',
-        date,
-      },
-      {
-        veggie: 'rye',
-        date,
-      },
-      {
-        veggie: 'rice',
-        date,
-      },
-      {
-        veggie: 'apple',
-        date,
-      },
-      {
-        veggie: 'raspberry',
-        date,
-      },
-      {
-        veggie: 'cucumber',
-        date,
-      },
-      {
-        veggie: 'tomato',
-        date,
-      },
-      {
-        veggie: 'onion',
-        date,
-      },
-      {
-        veggie: 'garlic',
-        date,
-      },
-      {
-        veggie: 'endive',
-        date,
-      },
-      {
-        veggie: 'lettuce',
-        date,
-      },
-    );
+    activityStore.settings.startDate = lastWeek;
+    activityStore.weeks.push({
+      veggies: [
+        'wheat',
+        'rye',
+        'rice',
+        'apple',
+        'raspberry',
+        'cucumber',
+        'tomato',
+        'onion',
+        'garlic',
+        'endive',
+        'lettuce',
+      ],
+      startDate: lastWeek,
+    });
 
     expect(activityStore.favorites).toHaveLength(10);
   });

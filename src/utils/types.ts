@@ -11,9 +11,9 @@ export enum Category {
   Grain = 'grain',
 }
 
-export type Activity = {
-  veggie: string;
-  date: DateTime;
+export type Week = {
+  veggies: string[];
+  startDate: DateTime;
 };
 
 export type Settings = {

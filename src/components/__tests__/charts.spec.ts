@@ -8,7 +8,12 @@ import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import AllTimeCategoriesChart from '@/components/charts/AllTimeCategoriesChart.vue';
 
 describe('charts', () => {
+  const thisWeek = DateTime.now().startOf('week');
+  const lastWeek = thisWeek.minus({weeks: 1});
+  const twoWeeksAgo = thisWeek.minus({weeks: 2});
+  const fiveWeeksAgo = thisWeek.minus({weeks: 5});
   let activityStore: ReturnType<typeof useActivityStore>;
+
   beforeEach(() => {
     activityStore = useActivityStore();
   });
@@ -46,48 +51,23 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyCategoriesChart', () => {
-    const now = DateTime.now();
-    const lastWeek = now.minus({weeks: 1});
-    const twoWeeksAgo = now.minus({weeks: 2});
-    const fiveWeeksAgo = now.minus({weeks: 5});
-
-    activityStore.settings.startDate = fiveWeeksAgo.startOf('week');
-    activityStore.activities.push(
+    activityStore.settings.startDate = fiveWeeksAgo;
+    activityStore.weeks.push(
       {
-        veggie: 'onion',
-        date: now,
+        startDate: fiveWeeksAgo,
+        veggies: ['endive'],
       },
       {
-        veggie: 'tomato',
-        date: now,
+        startDate: twoWeeksAgo,
+        veggies: ['oat', 'wheat'],
       },
       {
-        veggie: 'apple',
-        date: now,
+        startDate: lastWeek,
+        veggies: ['carrot', 'pinto bean'],
       },
       {
-        veggie: 'pineapple',
-        date: now,
-      },
-      {
-        veggie: 'carrot',
-        date: lastWeek,
-      },
-      {
-        veggie: 'pinto bean',
-        date: lastWeek,
-      },
-      {
-        veggie: 'oat',
-        date: twoWeeksAgo,
-      },
-      {
-        veggie: 'wheat',
-        date: twoWeeksAgo,
-      },
-      {
-        veggie: 'endive',
-        date: fiveWeeksAgo,
+        startDate: thisWeek,
+        veggies: ['onion', 'tomato', 'apple', 'pineapple'],
       },
     );
 
@@ -112,48 +92,23 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyAmountsChart', () => {
-    const now = DateTime.now();
-    const lastWeek = now.minus({weeks: 1});
-    const twoWeeksAgo = now.minus({weeks: 2});
-    const fiveWeeksAgo = now.minus({weeks: 5});
-
-    activityStore.settings.startDate = fiveWeeksAgo.startOf('week');
-    activityStore.activities.push(
+    activityStore.settings.startDate = fiveWeeksAgo;
+    activityStore.weeks.push(
       {
-        veggie: 'onion',
-        date: now,
+        startDate: fiveWeeksAgo,
+        veggies: ['endive'],
       },
       {
-        veggie: 'tomato',
-        date: now,
+        startDate: twoWeeksAgo,
+        veggies: ['oat', 'wheat'],
       },
       {
-        veggie: 'apple',
-        date: now,
+        startDate: lastWeek,
+        veggies: ['carrot', 'pinto bean'],
       },
       {
-        veggie: 'pineapple',
-        date: now,
-      },
-      {
-        veggie: 'carrot',
-        date: lastWeek,
-      },
-      {
-        veggie: 'pinto bean',
-        date: lastWeek,
-      },
-      {
-        veggie: 'oat',
-        date: twoWeeksAgo,
-      },
-      {
-        veggie: 'wheat',
-        date: twoWeeksAgo,
-      },
-      {
-        veggie: 'endive',
-        date: fiveWeeksAgo,
+        startDate: thisWeek,
+        veggies: ['onion', 'tomato', 'apple', 'pineapple'],
       },
     );
 

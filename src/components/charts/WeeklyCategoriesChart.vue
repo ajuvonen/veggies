@@ -13,7 +13,7 @@ import {
 } from 'chart.js';
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import {prop, range} from 'remeda';
+import {prop, takeLast} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
@@ -26,25 +26,27 @@ ChartJS.register(ChartDataLabels);
 
 const {t} = useI18n();
 
-const {veggiesForWeek} = storeToRefs(useActivityStore());
+const {veggiesForWeek, settings} = storeToRefs(useActivityStore());
 
-const {getTotalWeeks} = useDateTime();
+const {getWeekStarts} = useDateTime();
 
 const chartData = computed(() => {
-  const weekRange = range(Math.max(getTotalWeeks.value - 5, 0), getTotalWeeks.value);
+  const weekRange = takeLast(getWeekStarts.value, 5);
   const datasets = Object.values(Category).map((category, index) => ({
     label: category,
     data: weekRange.map(
-      (weekIndex) =>
+      (weekStart) =>
         veggiesForWeek
-          .value(weekIndex)
+          .value(weekStart)
           .filter((veggie) => getCategoryForVeggie(veggie) === category).length,
     ),
     backgroundColor: COLORS.chartColorsAlternate[index],
   }));
 
   return {
-    labels: weekRange.map((weekIndex) => t('stats.week', [weekIndex + 1])),
+    labels: weekRange.map((weekStart) =>
+      t('stats.week', [weekStart.diff(settings.value.startDate!, 'weeks').weeks + 1]),
+    ),
     datasets: datasets.filter(({data}) => data.some((value) => value)),
   };
 });
@@ -57,7 +59,9 @@ const chartOptions = computed(() => {
       ...defaultOptions.plugins,
       tooltip: {
         callbacks: {
-          label: ({dataset: {label}}) => t(`categories.${label}`),
+          label: (context) => {
+            return `${t(`categories.${context.dataset.label}`)} ${context.raw}`;
+          },
         },
         boxPadding: 5,
       },

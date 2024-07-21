@@ -12,7 +12,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import {Line} from 'vue-chartjs';
-import {prop, range} from 'remeda';
+import {prop, takeLast} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {getChartOptions} from '@/utils/helpers';
 import useDateTime from '@/hooks/dateTime';
@@ -23,18 +23,19 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 
 const {t} = useI18n();
 
-const {veggiesForWeek} = storeToRefs(useActivityStore());
+const {veggiesForWeek, settings} = storeToRefs(useActivityStore());
 
-const {getTotalWeeks} = useDateTime();
+const {getWeekStarts} = useDateTime();
 
 const chartData = computed(() => {
-  const weekRange = range(Math.max(getTotalWeeks.value - 5, 0), getTotalWeeks.value);
-
+  const weekRange = takeLast(getWeekStarts.value, 5);
   return {
-    labels: weekRange.map((weekIndex) => t('stats.week', [weekIndex + 1])),
+    labels: weekRange.map((weekStart) =>
+      t('stats.week', [weekStart.diff(settings.value.startDate!, 'weeks').weeks + 1]),
+    ),
     datasets: [
       {
-        data: weekRange.map((weekIndex) => veggiesForWeek.value(weekIndex).length),
+        data: weekRange.map((weekStart) => veggiesForWeek.value(weekStart).length),
         borderColor: COLORS.chartColorsAlternate[2],
         backgroundColor: COLORS.chartColorsAlternate[2],
       },

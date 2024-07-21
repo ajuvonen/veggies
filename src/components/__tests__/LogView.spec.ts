@@ -5,6 +5,8 @@ import LogView from '@/views/LogView.vue';
 import {useActivityStore} from '@/stores/activityStore';
 
 describe('LogView', () => {
+  const thisWeek = DateTime.now().startOf('week');
+  const lastWeek = thisWeek.minus({weeks: 1});
   let activityStore: ReturnType<typeof useActivityStore>;
 
   beforeEach(() => {
@@ -17,24 +19,15 @@ describe('LogView', () => {
   });
 
   it('renders with data', () => {
-    const now = DateTime.now();
-    activityStore.settings.startDate = now.startOf('week').minus({weeks: 1});
-    activityStore.activities.push(
+    activityStore.settings.startDate = lastWeek;
+    activityStore.weeks.push(
       {
-        veggie: 'wheat',
-        date: now,
+        veggies: ['wheat'],
+        startDate: thisWeek,
       },
       {
-        veggie: 'rye',
-        date: now.minus({weeks: 1}),
-      },
-      {
-        veggie: 'rice',
-        date: now.minus({weeks: 1}),
-      },
-      {
-        veggie: 'wheat',
-        date: now.minus({weeks: 1}),
+        veggies: ['rye', 'rice', 'wheat'],
+        startDate: lastWeek,
       },
     );
     const wrapper = mount(LogView, {

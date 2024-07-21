@@ -2,8 +2,8 @@ import {computed} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import type {Activity, Settings} from '@/utils/types';
-import {entries, filter, groupBy, map, pipe, prop, sortBy, take} from 'remeda';
+import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take} from 'remeda';
+import type {Settings, Week} from '@/utils/types';
 
 const localStorageOptions = {
   mergeDefaults: true,
@@ -11,7 +11,7 @@ const localStorageOptions = {
     read: (v: any) =>
       v
         ? JSON.parse(v, (key, value) => {
-            if (['startDate', 'date'].includes(key) && value) {
+            if (['startDate'].includes(key) && value) {
               return DateTime.fromISO(value);
             }
             return value;
@@ -33,34 +33,24 @@ export const useActivityStore = defineStore('activity', () => {
     localStorageOptions,
   );
 
-  const activities = useStorage<Activity[]>(
-    'veggies-activity',
-    [],
-    localStorage,
-    localStorageOptions,
-  );
+  const weeks = useStorage<Week[]>('veggies-weeks', [], localStorage, localStorageOptions);
 
   // Computed getters
-  const currentVeggies = computed(() =>
-    activities.value.filter(({date}) => date.hasSame(DateTime.now(), 'week')).map(prop('veggie')),
-  );
 
-  const allVeggies = computed(() => activities.value.map(prop('veggie')));
+  const allVeggies = computed(() => weeks.value.flatMap(prop('veggies')));
 
   const veggiesForWeek = computed(
-    () => (weekIndex: number) =>
-      activities.value
-        .filter(({date}) =>
-          date.hasSame(settings.value.startDate?.plus({weeks: weekIndex})!, 'week'),
-        )
-        .map(prop('veggie')),
+    () => (weekStart: DateTime) =>
+      weeks.value.find(({startDate}) => startDate.equals(weekStart))?.veggies ?? [],
   );
+
+  const currentVeggies = computed(() => veggiesForWeek.value(DateTime.now().startOf('week')));
 
   const favorites = computed(() =>
     pipe(
-      activities.value,
-      filter(({veggie}) => !currentVeggies.value.includes(veggie)),
-      groupBy(prop('veggie')),
+      allVeggies.value,
+      filter((veggie) => !currentVeggies.value.includes(veggie)),
+      groupBy((veggie) => veggie),
       entries(),
       sortBy([([, {length}]) => length, 'desc']),
       map(prop(0)),
@@ -69,18 +59,18 @@ export const useActivityStore = defineStore('activity', () => {
   );
 
   // Actions
-  const toggleVeggie = (veggie: string) => {
-    const now = DateTime.now();
-    const existing = activities.value.find(
-      (activity) => activity.veggie === veggie && activity.date.hasSame(now, 'week'),
-    );
-    if (!existing) {
-      activities.value.push({
-        veggie,
-        date: now,
+  const toggleVeggie = (targetVeggie: string) => {
+    const now = DateTime.now().startOf('week');
+    const targetWeek = weeks.value.find(({startDate}) => startDate.equals(now));
+    if (!targetWeek) {
+      weeks.value.push({
+        startDate: now,
+        veggies: [targetVeggie],
       });
+    } else if (!targetWeek.veggies.includes(targetVeggie)) {
+      targetWeek.veggies.push(targetVeggie);
     } else {
-      activities.value = activities.value.filter((activity) => activity !== existing);
+      targetWeek.veggies = difference(targetWeek.veggies, [targetVeggie]);
     }
   };
 
@@ -89,12 +79,12 @@ export const useActivityStore = defineStore('activity', () => {
       locale: 'en',
       startDate: null,
     };
-    activities.value = [];
+    weeks.value = [];
   };
 
   return {
     settings,
-    activities,
+    weeks,
     currentVeggies,
     allVeggies,
     veggiesForWeek,

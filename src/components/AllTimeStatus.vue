@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
-import {range, unique} from 'remeda';
+import {unique} from 'remeda';
 import useDateTime from '@/hooks/dateTime';
 import {useActivityStore} from '@/stores/activityStore';
 
 const activitysStore = useActivityStore();
 const {allVeggies, veggiesForWeek} = storeToRefs(activitysStore);
-const {getTotalWeeks} = useDateTime();
+const {getTotalWeeks, getWeekStarts} = useDateTime();
 
 const over30Veggies = computed(() => {
-  const weeksOver30 = range(0, getTotalWeeks.value)
-    .map((weekIndex) => veggiesForWeek.value(weekIndex).length > 30)
+  const weeksOver30 = getWeekStarts.value
+    .map((weekStart) => veggiesForWeek.value(weekStart).length > 30)
     .filter(Boolean);
   return Math.round((weeksOver30.length / getTotalWeeks.value) * 100);
 });
@@ -19,9 +19,7 @@ const over30Veggies = computed(() => {
 const uniqueVeggies = computed(() => unique(allVeggies.value).length);
 
 const atMostVeggies = computed(() =>
-  Math.max(
-    ...range(0, getTotalWeeks.value).map((weekIndex) => veggiesForWeek.value(weekIndex).length),
-  ),
+  Math.max(...getWeekStarts.value.map((weekStart) => veggiesForWeek.value(weekStart).length)),
 );
 </script>
 <template>
