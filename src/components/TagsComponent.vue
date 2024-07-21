@@ -29,7 +29,7 @@ const translatedVeggies = computed(() => {
 });
 </script>
 <template>
-  <TransitionGroup name="list" tag="ul" class="tags__container flex-container">
+  <TransitionGroup name="list" tag="ul" class="tags__container">
     <li v-for="{veggie, translation} in translatedVeggies" :key="veggie" class="tags__tag">
       <ButtonComponent :variant="variant" @click="$emit('click', veggie)">
         <IconComponent :icon="icon" />
@@ -41,12 +41,11 @@ const translatedVeggies = computed(() => {
 <style lang="scss" scoped>
 .tags__container {
   @apply relative;
-  @apply flex-wrap justify-center;
+  @apply flex-container flex-wrap justify-center;
 }
 
 .tags__tag {
   z-index: 1;
-  transform-origin: center;
 }
 
 /* Transition classes */

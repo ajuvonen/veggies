@@ -51,19 +51,17 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
       </ListboxOptions>
     </Transition>
   </Listbox>
-  <div class="stats__charts-container">
-    <TagsComponent
-      v-if="selectedStat === 0"
-      :veggies="currentVeggies"
-      :variant="['tag', 'remove']"
-      icon="minus"
-      @click="toggleVeggie"
-    />
-    <WeeklyAmountsChart v-if="selectedStat === 1" />
-    <WeeklyCategoriesChart v-if="selectedStat === 1" />
-    <AllTimeStatus v-if="selectedStat === 2" />
-    <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
-  </div>
+  <TagsComponent
+    v-if="selectedStat === 0"
+    :veggies="currentVeggies"
+    :variant="['tag', 'remove']"
+    icon="minus"
+    @click="toggleVeggie"
+  />
+  <WeeklyAmountsChart v-if="selectedStat === 1" />
+  <WeeklyCategoriesChart v-if="selectedStat === 1" />
+  <AllTimeStatus v-if="selectedStat === 2" />
+  <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {
@@ -83,9 +81,5 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
 
 .stats__list-box-option {
   @apply dropdown-list-option;
-}
-
-.stats__charts-container {
-  @apply flex-1 flex flex-col gap-8;
 }
 </style>

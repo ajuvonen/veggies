@@ -28,7 +28,7 @@ defineProps<{
           <div class="modal-dialog__content">
             <slot name="content"></slot>
           </div>
-          <div class="modal-dialog__buttons outline-override flex-container">
+          <div class="modal-dialog__buttons outline-override">
             <slot name="buttons">
               <ButtonComponent @click="$emit('close')">{{ $t('general.close') }}</ButtonComponent>
             </slot>
@@ -65,6 +65,6 @@ defineProps<{
 }
 
 .modal-dialog__buttons {
-  @apply justify-end;
+  @apply flex-container justify-end;
 }
 </style>

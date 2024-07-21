@@ -15,7 +15,7 @@ exports[`LogView > renders 1`] = `
 <div class="relative h-12 z-10" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-1" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" class="veggie-search__input" aria-label="Search For Veggies" placeholder="Search For Veggies">
   <!---->
 </div>
-<transition-group-stub data-v-cd627eac="" name="list" tag="ul" appear="false" persisted="false" css="true" class="tags__container flex-container"></transition-group-stub>"
+<transition-group-stub data-v-cd627eac="" name="list" tag="ul" appear="false" persisted="false" css="true" class="tags__container"></transition-group-stub>"
 `;
 
 exports[`LogView > renders with data 1`] = `
@@ -26,13 +26,13 @@ exports[`LogView > renders with data 1`] = `
 <div class="relative h-12 z-10" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-2" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" class="veggie-search__input" aria-label="Search For Veggies" placeholder="Search For Veggies">
   <!---->
 </div>
-<transition-group-stub data-v-cd627eac="" name="list" tag="ul" appear="false" persisted="false" css="true" class="tags__container flex-container">
-  <li data-v-cd627eac="" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary flex-container">
+<transition-group-stub data-v-cd627eac="" name="list" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
+  <li data-v-cd627eac="" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary">
       <!--v-if--><svg data-v-cd627eac="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
         <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
       </svg> rice
     </button></li>
-  <li data-v-cd627eac="" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary flex-container">
+  <li data-v-cd627eac="" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary">
       <!--v-if--><svg data-v-cd627eac="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
         <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
       </svg> rye

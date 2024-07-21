@@ -11,7 +11,7 @@ const props = withDefaults(
     icon?: IconString;
   }>(),
   {
-    variant: 'primary',
+    variant: () => 'primary',
   },
 );
 
@@ -24,7 +24,7 @@ const getVariants = computed(() => {
 });
 </script>
 <template>
-  <button @click="$emit('click')" :class="`button ${getVariants} flex-container`">
+  <button @click="$emit('click')" :class="`button ${getVariants}`">
     <IconComponent v-if="icon" :icon="icon" />
     <slot></slot>
   </button>
@@ -34,7 +34,7 @@ const getVariants = computed(() => {
   letter-spacing: 1px;
   @apply button-like;
   @apply bg-sky-400;
-  @apply items-center;
+  @apply flex-container items-center;
 
   &:hover {
     @apply bg-sky-500;

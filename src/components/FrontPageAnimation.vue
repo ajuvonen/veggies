@@ -12,9 +12,9 @@ useAnimate(
     {opacity: 0, transform: 'translateY(0px)'},
     {opacity: 1, transform: 'translateY(0px)', offset: 0.1333},
     // Move down 100px and fade to 80%
-    {opacity: 0.8, transform: 'translateY(75px)', offset: 0.4667},
+    {opacity: 0.8, transform: 'translateY(85px)', offset: 0.4667},
     // Stay at 100px and fade out completely
-    {opacity: 0, transform: 'translateY(75px)'},
+    {opacity: 0, transform: 'translateY(85px)'},
   ],
   {
     duration: 2000,

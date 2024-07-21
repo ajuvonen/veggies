@@ -23,6 +23,6 @@ const {toggleVeggie} = activityStore;
 </template>
 <style lang="scss">
 .log-view__chart {
-  @apply max-h-[350px];
+  max-height: min(100vw - 2rem, 400px);
 }
 </style>

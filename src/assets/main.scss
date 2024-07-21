@@ -22,9 +22,9 @@
   }
 
   .chart-background {
-    flex: 1 1 auto;
+    flex: 1;
     @apply relative max-h-[50%];
-    @apply flex flex-col justify-center items-center;
+    @apply flex flex-col justify-start items-center;
   }
 }
 
