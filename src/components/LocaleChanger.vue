@@ -6,8 +6,8 @@ import {useActivityStore} from '@/stores/activityStore';
 const {settings} = storeToRefs(useActivityStore());
 </script>
 <template>
-  <RadioGroup v-model="settings.locale" class="mx-auto w-full text-sm uppercase">
-    <div class="locale-changer__container">
+  <RadioGroup v-model="settings.locale" class="text-sm uppercase">
+    <div class="flex-container flex-col">
       <RadioGroupLabel>{{ $t('settings.locale') }}</RadioGroupLabel>
       <RadioGroupOption
         v-for="locale in $i18n.availableLocales"
@@ -17,7 +17,7 @@ const {settings} = storeToRefs(useActivityStore());
         class="locale-changer__option flex-container"
       >
         <IconComponent :icon="checked ? 'radioboxMarked' : 'radioboxBlank'" />
-        <RadioGroupLabel as="p" class="text-sm">
+        <RadioGroupLabel as="p">
           {{ $t(`locales.${locale}`) }}
         </RadioGroupLabel>
       </RadioGroupOption>
@@ -25,10 +25,6 @@ const {settings} = storeToRefs(useActivityStore());
   </RadioGroup>
 </template>
 <style lang="scss" scoped>
-.locale-changer__container {
-  @apply flex flex-col gap-2;
-}
-
 .locale-changer__option {
   letter-spacing: 1px;
   @apply cursor-pointer button-like;

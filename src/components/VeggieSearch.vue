@@ -63,7 +63,7 @@ const getAvailableHeightForOptions = computed(
 );
 </script>
 <template>
-  <Combobox nullable multiple v-model="selected" as="div" class="relative w-full h-12 z-10">
+  <Combobox nullable multiple v-model="selected" as="div" class="relative h-12 z-10">
     <ComboboxInput
       ref="input"
       class="veggie-search__input"

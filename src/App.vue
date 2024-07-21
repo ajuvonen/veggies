@@ -29,23 +29,19 @@ watch(
 </script>
 
 <template>
-  <div class="app">
+  <div class="app__container">
     <NavBar v-if="settings.startDate" :showStats="!!allVeggies.length" />
-    <div class="app__container">
-      <RouterView />
-    </div>
+    <RouterView />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.app {
+.app__container {
   @apply h-screen p-4 overflow-hidden;
   @apply flex flex-col items-center gap-8;
   @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80%;
-}
-
-.app__container {
-  @apply flex flex-col items-center justify-start gap-8;
-  @apply h-full w-full max-w-xl;
+  > *:not(nav) {
+    @apply w-full max-w-xl;
+  }
 }
 </style>

@@ -27,7 +27,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
 };
 </script>
 <template>
-  <Listbox v-model="selectedStat" class="relative w-full z-10" as="div">
+  <Listbox v-model="selectedStat" class="relative z-10" as="div">
     <ListboxButton class="stats__list-box-button">
       <span class="block truncate">{{ $t(`stats.${selectedStat}`) }}</span>
       <IconComponent icon="chevron" />
@@ -51,17 +51,19 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
       </ListboxOptions>
     </Transition>
   </Listbox>
-  <TagsComponent
-    v-if="selectedStat === 0"
-    :veggies="currentVeggies"
-    :variant="['tag', 'remove']"
-    icon="minus"
-    @click="toggleVeggie"
-  />
-  <WeeklyAmountsChart v-if="selectedStat === 1" />
-  <WeeklyCategoriesChart v-if="selectedStat === 1" />
-  <AllTimeStatus v-if="selectedStat === 2" />
-  <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
+  <div class="stats__charts-container">
+    <TagsComponent
+      v-if="selectedStat === 0"
+      :veggies="currentVeggies"
+      :variant="['tag', 'remove']"
+      icon="minus"
+      @click="toggleVeggie"
+    />
+    <WeeklyAmountsChart v-if="selectedStat === 1" />
+    <WeeklyCategoriesChart v-if="selectedStat === 1" />
+    <AllTimeStatus v-if="selectedStat === 2" />
+    <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
+  </div>
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {
@@ -81,5 +83,9 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
 
 .stats__list-box-option {
   @apply dropdown-list-option;
+}
+
+.stats__charts-container {
+  @apply flex-1 flex flex-col gap-8;
 }
 </style>

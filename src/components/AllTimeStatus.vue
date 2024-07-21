@@ -49,11 +49,10 @@ const atMostVeggies = computed(() =>
 <style lang="scss" scoped>
 .status__container {
   @apply grid grid-cols-2 grid-rows-2 gap-4;
-  @apply uppercase;
+  @apply uppercase text-xs text-center;
 }
 
 .status__item {
   @apply flex flex-col items-center justify-center;
-  @apply text-xs;
 }
 </style>

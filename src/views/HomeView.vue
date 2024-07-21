@@ -18,25 +18,31 @@ const start = () => {
 };
 </script>
 <template>
-  <h1 class="welcome__title">{{ $t('general.appTitle') }}</h1>
-  <p class="sm:text-center">
-    {{ $t('welcome.paragraph') }}
-  </p>
-  <div class="flex-container">
-    <ButtonComponent @click="dialogOpen = true">{{ $t('welcome.info') }}</ButtonComponent>
-    <ButtonComponent @click="start()">{{ $t('general.start') }}</ButtonComponent>
+  <div class="welcome__container">
+    <h1 class="welcome__title">{{ $t('general.appTitle') }}</h1>
+    <p class="sm:text-center">
+      {{ $t('welcome.paragraph') }}
+    </p>
+    <div class="flex-container justify-center">
+      <ButtonComponent @click="dialogOpen = true">{{ $t('welcome.info') }}</ButtonComponent>
+      <ButtonComponent @click="start()">{{ $t('general.start') }}</ButtonComponent>
+    </div>
+    <ModalDialog :open="dialogOpen" :title="$t('welcome.infoTitle')" @close="dialogOpen = false">
+      <template #content>
+        {{ $t('welcome.infoContent') }}
+      </template>
+    </ModalDialog>
   </div>
-  <ModalDialog :open="dialogOpen" :title="$t('welcome.infoTitle')" @close="dialogOpen = false">
-    <template #content>
-      {{ $t('welcome.infoContent') }}
-    </template>
-  </ModalDialog>
 </template>
 <style scoped lang="scss">
+.welcome__container {
+  @apply flex flex-col gap-8 items-center justify-center;
+  @apply h-full;
+}
+
 .welcome__title {
   font-family: 'Bungee Shade', system-ui;
   font-size: 16vw;
-  text-transform: uppercase;
-  @apply sm:text-7xl sm:text-center;
+  @apply sm:text-7xl sm:text-center uppercase;
 }
 </style>

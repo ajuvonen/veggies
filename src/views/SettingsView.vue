@@ -16,7 +16,9 @@ const reset = () => {
 <template>
   <h1>{{ $t('settings.title') }}</h1>
   <LocaleChanger />
-  <ButtonComponent variant="danger" icon="trashCan" @click="reset()">{{
-    $t('general.reset')
-  }}</ButtonComponent>
+  <div class="flex-container justify-center">
+    <ButtonComponent variant="danger" icon="trashCan" @click="reset()">{{
+      $t('general.reset')
+    }}</ButtonComponent>
+  </div>
 </template>
