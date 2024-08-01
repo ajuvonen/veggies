@@ -63,4 +63,14 @@ describe('VeggieSearch', () => {
     expect(listItem.findComponent(IconComponent).exists()).toBe(true);
     expect(notSelected.findComponent(IconComponent).exists()).toBe(false);
   });
+
+  it('shows list on button click', async () => {
+    const wrapper = mount(VeggieSearch, {
+      props: {
+        selected: [],
+      },
+    });
+    await wrapper.find('.veggie-search__button').trigger('click');
+    expect(wrapper.find('.veggie-search__options').isVisible()).toBe(true);
+  });
 });

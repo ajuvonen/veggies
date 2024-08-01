@@ -77,7 +77,7 @@ const getAvailableHeightForOptions = computed(
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
     />
-    <ComboboxButton class="veggie-search__chevron">
+    <ComboboxButton class="veggie-search__button">
       <IconComponent icon="chevron" aria-hidden="true" />
     </ComboboxButton>
     <TransitionRoot
@@ -113,7 +113,7 @@ const getAvailableHeightForOptions = computed(
   @apply text-slate-900 bg-slate-50;
 }
 
-.veggie-search__chevron {
+.veggie-search__button {
   @apply absolute inset-y-0 right-0 mr-4;
   @apply fill-slate-900;
 }
