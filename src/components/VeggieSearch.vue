@@ -114,7 +114,7 @@ const getAvailableHeightForOptions = computed(
 }
 
 .veggie-search__button {
-  @apply absolute inset-y-0 right-0 mr-4;
+  @apply absolute inset-y-3 right-4;
   @apply fill-slate-900;
 }
 
