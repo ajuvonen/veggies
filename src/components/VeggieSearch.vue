@@ -2,7 +2,13 @@
 import {ref, computed, onMounted, watch} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {difference, first} from 'remeda';
-import {Combobox, ComboboxInput, ComboboxOptions, TransitionRoot} from '@headlessui/vue';
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxButton,
+  ComboboxOptions,
+  TransitionRoot,
+} from '@headlessui/vue';
 import {useElementBounding, useWindowSize} from '@vueuse/core';
 import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, GRAINS} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
@@ -71,6 +77,9 @@ const getAvailableHeightForOptions = computed(
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
     />
+    <ComboboxButton class="veggie-search__chevron">
+      <IconComponent icon="chevron" aria-hidden="true" />
+    </ComboboxButton>
     <TransitionRoot
       leave="ease-in duration-100"
       leaveFrom="opacity-100"
@@ -100,8 +109,13 @@ const getAvailableHeightForOptions = computed(
 </template>
 <style lang="scss" scoped>
 .veggie-search__input {
-  @apply w-full h-full py-2 px-4 text-lg rounded-full;
+  @apply w-full h-full py-2 pl-4 pr-8 text-lg rounded-full;
   @apply text-slate-900 bg-slate-50;
+}
+
+.veggie-search__chevron {
+  @apply absolute inset-y-0 right-0 mr-4;
+  @apply fill-slate-900;
 }
 
 .veggie-search__options {
