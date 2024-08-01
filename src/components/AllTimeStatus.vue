@@ -9,12 +9,12 @@ const activitysStore = useActivityStore();
 const {allVeggies, veggiesForWeek} = storeToRefs(activitysStore);
 const {getTotalWeeks, getWeekStarts} = useDateTime();
 
-const over30Veggies = computed(() => {
-  const weeksOver30 = getWeekStarts.value
-    .map((weekStart) => veggiesForWeek.value(weekStart).length > 30)
-    .filter(Boolean);
-  return Math.round((weeksOver30.length / getTotalWeeks.value) * 100);
-});
+const over30Veggies = computed(
+  () =>
+    getWeekStarts.value
+      .map((weekStart) => veggiesForWeek.value(weekStart).length > 30)
+      .filter(Boolean).length,
+);
 
 const uniqueVeggies = computed(() => unique(allVeggies.value).length);
 
@@ -31,7 +31,7 @@ const atMostVeggies = computed(() =>
     </div>
     <div class="status__item">
       <span>{{ $t('stats.grid2.topLabel') }}</span>
-      <span class="text-5xl">{{ over30Veggies }}<span class="text-xs">%</span></span>
+      <span class="text-5xl">{{ over30Veggies }}</span>
       <span>{{ $t('stats.grid2.bottomLabel') }}</span>
     </div>
     <div class="status__item">

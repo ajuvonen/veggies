@@ -225,8 +225,8 @@
       "bottomLabel": "Viikkoa"
     },
     "grid2": {
-      "topLabel": "Viikoista",
-      "bottomLabel": "Yli 30 kasvista"
+      "topLabel": "Yli 30 kasvista",
+      "bottomLabel": "Viikolla"
     },
     "grid3": {
       "topLabel": "Yhteensä",

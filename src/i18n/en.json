@@ -225,8 +225,8 @@
       "bottomLabel": "Weeks"
     },
     "grid2": {
-      "topLabel": "Of Weeks",
-      "bottomLabel": "Over 30 Veggies"
+      "topLabel": "Over 30 Veggies in",
+      "bottomLabel": "Weeks"
     },
     "grid3": {
       "topLabel": "In Total",
