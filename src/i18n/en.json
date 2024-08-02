@@ -25,6 +25,47 @@
     "start": "Start",
     "weekInterval": "Week {0}"
   },
+  "home": {
+    "info": "Learn more",
+    "infoP1": "A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. According to the study, by steadily incorporating a wide range of vegetables into your diet, you can reduce inflammation, improve nutrient absorption, and boost your overall vitality.",
+    "infoP2": "Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app requires no registration and the data is kept in your own device's browser cache.",
+    "infoP3": "Don't miss out on the benefits of a diverse diet. Transform your health today with the help of Eat Your Veggies and experience the difference that plant diversity can make.",
+    "infoTitle": "What is this about?",
+    "callout": "Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app."
+  },
+  "locales": {
+    "en": "English",
+    "fi": "Suomi"
+  },
+  "settings": {
+    "locale": "Language",
+    "title": "Settings"
+  },
+  "stats": {
+    "0": "This week's veggies",
+    "1": "Last five weeks",
+    "2": "All time",
+    "allTimeCategories": "Comparison By Categories",
+    "grid1": {
+      "topLabel": "In Total",
+      "bottomLabel": "Weeks"
+    },
+    "grid2": {
+      "topLabel": "Over 30 Veggies in",
+      "bottomLabel": "Weeks"
+    },
+    "grid3": {
+      "topLabel": "In Total",
+      "bottomLabel": "Unique Veggies"
+    },
+    "grid4": {
+      "topLabel": "At most",
+      "bottomLabel": "Veggies in a Week"
+    },
+    "week": "Wk {0}",
+    "weeklyAmounts": "Weekly Amounts",
+    "weeklyCategories": "Weekly Categories"
+  },
   "veggies": {
     "adzuki bean": "adzuki bean",
     "almond": "almond",
@@ -207,39 +248,6 @@
     "yellow beet": "yellow beet",
     "zucchini": "zucchini"
   },
-  "locales": {
-    "en": "English",
-    "fi": "Suomi"
-  },
-  "settings": {
-    "locale": "Language",
-    "title": "Settings"
-  },
-  "stats": {
-    "0": "This week's veggies",
-    "1": "Last five weeks",
-    "2": "All time",
-    "allTimeCategories": "Comparison By Categories",
-    "grid1": {
-      "topLabel": "In Total",
-      "bottomLabel": "Weeks"
-    },
-    "grid2": {
-      "topLabel": "Over 30 Veggies in",
-      "bottomLabel": "Weeks"
-    },
-    "grid3": {
-      "topLabel": "In Total",
-      "bottomLabel": "Unique Veggies"
-    },
-    "grid4": {
-      "topLabel": "At most",
-      "bottomLabel": "Veggies in a Week"
-    },
-    "week": "Wk {0}",
-    "weeklyAmounts": "Weekly Amounts",
-    "weeklyCategories": "Weekly Categories"
-  },
   "veggieSearch": {
     "noResults": "No Results",
     "search": "Search For Veggies"
@@ -249,11 +257,5 @@
     "log": "Track Progress",
     "settings": "Settings",
     "stats": "Statistics"
-  },
-  "welcome": {
-    "infoTitle": "What is this about?",
-    "infoContent": "Eat veggies, be happy",
-    "info": "Learn more",
-    "paragraph": "Adopt a healthy lifestyle by eating 30 fruits and vegetables each week. Track your progress easily with this free app."
   }
 }
