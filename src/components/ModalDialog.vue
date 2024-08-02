@@ -50,13 +50,17 @@ defineProps<{
 }
 
 .modal-dialog {
-  @apply w-full max-w-xl overflow-hidden rounded-md p-4 shadow-xl;
+  @apply w-full max-w-xl max-h-full overflow-hidden rounded-md p-4 shadow-xl;
   @apply flex flex-col gap-4;
   @apply bg-slate-50;
 }
 
 .modal-dialog__title {
   @apply text-lg leading-6;
+}
+
+.modal-dialog__content {
+  overflow-y: scroll;
 }
 
 .modal-dialog__title,
