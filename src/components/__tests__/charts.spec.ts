@@ -121,4 +121,31 @@ describe('charts', () => {
     expect(datasets).toHaveLength(1);
     expect(datasets[0].data).toEqual([0, 0, 2, 2, 4]);
   });
+
+  // TODO: Not working due to Remeda bug
+  it('shows all data when there are less than 5 weeks', () => {
+    activityStore.settings.startDate = twoWeeksAgo;
+    activityStore.weeks.push(
+      {
+        startDate: twoWeeksAgo,
+        veggies: [],
+      },
+      {
+        startDate: lastWeek,
+        veggies: [],
+      },
+      {
+        startDate: thisWeek,
+        veggies: [],
+      },
+    );
+
+    const wrapper = mount(WeeklyCategoriesChart, {
+      shallow: true,
+    });
+
+    const {labels, datasets} = wrapper.vm.chartData;
+    expect(labels).toEqual(['Wk 1', 'Wk 2', 'Wk 3']);
+    expect(datasets).toHaveLength(3);
+  });
 });
