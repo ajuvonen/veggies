@@ -14,6 +14,7 @@ const availableLocales = computed(() =>
 </script>
 <template>
   <div class="locale-changer__container">
+    <IconComponent icon="earth" />
     <ButtonComponent
       v-for="availableLocale in availableLocales"
       :key="availableLocale"

@@ -6,6 +6,7 @@ import {
   mdiCheckCircleOutline,
   mdiChevronDown,
   mdiCogOutline,
+  mdiEarth,
   mdiFruitPear,
   mdiFruitWatermelon,
   mdiMinus,
@@ -22,6 +23,7 @@ export type IconString =
   | 'chevron'
   | 'cog'
   | 'downArrow'
+  | 'earth'
   | 'minus'
   | 'pear'
   | 'plus'
@@ -47,6 +49,7 @@ const icons = {
   chevron: mdiChevronDown,
   cog: mdiCogOutline,
   downArrow: mdiArrowDown,
+  earth: mdiEarth,
   minus: mdiMinus,
   pear: mdiFruitPear,
   plus: mdiPlus,
