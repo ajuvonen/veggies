@@ -1,5 +1,7 @@
 import {Category, type Locale} from './types';
 
+export const LOCALES: Locale[] = ['en', 'fi'];
+
 export const DATE_FORMATS: Record<Locale, string> = {
   en: 'MM/dd/yyyy',
   fi: 'dd.MM.yyyy',
