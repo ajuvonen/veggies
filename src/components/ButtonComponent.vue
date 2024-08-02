@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {computed} from 'vue';
-import {type IconString} from '@/components/IconComponent.vue';
+import type {IconString} from '@/components/IconComponent.vue';
 
-export type ButtonVariant = 'primary' | 'danger' | 'tag' | 'remove';
+export type ButtonVariant = 'primary' | 'danger' | 'tag' | 'remove' | 'text';
 
 defineEmits(['click']);
 const props = withDefaults(
@@ -33,12 +33,7 @@ const getVariants = computed(() => {
 .button {
   letter-spacing: 1px;
   @apply button-like;
-  @apply bg-sky-400;
   @apply flex-container items-center;
-
-  &:hover {
-    @apply bg-sky-500;
-  }
 }
 
 .button--primary,
@@ -48,6 +43,15 @@ const getVariants = computed(() => {
   &:hover,
   &:focus {
     @apply bg-sky-600;
+  }
+}
+
+.button--text {
+  @apply bg-transparent;
+  @apply p-0;
+
+  &:hover {
+    @apply underline;
   }
 }
 
