@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useElementHover, useTimeout} from '@vueuse/core';
-import {ref, watch} from 'vue';
+import {ref, watchEffect} from 'vue';
 
 defineProps<{
   text: string;
@@ -18,8 +18,8 @@ const {start, stop} = useTimeout(4000, {
 
 const isHovered = useElementHover(toastMessage);
 
-watch(isHovered, (newValue) => {
-  if (newValue) {
+watchEffect(() => {
+  if (isHovered.value) {
     stop();
   } else {
     start();

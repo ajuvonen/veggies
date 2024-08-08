@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {watch} from 'vue';
+import {watchEffect} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {RouterView, useRoute} from 'vue-router';
@@ -13,20 +13,13 @@ const route = useRoute();
 
 const {settings, allVeggies} = storeToRefs(useActivityStore());
 
-watch(
-  () => settings.value.locale,
-  (newLocale) => {
-    locale.value = newLocale;
-  },
-  {immediate: true},
-);
+watchEffect(() => {
+  locale.value = settings.value.locale;
+});
 
-watch(
-  () => [locale.value, route.name],
-  ([, newName]) => {
-    document.title = t('general.appTitleAppend', [t(`views.${newName?.toString()}`)]);
-  },
-);
+watchEffect(() => {
+  document.title = t('general.appTitleAppend', [t(`views.${route.name?.toString()}`)]);
+});
 </script>
 
 <template>
