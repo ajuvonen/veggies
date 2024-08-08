@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {
-  mdiArrowDown,
+  mdiApple,
   mdiCarrot,
   mdiChartBar,
   mdiCheckCircleOutline,
@@ -17,12 +17,12 @@ import {
 } from '@mdi/js';
 
 export type IconString =
+  | 'apple'
   | 'carrot'
   | 'chart'
   | 'check'
   | 'chevron'
   | 'cog'
-  | 'downArrow'
   | 'earth'
   | 'minus'
   | 'pear'
@@ -43,12 +43,12 @@ withDefaults(
 );
 
 const icons = {
+  apple: mdiApple,
   carrot: mdiCarrot,
   chart: mdiChartBar,
   check: mdiCheckCircleOutline,
   chevron: mdiChevronDown,
   cog: mdiCogOutline,
-  downArrow: mdiArrowDown,
   earth: mdiEarth,
   minus: mdiMinus,
   pear: mdiFruitPear,
