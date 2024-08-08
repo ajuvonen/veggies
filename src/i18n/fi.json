@@ -66,6 +66,9 @@
     "weeklyAmounts": "Lukumäärät viikoittain",
     "weeklyCategories": "Ryhmät viikoittain"
   },
+  "toasts": {
+    "firstVeggie": "Ensimmäinen kasvis lisätty! Hienoa!"
+  },
   "veggies": {
     "adzuki bean": "adsukipapu",
     "almond": "manteli",

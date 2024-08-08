@@ -66,6 +66,9 @@
     "weeklyAmounts": "Weekly Amounts",
     "weeklyCategories": "Weekly Categories"
   },
+  "toasts": {
+    "firstVeggie": "First veggie added! Good job!"
+  },
   "veggies": {
     "adzuki bean": "adzuki bean",
     "almond": "almond",
