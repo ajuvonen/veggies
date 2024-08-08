@@ -18,7 +18,9 @@ watchEffect(() => {
 });
 
 watchEffect(() => {
-  document.title = t('general.appTitleAppend', [t(`views.${route.name?.toString()}`)]);
+  if (route.name) {
+    document.title = t('general.appTitleAppend', [t(`views.${route.name.toString()}`)]);
+  }
 });
 </script>
 
