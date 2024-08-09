@@ -46,6 +46,7 @@
     "1": "Last five weeks",
     "2": "All time",
     "allTimeCategories": "Comparison By Categories",
+    "chosenStats": "Chosen Statistics",
     "grid1": {
       "topLabel": "In Total",
       "bottomLabel": "Weeks"

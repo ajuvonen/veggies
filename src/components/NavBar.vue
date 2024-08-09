@@ -10,10 +10,21 @@ defineProps<{
       $t('general.appTitle')
     }}</RouterLink>
     <div class="flex-container">
-      <RouterLink v-if="showStats" class="nav__link" to="/stats" :aria-label="$t('views.stats')">
+      <RouterLink
+        v-if="showStats"
+        class="nav__link"
+        to="/stats"
+        :title="$t('views.stats')"
+        :aria-label="$t('views.stats')"
+      >
         <IconComponent icon="chart" size="6vw" class="nav__link-icon" />
       </RouterLink>
-      <RouterLink class="nav__link" to="/settings" :aria-label="$t('views.settings')">
+      <RouterLink
+        class="nav__link"
+        to="/settings"
+        :title="$t('views.settings')"
+        :aria-label="$t('views.settings')"
+      >
         <IconComponent icon="cog" size="6vw" class="nav__link-icon" />
       </RouterLink>
     </div>
@@ -26,7 +37,7 @@ defineProps<{
 }
 
 .nav__link {
-  @apply rounded-full;
+  @apply rounded-md;
   &:hover {
     @apply text-slate-200 fill-slate-200;
   }

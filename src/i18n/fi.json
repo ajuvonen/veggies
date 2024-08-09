@@ -46,6 +46,7 @@
     "1": "Viimeiset viisi viikkoa",
     "2": "Kokonaistilastot",
     "allTimeCategories": "Vertailu ryhmittäin",
+    "chosenStats": "Valitut tilastot",
     "grid1": {
       "topLabel": "Yhteensä",
       "bottomLabel": "Viikkoa"

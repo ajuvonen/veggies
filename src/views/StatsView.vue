@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
-import {Listbox, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/vue';
+import {Listbox, ListboxLabel, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
@@ -27,7 +27,8 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
 };
 </script>
 <template>
-  <Listbox v-model="selectedStat" class="relative z-10" as="div">
+  <Listbox v-model="selectedStat" class="relative z-10 uppercase" as="div">
+    <ListboxLabel class="text-xs">{{ $t('stats.chosenStats') }}</ListboxLabel>
     <ListboxButton class="stats__list-box-button">
       <span class="block truncate">{{ $t(`stats.${selectedStat}`) }}</span>
       <IconComponent icon="chevron" />

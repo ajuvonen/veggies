@@ -14,7 +14,6 @@ const reset = () => {
 </script>
 
 <template>
-  <h1>{{ $t('settings.title') }}</h1>
   <LocaleChanger />
   <div class="flex-container justify-center">
     <ButtonComponent variant="danger" icon="trashCan" @click="reset()">{{
