@@ -3,7 +3,6 @@ import {storeToRefs} from 'pinia';
 import useScreen from '@/hooks/screen';
 import {useAppStateStore} from '@/stores/appStateStore';
 import ToastMessage from '@/components/ToastMessage.vue';
-import {TransitionGroup} from 'vue';
 
 const {isSmallScreen} = useScreen();
 
