@@ -16,7 +16,7 @@ const {removeToastMessage} = appStateStore;
     :class="{'toast-container--mobile': isSmallScreen}"
     aria-live="polite"
   >
-    <TransitionGroup name="list">
+    <TransitionGroup name="toasts">
       <ToastMessage
         v-for="message in messages"
         :key="message.id"
@@ -37,19 +37,19 @@ const {removeToastMessage} = appStateStore;
   @apply left-0 m-0 w-full;
 }
 
-.list-move,
-.list-enter-active,
-.list-leave-active {
+.toasts-move,
+.toasts-enter-active,
+.toasts-leave-active {
   transition: all 0.5s ease;
 }
 
-.list-enter-from,
-.list-leave-to {
+.toasts-enter-from,
+.toasts-leave-to {
   opacity: 0;
   transform: translateY(-60px);
 }
 
-.list-leave-active {
+.toasts-leave-active {
   @apply absolute;
 }
 </style>
