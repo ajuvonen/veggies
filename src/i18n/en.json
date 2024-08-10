@@ -18,6 +18,7 @@
   "general": {
     "appTitle": "Eat Your Veggies",
     "appTitleAppend": "Eat Your Veggies - {0}",
+    "cancel": "Cancel",
     "clickToAdd": "Add {0}",
     "clickToRemove": "Remove {0}",
     "close": "Close",
@@ -39,6 +40,8 @@
   },
   "settings": {
     "locale": "Language",
+    "resetDialogText": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
+    "resetDialogTitle": "Are you sure you want to reset?",
     "title": "Settings"
   },
   "stats": {

@@ -18,6 +18,7 @@
   "general": {
     "appTitle": "Eat Your Veggies",
     "appTitleAppend": "Eat Your Veggies - {0}",
+    "cancel": "Peruuta",
     "clickToAdd": "Lisää {0}",
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
@@ -39,6 +40,8 @@
   },
   "settings": {
     "locale": "Kieli",
+    "resetDialogText": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
+    "resetDialogTitle": "Haluatko tyhjentää sovelluksen?",
     "title": "Asetukset"
   },
   "stats": {
