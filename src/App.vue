@@ -27,7 +27,7 @@ watchEffect(() => {
 <template>
   <div class="app__container">
     <ToastContainer />
-    <NavBar v-if="settings.startDate" :showStats="!!allVeggies.length" />
+    <NavBar v-if="route.name !== 'home'" :showStats="!!allVeggies.length" />
     <RouterView />
   </div>
 </template>
