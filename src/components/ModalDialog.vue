@@ -18,7 +18,7 @@ defineProps<{
     leave-from="opacity-100"
     leave-to="opacity-0"
   >
-    <Dialog @close="$emit('close')" class="relative z-10">
+    <Dialog static class="relative z-10" @close="$emit('close')">
       <!-- The backdrop, rendered as a fixed sibling to the panel container -->
       <div class="modal-dialog__backdrop" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
