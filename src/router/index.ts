@@ -10,8 +10,8 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       beforeEnter: () => {
-        const {settings} = useActivityStore();
-        if (settings.startDate) {
+        const {startDate} = useActivityStore();
+        if (startDate) {
           return {name: 'log', replace: true};
         }
       },
@@ -35,8 +35,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  const {settings} = useActivityStore();
-  if (to.name !== 'home' && !settings.startDate) {
+  const {startDate} = useActivityStore();
+  if (to.name !== 'home' && !startDate) {
     return {name: 'home', replace: true};
   }
 });

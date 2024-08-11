@@ -3,9 +3,9 @@ import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {storeToRefs} from 'pinia';
 import {LOCALES} from '@/utils/constants';
-import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 
-const {settings} = storeToRefs(useActivityStore());
+const {settings} = storeToRefs(useAppStateStore());
 const {locale} = useI18n();
 
 const availableLocales = computed(() =>

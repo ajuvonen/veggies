@@ -1,13 +1,13 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import HomeLocaleChanger from '@/components/HomeLocaleChanger.vue';
 
 describe('HomeLocaleChanger', () => {
-  let activityStore: ReturnType<typeof useActivityStore>;
+  let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
-    activityStore = useActivityStore();
+    appStateStore = useAppStateStore();
   });
 
   it('renders', () => {
@@ -24,8 +24,8 @@ describe('HomeLocaleChanger', () => {
 
   it('changes language', async () => {
     const wrapper = mount(HomeLocaleChanger);
-    expect(activityStore.settings.locale).toBe('en');
+    expect(appStateStore.settings.locale).toBe('en');
     await wrapper.findByText('button', 'fi').trigger('click');
-    expect(activityStore.settings.locale).toBe('fi');
+    expect(appStateStore.settings.locale).toBe('fi');
   });
 });

@@ -51,7 +51,7 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyCategoriesChart', () => {
-    activityStore.settings.startDate = fiveWeeksAgo;
+    activityStore.startDate = fiveWeeksAgo;
     activityStore.weeks.push(
       {
         startDate: fiveWeeksAgo,
@@ -92,7 +92,7 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyAmountsChart', () => {
-    activityStore.settings.startDate = fiveWeeksAgo;
+    activityStore.startDate = fiveWeeksAgo;
     activityStore.weeks.push(
       {
         startDate: fiveWeeksAgo,
@@ -123,7 +123,7 @@ describe('charts', () => {
   });
 
   it('shows all data when there are less than 5 weeks', () => {
-    activityStore.settings.startDate = twoWeeksAgo;
+    activityStore.startDate = twoWeeksAgo;
     activityStore.weeks.push(
       {
         startDate: twoWeeksAgo,

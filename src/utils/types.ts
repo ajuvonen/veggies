@@ -18,7 +18,6 @@ export type Week = {
 
 export type Settings = {
   locale: Locale;
-  startDate: DateTime | null;
 };
 
 export type Listing = {

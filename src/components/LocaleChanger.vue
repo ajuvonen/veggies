@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {storeToRefs} from 'pinia';
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
-import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 
-const {settings} = storeToRefs(useActivityStore());
+const {settings} = storeToRefs(useAppStateStore());
 </script>
 <template>
   <RadioGroup v-model="settings.locale" class="text-sm uppercase">

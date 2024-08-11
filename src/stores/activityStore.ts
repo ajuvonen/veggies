@@ -3,37 +3,33 @@ import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take} from 'remeda';
-import type {Settings, Week} from '@/utils/types';
-
-const localStorageOptions = {
-  mergeDefaults: true,
-  serializer: {
-    read: (v: any) =>
-      v
-        ? JSON.parse(v, (key, value) => {
-            if (['startDate'].includes(key) && value) {
-              return DateTime.fromISO(value);
-            }
-            return value;
-          })
-        : null,
-    write: (v: any) => JSON.stringify(v),
-  },
-};
+import type {Week} from '@/utils/types';
 
 export const useActivityStore = defineStore('activity', () => {
   // State refs
-  const settings = useStorage<Settings>(
-    'veggies-settings',
-    {
-      locale: 'en',
-      startDate: null,
+  const startDate = useStorage<DateTime | null>('veggies-start-date', null, localStorage, {
+    mergeDefaults: true,
+    serializer: {
+      read: (v: any) => (v ? DateTime.fromISO(JSON.parse(v)) : null),
+      write: (v: any) => JSON.stringify(v),
     },
-    localStorage,
-    localStorageOptions,
-  );
+  });
 
-  const weeks = useStorage<Week[]>('veggies-weeks', [], localStorage, localStorageOptions);
+  const weeks = useStorage<Week[]>('veggies-weeks', [], localStorage, {
+    mergeDefaults: true,
+    serializer: {
+      read: (v: any) =>
+        v
+          ? JSON.parse(v, (key, value) => {
+              if (key === 'startDate' && value) {
+                return DateTime.fromISO(value);
+              }
+              return value;
+            })
+          : null,
+      write: (v: any) => JSON.stringify(v),
+    },
+  });
 
   // Computed getters
 
@@ -75,15 +71,12 @@ export const useActivityStore = defineStore('activity', () => {
   };
 
   const $reset = () => {
-    settings.value = {
-      locale: 'en',
-      startDate: null,
-    };
+    startDate.value = null;
     weeks.value = [];
   };
 
   return {
-    settings,
+    startDate,
     weeks,
     currentVeggies,
     allVeggies,

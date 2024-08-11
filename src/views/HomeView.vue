@@ -9,12 +9,12 @@ import HomeLocaleChanger from '@/components/HomeLocaleChanger.vue';
 
 const router = useRouter();
 
-const {settings} = storeToRefs(useActivityStore());
+const {startDate} = storeToRefs(useActivityStore());
 
 const dialogOpen = ref(false);
 
 const start = () => {
-  settings.value.startDate = DateTime.now().startOf('week');
+  startDate.value = DateTime.now().startOf('week');
   router.replace({name: 'log'});
 };
 </script>

@@ -7,20 +7,18 @@ import {DATE_FORMATS} from '@/utils/constants';
 import type {Locale} from '@/utils/types';
 
 export default function useDateTime() {
-  const {settings} = storeToRefs(useActivityStore());
+  const {startDate} = storeToRefs(useActivityStore());
   const {locale} = useI18n();
 
-  const getWeekStart = computed(() => (weekIndex: number) => {
-    const startDate = settings.value.startDate
-      ? settings.value.startDate
-      : DateTime.now().startOf('week');
-    return startDate.plus({
-      weeks: weekIndex,
-    });
-  });
+  const getWeekStart = computed(
+    () => (weekIndex: number) =>
+      startDate.value!.plus({
+        weeks: weekIndex,
+      }),
+  );
 
   const getTotalWeeks = computed(() =>
-    Math.ceil(DateTime.now().diff(settings.value.startDate!, 'week').weeks),
+    Math.ceil(DateTime.now().diff(startDate.value!, 'week').weeks),
   );
 
   const getWeekStarts = computed(() =>

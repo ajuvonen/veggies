@@ -48,7 +48,7 @@ describe('activityStore', () => {
   });
 
   it('returns all veggies', () => {
-    activityStore.settings.startDate = lastWeek;
+    activityStore.startDate = lastWeek;
     activityStore.weeks.push(
       {
         startDate: lastWeek,
@@ -65,7 +65,7 @@ describe('activityStore', () => {
   });
 
   it("returns this week's veggies", () => {
-    activityStore.settings.startDate = lastWeek;
+    activityStore.startDate = lastWeek;
     activityStore.weeks.push(
       {
         startDate: lastWeek,
@@ -80,7 +80,7 @@ describe('activityStore', () => {
   });
 
   it("returns specific week's veggies", () => {
-    activityStore.settings.startDate = lastWeek;
+    activityStore.startDate = lastWeek;
     activityStore.weeks.push(
       {
         veggies: ['apple'],
@@ -98,7 +98,7 @@ describe('activityStore', () => {
   });
 
   it('returns favorites', () => {
-    activityStore.settings.startDate = threeWeeksAgo;
+    activityStore.startDate = threeWeeksAgo;
     activityStore.weeks.push(
       {
         startDate: threeWeeksAgo,
@@ -118,7 +118,7 @@ describe('activityStore', () => {
   });
 
   it('excludes this week from favorites', () => {
-    activityStore.settings.startDate = twoWeeksAgo;
+    activityStore.startDate = twoWeeksAgo;
     activityStore.weeks.push(
       {
         veggies: ['wheat', 'apple'],
@@ -138,7 +138,7 @@ describe('activityStore', () => {
   });
 
   it('returns only ten favorites', () => {
-    activityStore.settings.startDate = lastWeek;
+    activityStore.startDate = lastWeek;
     activityStore.weeks.push({
       veggies: [
         'wheat',

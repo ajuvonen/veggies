@@ -1,13 +1,13 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
 
 describe('LocaleChanger', () => {
-  let activityStore: ReturnType<typeof useActivityStore>;
+  let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
-    activityStore = useActivityStore();
+    appStateStore = useAppStateStore();
   });
 
   it('renders', () => {
@@ -25,8 +25,8 @@ describe('LocaleChanger', () => {
 
   it('changes language', async () => {
     const wrapper = mount(LocaleChanger);
-    expect(activityStore.settings.locale).toBe('en');
+    expect(appStateStore.settings.locale).toBe('en');
     await wrapper.findAll('.locale-changer__option')[1].trigger('click');
-    expect(activityStore.settings.locale).toBe('fi');
+    expect(appStateStore.settings.locale).toBe('fi');
   });
 });

@@ -26,7 +26,7 @@ ChartJS.register(ChartDataLabels);
 
 const {t} = useI18n();
 
-const {veggiesForWeek, settings} = storeToRefs(useActivityStore());
+const {veggiesForWeek, startDate} = storeToRefs(useActivityStore());
 
 const {getWeekStarts} = useDateTime();
 
@@ -45,7 +45,7 @@ const chartData = computed(() => {
 
   return {
     labels: weekRange.map((weekStart) =>
-      t('stats.week', [weekStart.diff(settings.value.startDate!, 'weeks').weeks + 1]),
+      t('stats.week', [weekStart.diff(startDate.value!, 'weeks').weeks + 1]),
     ),
     datasets: datasets.filter(({data}) => data.some((value) => value)),
   };

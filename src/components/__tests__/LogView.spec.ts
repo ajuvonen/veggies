@@ -19,7 +19,7 @@ describe('LogView', () => {
   });
 
   it('renders with data', () => {
-    activityStore.settings.startDate = lastWeek;
+    activityStore.startDate = lastWeek;
     activityStore.weeks.push(
       {
         veggies: ['wheat'],

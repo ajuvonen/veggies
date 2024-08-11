@@ -4,6 +4,7 @@ import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {RouterView, useRoute} from 'vue-router';
 import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import NavBar from '@/components/NavBar.vue';
 import ToastContainer from '@/components/ToastContainer.vue';
 
@@ -11,7 +12,8 @@ const {t, locale} = useI18n();
 
 const route = useRoute();
 
-const {settings, allVeggies} = storeToRefs(useActivityStore());
+const {allVeggies} = storeToRefs(useActivityStore());
+const {settings} = storeToRefs(useAppStateStore());
 
 watchEffect(() => {
   locale.value = settings.value.locale;

@@ -1,5 +1,7 @@
 import {ref} from 'vue';
 import {defineStore} from 'pinia';
+import {useStorage} from '@vueuse/core';
+import type {Settings} from '@/utils/types';
 
 type Message = {
   id: string;
@@ -7,6 +9,18 @@ type Message = {
 };
 
 export const useAppStateStore = defineStore('appState', () => {
+  // State refs
+  const settings = useStorage<Settings>(
+    'veggies-settings',
+    {
+      locale: 'en',
+    },
+    localStorage,
+    {
+      mergeDefaults: true,
+    },
+  );
+
   const messages = ref<Message[]>([]);
 
   const addToastMessage = (text: string) => {
@@ -22,10 +36,14 @@ export const useAppStateStore = defineStore('appState', () => {
 
   const $reset = () => {
     messages.value = [];
+    settings.value = {
+      locale: 'en',
+    };
   };
 
   return {
     messages,
+    settings,
     addToastMessage,
     removeToastMessage,
     $reset,
