@@ -29,7 +29,7 @@ const start = () => {
       <ButtonComponent @click="dialogOpen = true">{{ $t('home.info') }}</ButtonComponent>
       <ButtonComponent @click="start()">{{ $t('general.start') }}</ButtonComponent>
     </div>
-    <ModalDialog :open="dialogOpen" :title="$t('home.infoTitle')" @close="dialogOpen = false">
+    <ModalDialog v-model="dialogOpen" :title="$t('home.infoTitle')">
       <template #content>
         <p>{{ $t('home.infoP1') }}</p>
         <p>{{ $t('home.infoP2') }}</p>

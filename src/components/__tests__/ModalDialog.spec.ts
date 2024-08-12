@@ -22,7 +22,7 @@ describe('ModalDialog', () => {
     const wrapper = mount(ModalDialog, {
       props: {
         title: 'Test dialog',
-        open: false,
+        modelValue: false,
       },
     });
     expect(wrapper).toBeTruthy();
@@ -33,7 +33,7 @@ describe('ModalDialog', () => {
     const wrapper = mounter({
       props: {
         title: 'Test dialog',
-        open: true,
+        modelValue: true,
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('ModalDialog', () => {
     const wrapper = mounter({
       props: {
         title: 'Test dialog',
-        open: true,
+        modelValue: true,
       },
       slots: {
         content: '<p>Test content</p>',
@@ -59,10 +59,10 @@ describe('ModalDialog', () => {
     const wrapper = mounter({
       props: {
         title: 'Test dialog',
-        open: true,
+        modelValue: true,
       },
     });
     await wrapper.findByText('button', 'Close').trigger('click');
-    expect(wrapper.emitted('close')).toEqual([[]]);
+    expect(wrapper.emitted('update:modelValue')).toEqual([[false]]);
   });
 });

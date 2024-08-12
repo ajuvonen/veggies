@@ -31,11 +31,7 @@ const reset = () => {
       >{{ $t('general.reset') }}</ButtonComponent
     >
   </div>
-  <ModalDialog
-    :open="resetDialogOpen"
-    :title="$t('settings.resetDialogTitle')"
-    @close="resetDialogOpen = false"
-  >
+  <ModalDialog v-model="resetDialogOpen" :title="$t('settings.resetDialogTitle')">
     <template #content>
       <p>{{ $t('settings.resetDialogText') }}</p>
     </template>

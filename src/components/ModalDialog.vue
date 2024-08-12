@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import {Dialog, DialogPanel, DialogTitle, TransitionRoot} from '@headlessui/vue';
 
-defineEmits(['close']);
+const model = defineModel<boolean>({required: true});
 defineProps<{
-  open: boolean;
   title: string;
 }>();
 </script>
 <template>
   <TransitionRoot
-    :show="open"
+    :show="model"
     as="template"
     enter="duration-200 ease-out"
     enter-from="opacity-0"
@@ -18,7 +17,7 @@ defineProps<{
     leave-from="opacity-100"
     leave-to="opacity-0"
   >
-    <Dialog static class="relative z-10" @close="$emit('close')">
+    <Dialog static class="relative z-10" @close="model = false">
       <!-- The backdrop, rendered as a fixed sibling to the panel container -->
       <div class="modal-dialog__backdrop" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
@@ -30,7 +29,7 @@ defineProps<{
           </div>
           <div class="modal-dialog__buttons outline-override">
             <slot name="buttons">
-              <ButtonComponent @click="$emit('close')">{{ $t('general.close') }}</ButtonComponent>
+              <ButtonComponent @click="model = false">{{ $t('general.close') }}</ButtonComponent>
             </slot>
           </div>
         </DialogPanel>
