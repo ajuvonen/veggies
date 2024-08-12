@@ -33,7 +33,7 @@ describe('VeggieSearch', () => {
       },
     });
     const input = wrapper.find('.veggie-search__input');
-    await input.setValue('ban');
+    await input.setValue('bar');
     expect(wrapper.findAll('.veggie-search__option').length).toBe(2);
     expect(wrapper.findAll('.veggie-search__group').length).toBe(2);
   });

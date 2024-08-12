@@ -169,7 +169,6 @@ export const BEANS = [
   'edamame',
   'fava bean',
   'flageolet bean',
-  'garbanzo bean',
   'green bean',
   'kidney bean',
   'lentil',
