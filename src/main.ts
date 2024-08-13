@@ -5,7 +5,7 @@ import router from '@/router';
 import i18n from '@/i18n';
 
 import '@fontsource/bungee-shade';
-import '@fontsource-variable/nunito';
+import '@fontsource/nunito';
 import '@/assets/main.scss';
 
 import IconComponent from '@/components/IconComponent.vue';

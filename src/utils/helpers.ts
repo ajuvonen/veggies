@@ -57,7 +57,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
         color: COLORS.offWhite,
         text: title,
         font: {
-          family: 'Nunito Variable, sans-serif',
+          family: 'Nunito, sans-serif',
           size: 18,
           weight: 'normal',
           style: 'normal',
