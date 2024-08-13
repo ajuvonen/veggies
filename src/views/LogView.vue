@@ -19,9 +19,14 @@ const {addToastMessage} = useAppStateStore();
 
 watch(
   [currentVeggies, () => allVeggies.value.length],
-  ([newCurrentVeggies, newTotalVeggies], [oldCurrentVeggies, oldTotalVeggies]) => {
+  ([newCurrentVeggies, newTotalVeggies], [, oldTotalVeggies]) => {
+    const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
     if (!oldTotalVeggies) {
-      addToastMessage(t('toasts.firstVeggie'));
+      addToastMessage(t('toasts.firstVeggie', [cheer]));
+    } else if (newTotalVeggies % 100 === 0) {
+      addToastMessage(t('toasts.hundreds', [newTotalVeggies, cheer]));
+    } else if (newCurrentVeggies.length === 30) {
+      addToastMessage(t('toasts.thirtyVeggies', [cheer]));
     }
   },
 );
