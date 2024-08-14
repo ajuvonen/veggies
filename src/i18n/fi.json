@@ -85,7 +85,8 @@
   "toasts": {
     "firstVeggie": "Ensimmäinen kasvis lisätty! {0}!",
     "hundreds": "Olet kirjannut yhteensä jo {0} kasvista! {1}!",
-    "thirtyVeggies": "Olet kirjannut 30 kasvista tällä viikolla! {0}!"
+    "thirtyVeggies": "Olet kirjannut 30 kasvista tällä viikolla! {0}!",
+    "uniqueVeggies": "Olet kokeillut {0} / {1} kasviksesta tässä sovelluksessa! {2}!"
   },
   "veggies": {
     "adzuki bean": "adsukipapu",

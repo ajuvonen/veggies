@@ -85,7 +85,8 @@
   "toasts": {
     "firstVeggie": "First veggie added! {0}!",
     "hundreds": "You reached a total of {0} veggies! {1}!",
-    "thirtyVeggies": "You reached 30 veggies this week! {0}!"
+    "thirtyVeggies": "You reached 30 veggies this week! {0}!",
+    "uniqueVeggies": "You have sampled {0} out of {1} vegetables on this app! {2}!"
   },
   "veggies": {
     "adzuki bean": "adzuki bean",

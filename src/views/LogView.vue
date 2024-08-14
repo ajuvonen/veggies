@@ -2,7 +2,9 @@
 import {watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
+import {unique} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
+import {ALL_VEGGIES} from '@/utils/constants';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import CategoryStatus from '@/components/CategoryStatus.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
@@ -17,19 +19,22 @@ const {toggleVeggie} = activityStore;
 
 const {addToastMessage} = useAppStateStore();
 
-watch(
-  [currentVeggies, () => allVeggies.value.length],
-  ([newCurrentVeggies, newTotalVeggies], [, oldTotalVeggies]) => {
-    const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
-    if (!oldTotalVeggies) {
-      addToastMessage(t('toasts.firstVeggie', [cheer]));
-    } else if (newTotalVeggies % 100 === 0) {
-      addToastMessage(t('toasts.hundreds', [newTotalVeggies, cheer]));
-    } else if (newCurrentVeggies.length === 30) {
-      addToastMessage(t('toasts.thirtyVeggies', [cheer]));
-    }
-  },
-);
+const fivePercentChance = () => Math.random() <= 0.05;
+
+watch([currentVeggies, allVeggies], ([newCurrentVeggies, newAllVeggies], [, oldAllVeggies]) => {
+  const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
+  if (!oldAllVeggies.length) {
+    addToastMessage(t('toasts.firstVeggie', [cheer]));
+  } else if (newAllVeggies.length % 100 === 0) {
+    addToastMessage(t('toasts.hundreds', [newAllVeggies.length, cheer]));
+  } else if (newCurrentVeggies.length === 30) {
+    addToastMessage(t('toasts.thirtyVeggies', [cheer]));
+  } else if (fivePercentChance()) {
+    addToastMessage(
+      t('toasts.uniqueVeggies', [unique(newAllVeggies).length, ALL_VEGGIES.length, cheer]),
+    );
+  }
+});
 </script>
 <template>
   <CategoryStatus class="log-view__chart" v-if="currentVeggies.length" :veggies="currentVeggies" />
