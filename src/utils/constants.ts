@@ -236,3 +236,5 @@ export const GRAINS = [
   'wheat',
   'wild rice',
 ];
+
+export const ALL_VEGGIES = [...FRUITS, ...VEGETABLES, ...LEAFIES, ...ROOTS, ...BEANS, ...GRAINS];

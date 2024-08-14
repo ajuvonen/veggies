@@ -10,7 +10,7 @@ import {
   TransitionRoot,
 } from '@headlessui/vue';
 import {useElementBounding, useWindowSize} from '@vueuse/core';
-import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, GRAINS} from '@/utils/constants';
+import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import {getCategoryForVeggie} from '@/utils/helpers';
@@ -36,13 +36,11 @@ onMounted(() => {
 
 const allVeggies = computed(() => {
   const collator = new Intl.Collator(locale.value);
-  return [...FRUITS, ...VEGETABLES, ...LEAFIES, ...ROOTS, ...BEANS, ...GRAINS]
-    .map<TranslatedListing>((veggie) => ({
-      veggie,
-      category: getCategoryForVeggie(veggie),
-      translation: t(`veggies.${veggie}`),
-    }))
-    .sort((a, b) => collator.compare(a.translation, b.translation));
+  return ALL_VEGGIES.map<TranslatedListing>((veggie) => ({
+    veggie,
+    category: getCategoryForVeggie(veggie),
+    translation: t(`veggies.${veggie}`),
+  })).sort((a, b) => collator.compare(a.translation, b.translation));
 });
 
 const filteredveggies = computed(
