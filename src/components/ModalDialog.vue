@@ -24,7 +24,7 @@ defineProps<{
       <div class="modal-dialog__container">
         <DialogPanel class="modal-dialog">
           <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
-          <div class="modal-dialog__content">
+          <div class="modal-dialog__content has-scroll">
             <slot name="content"></slot>
           </div>
           <div class="modal-dialog__buttons outline-override">
@@ -61,6 +61,7 @@ defineProps<{
 .modal-dialog__content {
   @apply overflow-y-scroll;
   @apply flex flex-col gap-4;
+  scrollbar-color: initial;
 }
 
 .modal-dialog__title,

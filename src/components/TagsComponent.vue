@@ -29,7 +29,7 @@ const translatedVeggies = computed(() => {
 });
 </script>
 <template>
-  <TransitionGroup name="list" tag="ul" class="tags__container">
+  <TransitionGroup name="list" tag="ul" class="tags__container has-scroll">
     <li v-for="{veggie, translation} in translatedVeggies" :key="veggie" class="tags__tag">
       <ButtonComponent :variant="variant" @click="$emit('click', veggie)">
         <IconComponent :icon="icon" />
@@ -40,7 +40,7 @@ const translatedVeggies = computed(() => {
 </template>
 <style lang="scss" scoped>
 .tags__container {
-  @apply relative;
+  @apply relative overflow-y-auto;
   @apply flex-container flex-wrap justify-center;
 }
 

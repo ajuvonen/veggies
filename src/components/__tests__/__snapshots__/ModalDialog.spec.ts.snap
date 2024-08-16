@@ -7,7 +7,7 @@ exports[`ModalDialog > shows dialog 1`] = `
   <div data-v-0f2dec55="" class="modal-dialog__container">
     <div data-v-0f2dec55="" class="modal-dialog">
       <dialog-title-stub data-v-0f2dec55="" as="h2" class="modal-dialog__title"></dialog-title-stub>
-      <div data-v-0f2dec55="" class="modal-dialog__content"></div>
+      <div data-v-0f2dec55="" class="modal-dialog__content has-scroll"></div>
       <div data-v-0f2dec55="" class="modal-dialog__buttons outline-override"><button data-v-24e38f3d="" data-v-0f2dec55="" class="button button--primary">
           <!--v-if-->Close
         </button></div>
