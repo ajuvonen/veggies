@@ -28,6 +28,11 @@
   }
 }
 
+html {
+  scrollbar-width: none;
+  scrollbar-color: #fafafa transparent;
+}
+
 body {
   font-family: 'Nunito', sans-serif;
   @apply text-slate-50 fill-slate-50;
@@ -39,4 +44,8 @@ body {
 
 :not(.outline-override) > :focus {
   @apply outline-slate-50;
+}
+
+.has-scroll {
+  scrollbar-width: thin;
 }
