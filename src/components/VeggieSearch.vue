@@ -85,9 +85,10 @@ const getAvailableHeightForOptions = computed(
       @after-leave="query = ''"
     >
       <ComboboxOptions
-        class="veggie-search__options"
         ref="optionsElement"
         :style="getAvailableHeightForOptions"
+        style="scrollbar-color: initial"
+        class="veggie-search__options has-scroll"
       >
         <div
           v-if="filteredveggies().length === 0 && query !== ''"
