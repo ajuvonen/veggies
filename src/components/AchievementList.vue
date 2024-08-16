@@ -77,7 +77,7 @@ const {achievements} = storeToRefs(useActivityStore());
       <div class="achievement-list__badge-container">
         <AchievementBadge
           :active="achievements.includes('experimenterFruit')"
-          :text="$t('achievements.experimenterFruitText', [15])"
+          :text="$t('achievements.experimenterFruitText')"
           :title="$t('achievements.experimenterFruitAria', [15])"
           :aria-label="$t('achievements.experimenterFruitAria', [15])"
           :emoji="CATEGORY_EMOJI.fruit"
@@ -86,7 +86,7 @@ const {achievements} = storeToRefs(useActivityStore());
         />
         <AchievementBadge
           :active="achievements.includes('experimenterVegetable')"
-          :text="$t('achievements.experimenterVegetableText', [15])"
+          :text="$t('achievements.experimenterVegetableText')"
           :title="$t('achievements.experimenterVegetableAria', [15])"
           :aria-label="$t('achievements.experimenterVegetableAria', [15])"
           :emoji="CATEGORY_EMOJI.vegetable"
@@ -95,7 +95,7 @@ const {achievements} = storeToRefs(useActivityStore());
         />
         <AchievementBadge
           :active="achievements.includes('experimenterLeafy')"
-          :text="$t('achievements.experimenterLeafyText', [15])"
+          :text="$t('achievements.experimenterLeafyText')"
           :title="$t('achievements.experimenterLeafyAria', [15])"
           :aria-label="$t('achievements.experimenterLeafyAria', [15])"
           :emoji="CATEGORY_EMOJI.leafy"
@@ -104,7 +104,7 @@ const {achievements} = storeToRefs(useActivityStore());
         />
         <AchievementBadge
           :active="achievements.includes('experimenterBean')"
-          :text="$t('achievements.experimenterBeanText', [15])"
+          :text="$t('achievements.experimenterBeanText')"
           :title="$t('achievements.experimenterBeanAria', [15])"
           :aria-label="$t('achievements.experimenterBeanAria', [15])"
           :emoji="CATEGORY_EMOJI.bean"
@@ -113,7 +113,7 @@ const {achievements} = storeToRefs(useActivityStore());
         />
         <AchievementBadge
           :active="achievements.includes('experimenterGrain')"
-          :text="$t('achievements.experimenterGrainText', [15])"
+          :text="$t('achievements.experimenterGrainText')"
           :title="$t('achievements.experimenterGrainAria', [15])"
           :aria-label="$t('achievements.experimenterGrainAria', [15])"
           :emoji="CATEGORY_EMOJI.grain"
@@ -126,11 +126,13 @@ const {achievements} = storeToRefs(useActivityStore());
 </template>
 <style lang="scss" scoped>
 .achievement-list {
-  @apply flex flex-col gap-8 overflow-y-auto;
+  @apply h-full overflow-hidden overflow-y-scroll;
+  @apply flex flex-col gap-8;
 }
 
 .achievement-list__badge-container {
-  @apply flex-container justify-center flex-wrap;
+  @apply px-2;
+  @apply flex-container justify-evenly flex-wrap;
 }
 
 .achievement-list__label {

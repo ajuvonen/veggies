@@ -19,6 +19,8 @@ defineProps<{
 .badge {
   @apply relative select-none;
   @apply flex items-center justify-center;
+  flex: 0 0 31%;
+  aspect-ratio: 1 / 1;
 
   &[aria-disabled='true'] {
     opacity: 0.5;
@@ -26,18 +28,20 @@ defineProps<{
 }
 
 .badge__background {
-  @apply h-24 w-24 sm:h-40 sm:w-40 relative rounded-full border-4;
+  @apply relative w-full h-full rounded-full border-4;
   box-shadow:
     inset 0 0 15px rgba(0, 0, 0, 0.3),
     0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .badge__emoji {
-  @apply absolute text-[3.5rem] sm:text-[6.5rem];
+  @apply absolute text-[18cqmin];
+  text-shadow: 1px 1px 1px #334155;
+  mix-blend-mode: luminosity;
 }
 
 .badge__text {
-  @apply absolute bottom-2 sm:bottom-4 w-[6.20rem] sm:w-40 rounded-md text-center text-xs uppercase left-1/2 -translate-x-1/2 shadow-md;
+  @apply absolute bottom-[3cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase shadow-md;
   @apply bg-slate-700;
 }
 
@@ -67,7 +71,6 @@ defineProps<{
 
 .badge__background::before {
   content: '';
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dotted border-inherit;
-  @apply w-[88px] h-[88px] sm:w-[152px] sm:h-[152px];
+  @apply absolute w-full h-full rounded-full border-2 border-dotted border-inherit;
 }
 </style>

@@ -87,7 +87,6 @@ const getAvailableHeightForOptions = computed(
       <ComboboxOptions
         ref="optionsElement"
         :style="getAvailableHeightForOptions"
-        style="scrollbar-color: initial"
         class="veggie-search__options has-scroll"
       >
         <div
@@ -119,6 +118,7 @@ const getAvailableHeightForOptions = computed(
 
 .veggie-search__options {
   @apply dropdown-list-container;
+  scrollbar-color: initial;
 }
 
 .veggie-search__no-results {
