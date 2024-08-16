@@ -2,7 +2,7 @@ import {computed} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take} from 'remeda';
+import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take, unique} from 'remeda';
 import type {Week} from '@/utils/types';
 
 export const useActivityStore = defineStore('activity', () => {
@@ -13,6 +13,10 @@ export const useActivityStore = defineStore('activity', () => {
       read: (v: any) => (v ? DateTime.fromISO(JSON.parse(v)) : null),
       write: (v: any) => JSON.stringify(v),
     },
+  });
+
+  const achievements = useStorage<string[]>('veggies-achievements', [], localStorage, {
+    mergeDefaults: true,
   });
 
   const weeks = useStorage<Week[]>('veggies-weeks', [], localStorage, {
@@ -34,6 +38,8 @@ export const useActivityStore = defineStore('activity', () => {
   // Computed getters
 
   const allVeggies = computed(() => weeks.value.flatMap(prop('veggies')));
+
+  const uniqueVeggies = computed(() => unique(allVeggies.value));
 
   const veggiesForWeek = computed(
     () => (weekStart: DateTime) =>
@@ -77,9 +83,11 @@ export const useActivityStore = defineStore('activity', () => {
 
   return {
     startDate,
+    achievements,
     weeks,
     currentVeggies,
     allVeggies,
+    uniqueVeggies,
     veggiesForWeek,
     favorites,
     toggleVeggie,

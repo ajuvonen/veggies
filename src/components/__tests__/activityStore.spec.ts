@@ -158,4 +158,20 @@ describe('activityStore', () => {
 
     expect(activityStore.favorites).toHaveLength(10);
   });
+
+  it('returns unique veggies', () => {
+    activityStore.startDate = lastWeek;
+    activityStore.weeks.push(
+      {
+        veggies: ['tomato', 'apple', 'banana'],
+        startDate: lastWeek,
+      },
+      {
+        veggies: ['apple', 'tomato', 'cherry'],
+        startDate: thisWeek,
+      },
+    );
+
+    expect(activityStore.uniqueVeggies).toEqual(['tomato', 'apple', 'banana', 'cherry']);
+  });
 });

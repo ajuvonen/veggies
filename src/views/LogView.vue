@@ -2,7 +2,6 @@
 import {watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
-import {unique} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {ALL_VEGGIES} from '@/utils/constants';
 import VeggieSearch from '@/components/VeggieSearch.vue';
@@ -14,24 +13,24 @@ import {useAppStateStore} from '@/stores/appStateStore';
 const {t} = useI18n();
 
 const activityStore = useActivityStore();
-const {favorites, currentVeggies, allVeggies} = storeToRefs(activityStore);
+const {favorites, currentVeggies, allVeggies, uniqueVeggies} = storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 
 const {addToastMessage} = useAppStateStore();
 
 const fivePercentChance = () => Math.random() <= 0.05;
 
-watch([currentVeggies, allVeggies], ([newCurrentVeggies, newAllVeggies], [, oldAllVeggies]) => {
+watch(allVeggies, (newAllVeggies, oldAllVeggies) => {
   const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
   if (!oldAllVeggies.length) {
     addToastMessage(t('toasts.firstVeggie', [cheer]));
   } else if (newAllVeggies.length % 100 === 0) {
     addToastMessage(t('toasts.hundreds', [newAllVeggies.length, cheer]));
-  } else if (newCurrentVeggies.length === 30) {
+  } else if (currentVeggies.value.length === 30) {
     addToastMessage(t('toasts.thirtyVeggies', [cheer]));
   } else if (fivePercentChance()) {
     addToastMessage(
-      t('toasts.uniqueVeggies', [unique(newAllVeggies).length, ALL_VEGGIES.length, cheer]),
+      t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, cheer]),
     );
   }
 });
