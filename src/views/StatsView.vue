@@ -8,6 +8,7 @@ import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
 import CategoryStatus from '@/components/CategoryStatus.vue';
+import AchievementList from '@/components/AchievementList.vue';
 
 const activityStore = useActivityStore();
 const {currentVeggies, allVeggies} = storeToRefs(activityStore);
@@ -41,7 +42,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
       <ListboxOptions class="stats__list-box-options">
         <ListboxOption
           v-slot="{active, selected}"
-          v-for="item in [0, 1, 2]"
+          v-for="item in [0, 1, 2, 3]"
           :key="item"
           :value="item"
         >
@@ -63,6 +64,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
   <WeeklyCategoriesChart v-if="selectedStat === 1" />
   <AllTimeStatus v-if="selectedStat === 2" />
   <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
+  <AchievementList v-if="selectedStat === 3" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {

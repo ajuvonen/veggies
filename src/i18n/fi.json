@@ -1,4 +1,23 @@
 {
+  "achievements": {
+    "completionist": "The Completionist",
+    "completionistText": "{0} Veggies",
+    "completionistAria": "{0} Unique Veggies",
+    "experimenter": "The Experimenter",
+    "experimenterFruitText": "{0} Fruits",
+    "experimenterFruitAria": "{0} Unique Fruits",
+    "experimenterVegetableText": "{0} Vegetables",
+    "experimenterVegetableAria": "{0} Unique Vegetables",
+    "experimenterLeafyText": "{0} Greens",
+    "experimenterLeafyAria": "{0} Unique Leafy Greens",
+    "experimenterBeanText": "{0} Beans",
+    "experimenterBeanAria": "{0} Unique Beans",
+    "experimenterGrainText": "{0} Grains",
+    "experimenterGrainAria": "{0} Unique Grains, Nuts and Seeds",
+    "hotStreak": "Hot Streak",
+    "hotStreakText": "{0} Weeks",
+    "hotStreakAria": "{0} Week Streak of Over 30 Veggies"
+  },
   "categories": {
     "bean": "Herneet ja palkokasvit",
     "fruit": "Hedelmät ja marjat",
@@ -60,6 +79,7 @@
     "0": "Tämän viikon kasvikset",
     "1": "Viimeiset viisi viikkoa",
     "2": "Kokonaistilastot",
+    "3": "Saavutukset",
     "allTimeCategories": "Vertailu ryhmittäin",
     "chosenStats": "Valitut tilastot",
     "grid1": {
