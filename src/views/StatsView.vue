@@ -29,11 +29,13 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
 </script>
 <template>
   <Listbox v-model="selectedStat" class="relative z-10 uppercase" as="div">
-    <ListboxLabel class="text-xs">{{ $t('stats.chosenStats') }}</ListboxLabel>
-    <ListboxButton class="stats__list-box-button">
-      <span class="block truncate">{{ $t(`stats.${selectedStat}`) }}</span>
-      <IconComponent icon="chevron" />
-    </ListboxButton>
+    <div class="flex-container flex-col">
+      <ListboxLabel class="text-xs">{{ $t('stats.chosenStats') }}</ListboxLabel>
+      <ListboxButton class="stats__list-box-button">
+        <span class="truncate">{{ $t(`stats.${selectedStat}`) }}</span>
+        <IconComponent icon="chevron" />
+      </ListboxButton>
+    </div>
     <Transition
       leave-active-class="transition duration-100 ease-in"
       leave-from-class="opacity-100"
@@ -71,10 +73,10 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
   letter-spacing: 1px;
   @apply flex items-center justify-between;
   @apply w-full button-like;
-  @apply bg-sky-400;
+  @apply bg-sky-500;
 
   &:hover {
-    @apply bg-sky-500;
+    @apply bg-sky-600;
   }
 }
 

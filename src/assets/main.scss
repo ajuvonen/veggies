@@ -17,7 +17,7 @@
   }
 
   .dropdown-list-option {
-    @apply block truncate h-12 button-like rounded-none;
+    @apply truncate h-12 button-like rounded-none;
     @apply flex items-center justify-between;
   }
 
@@ -25,6 +25,11 @@
     flex: 1;
     @apply relative max-h-[50%];
     @apply flex flex-col justify-start items-center;
+  }
+
+  .has-scroll {
+    @apply overflow-hidden overflow-y-auto;
+    scrollbar-width: thin;
   }
 }
 
@@ -44,8 +49,4 @@ body {
 
 :not(.outline-override) > :focus {
   @apply outline-slate-50;
-}
-
-.has-scroll {
-  scrollbar-width: thin;
 }

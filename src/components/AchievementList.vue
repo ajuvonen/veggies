@@ -7,7 +7,7 @@ import {CATEGORY_EMOJI} from '@/utils/constants';
 const {achievements} = storeToRefs(useActivityStore());
 </script>
 <template>
-  <div class="achievement-list has-scroll">
+  <div class="achievement-list">
     <div>
       <p class="achievement-list__label">{{ $t('achievements.completionist') }}</p>
       <div class="achievement-list__badge-container">
@@ -126,7 +126,7 @@ const {achievements} = storeToRefs(useActivityStore());
 </template>
 <style lang="scss" scoped>
 .achievement-list {
-  @apply h-full overflow-hidden overflow-y-scroll;
+  @apply h-full has-scroll;
   @apply flex flex-col gap-8;
 }
 

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AchievementList > renders 1`] = `
-"<div data-v-1c120264="" class="achievement-list has-scroll">
+"<div data-v-1c120264="" class="achievement-list">
   <div data-v-1c120264="">
     <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
