@@ -27,19 +27,18 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="app__container">
-    <ToastContainer />
-    <NavBar v-if="route.name !== 'home'" :showStats="!!allVeggies.length" />
+  <ToastContainer />
+  <NavBar v-if="route.name !== 'home'" :showStats="!!allVeggies.length" />
+  <main>
     <RouterView />
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
-.app__container {
-  @apply h-screen p-4 overflow-hidden relative;
-  @apply flex flex-col items-center gap-8;
-  @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80%;
-  > *:not(nav, .toast-container) {
+main {
+  @apply h-full min-h-0;
+  @apply flex flex-col items-center gap-6;
+  > * {
     @apply w-full max-w-xl;
   }
 }

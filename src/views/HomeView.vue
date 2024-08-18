@@ -40,7 +40,7 @@ const start = () => {
 </template>
 <style scoped lang="scss">
 .home__container {
-  @apply flex flex-col gap-8 items-center justify-center;
+  @apply flex flex-col gap-6 items-center justify-center;
   @apply h-full;
 }
 

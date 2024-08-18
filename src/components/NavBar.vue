@@ -37,7 +37,7 @@ defineProps<{
 }
 
 .nav__link {
-  @apply rounded-md;
+  @apply rounded-md leading-[1.2];
   @apply fill-slate-50;
   &:hover {
     @apply text-slate-200 fill-slate-200;
