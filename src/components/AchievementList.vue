@@ -126,8 +126,8 @@ const {achievements} = storeToRefs(useActivityStore());
 </template>
 <style lang="scss" scoped>
 .achievement-list {
-  @apply h-full has-scroll;
-  @apply flex flex-col gap-8;
+  @apply has-scroll;
+  @apply flex flex-col gap-6;
 }
 
 .achievement-list__badge-container {

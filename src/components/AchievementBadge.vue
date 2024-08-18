@@ -17,10 +17,9 @@ defineProps<{
 </template>
 <style lang="scss" scoped>
 .badge {
-  @apply relative select-none;
+  @apply relative select-none aspect-square;
   @apply flex items-center justify-center;
-  flex: 0 0 31%;
-  aspect-ratio: 1 / 1;
+  flex: 0 0 calc(33% - 5px);
 
   &[aria-disabled='true'] {
     opacity: 0.5;
@@ -35,7 +34,7 @@ defineProps<{
 }
 
 .badge__emoji {
-  @apply absolute text-[18cqmin];
+  @apply absolute text-[17cqmin] sm:text-[15cqmin] leading-[1.3];
   text-shadow: 1px 1px 1px #334155;
   mix-blend-mode: luminosity;
 }
