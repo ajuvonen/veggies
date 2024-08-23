@@ -3,6 +3,7 @@ import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 import {CATEGORY_EMOJI} from '@/utils/constants';
+import {AchievementLevel} from '@/utils/types';
 
 const {achievements} = storeToRefs(useActivityStore());
 </script>
@@ -12,7 +13,7 @@ const {achievements} = storeToRefs(useActivityStore());
       <p class="achievement-list__label">{{ $t('achievements.completionist') }}</p>
       <div class="achievement-list__badge-container">
         <AchievementBadge
-          :active="achievements.includes('completionistBronze')"
+          :active="achievements.completionist >= AchievementLevel.Bronze"
           :text="$t('achievements.completionistText', [40])"
           :title="$t('achievements.completionistAria', [40])"
           :aria-label="$t('achievements.completionistAria', [40])"
@@ -21,7 +22,7 @@ const {achievements} = storeToRefs(useActivityStore());
           emoji="🐣"
         />
         <AchievementBadge
-          :active="achievements.includes('completionistSilver')"
+          :active="achievements.completionist >= AchievementLevel.Silver"
           :text="$t('achievements.completionistText', [80])"
           :title="$t('achievements.completionistAria', [80])"
           :aria-label="$t('achievements.completionistAria', [80])"
@@ -30,7 +31,7 @@ const {achievements} = storeToRefs(useActivityStore());
           emoji="🐥"
         />
         <AchievementBadge
-          :active="achievements.includes('completionistGold')"
+          :active="achievements.completionist >= AchievementLevel.Gold"
           :text="$t('achievements.completionistText', [150])"
           :title="$t('achievements.completionistAria', [150])"
           :aria-label="$t('achievements.completionistAria', [150])"
@@ -44,7 +45,7 @@ const {achievements} = storeToRefs(useActivityStore());
       <p class="achievement-list__label">{{ $t('achievements.hotStreak') }}</p>
       <div class="achievement-list__badge-container">
         <AchievementBadge
-          :active="achievements.includes('hotStreakBronze')"
+          :active="achievements.hotStreak >= AchievementLevel.Bronze"
           :text="$t('achievements.hotStreakText', [5])"
           :title="$t('achievements.hotStreakAria', [5])"
           :aria-label="$t('achievements.hotStreakAria', [5])"
@@ -53,7 +54,7 @@ const {achievements} = storeToRefs(useActivityStore());
           emoji="🌶️"
         />
         <AchievementBadge
-          :active="achievements.includes('hotStreakSilver')"
+          :active="achievements.hotStreak >= AchievementLevel.Silver"
           :text="$t('achievements.hotStreakText', [10])"
           :title="$t('achievements.hotStreakAria', [10])"
           :aria-label="$t('achievements.hotStreakAria', [10])"
@@ -62,7 +63,7 @@ const {achievements} = storeToRefs(useActivityStore());
           emoji="🔥"
         />
         <AchievementBadge
-          :active="achievements.includes('hotStreakGold')"
+          :active="achievements.hotStreak >= AchievementLevel.Gold"
           :text="$t('achievements.hotStreakText', [20])"
           :title="$t('achievements.hotStreakAria', [20])"
           :aria-label="$t('achievements.hotStreakAria', [20])"
@@ -76,7 +77,7 @@ const {achievements} = storeToRefs(useActivityStore());
       <p class="achievement-list__label">{{ $t('achievements.experimenter') }}</p>
       <div class="achievement-list__badge-container">
         <AchievementBadge
-          :active="achievements.includes('experimenterFruit')"
+          :active="achievements.experimenterFruit === AchievementLevel.Gold"
           :text="$t('achievements.experimenterFruitText')"
           :title="$t('achievements.experimenterFruitAria', [15])"
           :aria-label="$t('achievements.experimenterFruitAria', [15])"
@@ -85,7 +86,7 @@ const {achievements} = storeToRefs(useActivityStore());
           color="gold"
         />
         <AchievementBadge
-          :active="achievements.includes('experimenterVegetable')"
+          :active="achievements.experimenterVegetable === AchievementLevel.Gold"
           :text="$t('achievements.experimenterVegetableText')"
           :title="$t('achievements.experimenterVegetableAria', [15])"
           :aria-label="$t('achievements.experimenterVegetableAria', [15])"
@@ -94,7 +95,7 @@ const {achievements} = storeToRefs(useActivityStore());
           color="gold"
         />
         <AchievementBadge
-          :active="achievements.includes('experimenterLeafy')"
+          :active="achievements.experimenterLeafy === AchievementLevel.Gold"
           :text="$t('achievements.experimenterLeafyText')"
           :title="$t('achievements.experimenterLeafyAria', [15])"
           :aria-label="$t('achievements.experimenterLeafyAria', [15])"
@@ -103,7 +104,7 @@ const {achievements} = storeToRefs(useActivityStore());
           color="gold"
         />
         <AchievementBadge
-          :active="achievements.includes('experimenterBean')"
+          :active="achievements.experimenterBean === AchievementLevel.Gold"
           :text="$t('achievements.experimenterBeanText')"
           :title="$t('achievements.experimenterBeanAria', [15])"
           :aria-label="$t('achievements.experimenterBeanAria', [15])"
@@ -112,7 +113,7 @@ const {achievements} = storeToRefs(useActivityStore());
           color="gold"
         />
         <AchievementBadge
-          :active="achievements.includes('experimenterGrain')"
+          :active="achievements.experimenterGrain === AchievementLevel.Gold"
           :text="$t('achievements.experimenterGrainText')"
           :title="$t('achievements.experimenterGrainAria', [15])"
           :aria-label="$t('achievements.experimenterGrainAria', [15])"

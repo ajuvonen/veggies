@@ -28,3 +28,20 @@ export type Listing = {
 export type TranslatedListing = Listing & {
   translation: string;
 };
+
+export enum AchievementLevel {
+  NoAchievement,
+  Bronze,
+  Silver,
+  Gold,
+}
+
+export type Achievements = {
+  completionist: AchievementLevel;
+  hotStreak: AchievementLevel;
+  experimenterFruit: AchievementLevel;
+  experimenterVegetable: AchievementLevel;
+  experimenterLeafy: AchievementLevel;
+  experimenterBean: AchievementLevel;
+  experimenterGrain: AchievementLevel;
+};

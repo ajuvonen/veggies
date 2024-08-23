@@ -3,7 +3,7 @@ import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take, unique} from 'remeda';
-import type {Week} from '@/utils/types';
+import {AchievementLevel, type Achievements, type Week} from '@/utils/types';
 
 export const useActivityStore = defineStore('activity', () => {
   // State refs
@@ -15,9 +15,22 @@ export const useActivityStore = defineStore('activity', () => {
     },
   });
 
-  const achievements = useStorage<string[]>('veggies-achievements', [], localStorage, {
-    mergeDefaults: true,
-  });
+  const achievements = useStorage<Achievements>(
+    'veggies-achievements',
+    {
+      completionist: AchievementLevel.NoAchievement,
+      hotStreak: AchievementLevel.NoAchievement,
+      experimenterFruit: AchievementLevel.NoAchievement,
+      experimenterVegetable: AchievementLevel.NoAchievement,
+      experimenterLeafy: AchievementLevel.NoAchievement,
+      experimenterBean: AchievementLevel.NoAchievement,
+      experimenterGrain: AchievementLevel.NoAchievement,
+    },
+    localStorage,
+    {
+      mergeDefaults: true,
+    },
+  );
 
   const weeks = useStorage<Week[]>('veggies-weeks', [], localStorage, {
     mergeDefaults: true,
@@ -79,6 +92,15 @@ export const useActivityStore = defineStore('activity', () => {
   const $reset = () => {
     startDate.value = null;
     weeks.value = [];
+    achievements.value = {
+      completionist: AchievementLevel.NoAchievement,
+      hotStreak: AchievementLevel.NoAchievement,
+      experimenterFruit: AchievementLevel.NoAchievement,
+      experimenterVegetable: AchievementLevel.NoAchievement,
+      experimenterLeafy: AchievementLevel.NoAchievement,
+      experimenterBean: AchievementLevel.NoAchievement,
+      experimenterGrain: AchievementLevel.NoAchievement,
+    };
   };
 
   return {
