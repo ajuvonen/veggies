@@ -1,7 +1,9 @@
-import {ref} from 'vue';
-import {defineStore} from 'pinia';
+import {ref, watchEffect} from 'vue';
+import {defineStore, storeToRefs} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import type {Settings} from '@/utils/types';
+import {useAchievements} from '@/hooks/achievements';
+import {useActivityStore} from '@/stores/activityStore';
 
 type Message = {
   id: string;
@@ -9,6 +11,13 @@ type Message = {
 };
 
 export const useAppStateStore = defineStore('appState', () => {
+  const {advance, achievements, reset} = useAchievements();
+  const {uniqueVeggies} = storeToRefs(useActivityStore());
+
+  watchEffect(() => {
+    advance(uniqueVeggies.value, 0);
+  });
+
   // State refs
   const settings = useStorage<Settings>(
     'veggies-settings',
@@ -39,11 +48,13 @@ export const useAppStateStore = defineStore('appState', () => {
     settings.value = {
       locale: 'en',
     };
+    reset();
   };
 
   return {
     messages,
     settings,
+    achievements,
     addToastMessage,
     removeToastMessage,
     $reset,

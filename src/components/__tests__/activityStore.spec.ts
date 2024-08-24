@@ -2,7 +2,7 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {createPinia, setActivePinia} from 'pinia';
-import {AchievementLevel, type Week} from '@/utils/types';
+import type {Week} from '@/utils/types';
 
 describe('activityStore', () => {
   const thisWeek = DateTime.now().startOf('week');
@@ -181,18 +181,9 @@ describe('activityStore', () => {
       startDate: thisWeek,
       veggies: ['cucumber', 'tomato'],
     });
-    activityStore.achievements.completionist = AchievementLevel.Gold;
+
     activityStore.$reset();
     expect(activityStore.startDate).toBe(null);
     expect(activityStore.weeks).toHaveLength(0);
-    expect(activityStore.achievements).toEqual({
-      completionist: AchievementLevel.NoAchievement,
-      hotStreak: AchievementLevel.NoAchievement,
-      experimenterFruit: AchievementLevel.NoAchievement,
-      experimenterVegetable: AchievementLevel.NoAchievement,
-      experimenterLeafy: AchievementLevel.NoAchievement,
-      experimenterBean: AchievementLevel.NoAchievement,
-      experimenterGrain: AchievementLevel.NoAchievement,
-    });
   });
 });

@@ -5,7 +5,6 @@ import {useI18n} from 'vue-i18n';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {ALL_VEGGIES} from '@/utils/constants';
-import {useAchievements} from '@/hooks/achievements';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import CategoryStatus from '@/components/CategoryStatus.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
@@ -14,20 +13,12 @@ import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 const {t} = useI18n();
 
 const activityStore = useActivityStore();
-const {favorites, currentVeggies, allVeggies, uniqueVeggies, achievements} =
-  storeToRefs(activityStore);
+const {favorites, currentVeggies, allVeggies, uniqueVeggies} = storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 
 const {addToastMessage} = useAppStateStore();
 
-const {advance, achievementStatus} = useAchievements(achievements.value);
-
-watch(achievementStatus, (newStatus) => {
-  achievements.value = newStatus;
-});
-
 watch(allVeggies, (newAllVeggies, oldAllVeggies) => {
-  advance(uniqueVeggies.value, 0);
   const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
   if (!oldAllVeggies.length) {
     addToastMessage(t('toasts.firstVeggie', [cheer]));

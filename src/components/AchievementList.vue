@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import {storeToRefs} from 'pinia';
-import {useActivityStore} from '@/stores/activityStore';
-import AchievementBadge from '@/components/AchievementBadge.vue';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {AchievementLevel} from '@/utils/types';
+import {useAppStateStore} from '@/stores/appStateStore';
+import AchievementBadge from '@/components/AchievementBadge.vue';
 
-const {achievements} = storeToRefs(useActivityStore());
+const {achievements} = storeToRefs(useAppStateStore());
 </script>
 <template>
   <div class="achievement-list">

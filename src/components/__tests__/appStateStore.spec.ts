@@ -25,4 +25,12 @@ describe('appStateStore', () => {
     expect(appStateStore.messages).toHaveLength(1);
     expect(appStateStore.messages[0].text).toBe('world');
   });
+
+  it('resets the store', () => {
+    appStateStore.settings.locale = 'fi';
+    appStateStore.addToastMessage('hello');
+    appStateStore.$reset();
+    expect(appStateStore.settings.locale).toBe('en');
+    expect(appStateStore.messages).toHaveLength(0);
+  });
 });

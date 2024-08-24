@@ -1,8 +1,10 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import AchievementList from '@/components/AchievementList.vue';
+import {take} from 'remeda';
+import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
-import {AchievementLevel} from '@/utils/types';
+import {BEANS, FRUITS, GRAINS, LEAFIES, VEGETABLES} from '@/utils/constants';
+import AchievementList from '@/components/AchievementList.vue';
 
 describe('AchievementList', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
@@ -18,16 +20,21 @@ describe('AchievementList', () => {
   });
 
   it('renders with badges enabled', () => {
-    activityStore.achievements = {
-      completionist: AchievementLevel.Gold,
-      hotStreak: AchievementLevel.Gold,
-      experimenterFruit: AchievementLevel.Gold,
-      experimenterVegetable: AchievementLevel.Gold,
-      experimenterLeafy: AchievementLevel.Gold,
-      experimenterBean: AchievementLevel.Gold,
-      experimenterGrain: AchievementLevel.Gold,
-    };
+    const thisWeek = DateTime.now().startOf('week');
+    activityStore.startDate = thisWeek;
+    activityStore.weeks.push({
+      startDate: thisWeek,
+      veggies: [
+        ...take(FRUITS, 15),
+        ...take(VEGETABLES, 15),
+        ...take(LEAFIES, 15),
+        ...take(BEANS, 15),
+        ...take(GRAINS, 15),
+      ],
+    });
+
     const wrapper = mount(AchievementList);
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(0);
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(5);
   });
 });

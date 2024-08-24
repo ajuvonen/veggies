@@ -1,179 +1,244 @@
-import {computed} from 'vue';
+import {ref} from 'vue';
 import {intersection, mapValues} from 'remeda';
-import {useMachine} from '@xstate/vue';
-import {setup} from 'xstate';
+import {createActor, setup, type MachineContext} from 'xstate';
+import type {GuardArgs} from 'xstate/guards';
 import {BEANS, FRUITS, GRAINS, LEAFIES, VEGETABLES} from '@/utils/constants';
 import {AchievementLevel, type Achievements} from '@/utils/types';
 
-export function useAchievements(achievements: Achievements) {
-  const achievementMachine = setup({
-    types: {
-      events: {} as {
-        type: 'ADVANCE';
-        uniqueVeggies: string[];
-        hotStreakLength: number;
-      },
-    },
-  }).createMachine({
-    id: 'achievementMachine',
-    type: 'parallel',
-    states: {
-      completionist: {
-        initial: achievements.completionist.toString(),
-        states: {
-          [AchievementLevel.NoAchievement.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Bronze.toString(),
-                guard: ({event}) => event.uniqueVeggies.length >= 40,
-              },
-            },
-          },
-          [AchievementLevel.Bronze.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Silver.toString(),
-                guard: ({event}) => event.uniqueVeggies.length >= 80,
-              },
-            },
-          },
-          [AchievementLevel.Silver.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Gold.toString(),
-                guard: ({event}) => event.uniqueVeggies.length >= 150,
-              },
-            },
-          },
-          [AchievementLevel.Gold.toString()]: {
-            type: 'final',
-          },
-        },
-      },
-      hotStreak: {
-        initial: achievements.hotStreak.toString(),
-        states: {
-          [AchievementLevel.NoAchievement.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Bronze.toString(),
-                guard: ({event}) => event.hotStreakLength >= 5,
-              },
-            },
-          },
-          [AchievementLevel.Bronze.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Silver.toString(),
-                guard: ({event}) => event.hotStreakLength >= 10,
-              },
-            },
-          },
-          [AchievementLevel.Silver.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Gold.toString(),
-                guard: ({event}) => event.hotStreakLength >= 20,
-              },
-            },
-          },
-          [AchievementLevel.Gold.toString()]: {
-            type: 'final',
-          },
-        },
-      },
-      experimenterFruit: {
-        initial: achievements.experimenterFruit.toString(),
-        states: {
-          [AchievementLevel.NoAchievement.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Gold.toString(),
-                guard: ({event}) => intersection(event.uniqueVeggies, FRUITS).length >= 15,
-              },
-            },
-          },
-          [AchievementLevel.Gold.toString()]: {
-            type: 'final',
-          },
-        },
-      },
-      experimenterVegetable: {
-        initial: achievements.experimenterVegetable.toString(),
-        states: {
-          [AchievementLevel.NoAchievement.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Gold.toString(),
-                guard: ({event}) => intersection(event.uniqueVeggies, VEGETABLES).length >= 15,
-              },
-            },
-          },
-          [AchievementLevel.Gold.toString()]: {
-            type: 'final',
-          },
-        },
-      },
-      experimenterLeafy: {
-        initial: achievements.experimenterLeafy.toString(),
-        states: {
-          [AchievementLevel.NoAchievement.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Gold.toString(),
-                guard: ({event}) => intersection(event.uniqueVeggies, LEAFIES).length >= 15,
-              },
-            },
-          },
-          [AchievementLevel.Gold.toString()]: {
-            type: 'final',
-          },
-        },
-      },
-      experimenterBean: {
-        initial: achievements.experimenterBean.toString(),
-        states: {
-          [AchievementLevel.NoAchievement.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Gold.toString(),
-                guard: ({event}) => intersection(event.uniqueVeggies, BEANS).length >= 15,
-              },
-            },
-          },
-          [AchievementLevel.Gold.toString()]: {
-            type: 'final',
-          },
-        },
-      },
-      experimenterGrain: {
-        initial: achievements.experimenterGrain.toString(),
-        states: {
-          [AchievementLevel.NoAchievement.toString()]: {
-            on: {
-              ADVANCE: {
-                target: AchievementLevel.Gold.toString(),
-                guard: ({event}) => intersection(event.uniqueVeggies, GRAINS).length >= 15,
-              },
-            },
-          },
-          [AchievementLevel.Gold.toString()]: {
-            type: 'final',
-          },
-        },
-      },
-    },
-  });
+type AdvanceEvent = {
+  type: 'ADVANCE';
+  uniqueVeggies: string[];
+  hotStreakLength: number;
+};
 
-  const {send, snapshot} = useMachine(achievementMachine);
+type ResetEvent = {
+  type: 'RESET';
+};
 
-  const achievementStatus = computed<Achievements>(() =>
-    mapValues(snapshot.value.value, (stringValue) => +stringValue),
-  );
+const guards = {
+  completionist:
+    (threshold: number) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
+      event.uniqueVeggies.length >= threshold,
+  hotStreak:
+    (threshold: number) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
+      event.hotStreakLength >= threshold,
+  experimenter:
+    (targetGroup: string[]) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
+      intersection(event.uniqueVeggies, targetGroup).length >= 15,
+};
+
+export function useAchievements() {
+  const actor = createActor(
+    setup({
+      types: {
+        events: {} as AdvanceEvent | ResetEvent,
+      },
+    }).createMachine({
+      id: 'achievementMachine',
+      type: 'parallel',
+      on: {
+        RESET: [
+          {
+            target: `.completionist.0`,
+          },
+          {
+            target: `.hotStreak.0`,
+          },
+          {
+            target: `.experimenterFruit.0`,
+          },
+          {
+            target: `.experimenterVegetable.0`,
+          },
+          {
+            target: `.experimenterLeafy.0`,
+          },
+          {
+            target: `.experimenterBean.0`,
+          },
+          {
+            target: `.experimenterGrain.0`,
+          },
+        ],
+      },
+      states: {
+        completionist: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.completionist(150),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.completionist(80),
+                  },
+                  {
+                    target: '1',
+                    guard: guards.completionist(40),
+                  },
+                ],
+              },
+            },
+            '1': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.completionist(150),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.completionist(80),
+                  },
+                ],
+              },
+            },
+            '2': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.completionist(150),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+        hotStreak: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.hotStreak(20),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.hotStreak(10),
+                  },
+                  {
+                    target: '1',
+                    guard: guards.hotStreak(5),
+                  },
+                ],
+              },
+            },
+            '1': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.hotStreak(20),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.hotStreak(10),
+                  },
+                ],
+              },
+            },
+            '2': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.hotStreak(20),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+        experimenterFruit: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.experimenter(FRUITS),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+        experimenterVegetable: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.experimenter(VEGETABLES),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+        experimenterLeafy: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.experimenter(LEAFIES),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+        experimenterBean: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.experimenter(BEANS),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+        experimenterGrain: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.experimenter(GRAINS),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+      },
+    }),
+  ).start();
+
+  const achievements = ref(mapValues(actor.getSnapshot().value, Number) as Achievements);
+
+  actor.subscribe((snapshot) => (achievements.value = mapValues(snapshot.value, Number)));
 
   return {
-    achievementStatus,
+    achievements,
     advance: (uniqueVeggies: string[], hotStreakLength: number) =>
-      send({type: 'ADVANCE', uniqueVeggies, hotStreakLength}),
+      actor.send({type: 'ADVANCE', uniqueVeggies, hotStreakLength}),
+    reset: () => actor.send({type: 'RESET'}),
   };
 }
