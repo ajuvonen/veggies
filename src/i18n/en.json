@@ -2,21 +2,21 @@
   "achievements": {
     "completionist": "The Completionist",
     "completionistText": "{0} Veggies",
-    "completionistAria": "{0} Unique Veggies",
+    "completionistAria": "{0} Unique veggies",
     "experimenter": "The Experimenter",
     "experimenterFruitText": "Fruits",
-    "experimenterFruitAria": "{0} Unique Fruits",
+    "experimenterFruitAria": "{0} Unique fruits",
     "experimenterVegetableText": "Vegetables",
-    "experimenterVegetableAria": "{0} Unique Vegetables",
+    "experimenterVegetableAria": "{0} Unique vegetables",
     "experimenterLeafyText": "Greens",
-    "experimenterLeafyAria": "{0} Unique Leafy Greens",
+    "experimenterLeafyAria": "{0} Unique leafy greens",
     "experimenterBeanText": "Beans",
-    "experimenterBeanAria": "{0} Unique Beans",
+    "experimenterBeanAria": "{0} Unique beans and legumes",
     "experimenterGrainText": "Grains",
-    "experimenterGrainAria": "{0} Unique Grains, Nuts and Seeds",
+    "experimenterGrainAria": "{0} Unique grains, nuts and seeds",
     "hotStreak": "Hot Streak",
     "hotStreakText": "{0} Weeks",
-    "hotStreakAria": "{0} Week Streak of Over 30 Veggies"
+    "hotStreakAria": "{0} Week streak of over 30 veggies"
   },
   "categories": {
     "bean": "Beans And Legumes",
