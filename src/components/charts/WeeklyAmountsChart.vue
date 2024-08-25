@@ -15,7 +15,6 @@ import {Line} from 'vue-chartjs';
 import {prop, takeLast} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {getChartOptions} from '@/utils/helpers';
-import useDateTime from '@/hooks/dateTime';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
@@ -23,9 +22,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 
 const {t} = useI18n();
 
-const {veggiesForWeek, startDate} = storeToRefs(useActivityStore());
-
-const {getWeekStarts} = useDateTime();
+const {veggiesForWeek, startDate, getWeekStarts} = storeToRefs(useActivityStore());
 
 const chartData = computed(() => {
   const weekRange = takeLast(getWeekStarts.value, 5);

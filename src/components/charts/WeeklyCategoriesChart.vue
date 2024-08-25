@@ -18,7 +18,6 @@ import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
-import useDateTime from '@/hooks/dateTime';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
@@ -26,9 +25,7 @@ ChartJS.register(ChartDataLabels);
 
 const {t} = useI18n();
 
-const {veggiesForWeek, startDate} = storeToRefs(useActivityStore());
-
-const {getWeekStarts} = useDateTime();
+const {veggiesForWeek, startDate, getWeekStarts} = storeToRefs(useActivityStore());
 
 const chartData = computed(() => {
   const weekRange = takeLast(getWeekStarts.value, 5);

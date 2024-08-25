@@ -186,4 +186,69 @@ describe('activityStore', () => {
     expect(activityStore.startDate).toBe(null);
     expect(activityStore.weeks).toHaveLength(0);
   });
+
+  it('returns hot streak length', () => {
+    activityStore.startDate = lastWeek;
+    activityStore.weeks.push(
+      {
+        startDate: lastWeek,
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: thisWeek,
+        veggies: [...Array(30)],
+      },
+    );
+    expect(activityStore.hotStreak).toBe(2);
+  });
+
+  it('missing week ends streak', () => {
+    activityStore.startDate = twoWeeksAgo;
+    activityStore.weeks.push(
+      {
+        startDate: twoWeeksAgo,
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: thisWeek,
+        veggies: [...Array(30)],
+      },
+    );
+    expect(activityStore.hotStreak).toBe(1);
+  });
+
+  it('too few veggies ends streak', () => {
+    activityStore.startDate = twoWeeksAgo;
+    activityStore.weeks.push(
+      {
+        startDate: twoWeeksAgo,
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: lastWeek,
+        veggies: [...Array(29)],
+      },
+      {
+        startDate: thisWeek,
+        veggies: [...Array(30)],
+      },
+    );
+    expect(activityStore.hotStreak).toBe(1);
+  });
+
+  it('returns the total amount of weeks', async () => {
+    activityStore.startDate = thisWeek;
+    expect(activityStore.getTotalWeeks).toBe(1);
+    activityStore.startDate = lastWeek;
+    expect(activityStore.getTotalWeeks).toBe(2);
+  });
+
+  it('returns all weekStarts from the start date', async () => {
+    activityStore.startDate = thisWeek;
+    expect(activityStore.getWeekStarts).toEqual([thisWeek]);
+    activityStore.startDate = lastWeek;
+    expect(activityStore.getWeekStarts).toEqual([lastWeek, thisWeek]);
+    activityStore.startDate = thisWeek.minus({weeks: 5});
+    expect(activityStore.getWeekStarts.length).toBe(6);
+  });
 });

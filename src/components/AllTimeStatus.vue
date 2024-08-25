@@ -2,13 +2,10 @@
 import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
 import {unique} from 'remeda';
-import useDateTime from '@/hooks/dateTime';
 import {useActivityStore} from '@/stores/activityStore';
 
 const activitysStore = useActivityStore();
-const {allVeggies, veggiesForWeek} = storeToRefs(activitysStore);
-const {getTotalWeeks, getWeekStarts} = useDateTime();
-
+const {allVeggies, veggiesForWeek, getWeekStarts, getTotalWeeks} = storeToRefs(activitysStore);
 const over30Veggies = computed(
   () =>
     getWeekStarts.value

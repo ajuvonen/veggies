@@ -237,8 +237,8 @@ export function useAchievements() {
 
   return {
     achievements,
-    advance: (uniqueVeggies: string[], hotStreakLength: number) =>
+    advanceAchievements: (uniqueVeggies: string[], hotStreakLength: number) =>
       actor.send({type: 'ADVANCE', uniqueVeggies, hotStreakLength}),
-    reset: () => actor.send({type: 'RESET'}),
+    resetAchievements: () => actor.send({type: 'RESET'}),
   };
 }

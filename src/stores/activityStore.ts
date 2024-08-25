@@ -2,7 +2,19 @@ import {computed} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take, unique} from 'remeda';
+import {
+  difference,
+  entries,
+  filter,
+  groupBy,
+  map,
+  pipe,
+  prop,
+  sortBy,
+  take,
+  takeLastWhile,
+  unique,
+} from 'remeda';
 import type {Week} from '@/utils/types';
 
 export const useActivityStore = defineStore('activity', () => {
@@ -32,6 +44,23 @@ export const useActivityStore = defineStore('activity', () => {
   });
 
   // Computed getters
+  const getTotalWeeks = computed(() =>
+    startDate.value ? Math.ceil(DateTime.now().diff(startDate.value, 'week').weeks) : 1,
+  );
+
+  const getWeekStarts = computed(() =>
+    [...Array(getTotalWeeks.value)].map((_, weekIndex) =>
+      startDate.value ? startDate.value.plus({weeks: weekIndex}) : DateTime.now().startOf('week'),
+    ),
+  );
+
+  const hotStreak = computed(
+    () =>
+      takeLastWhile(getWeekStarts.value, (weekStart) => {
+        const week = weeks.value.find(({startDate}) => startDate.equals(weekStart));
+        return week ? week.veggies.length >= 30 : false;
+      }).length,
+  );
 
   const allVeggies = computed(() => weeks.value.flatMap(prop('veggies')));
 
@@ -80,6 +109,9 @@ export const useActivityStore = defineStore('activity', () => {
   return {
     startDate,
     weeks,
+    getWeekStarts,
+    getTotalWeeks,
+    hotStreak,
     currentVeggies,
     allVeggies,
     uniqueVeggies,

@@ -33,90 +33,90 @@ describe('achievements', () => {
   });
 
   it('advances completionist', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance([...Array(39)], 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements([...Array(39)], 0);
     expect(achievements.value.completionist).toEqual(AchievementLevel.NoAchievement);
-    advance([...Array(40)], 0);
+    advanceAchievements([...Array(40)], 0);
     expect(achievements.value.completionist).toBe(AchievementLevel.Bronze);
-    advance([...Array(80)], 0);
+    advanceAchievements([...Array(80)], 0);
     expect(achievements.value.completionist).toBe(AchievementLevel.Silver);
-    advance([...Array(150)], 0);
+    advanceAchievements([...Array(150)], 0);
     expect(achievements.value.completionist).toBe(AchievementLevel.Gold);
   });
 
   it('goes straight to silver', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance([...Array(80)], 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements([...Array(80)], 0);
     expect(achievements.value.completionist).toBe(AchievementLevel.Silver);
   });
 
   it('goes straight to gold', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance([...Array(150)], 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements([...Array(150)], 0);
     expect(achievements.value.completionist).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterFruit', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance(take(FRUITS, 14), 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(take(FRUITS, 14), 0);
     expect(achievements.value.experimenterFruit).toEqual(AchievementLevel.NoAchievement);
-    advance(take(FRUITS, 15), 0);
+    advanceAchievements(take(FRUITS, 15), 0);
     expect(achievements.value.experimenterFruit).toBe(AchievementLevel.Gold);
   });
 
   it('goes straight to gold', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance(take(FRUITS, 15), 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(take(FRUITS, 15), 0);
     expect(achievements.value.experimenterFruit).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterVegetable', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance(take(VEGETABLES, 14), 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(take(VEGETABLES, 14), 0);
     expect(achievements.value.experimenterVegetable).toEqual(AchievementLevel.NoAchievement);
-    advance(take(VEGETABLES, 15), 0);
+    advanceAchievements(take(VEGETABLES, 15), 0);
     expect(achievements.value.experimenterVegetable).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterLeafy', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance(take(LEAFIES, 14), 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(take(LEAFIES, 14), 0);
     expect(achievements.value.experimenterLeafy).toEqual(AchievementLevel.NoAchievement);
-    advance(take(LEAFIES, 15), 0);
+    advanceAchievements(take(LEAFIES, 15), 0);
     expect(achievements.value.experimenterLeafy).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterBean', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance(take(BEANS, 14), 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(take(BEANS, 14), 0);
     expect(achievements.value.experimenterBean).toEqual(AchievementLevel.NoAchievement);
-    advance(take(BEANS, 15), 0);
+    advanceAchievements(take(BEANS, 15), 0);
     expect(achievements.value.experimenterBean).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterGrain', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance(take(GRAINS, 14), 0);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(take(GRAINS, 14), 0);
     expect(achievements.value.experimenterGrain).toEqual(AchievementLevel.NoAchievement);
-    advance(take(GRAINS, 15), 0);
+    advanceAchievements(take(GRAINS, 15), 0);
     expect(achievements.value.experimenterGrain).toBe(AchievementLevel.Gold);
   });
 
   it('advances hot streak', async () => {
-    const {advance, achievements} = await withSetup(useAchievements);
-    advance([], 4);
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements([], 4);
     expect(achievements.value.hotStreak).toEqual(AchievementLevel.NoAchievement);
-    advance([], 5);
+    advanceAchievements([], 5);
     expect(achievements.value.hotStreak).toEqual(AchievementLevel.Bronze);
-    advance([], 10);
+    advanceAchievements([], 10);
     expect(achievements.value.hotStreak).toEqual(AchievementLevel.Silver);
-    advance([], 20);
+    advanceAchievements([], 20);
     expect(achievements.value.hotStreak).toEqual(AchievementLevel.Gold);
   });
 
   it('resets achievements', async () => {
-    const {advance, achievements, reset} = await withSetup(useAchievements);
-    advance(ALL_VEGGIES, 30);
+    const {advanceAchievements, achievements, resetAchievements} = await withSetup(useAchievements);
+    advanceAchievements(ALL_VEGGIES, 30);
     expect(achievements.value).toEqual({
       completionist: 3,
       experimenterBean: 3,
@@ -126,7 +126,7 @@ describe('achievements', () => {
       experimenterVegetable: 3,
       hotStreak: 3,
     });
-    reset();
+    resetAchievements();
     expect(achievements.value).toEqual(defaultAchievements);
   });
 });
