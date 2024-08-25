@@ -3,7 +3,7 @@ import {intersection, mapValues} from 'remeda';
 import {createActor, setup, type MachineContext} from 'xstate';
 import type {GuardArgs} from 'xstate/guards';
 import {BEANS, FRUITS, GRAINS, LEAFIES, VEGETABLES} from '@/utils/constants';
-import {AchievementLevel, type Achievements} from '@/utils/types';
+import type {Achievements} from '@/utils/types';
 
 type AdvanceEvent = {
   type: 'ADVANCE';
