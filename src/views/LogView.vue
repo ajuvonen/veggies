@@ -22,7 +22,7 @@ watch(allVeggies, (newAllVeggies, oldAllVeggies) => {
   const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
   if (!oldAllVeggies.length) {
     addToastMessage(t('toasts.firstVeggie', [cheer]));
-  } else if (newAllVeggies.length % 100 === 0) {
+  } else if (newAllVeggies.length && newAllVeggies.length % 100 === 0) {
     addToastMessage(t('toasts.hundreds', [newAllVeggies.length, cheer]));
   } else if (currentVeggies.value.length === 30) {
     addToastMessage(t('toasts.thirtyVeggies', [cheer]));
