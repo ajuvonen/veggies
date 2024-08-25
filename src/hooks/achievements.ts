@@ -2,7 +2,7 @@ import {ref} from 'vue';
 import {intersection, mapValues} from 'remeda';
 import {createActor, setup, type MachineContext} from 'xstate';
 import type {GuardArgs} from 'xstate/guards';
-import {BEANS, FRUITS, GRAINS, LEAFIES, VEGETABLES} from '@/utils/constants';
+import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
 import type {Achievements} from '@/utils/types';
 
 type AdvanceEvent = {
@@ -193,6 +193,20 @@ export function useAchievements() {
                 ADVANCE: {
                   target: '3',
                   guard: guards.experimenter(LEAFIES),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+        experimenterRoot: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.experimenter(ROOTS),
                 },
               },
             },

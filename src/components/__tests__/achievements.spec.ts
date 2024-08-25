@@ -1,9 +1,9 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {useAchievements} from '@/hooks/achievements';
-import {AchievementLevel} from '@/utils/types';
+import {AchievementLevel, type Achievements} from '@/utils/types';
 import {take} from 'remeda';
-import {ALL_VEGGIES, BEANS, FRUITS, GRAINS, LEAFIES, VEGETABLES} from '@/utils/constants';
+import {ALL_VEGGIES, BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
 
 const withSetup = <T>(hook: () => T) =>
   new Promise<T>((resolve) => {
@@ -16,14 +16,15 @@ const withSetup = <T>(hook: () => T) =>
     });
   });
 
-const defaultAchievements = {
+const defaultAchievements: Achievements = {
   completionist: AchievementLevel.NoAchievement,
   hotStreak: AchievementLevel.NoAchievement,
-  experimenterFruit: AchievementLevel.NoAchievement,
-  experimenterVegetable: AchievementLevel.NoAchievement,
-  experimenterLeafy: AchievementLevel.NoAchievement,
   experimenterBean: AchievementLevel.NoAchievement,
+  experimenterFruit: AchievementLevel.NoAchievement,
   experimenterGrain: AchievementLevel.NoAchievement,
+  experimenterLeafy: AchievementLevel.NoAchievement,
+  experimenterRoot: AchievementLevel.NoAchievement,
+  experimenterVegetable: AchievementLevel.NoAchievement,
 };
 
 describe('achievements', () => {
@@ -94,6 +95,14 @@ describe('achievements', () => {
     expect(achievements.value.experimenterBean).toBe(AchievementLevel.Gold);
   });
 
+  it('advances experimenterRoot', async () => {
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(take(ROOTS, 14), 0);
+    expect(achievements.value.experimenterRoot).toEqual(AchievementLevel.NoAchievement);
+    advanceAchievements(take(ROOTS, 15), 0);
+    expect(achievements.value.experimenterRoot).toBe(AchievementLevel.Gold);
+  });
+
   it('advances experimenterGrain', async () => {
     const {advanceAchievements, achievements} = await withSetup(useAchievements);
     advanceAchievements(take(GRAINS, 14), 0);
@@ -120,6 +129,7 @@ describe('achievements', () => {
     expect(achievements.value).toEqual({
       completionist: 3,
       experimenterBean: 3,
+      experimenterRoot: 3,
       experimenterFruit: 3,
       experimenterGrain: 3,
       experimenterLeafy: 3,

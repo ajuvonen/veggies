@@ -3,7 +3,7 @@ import {mount} from '@vue/test-utils';
 import {take} from 'remeda';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
-import {BEANS, FRUITS, GRAINS, LEAFIES, VEGETABLES} from '@/utils/constants';
+import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
 import AchievementList from '@/components/AchievementList.vue';
 
 describe('AchievementList', () => {
@@ -16,7 +16,7 @@ describe('AchievementList', () => {
   it('renders', () => {
     const wrapper = mount(AchievementList);
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(11);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(12);
   });
 
   it('renders with badges enabled', () => {
@@ -29,12 +29,13 @@ describe('AchievementList', () => {
         ...take(VEGETABLES, 15),
         ...take(LEAFIES, 15),
         ...take(BEANS, 15),
+        ...take(ROOTS, 15),
         ...take(GRAINS, 15),
       ],
     });
 
     const wrapper = mount(AchievementList);
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(5);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(4);
   });
 });

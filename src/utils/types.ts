@@ -39,9 +39,10 @@ export enum AchievementLevel {
 export type Achievements = {
   completionist: AchievementLevel;
   hotStreak: AchievementLevel;
-  experimenterFruit: AchievementLevel;
-  experimenterVegetable: AchievementLevel;
-  experimenterLeafy: AchievementLevel;
   experimenterBean: AchievementLevel;
+  experimenterFruit: AchievementLevel;
   experimenterGrain: AchievementLevel;
+  experimenterLeafy: AchievementLevel;
+  experimenterRoot: AchievementLevel;
+  experimenterVegetable: AchievementLevel;
 };

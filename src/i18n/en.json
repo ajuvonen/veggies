@@ -1,19 +1,21 @@
 {
   "achievements": {
     "completionist": "The Completionist",
-    "completionistText": "{0} Veggies",
-    "completionistAria": "{0} Unique veggies",
+    "completionistText": "{0} veggies",
+    "completionistAria": "{0} unique veggies",
     "experimenter": "The Experimenter",
-    "experimenterFruitText": "Fruits",
-    "experimenterFruitAria": "{0} Unique fruits",
-    "experimenterVegetableText": "Vegetables",
-    "experimenterVegetableAria": "{0} Unique vegetables",
-    "experimenterLeafyText": "Greens",
-    "experimenterLeafyAria": "{0} Unique leafy greens",
+    "experimenterBeanAria": "{0} unique beans and legumes",
     "experimenterBeanText": "Beans",
-    "experimenterBeanAria": "{0} Unique beans and legumes",
+    "experimenterFruitAria": "{0} unique fruits and berries",
+    "experimenterFruitText": "Fruits",
+    "experimenterGrainAria": "{0} unique grains, nuts and seeds",
     "experimenterGrainText": "Grains",
-    "experimenterGrainAria": "{0} Unique grains, nuts and seeds",
+    "experimenterLeafyAria": "{0} unique leafy greens",
+    "experimenterLeafyText": "Greens",
+    "experimenterRootText": "Roots",
+    "experimenterRootAria": "{0} unique roots and bulbs",
+    "experimenterVegetableAria": "{0} unique vegetables",
+    "experimenterVegetableText": "Vegetables",
     "hotStreak": "Hot Streak",
     "hotStreakText": "{0} Weeks",
     "hotStreakAria": "{0} Week streak of over 30 veggies"
@@ -68,6 +70,10 @@
   "locales": {
     "en": "English",
     "fi": "Suomi"
+  },
+  "log": {
+    "newAchievements": "You gained new achievements!",
+    "newAchievementsContent": "Here are your new achievements. If you wish to view them at a later time, visit the stats page."
   },
   "settings": {
     "locale": "Language",

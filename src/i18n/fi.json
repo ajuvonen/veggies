@@ -1,25 +1,27 @@
 {
   "achievements": {
-    "completionist": "The Completionist",
-    "completionistText": "{0} Veggies",
-    "completionistAria": "{0} Unique Veggies",
-    "experimenter": "The Experimenter",
-    "experimenterFruitText": "Fruits",
-    "experimenterFruitAria": "{0} Unique Fruits",
-    "experimenterVegetableText": "Vegetables",
-    "experimenterVegetableAria": "{0} Unique Vegetables",
-    "experimenterLeafyText": "Greens",
-    "experimenterLeafyAria": "{0} Unique Leafy Greens",
-    "experimenterBeanText": "Beans",
-    "experimenterBeanAria": "{0} Unique Beans",
-    "experimenterGrainText": "Grains",
-    "experimenterGrainAria": "{0} Unique Grains, Nuts and Seeds",
-    "hotStreak": "Hot Streak",
-    "hotStreakText": "{0} Weeks",
-    "hotStreakAria": "{0} Week Streak of Over 30 Veggies"
+    "completionist": "Keräilijä",
+    "completionistText": "{0} kasvista",
+    "completionistAria": "{0} uniikkia kasvista",
+    "experimenter": "Kokeilija",
+    "experimenterBeanAria": "{0} uniikkia papua ja palkokasvia",
+    "experimenterBeanText": "Pavut",
+    "experimenterFruitAria": "{0} uniikkia hedelmää ja marjaa",
+    "experimenterFruitText": "Hedelmät",
+    "experimenterGrainAria": "{0} uniikkia viljaa, pähkinää ja siementä",
+    "experimenterGrainText": "Viljat",
+    "experimenterLeafyAria": "{0} uniikkia lehtivihreää",
+    "experimenterLeafyText": "Lehtivihreät",
+    "experimenterRootText": "Juurekset",
+    "experimenterRootAria": "{0} uniikkia juuresta",
+    "experimenterVegetableAria": "{0} uniikkia vihannesta",
+    "experimenterVegetableText": "Vihannekset",
+    "hotStreak": "Kuuma sarja",
+    "hotStreakText": "{0} viikkoa",
+    "hotStreakAria": "{0} viikkoa yli 30 kasvista viikossa"
   },
   "categories": {
-    "bean": "Herneet ja palkokasvit",
+    "bean": "Pavut ja palkokasvit",
     "fruit": "Hedelmät ja marjat",
     "grain": "Vilja, pähkinät ja siemenet",
     "leafy": "Lehtivihreät",
@@ -68,6 +70,10 @@
   "locales": {
     "en": "English",
     "fi": "Suomi"
+  },
+  "log": {
+    "newAchievements": "Uusia saavutuksia avattu!",
+    "newAchievementsContent": "Tässä ovat uudet saavutuksesi. Mikäli haluat tarkastella niitä myöhemmin, käy tilastosivulla."
   },
   "settings": {
     "locale": "Kieli",

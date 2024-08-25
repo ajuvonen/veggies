@@ -113,6 +113,15 @@ const {achievements} = storeToRefs(useAppStateStore());
           color="gold"
         />
         <AchievementBadge
+          :active="achievements.experimenterRoot === AchievementLevel.Gold"
+          :text="$t('achievements.experimenterRootText')"
+          :title="$t('achievements.experimenterRootAria', [15])"
+          :aria-label="$t('achievements.experimenterRootAria', [15])"
+          :emoji="CATEGORY_EMOJI.root"
+          role="img"
+          color="gold"
+        />
+        <AchievementBadge
           :active="achievements.experimenterGrain === AchievementLevel.Gold"
           :text="$t('achievements.experimenterGrainText')"
           :title="$t('achievements.experimenterGrainAria', [15])"
