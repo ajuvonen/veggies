@@ -1,32 +1,65 @@
 {
   "achievements": {
-    "completionist": "The Completionist",
-    "completionistText": "{0} veggies",
-    "completionistAria": "{0} unique veggies",
-    "experimenter": "The Experimenter",
-    "experimenterBeanAria": "{0} unique beans and legumes",
-    "experimenterBeanText": "Beans",
-    "experimenterFruitAria": "{0} unique fruits and berries",
-    "experimenterFruitText": "Fruits",
-    "experimenterGrainAria": "{0} unique grains, nuts and seeds",
-    "experimenterGrainText": "Grains",
-    "experimenterLeafyAria": "{0} unique leafy greens",
-    "experimenterLeafyText": "Greens",
-    "experimenterRootText": "Roots",
-    "experimenterRootAria": "{0} unique roots and bulbs",
-    "experimenterVegetableAria": "{0} unique vegetables",
-    "experimenterVegetableText": "Vegetables",
-    "hotStreak": "Hot Streak",
-    "hotStreakText": "{0} Weeks",
-    "hotStreakAria": "{0} Week streak of over 30 veggies"
+    "completionist": {
+      "title": "The Completionist",
+      "ariaLabel": "{0} unique veggies",
+      "badgeText": "{0} veggies",
+      "1": "You have logged 40 unique veggies, earning you the bronze achievement!",
+      "2": "You have logged 80 unique veggies, earning you the silver achievement!",
+      "3": "You have logged 150 unique veggies, earning you the gold achievement!"
+    },
+    "experimenterBean": {
+      "title": "The Experimenter",
+      "ariaLabel": "{0} unique beans and legumes",
+      "badgeText": "Beans",
+      "3": "You have logged 15 unique beans and legumes, earning you this achievement!"
+    },
+    "experimenterFruit": {
+      "title": "The Experimenter",
+      "ariaLabel": "{0} unique fruits and berries",
+      "badgeText": "Fruits",
+      "3": "You have logged 15 unique fruits and berries, earning you this achievement!"
+    },
+    "experimenterGrain": {
+      "title": "The Experimenter",
+      "ariaLabel": "{0} unique grains, nuts and seeds",
+      "badgeText": "Grains",
+      "3": "You have logged 15 unique grains, nuts and seeds, earning you this achievement!"
+    },
+    "experimenterLeafy": {
+      "title": "The Experimenter",
+      "ariaLabel": "{0} unique leafy greens",
+      "badgeText": "Leafy Greens",
+      "3": "You have logged 15 unique leafy greens, earning you this achievement!"
+    },
+    "experimenterRoot": {
+      "title": "The Experimenter",
+      "ariaLabel": "{0} unique roots and bulbs",
+      "badgeText": "Roots",
+      "3": "You have logged 15 unique roots and bulbs, earning you this achievement!"
+    },
+    "experimenterVegetable": {
+      "title": "The Experimenter",
+      "ariaLabel": "{0} unique vegetables",
+      "badgeText": "Vegetables",
+      "3": "You have logged 15 unique vegetables, earning you this achievement!"
+    },
+    "hotStreak": {
+      "title": "Hot Streak",
+      "ariaLabel": "{0} week streak of over 30 veggies",
+      "badgeText": "{0} Weeks",
+      "1": "You're heating up! A hot streak of five weeks with over 30 unique veggies each week!",
+      "2": "You're on fire! A hot streak of ten weeks with over 30 unique veggies each week!",
+      "3": "Scorchio! A hot streak of twenty weeks with over 30 unique veggies each week!"
+    }
   },
   "categories": {
-    "bean": "Beans And Legumes",
-    "fruit": "Fruits And Berries",
-    "grain": "Grains, Nuts, And Seeds",
-    "leafy": "Leafy Greens",
-    "root": "Roots And Bulbs",
-    "vegetable": "Vegetables"
+    "Bean": "Beans And Legumes",
+    "Fruit": "Fruits And Berries",
+    "Grain": "Grains, Nuts, And Seeds",
+    "Leafy": "Leafy Greens",
+    "Root": "Roots And Bulbs",
+    "Vegetable": "Vegetables"
   },
   "categoryStatus": {
     "bottomLabel": "Veggies",

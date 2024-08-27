@@ -1,32 +1,65 @@
 {
   "achievements": {
-    "completionist": "Keräilijä",
-    "completionistText": "{0} kasvista",
-    "completionistAria": "{0} uniikkia kasvista",
-    "experimenter": "Kokeilija",
-    "experimenterBeanAria": "{0} uniikkia papua ja palkokasvia",
-    "experimenterBeanText": "Pavut",
-    "experimenterFruitAria": "{0} uniikkia hedelmää ja marjaa",
-    "experimenterFruitText": "Hedelmät",
-    "experimenterGrainAria": "{0} uniikkia viljaa, pähkinää ja siementä",
-    "experimenterGrainText": "Viljat",
-    "experimenterLeafyAria": "{0} uniikkia lehtivihreää",
-    "experimenterLeafyText": "Lehtivihreät",
-    "experimenterRootText": "Juurekset",
-    "experimenterRootAria": "{0} uniikkia juuresta",
-    "experimenterVegetableAria": "{0} uniikkia vihannesta",
-    "experimenterVegetableText": "Vihannekset",
-    "hotStreak": "Kuuma sarja",
-    "hotStreakText": "{0} viikkoa",
-    "hotStreakAria": "{0} viikkoa yli 30 kasvista viikossa"
+    "completionist": {
+      "title": "Keräilijä",
+      "ariaLabel": "{0} erilaista kasvista",
+      "badgeText": "{0} kasvista",
+      "1": "Olet lisännyt 40 erilaista kasvista ja ansainnut pronssisen palkinnon!",
+      "2": "Olet lisännyt 80 erilaista kasvista ja ansainnut hopeisen palkinnon!",
+      "3": "Olet lisännyt 150 erilaista kasvista ja ansainnut kultaisen palkinnon!"
+    },
+    "experimenterBean": {
+      "title": "Kokeilija",
+      "ariaLabel": "{0} erilaista papua ja palkokasvia",
+      "badgeText": "Pavut",
+      "3": "Olet kokeillut 15 erilaista papua ja palkokasvia ansaiten tämän palkinnon!"
+    },
+    "experimenterFruit": {
+      "title": "Kokeilija",
+      "ariaLabel": "{0} erilaista hedelmää ja marjaa",
+      "badgeText": "Hedelmät",
+      "3": "Olet kokeillut 15 erilaista papua ja palkokasvia ansaiten tämän palkinnon!"
+    },
+    "experimenterGrain": {
+      "title": "Kokeilija",
+      "ariaLabel": "{0} erilaista viljaa, pähkinää ja siementä",
+      "badgeText": "Viljat",
+      "3": "Olet kokeillut 15 erilaista viljaa, pähkinää ja siementä ansaiten tämän palkinnon!"
+    },
+    "experimenterLeafy": {
+      "title": "Kokeilija",
+      "ariaLabel": "{0} erilaista lehtivihreää",
+      "badgeText": "Vihreät",
+      "3": "Olet kokeillut 15 erilaista lehtivihreää ansaiten tämän palkinnon!"
+    },
+    "experimenterRoot": {
+      "title": "Kokeilija",
+      "ariaLabel": "{0} erilaista juuresta",
+      "badgeText": "Juurekset",
+      "3": "Olet kokeillut 15 erilaista juuresta ansaiten tämän palkinnon!"
+    },
+    "experimenterVegetable": {
+      "title": "Kokeilija",
+      "ariaLabel": "{0} erilaista vihannesta",
+      "badgeText": "Vihannekset",
+      "3": "Olet kokeillut 15 erilaista vihannesta ansaiten tämän palkinnon!"
+    },
+    "hotStreak": {
+      "title": "Kuuma sarja",
+      "ariaLabel": "{0} viikon suora yli 30 kasvista viikossa",
+      "badgeText": "{0} Viikkoa",
+      "1": "Alkaa polttaa! Viiden viikon kuuma sarja yli 30 erilaista kasvista joka viikko!",
+      "2": "Olet liekeissä! Kymmenen viikon kuuma sarja yli 30 erilaista kasvista joka viikko!",
+      "3": "Scorchio! 20 viikon kuuma sarja yli 30 erilaista kasvista joka viikko!"
+    }
   },
   "categories": {
-    "bean": "Pavut ja palkokasvit",
-    "fruit": "Hedelmät ja marjat",
-    "grain": "Vilja, pähkinät ja siemenet",
-    "leafy": "Lehtivihreät",
-    "root": "Juurekset",
-    "vegetable": "Vihannekset"
+    "Bean": "Pavut ja palkokasvit",
+    "Fruit": "Hedelmät ja marjat",
+    "Grain": "Vilja, pähkinät ja siemenet",
+    "Leafy": "Lehtivihreät",
+    "Root": "Juurekset",
+    "Vegetable": "Vihannekset"
   },
   "categoryStatus": {
     "bottomLabel": "Kasvista",
@@ -98,7 +131,7 @@
     },
     "grid3": {
       "topLabel": "Yhteensä",
-      "bottomLabel": "Uniikkia kasvista"
+      "bottomLabel": "Erilaista kasvista"
     },
     "grid4": {
       "topLabel": "Enimmillään",
@@ -130,7 +163,7 @@
     "beet": "punajuuri",
     "bell pepper": "paprika",
     "bilberry": "mustikka",
-    "bitter melon": "bitter melon",
+    "bitter melon": "karvaskurkku",
     "black bean": "mustapapu",
     "black radish": "retikka",
     "black salsify": "mustajuuri",

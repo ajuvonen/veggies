@@ -30,7 +30,7 @@ describe('charts', () => {
       labels,
       datasets: [{data}],
     } = wrapper.vm.chartData;
-    expect(labels).toEqual(['leafy', 'vegetable', 'root']);
+    expect(labels).toEqual(['Leafy', 'Vegetable', 'Root']);
     expect(data).toEqual([1, 2, 3]);
   });
 
@@ -46,7 +46,7 @@ describe('charts', () => {
       labels,
       datasets: [{data}],
     } = wrapper.vm.chartData;
-    expect(labels).toEqual(['leafy', 'vegetable', 'root']);
+    expect(labels).toEqual(['Leafy', 'Vegetable', 'Root']);
     expect(data).toEqual([1, 2, 3]);
   });
 
@@ -79,15 +79,15 @@ describe('charts', () => {
     const {labels, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual(['Wk 2', 'Wk 3', 'Wk 4', 'Wk 5', 'Wk 6']);
     expect(datasets).toHaveLength(5);
-    expect(datasets[0].label).toBe('fruit');
+    expect(datasets[0].label).toBe('Fruit');
     expect(datasets[0].data).toEqual([0, 0, 0, 0, 2]);
-    expect(datasets[1].label).toBe('vegetable');
+    expect(datasets[1].label).toBe('Vegetable');
     expect(datasets[1].data).toEqual([0, 0, 0, 0, 1]);
-    expect(datasets[2].label).toBe('root');
+    expect(datasets[2].label).toBe('Root');
     expect(datasets[2].data).toEqual([0, 0, 0, 1, 1]);
-    expect(datasets[3].label).toBe('bean');
+    expect(datasets[3].label).toBe('Bean');
     expect(datasets[3].data).toEqual([0, 0, 0, 1, 0]);
-    expect(datasets[4].label).toBe('grain');
+    expect(datasets[4].label).toBe('Grain');
     expect(datasets[4].data).toEqual([0, 0, 2, 0, 0]);
   });
 

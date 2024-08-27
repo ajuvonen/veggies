@@ -1,14 +1,14 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
 import AchievementBadge from '@/components/AchievementBadge.vue';
+import {AchievementLevel} from '@/utils/types';
 
 describe('AchievementBadge', () => {
   it('renders active', () => {
     const wrapper = mount(AchievementBadge, {
       props: {
-        text: 'Great Success',
-        color: 'gold',
-        emoji: '🥇',
+        achievement: 'completionist',
+        level: AchievementLevel.Gold,
         active: true,
       },
     });
@@ -19,9 +19,8 @@ describe('AchievementBadge', () => {
   it('renders inactive', () => {
     const wrapper = mount(AchievementBadge, {
       props: {
-        text: 'Second place',
-        color: 'silver',
-        emoji: '🥈',
+        achievement: 'hotStreak',
+        level: AchievementLevel.Silver,
         active: false,
       },
     });

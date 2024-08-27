@@ -3,12 +3,12 @@ import type {DateTime} from 'luxon';
 export type Locale = 'en' | 'fi';
 
 export enum Category {
-  Fruit = 'fruit',
-  Vegetable = 'vegetable',
-  Leafy = 'leafy',
-  Root = 'root',
-  Bean = 'bean',
-  Grain = 'grain',
+  Fruit = 'Fruit',
+  Vegetable = 'Vegetable',
+  Leafy = 'Leafy',
+  Root = 'Root',
+  Bean = 'Bean',
+  Grain = 'Grain',
 }
 
 export type Week = {

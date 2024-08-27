@@ -1,17 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AchievementBadge > renders active 1`] = `
-"<div data-v-06381b3c="" class="badge" aria-disabled="false">
-  <div data-v-06381b3c="" class="badge__background badge__background--gold"></div>
-  <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🥇</div>
-  <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Great Success</div>
+"<div data-v-06381b3c="" aria-disabled="false" title="150 unique veggies" aria-label="150 unique veggies" class="badge" role="img">
+  <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
+  <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🦅</div>
+  <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
 </div>"
 `;
 
 exports[`AchievementBadge > renders inactive 1`] = `
-"<div data-v-06381b3c="" class="badge" aria-disabled="true">
-  <div data-v-06381b3c="" class="badge__background badge__background--silver"></div>
-  <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🥈</div>
-  <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Second place</div>
+"<div data-v-06381b3c="" aria-disabled="true" title="10 week streak of over 30 veggies" aria-label="10 week streak of over 30 veggies" class="badge" role="img">
+  <div data-v-06381b3c="" class="badge__background badge__background--Silver"></div>
+  <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🔥</div>
+  <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
 </div>"
 `;
