@@ -28,7 +28,7 @@
   }
 
   .has-scroll {
-    @apply overflow-hidden overflow-y-auto;
+    @apply overflow-hidden overflow-y-auto -m-2 p-2;
     scrollbar-width: thin;
   }
 }

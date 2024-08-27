@@ -117,7 +117,8 @@ const getAvailableHeightForOptions = computed(
 }
 
 .veggie-search__options {
-  @apply dropdown-list-container has-scroll;
+  @apply dropdown-list-container;
+  scrollbar-width: thin;
   scrollbar-color: initial;
 }
 
