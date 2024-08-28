@@ -1,27 +1,19 @@
 <script lang="ts" setup>
 import {storeToRefs} from 'pinia';
-import useScreen from '@/hooks/screen';
 import {useAppStateStore} from '@/stores/appStateStore';
 import ToastMessage from '@/components/ToastMessage.vue';
-
-const {isSmallScreen} = useScreen();
 
 const appStateStore = useAppStateStore();
 const {messages} = storeToRefs(appStateStore);
 const {removeToastMessage} = appStateStore;
 </script>
 <template>
-  <div
-    class="toast-container"
-    :class="{'toast-container--mobile': isSmallScreen}"
-    aria-live="polite"
-  >
+  <div class="toast-container" aria-live="polite">
     <TransitionGroup name="toasts">
       <ToastMessage
         v-for="message in messages"
         :key="message.id"
         :text="message.text"
-        :rounded="!isSmallScreen"
         @close="removeToastMessage(message.id)"
       />
     </TransitionGroup>
@@ -29,12 +21,8 @@ const {removeToastMessage} = appStateStore;
 </template>
 <style lang="scss" scoped>
 .toast-container {
-  @apply absolute top-0 right-0 w-80 h-fit mt-4 mr-4 z-20;
+  @apply absolute top-0 right-0 left-0 m-0 w-full z-20;
   @apply flex-container flex-col;
-}
-
-.toast-container--mobile {
-  @apply left-0 m-0 w-full;
 }
 
 .toasts-move,
