@@ -62,7 +62,7 @@ describe('ModalDialog', () => {
         modelValue: true,
       },
     });
-    await wrapper.findByText('button', 'Close').trigger('click');
+    await wrapper.findByTestId('close-button').trigger('click');
     expect(wrapper.emitted('update:modelValue')).toEqual([[false]]);
   });
 });

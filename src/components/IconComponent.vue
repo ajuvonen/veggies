@@ -5,6 +5,7 @@ import {
   mdiChartBar,
   mdiCheckCircleOutline,
   mdiChevronDown,
+  mdiClose,
   mdiCogOutline,
   mdiEarth,
   mdiFruitPear,
@@ -22,6 +23,7 @@ export type IconString =
   | 'chart'
   | 'check'
   | 'chevron'
+  | 'close'
   | 'cog'
   | 'earth'
   | 'minus'
@@ -48,6 +50,7 @@ const icons = {
   chart: mdiChartBar,
   check: mdiCheckCircleOutline,
   chevron: mdiChevronDown,
+  close: mdiClose,
   cog: mdiCogOutline,
   earth: mdiEarth,
   minus: mdiMinus,

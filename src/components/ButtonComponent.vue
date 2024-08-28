@@ -40,8 +40,7 @@ const getVariants = computed(() => {
 .button--tag {
   @apply bg-sky-500;
 
-  &:hover,
-  &:focus {
+  &:hover {
     @apply bg-sky-600;
   }
 }
@@ -62,8 +61,7 @@ const getVariants = computed(() => {
 .button--danger {
   @apply bg-red-500;
 
-  &:hover,
-  &:focus {
+  &:hover {
     @apply bg-red-600;
   }
 }
@@ -71,8 +69,7 @@ const getVariants = computed(() => {
 .button--remove {
   @apply bg-green-500;
 
-  &:hover,
-  &:focus {
+  &:hover {
     @apply bg-red-600;
   }
 }

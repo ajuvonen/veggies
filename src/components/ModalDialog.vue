@@ -22,15 +22,21 @@ defineProps<{
       <div class="modal-dialog__backdrop" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
       <div class="modal-dialog__container">
-        <DialogPanel class="modal-dialog">
+        <DialogPanel class="modal-dialog outline-override">
+          <ButtonComponent
+            :aria-label="$t('general.close')"
+            class="modal-dialog__close-button"
+            variant="text"
+            icon="close"
+            data-test-id="close-button"
+            @click="model = false"
+          />
           <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
-          <div class="modal-dialog__content">
+          <div class="modal-dialog__content outline-override">
             <slot name="content"></slot>
           </div>
           <div class="modal-dialog__buttons outline-override">
-            <slot name="buttons">
-              <ButtonComponent @click="model = false">{{ $t('general.close') }}</ButtonComponent>
-            </slot>
+            <slot name="buttons"> </slot>
           </div>
         </DialogPanel>
       </div>
@@ -49,7 +55,7 @@ defineProps<{
 }
 
 .modal-dialog {
-  @apply w-full max-w-xl max-h-full rounded-md p-4 shadow-xl;
+  @apply w-full max-w-xl max-h-full rounded-md p-4 shadow-xl relative;
   @apply flex flex-col gap-4;
   @apply bg-slate-50;
 }
@@ -67,6 +73,11 @@ defineProps<{
 .modal-dialog__title,
 .modal-dialog__content {
   @apply text-slate-900;
+}
+
+.modal-dialog__close-button {
+  @apply absolute right-4 top-4;
+  @apply fill-slate-700;
 }
 
 .modal-dialog__buttons {
