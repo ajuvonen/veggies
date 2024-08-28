@@ -4,9 +4,9 @@
       "title": "Keräilijä",
       "ariaLabel": "{0} erilaista kasvista",
       "badgeText": "{0} kasvista",
-      "1": "Olet lisännyt 40 erilaista kasvista ja ansainnut pronssisen palkinnon!",
-      "2": "Olet lisännyt 80 erilaista kasvista ja ansainnut hopeisen palkinnon!",
-      "3": "Olet lisännyt 150 erilaista kasvista ja ansainnut kultaisen palkinnon!"
+      "1": "Olet lisännyt yhteensä 40 erilaista kasvista ja ansainnut pronssisen palkinnon!",
+      "2": "Olet lisännyt kunnioitettavat 80 erilaista kasvista ja ansainnut hopeisen palkinnon!",
+      "3": "Olet lisännyt uskomattomat 150 erilaista kasvista ja ansainnut kultaisen palkinnon!"
     },
     "experimenterBean": {
       "title": "Kokeilija",
@@ -51,7 +51,8 @@
       "1": "Alkaa polttaa! Viiden viikon kuuma sarja yli 30 erilaista kasvista joka viikko!",
       "2": "Olet liekeissä! Kymmenen viikon kuuma sarja yli 30 erilaista kasvista joka viikko!",
       "3": "Scorchio! 20 viikon kuuma sarja yli 30 erilaista kasvista joka viikko!"
-    }
+    },
+    "newAchievements": "Uusia saavutuksia avattu!"
   },
   "categories": {
     "Bean": "Pavut ja palkokasvit",
@@ -89,8 +90,7 @@
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
     "reset": "Tyhjennä",
-    "start": "Aloita",
-    "weekInterval": "Viikko {0}"
+    "start": "Aloita"
   },
   "home": {
     "info": "Lue lisää",
@@ -103,10 +103,6 @@
   "locales": {
     "en": "English",
     "fi": "Suomi"
-  },
-  "log": {
-    "newAchievements": "Uusia saavutuksia avattu!",
-    "newAchievementsContent": "Tässä ovat uudet saavutuksesi. Mikäli haluat tarkastella niitä myöhemmin, käy tilastosivulla."
   },
   "settings": {
     "locale": "Kieli",
@@ -167,6 +163,7 @@
     "black bean": "mustapapu",
     "black radish": "retikka",
     "black salsify": "mustajuuri",
+    "black trumpet mushroom": "mustatorvisieni",
     "black-eyed pea": "mustasilmäpapu",
     "blackberry": "karhunvatukka",
     "blood grapefruit": "verigreippi",
@@ -191,6 +188,8 @@
     "cauliflower": "kukkakaali",
     "celeriac": "juuriselleri",
     "celery": "varsiselleri",
+    "champignon": "herkkusieni",
+    "chanterelle": "kanttarelli",
     "chard": "mangoldi",
     "chayote": "kajottikurpitsa",
     "cherry tomato": "kirsikkatomaatti",
@@ -212,6 +211,7 @@
     "daikon": "daikon",
     "dandelion greens": "voikukka",
     "date": "taateli",
+    "dill": "tilli",
     "dragon fruit": "pitaija (lohikäärmehedelmä)",
     "durian": "durian",
     "edamame": "edamamepapu",
@@ -233,6 +233,7 @@
     "green lentil": "vihreä linssi",
     "guava": "guava",
     "hazelnut": "hasselpähkinä",
+    "hedgehog mushroom": "vaaleaorakas",
     "hemp seed": "hampunsiemen",
     "honeydew melon": "hunajameloni",
     "horseradish": "piparjuuri",
@@ -260,7 +261,9 @@
     "mango": "mango",
     "mangosteen": "mangostani",
     "manioc": "maniokki",
+    "matsutake": "tuoksuvalmuska (matsutake)",
     "millet": "millet",
+    "mint": "minttu",
     "mizuna": "japaninkaali (mizuna)",
     "mung bean": "mungpapu",
     "mustard greens": "sareptansinappi",
@@ -289,6 +292,8 @@
     "plum": "luumu",
     "pomegranate": "granaattiomena",
     "pomelo": "pomelo",
+    "porcini": "herkkutatti",
+    "portobello": "portobello",
     "potato": "peruna",
     "pumpkin seed": "kurpitsansiemen",
     "pumpkin": "kurpitsa",
@@ -312,6 +317,7 @@
     "scallion": "kevätsipuli",
     "sesame seed": "seesaminsiemen",
     "shallot": "salottisipuli",
+    "shiitake": "shiitake",
     "sorghum": "durra",
     "sorrel": "suolaheinä",
     "soybean": "soijapapu",
@@ -343,6 +349,7 @@
     "yam": "jamssi",
     "yardlong bean": "parsapapu",
     "yellow beet": "keltajuuri",
+    "yellowfoot mushroom": "suppilovahvero",
     "zucchini": "kesäkurpitsa"
   },
   "veggieSearch": {

@@ -4,45 +4,45 @@
       "title": "The Completionist",
       "ariaLabel": "{0} unique veggies",
       "badgeText": "{0} veggies",
-      "1": "You have logged 40 unique veggies, earning you the bronze achievement!",
-      "2": "You have logged 80 unique veggies, earning you the silver achievement!",
-      "3": "You have logged 150 unique veggies, earning you the gold achievement!"
+      "1": "You have logged a total of 40 unique veggies, earning you the bronze achievement!",
+      "2": "You have logged a respectable amount of 80 unique veggies, earning you the silver achievement!",
+      "3": "You have logged a whopping amount of 150 unique veggies, earning you the gold achievement!"
     },
     "experimenterBean": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique beans and legumes",
       "badgeText": "Beans",
-      "3": "You have logged 15 unique beans and legumes, earning you this achievement!"
+      "3": "You have sampled 15 unique beans and legumes, earning you this achievement!"
     },
     "experimenterFruit": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique fruits and berries",
       "badgeText": "Fruits",
-      "3": "You have logged 15 unique fruits and berries, earning you this achievement!"
+      "3": "You have sampled 15 unique fruits and berries, earning you this achievement!"
     },
     "experimenterGrain": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique grains, nuts and seeds",
       "badgeText": "Grains",
-      "3": "You have logged 15 unique grains, nuts and seeds, earning you this achievement!"
+      "3": "You have sampled 15 unique grains, nuts and seeds, earning you this achievement!"
     },
     "experimenterLeafy": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique leafy greens",
       "badgeText": "Leafy Greens",
-      "3": "You have logged 15 unique leafy greens, earning you this achievement!"
+      "3": "You have sampled 15 unique leafy greens, earning you this achievement!"
     },
     "experimenterRoot": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique roots and bulbs",
       "badgeText": "Roots",
-      "3": "You have logged 15 unique roots and bulbs, earning you this achievement!"
+      "3": "You have sampled 15 unique roots and bulbs, earning you this achievement!"
     },
     "experimenterVegetable": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique vegetables",
       "badgeText": "Vegetables",
-      "3": "You have logged 15 unique vegetables, earning you this achievement!"
+      "3": "You have sampled 15 unique vegetables, earning you this achievement!"
     },
     "hotStreak": {
       "title": "Hot Streak",
@@ -51,7 +51,8 @@
       "1": "You're heating up! A hot streak of five weeks with over 30 unique veggies each week!",
       "2": "You're on fire! A hot streak of ten weeks with over 30 unique veggies each week!",
       "3": "Scorchio! A hot streak of twenty weeks with over 30 unique veggies each week!"
-    }
+    },
+    "newAchievements": "You gained new achievements!"
   },
   "categories": {
     "Bean": "Beans And Legumes",
@@ -89,8 +90,7 @@
     "clickToRemove": "Remove {0}",
     "close": "Close",
     "reset": "Reset",
-    "start": "Start",
-    "weekInterval": "Week {0}"
+    "start": "Start"
   },
   "home": {
     "info": "Learn more",
@@ -103,10 +103,6 @@
   "locales": {
     "en": "English",
     "fi": "Suomi"
-  },
-  "log": {
-    "newAchievements": "You gained new achievements!",
-    "newAchievementsContent": "Here are your new achievements. If you wish to view them at a later time, visit the stats page."
   },
   "settings": {
     "locale": "Language",
@@ -145,7 +141,7 @@
     "firstVeggie": "First veggie added! {0}!",
     "hundreds": "You reached a total of {0} veggies! {1}!",
     "thirtyVeggies": "You reached 30 veggies this week! {0}!",
-    "uniqueVeggies": "You have sampled {0} out of {1} vegetables on this app! {2}!"
+    "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
   },
   "veggies": {
     "adzuki bean": "adzuki bean",
@@ -167,6 +163,7 @@
     "black bean": "black bean",
     "black radish": "black radish",
     "black salsify": "black salsify",
+    "black trumpet mushroom": "black trumpet mushroom",
     "black-eyed pea": "black-eyed pea",
     "blackberry": "blackberry",
     "blood grapefruit": "blood grapefruit",
@@ -191,6 +188,8 @@
     "cauliflower": "cauliflower",
     "celeriac": "celeriac",
     "celery": "celery",
+    "champignon": "champignon",
+    "chanterelle": "chanterelle",
     "chard": "chard",
     "chayote": "chayote",
     "cherry tomato": "cherry tomato",
@@ -212,6 +211,7 @@
     "daikon": "daikon",
     "dandelion greens": "dandelion greens",
     "date": "date",
+    "dill": "dill",
     "dragon fruit": "dragon fruit",
     "durian": "durian",
     "edamame": "edamame",
@@ -233,6 +233,7 @@
     "green lentil": "green lentil",
     "guava": "guava",
     "hazelnut": "hazelnut",
+    "hedgehog mushroom": "hedgehog mushroom",
     "hemp seed": "hemp seed",
     "honeydew melon": "honeydew melon",
     "horseradish": "horseradish",
@@ -260,7 +261,9 @@
     "mango": "mango",
     "mangosteen": "mangosteen",
     "manioc": "manioc (cassava)",
+    "matsutake": "matsutake",
     "millet": "millet",
+    "mint": "mint",
     "mizuna": "mizuna",
     "mung bean": "mung bean",
     "mustard greens": "mustard greens",
@@ -289,6 +292,8 @@
     "plum": "plum",
     "pomegranate": "pomegranate",
     "pomelo": "pomelo",
+    "porcini": "porcini",
+    "portobello": "portobello",
     "potato": "potato",
     "pumpkin seed": "pumpkin seed",
     "pumpkin": "pumpkin",
@@ -312,6 +317,7 @@
     "scallion": "scallion",
     "sesame seed": "sesame seed",
     "shallot": "shallot",
+    "shiitake": "shiitake",
     "sorghum": "sorghum",
     "sorrel": "sorrel",
     "soybean": "soybean",
@@ -343,6 +349,7 @@
     "yam": "yam",
     "yardlong bean": "yardlong bean",
     "yellow beet": "yellow beet",
+    "yellowfoot mushroom": "yellowfoot mushroom",
     "zucchini": "zucchini"
   },
   "veggieSearch": {

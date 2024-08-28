@@ -58,7 +58,7 @@ watch(achievements, (newValue, oldValue) => {
     icon="plus"
     @click="(veggie) => toggleVeggie(veggie)"
   />
-  <ModalDialog v-model="dialogOpen" :title="$t('log.newAchievements')">
+  <ModalDialog v-model="dialogOpen" :title="$t('achievements.newAchievements')">
     <template #content>
       <ul class="log-view__achievement-container">
         <li v-for="(value, key) in newAchievements" :key="key" class="log-view__achievement-row">

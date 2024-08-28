@@ -2,11 +2,6 @@ import {Category, type Locale} from './types';
 
 export const LOCALES: Locale[] = ['en', 'fi'];
 
-export const DATE_FORMATS: Record<Locale, string> = {
-  en: 'MM/dd/yyyy',
-  fi: 'dd.MM.yyyy',
-};
-
 export const COLORS = {
   chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
   chartColorsAlternate: ['#fdc5f5', '#f7aef8', '#b388eb', '#8093f1', '#79b8f4', '#72ddf7'],
@@ -86,12 +81,14 @@ export const LEAFIES = [
   'cilantro',
   'collard greens',
   'dandelion greens',
+  'dill',
   'endive',
   'frisée',
   'iceberg lettuce',
   'kale',
   'lettuce',
   'mache',
+  'mint',
   'mizuna',
   'mustard greens',
   'napa cabbage',
@@ -149,24 +146,33 @@ export const VEGETABLES = [
   'avocado',
   'bell pepper',
   'bitter melon',
+  'black trumpet mushroom',
   'broccoli',
   'broccolini',
   'brussels sprouts',
   'cauliflower',
   'celery',
+  'champignon',
+  'chanterelle',
   'chayote',
   'cherry tomato',
   'chili pepper',
   'corn',
   'cucumber',
   'eggplant',
+  'hedgehog mushroom',
+  'matsutake',
   'okra',
   'olive',
+  'porcini',
+  'portobello',
   'pumpkin',
   'rhubarb',
+  'shiitake',
   'squash',
   'tomatillo',
   'tomato',
+  'yellowfoot mushroom',
   'zucchini',
 ];
 
