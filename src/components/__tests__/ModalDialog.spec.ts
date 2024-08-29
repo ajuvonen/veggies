@@ -38,6 +38,7 @@ describe('ModalDialog', () => {
     });
     expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.find('.modal-dialog').exists()).toBe(true);
+    expect(wrapper.findByTestId('close-button').exists()).toBe(true);
   });
 
   it('renders content', () => {
@@ -53,6 +54,7 @@ describe('ModalDialog', () => {
     });
     expect(wrapper.findByText('p', 'Test content').exists()).toBe(true);
     expect(wrapper.findByText('p', 'Test buttons').exists()).toBe(true);
+    expect(wrapper.findByTestId('close-button').exists()).toBe(false);
   });
 
   it('closes dialog on button click', async () => {

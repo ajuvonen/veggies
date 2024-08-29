@@ -23,15 +23,18 @@ defineProps<{
       <!-- Full-screen container to center the panel -->
       <div class="modal-dialog__container">
         <DialogPanel class="modal-dialog outline-override">
-          <ButtonComponent
-            :aria-label="$t('general.close')"
-            class="modal-dialog__close-button"
-            variant="text"
-            icon="close"
-            data-test-id="close-button"
-            @click="model = false"
-          />
-          <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
+          <div class="flex-container items-center justify-between">
+            <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
+            <ButtonComponent
+              v-if="!$slots.buttons"
+              :aria-label="$t('general.close')"
+              class="fill-slate-700"
+              variant="text"
+              icon="close"
+              data-test-id="close-button"
+              @click="model = false"
+            />
+          </div>
           <div class="modal-dialog__content outline-override">
             <slot name="content"></slot>
           </div>
@@ -73,11 +76,6 @@ defineProps<{
 .modal-dialog__title,
 .modal-dialog__content {
   @apply text-slate-900;
-}
-
-.modal-dialog__close-button {
-  @apply absolute right-4 top-4;
-  @apply fill-slate-700;
 }
 
 .modal-dialog__buttons {

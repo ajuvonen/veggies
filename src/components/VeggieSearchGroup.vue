@@ -49,7 +49,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
 <style scoped lang="scss">
 .veggie-search__group {
   @apply flex-container justify-start;
-  @apply select-none p-2 pr-4;
+  @apply select-none p-2;
   @apply bg-slate-300 text-slate-900;
 }
 
