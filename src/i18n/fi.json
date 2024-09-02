@@ -1,5 +1,13 @@
 {
   "achievements": {
+    "committed": {
+      "title": "Sitoutunut",
+      "ariaLabel": "{0} kuukauden aktiivinen käyttö",
+      "badgeText": "{0} kuukautta",
+      "1": "Olet käyttänyt sovellusta aktiivisesti kolme kuukautta ja ansainnut pronssisen palkinnon!",
+      "2": "Olet käyttänyt sovellusta aktiivisesti kuusi kuukautta ja ansainnut hopeisen palkinnon!",
+      "3": "Olet käyttänyt sovellusta aktiivisesti yhden vuoden ja ansainnut kultaisen palkinnon!"
+    },
     "completionist": {
       "title": "Keräilijä",
       "ariaLabel": "{0} erilaista kasvista",

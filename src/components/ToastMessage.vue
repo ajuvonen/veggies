@@ -59,6 +59,7 @@ const veggieEmojis = [
   '🫛',
   '🥜',
   '🫘',
+  '🌿',
 ];
 const emoji = veggieEmojis[Math.floor(Math.random() * veggieEmojis.length)];
 </script>

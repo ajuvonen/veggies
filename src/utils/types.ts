@@ -37,6 +37,7 @@ export enum AchievementLevel {
 }
 
 export type Achievements = {
+  committed: AchievementLevel;
   completionist: AchievementLevel;
   hotStreak: AchievementLevel;
   experimenterBean: AchievementLevel;

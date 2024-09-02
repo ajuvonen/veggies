@@ -22,6 +22,20 @@ type AchievementProps = Record<
 >;
 
 const achievementProps: AchievementProps = {
+  committed: {
+    [AchievementLevel.Bronze]: {
+      textProps: [3],
+      emoji: '🌱',
+    },
+    [AchievementLevel.Silver]: {
+      textProps: [6],
+      emoji: '🪴',
+    },
+    [AchievementLevel.Gold]: {
+      textProps: [12],
+      emoji: '🎄',
+    },
+  },
   completionist: {
     [AchievementLevel.Bronze]: {
       textProps: [40],
@@ -129,7 +143,7 @@ const achievementProps: AchievementProps = {
 }
 
 .badge__emoji {
-  @apply absolute text-[17cqmin] sm:text-[15cqmin] leading-[1.3];
+  @apply absolute text-[17cqmin] sm:text-[14cqmin] leading-[1.3];
   text-shadow: 1px 1px 1px #334155;
   mix-blend-mode: luminosity;
 }
