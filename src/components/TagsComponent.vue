@@ -10,6 +10,7 @@ const props = withDefaults(
     veggies: string[];
     icon: IconString;
     variant?: ButtonVariant | ButtonVariant[];
+    ariaKey: string;
   }>(),
   {
     variant: () => ['primary'],
@@ -31,7 +32,11 @@ const translatedVeggies = computed(() => {
 <template>
   <TransitionGroup name="tags" tag="ul" class="tags__container">
     <li v-for="{veggie, translation} in translatedVeggies" :key="veggie" class="tags__tag">
-      <ButtonComponent :variant="variant" @click="$emit('click', veggie)">
+      <ButtonComponent
+        :aria-label="$t(ariaKey, [translation])"
+        :variant="variant"
+        @click="$emit('click', veggie)"
+      >
         <IconComponent :icon="icon" />
         {{ translation }}</ButtonComponent
       >

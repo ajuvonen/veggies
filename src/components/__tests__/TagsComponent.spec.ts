@@ -8,6 +8,7 @@ describe('ButtonComponent', () => {
       props: {
         veggies: ['tomato', 'pineapple'],
         icon: 'plus',
+        ariaKey: 'general.clickToAdd',
       },
     });
 
@@ -21,6 +22,7 @@ describe('ButtonComponent', () => {
         veggies: ['tomato', 'pineapple'],
         variant: 'danger',
         icon: 'minus',
+        ariaKey: 'general.clickToRemove',
       },
     });
 
@@ -34,6 +36,7 @@ describe('ButtonComponent', () => {
         veggies: ['tomato', 'pineapple'],
         variant: ['tag', 'primary'],
         icon: 'plus',
+        ariaKey: 'general.clickToAdd',
       },
     });
 
@@ -49,6 +52,7 @@ describe('ButtonComponent', () => {
         veggies: ['tomato', 'pineapple'],
         variant: ['tag', 'primary'],
         icon: 'minus',
+        ariaKey: 'general.clickToRemove',
       },
     });
 

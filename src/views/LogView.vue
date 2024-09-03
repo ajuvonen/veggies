@@ -55,6 +55,7 @@ watch(achievements, (newValue, oldValue) => {
   <TagsComponent
     :veggies="favorites"
     :variant="['tag', 'primary']"
+    ariaKey="general.clickToAdd"
     icon="plus"
     @click="(veggie) => toggleVeggie(veggie)"
   />

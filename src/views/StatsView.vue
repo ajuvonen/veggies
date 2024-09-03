@@ -59,6 +59,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
     v-if="selectedStat === 0"
     :veggies="currentVeggies"
     :variant="['tag', 'remove']"
+    ariaKey="general.clickToRemove"
     icon="minus"
     @click="toggleVeggie"
   />
