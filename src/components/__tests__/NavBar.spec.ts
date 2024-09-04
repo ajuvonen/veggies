@@ -18,8 +18,8 @@ describe('NavBar', () => {
         showStats: false,
       },
     });
-    expect(wrapper.find('[href="/stats"').exists()).toBe(false);
+    expect(wrapper.find('[href="/veggies/stats"').exists()).toBe(false);
     await wrapper.setProps({showStats: true});
-    expect(wrapper.find('[href="/stats"').exists()).toBe(true);
+    expect(wrapper.find('[href="/veggies/stats"').exists()).toBe(true);
   });
 });
