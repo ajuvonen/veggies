@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {computed} from 'vue';
 import {ComboboxOption} from '@headlessui/vue';
 import type {Category, TranslatedListing} from '@/utils/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
@@ -8,8 +7,6 @@ const props = defineProps<{
   items: TranslatedListing[];
   category: Category;
 }>();
-
-const getGroupEmoji = computed(() => CATEGORY_EMOJI[props.category]);
 
 const getOptionClasses = (active: boolean, selected: boolean) => {
   const textClass = active ? 'text-slate-50' : 'text-slate-900 fill-slate-900';
@@ -27,7 +24,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
 <template>
   <template v-if="items.length">
     <li class="veggie-search__group">
-      <span aria-hidden="true">{{ getGroupEmoji }}</span>
+      <span aria-hidden="true">{{ CATEGORY_EMOJI[props.category] }}</span>
       <span>{{ $t(`categories.${category}`) }} ({{ items.length }})</span>
     </li>
     <ComboboxOption
