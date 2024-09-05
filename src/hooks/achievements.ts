@@ -301,7 +301,14 @@ export function useAchievements() {
 
   const achievements = ref(mapValues(actor.getSnapshot().value, Number) as Achievements);
 
-  actor.subscribe((snapshot) => (achievements.value = mapValues(snapshot.value, Number)));
+  const subscription = actor.subscribe(
+    (snapshot) => (achievements.value = mapValues(snapshot.value, Number)),
+  );
+
+  window.addEventListener('beforeunload', () => {
+    actor.stop();
+    subscription.unsubscribe();
+  });
 
   return {
     achievements,
