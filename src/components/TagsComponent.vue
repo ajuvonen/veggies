@@ -4,7 +4,10 @@ import {useI18n} from 'vue-i18n';
 import type {ButtonVariant} from '@/components/ButtonComponent.vue';
 import type {IconString} from '@/components/IconComponent.vue';
 
-defineEmits(['click']);
+defineEmits<{
+  click: [veggie: string];
+}>();
+
 const props = withDefaults(
   defineProps<{
     veggies: string[];
