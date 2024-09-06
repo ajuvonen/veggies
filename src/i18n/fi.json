@@ -20,45 +20,45 @@
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista papua ja palkokasvia",
       "badgeText": "Pavut",
-      "3": "Olet kokeillut 15 erilaista papua ja palkokasvia ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista papua ja palkokasvia ansaiten tämän palkinnon!"
     },
     "experimenterFruit": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista hedelmää ja marjaa",
       "badgeText": "Hedelmät",
-      "3": "Olet kokeillut 15 erilaista papua ja palkokasvia ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista papua ja palkokasvia ansaiten tämän palkinnon!"
     },
     "experimenterGrain": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista viljaa, pähkinää ja siementä",
       "badgeText": "Viljat",
-      "3": "Olet kokeillut 15 erilaista viljaa, pähkinää ja siementä ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista viljaa, pähkinää ja siementä ansaiten tämän palkinnon!"
     },
     "experimenterLeafy": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista lehtivihreää",
       "badgeText": "Vihreät",
-      "3": "Olet kokeillut 15 erilaista lehtivihreää ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista lehtivihreää ja yrttiä ansaiten tämän palkinnon!"
     },
     "experimenterRoot": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista juuresta",
       "badgeText": "Juurekset",
-      "3": "Olet kokeillut 15 erilaista juuresta ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista juuresta ansaiten tämän palkinnon!"
     },
     "experimenterVegetable": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista vihannesta",
       "badgeText": "Vihannekset",
-      "3": "Olet kokeillut 15 erilaista vihannesta ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista vihannesta ansaiten tämän palkinnon!"
     },
     "hotStreak": {
-      "title": "Kuuma sarja",
-      "ariaLabel": "{0} viikon suora yli 30 kasvista viikossa",
+      "title": "Putki päällä",
+      "ariaLabel": "{0} viikon putki yli 30 kasvista viikossa",
       "badgeText": "{0} Viikkoa",
-      "1": "Alkaa polttaa! Viiden viikon kuuma sarja yli 30 erilaista kasvista joka viikko!",
-      "2": "Olet liekeissä! Kymmenen viikon kuuma sarja yli 30 erilaista kasvista joka viikko!",
-      "3": "Scorchio! 20 viikon kuuma sarja yli 30 erilaista kasvista joka viikko!"
+      "1": "Alkaa polttaa! Viiden viikon putki yli 30 erilaista kasvista joka viikko!",
+      "2": "Olet liekeissä! Kymmenen viikon putki yli 30 erilaista kasvista joka viikko!",
+      "3": "Scorchio! 20:n viikon putki yli 30 erilaista kasvista joka viikko!"
     },
     "newAchievements": "Uusia saavutuksia avattu!"
   },
@@ -66,7 +66,7 @@
     "Bean": "Pavut ja palkokasvit",
     "Fruit": "Hedelmät ja marjat",
     "Grain": "Vilja, pähkinät ja siemenet",
-    "Leafy": "Lehtivihreät",
+    "Leafy": "Lehtivihreät ja yrtit",
     "Root": "Juurekset",
     "Vegetable": "Vihannekset"
   },
@@ -97,7 +97,6 @@
     "clickToAdd": "Lisää {0}",
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
-    "reset": "Tyhjennä",
     "start": "Aloita"
   },
   "home": {
@@ -114,6 +113,7 @@
   },
   "settings": {
     "locale": "Kieli",
+    "reset": "Tyhjennä",
     "resetDialogText": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
     "resetDialogTitle": "Haluatko tyhjentää sovelluksen?",
     "title": "Asetukset"

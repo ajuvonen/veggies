@@ -28,7 +28,7 @@ const reset = () => {
       icon="trashCan"
       data-test-id="reset-button"
       @click="resetDialogOpen = true"
-      >{{ $t('general.reset') }}</ButtonComponent
+      >{{ $t('settings.reset') }}</ButtonComponent
     >
   </div>
   <ModalDialog v-model="resetDialogOpen" :title="$t('settings.resetDialogTitle')">
@@ -44,7 +44,7 @@ const reset = () => {
         variant="danger"
         icon="trashCan"
         @click="reset()"
-        >{{ $t('general.reset') }}</ButtonComponent
+        >{{ $t('settings.reset') }}</ButtonComponent
       >
     </template>
   </ModalDialog>
