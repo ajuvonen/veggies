@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
+import {useMemoize} from '@vueuse/core';
 import {Listbox, ListboxLabel, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
@@ -16,7 +17,7 @@ const {toggleVeggie} = activityStore;
 
 const selectedStat = ref(0);
 
-const getOptionClasses = (active: boolean, selected: boolean) => {
+const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
   const textClass = active ? 'text-slate-50' : 'text-slate-900';
   let bgClass = 'transparent';
   if (active) {
@@ -25,7 +26,7 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
     bgClass = 'bg-sky-200';
   }
   return `${textClass} ${bgClass}`;
-};
+});
 </script>
 <template>
   <Listbox v-model="selectedStat" class="relative z-10 uppercase" as="div">
@@ -44,11 +45,15 @@ const getOptionClasses = (active: boolean, selected: boolean) => {
       <ListboxOptions class="stats__list-box-options">
         <ListboxOption
           v-slot="{active, selected}"
+          as="template"
           v-for="item in [0, 1, 2, 3]"
           :key="item"
           :value="item"
         >
-          <li :class="[getOptionClasses(active, selected), 'stats__list-box-option']">
+          <li
+            :class="[getOptionClasses(active, selected), 'stats__list-box-option']"
+            role="menuitem"
+          >
             {{ $t(`stats.${item}`) }}
           </li>
         </ListboxOption>

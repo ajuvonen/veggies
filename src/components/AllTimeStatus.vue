@@ -1,19 +1,14 @@
 <script lang="ts" setup>
 import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
-import {unique} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 
 const activitysStore = useActivityStore();
-const {allVeggies, veggiesForWeek, getWeekStarts, getTotalWeeks} = storeToRefs(activitysStore);
+const {veggiesForWeek, getWeekStarts, getTotalWeeks, uniqueVeggies} = storeToRefs(activitysStore);
 const over30Veggies = computed(
   () =>
-    getWeekStarts.value
-      .map((weekStart) => veggiesForWeek.value(weekStart).length > 30)
-      .filter(Boolean).length,
+    getWeekStarts.value.filter((weekStart) => veggiesForWeek.value(weekStart).length >= 30).length,
 );
-
-const uniqueVeggies = computed(() => unique(allVeggies.value).length);
 
 const atMostVeggies = computed(() =>
   Math.max(...getWeekStarts.value.map((weekStart) => veggiesForWeek.value(weekStart).length)),
@@ -33,7 +28,7 @@ const atMostVeggies = computed(() =>
     </div>
     <div class="status__item">
       <span>{{ $t('stats.grid3.topLabel') }}</span>
-      <span class="text-5xl">{{ uniqueVeggies }}</span>
+      <span class="text-5xl">{{ uniqueVeggies.length }}</span>
       <span>{{ $t('stats.grid3.bottomLabel') }}</span>
     </div>
     <div class="status__item">
