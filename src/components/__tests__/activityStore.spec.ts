@@ -79,6 +79,23 @@ describe('activityStore', () => {
     expect(activityStore.currentVeggies).toEqual(['cucumber', 'tomato']);
   });
 
+  // it("sets this week's veggies", () => {
+  //   activityStore.startDate = lastWeek;
+  //   activityStore.weeks.push(
+  //     {
+  //       startDate: lastWeek,
+  //       veggies: ['cucumber', 'longan'],
+  //     },
+  //     {
+  //       startDate: thisWeek,
+  //       veggies: ['cucumber', 'tomato'],
+  //     },
+  //   );
+  //   activityStore.currentVeggies = ['banana', 'apple'];
+  //   expect(activityStore.currentVeggies).toEqual(['banana', 'apple']);
+  //   expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'longan']);
+  // });
+
   it("returns specific week's veggies", () => {
     activityStore.startDate = lastWeek;
     activityStore.weeks.push(

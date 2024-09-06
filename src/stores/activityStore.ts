@@ -71,7 +71,21 @@ export const useActivityStore = defineStore('activity', () => {
       weeks.value.find(({startDate}) => startDate.equals(weekStart))?.veggies ?? [],
   );
 
-  const currentVeggies = computed(() => veggiesForWeek.value(DateTime.now().startOf('week')));
+  const currentVeggies = computed({
+    get: () => veggiesForWeek.value(DateTime.now().startOf('week')),
+    set: (veggies: string[]) => {
+      const now = DateTime.now().startOf('week');
+      const targetWeek = weeks.value.find(({startDate}) => startDate.equals(now));
+      if (!targetWeek) {
+        weeks.value.push({
+          startDate: now,
+          veggies,
+        });
+      } else {
+        targetWeek.veggies = veggies;
+      }
+    },
+  });
 
   const favorites = computed(() =>
     pipe(

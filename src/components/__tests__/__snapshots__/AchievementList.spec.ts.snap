@@ -6,18 +6,21 @@ exports[`AchievementList > renders 1`] = `
     <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="40 unique veggies" aria-label="40 unique veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🐣</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🐣</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 veggies</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="80 unique veggies" aria-label="80 unique veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🐥</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🐥</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="150 unique veggies" aria-label="150 unique veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🦅</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🦅</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
       </div>
     </div>
@@ -26,18 +29,21 @@ exports[`AchievementList > renders 1`] = `
     <p data-v-1c120264="" class="achievement-list__label">The Committed</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="3 months of active use" aria-label="3 months of active use" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🌱</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🌱</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">3 months</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="6 months of active use" aria-label="6 months of active use" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🪴</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🪴</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">6 months</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="12 months of active use" aria-label="12 months of active use" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🎄</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🎄</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">12 months</div>
       </div>
     </div>
@@ -46,18 +52,21 @@ exports[`AchievementList > renders 1`] = `
     <p data-v-1c120264="" class="achievement-list__label">Hot Streak</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 week streak of over 30 veggies" aria-label="5 week streak of over 30 veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🌶️</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🌶️</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 Weeks</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 week streak of over 30 veggies" aria-label="10 week streak of over 30 veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🔥</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🔥</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 week streak of over 30 veggies" aria-label="20 week streak of over 30 veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🌋</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🌋</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 Weeks</div>
       </div>
     </div>
@@ -66,33 +75,39 @@ exports[`AchievementList > renders 1`] = `
     <p data-v-1c120264="" class="achievement-list__label">The Experimenter</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🍎</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🍎</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Fruits</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique vegetables" aria-label="15 unique vegetables" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🥦</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🥦</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Vegetables</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique leafy greens" aria-label="15 unique leafy greens" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🥬</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🥬</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Leafy Greens</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique roots and bulbs" aria-label="15 unique roots and bulbs" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🥕</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🥕</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Roots</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique beans and legumes" aria-label="15 unique beans and legumes" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🫛</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🫛</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Beans</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique grains, nuts and seeds" aria-label="15 unique grains, nuts and seeds" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🌾</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🌾</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
       </div>
     </div>
@@ -106,18 +121,21 @@ exports[`AchievementList > renders with badges enabled 1`] = `
     <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="40 unique veggies" aria-label="40 unique veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🐣</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🐣</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 veggies</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="80 unique veggies" aria-label="80 unique veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🐥</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🐥</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="150 unique veggies" aria-label="150 unique veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🦅</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🦅</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
       </div>
     </div>
@@ -126,18 +144,21 @@ exports[`AchievementList > renders with badges enabled 1`] = `
     <p data-v-1c120264="" class="achievement-list__label">The Committed</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="3 months of active use" aria-label="3 months of active use" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🌱</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🌱</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">3 months</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="6 months of active use" aria-label="6 months of active use" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🪴</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🪴</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">6 months</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="12 months of active use" aria-label="12 months of active use" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🎄</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🎄</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">12 months</div>
       </div>
     </div>
@@ -146,18 +167,21 @@ exports[`AchievementList > renders with badges enabled 1`] = `
     <p data-v-1c120264="" class="achievement-list__label">Hot Streak</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 week streak of over 30 veggies" aria-label="5 week streak of over 30 veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🌶️</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🌶️</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 Weeks</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 week streak of over 30 veggies" aria-label="10 week streak of over 30 veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🔥</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🔥</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 week streak of over 30 veggies" aria-label="20 week streak of over 30 veggies" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🌋</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🌋</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 Weeks</div>
       </div>
     </div>
@@ -166,33 +190,39 @@ exports[`AchievementList > renders with badges enabled 1`] = `
     <p data-v-1c120264="" class="achievement-list__label">The Experimenter</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🍎</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🍎</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Fruits</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique vegetables" aria-label="15 unique vegetables" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🥦</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🥦</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Vegetables</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique leafy greens" aria-label="15 unique leafy greens" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🥬</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🥬</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Leafy Greens</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique roots and bulbs" aria-label="15 unique roots and bulbs" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🥕</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🥕</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Roots</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique beans and legumes" aria-label="15 unique beans and legumes" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🫛</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🫛</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Beans</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique grains, nuts and seeds" aria-label="15 unique grains, nuts and seeds" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__emoji">🌾</div>
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🌾</div>
+        </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
       </div>
     </div>

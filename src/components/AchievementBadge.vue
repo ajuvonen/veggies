@@ -114,9 +114,14 @@ const achievementProps: AchievementProps = {
     class="badge"
     role="img"
   >
-    <div class="badge__background" :class="[`badge__background--${AchievementLevel[level]}`]"></div>
-    <div aria-hidden="true" class="badge__emoji">
-      {{ achievementProps[achievement][level]!.emoji }}
+    <div
+      class="badge__background"
+      :class="[`badge__background--${AchievementLevel[level]}`]"
+      aria-hidden="true"
+    >
+      <div class="badge__emoji">
+        {{ achievementProps[achievement][level]!.emoji }}
+      </div>
     </div>
     <div aria-hidden="true" class="badge__text">
       {{
@@ -127,8 +132,7 @@ const achievementProps: AchievementProps = {
 </template>
 <style lang="scss" scoped>
 .badge {
-  @apply select-none aspect-square;
-  @apply flex items-center justify-center;
+  @apply relative select-none aspect-square self-center;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3));
   flex: 0 0 calc(33% - 5px);
 
@@ -138,13 +142,13 @@ const achievementProps: AchievementProps = {
 }
 
 .badge__background {
-  @apply relative w-full h-full rounded-full border-4;
+  @apply relative w-full h-full rounded-full border-4 text-[17cqmin] sm:text-[14cqmin];
+  @apply flex items-center justify-center;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 1px #334155;
 }
 
 .badge__emoji {
-  @apply absolute text-[17cqmin] sm:text-[14cqmin] leading-[1.3];
-  text-shadow: 1px 1px 1px #334155;
   mix-blend-mode: luminosity;
 }
 

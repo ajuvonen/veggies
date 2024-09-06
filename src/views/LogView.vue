@@ -43,15 +43,13 @@ watch(allVeggies, (newAllVeggies, oldAllVeggies) => {
 
 watch(achievements, (newValue, oldValue) => {
   newAchievements.value = omitBy(newValue, (value, key) => oldValue[key] === value);
-  if (Object.keys(newAchievements.value).length) {
-    dialogOpen.value = true;
-  }
+  dialogOpen.value = true;
 });
 </script>
 <template>
   <CategoryStatus class="log-view__chart" v-if="currentVeggies.length" :veggies="currentVeggies" />
   <FrontPageAnimation class="log-view__chart" v-else />
-  <VeggieSearch :selected="currentVeggies" @toggle="toggleVeggie" />
+  <VeggieSearch v-model="currentVeggies" />
   <TagsComponent
     :veggies="favorites"
     :variant="['tag', 'primary']"
@@ -63,9 +61,7 @@ watch(achievements, (newValue, oldValue) => {
     <template #content>
       <ul class="log-view__achievement-container">
         <li v-for="(value, key) in newAchievements" :key="key" class="log-view__achievement-row">
-          <div class="flex justify-center">
-            <AchievementBadge active :achievement="key" :level="value!" />
-          </div>
+          <AchievementBadge active :achievement="key" :level="value!" />
           <p class="text-center">{{ t(`achievements.${key}.${value}`) }}</p>
         </li>
       </ul>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import {ref, computed, onMounted, watch} from 'vue';
+import {ref, computed, onMounted} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {difference, first} from 'remeda';
 import {
   Combobox,
   ComboboxInput,
@@ -9,20 +8,18 @@ import {
   ComboboxOptions,
   TransitionRoot,
 } from '@headlessui/vue';
-import {useElementBounding, useWindowSize} from '@vueuse/core';
+import {useElementBounding, useMemoize, useWindowSize} from '@vueuse/core';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import {getCategoryForVeggie} from '@/utils/helpers';
 
-const emit = defineEmits(['toggle']);
-const props = defineProps<{
-  selected: string[];
-}>();
+const model = defineModel<string[]>({
+  required: true,
+});
 
 const {t, locale} = useI18n();
 
-const selected = ref(props.selected);
 const query = ref('');
 const input = ref<InstanceType<typeof ComboboxInput> | null>(null);
 
@@ -34,7 +31,7 @@ onMounted(() => {
   input.value?.$el.focus();
 });
 
-const allVeggies = computed(() => {
+const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
   return ALL_VEGGIES.map<TranslatedListing>((veggie) => ({
     veggie,
@@ -43,9 +40,9 @@ const allVeggies = computed(() => {
   })).sort((a, b) => collator.compare(a.translation, b.translation));
 });
 
-const filteredveggies = computed(
-  () => (category?: Category) =>
-    allVeggies.value.filter(
+const filteredVeggies = useMemoize(
+  (category?: Category) =>
+    allVeggies().filter(
       (item) =>
         (!category || item.category === category) &&
         (!query.value ||
@@ -54,26 +51,23 @@ const filteredveggies = computed(
             .replace(/\s+/g, '')
             .includes(query.value.toLowerCase().replace(/\s+/g, ''))),
     ),
+  {
+    getKey: (category?: Category) => `${category}_${query.value}`,
+  },
 );
-
-watch(selected, (newValue, oldValue) => {
-  const added = difference(newValue, oldValue);
-  const deleted = difference(oldValue, newValue);
-  emit('toggle', first(added.concat(deleted)));
-});
 
 const getAvailableHeightForOptions = computed(
   () => `max-height: calc(${height.value}px - ${top.value}px - 1rem)`,
 );
 </script>
 <template>
-  <Combobox nullable multiple v-model="selected" as="div" class="relative h-12 z-10">
+  <Combobox nullable multiple v-model="model" as="div" class="relative h-12 z-10">
     <ComboboxInput
       ref="input"
-      class="veggie-search__input"
-      @change="query = $event.target.value"
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
+      class="veggie-search__input"
+      @change="query = $event.target.value"
     />
     <ComboboxButton class="veggie-search__button">
       <IconComponent icon="chevron" aria-hidden="true" />
@@ -89,17 +83,14 @@ const getAvailableHeightForOptions = computed(
         :style="getAvailableHeightForOptions"
         class="veggie-search__options"
       >
-        <div
-          v-if="filteredveggies().length === 0 && query !== ''"
-          class="veggie-search__no-results"
-        >
+        <li v-if="filteredVeggies().length === 0 && query !== ''" class="veggie-search__no-results">
           {{ $t('veggieSearch.noResults') }}
-        </div>
+        </li>
         <VeggieSearchGroup
           v-for="category in Category"
           :key="category"
           :category="category"
-          :items="filteredveggies(category)"
+          :items="filteredVeggies(category)"
         />
       </ComboboxOptions>
     </TransitionRoot>
