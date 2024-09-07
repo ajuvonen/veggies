@@ -34,7 +34,7 @@ watch(allVeggies, (newAllVeggies, oldAllVeggies) => {
     addToastMessage(t('toasts.hundreds', [newAllVeggies.length, cheer]));
   } else if (currentVeggies.value.length === 30) {
     addToastMessage(t('toasts.thirtyVeggies', [cheer]));
-  } else if (Math.random() <= 0.05) {
+  } else if (Math.random() <= 0.05 && newAllVeggies.length) {
     addToastMessage(
       t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, cheer]),
     );

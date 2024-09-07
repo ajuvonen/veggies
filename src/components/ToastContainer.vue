@@ -21,7 +21,7 @@ const {removeToastMessage} = appStateStore;
 </template>
 <style lang="scss" scoped>
 .toast-container {
-  @apply absolute top-0 right-0 left-0 m-0 w-full z-20;
+  @apply absolute top-0 right-0 left-0 m-0 w-full z-30;
   @apply flex-container flex-col;
 }
 
