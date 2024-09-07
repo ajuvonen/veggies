@@ -47,9 +47,9 @@ watch(achievements, (newValue, oldValue) => {
 });
 </script>
 <template>
+  <VeggieSearch v-model="currentVeggies" />
   <CategoryStatus class="log-view__chart" v-if="currentVeggies.length" :veggies="currentVeggies" />
   <FrontPageAnimation class="log-view__chart" v-else />
-  <VeggieSearch v-model="currentVeggies" />
   <TagsComponent
     :veggies="favorites"
     :variant="['tag', 'primary']"
