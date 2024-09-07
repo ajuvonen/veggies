@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, computed} from 'vue';
+import {ref, computed, watch, nextTick} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {
   Combobox,
@@ -20,13 +20,13 @@ const model = defineModel<string[]>({
 });
 
 const {t, locale} = useI18n();
+const {visualHeight} = useScreen();
 
 const query = ref('');
-const openButton = ref<typeof ComboboxButton | null>(null);
 
+const openButton = ref<typeof ComboboxButton | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 const {top} = useElementBounding(optionsElement);
-const {visualHeight} = useScreen();
 
 const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
@@ -61,6 +61,15 @@ const onMenuClose = () => {
   query.value = '';
   openButton.value?.$el.focus();
 };
+
+const scrollToStart = async () => {
+  await nextTick();
+  if (optionsElement.value) {
+    optionsElement.value.$el.scrollTop = 0;
+  }
+};
+
+watch(query, scrollToStart);
 </script>
 <template>
   <Combobox nullable multiple v-model="model" as="div" class="relative h-12 z-20">
@@ -77,6 +86,7 @@ const onMenuClose = () => {
       leave="ease-in duration-100"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
+      @after-enter="scrollToStart"
       @after-leave="onMenuClose"
     >
       <ComboboxOptions
