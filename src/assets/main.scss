@@ -34,17 +34,18 @@
 }
 
 html {
+  @apply h-full;
   scrollbar-width: none;
   scrollbar-color: #f8fafc transparent;
 }
 
 body {
+  @apply text-slate-50 fill-slate-50 h-full;
   font-family: 'Nunito', sans-serif;
-  @apply text-slate-50 fill-slate-50;
 }
 
 #app {
-  @apply h-screen p-4 relative overflow-hidden;
+  @apply h-full p-4 relative overflow-hidden;
   @apply flex flex-col gap-6;
   @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80%;
 }
