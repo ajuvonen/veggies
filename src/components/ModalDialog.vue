@@ -22,8 +22,8 @@ defineProps<{
       <div class="modal-dialog__backdrop" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
       <div class="modal-dialog__container">
-        <DialogPanel class="modal-dialog outline-override">
-          <div class="flex-container items-center justify-between">
+        <DialogPanel class="modal-dialog">
+          <div class="flex-container items-center justify-between outline-override">
             <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
             <ButtonComponent
               v-if="!$slots.buttons"
