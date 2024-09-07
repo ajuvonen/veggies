@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, computed, onMounted} from 'vue';
+import {ref, computed} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {
   Combobox,
@@ -8,11 +8,12 @@ import {
   ComboboxOptions,
   TransitionRoot,
 } from '@headlessui/vue';
-import {useElementBounding, useMemoize, useWindowSize} from '@vueuse/core';
+import {useElementBounding, useMemoize} from '@vueuse/core';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import {getCategoryForVeggie} from '@/utils/helpers';
+import {useScreen} from '@/hooks/screen';
 
 const model = defineModel<string[]>({
   required: true,
@@ -21,15 +22,11 @@ const model = defineModel<string[]>({
 const {t, locale} = useI18n();
 
 const query = ref('');
-const input = ref<InstanceType<typeof ComboboxInput> | null>(null);
+const openButton = ref<typeof ComboboxButton | null>(null);
 
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 const {top} = useElementBounding(optionsElement);
-const {height} = useWindowSize();
-
-onMounted(() => {
-  input.value?.$el.focus();
-});
+const {visualHeight} = useScreen();
 
 const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
@@ -57,26 +54,30 @@ const filteredVeggies = useMemoize(
 );
 
 const getAvailableHeightForOptions = computed(
-  () => `max-height: calc(${height.value}px - ${top.value}px - 1rem)`,
+  () => `max-height: calc(${visualHeight.value}px - ${top.value}px - 1rem)`,
 );
+
+const onMenuClose = () => {
+  query.value = '';
+  openButton.value?.$el.focus();
+};
 </script>
 <template>
-  <Combobox nullable multiple v-model="model" as="div" class="relative h-12 z-10">
+  <Combobox nullable multiple v-model="model" as="div" class="relative h-12 z-20">
     <ComboboxInput
-      ref="input"
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
       class="veggie-search__input"
       @change="query = $event.target.value"
     />
-    <ComboboxButton class="veggie-search__button">
+    <ComboboxButton class="veggie-search__button" ref="openButton">
       <IconComponent icon="chevron" aria-hidden="true" />
     </ComboboxButton>
     <TransitionRoot
       leave="ease-in duration-100"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
-      @after-leave="query = ''"
+      @after-leave="onMenuClose"
     >
       <ComboboxOptions
         ref="optionsElement"
