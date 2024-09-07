@@ -1,44 +1,22 @@
-# veggies
+# Eat Your Veggies
 
-This template should help get you started developing with Vue 3 in Vite.
+This project was inspired by the results of The American Gut Project, which concluded that people who consistently eat thirty or more different plant-based ingredients as part of their diet, enjoy multiple health benefits as opposed to less versatile eaters. While the creator of this project is not a nutritionist, it's easy to recommend everyone to include more variety in their diet.
 
-## Recommended IDE Setup
+Use Eat Your Veggies for free, there are no ads and no accounts - the data remains in your device's local storage. Of course that also means that if you empty your browser cache, you also effectively reset Eat Your Veggies.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Project information
 
-## Type Support for `.vue` Imports in TS
+The project is a Vue-frontend created with TypeScript and bundled with Vite. It can be installed as a progressive web app (PWA) in browsers that support the technology. Other libraries included in the project include Pinia, TailwindCSS, and HeadlessUI.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Requirements
 
-## Customize configuration
+Node 20+
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+PWA functionalities require a PWA-compatible browser.
 
-## Project Setup
+## Running e2e tests
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+(Not yet implemented)
 
 ```sh
 # Install browsers for the first run
@@ -57,8 +35,9 @@ npm run test:e2e -- tests/example.spec.ts
 npm run test:e2e -- --debug
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Running unit tests
 
 ```sh
-npm run lint
+npm install
+npm test:unit
 ```
