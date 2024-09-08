@@ -15,7 +15,8 @@ import {
   takeLastWhile,
   unique,
 } from 'remeda';
-import type {Week} from '@/utils/types';
+import type {Challenge, Week} from '@/utils/types';
+import {dateParser, getRandomVeggie} from '@/utils/helpers';
 
 export const useActivityStore = defineStore('activity', () => {
   // State refs
@@ -30,15 +31,15 @@ export const useActivityStore = defineStore('activity', () => {
   const weeks = useStorage<Week[]>('veggies-weeks', [], localStorage, {
     mergeDefaults: true,
     serializer: {
-      read: (v: any) =>
-        v
-          ? JSON.parse(v, (key, value) => {
-              if (key === 'startDate' && value) {
-                return DateTime.fromISO(value);
-              }
-              return value;
-            })
-          : null,
+      read: (v: any) => (v ? JSON.parse(v, dateParser) : null),
+      write: (v: any) => JSON.stringify(v),
+    },
+  });
+
+  const challenges = useStorage<Challenge[]>('veggies-challenges', [], localStorage, {
+    mergeDefaults: true,
+    serializer: {
+      read: (v: any) => (v ? JSON.parse(v, dateParser) : null),
       write: (v: any) => JSON.stringify(v),
     },
   });
@@ -81,11 +82,21 @@ export const useActivityStore = defineStore('activity', () => {
           startDate: now,
           veggies,
         });
+        challenges.value.push({
+          startDate: now,
+          veggie: getRandomVeggie(),
+        });
       } else {
         targetWeek.veggies = veggies;
       }
     },
   });
+
+  const currentChallenge = computed(
+    () =>
+      challenges.value.find(({startDate}) => startDate.equals(DateTime.now().startOf('week')))
+        ?.veggie,
+  );
 
   const favorites = computed(() =>
     pipe(
@@ -108,6 +119,10 @@ export const useActivityStore = defineStore('activity', () => {
         startDate: now,
         veggies: [targetVeggie],
       });
+      challenges.value.push({
+        startDate: now,
+        veggie: getRandomVeggie(),
+      });
     } else if (!targetWeek.veggies.includes(targetVeggie)) {
       targetWeek.veggies.push(targetVeggie);
     } else {
@@ -118,15 +133,18 @@ export const useActivityStore = defineStore('activity', () => {
   const $reset = () => {
     startDate.value = null;
     weeks.value = [];
+    challenges.value = [];
   };
 
   return {
     startDate,
     weeks,
+    challenges,
     getWeekStarts,
     getTotalWeeks,
     hotStreak,
     currentVeggies,
+    currentChallenge,
     allVeggies,
     uniqueVeggies,
     veggiesForWeek,

@@ -2,23 +2,28 @@ import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import IconComponent from '@/components/IconComponent.vue';
+import {KEYS} from '@/utils/constants';
+
+const mounter = (modelValue: string[] = [], inject?: string) =>
+  mount(VeggieSearch, {
+    props: {
+      modelValue,
+    },
+    global: {
+      provide: {
+        [KEYS.challenge]: inject,
+      },
+    },
+  });
 
 describe('VeggieSearch', () => {
   it('renders', () => {
-    const wrapper = mount(VeggieSearch, {
-      props: {
-        modelValue: [],
-      },
-    });
+    const wrapper = mounter();
     expect(wrapper).toBeTruthy();
   });
 
   it('filters veggies', async () => {
-    const wrapper = mount(VeggieSearch, {
-      props: {
-        modelValue: [],
-      },
-    });
+    const wrapper = mounter();
     const input = wrapper.find('.veggie-search__input');
     await input.setValue('tomato');
     expect(wrapper.find('.veggie-search__options').isVisible()).toBe(true);
@@ -27,11 +32,7 @@ describe('VeggieSearch', () => {
   });
 
   it('shows all categories with matches', async () => {
-    const wrapper = mount(VeggieSearch, {
-      props: {
-        modelValue: [],
-      },
-    });
+    const wrapper = mounter();
     const input = wrapper.find('.veggie-search__input');
     await input.setValue('bar');
     expect(wrapper.findAll('.veggie-search__option').length).toBe(2);
@@ -39,11 +40,7 @@ describe('VeggieSearch', () => {
   });
 
   it('displays no results', async () => {
-    const wrapper = mount(VeggieSearch, {
-      props: {
-        modelValue: [],
-      },
-    });
+    const wrapper = mounter();
     const input = wrapper.find('.veggie-search__input');
     await input.setValue('test');
     expect(wrapper.find('.veggie-search__option').exists()).toBe(false);
@@ -51,11 +48,7 @@ describe('VeggieSearch', () => {
   });
 
   it('shows selection', async () => {
-    const wrapper = mount(VeggieSearch, {
-      props: {
-        modelValue: ['tomato'],
-      },
-    });
+    const wrapper = mounter(['tomato']);
     const input = wrapper.find('.veggie-search__input');
     await input.setValue('om');
     const listItem = wrapper.findByText('li', 'tomato');
@@ -65,12 +58,15 @@ describe('VeggieSearch', () => {
   });
 
   it('shows list on button click', async () => {
-    const wrapper = mount(VeggieSearch, {
-      props: {
-        modelValue: [],
-      },
-    });
+    const wrapper = mounter();
     await wrapper.find('.veggie-search__button').trigger('click');
     expect(wrapper.find('.veggie-search__options').isVisible()).toBe(true);
+    expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(false);
+  });
+
+  it('shows challenge if available', async () => {
+    const wrapper = mounter([], 'raspberry');
+    await wrapper.find('.veggie-search__button').trigger('click');
+    expect(wrapper.find('#veggie-search-heading-challenge').isVisible()).toBe(true);
   });
 });

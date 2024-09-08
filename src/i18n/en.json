@@ -146,6 +146,7 @@
     "weeklyCategories": "Weekly Categories"
   },
   "toasts": {
+    "challengeCompleted": "You have completed your weekly challenge! {0}!",
     "firstVeggie": "First veggie added! {0}!",
     "hundreds": "You reached a total of {0} veggies! {1}!",
     "thirtyVeggies": "You reached 30 veggies this week! {0}!",
@@ -359,6 +360,7 @@
     "zucchini": "zucchini"
   },
   "veggieSearch": {
+    "challenge": "Your Weekly Challenge",
     "noResults": "No Results",
     "search": "Search For Veggies"
   },

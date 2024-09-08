@@ -1,4 +1,9 @@
+import type {InjectionKey, Ref} from 'vue';
 import {Category, type Locale} from './types';
+
+export const KEYS = {
+  challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
+};
 
 export const LOCALES: Locale[] = ['en', 'fi'];
 

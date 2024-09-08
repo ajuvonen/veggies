@@ -11,9 +11,10 @@ import {
 import {useElementBounding, useMemoize} from '@vueuse/core';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
-import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useScreen} from '@/hooks/screen';
+import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
+import VeggieSearchChallenge from '@/components/VeggieSearchChallenge.vue';
 
 const model = defineModel<string[]>({
   required: true,
@@ -53,7 +54,7 @@ const filteredVeggies = useMemoize(
   },
 );
 
-const getAvailableHeightForOptions = computed(
+const availableHeightForOptions = computed(
   () => `max-height: calc(${visualHeight.value}px - ${top.value}px - 1rem)`,
 );
 
@@ -91,12 +92,13 @@ watch(query, scrollToStart);
     >
       <ComboboxOptions
         ref="optionsElement"
-        :style="getAvailableHeightForOptions"
+        :style="availableHeightForOptions"
         class="veggie-search__options"
       >
         <li v-if="filteredVeggies().length === 0 && query !== ''" class="veggie-search__no-results">
           {{ $t('veggieSearch.noResults') }}
         </li>
+        <VeggieSearchChallenge />
         <VeggieSearchGroup
           v-for="category in Category"
           :key="category"

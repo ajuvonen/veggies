@@ -1,8 +1,18 @@
 import {useMemoize} from '@vueuse/core';
 import type {ChartOptions, ChartTypeRegistry} from 'chart.js';
 import type {Context} from 'chartjs-plugin-datalabels';
-import {FRUITS, VEGETABLES, LEAFIES, ROOTS, BEANS, COLORS, CATEGORY_EMOJI} from '@/utils/constants';
+import {
+  FRUITS,
+  VEGETABLES,
+  LEAFIES,
+  ROOTS,
+  BEANS,
+  COLORS,
+  CATEGORY_EMOJI,
+  ALL_VEGGIES,
+} from '@/utils/constants';
 import {Category} from '@/utils/types';
+import {DateTime} from 'luxon';
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
   if (FRUITS.includes(veggie)) {
@@ -88,3 +98,12 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
       },
     },
   }) as ChartOptions<T>;
+
+export const getRandomVeggie = () => ALL_VEGGIES[Math.floor(Math.random() * ALL_VEGGIES.length)];
+
+export const dateParser = (key: string, value: any) => {
+  if (key === 'startDate' && value) {
+    return DateTime.fromISO(value);
+  }
+  return value;
+};
