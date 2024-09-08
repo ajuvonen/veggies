@@ -22,6 +22,20 @@ type AchievementProps = Record<
 >;
 
 const achievementProps: AchievementProps = {
+  challengeAccepted: {
+    [AchievementLevel.Bronze]: {
+      textProps: [5],
+      emoji: '🛴',
+    },
+    [AchievementLevel.Silver]: {
+      textProps: [10],
+      emoji: '🛵',
+    },
+    [AchievementLevel.Gold]: {
+      textProps: [20],
+      emoji: '🚀',
+    },
+  },
   committed: {
     [AchievementLevel.Bronze]: {
       textProps: [3],
@@ -43,7 +57,7 @@ const achievementProps: AchievementProps = {
     },
     [AchievementLevel.Silver]: {
       textProps: [80],
-      emoji: '🐥',
+      emoji: '🐧',
     },
     [AchievementLevel.Gold]: {
       textProps: [150],

@@ -1,5 +1,13 @@
 {
   "achievements": {
+    "challengeAccepted": {
+      "title": "Haaste vastaanotettu",
+      "ariaLabel": "{0} suoritettua viikkohaastetta",
+      "badgeText": "{0} haastetta",
+      "1": "Olet suorittanut viisi viikkohastetta ja ansainnut pronssisen palkinnon!",
+      "2": "Olet suorittanut kymmenen viikkohastetta ja ansainnut hopeisen palkinnon!",
+      "3": "Olet suorittanut 20 viikkohastetta ja ansainnut kultaisen palkinnon!"
+    },
     "committed": {
       "title": "Sitoutunut",
       "ariaLabel": "{0} kuukauden aktiivinen käyttö",

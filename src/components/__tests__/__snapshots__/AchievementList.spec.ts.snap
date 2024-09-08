@@ -13,7 +13,7 @@ exports[`AchievementList > renders 1`] = `
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="80 unique veggies" aria-label="80 unique veggies" class="badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🐥</div>
+          <div data-v-06381b3c="" class="badge__emoji">🐧</div>
         </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
       </div>
@@ -22,6 +22,29 @@ exports[`AchievementList > renders 1`] = `
           <div data-v-06381b3c="" class="badge__emoji">🦅</div>
         </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
+      </div>
+    </div>
+  </div>
+  <div data-v-1c120264="">
+    <p data-v-1c120264="" class="achievement-list__label">Challenge Accepted</p>
+    <div data-v-1c120264="" class="achievement-list__badge-container">
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 completed weekly challenges" aria-label="5 completed weekly challenges" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🛴</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
+      </div>
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 completed weekly challenges" aria-label="10 completed weekly challenges" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🛵</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 challenges</div>
+      </div>
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 completed weekly challenges" aria-label="20 completed weekly challenges" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🚀</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 challenges</div>
       </div>
     </div>
   </div>
@@ -128,7 +151,7 @@ exports[`AchievementList > renders with badges enabled 1`] = `
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="80 unique veggies" aria-label="80 unique veggies" class="badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🐥</div>
+          <div data-v-06381b3c="" class="badge__emoji">🐧</div>
         </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
       </div>
@@ -137,6 +160,29 @@ exports[`AchievementList > renders with badges enabled 1`] = `
           <div data-v-06381b3c="" class="badge__emoji">🦅</div>
         </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
+      </div>
+    </div>
+  </div>
+  <div data-v-1c120264="">
+    <p data-v-1c120264="" class="achievement-list__label">Challenge Accepted</p>
+    <div data-v-1c120264="" class="achievement-list__badge-container">
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 completed weekly challenges" aria-label="5 completed weekly challenges" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🛴</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
+      </div>
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 completed weekly challenges" aria-label="10 completed weekly challenges" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🛵</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 challenges</div>
+      </div>
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 completed weekly challenges" aria-label="20 completed weekly challenges" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🚀</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 challenges</div>
       </div>
     </div>
   </div>

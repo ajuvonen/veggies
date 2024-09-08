@@ -29,6 +29,26 @@ const {achievements} = storeToRefs(useAppStateStore());
       </div>
     </div>
     <div>
+      <p class="achievement-list__label">{{ $t('achievements.challengeAccepted.title') }}</p>
+      <div class="achievement-list__badge-container">
+        <AchievementBadge
+          :active="achievements.challengeAccepted >= AchievementLevel.Bronze"
+          :level="AchievementLevel.Bronze"
+          achievement="challengeAccepted"
+        />
+        <AchievementBadge
+          :active="achievements.challengeAccepted >= AchievementLevel.Silver"
+          :level="AchievementLevel.Silver"
+          achievement="challengeAccepted"
+        />
+        <AchievementBadge
+          :active="achievements.challengeAccepted >= AchievementLevel.Gold"
+          :level="AchievementLevel.Gold"
+          achievement="challengeAccepted"
+        />
+      </div>
+    </div>
+    <div>
       <p class="achievement-list__label">{{ $t('achievements.committed.title') }}</p>
       <div class="achievement-list__badge-container">
         <AchievementBadge

@@ -12,10 +12,15 @@ type Message = {
 
 export const useAppStateStore = defineStore('appState', () => {
   const {advanceAchievements, achievements, resetAchievements} = useAchievements();
-  const {uniqueVeggies, hotStreak, weeks} = storeToRefs(useActivityStore());
+  const {uniqueVeggies, hotStreak, weeks, completedChallenges} = storeToRefs(useActivityStore());
 
   watchEffect(() => {
-    advanceAchievements(uniqueVeggies.value, hotStreak.value, weeks.value.length);
+    advanceAchievements(
+      uniqueVeggies.value,
+      hotStreak.value,
+      weeks.value.length,
+      completedChallenges.value,
+    );
   });
 
   // State refs

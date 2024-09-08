@@ -42,6 +42,7 @@ export enum AchievementLevel {
 }
 
 export type Achievements = {
+  challengeAccepted: AchievementLevel;
   committed: AchievementLevel;
   completionist: AchievementLevel;
   hotStreak: AchievementLevel;
