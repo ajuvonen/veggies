@@ -28,7 +28,7 @@ describe('helpers', () => {
     expect(parsed.length).toBe(1);
     expect(parsed[0].veggie).toBe('nectarine');
     expect(parsed[0].startDate).toBeInstanceOf(DateTime);
-    expect(parsed[0].startDate.toISO()).toBe('2024-09-02T00:00:00.000+03:00');
+    expect(parsed[0].startDate.toUTC().toISO()).toBe('2024-09-01T21:00:00.000Z');
   });
 
   it('parses numbers as they are', () => {
