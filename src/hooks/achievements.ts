@@ -8,6 +8,7 @@ import type {Achievements} from '@/utils/types';
 type AdvanceEvent = {
   type: 'ADVANCE';
   uniqueVeggies: string[];
+  completedChallenges: number;
   hotStreakLength: number;
   totalWeeks: number;
 };
@@ -17,6 +18,10 @@ type ResetEvent = {
 };
 
 const guards = {
+  challengeAccepted:
+    (threshold: number) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
+      event.completedChallenges >= threshold,
   committed:
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
@@ -47,6 +52,9 @@ export function useAchievements() {
       on: {
         RESET: [
           {
+            target: '.challengeAccepted.0',
+          },
+          {
             target: `.committed.0`,
           },
           {
@@ -73,6 +81,52 @@ export function useAchievements() {
         ],
       },
       states: {
+        challengeAccepted: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.challengeAccepted(20),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.challengeAccepted(10),
+                  },
+                  {
+                    target: '1',
+                    guard: guards.challengeAccepted(5),
+                  },
+                ],
+              },
+            },
+            '1': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.challengeAccepted(20),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.challengeAccepted(10),
+                  },
+                ],
+              },
+            },
+            '2': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.challengeAccepted(20),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
         committed: {
           initial: '0',
           states: {
@@ -315,8 +369,19 @@ export function useAchievements() {
 
   return {
     achievements,
-    advanceAchievements: (uniqueVeggies: string[], hotStreakLength: number, totalWeeks: number) =>
-      actor.send({type: 'ADVANCE', uniqueVeggies, hotStreakLength, totalWeeks}),
+    advanceAchievements: (
+      uniqueVeggies: string[],
+      hotStreakLength: number,
+      totalWeeks: number,
+      completedChallenges: number,
+    ) =>
+      actor.send({
+        type: 'ADVANCE',
+        uniqueVeggies,
+        hotStreakLength,
+        totalWeeks,
+        completedChallenges,
+      }),
     resetAchievements: () => actor.send({type: 'RESET'}),
   };
 }

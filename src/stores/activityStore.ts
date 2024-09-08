@@ -67,6 +67,13 @@ export const useActivityStore = defineStore('activity', () => {
 
   const uniqueVeggies = computed(() => unique(allVeggies.value));
 
+  const completedChallenges = computed(
+    () =>
+      challenges.value.filter(({startDate, veggie}) =>
+        veggiesForWeek.value(startDate).includes(veggie),
+      ).length,
+  );
+
   const veggiesForWeek = computed(
     () => (weekStart: DateTime) =>
       weeks.value.find(({startDate}) => startDate.equals(weekStart))?.veggies ?? [],
@@ -143,6 +150,7 @@ export const useActivityStore = defineStore('activity', () => {
     getWeekStarts,
     getTotalWeeks,
     hotStreak,
+    completedChallenges,
     currentVeggies,
     currentChallenge,
     allVeggies,

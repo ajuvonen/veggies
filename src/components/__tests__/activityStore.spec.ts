@@ -81,6 +81,40 @@ describe('activityStore', () => {
     expect(activityStore.currentVeggies).toEqual(['cucumber', 'tomato']);
   });
 
+  it('returns completed challenges', () => {
+    activityStore.startDate = twoWeeksAgo;
+    activityStore.weeks.push(
+      {
+        startDate: twoWeeksAgo,
+        veggies: ['cucumber'],
+      },
+      {
+        startDate: lastWeek,
+        veggies: ['wheat', 'rye', 'strawberry'],
+      },
+      {
+        startDate: thisWeek,
+        veggies: ['rice', 'leek'],
+      },
+    );
+    activityStore.challenges.push(
+      {
+        startDate: twoWeeksAgo,
+        veggie: 'cucumber',
+      },
+      {
+        startDate: lastWeek,
+        veggie: 'leek',
+      },
+      {
+        startDate: thisWeek,
+        veggie: 'rice',
+      },
+    );
+
+    expect(activityStore.completedChallenges).toEqual(2);
+  });
+
   // it("sets this week's veggies", () => {
   //   activityStore.startDate = lastWeek;
   //   activityStore.weeks.push(
