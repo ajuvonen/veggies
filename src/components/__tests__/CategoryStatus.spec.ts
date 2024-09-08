@@ -31,6 +31,6 @@ describe('CategoryStatus', () => {
         },
       },
     });
-    expect(wrapper.find('h1').text()).toBe('In Total 2 Veggies');
+    expect(wrapper.find('h1').text()).toBe('In Total 2 Actions');
   });
 });

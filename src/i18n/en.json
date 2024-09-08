@@ -80,11 +80,12 @@
   },
   "categoryStatus": {
     "bottomLabel": "Veggies",
+    "bottomLabelTotal": "Actions",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "This Week",
     "topLabelTotal": "In Total",
     "veggiesOfTheWeek": "Veggies of the Week",
-    "veggiesTotal": "All Veggies in Total"
+    "veggiesTotal": "All Actions in Total"
   },
   "cheers": {
     "0": "Good job",
