@@ -80,11 +80,12 @@
   },
   "categoryStatus": {
     "bottomLabel": "Kasvista",
+    "bottomLabelTotal": "Toimintoa",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "Tällä Viikolla",
     "topLabelTotal": "Yhteensä",
     "veggiesOfTheWeek": "Viikon kasvikset",
-    "veggiesTotal": "Kaikki kasvikset yhteensä"
+    "veggiesTotal": "Kaikki toiminnot yhteensä"
   },
   "cheers": {
     "0": "Hienoa",

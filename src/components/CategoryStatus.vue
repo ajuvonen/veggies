@@ -22,7 +22,9 @@ withDefaults(
     >
       <span>{{ $t(totals ? 'categoryStatus.topLabelTotal' : 'categoryStatus.topLabel') }}</span>
       <span :class="totals ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
-      <span>{{ $t('categoryStatus.bottomLabel') }}</span>
+      <span>{{
+        $t(totals ? 'categoryStatus.bottomLabelTotal' : 'categoryStatus.bottomLabel')
+      }}</span>
     </i18n-t>
   </div>
 </template>
