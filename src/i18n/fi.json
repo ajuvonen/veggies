@@ -146,6 +146,7 @@
     "weeklyCategories": "Ryhmät viikoittain"
   },
   "toasts": {
+    "challengeCompleted": "Suoritit viikkohaasteesi! {0}!",
     "firstVeggie": "Ensimmäinen kasvis lisätty! {0}!",
     "hundreds": "Olet kirjannut yhteensä jo {0} kasvista! {1}!",
     "thirtyVeggies": "Olet kirjannut 30 kasvista tällä viikolla! {0}!",
@@ -359,6 +360,7 @@
     "zucchini": "kesäkurpitsa"
   },
   "veggieSearch": {
+    "challenge": "Viikkohaasteesi",
     "noResults": "Ei tuloksia",
     "search": "Etsi kasviksia"
   },

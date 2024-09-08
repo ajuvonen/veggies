@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {ref, watch} from 'vue';
+import {provide, ref, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
-import {omitBy} from 'remeda';
+import {isIncludedIn, omitBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {ALL_VEGGIES} from '@/utils/constants';
+import {ALL_VEGGIES, KEYS} from '@/utils/constants';
 import type {Achievements} from '@/utils/types';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import CategoryStatus from '@/components/CategoryStatus.vue';
@@ -17,7 +17,8 @@ import AchievementBadge from '@/components/AchievementBadge.vue';
 const {t} = useI18n();
 
 const activityStore = useActivityStore();
-const {favorites, currentVeggies, allVeggies, uniqueVeggies} = storeToRefs(activityStore);
+const {favorites, currentVeggies, currentChallenge, allVeggies, uniqueVeggies} =
+  storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 const {achievements} = storeToRefs(useAppStateStore());
 
@@ -26,15 +27,28 @@ const {addToastMessage} = useAppStateStore();
 const newAchievements = ref({} as Partial<Achievements>);
 const dialogOpen = ref(false);
 
-watch(allVeggies, (newAllVeggies, oldAllVeggies) => {
+watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
   const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
-  if (!oldAllVeggies.length) {
+  if (allVeggies.value.length === 1 && oldCurrentVeggies.length === 0) {
     addToastMessage(t('toasts.firstVeggie', [cheer]));
-  } else if (newAllVeggies.length && newAllVeggies.length % 100 === 0) {
-    addToastMessage(t('toasts.hundreds', [newAllVeggies.length, cheer]));
-  } else if (currentVeggies.value.length === 30) {
+  }
+
+  if (allVeggies.value.length && allVeggies.value.length % 100 === 0) {
+    addToastMessage(t('toasts.hundreds', [allVeggies.value.length, cheer]));
+  }
+
+  if (newCurrentVeggies.length === 30) {
     addToastMessage(t('toasts.thirtyVeggies', [cheer]));
-  } else if (Math.random() <= 0.05 && newAllVeggies.length) {
+  }
+
+  if (
+    isIncludedIn(currentChallenge.value, newCurrentVeggies) &&
+    !isIncludedIn(currentChallenge.value, oldCurrentVeggies)
+  ) {
+    addToastMessage(t('toasts.challengeCompleted', [cheer]));
+  }
+
+  if (Math.random() <= 0.05 && allVeggies.value.length) {
     addToastMessage(
       t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, cheer]),
     );
@@ -45,6 +59,8 @@ watch(achievements, (newValue, oldValue) => {
   newAchievements.value = omitBy(newValue, (value, key) => oldValue[key] === value);
   dialogOpen.value = true;
 });
+
+provide(KEYS.challenge, currentChallenge);
 </script>
 <template>
   <VeggieSearch v-model="currentVeggies" />

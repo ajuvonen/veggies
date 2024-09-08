@@ -23,6 +23,7 @@ describe('activityStore', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('tomato');
     expect(activityStore.weeks).toHaveLength(1);
+    expect(activityStore.challenges).toHaveLength(1);
     expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'tomato']);
   });
 
@@ -30,6 +31,7 @@ describe('activityStore', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('cucumber');
     expect(activityStore.weeks).toHaveLength(1);
+    expect(activityStore.challenges).toHaveLength(1);
     expect(activityStore.weeks[0].veggies).toHaveLength(0);
   });
 
@@ -112,6 +114,24 @@ describe('activityStore', () => {
     expect(activityStore.veggiesForWeek(lastWeek)).toEqual(['apple']);
     expect(activityStore.veggiesForWeek(thisWeek)).toEqual(['cucumber', 'tomato']);
     expect(activityStore.veggiesForWeek(threeWeeksAgo)).toEqual([]);
+  });
+
+  it("returns this week's challenge", () => {
+    activityStore.startDate = lastWeek;
+
+    activityStore.challenges.push({
+      startDate: lastWeek,
+      veggie: 'cucumber',
+    });
+
+    expect(activityStore.currentChallenge).toBe(undefined);
+
+    activityStore.challenges.push({
+      startDate: thisWeek,
+      veggie: 'tomato',
+    });
+
+    expect(activityStore.currentChallenge).toBe('tomato');
   });
 
   it('returns favorites', () => {
@@ -267,5 +287,20 @@ describe('activityStore', () => {
     expect(activityStore.getWeekStarts).toEqual([lastWeek, thisWeek]);
     activityStore.startDate = thisWeek.minus({weeks: 5});
     expect(activityStore.getWeekStarts.length).toBe(6);
+  });
+
+  it('resets the store', () => {
+    activityStore.startDate = thisWeek;
+    activityStore.weeks.push({
+      startDate: thisWeek,
+      veggies: ['cucumber', 'tomato'],
+    });
+    activityStore.challenges.push({
+      startDate: thisWeek,
+      veggie: 'longan',
+    });
+    activityStore.$reset();
+    expect(activityStore.startDate).toBe(null);
+    expect(activityStore.weeks).toHaveLength(0);
   });
 });

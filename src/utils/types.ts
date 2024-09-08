@@ -16,6 +16,11 @@ export type Week = {
   startDate: DateTime;
 };
 
+export type Challenge = {
+  startDate: DateTime;
+  veggie: string;
+};
+
 export type Settings = {
   locale: Locale;
 };
