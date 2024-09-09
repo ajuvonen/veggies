@@ -98,7 +98,7 @@ watch(query, scrollToStart);
         <li v-if="filteredVeggies().length === 0 && query !== ''" class="veggie-search__no-results">
           {{ $t('veggieSearch.noResults') }}
         </li>
-        <VeggieSearchChallenge />
+        <VeggieSearchChallenge v-if="!query.length" />
         <VeggieSearchGroup
           v-for="category in Category"
           :key="category"
