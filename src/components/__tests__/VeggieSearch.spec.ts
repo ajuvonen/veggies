@@ -29,6 +29,7 @@ describe('VeggieSearch', () => {
     expect(wrapper.find('.veggie-search__options').isVisible()).toBe(true);
     expect(wrapper.findAll('.veggie-search__heading').length).toBe(1);
     expect(wrapper.find('.veggie-search__option').text()).toContain('tomato');
+    expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(false);
   });
 
   it('shows all categories with matches', async () => {
@@ -67,6 +68,6 @@ describe('VeggieSearch', () => {
   it('shows challenge if available', async () => {
     const wrapper = mounter([], 'raspberry');
     await wrapper.find('.veggie-search__button').trigger('click');
-    expect(wrapper.find('#veggie-search-heading-challenge').isVisible()).toBe(true);
+    expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(true);
   });
 });
