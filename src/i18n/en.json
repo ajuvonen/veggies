@@ -162,6 +162,7 @@
     "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
   },
   "veggies": {
+    "clementine": "clementine",
     "adzuki bean": "adzuki bean",
     "almond": "almond",
     "amaranth": "amaranth",
@@ -184,6 +185,7 @@
     "black-eyed pea": "black-eyed pea",
     "blackberry": "blackberry",
     "blood grapefruit": "blood grapefruit",
+    "blood orange": "blood orange",
     "blueberry": "blueberry",
     "bok choy": "bok choy",
     "boysenberry": "boysenberry",
