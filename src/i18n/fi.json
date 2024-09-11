@@ -106,7 +106,8 @@
     "clickToAdd": "Lisää {0}",
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
-    "start": "Aloita"
+    "start": "Aloita",
+    "updateReady": "Sovellus on päivitetty uuteen versioon."
   },
   "home": {
     "info": "Lue lisää",

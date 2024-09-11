@@ -3,10 +3,13 @@ import {watchEffect} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {RouterView, useRoute} from 'vue-router';
+import {useRegisterSW} from 'virtual:pwa-register/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import NavBar from '@/components/NavBar.vue';
 import ToastContainer from '@/components/ToastContainer.vue';
+
+const {addToastMessage} = useAppStateStore();
 
 const {t, locale} = useI18n();
 
@@ -14,6 +17,15 @@ const route = useRoute();
 
 const {allVeggies} = storeToRefs(useActivityStore());
 const {settings} = storeToRefs(useAppStateStore());
+
+const {updateServiceWorker} = useRegisterSW({
+  immediate: true,
+  async onNeedRefresh() {
+    addToastMessage(t('general.updateReady'));
+    await updateServiceWorker();
+    window.location.reload();
+  },
+});
 
 watchEffect(() => {
   locale.value = settings.value.locale;
