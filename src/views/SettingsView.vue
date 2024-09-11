@@ -25,7 +25,7 @@ const reset = () => {
   <LocaleChanger />
   <QAComponent />
   <div class="flex-container flex-col justify-center">
-    <label for="reset-button" class="uppercase text-xs">{{ $t('settings.reset.label') }}</label>
+    <label for="reset-button" class="label-like">{{ $t('settings.reset.label') }}</label>
     <ButtonComponent
       id="reset-button"
       variant="danger"

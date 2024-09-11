@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`SettingsView > renders 1`] = `
-"<div class="text-sm uppercase" id="headlessui-radiogroup-v-0" role="radiogroup">
-  <div data-v-7747040a="" class="flex-container flex-col"><label data-v-7747040a="" id="headlessui-label-v-1" class="text-xs">Language</label>
+"<div id="headlessui-radiogroup-v-0" role="radiogroup">
+  <div data-v-7747040a="" class="flex-container flex-col"><label data-v-7747040a="" id="headlessui-label-v-1" class="label-like">Language</label>
     <div data-v-7747040a="" id="headlessui-radiogroup-option-v-2" role="radio" aria-checked="true" tabindex="0" data-headlessui-state="checked" class="locale-changer__option"><svg data-v-7747040a="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
         <path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7Z" class="transition-all"></path>
       </svg>
@@ -15,7 +15,7 @@ exports[`SettingsView > renders 1`] = `
     </div>
   </div>
 </div>
-<div data-v-bcc04aab="" class="flex-container flex-col min-h-0"><label data-v-bcc04aab="" class="uppercase text-xs">Common Questions</label>
+<div data-v-bcc04aab="" class="flex-container flex-col min-h-0"><label data-v-bcc04aab="" class="label-like">Common Questions</label>
   <div data-v-bcc04aab="" class="flex-container flex-col has-scroll"><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-6" type="button" aria-expanded="false" data-headlessui-state="" class="QA__button"><span data-v-bcc04aab="">What's this app for?</span><svg data-v-bcc04aab="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;" class="">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg></button>
@@ -54,7 +54,7 @@ exports[`SettingsView > renders 1`] = `
     </transition-stub>
   </div>
 </div>
-<div class="flex-container flex-col justify-center"><label for="reset-button" class="uppercase text-xs">Remove all data from the app</label><button data-v-24e38f3d="" class="button button--danger self-end" id="reset-button" data-test-id="reset-button"><svg data-v-24e38f3d="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
+<div class="flex-container flex-col justify-center"><label for="reset-button" class="label-like">Remove all data from the app</label><button data-v-24e38f3d="" class="button button--danger self-end" id="reset-button" data-test-id="reset-button"><svg data-v-24e38f3d="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
       <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" class="transition-all"></path>
     </svg>Reset</button></div>"
 `;
