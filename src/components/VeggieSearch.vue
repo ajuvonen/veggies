@@ -73,14 +73,18 @@ const scrollToStart = async () => {
 watch(query, scrollToStart);
 </script>
 <template>
-  <Combobox nullable multiple v-model="model" as="div" class="relative h-12 z-20">
+  <Combobox nullable multiple v-model="model" as="div" class="relative h-12 z-20" v-slot="{open}">
     <ComboboxInput
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
       class="veggie-search__input"
       @change="query = $event.target.value"
     />
-    <ComboboxButton class="veggie-search__button" ref="openButton">
+    <ComboboxButton
+      ref="openButton"
+      :class="open ? 'rotate-180 transform' : ''"
+      class="veggie-search__button"
+    >
       <IconComponent icon="chevron" aria-hidden="true" />
     </ComboboxButton>
     <TransitionRoot
