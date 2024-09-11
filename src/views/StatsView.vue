@@ -29,9 +29,9 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
 });
 </script>
 <template>
-  <Listbox v-model="selectedStat" class="relative z-10 uppercase" as="div" v-slot="{open}">
+  <Listbox v-model="selectedStat" class="relative z-10" as="div" v-slot="{open}">
     <div class="flex-container flex-col">
-      <ListboxLabel class="text-xs">{{ $t('stats.chosenStats') }}</ListboxLabel>
+      <ListboxLabel class="label-like">{{ $t('stats.chosenStats') }}</ListboxLabel>
       <ListboxButton class="stats__list-box-button">
         <span class="truncate">{{ $t(`stats.${selectedStat}`) }}</span>
         <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />

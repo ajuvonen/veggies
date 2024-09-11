@@ -41,7 +41,7 @@ const atMostVeggies = computed(() =>
 <style lang="scss" scoped>
 .status__container {
   @apply grid grid-cols-2 grid-rows-2 gap-4;
-  @apply uppercase text-xs text-center;
+  @apply label-like text-center;
 }
 
 .status__item {

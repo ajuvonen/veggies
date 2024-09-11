@@ -11,6 +11,10 @@
     @apply text-nowrap px-4 py-2 text-sm uppercase rounded-md select-none;
   }
 
+  .label-like {
+    @apply text-xs uppercase;
+  }
+
   .dropdown-list-container {
     @apply absolute mt-2 w-full overflow-x-hidden rounded-md shadow-lg ring-2;
     @apply bg-slate-50 ring-black/5;

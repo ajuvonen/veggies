@@ -114,6 +114,6 @@ const {achievements} = storeToRefs(useAppStateStore());
 }
 
 .achievement-list__label {
-  @apply text-xs uppercase mb-2;
+  @apply label-like mb-2;
 }
 </style>

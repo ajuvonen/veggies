@@ -16,7 +16,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
 </script>
 <template>
   <div class="flex-container flex-col min-h-0">
-    <label class="uppercase text-xs">{{ $t('qa.title') }}</label>
+    <label class="label-like">{{ $t('qa.title') }}</label>
     <div class="flex-container flex-col has-scroll">
       <Disclosure v-for="key in questions" :key="key" v-slot="{open}">
         <DisclosureButton class="QA__button">
