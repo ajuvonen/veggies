@@ -120,11 +120,53 @@
     "en": "English",
     "fi": "Suomi"
   },
+  "qa": {
+    "appPurpose": {
+      "title": "Mitä sovelluksella tehdään",
+      "text": "Eat Your Veggies on ilmainen sovellus kasviperäisten ruoka-aineiden seuraamiseen ruokavaliossasi. Tutkimustulosten mukaan 30:n erilaisen kasviksen kuluttaminen viikoittain johtaa lukuisiin terveyshyötyihin vähemmän monipuoliseen ruokavalioon verrattuna. Avainasemassa ei siis tutkimuksen mukaan niinkään ole kulutettu määrä kuin monipuolisuus."
+    },
+    "categories": {
+      "title": "Mutta mansikkahan on..",
+      "text": "...epähedelmä, tiedän. Tomaattikaan ei ole biologisessa mielessä vihannes, joten sovelluksessa otetaan pieniä vapauksia kategorioiden suhteen. Ilmoita silti suuret epätarkkuudet joita löydät. Voit myös ehdottaa puuttuvia vihanneksia sovellukseen lisättäväksi. Niiden pitäisi olla sellaisia, joita on kaupallisesti saatavilla maailmanlaajuisesti."
+    },
+    "contact": {
+      "link": {
+        "url": "https://github.com/ajuvonen/veggies/",
+        "text": "GitHub"
+      },
+      "title": "Mihin voin ottaa yhteyttä?",
+      "text": "Projektin sivu on täällä: {0}. Sivulta löytyy erilliset osiot bugien raportointiin sekä yleiseen keskusteluun. Kiitos mielenkiinnosta projektia kohtaan!"
+    },
+    "isItFree": {
+      "title": "Maksaako sovelluksen käyttö?",
+      "text": "Sovellus on ilmainen eikä sisällä mainoksia. Mukaan on tulossa mahdollisuus tehdä lahjoitus, mutta se ei ole pakollista."
+    },
+    "isMyDataSafe": {
+      "title": "Ovatko tietoni turvassa?",
+      "text": "Tietoja säilytetään ainoastaan selaimesi paikallisessa tallennustilassa laitteellasi, eikä niitä jaeta kolmansille osapuolille. Voit milloin vain tyhjentää tietosi alla olevalla napilla."
+    },
+    "studyDetails": {
+      "link": {
+        "url": "https://doi.org/10.1128/msystems.00031-18",
+        "text": "American Society for Microbiology (ASM)"
+      },
+      "title": "Mihin sovellus perustuu?",
+      "text": "En ole ravitsemusterapeutti enkä biologi, joten haluan välttää liioiteltujen terveysväittämien tai tulkintojen esittämistä. En ole kytköksissä tutkimusta tehneeseen ryhmään millään tavalla, mutta mikäli haluat lukea siitä lisää, tutustu The American Gut Projectiin julkaisussa {0}."
+    },
+    "title": "Yleisiä kysymyksiä",
+    "whatCounts": {
+      "title": "Mikä lasketaan annokseksi?",
+      "text": "Se, miten sovellusta käytät, on viime kädessä kiinni omasta harkinnastasi. Huomioi kuitenkin, että hyvin vähäisissä määrissä kasviksia ei ole merkittävää ravitsemuksellista arvoa. Itse lasken mukaan vain kukkurallista ruokalusikkaa suuremmat annoskoot. Mainittakoon myös, että pitkälle prosessoiduilla ruoka-aineilla ei pidä korvata kasviksia. Ketsuppia ei siis lasketa tomaatiksi."
+    }
+  },
   "settings": {
     "locale": "Kieli",
-    "reset": "Tyhjennä",
-    "resetDialogText": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
-    "resetDialogTitle": "Haluatko tyhjentää sovelluksen?",
+    "reset": {
+      "button": "Tyhjennä",
+      "label": "Poista sovelluksen tiedot",
+      "text": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
+      "title": "Haluatko tyhjentää sovelluksen?"
+    },
     "title": "Asetukset"
   },
   "stats": {

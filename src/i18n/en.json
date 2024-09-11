@@ -120,11 +120,53 @@
     "en": "English",
     "fi": "Suomi"
   },
+  "qa": {
+    "appPurpose": {
+      "title": "What's this app for?",
+      "text": "Eat Your Veggies is a free app for tracking plant-based ingredients on weekly basis in your diet. According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not as much in the amounts you consume, but in variation."
+    },
+    "categories": {
+      "title": "But strawberry is a...",
+      "text": "...false fruit, I know. Also tomato is not a vegetable in biological sense, so the app takes some liberties in its categories. Still, please report any major inaccuracies you come across! You can also request missing veggies to be added. They should be such that are commercially available globally."
+    },
+    "contact": {
+      "link": {
+        "url": "https://github.com/ajuvonen/veggies/",
+        "text": "GitHub"
+      },
+      "title": "How to get in touch?",
+      "text": "You can find the project page in {0}. The page has separate boards for reporting issues and engaging in other discussion. Thank you for your interest towards the project!"
+    },
+    "isItFree": {
+      "title": "Is the app monetized?",
+      "text": "The app is free to use, and it has no advertisements. There will be a possibility to donate, but don't feel obliged."
+    },
+    "isMyDataSafe": {
+      "title": "Is my data safe?",
+      "text": "The data is stored in your browser's local storage and is not shared with any third parties. You can at any time you wish reset the app using the button below."
+    },
+    "studyDetails": {
+      "link": {
+        "url": "https://doi.org/10.1128/msystems.00031-18",
+        "text": "American Society for Microbiology (ASM)"
+      },
+      "title": "What's the science?",
+      "text": "I'm neither a nutritian nor a biologist, so I don't want to make exaggerated claims or interpretations. I'm not affiliated with the study in any way, but if you want to read more about the study, look up The American Gut Project from the journal of {0}."
+    },
+    "title": "Common Questions",
+    "whatCounts": {
+      "title": "What counts as a portion?",
+      "text": "Ultimately, how you use the app is up to your discretion. However, consider that minuscule amounts might not be of any nutritional value. Therefore I personally consider only portions of a heaping tablespoon or larger adequate. It is also worth noting that very processed foods don't count towards a portion. So ketchup should not equal a tomato."
+    }
+  },
   "settings": {
     "locale": "Language",
-    "reset": "Reset",
-    "resetDialogText": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
-    "resetDialogTitle": "Are you sure you want to reset?",
+    "reset": {
+      "button": "Reset",
+      "label": "Remove all data from the app",
+      "text": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
+      "title": "Are you sure you want to reset?"
+    },
     "title": "Settings"
   },
   "stats": {

@@ -33,6 +33,15 @@
   }
 }
 
+main a {
+  @apply underline rounded-md;
+  @apply text-slate-300;
+  &:hover,
+  &:focus {
+    @apply text-slate-50;
+  }
+}
+
 html {
   @apply h-full;
   scrollbar-width: none;
