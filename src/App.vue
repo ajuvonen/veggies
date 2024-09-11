@@ -9,8 +9,6 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import NavBar from '@/components/NavBar.vue';
 import ToastContainer from '@/components/ToastContainer.vue';
 
-const {addToastMessage} = useAppStateStore();
-
 const {t, locale} = useI18n();
 
 const route = useRoute();
@@ -20,10 +18,14 @@ const {settings} = storeToRefs(useAppStateStore());
 
 const {updateServiceWorker} = useRegisterSW({
   immediate: true,
-  async onNeedRefresh() {
-    addToastMessage(t('general.updateReady'));
-    await updateServiceWorker();
-    window.location.reload();
+  onRegisteredSW(_, registration) {
+    registration &&
+      setInterval(() => {
+        registration.update();
+      }, 60 * 1000);
+  },
+  onNeedRefresh() {
+    updateServiceWorker();
   },
 });
 
