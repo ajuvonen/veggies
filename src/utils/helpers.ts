@@ -65,10 +65,15 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
       title: {
         display: !!title,
         color: COLORS.offWhite,
-        text: title,
+        text: title.toUpperCase(),
+        padding: {
+          top: 0,
+          bottom: 8,
+        },
+        align: 'start',
         font: {
           family: 'Nunito, sans-serif',
-          size: 18,
+          size: 12,
           weight: 'normal',
           style: 'normal',
         },
