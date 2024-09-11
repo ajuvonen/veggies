@@ -106,8 +106,7 @@
     "clickToAdd": "Add {0}",
     "clickToRemove": "Remove {0}",
     "close": "Close",
-    "start": "Start",
-    "updateReady": "The app has been updated with latest content."
+    "start": "Start"
   },
   "home": {
     "info": "Learn more",
