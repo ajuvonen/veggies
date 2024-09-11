@@ -5,6 +5,7 @@ import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
+import QAComponent from '@/components/QAComponent.vue';
 
 const router = useRouter();
 
@@ -22,18 +23,22 @@ const reset = () => {
 
 <template>
   <LocaleChanger />
-  <div class="flex-container justify-center">
+  <QAComponent />
+  <div class="flex-container flex-col justify-center">
+    <label for="reset-button" class="uppercase text-xs">{{ $t('settings.reset.label') }}</label>
     <ButtonComponent
+      id="reset-button"
       variant="danger"
       icon="trashCan"
       data-test-id="reset-button"
+      class="self-end"
       @click="resetDialogOpen = true"
-      >{{ $t('settings.reset') }}</ButtonComponent
+      >{{ $t('settings.reset.button') }}</ButtonComponent
     >
   </div>
-  <ModalDialog v-model="resetDialogOpen" :title="$t('settings.resetDialogTitle')">
+  <ModalDialog v-model="resetDialogOpen" :title="$t('settings.reset.title')">
     <template #content>
-      <p>{{ $t('settings.resetDialogText') }}</p>
+      <p>{{ $t('settings.reset.text') }}</p>
     </template>
     <template #buttons>
       <ButtonComponent data-test-id="cancel-button" @click="resetDialogOpen = false">{{
@@ -44,7 +49,7 @@ const reset = () => {
         variant="danger"
         icon="trashCan"
         @click="reset()"
-        >{{ $t('settings.reset') }}</ButtonComponent
+        >{{ $t('settings.reset.button') }}</ButtonComponent
       >
     </template>
   </ModalDialog>
