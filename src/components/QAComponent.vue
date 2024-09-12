@@ -5,11 +5,11 @@ import IconComponent from './IconComponent.vue';
 const questions = [
   'appPurpose',
   'studyDetails',
+  'whatCounts',
+  'categories',
   'isItFree',
   'isMyDataSafe',
   'contact',
-  'whatCounts',
-  'categories',
 ];
 
 const keysWithLinks = ['contact', 'studyDetails'];
@@ -32,7 +32,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
           leave-to-class="transform h-0 opacity-0"
         >
           <DisclosurePanel class="QA__panel">
-            <i18n-t :keypath="`qa.${key}.text`" tag="span" scope="global">
+            <i18n-t :keypath="`qa.${key}.text`" tag="div" scope="global">
               <a
                 v-if="keysWithLinks.includes(key)"
                 :href="$t(`qa.${key}.link.url`)"
