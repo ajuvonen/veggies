@@ -67,7 +67,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
         color: COLORS.offWhite,
         text: title.toUpperCase(),
         padding: {
-          top: 0,
+          top: 2,
           bottom: 8,
         },
         align: 'start',
