@@ -3,6 +3,7 @@ import {Category, type Locale} from './types';
 
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
+  dropdownOptions: Symbol() as InjectionKey<(active: boolean, selected: boolean) => string>,
 };
 
 export const LOCALES: Locale[] = ['en', 'fi'];

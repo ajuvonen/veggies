@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, computed, watch, nextTick} from 'vue';
+import {ref, computed, watch, nextTick, provide} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {
   Combobox,
@@ -9,7 +9,7 @@ import {
   TransitionRoot,
 } from '@headlessui/vue';
 import {useElementBounding, useMemoize} from '@vueuse/core';
-import {ALL_VEGGIES} from '@/utils/constants';
+import {ALL_VEGGIES, KEYS} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useScreen} from '@/hooks/screen';
@@ -24,6 +24,7 @@ const {t, locale} = useI18n();
 const {visualHeight} = useScreen();
 
 const query = ref('');
+const touching = ref(false);
 
 const openButton = ref<typeof ComboboxButton | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
@@ -60,6 +61,7 @@ const availableHeightForOptions = computed(
 
 const onMenuClose = () => {
   query.value = '';
+  touching.value = false;
   openButton.value?.$el.focus();
 };
 
@@ -70,10 +72,36 @@ const scrollToStart = async () => {
   }
 };
 
+const dropdownOptions = useMemoize(
+  (active: boolean, selected: boolean) => {
+    const textClass = active && !touching.value ? 'text-slate-50' : 'text-slate-900 fill-slate-900';
+    let bgClass = `bg-slate-50`;
+    if (active && !touching.value) {
+      bgClass = 'bg-sky-500';
+    } else if (selected) {
+      bgClass = 'bg-sky-200';
+    }
+
+    return `${textClass} ${bgClass}`;
+  },
+  {
+    getKey: (active: boolean, selected: boolean) => `${active}_${selected}_${touching.value}`,
+  },
+);
+
 watch(query, scrollToStart);
+provide(KEYS.dropdownOptions, dropdownOptions);
 </script>
 <template>
-  <Combobox nullable multiple v-model="model" as="div" class="relative h-12 z-20" v-slot="{open}">
+  <Combobox
+    nullable
+    multiple
+    v-model="model"
+    as="div"
+    class="relative h-12 z-20"
+    v-slot="{open}"
+    @touchstart="touching = true"
+  >
     <ComboboxInput
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
