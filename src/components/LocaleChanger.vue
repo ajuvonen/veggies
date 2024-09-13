@@ -17,7 +17,7 @@ const {settings} = storeToRefs(useAppStateStore());
         class="locale-changer__option"
       >
         <IconComponent :icon="checked ? 'radioboxMarked' : 'radioboxBlank'" />
-        <RadioGroupLabel as="p">
+        <RadioGroupLabel as="span">
           {{ $t(`locales.${locale}`) }}
         </RadioGroupLabel>
       </RadioGroupOption>
