@@ -26,7 +26,7 @@ describe('ModalDialog', () => {
       },
     });
     expect(wrapper).toBeTruthy();
-    expect(wrapper.find('.modal-dialog').exists()).toBe(false);
+    expect(wrapper.findByTestId('dialog').exists()).toBe(false);
   });
 
   it('shows dialog', () => {
@@ -37,8 +37,8 @@ describe('ModalDialog', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.find('.modal-dialog').exists()).toBe(true);
-    expect(wrapper.findByTestId('close-button').exists()).toBe(true);
+    expect(wrapper.findByTestId('dialog').exists()).toBe(true);
+    expect(wrapper.findByTestId('dialog-close-button').exists()).toBe(true);
   });
 
   it('renders content', () => {
@@ -54,7 +54,7 @@ describe('ModalDialog', () => {
     });
     expect(wrapper.findByText('p', 'Test content').exists()).toBe(true);
     expect(wrapper.findByText('p', 'Test buttons').exists()).toBe(true);
-    expect(wrapper.findByTestId('close-button').exists()).toBe(false);
+    expect(wrapper.findByTestId('dialog-close-button').exists()).toBe(false);
   });
 
   it('closes dialog on button click', async () => {
@@ -64,7 +64,7 @@ describe('ModalDialog', () => {
         modelValue: true,
       },
     });
-    await wrapper.findByTestId('close-button').trigger('click');
+    await wrapper.findByTestId('dialog-close-button').trigger('click');
     expect(wrapper.emitted('update:modelValue')).toEqual([[false]]);
   });
 });

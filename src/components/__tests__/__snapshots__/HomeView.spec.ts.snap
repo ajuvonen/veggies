@@ -4,14 +4,14 @@ exports[`HomeView > renders 1`] = `
 "<div data-v-b4e148ca="" class="home__container">
   <div data-v-ab65777b="" data-v-b4e148ca="" class="locale-changer__container"><svg data-v-ab65777b="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
       <path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" class="transition-all"></path>
-    </svg><button data-v-24e38f3d="" data-v-ab65777b="" class="button button--text">
+    </svg><button data-v-24e38f3d="" data-v-ab65777b="" class="button button--text" data-test-id="home-locale-button-fi">
       <!--v-if-->fi
     </button></div>
   <h1 data-v-b4e148ca="" class="home__title">Eat Your Veggies</h1>
   <p data-v-b4e148ca="" class="sm:text-center">Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app.</p>
-  <div data-v-b4e148ca="" class="flex-container justify-center"><button data-v-24e38f3d="" data-v-b4e148ca="" class="button button--primary">
+  <div data-v-b4e148ca="" class="flex-container justify-center"><button data-v-24e38f3d="" data-v-b4e148ca="" class="button button--primary" data-test-id="home-info-button">
       <!--v-if-->Learn more
-    </button><button data-v-24e38f3d="" data-v-b4e148ca="" class="button button--primary">
+    </button><button data-v-24e38f3d="" data-v-b4e148ca="" class="button button--primary" data-test-id="home-start-button">
       <!--v-if-->Start
     </button></div>
   <!---->
