@@ -19,3 +19,13 @@ test('home page actions work', async ({page}) => {
   await page.getByTestId('dialog-close-button').click();
   await expect(page.getByTestId('dialog')).toBeHidden();
 });
+
+test('home is unreachable after start', async ({page}) => {
+  await page.goto('/');
+  await page.getByTestId('home-start-button').click();
+  await page.waitForURL('**/log');
+  await page.goBack();
+  await page.waitForURL('**/log', {waitUntil: 'networkidle'});
+  await page.goto('/veggies');
+  await page.waitForURL('**/log');
+});
