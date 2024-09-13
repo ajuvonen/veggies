@@ -22,7 +22,7 @@ defineProps<{
       <div class="modal-dialog__backdrop" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
       <div class="modal-dialog__container">
-        <DialogPanel class="modal-dialog">
+        <DialogPanel data-test-id="dialog" class="modal-dialog">
           <div class="flex-container items-center justify-between outline-override">
             <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
             <ButtonComponent
@@ -31,7 +31,7 @@ defineProps<{
               class="fill-slate-700"
               variant="text"
               icon="close"
-              data-test-id="close-button"
+              data-test-id="dialog-close-button"
               @click="model = false"
             />
           </div>

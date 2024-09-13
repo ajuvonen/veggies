@@ -18,6 +18,7 @@ const availableLocales = computed(() =>
     <ButtonComponent
       v-for="availableLocale in availableLocales"
       :key="availableLocale"
+      :data-test-id="`home-locale-button-${availableLocale}`"
       variant="text"
       @click="settings.locale = availableLocale"
       >{{ availableLocale }}</ButtonComponent
