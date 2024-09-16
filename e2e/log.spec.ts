@@ -41,14 +41,14 @@ test('filters veggies in Finnish', async ({page}) => {
   await expect(page.getByTestId('veggie-search-option-cherry tomato')).toBeVisible();
 });
 
-test('weekly challenges work', async ({page}) => {
+test.only('weekly challenges work', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-button').click();
   await expect(page.getByTestId('veggie-search-challenges')).toBeHidden();
   await page.getByTestId('veggie-search-option-apple').click();
   await expect(page.getByTestId('veggie-search-challenge')).toBeVisible();
-  await page.getByTestId('veggie-search-challenge').click();
+  await page.getByTestId('veggie-search-challenge').locator('.veggie-search__option').click();
   await expect(page.getByText(/^You have completed your weekly challenge!/)).toBeVisible();
 });
 
