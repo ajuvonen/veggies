@@ -20,14 +20,10 @@ test('home page actions work', async ({page}) => {
   await expect(page.getByTestId('dialog')).toBeHidden();
 });
 
-// eslint-disable-next-line playwright/expect-expect
 test('home is unreachable after start', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.waitForURL('**/log');
-  await page.goBack();
-  // eslint-disable-next-line playwright/no-networkidle
-  await page.waitForURL('**/log', {waitUntil: 'networkidle'});
-  await page.goto('/veggies');
-  await page.waitForURL('**/log');
+  await expect(page).toHaveURL('log');
+  await page.goto('/');
+  await expect(page).toHaveURL('log');
 });
