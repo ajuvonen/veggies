@@ -19,6 +19,7 @@ withDefaults(
       keypath="categoryStatus.centerLabel"
       tag="h1"
       class="category-status__center-label"
+      data-test-id="category-status-center-label"
     >
       <span>{{ $t(totals ? 'categoryStatus.topLabelTotal' : 'categoryStatus.topLabel') }}</span>
       <span :class="totals ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>

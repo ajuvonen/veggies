@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`LogView > renders 1`] = `
-"<div class="relative h-12 z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Search For Veggies" placeholder="Search For Veggies" class="veggie-search__input"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button"><svg data-v-487fdf11="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
+"<div class="relative h-12 z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Search For Veggies" placeholder="Search For Veggies" class="veggie-search__input" data-test-id="veggie-search-input"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-487fdf11="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <!---->
@@ -34,14 +34,14 @@ exports[`LogView > renders 1`] = `
 `;
 
 exports[`LogView > renders with data 1`] = `
-"<div class="relative h-12 z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Search For Veggies" placeholder="Search For Veggies" class="veggie-search__input"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button"><svg data-v-487fdf11="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
+"<div class="relative h-12 z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Search For Veggies" placeholder="Search For Veggies" class="veggie-search__input" data-test-id="veggie-search-input"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-487fdf11="" viewBox="0 0 24 24" aria-hidden="true" style="width: 1.25rem; height: 1.25rem;">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <!---->
 </div>
 <div data-v-8e44268d="" class="chart-background log-view__chart">
   <category-status-chart-stub data-v-8e44268d="" veggies="wheat" totals="false"></category-status-chart-stub>
-  <h1 data-v-8e44268d="" class="category-status__center-label"><span data-v-8e44268d="">This Week</span> <span data-v-8e44268d="" class="text-6xl">1</span> <span data-v-8e44268d="">Veggies</span></h1>
+  <h1 data-v-8e44268d="" class="category-status__center-label" data-test-id="category-status-center-label"><span data-v-8e44268d="">This Week</span> <span data-v-8e44268d="" class="text-6xl">1</span> <span data-v-8e44268d="">Veggies</span></h1>
 </div>
 <transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
   <li data-v-cd627eac="" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary" aria-label="Add rice">

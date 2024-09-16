@@ -125,6 +125,7 @@ const achievementProps: AchievementProps = {
     :aria-label="
       $t(`achievements.${achievement}.ariaLabel`, achievementProps[achievement][level]!.textProps)
     "
+    :data-test-id="`badge-${achievement}-${level}`"
     class="badge"
     role="img"
   >

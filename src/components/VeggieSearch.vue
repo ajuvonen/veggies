@@ -94,24 +94,26 @@ provide(KEYS.dropdownOptions, dropdownOptions);
 </script>
 <template>
   <Combobox
+    v-model="model"
+    v-slot="{open}"
     nullable
     multiple
-    v-model="model"
     as="div"
     class="relative h-12 z-20"
-    v-slot="{open}"
     @touchstart="touching = true"
   >
     <ComboboxInput
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
       class="veggie-search__input"
+      data-test-id="veggie-search-input"
       @change="query = $event.target.value"
     />
     <ComboboxButton
       ref="openButton"
       :class="open ? 'rotate-180 transform' : ''"
       class="veggie-search__button"
+      data-test-id="veggie-search-button"
     >
       <IconComponent icon="chevron" aria-hidden="true" />
     </ComboboxButton>
@@ -126,6 +128,7 @@ provide(KEYS.dropdownOptions, dropdownOptions);
         ref="optionsElement"
         :style="availableHeightForOptions"
         class="veggie-search__options"
+        data-test-id="veggie-search-options"
       >
         <li v-if="filteredVeggies().length === 0 && query !== ''" class="veggie-search__no-results">
           {{ $t('veggieSearch.noResults') }}

@@ -64,7 +64,12 @@ const veggieEmojis = [
 const emoji = veggieEmojis[Math.floor(Math.random() * veggieEmojis.length)];
 </script>
 <template>
-  <div ref="toastMessage" class="toast-message" @click="$emit('close')">
+  <div
+    ref="toastMessage"
+    class="toast-message"
+    data-test-id="toast-message"
+    @click="$emit('close')"
+  >
     <div class="toast-message__content">
       <span class="text-2xl" aria-hidden="true">
         {{ emoji }}
