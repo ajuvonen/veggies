@@ -6,24 +6,30 @@ defineProps<{
 </script>
 <template>
   <nav class="nav">
-    <RouterLink to="/log" class="nav__link nav__link--log" :aria-label="$t('views.log')">{{
-      $t('general.appTitle')
-    }}</RouterLink>
+    <RouterLink
+      :aria-label="$t('views.log')"
+      to="/log"
+      class="nav__link nav__link--log"
+      data-test-id="navbar-log-link"
+      >{{ $t('general.appTitle') }}</RouterLink
+    >
     <div class="flex-container">
       <RouterLink
         v-if="showStats"
-        class="nav__link"
-        to="/stats"
         :title="$t('views.stats')"
         :aria-label="$t('views.stats')"
+        to="/stats"
+        class="nav__link"
+        data-test-id="navbar-stats-link"
       >
         <IconComponent icon="chart" size="6vw" class="nav__link-icon" />
       </RouterLink>
       <RouterLink
-        class="nav__link"
-        to="/settings"
         :title="$t('views.settings')"
         :aria-label="$t('views.settings')"
+        to="/settings"
+        class="nav__link"
+        data-test-id="navbar-settings-link"
       >
         <IconComponent icon="cog" size="6vw" class="nav__link-icon" />
       </RouterLink>

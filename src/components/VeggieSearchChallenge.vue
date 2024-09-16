@@ -7,12 +7,12 @@ const challenge = inject(KEYS.challenge);
 </script>
 
 <template>
-  <li v-if="challenge">
+  <li v-if="challenge" data-test-id="veggie-search-challenge">
     <div id="veggie-search-heading-challenge" class="veggie-search__heading">
       <span aria-hidden="true">🎖️</span>
       <span>{{ $t('veggieSearch.challenge') }}</span>
     </div>
-    <ul role="group" :aria-labelledby="'veggie-search-heading-challenge'">
+    <ul :aria-labelledby="'veggie-search-heading-challenge'" role="group">
       <VeggieSearchOption :veggie="challenge" />
     </ul>
   </li>
