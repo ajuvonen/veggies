@@ -34,7 +34,12 @@ const translatedVeggies = computed(() => {
 </script>
 <template>
   <TransitionGroup name="tags" tag="ul" class="tags__container">
-    <li v-for="{veggie, translation} in translatedVeggies" :key="veggie" class="tags__tag">
+    <li
+      v-for="{veggie, translation} in translatedVeggies"
+      :key="veggie"
+      :data-test-id="`tag-${veggie}`"
+      class="tags__tag"
+    >
       <ButtonComponent
         :aria-label="$t(ariaKey, [translation])"
         :variant="variant"

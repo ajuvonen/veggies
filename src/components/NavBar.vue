@@ -10,7 +10,7 @@ defineProps<{
       :aria-label="$t('views.log')"
       to="/log"
       class="nav__link nav__link--log"
-      data-test-id="navbar-log-link"
+      data-test-id="navbar-link-log"
       >{{ $t('general.appTitle') }}</RouterLink
     >
     <div class="flex-container">
@@ -20,7 +20,7 @@ defineProps<{
         :aria-label="$t('views.stats')"
         to="/stats"
         class="nav__link"
-        data-test-id="navbar-stats-link"
+        data-test-id="navbar-link-stats"
       >
         <IconComponent icon="chart" size="6vw" class="nav__link-icon" />
       </RouterLink>
@@ -29,7 +29,7 @@ defineProps<{
         :aria-label="$t('views.settings')"
         to="/settings"
         class="nav__link"
-        data-test-id="navbar-settings-link"
+        data-test-id="navbar-link-settings"
       >
         <IconComponent icon="cog" size="6vw" class="nav__link-icon" />
       </RouterLink>

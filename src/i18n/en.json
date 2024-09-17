@@ -189,7 +189,7 @@
       "bottomLabel": "Unique Veggies"
     },
     "grid4": {
-      "topLabel": "At most",
+      "topLabel": "At Most",
       "bottomLabel": "Veggies in a Week"
     },
     "week": "Wk {0}",

@@ -32,7 +32,7 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
   <Listbox v-model="selectedStat" class="relative z-10" as="div" v-slot="{open}">
     <div class="flex-container flex-col">
       <ListboxLabel class="label-like">{{ $t('stats.chosenStats') }}</ListboxLabel>
-      <ListboxButton class="stats__list-box-button">
+      <ListboxButton class="stats__list-box-button" data-test-id="stats-dropdown-button">
         <span class="truncate">{{ $t(`stats.${selectedStat}`) }}</span>
         <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
       </ListboxButton>
@@ -44,11 +44,12 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
     >
       <ListboxOptions class="stats__list-box-options">
         <ListboxOption
-          v-slot="{active, selected}"
-          as="template"
           v-for="item in [0, 1, 2, 3]"
+          v-slot="{active, selected}"
           :key="item"
           :value="item"
+          :data-test-id="`stats-dropdown-option-${item}`"
+          as="template"
         >
           <li
             :class="[getOptionClasses(active, selected), 'stats__list-box-option']"
