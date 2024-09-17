@@ -41,7 +41,7 @@ test('filters veggies in Finnish', async ({page}) => {
   await expect(page.getByTestId('veggie-search-option-cherry tomato')).toBeVisible();
 });
 
-test.only('weekly challenges work', async ({page}) => {
+test('weekly challenges work', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-button').click();

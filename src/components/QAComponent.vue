@@ -19,7 +19,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
     <label class="label-like">{{ $t('qa.title') }}</label>
     <div class="flex-container flex-col has-scroll">
       <Disclosure v-for="key in questions" :key="key" v-slot="{open}">
-        <DisclosureButton class="QA__button">
+        <DisclosureButton class="QA__button" :data-test-id="`qa-button-${key}`">
           <span>{{ $t(`qa.${key}.title`) }}</span>
           <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
         </DisclosureButton>
@@ -31,7 +31,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
           leave-from-class="transform h-full opacity-100"
           leave-to-class="transform h-0 opacity-0"
         >
-          <DisclosurePanel class="QA__panel">
+          <DisclosurePanel class="QA__panel" :data-test-id="`qa-panel-${key}`">
             <i18n-t :keypath="`qa.${key}.text`" tag="div" scope="global">
               <a
                 v-if="keysWithLinks.includes(key)"
