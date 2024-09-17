@@ -19,8 +19,8 @@ test('logs veggies', async ({page}) => {
   }
 
   await expect(page.getByTestId('toast-message')).toBeHidden();
-  await page.getByTestId('navbar-settings-link').click();
-  await page.getByTestId('navbar-log-link').click();
+  await page.getByTestId('navbar-link-settings').click();
+  await page.getByTestId('navbar-link-log').click();
   await expect(page.getByTestId('category-status-center-label')).toHaveText('This Week 2 Veggies');
 });
 

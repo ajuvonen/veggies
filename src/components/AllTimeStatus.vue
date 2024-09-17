@@ -16,26 +16,46 @@ const atMostVeggies = computed(() =>
 </script>
 <template>
   <div class="chart-background status__container">
-    <div class="status__item">
+    <i18n-t
+      keypath="categoryStatus.centerLabel"
+      tag="div"
+      class="status__item"
+      data-test-id="all-time-weeks"
+    >
       <span>{{ $t('stats.grid1.topLabel') }}</span>
       <span class="text-5xl">{{ getTotalWeeks }}</span>
       <span>{{ $t('stats.grid1.bottomLabel') }}</span>
-    </div>
-    <div class="status__item">
+    </i18n-t>
+    <i18n-t
+      keypath="categoryStatus.centerLabel"
+      tag="div"
+      class="status__item"
+      data-test-id="all-time-over-30"
+    >
       <span>{{ $t('stats.grid2.topLabel') }}</span>
       <span class="text-5xl">{{ over30Veggies }}</span>
       <span>{{ $t('stats.grid2.bottomLabel') }}</span>
-    </div>
-    <div class="status__item">
+    </i18n-t>
+    <i18n-t
+      keypath="categoryStatus.centerLabel"
+      tag="div"
+      class="status__item"
+      data-test-id="all-time-unique"
+    >
       <span>{{ $t('stats.grid3.topLabel') }}</span>
       <span class="text-5xl">{{ uniqueVeggies.length }}</span>
       <span>{{ $t('stats.grid3.bottomLabel') }}</span>
-    </div>
-    <div class="status__item">
+    </i18n-t>
+    <i18n-t
+      keypath="categoryStatus.centerLabel"
+      tag="div"
+      class="status__item"
+      data-test-id="all-time-at-most"
+    >
       <span>{{ $t('stats.grid4.topLabel') }}</span>
       <span class="text-5xl">{{ atMostVeggies }}</span>
       <span>{{ $t('stats.grid4.bottomLabel') }}</span>
-    </div>
+    </i18n-t>
   </div>
 </template>
 <style lang="scss" scoped>
