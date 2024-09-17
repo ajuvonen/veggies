@@ -13,6 +13,7 @@ const {settings} = storeToRefs(useAppStateStore());
         v-for="locale in $i18n.availableLocales"
         :key="locale"
         :value="locale"
+        :data-test-id="`locale-button-${locale}`"
         v-slot="{checked}"
         class="locale-changer__option"
       >
