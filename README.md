@@ -16,8 +16,6 @@ PWA functionalities require a PWA-compatible browser.
 
 ## Running e2e tests
 
-(Not yet implemented)
-
 ```sh
 # Install browsers for the first run
 npx playwright install
