@@ -167,6 +167,7 @@ export const VEGETABLES = [
   'eggplant',
   'hedgehog mushroom',
   'matsutake',
+  'nori',
   'okra',
   'olive',
   'porcini',
@@ -177,6 +178,7 @@ export const VEGETABLES = [
   'squash',
   'tomatillo',
   'tomato',
+  'wakame',
   'yellowfoot mushroom',
   'zucchini',
 ];

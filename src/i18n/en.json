@@ -204,7 +204,6 @@
     "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
   },
   "veggies": {
-    "clementine": "clementine",
     "adzuki bean": "adzuki bean",
     "almond": "almond",
     "amaranth": "amaranth",
@@ -261,6 +260,7 @@
     "chili pepper": "chili pepper",
     "chives": "chives",
     "cilantro": "cilantro",
+    "clementine": "clementine",
     "cloudberry": "cloudberry",
     "coconut": "coconut",
     "collard greens": "collard greens",
@@ -330,6 +330,7 @@
     "mustard greens": "mustard greens",
     "napa cabbage": "napa cabbage",
     "nectarine": "nectarine",
+    "nori": "nori",
     "oak leaf lettuce": "oakleaf lettuce",
     "oat": "oat",
     "okra": "okra",
@@ -398,6 +399,7 @@
     "tomato": "tomato",
     "triticale": "triticale",
     "turnip": "turnip",
+    "wakame": "wakame",
     "walnut": "walnut",
     "wasabi": "wasabi",
     "watercress": "watercress",
