@@ -61,7 +61,7 @@ const emojis = getRandomEmojis(4);
 
 @for $i from 1 through 8 {
   .front-page-animation__icon-container:nth-child(#{$i}) span {
-    animation-delay: $i * (1s / 4);
+    animation-delay: $i * calc(1s / 4);
   }
 }
 
