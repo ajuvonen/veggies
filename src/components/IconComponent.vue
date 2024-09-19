@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import {
-  mdiApple,
-  mdiCarrot,
   mdiChartBar,
   mdiCheckCircleOutline,
   mdiChevronDown,
   mdiClose,
   mdiCogOutline,
   mdiEarth,
-  mdiFruitPear,
-  mdiFruitWatermelon,
   mdiMinus,
   mdiPlus,
   mdiRadioboxBlank,
@@ -18,8 +14,6 @@ import {
 } from '@mdi/js';
 
 export type IconString =
-  | 'apple'
-  | 'carrot'
   | 'chart'
   | 'check'
   | 'chevron'
@@ -27,12 +21,10 @@ export type IconString =
   | 'cog'
   | 'earth'
   | 'minus'
-  | 'pear'
   | 'plus'
   | 'radioboxBlank'
   | 'radioboxMarked'
-  | 'trashCan'
-  | 'watermelon';
+  | 'trashCan';
 
 withDefaults(
   defineProps<{
@@ -45,8 +37,6 @@ withDefaults(
 );
 
 const icons = {
-  apple: mdiApple,
-  carrot: mdiCarrot,
   chart: mdiChartBar,
   check: mdiCheckCircleOutline,
   chevron: mdiChevronDown,
@@ -54,12 +44,10 @@ const icons = {
   cog: mdiCogOutline,
   earth: mdiEarth,
   minus: mdiMinus,
-  pear: mdiFruitPear,
   plus: mdiPlus,
   radioboxBlank: mdiRadioboxBlank,
   radioboxMarked: mdiRadioboxMarked,
   trashCan: mdiTrashCan,
-  watermelon: mdiFruitWatermelon,
 };
 </script>
 <template>

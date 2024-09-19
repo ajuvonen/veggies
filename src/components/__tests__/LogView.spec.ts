@@ -14,8 +14,19 @@ describe('LogView', () => {
   });
 
   it('renders', () => {
-    const wrapper = mount(LogView);
+    const wrapper = mount(LogView, {
+      global: {
+        stubs: {
+          FrontPageAnimation: true,
+        },
+      },
+    });
     expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('renders with animation', () => {
+    const wrapper = mount(LogView);
+    expect(wrapper).toBeTruthy();
   });
 
   it('renders with data', () => {
