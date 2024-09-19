@@ -112,3 +112,47 @@ export const dateParser = (key: string, value: any) => {
   }
   return value;
 };
+
+const veggieEmojis = [
+  '🥝',
+  '🥥',
+  '🍇',
+  '🍈',
+  '🍉',
+  '🍊',
+  '🍋',
+  '🍌',
+  '🍍',
+  '🥭',
+  '🍎',
+  '🍏',
+  '🍐',
+  '🍑',
+  '🍒',
+  '🍓',
+  '🫐',
+  '🍅',
+  '🍆',
+  '🌽',
+  '🌶️',
+  '🫑',
+  '🥑',
+  '🥒',
+  '🥬',
+  '🥦',
+  '🥔',
+  '🧄',
+  '🧅',
+  '🥕',
+  '🫛',
+  '🥜',
+  '🫘',
+  '🌿',
+];
+export const getRandomEmojis = (amount: number = 1) => {
+  const emojis = new Set<string>();
+  while (emojis.size < amount) {
+    emojis.add(veggieEmojis[Math.floor(Math.random() * veggieEmojis.length)]);
+  }
+  return Array.from(emojis);
+};

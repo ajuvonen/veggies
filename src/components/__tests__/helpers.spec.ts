@@ -1,8 +1,9 @@
 import {describe, it, expect} from 'vitest';
 import {DateTime} from 'luxon';
 import {ALL_VEGGIES} from '@/utils/constants';
-import {dateParser, getCategoryForVeggie, getRandomVeggie} from '@/utils/helpers';
+import {dateParser, getCategoryForVeggie, getRandomEmojis, getRandomVeggie} from '@/utils/helpers';
 import {Category, type Challenge} from '@/utils/types';
+import {unique} from 'remeda';
 
 describe('helpers', () => {
   it('returns correct veggie categories', () => {
@@ -34,5 +35,10 @@ describe('helpers', () => {
   it('parses numbers as they are', () => {
     const parsed: {foo: number; bar: number} = JSON.parse('{"foo": 1, "bar": 2}', dateParser);
     expect(parsed).toEqual({foo: 1, bar: 2});
+  });
+
+  it('gives unique emojis', () => {
+    const emojis = getRandomEmojis(15);
+    expect(unique(emojis)).toHaveLength(15);
   });
 });
