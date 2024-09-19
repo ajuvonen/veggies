@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {getRandomEmojis} from '@/utils/helpers';
 import {useElementHover, useTimeout} from '@vueuse/core';
 import {ref, watchEffect} from 'vue';
 
@@ -25,43 +26,7 @@ watchEffect(() => {
   }
 });
 
-const veggieEmojis = [
-  '🥝',
-  '🥥',
-  '🍇',
-  '🍈',
-  '🍉',
-  '🍊',
-  '🍋',
-  '🍌',
-  '🍍',
-  '🥭',
-  '🍎',
-  '🍏',
-  '🍐',
-  '🍑',
-  '🍒',
-  '🍓',
-  '🫐',
-  '🍅',
-  '🍆',
-  '🌽',
-  '🌶️',
-  '🫑',
-  '🥑',
-  '🥒',
-  '🥬',
-  '🥦',
-  '🥔',
-  '🧄',
-  '🧅',
-  '🥕',
-  '🫛',
-  '🥜',
-  '🫘',
-  '🌿',
-];
-const emoji = veggieEmojis[Math.floor(Math.random() * veggieEmojis.length)];
+const emoji = getRandomEmojis();
 </script>
 <template>
   <div
@@ -72,7 +37,7 @@ const emoji = veggieEmojis[Math.floor(Math.random() * veggieEmojis.length)];
   >
     <div class="toast-message__content">
       <span class="text-2xl" aria-hidden="true">
-        {{ emoji }}
+        {{ emoji[0] }}
       </span>
       <span>{{ text }}</span>
     </div>
