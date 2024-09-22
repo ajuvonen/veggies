@@ -27,8 +27,7 @@ const {settings} = storeToRefs(useAppStateStore());
 </template>
 <style lang="scss" scoped>
 .locale-changer__option {
-  letter-spacing: 1px;
-  @apply cursor-pointer button-like;
+  @apply button-like;
   @apply flex-container;
   @apply bg-sky-500;
 

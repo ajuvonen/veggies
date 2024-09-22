@@ -50,8 +50,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
 </template>
 <style lang="scss" scoped>
 .QA__button {
-  letter-spacing: 1px;
-  @apply w-full cursor-pointer button-like;
+  @apply w-full button-like;
   @apply flex-container justify-between;
   @apply bg-sky-500;
 

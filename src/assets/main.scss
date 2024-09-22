@@ -8,7 +8,7 @@
   }
 
   .button-like {
-    @apply text-nowrap px-4 py-2 text-sm uppercase rounded-md select-none;
+    @apply text-nowrap px-4 py-2 text-sm uppercase rounded-md select-none tracking-wider cursor-pointer;
   }
 
   .label-like {
