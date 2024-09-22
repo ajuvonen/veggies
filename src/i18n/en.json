@@ -68,7 +68,13 @@
       "2": "You're on fire! A hot streak of ten weeks with over 30 unique veggies each week!",
       "3": "Scorchio! A hot streak of twenty weeks with over 30 unique veggies each week!"
     },
-    "newAchievements": "You gained new achievements!"
+    "newAchievements": "You gained new achievements!",
+    "thirtyVeggies": {
+      "title": "This Week",
+      "ariaLabel": "30 unique veggies",
+      "badgeText": "30 Weekly",
+      "3": "You reached this week's goal - but why stop here!"
+    }
   },
   "categories": {
     "Bean": "Beans And Legumes",
@@ -200,7 +206,6 @@
     "challengeCompleted": "You have completed your weekly challenge! {0}!",
     "firstVeggie": "First veggie added! {0}!",
     "hundreds": "You reached a total of {0} veggies! {1}!",
-    "thirtyVeggies": "You reached 30 veggies this week! {0}!",
     "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
   },
   "veggies": {

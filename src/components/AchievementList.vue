@@ -9,6 +9,16 @@ const {achievements} = storeToRefs(useAppStateStore());
 <template>
   <div class="achievement-list">
     <div>
+      <p class="achievement-list__label">{{ $t('achievements.thirtyVeggies.title') }}</p>
+      <div class="achievement-list__badge-container">
+        <AchievementBadge
+          :active="achievements.thirtyVeggies >= AchievementLevel.Gold"
+          :level="AchievementLevel.Gold"
+          achievement="thirtyVeggies"
+        />
+      </div>
+    </div>
+    <div>
       <p class="achievement-list__label">{{ $t('achievements.completionist.title') }}</p>
       <div class="achievement-list__badge-container">
         <AchievementBadge

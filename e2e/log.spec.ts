@@ -67,3 +67,25 @@ test('achievement notifications work', async ({page}) => {
   await page.getByTestId('dialog-close-button').click();
   await expect(page.getByTestId('dialog')).toBeHidden();
 });
+
+test('weekly achievement works', async ({page}) => {
+  await page.goto('/');
+  await page.getByTestId('home-start-button').click();
+  await page.getByTestId('veggie-search-button').click();
+  const fruits = (
+    await page.getByTestId('veggie-search-group-Fruit').locator('.veggie-search__option').all()
+  ).slice(0, 10);
+  const vegetables = (
+    await page.getByTestId('veggie-search-group-Vegetable').locator('.veggie-search__option').all()
+  ).slice(0, 10);
+  const grains = (
+    await page.getByTestId('veggie-search-group-Grain').locator('.veggie-search__option').all()
+  ).slice(0, 10);
+  for (const element of fruits.concat(vegetables, grains)) {
+    await element.click();
+  }
+  await expect(page.getByTestId('dialog')).toBeVisible();
+  await expect(page.getByTestId('badge-thirtyVeggies-3')).toBeVisible();
+  await page.getByTestId('dialog-close-button').click();
+  await expect(page.getByTestId('dialog')).toBeHidden();
+});
