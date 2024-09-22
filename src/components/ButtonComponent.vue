@@ -31,7 +31,6 @@ const getVariants = computed(() => {
 </template>
 <style scoped lang="scss">
 .button {
-  letter-spacing: 1px;
   @apply button-like;
   @apply flex-container items-center;
 }

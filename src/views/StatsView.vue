@@ -77,7 +77,6 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {
-  letter-spacing: 1px;
   @apply flex items-center justify-between;
   @apply w-full button-like;
   @apply bg-sky-500;
