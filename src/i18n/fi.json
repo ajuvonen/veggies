@@ -68,7 +68,13 @@
       "2": "Olet liekeissä! Kymmenen viikon putki yli 30 erilaista kasvista joka viikko!",
       "3": "Scorchio! 20:n viikon putki yli 30 erilaista kasvista joka viikko!"
     },
-    "newAchievements": "Uusia saavutuksia avattu!"
+    "newAchievements": "Uusia saavutuksia avattu!",
+    "thirtyVeggies": {
+      "title": "Tämä viikko",
+      "ariaLabel": "30 erilaista kasvista",
+      "badgeText": "30 viikossa",
+      "3": "Tämän viikon tavoite on saavutettu - mutta älä lopeta tähän!"
+    }
   },
   "categories": {
     "Bean": "Pavut ja palkokasvit",
@@ -200,7 +206,6 @@
     "challengeCompleted": "Suoritit viikkohaasteesi! {0}!",
     "firstVeggie": "Ensimmäinen kasvis lisätty! {0}!",
     "hundreds": "Olet kirjannut yhteensä jo {0} kasvista! {1}!",
-    "thirtyVeggies": "Olet kirjannut 30 kasvista tällä viikolla! {0}!",
     "uniqueVeggies": "Olet kokeillut {0} / {1} kasviksesta tässä sovelluksessa! {2}!"
   },
   "veggies": {

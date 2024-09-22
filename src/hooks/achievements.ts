@@ -7,6 +7,7 @@ import type {Achievements} from '@/utils/types';
 
 type AdvanceEvent = {
   type: 'ADVANCE';
+  veggiesThisWeek: number;
   uniqueVeggies: string[];
   completedChallenges: number;
   hotStreakLength: number;
@@ -38,6 +39,10 @@ const guards = {
     (targetGroup: string[]) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
       intersection(event.uniqueVeggies, targetGroup).length >= 15,
+  thirtyVeggies:
+    (toGold: boolean) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
+      toGold ? event.veggiesThisWeek >= 30 : event.veggiesThisWeek < 30,
 };
 
 export function useAchievements() {
@@ -52,31 +57,7 @@ export function useAchievements() {
       on: {
         RESET: [
           {
-            target: '.challengeAccepted.0',
-          },
-          {
-            target: `.committed.0`,
-          },
-          {
-            target: `.completionist.0`,
-          },
-          {
-            target: `.hotStreak.0`,
-          },
-          {
-            target: `.experimenterFruit.0`,
-          },
-          {
-            target: `.experimenterVegetable.0`,
-          },
-          {
-            target: `.experimenterLeafy.0`,
-          },
-          {
-            target: `.experimenterBean.0`,
-          },
-          {
-            target: `.experimenterGrain.0`,
+            target: '.',
           },
         ],
       },
@@ -349,6 +330,27 @@ export function useAchievements() {
             '3': {},
           },
         },
+        thirtyVeggies: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.thirtyVeggies(true),
+                },
+              },
+            },
+            '3': {
+              on: {
+                ADVANCE: {
+                  target: '0',
+                  guard: guards.thirtyVeggies(false),
+                },
+              },
+            },
+          },
+        },
       },
     }),
   ).start();
@@ -370,6 +372,7 @@ export function useAchievements() {
   return {
     achievements,
     advanceAchievements: (
+      veggiesThisWeek: number,
       uniqueVeggies: string[],
       hotStreakLength: number,
       totalWeeks: number,
@@ -377,6 +380,7 @@ export function useAchievements() {
     ) =>
       actor.send({
         type: 'ADVANCE',
+        veggiesThisWeek,
         uniqueVeggies,
         hotStreakLength,
         totalWeeks,

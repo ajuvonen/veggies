@@ -6,7 +6,7 @@ import {isIncludedIn, omitBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {ALL_VEGGIES, KEYS} from '@/utils/constants';
-import type {Achievements} from '@/utils/types';
+import {AchievementLevel, type Achievements} from '@/utils/types';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import CategoryStatus from '@/components/CategoryStatus.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
@@ -37,10 +37,6 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
     addToastMessage(t('toasts.hundreds', [allVeggies.value.length, cheer]));
   }
 
-  if (newCurrentVeggies.length === 30) {
-    addToastMessage(t('toasts.thirtyVeggies', [cheer]));
-  }
-
   if (
     isIncludedIn(currentChallenge.value, newCurrentVeggies) &&
     !isIncludedIn(currentChallenge.value, oldCurrentVeggies)
@@ -56,8 +52,13 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
 });
 
 watch(achievements, (newValue, oldValue) => {
-  newAchievements.value = omitBy(newValue, (value, key) => oldValue[key] === value);
-  dialogOpen.value = true;
+  newAchievements.value = omitBy(
+    newValue,
+    (value, key) => value === AchievementLevel.NoAchievement || oldValue[key] === value,
+  );
+  if (Object.keys(newAchievements.value).length) {
+    dialogOpen.value = true;
+  }
 });
 
 provide(KEYS.challenge, currentChallenge);

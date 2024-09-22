@@ -52,4 +52,5 @@ export type Achievements = {
   experimenterLeafy: AchievementLevel;
   experimenterRoot: AchievementLevel;
   experimenterVegetable: AchievementLevel;
+  thirtyVeggies: AchievementLevel;
 };

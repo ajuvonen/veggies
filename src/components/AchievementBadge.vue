@@ -114,6 +114,12 @@ const achievementProps: AchievementProps = {
       emoji: CATEGORY_EMOJI.Vegetable,
     },
   },
+  thirtyVeggies: {
+    [AchievementLevel.Gold]: {
+      textProps: [],
+      emoji: '🎉',
+    },
+  },
 };
 </script>
 <template>
