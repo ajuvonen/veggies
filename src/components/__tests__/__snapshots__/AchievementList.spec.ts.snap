@@ -3,7 +3,7 @@
 exports[`AchievementList > renders 1`] = `
 "<div data-v-1c120264="" class="achievement-list">
   <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">This Week</p>
+    <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="30 unique veggies" aria-label="30 unique veggies" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
@@ -152,7 +152,7 @@ exports[`AchievementList > renders 1`] = `
 exports[`AchievementList > renders with badges enabled 1`] = `
 "<div data-v-1c120264="" class="achievement-list">
   <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">This Week</p>
+    <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="30 unique veggies" aria-label="30 unique veggies" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
