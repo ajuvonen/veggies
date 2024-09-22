@@ -6,36 +6,12 @@ const emojis = getRandomEmojis(4);
 <template>
   <div class="front-page-animation__container" aria-hidden="true">
     <div class="front-page-animation">
-      <div class="front-page-animation__icon-container">
-        <span class="front-page-animation__icon">{{ emojis[0] }}</span>
+      <div v-for="emoji in emojis" :key="emoji" class="front-page-animation__icon-container">
+        <span class="front-page-animation__icon">{{ emoji }}</span>
         <span class="front-page-animation__shadow"></span>
       </div>
-      <div class="front-page-animation__icon-container">
-        <span class="front-page-animation__icon">{{ emojis[1] }}</span>
-        <span class="front-page-animation__shadow"></span>
-      </div>
-      <div class="front-page-animation__icon-container">
-        <span class="front-page-animation__icon">{{ emojis[2] }}</span>
-        <span class="front-page-animation__shadow"></span>
-      </div>
-      <div class="front-page-animation__icon-container">
-        <span class="front-page-animation__icon">{{ emojis[3] }}</span>
-        <span class="front-page-animation__shadow"></span>
-      </div>
-      <div class="front-page-animation__icon-container">
-        <span class="front-page-animation__icon">{{ emojis[0] }}</span>
-        <span class="front-page-animation__shadow"></span>
-      </div>
-      <div class="front-page-animation__icon-container">
-        <span class="front-page-animation__icon">{{ emojis[1] }}</span>
-        <span class="front-page-animation__shadow"></span>
-      </div>
-      <div class="front-page-animation__icon-container">
-        <span class="front-page-animation__icon">{{ emojis[2] }}</span>
-        <span class="front-page-animation__shadow"></span>
-      </div>
-      <div class="front-page-animation__icon-container">
-        <span class="front-page-animation__icon">{{ emojis[3] }}</span>
+      <div v-for="emoji in emojis" :key="emoji" class="front-page-animation__icon-container">
+        <span class="front-page-animation__icon">{{ emoji }}</span>
         <span class="front-page-animation__shadow"></span>
       </div>
     </div>
@@ -44,14 +20,13 @@ const emojis = getRandomEmojis(4);
 <style scoped lang="scss">
 .front-page-animation__container {
   @apply h-full;
+  @apply flex items-center justify-end;
   mask-image: linear-gradient(to right, transparent 5%, black 30%, black 70%, transparent 95%);
 }
 
 .front-page-animation {
-  @apply flex w-fit mt-28;
-  animation:
-    enter 3.5s linear,
-    marquee 4s linear 3.5s infinite;
+  @apply flex w-fit;
+  animation: marquee 4s linear infinite;
 }
 
 .front-page-animation__icon-container {
@@ -61,7 +36,7 @@ const emojis = getRandomEmojis(4);
 
 @for $i from 1 through 8 {
   .front-page-animation__icon-container:nth-child(#{$i}) span {
-    animation-delay: $i * calc(1s / 4);
+    animation-delay: -$i * calc(1s / 4);
   }
 }
 
@@ -73,8 +48,8 @@ const emojis = getRandomEmojis(4);
 
 .front-page-animation__shadow {
   @apply absolute h-5 w-28 opacity-0 -bottom-24;
+  @apply bg-black;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 1);
   animation: shadow 0.5s cubic-bezier(0.5, 0.05, 1, 0.5) infinite alternate;
 }
 
@@ -84,7 +59,7 @@ const emojis = getRandomEmojis(4);
     transform: scale(0);
     filter: blur(6px);
   }
-  80% {
+  90% {
     opacity: 0.2;
     transform: scale(100%);
     filter: blur(2px);
@@ -108,21 +83,12 @@ const emojis = getRandomEmojis(4);
   }
 }
 
-@keyframes enter {
-  from {
-    margin-left: 100%;
-  }
-  to {
-    margin-left: 0;
-  }
-}
-
 @keyframes marquee {
   from {
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(50%, 0, 0);
   }
 }
 </style>
