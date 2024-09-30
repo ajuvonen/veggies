@@ -2,19 +2,7 @@ import {computed, ref, watchEffect} from 'vue';
 import {defineStore} from 'pinia';
 import {useNow, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import {
-  difference,
-  entries,
-  filter,
-  groupBy,
-  map,
-  pipe,
-  prop,
-  sortBy,
-  take,
-  takeLastWhile,
-  unique,
-} from 'remeda';
+import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take, unique} from 'remeda';
 import type {Challenge, Week} from '@/utils/types';
 import {dateParser, getRandomVeggie} from '@/utils/helpers';
 
@@ -66,13 +54,21 @@ export const useActivityStore = defineStore('activity', () => {
     ),
   );
 
-  const hotStreak = computed(
-    () =>
-      takeLastWhile(getWeekStarts.value, (weekStart) => {
-        const week = weeks.value.find(({startDate}) => startDate.equals(weekStart));
-        return week ? week.veggies.length >= 30 : false;
-      }).length,
-  );
+  const hotStreak = computed(() => {
+    const weekStarts = getWeekStarts.value;
+    let maxStreak = 0;
+    let currentStreak = 0;
+    weekStarts.forEach((weekStart) => {
+      const week = weeks.value.find(({startDate}) => startDate.equals(weekStart));
+      if (week && week.veggies.length >= 30) {
+        currentStreak++;
+      } else {
+        currentStreak = 0;
+      }
+      maxStreak = Math.max(maxStreak, currentStreak);
+    });
+    return maxStreak;
+  });
 
   const allVeggies = computed(() => weeks.value.flatMap(prop('veggies')));
 

@@ -258,9 +258,57 @@ describe('activityStore', () => {
     expect(activityStore.weeks).toHaveLength(0);
   });
 
-  it('returns hot streak length', () => {
-    activityStore.startDate = lastWeek;
+  it('returns 0 as streak length', () => {
+    activityStore.startDate = thisWeek;
+    activityStore.weeks.push({
+      startDate: thisWeek,
+      veggies: [...Array(29)],
+    });
+    expect(activityStore.hotStreak).toBe(0);
+  });
+
+  it('returns hot streak length with gaps', () => {
+    activityStore.startDate = threeWeeksAgo;
     activityStore.weeks.push(
+      {
+        startDate: threeWeeksAgo,
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: twoWeeksAgo,
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: thisWeek,
+        veggies: [...Array(30)],
+      },
+    );
+    expect(activityStore.hotStreak).toBe(2);
+  });
+
+  it('returns longest hot streak length', () => {
+    activityStore.startDate = threeWeeksAgo.minus({weeks: 3});
+    activityStore.weeks.push(
+      {
+        startDate: threeWeeksAgo.minus({weeks: 3}),
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: threeWeeksAgo.minus({weeks: 2}),
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: threeWeeksAgo.minus({weeks: 1}),
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: threeWeeksAgo,
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: twoWeeksAgo,
+        veggies: [],
+      },
       {
         startDate: lastWeek,
         veggies: [...Array(30)],
@@ -270,7 +318,7 @@ describe('activityStore', () => {
         veggies: [...Array(30)],
       },
     );
-    expect(activityStore.hotStreak).toBe(2);
+    expect(activityStore.hotStreak).toBe(4);
   });
 
   it('missing week ends streak', () => {
