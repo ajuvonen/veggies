@@ -201,7 +201,6 @@ export const BEANS = [
   'green bean',
   'green lentil',
   'kidney bean',
-  'lima bean',
   'mung bean',
   'pea',
   'pinto bean',
