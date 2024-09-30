@@ -1,18 +1,9 @@
 <script lang="ts" setup>
-import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 
 const activitysStore = useActivityStore();
-const {veggiesForWeek, getWeekStarts, getTotalWeeks, uniqueVeggies} = storeToRefs(activitysStore);
-const over30Veggies = computed(
-  () =>
-    getWeekStarts.value.filter((weekStart) => veggiesForWeek.value(weekStart).length >= 30).length,
-);
-
-const atMostVeggies = computed(() =>
-  Math.max(...getWeekStarts.value.map((weekStart) => veggiesForWeek.value(weekStart).length)),
-);
+const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs(activitysStore);
 </script>
 <template>
   <div class="chart-background status__container">
@@ -23,7 +14,7 @@ const atMostVeggies = computed(() =>
       data-test-id="all-time-weeks"
     >
       <span>{{ $t('stats.grid1.topLabel') }}</span>
-      <span class="text-5xl">{{ getTotalWeeks }}</span>
+      <span class="text-5xl">{{ getWeekStarts.length }}</span>
       <span>{{ $t('stats.grid1.bottomLabel') }}</span>
     </i18n-t>
     <i18n-t

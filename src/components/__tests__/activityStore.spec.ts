@@ -355,11 +355,44 @@ describe('activityStore', () => {
     expect(activityStore.hotStreak).toBe(1);
   });
 
-  it('returns the total amount of weeks', async () => {
-    activityStore.startDate = thisWeek;
-    expect(activityStore.getTotalWeeks).toBe(1);
-    activityStore.startDate = lastWeek;
-    expect(activityStore.getTotalWeeks).toBe(2);
+  it('returns amount of weeks with over 30 veggies', () => {
+    activityStore.startDate = twoWeeksAgo;
+    activityStore.weeks.push(
+      {
+        startDate: twoWeeksAgo,
+        veggies: [...Array(30)],
+      },
+      {
+        startDate: lastWeek,
+        veggies: [...Array(31)],
+      },
+      {
+        startDate: thisWeek,
+        veggies: [...Array(29)],
+      },
+    );
+
+    expect(activityStore.over30Veggies).toBe(2);
+  });
+
+  it('returns the amount of most veggies in a week', () => {
+    activityStore.startDate = twoWeeksAgo;
+    activityStore.weeks.push(
+      {
+        startDate: twoWeeksAgo,
+        veggies: [...Array(12)],
+      },
+      {
+        startDate: lastWeek,
+        veggies: [...Array(6)],
+      },
+      {
+        startDate: thisWeek,
+        veggies: [],
+      },
+    );
+
+    expect(activityStore.atMostVeggies).toBe(12);
   });
 
   it('returns all weekStarts from the start date', async () => {

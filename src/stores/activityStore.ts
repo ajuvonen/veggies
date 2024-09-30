@@ -42,17 +42,11 @@ export const useActivityStore = defineStore('activity', () => {
   });
 
   // Computed getters
-  const getTotalWeeks = computed(() =>
-    startDate.value ? Math.ceil(currentDate.value.diff(startDate.value, 'week').weeks) : 1,
-  );
-
-  const getWeekStarts = computed(() =>
-    [...Array(getTotalWeeks.value)].map((_, weekIndex) =>
-      startDate.value
-        ? startDate.value.plus({weeks: weekIndex})
-        : currentDate.value.startOf('week'),
-    ),
-  );
+  const getWeekStarts = computed(() => {
+    if (!startDate.value) return [currentDate.value.startOf('week')];
+    const totalWeeks = Math.ceil(currentDate.value.diff(startDate.value, 'week').weeks);
+    return [...Array(totalWeeks)].map((_, weekIndex) => startDate.value!.plus({weeks: weekIndex}));
+  });
 
   const hotStreak = computed(() => {
     const weekStarts = getWeekStarts.value;
@@ -73,6 +67,12 @@ export const useActivityStore = defineStore('activity', () => {
   const allVeggies = computed(() => weeks.value.flatMap(prop('veggies')));
 
   const uniqueVeggies = computed(() => unique(allVeggies.value));
+
+  const over30Veggies = computed(
+    () => weeks.value.filter(({veggies}) => veggies.length >= 30).length,
+  );
+
+  const atMostVeggies = computed(() => Math.max(...weeks.value.map(({veggies}) => veggies.length)));
 
   const completedChallenges = computed(
     () =>
@@ -155,13 +155,14 @@ export const useActivityStore = defineStore('activity', () => {
     weeks,
     challenges,
     getWeekStarts,
-    getTotalWeeks,
     hotStreak,
     completedChallenges,
     currentVeggies,
     currentChallenge,
     allVeggies,
     uniqueVeggies,
+    over30Veggies,
+    atMostVeggies,
     veggiesForWeek,
     favorites,
     toggleVeggie,
