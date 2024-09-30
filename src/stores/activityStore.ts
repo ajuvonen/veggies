@@ -20,24 +20,24 @@ export const useActivityStore = defineStore('activity', () => {
   const startDate = useStorage<DateTime | null>('veggies-start-date', null, localStorage, {
     mergeDefaults: true,
     serializer: {
-      read: (v: any) => (v ? DateTime.fromISO(JSON.parse(v)) : null),
-      write: (v: any) => JSON.stringify(v),
+      read: (v) => (v ? DateTime.fromISO(JSON.parse(v)) : null),
+      write: (v) => JSON.stringify(v),
     },
   });
 
   const weeks = useStorage<Week[]>('veggies-weeks', [], localStorage, {
     mergeDefaults: true,
     serializer: {
-      read: (v: any) => (v ? JSON.parse(v, dateParser) : null),
-      write: (v: any) => JSON.stringify(v),
+      read: (v) => (v ? JSON.parse(v, dateParser) : null),
+      write: (v) => JSON.stringify(v),
     },
   });
 
   const challenges = useStorage<Challenge[]>('veggies-challenges', [], localStorage, {
     mergeDefaults: true,
     serializer: {
-      read: (v: any) => (v ? JSON.parse(v, dateParser) : null),
-      write: (v: any) => JSON.stringify(v),
+      read: (v) => (v ? JSON.parse(v, dateParser) : null),
+      write: (v) => JSON.stringify(v),
     },
   });
 
