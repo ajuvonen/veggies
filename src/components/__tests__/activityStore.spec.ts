@@ -115,22 +115,34 @@ describe('activityStore', () => {
     expect(activityStore.completedChallenges).toEqual(2);
   });
 
-  // it("sets this week's veggies", () => {
-  //   activityStore.startDate = lastWeek;
-  //   activityStore.weeks.push(
-  //     {
-  //       startDate: lastWeek,
-  //       veggies: ['cucumber', 'longan'],
-  //     },
-  //     {
-  //       startDate: thisWeek,
-  //       veggies: ['cucumber', 'tomato'],
-  //     },
-  //   );
-  //   activityStore.currentVeggies = ['banana', 'apple'];
-  //   expect(activityStore.currentVeggies).toEqual(['banana', 'apple']);
-  //   expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'longan']);
-  // });
+  it("sets this week's veggies", () => {
+    activityStore.startDate = lastWeek;
+    activityStore.weeks.push(
+      {
+        startDate: lastWeek,
+        veggies: ['cucumber', 'longan'],
+      },
+      {
+        startDate: thisWeek,
+        veggies: ['cucumber', 'tomato'],
+      },
+    );
+    activityStore.currentVeggies = ['banana', 'apple'];
+    expect(activityStore.currentVeggies).toEqual(['banana', 'apple']);
+    expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'longan']);
+  });
+
+  it("sets this week's veggies from empty", () => {
+    activityStore.startDate = lastWeek;
+    activityStore.weeks.push({
+      startDate: lastWeek,
+      veggies: ['cucumber', 'longan'],
+    });
+    activityStore.currentVeggies = ['banana', 'apple'];
+    expect(activityStore.currentVeggies).toEqual(['banana', 'apple']);
+    expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'longan']);
+    expect(activityStore.weeks[1].startDate).toEqual(thisWeek);
+  });
 
   it("returns specific week's veggies", () => {
     activityStore.startDate = lastWeek;
