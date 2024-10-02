@@ -8,6 +8,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs
 <template>
   <div class="chart-background status__container">
     <i18n-t
+      scope="global"
       keypath="categoryStatus.centerLabel"
       tag="div"
       class="status__item"
@@ -18,6 +19,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs
       <span>{{ $t('stats.grid1.bottomLabel') }}</span>
     </i18n-t>
     <i18n-t
+      scope="global"
       keypath="categoryStatus.centerLabel"
       tag="div"
       class="status__item"
@@ -28,6 +30,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs
       <span>{{ $t('stats.grid2.bottomLabel') }}</span>
     </i18n-t>
     <i18n-t
+      scope="global"
       keypath="categoryStatus.centerLabel"
       tag="div"
       class="status__item"
@@ -38,6 +41,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs
       <span>{{ $t('stats.grid3.bottomLabel') }}</span>
     </i18n-t>
     <i18n-t
+      scope="global"
       keypath="categoryStatus.centerLabel"
       tag="div"
       class="status__item"
