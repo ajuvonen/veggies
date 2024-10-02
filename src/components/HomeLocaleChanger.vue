@@ -19,6 +19,7 @@ const availableLocales = computed(() =>
       v-for="availableLocale in availableLocales"
       :key="availableLocale"
       :data-test-id="`home-locale-button-${availableLocale}`"
+      :aria-label="$t('home.changeLocale', [$t(`locales.${availableLocale}`)])"
       variant="text"
       @click="settings.locale = availableLocale"
       >{{ availableLocale }}</ButtonComponent
