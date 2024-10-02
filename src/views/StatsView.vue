@@ -10,9 +10,10 @@ import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
 import CategoryStatus from '@/components/CategoryStatus.vue';
 import AchievementList from '@/components/AchievementList.vue';
+import VeggieList from '@/components/VeggieList.vue';
 
 const activityStore = useActivityStore();
-const {currentVeggies, allVeggies} = storeToRefs(activityStore);
+const {currentVeggies, allVeggies, uniqueVeggies} = storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 
 const selectedStat = ref(0);
@@ -29,6 +30,7 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
 });
 </script>
 <template>
+  <h1 class="sr-only">{{ $t('views.stats') }}</h1>
   <Listbox v-model="selectedStat" class="relative z-10" as="div" v-slot="{open}">
     <div class="flex-container flex-col">
       <ListboxLabel class="label-like">{{ $t('stats.chosenStats') }}</ListboxLabel>
@@ -44,18 +46,18 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
     >
       <ListboxOptions class="stats__list-box-options">
         <ListboxOption
-          v-for="item in [0, 1, 2, 3]"
+          v-for="(_, index) in [...Array(5)]"
           v-slot="{active, selected}"
-          :key="item"
-          :value="item"
-          :data-test-id="`stats-dropdown-option-${item}`"
+          :key="index"
+          :value="index"
+          :data-test-id="`stats-dropdown-option-${index}`"
           as="template"
         >
           <li
             :class="[getOptionClasses(active, selected), 'stats__list-box-option']"
             role="menuitem"
           >
-            {{ $t(`stats.${item}`) }}
+            {{ $t(`stats.${index}`) }}
           </li>
         </ListboxOption>
       </ListboxOptions>
@@ -74,6 +76,7 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
   <AllTimeStatus v-if="selectedStat === 2" />
   <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
   <AchievementList v-if="selectedStat === 3" />
+  <VeggieList :uniqueVeggies="uniqueVeggies" v-if="selectedStat === 4" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {

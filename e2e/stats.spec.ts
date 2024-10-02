@@ -71,3 +71,14 @@ test('shows achievements', async ({page}) => {
     'false',
   );
 });
+
+test('shows veggie list', async ({page}) => {
+  await page.goto('/');
+  await page.getByTestId('home-start-button').click();
+  await page.getByTestId('veggie-search-button').click();
+  await page.getByText('Apricot').click();
+  await page.goto('stats');
+  await page.getByTestId('stats-dropdown-button').click();
+  await page.getByTestId('stats-dropdown-option-4').click();
+  await expect(page.getByTestId('veggie-list-status-apricot')).toHaveText('(complete)');
+});

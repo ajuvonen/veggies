@@ -180,6 +180,7 @@
     "1": "Viimeiset viisi viikkoa",
     "2": "Kokonaistilastot",
     "3": "Saavutukset",
+    "4": "Kasvislista",
     "allTimeCategories": "Vertailu ryhmittäin",
     "chosenStats": "Valitut tilastot",
     "grid1": {
@@ -207,6 +208,10 @@
     "firstVeggie": "Ensimmäinen kasvis lisätty! {0}!",
     "hundreds": "Olet kirjannut yhteensä jo {0} kasvista! {1}!",
     "uniqueVeggies": "Olet kokeillut {0} / {1} kasviksesta tässä sovelluksessa! {2}!"
+  },
+  "veggieList": {
+    "complete": "(suoritettu)",
+    "missing": "(puuttuu)"
   },
   "veggies": {
     "adzuki bean": "adsukipapu",
