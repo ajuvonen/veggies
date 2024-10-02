@@ -163,7 +163,7 @@ const achievementProps: AchievementProps = {
 }
 
 .badge__background {
-  @apply relative w-full h-full rounded-full border-4 text-[17cqmin] sm:text-[14cqmin];
+  @apply relative w-full h-full rounded-full border-4 overflow-hidden text-[17cqmin] sm:text-[14cqmin];
   @apply flex items-center justify-center;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 1px #334155;
