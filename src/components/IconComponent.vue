@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import {
   mdiChartBar,
+  mdiCheckboxBlankOutline,
+  mdiCheckboxMarkedOutline,
   mdiCheckCircleOutline,
   mdiChevronDown,
   mdiClose,
@@ -16,6 +18,8 @@ import {
 export type IconString =
   | 'chart'
   | 'check'
+  | 'checkboxBlank'
+  | 'checkboxMarked'
   | 'chevron'
   | 'close'
   | 'cog'
@@ -39,6 +43,8 @@ withDefaults(
 const icons = {
   chart: mdiChartBar,
   check: mdiCheckCircleOutline,
+  checkboxBlank: mdiCheckboxBlankOutline,
+  checkboxMarked: mdiCheckboxMarkedOutline,
   chevron: mdiChevronDown,
   close: mdiClose,
   cog: mdiCogOutline,
