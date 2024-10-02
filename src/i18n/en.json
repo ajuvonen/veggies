@@ -180,6 +180,7 @@
     "1": "Last five weeks",
     "2": "All time",
     "3": "Achievements",
+    "4": "Veggie list",
     "allTimeCategories": "Comparison By Categories",
     "chosenStats": "Chosen Statistics",
     "grid1": {
@@ -207,6 +208,10 @@
     "firstVeggie": "First veggie added! {0}!",
     "hundreds": "You reached a total of {0} veggies! {1}!",
     "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
+  },
+  "veggieList": {
+    "complete": "(complete)",
+    "missing": "(missing)"
   },
   "veggies": {
     "adzuki bean": "adzuki bean",
