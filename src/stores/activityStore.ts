@@ -53,8 +53,7 @@ export const useActivityStore = defineStore('activity', () => {
     let maxStreak = 0;
     let currentStreak = 0;
     weekStarts.forEach((weekStart) => {
-      const week = weeks.value.find(({startDate}) => startDate.equals(weekStart));
-      if (week && week.veggies.length >= 30) {
+      if (veggiesForWeek.value(weekStart).length >= 30) {
         currentStreak++;
       } else {
         currentStreak = 0;
