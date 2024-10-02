@@ -57,7 +57,12 @@ const icons = {
 };
 </script>
 <template>
-  <svg viewBox="0 0 24 24" aria-hidden="true" :style="{width: size, height: size}">
+  <svg
+    :style="{width: size, height: size}"
+    class="flex-shrink-0"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
     <path :d="icons[icon]" class="transition-all"></path>
   </svg>
 </template>
