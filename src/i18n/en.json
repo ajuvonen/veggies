@@ -115,6 +115,7 @@
     "start": "Start"
   },
   "home": {
+    "changeLocale": "Change language to {0}",
     "info": "Learn more",
     "infoP1": "A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. According to the study, by steadily incorporating a wide range of vegetables into your diet, you can reduce inflammation, improve nutrient absorption, and boost your overall vitality.",
     "infoP2": "Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app requires no registration and the data is kept in your own device's browser cache.",
