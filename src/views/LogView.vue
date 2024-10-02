@@ -64,6 +64,7 @@ watch(achievements, (newValue, oldValue) => {
 provide(KEYS.challenge, currentChallenge);
 </script>
 <template>
+  <h1 class="sr-only">{{ $t('views.log') }}</h1>
   <VeggieSearch v-model="currentVeggies" />
   <CategoryStatus class="log-view__chart" v-if="currentVeggies.length" :veggies="currentVeggies" />
   <FrontPageAnimation class="log-view__chart" v-else />

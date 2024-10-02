@@ -22,6 +22,7 @@ const reset = () => {
 </script>
 
 <template>
+  <h1 class="sr-only">{{ $t('views.settings') }}</h1>
   <LocaleChanger />
   <QAComponent />
   <div class="flex-container flex-col justify-center">
