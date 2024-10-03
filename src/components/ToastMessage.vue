@@ -26,7 +26,7 @@ watchEffect(() => {
   }
 });
 
-const emoji = getRandomEmojis();
+const emoji = getRandomEmojis()[0];
 </script>
 <template>
   <div
@@ -37,7 +37,7 @@ const emoji = getRandomEmojis();
   >
     <div class="toast-message__content">
       <span class="text-2xl" aria-hidden="true">
-        {{ emoji[0] }}
+        {{ emoji }}
       </span>
       <span>{{ text }}</span>
     </div>
