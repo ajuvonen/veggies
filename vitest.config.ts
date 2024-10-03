@@ -11,6 +11,12 @@ export default mergeConfig(
       root: fileURLToPath(new URL('./', import.meta.url)),
       globals: true,
       setupFiles: ['./vitest.setup.ts'],
+      coverage: {
+        provider: 'istanbul',
+        include: ['src/**/*'],
+        exclude: ['src/App.vue', 'src/main.ts'],
+        reporter: ['text'],
+      },
     },
   }),
 );

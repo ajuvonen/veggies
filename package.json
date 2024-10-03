@@ -12,7 +12,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.ts --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@fontsource/bungee-shade": "^5.1.0",
@@ -41,6 +42,7 @@
     "@types/luxon": "^3.4.2",
     "@types/node": "^22.7.4",
     "@vitejs/plugin-vue": "^5.1.4",
+    "@vitest/coverage-istanbul": "^2.1.2",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/test-utils": "^2.4.6",
