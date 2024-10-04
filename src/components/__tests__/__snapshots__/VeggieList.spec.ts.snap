@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`VeggieList > renders 1`] = `
-"<div data-v-5aea2802="" class="veggie-list">
+"<div data-v-5aea2802="" class="veggie-list" data-test-id="veggie-list">
   <ul data-v-5aea2802="" class="veggie-list__category">
     <h2 data-v-5aea2802="" class="label-like">Fruits And Berries</h2>
     <ul data-v-5aea2802="" class="veggie-list__veggies">

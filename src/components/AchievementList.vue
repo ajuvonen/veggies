@@ -7,7 +7,7 @@ import AchievementBadge from '@/components/AchievementBadge.vue';
 const {achievements} = storeToRefs(useAppStateStore());
 </script>
 <template>
-  <div class="achievement-list">
+  <div class="achievement-list" data-test-id="achievement-list">
     <div>
       <p class="achievement-list__label">{{ $t('achievements.thirtyVeggies.title') }}</p>
       <div class="achievement-list__badge-container">

@@ -22,7 +22,7 @@ const allVeggies = computed(() => {
 </script>
 
 <template>
-  <div class="veggie-list">
+  <div class="veggie-list" data-test-id="veggie-list">
     <ul v-for="category in Category" :key="category" class="veggie-list__category">
       <h2 class="label-like">{{ $t(`categories.${category}`) }}</h2>
       <ul class="veggie-list__veggies">
