@@ -71,7 +71,9 @@ export const useActivityStore = defineStore('activity', () => {
     () => weeks.value.filter(({veggies}) => veggies.length >= 30).length,
   );
 
-  const atMostVeggies = computed(() => Math.max(...weeks.value.map(({veggies}) => veggies.length)));
+  const atMostVeggies = computed(() =>
+    Math.max(...weeks.value.map(({veggies}) => veggies.length), 0),
+  );
 
   const completedChallenges = computed(
     () =>
