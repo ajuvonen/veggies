@@ -8,12 +8,12 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
+    "test:coverage": "vitest --coverage",
     "test:e2e": "playwright test",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.ts --ignore-path .gitignore",
-    "format": "prettier --write src/",
-    "coverage": "vitest run --coverage"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@fontsource/bungee-shade": "^5.1.0",
