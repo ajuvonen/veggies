@@ -11,7 +11,7 @@ describe('helpers', () => {
     expect(getCategoryForVeggie('watermelon')).toBe(Category.Fruit);
     expect(getCategoryForVeggie('endive')).toBe(Category.Leafy);
     expect(getCategoryForVeggie('cucumber')).toBe(Category.Vegetable);
-    expect(getCategoryForVeggie('adzuki bean')).toBe(Category.Bean);
+    expect(getCategoryForVeggie('fava bean')).toBe(Category.Bean);
     expect(getCategoryForVeggie('rye')).toBe(Category.Grain);
   });
 
