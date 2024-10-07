@@ -108,7 +108,6 @@ export const LEAFIES = [
   'sorrel',
   'spinach',
   'sprouts',
-  'swiss chard',
   'watercress',
 ];
 
@@ -186,10 +185,8 @@ export const VEGETABLES = [
 ];
 
 export const BEANS = [
-  'adzuki bean',
   'black bean',
   'black-eyed pea',
-  'broad bean',
   'brown lentil',
   'butter bean',
   'cannellini bean',
