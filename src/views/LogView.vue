@@ -2,7 +2,7 @@
 import {provide, ref, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
-import {isIncludedIn, omitBy} from 'remeda';
+import {difference, first, omitBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {ALL_VEGGIES, KEYS} from '@/utils/constants';
@@ -14,7 +14,7 @@ import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 
-const {t} = useI18n();
+const {t, tm} = useI18n();
 
 const activityStore = useActivityStore();
 const {favorites, currentVeggies, currentChallenge, allVeggies, uniqueVeggies} =
@@ -27,27 +27,24 @@ const {addToastMessage} = useAppStateStore();
 const newAchievements = ref({} as Partial<Achievements>);
 const dialogOpen = ref(false);
 
+const getCheer = () => t(`cheers[${Math.floor(Math.random() * 10)}]`);
+
 watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
-  const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
-  if (allVeggies.value.length === 1 && oldCurrentVeggies.length === 0) {
-    addToastMessage(t('toasts.firstVeggie', [cheer]));
-  }
-
-  if (allVeggies.value.length && allVeggies.value.length % 100 === 0) {
-    addToastMessage(t('toasts.hundreds', [allVeggies.value.length, cheer]));
-  }
-
-  if (
-    isIncludedIn(currentChallenge.value, newCurrentVeggies) &&
-    !isIncludedIn(currentChallenge.value, oldCurrentVeggies)
-  ) {
-    addToastMessage(t('toasts.challengeCompleted', [cheer]));
-  }
-
-  if (Math.random() <= 0.05 && allVeggies.value.length) {
-    addToastMessage(
-      t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, cheer]),
-    );
+  const addedVeggie = first(difference(newCurrentVeggies, oldCurrentVeggies));
+  if (addedVeggie) {
+    if (allVeggies.value.length === 1) {
+      addToastMessage(t('toasts.firstVeggie', [getCheer()]));
+    } else if (addedVeggie === currentChallenge.value) {
+      addToastMessage(t('toasts.challengeCompleted', [getCheer()]));
+    } else if (allVeggies.value.length % 100 === 0) {
+      addToastMessage(t('toasts.hundreds', [allVeggies.value.length, getCheer()]));
+    } else if (Math.random() <= 0.1) {
+      const facts = [
+        ...Object.values<string>(tm(`facts.${addedVeggie}`)),
+        t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, getCheer()]),
+      ];
+      addToastMessage(facts[Math.floor(Math.random() * facts.length)]);
+    }
   }
 });
 
