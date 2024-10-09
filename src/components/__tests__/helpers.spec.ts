@@ -1,11 +1,43 @@
 import {describe, it, expect} from 'vitest';
+import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
+import {useI18n, type Composer, type VueMessageType} from 'vue-i18n';
+import type {DateTimeFormat, LocaleMessage, NumberFormat} from '@intlify/core-base';
+import {unique} from 'remeda';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {dateParser, getCategoryForVeggie, getRandomEmojis, getRandomVeggie} from '@/utils/helpers';
 import {Category, type Challenge} from '@/utils/types';
-import {unique} from 'remeda';
 
 describe('helpers', () => {
+  it('has translation for all veggies', async () => {
+    const {t, tm} = await new Promise<
+      Composer<
+        {
+          [x: string]: LocaleMessage<VueMessageType>;
+        },
+        {
+          [x: string]: DateTimeFormat;
+        },
+        {
+          [x: string]: NumberFormat;
+        },
+        string,
+        string,
+        string
+      >
+    >((resolve) => {
+      mount({
+        shallow: true,
+        template: '<div></div>',
+        setup() {
+          resolve(useI18n());
+        },
+      });
+    });
+    ALL_VEGGIES.forEach((veggie) => expect(t(`veggies.${veggie}`)).not.toBe(`veggies.${veggie}`));
+    expect(Object.keys(tm('veggies')).length).toEqual(ALL_VEGGIES.length);
+  });
+
   it('returns correct veggie categories', () => {
     expect(getCategoryForVeggie('onion')).toBe(Category.Root);
     expect(getCategoryForVeggie('watermelon')).toBe(Category.Fruit);
