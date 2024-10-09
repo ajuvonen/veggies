@@ -737,7 +737,7 @@
   "toasts": {
     "challengeCompleted": "Suoritit viikkohaasteesi! {0}!",
     "firstVeggie": "Ensimmäinen kasvis lisätty! {0}!",
-    "hundreds": "Olet kirjannut yhteensä jo {0} kasvista! {1}!",
+    "totalVeggies": "Olet kirjannut yhteensä jo {0} kasvista! {1}!",
     "uniqueVeggies": "Olet kokeillut {0} / {1} kasviksesta tässä sovelluksessa! {2}!"
   },
   "veggieList": {

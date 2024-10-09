@@ -729,7 +729,7 @@
   "toasts": {
     "challengeCompleted": "You have completed your weekly challenge! {0}!",
     "firstVeggie": "First veggie added! {0}!",
-    "hundreds": "You reached a total of {0} veggies! {1}!",
+    "totalVeggies": "You have reached a total of {0} veggies! {1}!",
     "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
   },
   "veggieList": {

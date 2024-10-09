@@ -37,11 +37,12 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
     } else if (addedVeggie === currentChallenge.value) {
       addToastMessage(t('toasts.challengeCompleted', [getCheer()]));
     } else if (allVeggies.value.length % 100 === 0) {
-      addToastMessage(t('toasts.hundreds', [allVeggies.value.length, getCheer()]));
+      addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, getCheer()]));
     } else if (Math.random() <= 0.1) {
       const facts = [
         ...Object.values<string>(tm(`facts.${addedVeggie}`)),
         t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, getCheer()]),
+        t('toasts.totalVeggies', [allVeggies.value.length, getCheer()]),
       ];
       addToastMessage(facts[Math.floor(Math.random() * facts.length)]);
     }
