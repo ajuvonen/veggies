@@ -167,9 +167,7 @@ describe('achievements', () => {
   });
 
   it('resets achievements', async () => {
-    const {advanceAchievements, achievements, resetAchievements} = await withSetup(useAchievements);
-    advanceAchievements(30, ALL_VEGGIES, 30, 52, 20);
-    expect(achievements.value).toEqual({
+    const expectedAchievements: Achievements = {
       challengeAccepted: AchievementLevel.Gold,
       committed: AchievementLevel.Gold,
       completionist: AchievementLevel.Gold,
@@ -181,7 +179,10 @@ describe('achievements', () => {
       experimenterVegetable: AchievementLevel.Gold,
       hotStreak: AchievementLevel.Gold,
       thirtyVeggies: AchievementLevel.Gold,
-    });
+    };
+    const {advanceAchievements, achievements, resetAchievements} = await withSetup(useAchievements);
+    advanceAchievements(30, ALL_VEGGIES, 30, 52, 20);
+    expect(achievements.value).toEqual(expectedAchievements);
     resetAchievements();
     expect(achievements.value).toEqual(defaultAchievements);
   });
