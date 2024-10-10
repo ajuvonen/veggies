@@ -126,6 +126,10 @@
       "Avocados are sometimes called 'alligator pears' due to their appearance.",
       "One avocado provides more potassium than what's found in a banana."
     ],
+    "bamboo shoots": [
+      "Bamboo is used to build scaffolding in Hong Kong.",
+      "Pandas must eat 12-38kg of bamboo every day."
+    ],
     "banana": [
       "One banana provides around 12% of the daily potassium requirement.",
       "Bananas are one of the best sources of vitamin B6, supporting cognitive health.",
@@ -475,6 +479,7 @@
       "Pistachio nuts have been cultivated for over 9,000 years, originally in the Middle East.",
       "Pistachios naturally split open when ripe, making them easier to eat."
     ],
+    "plantain": ["Unlike bananas, plantains are only used cooked."],
     "plum": [
       "Plums are high in vitamin C and antioxidants, especially in their skins.",
       "Plums are related to cherries and almonds and can be eaten fresh or dried to make prunes."
@@ -745,6 +750,7 @@
     "arugula": "arugula",
     "asparagus": "asparagus",
     "avocado": "avocado",
+    "bamboo shoots": "bamboo shoots",
     "banana": "banana",
     "barley": "barley",
     "basil": "basil",
@@ -784,6 +790,7 @@
     "chanterelle": "chanterelle",
     "chard": "chard",
     "chayote": "chayote",
+    "cherimoya": "cherimoya",
     "cherry tomato": "cherry tomato",
     "cherry": "cherry",
     "chestnut": "chestnut",
@@ -828,6 +835,8 @@
     "hazelnut": "hazelnut",
     "hedgehog mushroom": "hedgehog mushroom",
     "hemp seed": "hemp seed",
+    "hokkaido pumpkin": "hokkaido pumpkin",
+    "holy basil": "holy basil",
     "honeydew melon": "honeydew melon",
     "horseradish": "horseradish",
     "iceberg lettuce": "iceberg lettuce",
@@ -870,6 +879,7 @@
     "onion": "onion",
     "orange": "orange",
     "papaya": "papaya",
+    "parsley root": "parsley root",
     "parsley": "parsley",
     "parsnip": "parsnip",
     "passion fruit": "passion fruit",
@@ -883,6 +893,7 @@
     "pineapple": "pineapple",
     "pinto bean": "pinto bean",
     "pistachio nut": "pistachio nut",
+    "plantain": "plantain",
     "plum": "plum",
     "pomegranate": "pomegranate",
     "pomelo": "pomelo",
@@ -909,6 +920,7 @@
     "rutabaga": "rutabaga",
     "rye": "rye",
     "safflower seed": "safflower seed",
+    "savoy cabbage": "savoy cabbage",
     "scallion": "scallion",
     "sesame seed": "sesame seed",
     "shallot": "shallot",
@@ -916,6 +928,7 @@
     "sorghum": "sorghum",
     "sorrel": "sorrel",
     "soybean": "soybean",
+    "spaghetti squash": "spaghetti squash",
     "spelt": "spelt",
     "spinach": "spinach",
     "split pea": "split pea",
@@ -926,6 +939,7 @@
     "sweet potato": "sweet potato",
     "taro": "taro",
     "teff": "teff",
+    "thyme": "thyme",
     "tomatillo": "tomatillo",
     "tomato": "tomato",
     "triticale": "triticale",

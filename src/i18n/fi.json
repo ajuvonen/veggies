@@ -126,6 +126,10 @@
       "Avokadoja kutsutaan joskus \"alligaattoripäärynöiksi\" ulkonäkönsä vuoksi.",
       "Yksi avokado sisältää enemmän kaliumia kuin banaani."
     ],
+    "bamboo shoots": [
+      "Bambusta rakennetaan rakennustelineitä Hongkongissa.",
+      "Pandojen on syötävä 12-38 kg bambua päivittäin."
+    ],
     "banana": [
       "Yksi banaani sisältää noin 12 % päivittäisestä kaliumista.",
       "Banaanit ovat yksi parhaista B6-vitamiinin lähteistä, tukien kognitiivista terveyttä.",
@@ -485,6 +489,7 @@
       "Pistaasipähkinöitä on viljelty yli 9000 vuotta, alun perin Lähi-idässä.",
       "Pistaasit halkeavat luonnostaan kypsinä, mikä tekee niiden syömisestä helpompaa."
     ],
+    "plantain": ["Banaanista poiketen, keittobanaania käytetään vain kypsennettynä."],
     "plum": [
       "Luumuissa, erityisesti niiden kuoressa, on runsaasti C-vitamiinia ja antioksidantteja.",
       "Luumu on sukua kirsikoille ja manteleille, ja niitä voidaan syödä tuoreina tai kuivattuina."
@@ -753,6 +758,7 @@
     "arugula": "rucola",
     "asparagus": "tankoparsa",
     "avocado": "avokado",
+    "bamboo shoots": "bambunverso",
     "banana": "banaani",
     "barley": "ohra",
     "basil": "basilika",
@@ -792,6 +798,7 @@
     "chanterelle": "kantarelli",
     "chard": "mangoldi",
     "chayote": "kajottikurpitsa",
+    "cherimoya": "cherimoya",
     "cherry tomato": "kirsikkatomaatti",
     "cherry": "kirsikka",
     "chestnut": "kastanja",
@@ -836,6 +843,8 @@
     "hazelnut": "hasselpähkinä",
     "hedgehog mushroom": "vaaleaorakas",
     "hemp seed": "hampunsiemen",
+    "hokkaido pumpkin": "hokkaidokurpitsa",
+    "holy basil": "thaibasilika",
     "honeydew melon": "hunajameloni",
     "horseradish": "piparjuuri",
     "iceberg lettuce": "jäävuorisalaatti",
@@ -878,6 +887,7 @@
     "onion": "sipuli",
     "orange": "appelsiini",
     "papaya": "papaija",
+    "parsley root": "juuripersilja",
     "parsley": "persilja",
     "parsnip": "palsternakka",
     "passion fruit": "passiohedelmä",
@@ -891,6 +901,7 @@
     "pineapple": "ananas",
     "pinto bean": "pintopapu",
     "pistachio nut": "pistaasipähkinä",
+    "plantain": "keittobanaani",
     "plum": "luumu",
     "pomegranate": "granaattiomena",
     "pomelo": "pomelo",
@@ -917,6 +928,7 @@
     "rutabaga": "lanttu",
     "rye": "ruis",
     "safflower seed": "saflorinsiemen",
+    "savoy cabbage": "savoijinkaali",
     "scallion": "kevätsipuli",
     "sesame seed": "seesaminsiemen",
     "shallot": "salottisipuli",
@@ -924,6 +936,7 @@
     "sorghum": "durra",
     "sorrel": "suolaheinä",
     "soybean": "soijapapu",
+    "spaghetti squash": "spagettikurpitsa",
     "spelt": "speltti",
     "spinach": "pinaatti",
     "split pea": "halkaistu herne",
@@ -934,6 +947,7 @@
     "sweet potato": "bataatti",
     "taro": "taro",
     "teff": "teff",
+    "thyme": "timjami",
     "tomatillo": "tomatillo",
     "tomato": "tomaatti",
     "triticale": "ruisvehnä",
