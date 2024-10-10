@@ -23,7 +23,7 @@ defineProps<{
       <!-- Full-screen container to center the panel -->
       <div class="modal-dialog__container">
         <DialogPanel data-test-id="dialog" class="modal-dialog">
-          <div class="flex-container items-center justify-between outline-override">
+          <div class="modal-dialog__header">
             <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
             <ButtonComponent
               v-if="!$slots.buttons"
@@ -35,10 +35,10 @@ defineProps<{
               @click="model = false"
             />
           </div>
-          <div class="modal-dialog__content outline-override">
+          <div class="modal-dialog__content">
             <slot name="content"></slot>
           </div>
-          <div class="modal-dialog__buttons outline-override">
+          <div class="modal-dialog__buttons">
             <slot name="buttons"> </slot>
           </div>
         </DialogPanel>
@@ -67,8 +67,13 @@ defineProps<{
   @apply text-lg leading-6;
 }
 
+.modal-dialog__header {
+  @apply outline-override;
+  @apply flex-container items-center justify-between;
+}
+
 .modal-dialog__content {
-  @apply has-scroll;
+  @apply has-scroll outline-override;
   @apply flex flex-col gap-4;
   scrollbar-color: initial;
 }
@@ -79,6 +84,7 @@ defineProps<{
 }
 
 .modal-dialog__buttons {
+  @apply outline-override;
   @apply flex-container justify-end;
 }
 </style>

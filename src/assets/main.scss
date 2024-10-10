@@ -65,9 +65,9 @@ body {
 
 :focus {
   @apply outline outline-2 outline-offset-[3px];
-  @apply outline-sky-500;
+  @apply outline-slate-50;
 }
 
-:not(.outline-override) > :focus {
-  @apply outline-slate-50;
+.outline-override > :focus {
+  @apply outline-sky-500;
 }
