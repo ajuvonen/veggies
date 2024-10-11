@@ -33,23 +33,25 @@ const translatedVeggies = computed(() => {
 });
 </script>
 <template>
-  <TransitionGroup name="tags" tag="ul" class="tags__container">
-    <li
-      v-for="{veggie, translation} in translatedVeggies"
-      :key="veggie"
-      :data-test-id="`tag-${veggie}`"
-      class="tags__tag"
-    >
-      <ButtonComponent
-        :aria-label="$t(ariaKey, [translation])"
-        :variant="variant"
-        @click="$emit('click', veggie)"
+  <div class="flex min-h-0">
+    <TransitionGroup name="tags" tag="ul" class="tags__container">
+      <li
+        v-for="{veggie, translation} in translatedVeggies"
+        :key="veggie"
+        :data-test-id="`tag-${veggie}`"
+        class="tags__tag"
       >
-        <IconComponent :icon="icon" />
-        {{ translation }}</ButtonComponent
-      >
-    </li>
-  </TransitionGroup>
+        <ButtonComponent
+          :aria-label="$t(ariaKey, [translation])"
+          :variant="variant"
+          @click="$emit('click', veggie)"
+        >
+          <IconComponent :icon="icon" />
+          {{ translation }}</ButtonComponent
+        >
+      </li>
+    </TransitionGroup>
+  </div>
 </template>
 <style lang="scss" scoped>
 .tags__container {
