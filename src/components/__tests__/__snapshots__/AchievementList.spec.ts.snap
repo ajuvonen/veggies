@@ -1,148 +1,150 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AchievementList > renders 1`] = `
-"<div data-v-1c120264="" class="achievement-list" data-test-id="achievement-list">
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="30 unique veggies" aria-label="30 unique veggies" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🎉</div>
+"<div data-v-1c120264="" class="flex min-h-0">
+  <div data-v-1c120264="" class="achievement-list" data-test-id="achievement-list">
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="30 unique veggies" aria-label="30 unique veggies" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🎉</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 Weekly</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 Weekly</div>
       </div>
     </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="40 unique veggies" aria-label="40 unique veggies" data-test-id="badge-completionist-1" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🐣</div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="40 unique veggies" aria-label="40 unique veggies" data-test-id="badge-completionist-1" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🐣</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 veggies</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 veggies</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="80 unique veggies" aria-label="80 unique veggies" data-test-id="badge-completionist-2" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🐧</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="80 unique veggies" aria-label="80 unique veggies" data-test-id="badge-completionist-2" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🐧</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="150 unique veggies" aria-label="150 unique veggies" data-test-id="badge-completionist-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🦅</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="150 unique veggies" aria-label="150 unique veggies" data-test-id="badge-completionist-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🦅</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
-      </div>
-    </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">Challenge Accepted</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 completed weekly challenges" aria-label="5 completed weekly challenges" data-test-id="badge-challengeAccepted-1" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🛴</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 completed weekly challenges" aria-label="10 completed weekly challenges" data-test-id="badge-challengeAccepted-2" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🛵</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 challenges</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 completed weekly challenges" aria-label="20 completed weekly challenges" data-test-id="badge-challengeAccepted-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🚀</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 challenges</div>
       </div>
     </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">The Committed</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="3 months of active use" aria-label="3 months of active use" data-test-id="badge-committed-1" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🌱</div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">Challenge Accepted</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 completed weekly challenges" aria-label="5 completed weekly challenges" data-test-id="badge-challengeAccepted-1" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🛴</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">3 months</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="6 months of active use" aria-label="6 months of active use" data-test-id="badge-committed-2" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🪴</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 completed weekly challenges" aria-label="10 completed weekly challenges" data-test-id="badge-challengeAccepted-2" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🛵</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 challenges</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">6 months</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="12 months of active use" aria-label="12 months of active use" data-test-id="badge-committed-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🎄</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 completed weekly challenges" aria-label="20 completed weekly challenges" data-test-id="badge-challengeAccepted-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🚀</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 challenges</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">12 months</div>
-      </div>
-    </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">Hot Streak</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 week streak of over 30 veggies" aria-label="5 week streak of over 30 veggies" data-test-id="badge-hotStreak-1" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🌶️</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 Weeks</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 week streak of over 30 veggies" aria-label="10 week streak of over 30 veggies" data-test-id="badge-hotStreak-2" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🔥</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 week streak of over 30 veggies" aria-label="20 week streak of over 30 veggies" data-test-id="badge-hotStreak-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🌋</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 Weeks</div>
       </div>
     </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">The Experimenter</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" data-test-id="badge-experimenterFruit-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🍎</div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">The Committed</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="3 months of active use" aria-label="3 months of active use" data-test-id="badge-committed-1" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🌱</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">3 months</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Fruits</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="6 months of active use" aria-label="6 months of active use" data-test-id="badge-committed-2" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🪴</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">6 months</div>
+        </div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="12 months of active use" aria-label="12 months of active use" data-test-id="badge-committed-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🎄</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">12 months</div>
+        </div>
       </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique vegetables" aria-label="15 unique vegetables" data-test-id="badge-experimenterVegetable-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🥦</div>
+    </div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">Hot Streak</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 week streak of over 30 veggies" aria-label="5 week streak of over 30 veggies" data-test-id="badge-hotStreak-1" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🌶️</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 Weeks</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Vegetables</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 week streak of over 30 veggies" aria-label="10 week streak of over 30 veggies" data-test-id="badge-hotStreak-2" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🔥</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
+        </div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 week streak of over 30 veggies" aria-label="20 week streak of over 30 veggies" data-test-id="badge-hotStreak-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🌋</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 Weeks</div>
+        </div>
       </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique leafy greens" aria-label="15 unique leafy greens" data-test-id="badge-experimenterLeafy-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🥬</div>
+    </div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">The Experimenter</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" data-test-id="badge-experimenterFruit-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🍎</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Fruits</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Leafy Greens</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique roots and bulbs" aria-label="15 unique roots and bulbs" data-test-id="badge-experimenterRoot-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🥕</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique vegetables" aria-label="15 unique vegetables" data-test-id="badge-experimenterVegetable-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🥦</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Vegetables</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Roots</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique beans and legumes" aria-label="15 unique beans and legumes" data-test-id="badge-experimenterBean-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🫛</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique leafy greens" aria-label="15 unique leafy greens" data-test-id="badge-experimenterLeafy-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🥬</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Leafy Greens</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Beans</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique grains, nuts and seeds" aria-label="15 unique grains, nuts and seeds" data-test-id="badge-experimenterGrain-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🌾</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique roots and bulbs" aria-label="15 unique roots and bulbs" data-test-id="badge-experimenterRoot-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🥕</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Roots</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique beans and legumes" aria-label="15 unique beans and legumes" data-test-id="badge-experimenterBean-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🫛</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Beans</div>
+        </div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique grains, nuts and seeds" aria-label="15 unique grains, nuts and seeds" data-test-id="badge-experimenterGrain-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🌾</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
+        </div>
       </div>
     </div>
   </div>
@@ -150,148 +152,150 @@ exports[`AchievementList > renders 1`] = `
 `;
 
 exports[`AchievementList > renders with badges enabled 1`] = `
-"<div data-v-1c120264="" class="achievement-list" data-test-id="achievement-list">
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="30 unique veggies" aria-label="30 unique veggies" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🎉</div>
+"<div data-v-1c120264="" class="flex min-h-0">
+  <div data-v-1c120264="" class="achievement-list" data-test-id="achievement-list">
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="30 unique veggies" aria-label="30 unique veggies" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🎉</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 Weekly</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 Weekly</div>
       </div>
     </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="40 unique veggies" aria-label="40 unique veggies" data-test-id="badge-completionist-1" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🐣</div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="40 unique veggies" aria-label="40 unique veggies" data-test-id="badge-completionist-1" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🐣</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 veggies</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 veggies</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="80 unique veggies" aria-label="80 unique veggies" data-test-id="badge-completionist-2" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🐧</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="80 unique veggies" aria-label="80 unique veggies" data-test-id="badge-completionist-2" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🐧</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="150 unique veggies" aria-label="150 unique veggies" data-test-id="badge-completionist-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🦅</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="150 unique veggies" aria-label="150 unique veggies" data-test-id="badge-completionist-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🦅</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">150 veggies</div>
-      </div>
-    </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">Challenge Accepted</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 completed weekly challenges" aria-label="5 completed weekly challenges" data-test-id="badge-challengeAccepted-1" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🛴</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 completed weekly challenges" aria-label="10 completed weekly challenges" data-test-id="badge-challengeAccepted-2" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🛵</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 challenges</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 completed weekly challenges" aria-label="20 completed weekly challenges" data-test-id="badge-challengeAccepted-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🚀</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 challenges</div>
       </div>
     </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">The Committed</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="3 months of active use" aria-label="3 months of active use" data-test-id="badge-committed-1" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🌱</div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">Challenge Accepted</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 completed weekly challenges" aria-label="5 completed weekly challenges" data-test-id="badge-challengeAccepted-1" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🛴</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">3 months</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="6 months of active use" aria-label="6 months of active use" data-test-id="badge-committed-2" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🪴</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 completed weekly challenges" aria-label="10 completed weekly challenges" data-test-id="badge-challengeAccepted-2" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🛵</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 challenges</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">6 months</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="12 months of active use" aria-label="12 months of active use" data-test-id="badge-committed-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🎄</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 completed weekly challenges" aria-label="20 completed weekly challenges" data-test-id="badge-challengeAccepted-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🚀</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 challenges</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">12 months</div>
-      </div>
-    </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">Hot Streak</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 week streak of over 30 veggies" aria-label="5 week streak of over 30 veggies" data-test-id="badge-hotStreak-1" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🌶️</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 Weeks</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 week streak of over 30 veggies" aria-label="10 week streak of over 30 veggies" data-test-id="badge-hotStreak-2" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🔥</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 week streak of over 30 veggies" aria-label="20 week streak of over 30 veggies" data-test-id="badge-hotStreak-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🌋</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 Weeks</div>
       </div>
     </div>
-  </div>
-  <div data-v-1c120264="">
-    <p data-v-1c120264="" class="achievement-list__label">The Experimenter</p>
-    <div data-v-1c120264="" class="achievement-list__badge-container">
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" data-test-id="badge-experimenterFruit-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🍎</div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">The Committed</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="3 months of active use" aria-label="3 months of active use" data-test-id="badge-committed-1" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🌱</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">3 months</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Fruits</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="6 months of active use" aria-label="6 months of active use" data-test-id="badge-committed-2" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🪴</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">6 months</div>
+        </div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="12 months of active use" aria-label="12 months of active use" data-test-id="badge-committed-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🎄</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">12 months</div>
+        </div>
       </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique vegetables" aria-label="15 unique vegetables" data-test-id="badge-experimenterVegetable-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🥦</div>
+    </div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">Hot Streak</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 week streak of over 30 veggies" aria-label="5 week streak of over 30 veggies" data-test-id="badge-hotStreak-1" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🌶️</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 Weeks</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Vegetables</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="10 week streak of over 30 veggies" aria-label="10 week streak of over 30 veggies" data-test-id="badge-hotStreak-2" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🔥</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
+        </div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 week streak of over 30 veggies" aria-label="20 week streak of over 30 veggies" data-test-id="badge-hotStreak-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🌋</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 Weeks</div>
+        </div>
       </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique leafy greens" aria-label="15 unique leafy greens" data-test-id="badge-experimenterLeafy-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🥬</div>
+    </div>
+    <div data-v-1c120264="">
+      <p data-v-1c120264="" class="achievement-list__label">The Experimenter</p>
+      <div data-v-1c120264="" class="achievement-list__badge-container">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" data-test-id="badge-experimenterFruit-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🍎</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Fruits</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Leafy Greens</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique roots and bulbs" aria-label="15 unique roots and bulbs" data-test-id="badge-experimenterRoot-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🥕</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique vegetables" aria-label="15 unique vegetables" data-test-id="badge-experimenterVegetable-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🥦</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Vegetables</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Roots</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique beans and legumes" aria-label="15 unique beans and legumes" data-test-id="badge-experimenterBean-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🫛</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique leafy greens" aria-label="15 unique leafy greens" data-test-id="badge-experimenterLeafy-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🥬</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Leafy Greens</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Beans</div>
-      </div>
-      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique grains, nuts and seeds" aria-label="15 unique grains, nuts and seeds" data-test-id="badge-experimenterGrain-3" class="badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🌾</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique roots and bulbs" aria-label="15 unique roots and bulbs" data-test-id="badge-experimenterRoot-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🥕</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Roots</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique beans and legumes" aria-label="15 unique beans and legumes" data-test-id="badge-experimenterBean-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🫛</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Beans</div>
+        </div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique grains, nuts and seeds" aria-label="15 unique grains, nuts and seeds" data-test-id="badge-experimenterGrain-3" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">🌾</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
+        </div>
       </div>
     </div>
   </div>

@@ -174,7 +174,7 @@ const achievementProps: AchievementProps = {
 }
 
 .badge__text {
-  @apply absolute bottom-[3cqmin] min-w-full text-nowrap rounded-md text-center label-like;
+  @apply absolute bottom-[3cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase;
   @apply bg-slate-700 text-slate-50;
 }
 
