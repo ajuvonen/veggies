@@ -22,27 +22,29 @@ const allVeggies = computed(() => {
 </script>
 
 <template>
-  <div class="veggie-list" data-test-id="veggie-list">
-    <ul v-for="category in Category" :key="category" class="veggie-list__category">
-      <h2 class="label-like">{{ $t(`categories.${category}`) }}</h2>
-      <ul class="veggie-list__veggies">
-        <li
-          v-for="{veggie, translation} in allVeggies.filter((item) => item.category === category)"
-          :key="veggie"
-          class="veggie-list__veggie"
-        >
-          <IconComponent
-            :icon="uniqueVeggies.includes(veggie) ? 'checkboxMarked' : 'checkboxBlank'"
-          />
-          <span class="truncate capitalize" :title="translation">
-            {{ translation }}
-          </span>
-          <span :data-test-id="`veggie-list-status-${veggie}`" class="sr-only">{{
-            $t(uniqueVeggies.includes(veggie) ? 'veggieList.complete' : 'veggieList.missing')
-          }}</span>
-        </li>
+  <div class="flex min-h-0">
+    <div class="veggie-list" data-test-id="veggie-list">
+      <ul v-for="category in Category" :key="category" class="veggie-list__category">
+        <h2 class="label-like">{{ $t(`categories.${category}`) }}</h2>
+        <ul class="veggie-list__veggies">
+          <li
+            v-for="{veggie, translation} in allVeggies.filter((item) => item.category === category)"
+            :key="veggie"
+            class="veggie-list__veggie"
+          >
+            <IconComponent
+              :icon="uniqueVeggies.includes(veggie) ? 'checkboxMarked' : 'checkboxBlank'"
+            />
+            <span class="truncate capitalize" :title="translation">
+              {{ translation }}
+            </span>
+            <span :data-test-id="`veggie-list-status-${veggie}`" class="sr-only">{{
+              $t(uniqueVeggies.includes(veggie) ? 'veggieList.complete' : 'veggieList.missing')
+            }}</span>
+          </li>
+        </ul>
       </ul>
-    </ul>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>

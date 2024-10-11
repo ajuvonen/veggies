@@ -73,7 +73,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
         align: 'start',
         font: {
           family: 'Nunito, sans-serif',
-          size: 12,
+          size: 14,
           weight: 'normal',
           style: 'normal',
         },
