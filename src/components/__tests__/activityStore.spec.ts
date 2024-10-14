@@ -258,18 +258,6 @@ describe('activityStore', () => {
     expect(activityStore.uniqueVeggies).toEqual(['tomato', 'apple', 'banana', 'cherry']);
   });
 
-  it('resets the store', () => {
-    activityStore.startDate = thisWeek;
-    activityStore.weeks.push({
-      startDate: thisWeek,
-      veggies: ['cucumber', 'tomato'],
-    });
-
-    activityStore.$reset();
-    expect(activityStore.startDate).toBe(null);
-    expect(activityStore.weeks).toHaveLength(0);
-  });
-
   it('returns 0 as streak length', () => {
     activityStore.startDate = thisWeek;
     activityStore.weeks.push({
@@ -429,5 +417,6 @@ describe('activityStore', () => {
     activityStore.$reset();
     expect(activityStore.startDate).toBe(null);
     expect(activityStore.weeks).toHaveLength(0);
+    expect(activityStore.challenges).toHaveLength(0);
   });
 });

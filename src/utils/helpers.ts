@@ -106,6 +106,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
 
 export const getRandomVeggie = () => ALL_VEGGIES[Math.floor(Math.random() * ALL_VEGGIES.length)];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const dateParser = (key: string, value: any) => {
   if (key === 'startDate' && value) {
     return DateTime.fromISO(value);
