@@ -54,7 +54,7 @@ describe('achievements', () => {
     expect(achievements.value.completionist).toBe(AchievementLevel.Silver);
   });
 
-  it('goes straight to gold', async () => {
+  it('completionist goes straight to gold', async () => {
     const {advanceAchievements, achievements} = await withSetup(useAchievements);
     advanceAchievements(0, [...Array(150)], 0, 0, 0);
     expect(achievements.value.completionist).toBe(AchievementLevel.Gold);
@@ -68,7 +68,7 @@ describe('achievements', () => {
     expect(achievements.value.experimenterFruit).toBe(AchievementLevel.Gold);
   });
 
-  it('goes straight to gold', async () => {
+  it('experimenter goes straight to gold', async () => {
     const {advanceAchievements, achievements} = await withSetup(useAchievements);
     advanceAchievements(0, take(FRUITS, 15), 0, 0, 0);
     expect(achievements.value.experimenterFruit).toBe(AchievementLevel.Gold);
