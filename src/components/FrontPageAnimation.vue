@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import {getRandomEmojis} from '@/utils/helpers';
 
-// const emojis = getRandomEmojis(4);
+const emojis = getRandomEmojis(4);
 // Halloween
-const emojis = ['🎃', '🎃', '🎃', '🎃'];
+// const emojis = ['🎃', '🎃', '🎃', '🎃'];
 </script>
 <template>
   <div class="front-page-animation__container" aria-hidden="true">
