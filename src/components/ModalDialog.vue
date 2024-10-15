@@ -17,7 +17,7 @@ defineProps<{
     leave-from="opacity-100"
     leave-to="opacity-0"
   >
-    <Dialog static class="relative z-10" @close="model = false">
+    <Dialog static class="relative z-20" @close="model = false">
       <!-- The backdrop, rendered as a fixed sibling to the panel container -->
       <div class="modal-dialog__backdrop" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
