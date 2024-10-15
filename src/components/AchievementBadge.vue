@@ -25,11 +25,11 @@ const achievementProps: AchievementProps = {
   challengeAccepted: {
     [AchievementLevel.Bronze]: {
       textProps: [5],
-      emoji: '🛴',
+      emoji: '🚁',
     },
     [AchievementLevel.Silver]: {
       textProps: [10],
-      emoji: '🛵',
+      emoji: '✈️',
     },
     [AchievementLevel.Gold]: {
       textProps: [20],
