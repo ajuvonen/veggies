@@ -6,12 +6,13 @@ exports[`AchievementList > renders 1`] = `
     <div data-v-1c120264="">
       <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
       <div data-v-1c120264="" class="achievement-list__badge-container">
-        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="30 unique veggies" aria-label="30 unique veggies" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="30 unique veggies this week" aria-label="30 unique veggies this week" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
             <div data-v-06381b3c="" class="badge__emoji">🎉</div>
           </div>
           <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 Weekly</div>
         </div>
+        <!--v-if-->
       </div>
     </div>
     <div data-v-1c120264="">
@@ -157,11 +158,17 @@ exports[`AchievementList > renders with badges enabled 1`] = `
     <div data-v-1c120264="">
       <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
       <div data-v-1c120264="" class="achievement-list__badge-container">
-        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="30 unique veggies" aria-label="30 unique veggies" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="30 unique veggies this week" aria-label="30 unique veggies this week" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
             <div data-v-06381b3c="" class="badge__emoji">🎉</div>
           </div>
           <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 Weekly</div>
+        </div>
+        <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="40 unique veggies this week" aria-label="40 unique veggies this week" data-test-id="badge-thirtyVeggies-4" class="badge" role="img">
+          <div data-v-06381b3c="" class="badge__background badge__background--Platinum" aria-hidden="true">
+            <div data-v-06381b3c="" class="badge__emoji">💎</div>
+          </div>
+          <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 Weekly</div>
         </div>
       </div>
     </div>

@@ -40,9 +40,9 @@ const guards = {
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
       intersection(event.uniqueVeggies, targetGroup).length >= 15,
   thirtyVeggies:
-    (toGold: boolean) =>
+    (threshold: number, rising: boolean) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
-      toGold ? event.veggiesThisWeek >= 30 : event.veggiesThisWeek < 30,
+      rising ? event.veggiesThisWeek >= threshold : event.veggiesThisWeek < threshold,
 };
 
 export function useAchievements() {
@@ -335,18 +335,44 @@ export function useAchievements() {
           states: {
             '0': {
               on: {
-                ADVANCE: {
-                  target: '3',
-                  guard: guards.thirtyVeggies(true),
-                },
+                ADVANCE: [
+                  {
+                    target: '4',
+                    guard: guards.thirtyVeggies(40, true),
+                  },
+                  {
+                    target: '3',
+                    guard: guards.thirtyVeggies(30, true),
+                  },
+                ],
               },
             },
             '3': {
               on: {
-                ADVANCE: {
-                  target: '0',
-                  guard: guards.thirtyVeggies(false),
-                },
+                ADVANCE: [
+                  {
+                    target: '0',
+                    guard: guards.thirtyVeggies(30, false),
+                  },
+                  {
+                    target: '4',
+                    guard: guards.thirtyVeggies(40, true),
+                  },
+                ],
+              },
+            },
+            '4': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '0',
+                    guard: guards.thirtyVeggies(30, false),
+                  },
+                  {
+                    target: '3',
+                    guard: guards.thirtyVeggies(40, false),
+                  },
+                ],
               },
             },
           },

@@ -156,14 +156,24 @@ describe('achievements', () => {
     expect(achievements.value.thirtyVeggies).toEqual(AchievementLevel.NoAchievement);
     advanceAchievements(30, [], 0, 0, 0);
     expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.Gold);
+    advanceAchievements(40, [], 0, 0, 0);
+    expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.Platinum);
   });
 
-  it('resets thirtyVeggies after a week', async () => {
+  it('resets thirtyVeggies', async () => {
     const {advanceAchievements, achievements} = await withSetup(useAchievements);
     advanceAchievements(30, [], 0, 0, 0);
     expect(achievements.value.thirtyVeggies).toEqual(AchievementLevel.Gold);
     advanceAchievements(0, [], 0, 0, 0);
     expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.NoAchievement);
+    advanceAchievements(40, [], 0, 0, 0);
+    expect(achievements.value.thirtyVeggies).toEqual(AchievementLevel.Platinum);
+    advanceAchievements(0, [], 0, 0, 0);
+    expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.NoAchievement);
+    advanceAchievements(40, [], 0, 0, 0);
+    expect(achievements.value.thirtyVeggies).toEqual(AchievementLevel.Platinum);
+    advanceAchievements(39, [], 0, 0, 0);
+    expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.Gold);
   });
 
   it('resets achievements', async () => {
@@ -178,10 +188,10 @@ describe('achievements', () => {
       experimenterLeafy: AchievementLevel.Gold,
       experimenterVegetable: AchievementLevel.Gold,
       hotStreak: AchievementLevel.Gold,
-      thirtyVeggies: AchievementLevel.Gold,
+      thirtyVeggies: AchievementLevel.Platinum,
     };
     const {advanceAchievements, achievements, resetAchievements} = await withSetup(useAchievements);
-    advanceAchievements(30, ALL_VEGGIES, 30, 52, 20);
+    advanceAchievements(40, ALL_VEGGIES, 30, 52, 20);
     expect(achievements.value).toEqual(expectedAchievements);
     resetAchievements();
     expect(achievements.value).toEqual(defaultAchievements);
