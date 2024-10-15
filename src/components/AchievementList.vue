@@ -17,6 +17,12 @@ const {achievements} = storeToRefs(useAppStateStore());
             :level="AchievementLevel.Gold"
             achievement="thirtyVeggies"
           />
+          <AchievementBadge
+            v-if="achievements.thirtyVeggies === AchievementLevel.Platinum"
+            :active="true"
+            :level="AchievementLevel.Platinum"
+            achievement="thirtyVeggies"
+          />
         </div>
       </div>
       <div>

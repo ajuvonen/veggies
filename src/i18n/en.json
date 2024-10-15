@@ -71,9 +71,10 @@
     "newAchievements": "You gained new achievements!",
     "thirtyVeggies": {
       "title": "This week's toil",
-      "ariaLabel": "30 unique veggies",
-      "badgeText": "30 Weekly",
-      "3": "You reached this week's goal - but why stop here!"
+      "ariaLabel": "{0} unique veggies this week",
+      "badgeText": "{0} Weekly",
+      "3": "You reached this week's goal - but why stop here!",
+      "4": "Overdrive! 40 unique veggies this week unlocks this secret achievement!"
     }
   },
   "categories": {
@@ -775,7 +776,6 @@
     "brussels sprouts": "brussels sprouts",
     "buckwheat": "buckwheat",
     "bulgur": "bulgur",
-    "burdock root": "burdock root",
     "butter bean": "butter bean (lima bean)",
     "cabbage": "cabbage",
     "cannellini bean": "cannellini bean",
