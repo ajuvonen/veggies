@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ModalDialog > shows dialog 1`] = `
-"<div data-v-0f2dec55="" class="relative z-10">
+"<div data-v-0f2dec55="" class="relative z-20">
   <!-- The backdrop, rendered as a fixed sibling to the panel container -->
   <div data-v-0f2dec55="" class="modal-dialog__backdrop" aria-hidden="true"></div><!-- Full-screen container to center the panel -->
   <div data-v-0f2dec55="" class="modal-dialog__container">

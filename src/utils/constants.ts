@@ -120,7 +120,6 @@ export const ROOTS = [
   'beet',
   'black radish',
   'black salsify',
-  'burdock root',
   'carrot',
   'celeriac',
   'chives',

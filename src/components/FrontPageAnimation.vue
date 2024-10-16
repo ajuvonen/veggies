@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 import {getRandomEmojis} from '@/utils/helpers';
 
-const emojis = getRandomEmojis(4);
+let emojis = getRandomEmojis(4);
+// Halloween
+emojis = ['🎃', '👻', '🧟', '👽'];
+// Christmas
+// emojis = ['🎅', '☃️', '🤶', '🎄'];
 </script>
 <template>
   <div class="front-page-animation__container" aria-hidden="true">

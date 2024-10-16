@@ -25,11 +25,11 @@ const achievementProps: AchievementProps = {
   challengeAccepted: {
     [AchievementLevel.Bronze]: {
       textProps: [5],
-      emoji: '🛴',
+      emoji: '🚁',
     },
     [AchievementLevel.Silver]: {
       textProps: [10],
-      emoji: '🛵',
+      emoji: '✈️',
     },
     [AchievementLevel.Gold]: {
       textProps: [20],
@@ -116,8 +116,12 @@ const achievementProps: AchievementProps = {
   },
   thirtyVeggies: {
     [AchievementLevel.Gold]: {
-      textProps: [],
+      textProps: [30],
       emoji: '🎉',
+    },
+    [AchievementLevel.Platinum]: {
+      textProps: [40],
+      emoji: '💎',
     },
   },
 };
@@ -191,6 +195,15 @@ const achievementProps: AchievementProps = {
 .badge__background--Gold {
   background: linear-gradient(135deg, #d4af37, #b89b36, #8c7d33);
   border-color: #d9b43b;
+}
+
+.badge__background--Platinum {
+  background: linear-gradient(135deg, #ffffff, #d9d9d9);
+  border-color: #f0f0f0;
+
+  .badge__emoji {
+    mix-blend-mode: normal;
+  }
 }
 
 .badge__background::after {

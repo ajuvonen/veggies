@@ -220,26 +220,30 @@ describe('activityStore', () => {
     expect(activityStore.favorites).toEqual(['cucumber']);
   });
 
-  it('returns only ten favorites', () => {
-    activityStore.startDate = lastWeek;
+  it('returns only ten most common favorites', () => {
+    const expected = [
+      'wheat',
+      'rye',
+      'rice',
+      'apple',
+      'raspberry',
+      'cucumber',
+      'tomato',
+      'onion',
+      'garlic',
+      'endive',
+    ];
+    activityStore.startDate = twoWeeksAgo;
     activityStore.weeks.push({
-      veggies: [
-        'wheat',
-        'rye',
-        'rice',
-        'apple',
-        'raspberry',
-        'cucumber',
-        'tomato',
-        'onion',
-        'garlic',
-        'endive',
-        'lettuce',
-      ],
+      veggies: [...expected, 'lettuce', 'broccoli', 'lychee'],
+      startDate: twoWeeksAgo,
+    });
+    activityStore.weeks.push({
+      veggies: [...expected, 'lettuce', 'barley'],
       startDate: lastWeek,
     });
 
-    expect(activityStore.favorites).toHaveLength(10);
+    expect(activityStore.favorites).toEqual(expected);
   });
 
   it('returns unique veggies', () => {
@@ -256,18 +260,6 @@ describe('activityStore', () => {
     );
 
     expect(activityStore.uniqueVeggies).toEqual(['tomato', 'apple', 'banana', 'cherry']);
-  });
-
-  it('resets the store', () => {
-    activityStore.startDate = thisWeek;
-    activityStore.weeks.push({
-      startDate: thisWeek,
-      veggies: ['cucumber', 'tomato'],
-    });
-
-    activityStore.$reset();
-    expect(activityStore.startDate).toBe(null);
-    expect(activityStore.weeks).toHaveLength(0);
   });
 
   it('returns 0 as streak length', () => {
@@ -429,5 +421,6 @@ describe('activityStore', () => {
     activityStore.$reset();
     expect(activityStore.startDate).toBe(null);
     expect(activityStore.weeks).toHaveLength(0);
+    expect(activityStore.challenges).toHaveLength(0);
   });
 });

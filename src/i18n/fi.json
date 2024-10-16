@@ -71,9 +71,10 @@
     "newAchievements": "Uusia saavutuksia avattu!",
     "thirtyVeggies": {
       "title": "Tämän viikon aherrus",
-      "ariaLabel": "30 erilaista kasvista",
-      "badgeText": "30 viikossa",
-      "3": "Tämän viikon tavoite on saavutettu - mutta älä lopeta tähän!"
+      "ariaLabel": "{0} erilaista kasvista tällä viikolla",
+      "badgeText": "{0} viikossa",
+      "3": "Tämän viikon tavoite on saavutettu - mutta älä lopeta tähän!",
+      "4": "Ylikierroksilla! 40 erilaista kasvista tällä viikolla avaa tämän salaisen palkinnon!"
     }
   },
   "categories": {
@@ -783,7 +784,6 @@
     "brussels sprouts": "ruusukaali",
     "buckwheat": "tattari",
     "bulgur": "bulgur",
-    "burdock root": "isotakiainen",
     "butter bean": "voipapu (limanpapu)",
     "cabbage": "keräkaali",
     "cannellini bean": "cannellinipapu",

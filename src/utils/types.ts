@@ -39,6 +39,7 @@ export enum AchievementLevel {
   Bronze,
   Silver,
   Gold,
+  Platinum,
 }
 
 export type Achievements = {

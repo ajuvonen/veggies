@@ -19,10 +19,11 @@ const {settings} = storeToRefs(useAppStateStore());
 const {updateServiceWorker} = useRegisterSW({
   immediate: true,
   onRegisteredSW(_, registration) {
-    registration &&
+    if (registration) {
       setInterval(() => {
         registration.update();
       }, 60 * 1000);
+    }
   },
   onNeedRefresh() {
     updateServiceWorker();
