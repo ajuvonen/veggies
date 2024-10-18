@@ -5,7 +5,7 @@ on:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'pages'
+  group: 'staging'
   cancel-in-progress: true
 
 jobs:
@@ -17,10 +17,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.17
+          node-version: 20.18
       - name: Install dependencies
         run: npm ci
-      - run: npm run build
+      - name: Build
+        run: npm run build
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
