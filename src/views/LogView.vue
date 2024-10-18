@@ -3,6 +3,7 @@ import {provide, ref, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {difference, first, omitBy} from 'remeda';
+import confetti from 'canvas-confetti';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {ALL_VEGGIES, KEYS} from '@/utils/constants';
@@ -52,10 +53,16 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
 watch(achievements, (newValue, oldValue) => {
   newAchievements.value = omitBy(
     newValue,
-    (value, key) => value === AchievementLevel.NoAchievement || oldValue[key] === value,
+    (value, key) => value === AchievementLevel.NoAchievement || oldValue[key] >= value,
   );
   if (Object.keys(newAchievements.value).length) {
     dialogOpen.value = true;
+    confetti({
+      disableForReducedMotion: true,
+      particleCount: 150,
+      spread: 70,
+      origin: {x: 0.5, y: 0.7},
+    });
   }
 });
 
