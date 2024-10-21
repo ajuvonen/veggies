@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+import {usePreferredReducedMotion} from '@vueuse/core';
 import {getRandomEmojis} from '@/utils/helpers';
+
+const reducedMotion = usePreferredReducedMotion();
 
 let emojis = getRandomEmojis(4);
 // Halloween
@@ -9,7 +12,7 @@ emojis = ['🎃', '👻', '🧟', '👽'];
 </script>
 <template>
   <div class="front-page-animation__container" aria-hidden="true">
-    <div class="front-page-animation">
+    <div v-if="reducedMotion !== 'reduce'" class="front-page-animation">
       <div v-for="emoji in emojis" :key="emoji" class="front-page-animation__icon-container">
         <span class="front-page-animation__icon">{{ emoji }}</span>
         <span class="front-page-animation__shadow"></span>
