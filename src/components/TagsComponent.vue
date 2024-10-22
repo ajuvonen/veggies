@@ -55,7 +55,7 @@ const translatedVeggies = computed(() => {
 </template>
 <style lang="scss" scoped>
 .tags__container {
-  @apply relative has-scroll;
+  @apply relative has-scroll w-full;
   @apply flex-container flex-wrap justify-center;
 }
 
