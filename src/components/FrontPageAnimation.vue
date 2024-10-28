@@ -4,9 +4,10 @@ import {getRandomEmojis} from '@/utils/helpers';
 
 const reducedMotion = usePreferredReducedMotion();
 
+// eslint-disable-next-line prefer-const
 let emojis = getRandomEmojis(4);
 // Halloween
-emojis = ['🎃', '👻', '🧟', '👽'];
+// emojis = ['🎃', '👻', '🧟', '👽'];
 // Christmas
 // emojis = ['🎅', '☃️', '🤶', '🎄'];
 </script>
