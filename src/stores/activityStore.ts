@@ -7,7 +7,7 @@ import type {Challenge, Week} from '@/utils/types';
 import {dateParser, getRandomVeggie} from '@/utils/helpers';
 
 export const useActivityStore = defineStore('activity', () => {
-  const reactiveNow = useNow({interval: 1000});
+  const reactiveNow = useNow({interval: 2000});
   const currentDate = ref(DateTime.now());
   watchEffect(() => {
     const now = DateTime.fromJSDate(reactiveNow.value) as DateTime<true>;
