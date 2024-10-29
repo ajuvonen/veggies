@@ -11,7 +11,7 @@ const emit = defineEmits(['close']);
 
 const toastMessage = ref<HTMLDivElement | null>(null);
 
-const {start, stop} = useTimeout(5000, {
+const {start, stop} = useTimeout(5500, {
   callback: () => emit('close'),
   controls: true,
 });

@@ -41,7 +41,7 @@ describe('ToastContainer', () => {
       id,
       text: 'Test message',
     });
-    await new Promise((resolve) => setTimeout(resolve, 5100));
+    await new Promise((resolve) => setTimeout(resolve, 5600));
     expect(appStateStore.removeToastMessage).toBeCalledWith(id);
-  }, 5500);
+  }, 6000);
 });

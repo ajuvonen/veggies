@@ -39,7 +39,7 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
       addToastMessage(t('toasts.challengeCompleted', [getCheer()]));
     } else if (allVeggies.value.length % 100 === 0) {
       addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, getCheer()]));
-    } else if (Math.random() <= 0.25) {
+    } else if (Math.random() <= 0.35) {
       const facts = [
         ...Object.values<string>(tm(`facts.${addedVeggie}`)),
         t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, getCheer()]),
