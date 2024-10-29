@@ -116,22 +116,28 @@
       "Keskikokoinen omena sisältää noin 14 % päivittäisestä C-vitamiinista.",
       "Maailmassa viljellään yli 7500 omenalajiketta."
     ],
-    "artichoke": ["Latva-artisokat ovat yksi eniten antioksidantteja sisältävistä vihanneksista."],
+    "artichoke": [
+      "Latva-artisokat ovat yksi eniten antioksidantteja sisältävistä vihanneksista.",
+      "Italia on maailman suurin artisokantuottaja."
+    ],
     "arugula": ["Rucola on hyvä A-, C- ja K-vitamiinien lähde."],
     "asparagus": [
       "Parsassa on runsaasti folaattia, joka on tärkeää solujen toiminnalle ja kudosten kasvulle.",
-      "Parsa sisältää antioksidantteja, kuten E- ja C-vitamiinia."
+      "Parsa sisältää antioksidantteja, kuten E- ja C-vitamiinia.",
+      "Parsan kasvattaminen siemenestä kestää kahdesta kolmeen vuotta."
     ],
     "avocado": [
       "Yksi avokado sisältää noin 22 g terveellisiä rasvoja.",
       "Avokadoja kutsutaan joskus \"alligaattoripäärynöiksi\" ulkonäkönsä vuoksi.",
-      "Yksi avokado sisältää enemmän kaliumia kuin banaani."
+      "Yksi avokado sisältää enemmän kaliumia kuin banaani.",
+      "Avokadojen siemenet sekä muut kasvin osat ovat eläimille haitallisia"
     ],
     "bamboo shoots": [
-      "Bambusta rakennetaan rakennustelineitä Hongkongissa.",
+      "Bambusta tehdään rakennustelineitä Hongkongissa.",
       "Pandojen on syötävä 12-38 kg bambua päivittäin."
     ],
     "banana": [
+      "Banaanit ovat kasvitieteellisessä mielessä marjoja.",
       "Yksi banaani sisältää noin 12 % päivittäisestä kaliumista.",
       "Banaanit ovat yksi parhaista B6-vitamiinin lähteistä, tukien kognitiivista terveyttä.",
       "Banaanien sisältämä tryptofaani muuttuu elimistössä serotoniiniksi ja voi parantaa mielialaa."
@@ -173,7 +179,7 @@
     ],
     "brussels sprouts": [
       "Ruusukaalia viljeltiin laajasti Belgian pääkaupungissa 1500-luvulla.",
-      "Ruusukaali on usein esillä eurooppalaisissa perinteisissä juhla-aterioissa."
+      "Ruusukaali on usein esillä perinteisissä eurooppalaisissa juhla-aterioissa."
     ],
     "buckwheat": [
       "Tattari on suosittu gluteeniton viljavalmiste.",
@@ -187,7 +193,10 @@
       "Kaalia on viljelty yli 4000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
       "Euroopassa kaalia fermentoidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa."
     ],
-    "cantaloupe": ["Verkkomelonia viljeltiin ensimmäisen kerran muinaisessa Egyptissä."],
+    "cantaloupe": [
+      "Verkkomelonia viljeltiin ensimmäisen kerran muinaisessa Egyptissä.",
+      "Verkkomelonin englanninkielinen nimi \"cantaloupe\" tulee Cantalupon kaupungista Italiasta."
+    ],
     "caper": [
       "Kaprikset ovat kaprispensaan aukeamattomia kukkanuppuja, jotka säilötään etikkaan tai suolaan.",
       "Kaprikset ovat olleet käytössä Välimeren ja Lähi-idän keittiöissä tuhansien vuosien ajan."
@@ -199,7 +208,7 @@
     "cashew nut": [
       "30 gramman annos cashewpähkinöitä sisältää noin 5 g proteiinia ja 13 g terveellisiä rasvoja.",
       "Cashewpähkinät kasvavat harvemmin syödyn cashew-omenan päässä.",
-      "Cashewpähkinöitä käytetään usein kasvipohjaisten maitotuotteiden valmistamiseen."
+      "Cashewpähkinöitä käytetään myös kasvipohjaisten maitotuotteiden valmistamiseen."
     ],
     "cauliflower": [
       "Kukkakaali on saanut suosiota vähähiilihydraattisena riisin ja pizzapohjan korvikkeena.",
@@ -224,7 +233,8 @@
       "Yksi kirsikkatomaatti sisältää noin 3 kaloria, mikä tekee siitä terveellisen välipalan."
     ],
     "cherry": [
-      "Kirsikat tunnetaan antioksidanttisista ominaisuuksistaan, ja niitä on viljelty antiikin ajoista lähtien."
+      "Kirsikat tunnetaan antioksidanttisista ominaisuuksistaan, ja niitä on viljelty antiikin ajoista lähtien.",
+      "Kirsikat ovat luumujen, ja toisaalta myös persikoiden ja nektariinien, sukulaishedelmiä."
     ],
     "chestnut": [
       "Useimpiin pähkinöihin verrattuna kastanjat ovat vähärasvaisempia ja sisältävät enemmän hiilihydraatteja.",
@@ -259,7 +269,8 @@
       "Lehtikaalia on viljelty tuhansien vuosien ajan ja se oli suosittu vihannes antiikin Kreikassa ja Roomassa."
     ],
     "corn": [
-      "Maissi, jonka viljely on peräisin Meksikosta, on yksi maailman tärkeimmistä viljakasveista."
+      "Maissi, jonka viljely on peräisin Meksikosta, on yksi maailman tärkeimmistä viljakasveista.",
+      "Noin 60-70 % maailmassa tuotetusta maissista päätyy eläinten rehuksi."
     ],
     "couscous": [
       "Couscous, joka valmistetaan mannasuurimoista, on yleinen Pohjois-Afrikan keittiössä."
@@ -291,6 +302,7 @@
     "edamame": [
       "Edamame on kypsymätön soijapapu ja sitä tarjoillaan usein välipalana japanilaisessa keittiössä."
     ],
+    "eggplant": ["Munakoisot luokitellaan kasvitieteellisesti hedelmiksi."],
     "farro": ["Farro on muinainen vilja, joka oli roomalaisten sotilaiden ruokavalion perusta."],
     "fava bean": [
       "Härkäpapuja on viljelty tuhansia vuosia ja niitä käytetään Välimeren keittiössä."
@@ -316,7 +328,8 @@
     ],
     "grape": [
       "Rypäleitä on viljelty yli 8000 vuotta, ja niitä käytetään myös viinin, rusinoiden ja mehujen valmistukseen.",
-      "Rypäleitä esiintyy monissa eri väreissä, joilla jokaisella on ainutlaatuinen maku ja rakenne."
+      "Rypäleitä esiintyy monissa eri väreissä, joilla jokaisella on ainutlaatuinen maku ja rakenne.",
+      "Rypäleitä kasvatetaan kuudella seitsemästä maailman mantereesta."
     ],
     "grapefruit": [
       "Yksi greippi sisältää noin 100 % päivittäisestä C-vitamiinista.",
@@ -361,6 +374,7 @@
       "Maa-artisokka on kotoisin Pohjois-Amerikasta, ja alkuperäiskansat viljelivät sitä.",
       "Nimestään huolimatta maa-artisokka ei ole sukua artisokalle."
     ],
+    "jicama": ["pikkujamssipavun juuret ovat syötäviä, mutta lehdet ovat myrkyllisiä."],
     "kale": [
       "Lehtikaali sisältää runsaasti K-, A- ja C-vitamiineja.",
       "Lehtikaalia on viljelty yli 2000 vuotta ja se oli yleinen vihannes Euroopassa keskiajalla."
@@ -373,6 +387,7 @@
       "Kiivi tunnettiin alun perin \"kiinankarviaisena\", mutta nimi muutettiin markkinoinnin vuoksi Uudessa-Seelannissa.",
       "Kiivin karvainen kuori on syötävä, vaikka monet eivät pidä sen syömisestä."
     ],
+    "kohlrabi": ["Kyssäkaali saapui Yhdysvaltoihin vasta 1800-luvulla."],
     "kumquat": [
       "Kumkvatti on suupalan kokoinen hedelmä, joka voidaan syödä makeine kuorineen.",
       "Kumkvatit ovat ainutlaatuisia sitrushedelmiä, sillä niiden kuori on makea, mutta hedelmäliha hapan."
@@ -450,6 +465,7 @@
       "Legendan mukaan jumalatar Athena antoi kreikkalaisille lahjaksi oliivipuun voittaakseen heidän uskollisuutensa.",
       "Oliiveja kerätään oliivipuista, jotka symboloivat rauhaa ja pitkäikäisyyttä."
     ],
+    "onion": ["Sipulit ovat haitallisia monille eläimille."],
     "orange": [
       "Yksi appelsiini sisältää noin 60 kaloria ja yli 100 % päivittäisestä C-vitamiinista.",
       "Appelsiinit ovat yksi maailman suosituimmista hedelmistä ja niitä kulutetaan usein mehuna.",
@@ -461,6 +477,7 @@
     "parsley": [
       "Persilja on hyvä A-, C- ja K-vitamiinien lähde, joten se on ravitseva lisä aterioihin."
     ],
+    "pea sprouts": ["Herneenversoja voi kasvattaa helposti myös kotona kuivatuista herneistä."],
     "peach": [
       "Persikat ovat kotoisin Kiinasta, mutta niitä viljellään nykyisin monillaa lauhkean ilmaston alueilla."
     ],
@@ -468,12 +485,14 @@
       "Maapähkinät ovat runsas terveellisten rasvojen ja proteiinin lähde, sisältäen runsaasti energiaa.",
       "Teknisesti maapähkinät ovat palkokasveja."
     ],
+    "pear": ["Maailmassa tavataan yli 3000 päärynälajiketta."],
     "pecan nut": [
       "Pekaanipähkinät sisältävät runsaasti terveellisiä rasvoja ja yli 19 vitamiinia ja kivennäisainetta.",
       "Pekaanipähkinät ovat kotoisin Pohjois-Amerikasta ja ne olivat tärkeä ravinnonlähde alkuperäiskansoille."
     ],
     "persimmon": [
-      "Persimonit jaetaan kahteen päätyyppiin: kirpeisiin (kuten Hachiya) ja makeisiin (kuten Fuyu)."
+      "Persimonit jaetaan kahteen päätyyppiin: kirpeisiin (kuten Hachiya) ja makeisiin (kuten Fuyu).",
+      "Persimon on Japanin kansallishedelmä."
     ],
     "pine nut": [
       "Pinjansiemeniä käytetään usein peston valmistukseen.",
@@ -509,7 +528,8 @@
       "Portobello-sienet ovat täysin kasvaneita viljeltyjä herkkusieniä."
     ],
     "potato": [
-      "Perunat ovat kotoisin Etelä-Amerikasta, jossa inkat viljelivät niitä ensimmäisenä."
+      "Perunat ovat kotoisin Etelä-Amerikasta, jossa inkat viljelivät niitä ensimmäisenä.",
+      "Preussin kuningas Frederick kutsui perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta."
     ],
     "pumpkin seed": [
       "30 gramman annos kurpitsansiemeniä tarjoaa noin 7 g proteiinia ja runsaasti magnesiumia."
@@ -540,6 +560,7 @@
       "Punasipulit muuttuvat pinkeiksi kypsentäessä, ja niitä käytetään usein etikkasäilykkeisiin."
     ],
     "rhubarb": [
+      "Raparperia käytetään jälkiruoissa, mutta se on itse asiassa vihannes.",
       "Raparperin kanssa tulisi nauttia runsaasti kalsiumia sisältäviä ruokia, kuten maitotuotteita.",
       "Vaikka raparperin varret ovat syötäviä, sen lehdet ovat myrkyllisiä."
     ],
@@ -594,7 +615,8 @@
     ],
     "tomatillo": ["Tomatillojen paperimainen kuori täytyy poistaa ennen käyttöä."],
     "tomato": [
-      "Vaikka tomaatti usein luokitellaan vihannekseksi, se on kasvitieteellisesti hedelmä."
+      "Vaikka tomaatti usein luokitellaan vihannekseksi, se on kasvitieteellisesti hedelmä.",
+      "Maailmassa tavataan yli 10 000 tomaattilajiketta."
     ],
     "triticale": [
       "Ruisvehnä on hybridi, joka on luotu risteyttämällä vehnä ja ruis tuottamaan molempien ominaisuuksia.",
@@ -618,7 +640,8 @@
     ],
     "watermelon": [
       "Osuvasti nimetty vesimeloni sisältää yli 90 % vettä.",
-      "Vesimelonin kuori on myös syötävä ja siitä voidaan tehdä esimerkiksi säilykkeitä tai käyttää smoothieissa."
+      "Vesimelonin kuori on myös syötävä ja siitä voidaan tehdä esimerkiksi säilykkeitä tai käyttää smoothieissa.",
+      "Vesimelonia viljellään yli 90 maassa."
     ],
     "wheat": [
       "Vehnä on yksi maailman laajimmin viljellyistä kasveista.",
@@ -638,7 +661,8 @@
     "yardlong bean": ["Parsapapu voi kasvaa jopa metrin pituiseksi."],
     "yellow beet": ["Keltajuuret ovat makeampia ja miedompia kuin punajuuret."],
     "zucchini": [
-      "Kesäkurpitsaa voidaan viipaloida nuudeleiksi, jolloin se tarjoaa vähähiilihydraattisen vaihtoehdon pastalle."
+      "Kesäkurpitsaa voidaan viipaloida nuudeleiksi, jolloin se tarjoaa vähähiilihydraattisen vaihtoehdon pastalle.",
+      "Kurpitsat ovat kotoisin Amerikasta, mutta kesäkurpitsan kansainvälinen nimi \"zucchini\" tulee Italiasta."
     ]
   },
   "general": {
@@ -886,11 +910,13 @@
     "olive": "oliivi",
     "onion": "sipuli",
     "orange": "appelsiini",
+    "oyster mushroom": "osterivinokas",
     "papaya": "papaija",
     "parsley root": "juuripersilja",
     "parsley": "persilja",
     "parsnip": "palsternakka",
     "passion fruit": "passiohedelmä",
+    "pea sprouts": "herneenverso",
     "pea": "herne",
     "peach": "persikka",
     "peanut": "maapähkinä",
