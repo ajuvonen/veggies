@@ -24,21 +24,15 @@ jobs:
       - name: Install rclone
         run: |
           curl https://rclone.org/install.sh | sudo bash
-      - name: Synchronize with rclone using SSH key
+      - name: Run rclone
+        continue-on-error: true
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/deploy_key
-          chmod 600 /tmp/deploy_key
-
-          trap 'rm -f /tmp/deploy_key' EXIT
-
-          echo "Starting synchronization"
-
-          if ! rclone sync ./dist/ "sftp:${{ secrets.FTP_USER }}:${{ secrets.FTP_HOST }}:${{ secrets.FTP_DIRECTORY }}" --ssh-key-file /tmp/deploy_key --delete-excluded --progress --dry-run --verbose --log-file=rclone.log; then
-            echo "Error: rclone sync failed" >&2
-            exit 1
-          fi
-
-          echo "Synchronization completed successfully"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          trap "rm -rf ~/.ssh" EXIT
+          rclone config create sftp-remote sftp host="${{ secrets.FTP_HOST }}" user="${{ secrets.FTP_USER }}" key_file=~/.ssh/deploy_key
+          rclone sync ./dist/ sftp-remote:"${{ secrets.FTP_DIRECTORY }}" --verbose --log-file=rclone.log
       - name: Upload Log
         uses: actions/upload-artifact@v4
         with:
