@@ -1,0 +1,40 @@
+name: Publish to production
+on:
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'production'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.18
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build:production
+      - name: Install rclone
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+      - name: Run rclone
+        continue-on-error: true
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          trap "rm -rf ~/.ssh" EXIT
+          rclone config create sftp-remote sftp host="${{ secrets.FTP_HOST }}" user="${{ secrets.FTP_USER }}" key_file=~/.ssh/deploy_key
+          rclone sync ./dist/ sftp-remote:"${{ secrets.FTP_DIRECTORY }}" --verbose --log-file=rclone.log
+      - name: Upload Log
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-log
+          path: rclone.log
