@@ -1,0 +1,46 @@
+name: Publish to production
+on:
+  workflow_dispatch:
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'production'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.18
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build:production
+      - name: Install rclone
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+      - name: Synchronize with rclone using SSH key
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/deploy_key
+          chmod 600 /tmp/deploy_key
+
+          trap 'rm -f /tmp/deploy_key' EXIT
+
+          echo "Starting synchronization"
+
+          if ! rclone sync ./dist/ "sftp:${{ secrets.FTP_USER }}:${{ secrets.FTP_HOST }}:${{ secrets.FTP_DIRECTORY }}" --ssh-key-file /tmp/deploy_key --delete-excluded --progress --dry-run --verbose --log-file=rclone.log; then
+            echo "Error: rclone sync failed" >&2
+            exit 1
+          fi
+
+          echo "Synchronization completed successfully"
+      - name: Upload Log
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-log
+          path: rclone.log
