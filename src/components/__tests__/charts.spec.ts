@@ -1,11 +1,14 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
+import {take} from 'remeda';
+import {BEANS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
 import {useActivityStore} from '@/stores/activityStore';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import AllTimeCategoriesChart from '@/components/charts/AllTimeCategoriesChart.vue';
+import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue';
 
 describe('charts', () => {
   const thisWeek = DateTime.now().startOf('week');
@@ -120,6 +123,36 @@ describe('charts', () => {
     expect(labels).toEqual(['Wk 2', 'Wk 3', 'Wk 4', 'Wk 5', 'Wk 6']);
     expect(datasets).toHaveLength(1);
     expect(datasets[0].data).toEqual([0, 0, 2, 2, 4]);
+  });
+
+  const getPercentage = (group: string[], amount: number) =>
+    Math.round((amount / group.length) * 100);
+  it('prepares data for VeggieCompletionChart', () => {
+    const wrapper = mount(VeggieCompletionChart, {
+      shallow: true,
+      props: {
+        veggies: [
+          ...take(VEGETABLES, 10),
+          ...take(LEAFIES, 20),
+          ...ROOTS,
+          ...take(BEANS, 20),
+          ...take(GRAINS, 20),
+        ],
+      },
+    });
+    const {
+      labels,
+      datasets: [{data}],
+    } = wrapper.vm.chartData;
+    expect(labels).toEqual(['Fruit', 'Vegetable', 'Leafy', 'Root', 'Bean', 'Grain']);
+    expect(data).toEqual([
+      0,
+      getPercentage(VEGETABLES, 10),
+      getPercentage(LEAFIES, 20),
+      100,
+      getPercentage(BEANS, 20),
+      getPercentage(GRAINS, 20),
+    ]);
   });
 
   it('shows all data when there are less than 5 weeks', () => {

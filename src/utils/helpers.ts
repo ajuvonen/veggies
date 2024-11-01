@@ -30,7 +30,6 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
 });
 
 export const getChartOptions = <T extends keyof ChartTypeRegistry>(
-  title: string = '',
   grids: boolean = false,
   stacked: boolean = false,
   withIcons: boolean = false,
@@ -63,20 +62,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
       : undefined,
     plugins: {
       title: {
-        display: !!title,
-        color: COLORS.offWhite,
-        text: title.toUpperCase(),
-        padding: {
-          top: 2,
-          bottom: 8,
-        },
-        align: 'start',
-        font: {
-          family: 'Nunito, sans-serif',
-          size: 14,
-          weight: 'normal',
-          style: 'normal',
-        },
+        display: false,
       },
       legend: {
         display: false,

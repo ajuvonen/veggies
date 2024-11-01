@@ -48,7 +48,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() => {
-  const defaultOptions = getChartOptions<'doughnut'>('', false, false, true);
+  const defaultOptions = getChartOptions<'doughnut'>(false, false, true);
   return {
     ...defaultOptions,
     plugins: {

@@ -5,6 +5,7 @@ import VeggieList from '@/components/VeggieList.vue';
 describe('VeggieList', () => {
   it('renders', () => {
     const wrapper = mount(VeggieList, {
+      shallow: true,
       props: {
         uniqueVeggies: [],
       },
@@ -15,6 +16,7 @@ describe('VeggieList', () => {
   it('renders with data', () => {
     const uniqueVeggies = ['wheat', 'apple', 'cucumber', 'lychee'];
     const wrapper = mount(VeggieList, {
+      shallow: true,
       props: {
         uniqueVeggies,
       },

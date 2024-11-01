@@ -4,6 +4,7 @@ import {useI18n} from 'vue-i18n';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
+import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue';
 
 defineProps<{
   uniqueVeggies: string[];
@@ -24,6 +25,7 @@ const allVeggies = computed(() => {
 <template>
   <div class="flex min-h-0">
     <div class="veggie-list" data-test-id="veggie-list">
+      <VeggieCompletionChart :veggies="uniqueVeggies" />
       <ul v-for="category in Category" :key="category" class="veggie-list__category">
         <h2 class="label-like">{{ $t(`categories.${category}`) }}</h2>
         <ul class="veggie-list__veggies">
@@ -49,7 +51,7 @@ const allVeggies = computed(() => {
 </template>
 <style lang="scss" scoped>
 .veggie-list {
-  @apply has-scroll;
+  @apply has-scroll w-full;
   @apply flex-container flex-col gap-4;
 }
 

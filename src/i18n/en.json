@@ -990,6 +990,10 @@
     "noResults": "No Results",
     "search": "Search For Veggies"
   },
+  "veggiesTotal": {
+    "title": "Overall progress",
+    "label": "{0} % completed"
+  },
   "views": {
     "home": "Home",
     "log": "Track Progress",

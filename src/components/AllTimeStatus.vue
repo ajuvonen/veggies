@@ -56,10 +56,11 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs
 <style lang="scss" scoped>
 .status__container {
   @apply grid grid-cols-2 grid-rows-2 gap-4;
-  @apply label-like text-center;
+  @apply text-center;
 }
 
 .status__item {
+  @apply label-like;
   @apply flex flex-col items-center justify-center;
 }
 </style>

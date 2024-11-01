@@ -6,8 +6,6 @@ import {
   RadialLinearScale,
   ArcElement,
   Tooltip,
-  LinearScale,
-  CategoryScale,
   Title,
   type ChartOptions,
 } from 'chart.js';
@@ -19,7 +17,7 @@ import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
 import {Category} from '@/utils/types';
 
-ChartJS.register(Tooltip, ArcElement, RadialLinearScale, LinearScale, CategoryScale, Title);
+ChartJS.register(Tooltip, ArcElement, RadialLinearScale, Title);
 ChartJS.register(ChartDataLabels);
 
 const props = defineProps<{
@@ -51,12 +49,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() => {
-  const defaultOptions = getChartOptions<'polarArea'>(
-    t('stats.allTimeCategories'),
-    false,
-    false,
-    true,
-  );
+  const defaultOptions = getChartOptions<'polarArea'>(false, false, true);
   return {
     ...defaultOptions,
     scales: {
@@ -89,7 +82,8 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <div class="chart-background">
+  <h2 class="label-like" aria-hidden="true">{{ $t('stats.allTimeCategories') }}</h2>
+  <div class="chart-background -mt-4">
     <PolarArea
       :options="chartOptions"
       :data="chartData"
