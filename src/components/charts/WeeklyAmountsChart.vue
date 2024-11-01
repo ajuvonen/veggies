@@ -8,7 +8,6 @@ import {
   LinearScale,
   PointElement,
   LineElement,
-  Title,
   Tooltip,
 } from 'chart.js';
 import {Line} from 'vue-chartjs';
@@ -18,7 +17,7 @@ import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Title);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip);
 
 const {t} = useI18n();
 
@@ -41,7 +40,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() => {
-  const defaultChartOptions = getChartOptions<'line'>(t('stats.weeklyAmounts'), true, false);
+  const defaultChartOptions = getChartOptions<'line'>(true, false);
   return {
     ...defaultChartOptions,
     plugins: {
@@ -53,7 +52,8 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <div class="chart-background">
+  <h2 class="label-like" aria-hidden="true">{{ $t('stats.weeklyAmounts') }}</h2>
+  <div class="chart-background -mt-4">
     <Line
       :options="chartOptions"
       :data="chartData"

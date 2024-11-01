@@ -7,7 +7,6 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
-  Title,
   Tooltip,
   type ChartOptions,
 } from 'chart.js';
@@ -20,7 +19,7 @@ import {Category} from '@/utils/types';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 ChartJS.register(ChartDataLabels);
 
 const {t} = useI18n();
@@ -49,7 +48,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() => {
-  const defaultOptions = getChartOptions<'bar'>(t('stats.weeklyCategories'), true, true, true);
+  const defaultOptions = getChartOptions<'bar'>(true, true, true);
   return {
     ...defaultOptions,
     plugins: {
@@ -69,7 +68,8 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <div class="chart-background">
+  <h2 class="label-like" aria-hidden="true">{{ $t('stats.weeklyCategories') }}</h2>
+  <div class="chart-background -mt-4">
     <Bar
       :options="chartOptions"
       :data="chartData"

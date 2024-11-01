@@ -80,7 +80,13 @@ describe('StatsView', () => {
       startDate: DateTime.now().startOf('week'),
       veggies: ['apple', 'raspberry', 'chickpea'],
     });
-    const wrapper = mount(StatsView);
+    const wrapper = mount(StatsView, {
+      global: {
+        stubs: {
+          VeggieCompletionChart: true,
+        },
+      },
+    });
 
     await wrapper.findByTestId('stats-dropdown-button').trigger('click');
     await wrapper.findByTestId('stats-dropdown-option-4').trigger('click');

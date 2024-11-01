@@ -998,6 +998,10 @@
     "noResults": "Ei tuloksia",
     "search": "Etsi kasviksia"
   },
+  "veggiesTotal": {
+    "title": "Kokonaisedistyminen",
+    "label": "{0} % kokeiltu"
+  },
   "views": {
     "home": "Etusivu",
     "log": "Seuraa Edistymistäsi",
