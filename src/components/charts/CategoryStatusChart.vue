@@ -71,7 +71,12 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <Doughnut :data="chartData" :options="chartOptions" aria-describedby="category-status-table" />
+  <Doughnut
+    :data="chartData"
+    :options="chartOptions"
+    aria-describedby="category-status-table"
+    data-test-id="category-status-chart"
+  />
   <ChartScreenReaderTable
     id="category-status-table"
     :title="totals ? $t('categoryStatus.veggiesTotal') : $t('categoryStatus.veggiesOfTheWeek')"

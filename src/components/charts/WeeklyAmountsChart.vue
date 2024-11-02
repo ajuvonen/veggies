@@ -21,13 +21,13 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip)
 
 const {t} = useI18n();
 
-const {veggiesForWeek, startDate, getWeekStarts} = storeToRefs(useActivityStore());
+const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
 const chartData = computed(() => {
   const weekRange = takeLast(getWeekStarts.value, 5);
   return {
     labels: weekRange.map((weekStart) =>
-      t('stats.week', [weekStart.diff(startDate.value!, 'weeks').weeks + 1]),
+      t('stats.week', [weekStart.diff(getWeekStarts.value[0], 'weeks').weeks + 1]),
     ),
     datasets: [
       {
