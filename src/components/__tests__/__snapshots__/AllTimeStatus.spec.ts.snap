@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AllTimeStatus > renders 1`] = `
-"<div data-v-900f68cf="" class="chart-background status__container">
+"<div data-v-900f68cf="" class="status__container">
   <div data-v-900f68cf="" class="status__item" data-test-id="all-time-weeks"><span data-v-900f68cf="">In Total</span> <span data-v-900f68cf="" class="text-5xl">1</span> <span data-v-900f68cf="">Weeks</span></div>
   <div data-v-900f68cf="" class="status__item" data-test-id="all-time-over-30"><span data-v-900f68cf="">Over 30 Veggies in</span> <span data-v-900f68cf="" class="text-5xl">0</span> <span data-v-900f68cf="">Weeks</span></div>
   <div data-v-900f68cf="" class="status__item" data-test-id="all-time-unique"><span data-v-900f68cf="">In Total</span> <span data-v-900f68cf="" class="text-5xl">0</span> <span data-v-900f68cf="">Unique Veggies</span></div>

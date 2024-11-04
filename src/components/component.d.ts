@@ -1,9 +1,11 @@
-import ButtonComponent from '@/components/ButtonComponent.vue';
-import IconComponent from '@/components/IconComponent.vue';
+import type ButtonComponent from '@/components/ButtonComponent.vue';
+import type IconComponent from '@/components/IconComponent.vue';
+import type ContentElement from './ContentElement.vue';
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ButtonComponent: typeof ButtonComponent;
-    IconComponent: typeof IconComponent;
+    ButtonComponent: ButtonComponent;
+    IconComponent: IconComponent;
+    ContentElement: ContentElement;
   }
 }

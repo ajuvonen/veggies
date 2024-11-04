@@ -3,8 +3,8 @@
 exports[`AchievementList > renders 1`] = `
 "<div data-v-1c120264="" class="flex min-h-0">
   <div data-v-1c120264="" class="achievement-list" data-test-id="achievement-list">
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">This week's toil</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="30 unique veggies this week" aria-label="30 unique veggies this week" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
@@ -15,8 +15,8 @@ exports[`AchievementList > renders 1`] = `
         <!--v-if-->
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">The Completionist</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="40 unique veggies" aria-label="40 unique veggies" data-test-id="badge-completionist-1" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
@@ -38,8 +38,8 @@ exports[`AchievementList > renders 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">Challenge Accepted</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">Challenge Accepted</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 completed weekly challenges" aria-label="5 completed weekly challenges" data-test-id="badge-challengeAccepted-1" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
@@ -61,8 +61,8 @@ exports[`AchievementList > renders 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">The Committed</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">The Committed</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="3 months of active use" aria-label="3 months of active use" data-test-id="badge-committed-1" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
@@ -84,8 +84,8 @@ exports[`AchievementList > renders 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">Hot Streak</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">Hot Streak</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 week streak of over 30 veggies" aria-label="5 week streak of over 30 veggies" data-test-id="badge-hotStreak-1" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
@@ -107,8 +107,8 @@ exports[`AchievementList > renders 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">The Experimenter</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">The Experimenter</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" data-test-id="badge-experimenterFruit-3" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
@@ -155,8 +155,8 @@ exports[`AchievementList > renders 1`] = `
 exports[`AchievementList > renders with badges enabled 1`] = `
 "<div data-v-1c120264="" class="flex min-h-0">
   <div data-v-1c120264="" class="achievement-list" data-test-id="achievement-list">
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">This week's toil</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">This week's toil</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="30 unique veggies this week" aria-label="30 unique veggies this week" data-test-id="badge-thirtyVeggies-3" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
@@ -172,8 +172,8 @@ exports[`AchievementList > renders with badges enabled 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">The Completionist</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">The Completionist</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="40 unique veggies" aria-label="40 unique veggies" data-test-id="badge-completionist-1" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
@@ -195,8 +195,8 @@ exports[`AchievementList > renders with badges enabled 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">Challenge Accepted</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">Challenge Accepted</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 completed weekly challenges" aria-label="5 completed weekly challenges" data-test-id="badge-challengeAccepted-1" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
@@ -218,8 +218,8 @@ exports[`AchievementList > renders with badges enabled 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">The Committed</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">The Committed</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="3 months of active use" aria-label="3 months of active use" data-test-id="badge-committed-1" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
@@ -241,8 +241,8 @@ exports[`AchievementList > renders with badges enabled 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">Hot Streak</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">Hot Streak</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="5 week streak of over 30 veggies" aria-label="5 week streak of over 30 veggies" data-test-id="badge-hotStreak-1" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
@@ -264,8 +264,8 @@ exports[`AchievementList > renders with badges enabled 1`] = `
         </div>
       </div>
     </div>
-    <div data-v-1c120264="">
-      <p data-v-1c120264="" class="achievement-list__label">The Experimenter</p>
+    <div data-v-1c120264="" class="flex-container flex-col flex-1">
+      <h1 class="label-like" aria-hidden="false">The Experimenter</h1>
       <div data-v-1c120264="" class="achievement-list__badge-container">
         <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" data-test-id="badge-experimenterFruit-3" class="badge" role="img">
           <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">

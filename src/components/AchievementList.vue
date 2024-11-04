@@ -9,8 +9,7 @@ const {achievements} = storeToRefs(useAppStateStore());
 <template>
   <div class="flex min-h-0">
     <div class="achievement-list" data-test-id="achievement-list">
-      <div>
-        <p class="achievement-list__label">{{ $t('achievements.thirtyVeggies.title') }}</p>
+      <ContentElement :title="$t('achievements.thirtyVeggies.title')">
         <div class="achievement-list__badge-container">
           <AchievementBadge
             :active="achievements.thirtyVeggies >= AchievementLevel.Gold"
@@ -24,9 +23,8 @@ const {achievements} = storeToRefs(useAppStateStore());
             achievement="thirtyVeggies"
           />
         </div>
-      </div>
-      <div>
-        <p class="achievement-list__label">{{ $t('achievements.completionist.title') }}</p>
+      </ContentElement>
+      <ContentElement :title="$t('achievements.completionist.title')">
         <div class="achievement-list__badge-container">
           <AchievementBadge
             :active="achievements.completionist >= AchievementLevel.Bronze"
@@ -44,9 +42,8 @@ const {achievements} = storeToRefs(useAppStateStore());
             achievement="completionist"
           />
         </div>
-      </div>
-      <div>
-        <p class="achievement-list__label">{{ $t('achievements.challengeAccepted.title') }}</p>
+      </ContentElement>
+      <ContentElement :title="$t('achievements.challengeAccepted.title')">
         <div class="achievement-list__badge-container">
           <AchievementBadge
             :active="achievements.challengeAccepted >= AchievementLevel.Bronze"
@@ -64,9 +61,8 @@ const {achievements} = storeToRefs(useAppStateStore());
             achievement="challengeAccepted"
           />
         </div>
-      </div>
-      <div>
-        <p class="achievement-list__label">{{ $t('achievements.committed.title') }}</p>
+      </ContentElement>
+      <ContentElement :title="$t('achievements.committed.title')">
         <div class="achievement-list__badge-container">
           <AchievementBadge
             :active="achievements.committed >= AchievementLevel.Bronze"
@@ -84,9 +80,8 @@ const {achievements} = storeToRefs(useAppStateStore());
             achievement="committed"
           />
         </div>
-      </div>
-      <div>
-        <p class="achievement-list__label">{{ $t('achievements.hotStreak.title') }}</p>
+      </ContentElement>
+      <ContentElement :title="$t('achievements.hotStreak.title')">
         <div class="achievement-list__badge-container">
           <AchievementBadge
             :active="achievements.hotStreak >= AchievementLevel.Bronze"
@@ -104,9 +99,8 @@ const {achievements} = storeToRefs(useAppStateStore());
             achievement="hotStreak"
           />
         </div>
-      </div>
-      <div>
-        <p class="achievement-list__label">{{ $t('achievements.experimenterFruit.title') }}</p>
+      </ContentElement>
+      <ContentElement :title="$t('achievements.experimenterFruit.title')">
         <div class="achievement-list__badge-container">
           <AchievementBadge
             v-for="category in Category"
@@ -116,7 +110,7 @@ const {achievements} = storeToRefs(useAppStateStore());
             :active="achievements[`experimenter${category}`] === AchievementLevel.Gold"
           />
         </div>
-      </div>
+      </ContentElement>
     </div>
   </div>
 </template>
@@ -129,9 +123,5 @@ const {achievements} = storeToRefs(useAppStateStore());
 .achievement-list__badge-container {
   @apply px-2;
   @apply flex-container justify-evenly flex-wrap;
-}
-
-.achievement-list__label {
-  @apply label-like mb-2;
 }
 </style>

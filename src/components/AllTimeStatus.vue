@@ -6,7 +6,7 @@ const activitysStore = useActivityStore();
 const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs(activitysStore);
 </script>
 <template>
-  <div class="chart-background status__container">
+  <div class="status__container">
     <i18n-t
       scope="global"
       keypath="categoryStatus.centerLabel"
@@ -55,7 +55,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs
 </template>
 <style lang="scss" scoped>
 .status__container {
-  @apply grid grid-cols-2 grid-rows-2 gap-4;
+  @apply grid grid-cols-2 grid-rows-2 gap-4 max-h-[50%];
   @apply text-center;
 }
 

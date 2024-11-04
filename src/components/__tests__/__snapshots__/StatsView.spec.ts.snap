@@ -2,7 +2,7 @@
 
 exports[`StatsView > renders current week by default 1`] = `
 "<h1 data-v-a19ac338="" class="sr-only">Statistics</h1>
-<div class="relative z-10" data-headlessui-state="">
+<div class="relative z-20" data-headlessui-state="">
   <div data-v-a19ac338="" class="flex-container flex-col"><label data-v-a19ac338="" id="headlessui-listbox-label-v-0" data-headlessui-state="" class="label-like">Chosen Statistics</label><button data-v-a19ac338="" id="headlessui-listbox-button-v-1" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="stats__list-box-button" data-test-id="stats-dropdown-button"><span data-v-a19ac338="" class="truncate">This week's veggies</span><svg data-v-a19ac338="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg></button></div>
@@ -29,6 +29,7 @@ exports[`StatsView > renders current week by default 1`] = `
       </button></li>
   </transition-group-stub>
 </div>
+<!--v-if-->
 <!--v-if-->
 <!--v-if-->
 <!--v-if-->

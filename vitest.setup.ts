@@ -5,12 +5,14 @@ import i18n from './src/i18n';
 import router from './src/router';
 import ButtonComponent from './src/components/ButtonComponent.vue';
 import IconComponent from './src/components/IconComponent.vue';
+import ContentElement from './src/components/ContentElement.vue';
 
 config.global.plugins = [i18n, router];
 
 config.global.components = {
   ButtonComponent,
   IconComponent,
+  ContentElement,
 };
 
 const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({

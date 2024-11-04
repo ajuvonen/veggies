@@ -10,6 +10,7 @@ import '@/assets/main.scss';
 
 import IconComponent from '@/components/IconComponent.vue';
 import ButtonComponent from '@/components/ButtonComponent.vue';
+import ContentElement from '@/components/ContentElement.vue';
 
 const app = createApp(App);
 app
@@ -18,4 +19,5 @@ app
   .use(i18n)
   .component('IconComponent', IconComponent)
   .component('ButtonComponent', ButtonComponent)
+  .component('ContentElement', ContentElement)
   .mount('#app');

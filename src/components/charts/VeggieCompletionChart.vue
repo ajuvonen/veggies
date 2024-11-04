@@ -108,19 +108,20 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <h2 class="label-like" aria-hidden="true">{{ $t('veggiesTotal.title') }}</h2>
-  <div class="chart-background -mt-2">
-    <PolarArea
-      :data="chartData"
-      :options="chartOptions"
-      data-test-id="veggie-completion-chart"
-      aria-describedby="veggie-completion-table"
-    />
-    <ChartScreenReaderTable
-      id="veggie-completion-table"
-      :title="$t('veggiesTotal.title')"
-      :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
-      :data="[chartData.datasets[0].data]"
-    />
-  </div>
+  <ContentElement :title="$t('veggiesTotal.title')" :ariaHidden="true">
+    <div class="relative flex-1 -my-4 max-h-[50vh] self-center">
+      <PolarArea
+        :data="chartData"
+        :options="chartOptions"
+        data-test-id="veggie-completion-chart"
+        aria-describedby="veggie-completion-table"
+      />
+      <ChartScreenReaderTable
+        id="veggie-completion-table"
+        :title="$t('veggiesTotal.title')"
+        :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
+        :data="[chartData.datasets[0].data]"
+      />
+    </div>
+  </ContentElement>
 </template>
