@@ -25,12 +25,6 @@
     @apply flex items-center justify-between;
   }
 
-  .chart-background {
-    flex: 1;
-    @apply relative max-h-[50%];
-    @apply flex flex-col justify-start items-center;
-  }
-
   .has-scroll {
     @apply overflow-hidden overflow-y-auto -m-2 p-2;
     scrollbar-width: thin;

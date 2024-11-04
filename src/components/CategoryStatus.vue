@@ -12,12 +12,17 @@ withDefaults(
 );
 </script>
 <template>
-  <div class="chart-background">
-    <CategoryStatusChart :veggies="veggies" :totals="totals" />
+  <div class="category-status__chart-background">
+    <CategoryStatusChart
+      :veggies="veggies"
+      :totals="totals"
+      aria-labelledby="category-status-center-label"
+    />
     <i18n-t
+      id="category-status-center-label"
       scope="global"
       keypath="categoryStatus.centerLabel"
-      tag="h1"
+      tag="div"
       class="category-status__center-label"
       data-test-id="category-status-center-label"
     >
@@ -33,6 +38,12 @@ withDefaults(
 :deep(canvas) {
   @apply relative z-10;
 }
+
+.category-status__chart-background {
+  @apply relative max-h-[50%];
+  @apply flex flex-col justify-start items-center;
+}
+
 .category-status__center-label {
   @apply flex flex-col items-center justify-center;
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 label-like;

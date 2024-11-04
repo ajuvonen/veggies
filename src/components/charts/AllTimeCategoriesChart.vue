@@ -11,11 +11,11 @@ import {
 } from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
 import {filter, map, pipe, prop, sortBy} from 'remeda';
-import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
-import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
-import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
+import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
+import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import {Category} from '@/utils/types';
+import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.register(Tooltip, ArcElement, RadialLinearScale, Title);
 ChartJS.register(ChartDataLabels);
@@ -82,19 +82,20 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <h2 class="label-like" aria-hidden="true">{{ $t('stats.allTimeCategories') }}</h2>
-  <div class="chart-background -mt-4">
-    <PolarArea
-      :options="chartOptions"
-      :data="chartData"
-      data-test-id="all-time-categories-chart"
-      aria-describedby="all-time-categories-chart-table"
-    />
-    <ChartScreenReaderTable
-      id="all-time-categories-chart-table"
-      :title="$t('stats.allTimeCategories')"
-      :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
-      :data="[chartData.datasets[0].data]"
-    />
-  </div>
+  <ContentElement :title="$t('stats.allTimeCategories')" :ariaHidden="true">
+    <div class="flex-1">
+      <PolarArea
+        :options="chartOptions"
+        :data="chartData"
+        data-test-id="all-time-categories-chart"
+        aria-describedby="all-time-categories-chart-table"
+      />
+      <ChartScreenReaderTable
+        id="all-time-categories-chart-table"
+        :title="$t('stats.allTimeCategories')"
+        :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
+        :data="[chartData.datasets[0].data]"
+      />
+    </div>
+  </ContentElement>
 </template>

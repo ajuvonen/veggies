@@ -20,7 +20,7 @@ exports[`LogView > renders with data 1`] = `
     </svg></button>
   <!---->
 </div>
-<div data-v-8e44268d="" class="chart-background log-view__chart">
+<div data-v-8e44268d="" class="category-status__chart-background log-view__chart">
   <category-status-chart-stub data-v-8e44268d="" veggies="wheat" totals="false"></category-status-chart-stub>
   <h1 data-v-8e44268d="" class="category-status__center-label" data-test-id="category-status-center-label"><span data-v-8e44268d="">This Week</span> <span data-v-8e44268d="" class="text-6xl">1</span> <span data-v-8e44268d="">Veggies</span></h1>
 </div>
