@@ -213,6 +213,7 @@ export const BEANS = [
   'pinto bean',
   'red bean',
   'red lentil',
+  'snow pea',
   'soybean',
   'split pea',
   'white bean',
