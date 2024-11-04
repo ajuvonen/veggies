@@ -108,6 +108,7 @@ provide(KEYS.dropdownOptions, dropdownOptions);
       class="veggie-search__input"
       data-test-id="veggie-search-input"
       @change="query = $event.target.value"
+      @click="!open && openButton?.$el.click()"
     />
     <ComboboxButton
       ref="openButton"
