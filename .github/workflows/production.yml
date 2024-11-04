@@ -8,7 +8,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
+    environment: production
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,7 +26,7 @@ jobs:
         run: |
           curl https://rclone.org/install.sh | sudo bash
       - name: Run rclone
-        continue-on-error: true
+        # continue-on-error: true
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
