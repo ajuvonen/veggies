@@ -32,6 +32,7 @@ const {updateServiceWorker} = useRegisterSW({
 
 watchEffect(() => {
   locale.value = settings.value.locale;
+  document.documentElement.setAttribute('lang', settings.value.locale);
 });
 
 watchEffect(() => {
