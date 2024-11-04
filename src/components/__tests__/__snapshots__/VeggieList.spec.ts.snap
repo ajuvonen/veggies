@@ -535,6 +535,9 @@ exports[`VeggieList > renders 1`] = `
           <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="flageolet bean">flageolet bean</span><span data-v-5aea2802="" data-test-id="veggie-list-status-flageolet bean" class="sr-only">(missing)</span>
         </li>
         <li data-v-5aea2802="" class="veggie-list__veggie">
+          <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="garden pea">garden pea</span><span data-v-5aea2802="" data-test-id="veggie-list-status-pea" class="sr-only">(missing)</span>
+        </li>
+        <li data-v-5aea2802="" class="veggie-list__veggie">
           <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="green bean">green bean</span><span data-v-5aea2802="" data-test-id="veggie-list-status-green bean" class="sr-only">(missing)</span>
         </li>
         <li data-v-5aea2802="" class="veggie-list__veggie">
@@ -547,9 +550,6 @@ exports[`VeggieList > renders 1`] = `
           <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="mung bean">mung bean</span><span data-v-5aea2802="" data-test-id="veggie-list-status-mung bean" class="sr-only">(missing)</span>
         </li>
         <li data-v-5aea2802="" class="veggie-list__veggie">
-          <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="peas">peas</span><span data-v-5aea2802="" data-test-id="veggie-list-status-pea" class="sr-only">(missing)</span>
-        </li>
-        <li data-v-5aea2802="" class="veggie-list__veggie">
           <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="pinto bean">pinto bean</span><span data-v-5aea2802="" data-test-id="veggie-list-status-pinto bean" class="sr-only">(missing)</span>
         </li>
         <li data-v-5aea2802="" class="veggie-list__veggie">
@@ -557,6 +557,9 @@ exports[`VeggieList > renders 1`] = `
         </li>
         <li data-v-5aea2802="" class="veggie-list__veggie">
           <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="red lentil">red lentil</span><span data-v-5aea2802="" data-test-id="veggie-list-status-red lentil" class="sr-only">(missing)</span>
+        </li>
+        <li data-v-5aea2802="" class="veggie-list__veggie">
+          <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="snow pea">snow pea</span><span data-v-5aea2802="" data-test-id="veggie-list-status-snow pea" class="sr-only">(missing)</span>
         </li>
         <li data-v-5aea2802="" class="veggie-list__veggie">
           <icon-component-stub data-v-5aea2802="" icon="checkboxBlank" size="1.25rem"></icon-component-stub><span data-v-5aea2802="" class="truncate capitalize" title="soybean">soybean</span><span data-v-5aea2802="" data-test-id="veggie-list-status-soybean" class="sr-only">(missing)</span>
