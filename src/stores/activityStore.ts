@@ -3,8 +3,8 @@ import {defineStore} from 'pinia';
 import {useNow, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take, unique} from 'remeda';
-import type {Challenge, Week} from '@/utils/types';
-import {dateParser, getRandomVeggie} from '@/utils/helpers';
+import {Category, type Challenge, type Week} from '@/utils/types';
+import {dateParser, getCategoryForVeggie, getRandomVeggie} from '@/utils/helpers';
 
 export const useActivityStore = defineStore('activity', () => {
   const reactiveNow = useNow({interval: 2000});
@@ -113,15 +113,32 @@ export const useActivityStore = defineStore('activity', () => {
         ?.veggie,
   );
 
-  const favorites = computed(() =>
+  const suggestions = computed(() =>
     pipe(
       allVeggies.value,
       filter((veggie) => !currentVeggies.value.includes(veggie)),
       groupBy((veggie) => veggie),
       entries(),
       sortBy([([, {length}]) => length, 'desc']),
-      map(prop(0)),
       take(10),
+      map(prop(0)),
+    ),
+  );
+
+  const categoryFavorites = computed(() =>
+    Object.values(Category).map(
+      (category) =>
+        [
+          category,
+          pipe(
+            allVeggies.value.filter((veggie) => getCategoryForVeggie(veggie) === category),
+            groupBy((veggie) => veggie),
+            entries(),
+            sortBy([([, {length}]) => length, 'desc']),
+            take(3),
+            map(([veggie, group]) => [veggie, group.length]),
+          ),
+        ] as [Category, [string, number][]],
     ),
   );
 
@@ -165,7 +182,8 @@ export const useActivityStore = defineStore('activity', () => {
     over30Veggies,
     atMostVeggies,
     veggiesForWeek,
-    favorites,
+    suggestions,
+    categoryFavorites,
     toggleVeggie,
     $reset,
   };

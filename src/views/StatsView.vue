@@ -11,6 +11,7 @@ import AllTimeStatus from '@/components/AllTimeStatus.vue';
 import CategoryStatus from '@/components/CategoryStatus.vue';
 import AchievementList from '@/components/AchievementList.vue';
 import VeggieList from '@/components/VeggieList.vue';
+import PopularityStatistics from '@/components/PopularityStatistics.vue';
 
 const activityStore = useActivityStore();
 const {currentVeggies, allVeggies, uniqueVeggies} = storeToRefs(activityStore);
@@ -31,7 +32,7 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
 </script>
 <template>
   <h1 class="sr-only">{{ $t('views.stats') }}</h1>
-  <Listbox v-model="selectedStat" class="relative z-10" as="div" v-slot="{open}">
+  <Listbox v-model="selectedStat" class="relative z-20" as="div" v-slot="{open}">
     <div class="flex-container flex-col">
       <ListboxLabel class="label-like">{{ $t('stats.chosenStats') }}</ListboxLabel>
       <ListboxButton class="stats__list-box-button" data-test-id="stats-dropdown-button">
@@ -46,7 +47,7 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
     >
       <ListboxOptions class="stats__list-box-options">
         <ListboxOption
-          v-for="(_, index) in [...Array(5)]"
+          v-for="(_, index) in [...Array(6)]"
           v-slot="{active, selected}"
           :key="index"
           :value="index"
@@ -71,12 +72,13 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
     icon="minus"
     @click="toggleVeggie"
   />
-  <WeeklyAmountsChart v-if="selectedStat === 1" />
-  <WeeklyCategoriesChart v-if="selectedStat === 1" />
+  <WeeklyAmountsChart v-if="selectedStat === 1" class="flex-1" />
+  <WeeklyCategoriesChart v-if="selectedStat === 1" class="flex-1" />
   <AllTimeStatus v-if="selectedStat === 2" />
   <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
   <AchievementList v-if="selectedStat === 3" />
   <VeggieList :uniqueVeggies="uniqueVeggies" v-if="selectedStat === 4" />
+  <PopularityStatistics v-if="selectedStat === 5" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {
