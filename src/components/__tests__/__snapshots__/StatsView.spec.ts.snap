@@ -34,6 +34,5 @@ exports[`StatsView > renders current week by default 1`] = `
 <!--v-if-->
 <!--v-if-->
 <!--v-if-->
-<!--v-if-->
 <!--v-if-->"
 `;

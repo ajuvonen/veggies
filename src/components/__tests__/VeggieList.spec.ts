@@ -8,11 +8,6 @@ describe('VeggieList', () => {
       props: {
         uniqueVeggies: [],
       },
-      global: {
-        stubs: {
-          VeggieCompletionChart: true,
-        },
-      },
     });
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -22,11 +17,6 @@ describe('VeggieList', () => {
     const wrapper = mount(VeggieList, {
       props: {
         uniqueVeggies,
-      },
-      global: {
-        stubs: {
-          VeggieCompletionChart: true,
-        },
       },
     });
     uniqueVeggies.forEach((veggie) => {

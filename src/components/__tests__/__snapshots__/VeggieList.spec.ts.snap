@@ -3,7 +3,36 @@
 exports[`VeggieList > renders 1`] = `
 "<div data-v-5aea2802="" class="flex min-h-0">
   <div data-v-5aea2802="" class="veggie-list" data-test-id="veggie-list">
-    <veggie-completion-chart-stub data-v-5aea2802="" veggies=""></veggie-completion-chart-stub>
+    <div data-v-5aea2802="" class="flex-container flex-col">
+      <h2 class="label-like" aria-hidden="true">Overall progress</h2>
+      <div class="relative flex-1 -my-4 max-h-[50vh] self-center">
+        <div data="[object Object]" options="[object Object]" data-test-id="veggie-completion-chart" aria-describedby="veggie-completion-table"></div>
+        <table class="sr-only" id="veggie-completion-table">
+          <caption>Overall progress</caption>
+          <thead>
+            <tr>
+              <!--v-if-->
+              <th>Fruits And Berries</th>
+              <th>Vegetables</th>
+              <th>Leafy Greens And Herbs</th>
+              <th>Roots And Bulbs</th>
+              <th>Beans And Legumes</th>
+              <th>Grains, Nuts, And Seeds</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <ul data-v-5aea2802="" class="veggie-list__category">
       <div data-v-5aea2802="" class="flex-container flex-col">
         <h2 class="label-like" aria-hidden="false">Fruits And Berries</h2>

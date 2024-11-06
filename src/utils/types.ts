@@ -11,6 +11,10 @@ export enum Category {
   Grain = 'Grain',
 }
 
+export type Favorites = {
+  [key in Category]: [string, number][];
+};
+
 export type Week = {
   veggies: string[];
   startDate: DateTime;

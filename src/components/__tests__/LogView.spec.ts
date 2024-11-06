@@ -41,13 +41,7 @@ describe('LogView', () => {
         startDate: lastWeek,
       },
     );
-    const wrapper = mount(LogView, {
-      global: {
-        stubs: {
-          CategoryStatusChart: true,
-        },
-      },
-    });
+    const wrapper = mount(LogView);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -57,13 +51,7 @@ describe('LogView', () => {
       veggies: ['rye', 'rice', 'wheat'],
       startDate: thisWeek,
     });
-    const wrapper = mount(LogView, {
-      global: {
-        stubs: {
-          CategoryStatusChart: true,
-        },
-      },
-    });
+    const wrapper = mount(LogView);
     expect(wrapper.find('.front-page-animation').exists()).toBe(false);
 
     vi.setSystemTime(thisWeek.plus({days: 1}).toJSDate());

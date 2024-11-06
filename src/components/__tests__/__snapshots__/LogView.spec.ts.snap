@@ -20,9 +20,23 @@ exports[`LogView > renders with data 1`] = `
     </svg></button>
   <!---->
 </div>
-<div data-v-8e44268d="" class="category-status__chart-background log-view__chart">
-  <category-status-chart-stub data-v-8e44268d="" veggies="wheat" totals="false"></category-status-chart-stub>
-  <div data-v-8e44268d="" id="category-status-center-label" class="category-status__center-label" data-test-id="category-status-center-label"><span data-v-8e44268d="">This Week</span> <span data-v-8e44268d="" class="text-6xl">1</span> <span data-v-8e44268d="">Veggies</span></div>
+<div data-v-38bd5fcc="" class="category-status__chart-background">
+  <div data-v-38bd5fcc="" data="[object Object]" options="[object Object]" aria-labelledby="category-status-center-label" aria-describedby="category-status-table" data-test-id="category-status-chart"></div>
+  <div data-v-38bd5fcc="" id="category-status-center-label" class="category-status__center-label" data-test-id="category-status-center-label"><span data-v-38bd5fcc="">This Week</span> <span data-v-38bd5fcc="" class="text-6xl">1</span> <span data-v-38bd5fcc="">Veggies</span></div>
+  <table data-v-38bd5fcc="" class="sr-only" id="category-status-table">
+    <caption>Veggies of the Week</caption>
+    <thead>
+      <tr>
+        <!--v-if-->
+        <th>Grains, Nuts, And Seeds</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <div data-v-cd627eac="" class="flex min-h-0">
   <transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">

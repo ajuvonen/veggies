@@ -27,19 +27,12 @@ describe('StatsView', () => {
       startDate: DateTime.now().startOf('week'),
       veggies: ['apple', 'raspberry', 'chickpea'],
     });
-    const wrapper = mount(StatsView, {
-      global: {
-        stubs: {
-          WeeklyAmountsChart: true,
-          WeeklyCategoriesChart: true,
-        },
-      },
-    });
+    const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-dropdown-button').trigger('click');
     await wrapper.findByTestId('stats-dropdown-option-1').trigger('click');
-    expect(wrapper.find('weekly-amounts-chart-stub').exists()).toBe(true);
-    expect(wrapper.find('weekly-categories-chart-stub').exists()).toBe(true);
+    expect(wrapper.find('#weekly-amounts-table').exists()).toBe(true);
+    expect(wrapper.find('#weekly-categories-table').exists()).toBe(true);
   });
 
   it('renders all time data', async () => {
@@ -48,17 +41,11 @@ describe('StatsView', () => {
       startDate: DateTime.now().startOf('week'),
       veggies: ['apple', 'raspberry', 'chickpea'],
     });
-    const wrapper = mount(StatsView, {
-      global: {
-        stubs: {
-          CategoryStatusChart: true,
-        },
-      },
-    });
+    const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-dropdown-button').trigger('click');
     await wrapper.findByTestId('stats-dropdown-option-2').trigger('click');
-    expect(wrapper.find('category-status-chart-stub').exists()).toBe(true);
+    expect(wrapper.find('#category-status-table').exists()).toBe(true);
   });
 
   it('renders achievements', async () => {
@@ -80,13 +67,7 @@ describe('StatsView', () => {
       startDate: DateTime.now().startOf('week'),
       veggies: ['apple', 'raspberry', 'chickpea'],
     });
-    const wrapper = mount(StatsView, {
-      global: {
-        stubs: {
-          VeggieCompletionChart: true,
-        },
-      },
-    });
+    const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-dropdown-button').trigger('click');
     await wrapper.findByTestId('stats-dropdown-option-4').trigger('click');
