@@ -25,6 +25,7 @@ import {
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
+ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(Tooltip, RadialLinearScale, ArcElement);
 ChartJS.register(ChartDataLabels);
 
@@ -71,11 +72,11 @@ const chartOptions = computed(() => {
     plugins: {
       ...defaultOptions.plugins,
       tooltip: {
+        ...defaultOptions.plugins?.tooltip,
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
           label: ({formattedValue}) => t('veggiesTotal.label', [formattedValue]),
         },
-        boxPadding: 5,
       },
       datalabels: {
         color: COLORS.offWhite,
@@ -109,7 +110,7 @@ defineExpose({chartData});
 </script>
 <template>
   <ContentElement :title="$t('veggiesTotal.title')" :ariaHidden="true">
-    <div class="relative flex-1 -my-4 max-h-[50vh] self-center">
+    <div class="chart__background">
       <PolarArea
         :data="chartData"
         :options="chartOptions"
@@ -125,3 +126,9 @@ defineExpose({chartData});
     </div>
   </ContentElement>
 </template>
+<style lang="scss" scoped>
+.chart__background {
+  @apply relative -my-4 max-h-[50vh];
+  @apply flex-1 self-center;
+}
+</style>

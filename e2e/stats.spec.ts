@@ -33,8 +33,8 @@ test('shows last five weeks', async ({page}) => {
   await page.getByTestId('stats-dropdown-option-1').click();
   await expect(page.getByTestId('weekly-amounts-chart')).toBeVisible();
   await expect(page.getByTestId('weekly-categories-chart')).toBeVisible();
-  await expect(page.locator('#weekly-amounts-chart-table')).toBeAttached();
-  await expect(page.locator('#weekly-categories-chart-table')).toBeAttached();
+  await expect(page.locator('#weekly-amounts-table')).toBeAttached();
+  await expect(page.locator('#weekly-categories-table')).toBeAttached();
 });
 
 test('shows all time stats', async ({page}) => {

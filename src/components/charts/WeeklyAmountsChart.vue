@@ -17,6 +17,7 @@ import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
+ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip);
 
 const {t} = useI18n();
@@ -58,10 +59,10 @@ defineExpose({chartData});
         :options="chartOptions"
         :data="chartData"
         data-test-id="weekly-amounts-chart"
-        aria-describedby="weekly-amounts-chart-table"
+        aria-describedby="weekly-amounts-table"
       />
       <ChartScreenReaderTable
-        id="weekly-amounts-chart-table"
+        id="weekly-amounts-table"
         :title="$t('stats.weeklyAmounts')"
         :columnHeaders="chartData.labels"
         :data="chartData.datasets.map(prop('data'))"

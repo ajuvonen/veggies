@@ -8,13 +8,12 @@ import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
-import CategoryStatus from '@/components/CategoryStatus.vue';
+import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import AchievementList from '@/components/AchievementList.vue';
 import VeggieList from '@/components/VeggieList.vue';
-import PopularityStatistics from '@/components/PopularityStatistics.vue';
 
 const activityStore = useActivityStore();
-const {currentVeggies, allVeggies, uniqueVeggies} = storeToRefs(activityStore);
+const {currentVeggies, allVeggies, uniqueVeggies, favorites} = storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 
 const selectedStat = ref(0);
@@ -47,7 +46,7 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
     >
       <ListboxOptions class="stats__list-box-options">
         <ListboxOption
-          v-for="(_, index) in [...Array(6)]"
+          v-for="(_, index) in [...Array(5)]"
           v-slot="{active, selected}"
           :key="index"
           :value="index"
@@ -75,10 +74,14 @@ const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
   <WeeklyAmountsChart v-if="selectedStat === 1" class="flex-1" />
   <WeeklyCategoriesChart v-if="selectedStat === 1" class="flex-1" />
   <AllTimeStatus v-if="selectedStat === 2" />
-  <CategoryStatus v-if="selectedStat === 2" totals :veggies="allVeggies" />
+  <CategoryStatusChart
+    v-if="selectedStat === 2"
+    totals
+    :favorites="favorites"
+    :veggies="allVeggies"
+  />
   <AchievementList v-if="selectedStat === 3" />
   <VeggieList :uniqueVeggies="uniqueVeggies" v-if="selectedStat === 4" />
-  <PopularityStatistics v-if="selectedStat === 5" />
 </template>
 <style lang="scss" scoped>
 .stats__list-box-button {

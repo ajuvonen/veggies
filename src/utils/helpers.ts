@@ -86,6 +86,13 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
       },
       tooltip: {
         boxPadding: 5,
+        titleFont: {
+          size: 14,
+          weight: 'normal',
+        },
+        bodyFont: {
+          size: 14,
+        },
       },
     },
   }) as ChartOptions<T>;

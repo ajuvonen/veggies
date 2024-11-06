@@ -19,6 +19,7 @@ import {Category} from '@/utils/types';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
+ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 ChartJS.register(ChartDataLabels);
 
@@ -54,12 +55,12 @@ const chartOptions = computed(() => {
     plugins: {
       ...defaultOptions.plugins,
       tooltip: {
+        ...defaultOptions.plugins?.tooltip,
         callbacks: {
-          label: (context) => {
-            return `${t(`categories.${context.dataset.label}`)} ${context.raw}`;
+          label: ({dataset, formattedValue}) => {
+            return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
           },
         },
-        boxPadding: 5,
       },
     },
   } as ChartOptions<'bar'>;
@@ -74,10 +75,10 @@ defineExpose({chartData});
         :options="chartOptions"
         :data="chartData"
         data-test-id="weekly-categories-chart"
-        aria-describedby="weekly-categories-chart-table"
+        aria-describedby="weekly-categories-table"
       />
       <ChartScreenReaderTable
-        id="weekly-categories-chart-table"
+        id="weekly-categories-table"
         :title="$t('stats.0')"
         :columnHeaders="chartData.labels"
         :rowHeaders="chartData.datasets.map(prop('label'))"

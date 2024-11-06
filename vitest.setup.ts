@@ -1,4 +1,4 @@
-import {beforeEach} from 'vitest';
+import {afterAll, beforeAll, beforeEach, vi} from 'vitest';
 import {config, mount} from '@vue/test-utils';
 import {createTestingPinia} from '@pinia/testing';
 import i18n from './src/i18n';
@@ -24,6 +24,27 @@ const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
 });
 
 config.plugins.VueWrapper.install(dataTestIdPlugin);
+
+beforeAll(() => {
+  vi.mock('vue-chartjs', () => ({
+    Doughnut: {
+      template: '<div></div>',
+    },
+    PolarArea: {
+      template: '<div></div>',
+    },
+    Line: {
+      template: '<div></div>',
+    },
+    Bar: {
+      template: '<div></div>',
+    },
+  }));
+});
+
+afterAll(() => {
+  vi.restoreAllMocks();
+});
 
 // Reset handlers after each test
 beforeEach(() => {

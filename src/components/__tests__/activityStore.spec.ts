@@ -441,56 +441,38 @@ describe('activityStore', () => {
       },
     );
 
-    expect(activityStore.categoryFavorites).toEqual([
-      [
-        Category.Fruit,
-        [
-          [FRUITS[0], 3],
-          [FRUITS[1], 2],
-          [FRUITS[2], 1],
-        ],
+    expect(activityStore.favorites).toEqual({
+      [Category.Fruit]: [
+        [FRUITS[0], 3],
+        [FRUITS[1], 2],
+        [FRUITS[2], 1],
       ],
-      [
-        Category.Vegetable,
-        [
-          [VEGETABLES[0], 3],
-          [VEGETABLES[1], 2],
-          [VEGETABLES[2], 1],
-        ],
+      [Category.Vegetable]: [
+        [VEGETABLES[0], 3],
+        [VEGETABLES[1], 2],
+        [VEGETABLES[2], 1],
       ],
-      [
-        Category.Leafy,
-        [
-          [LEAFIES[0], 3],
-          [LEAFIES[1], 2],
-          [LEAFIES[2], 1],
-        ],
+      [Category.Leafy]: [
+        [LEAFIES[0], 3],
+        [LEAFIES[1], 2],
+        [LEAFIES[2], 1],
       ],
-      [
-        Category.Root,
-        [
-          [ROOTS[0], 3],
-          [ROOTS[1], 2],
-          [ROOTS[2], 1],
-        ],
+      [Category.Root]: [
+        [ROOTS[0], 3],
+        [ROOTS[1], 2],
+        [ROOTS[2], 1],
       ],
-      [
-        Category.Bean,
-        [
-          [BEANS[0], 3],
-          [BEANS[1], 2],
-          [BEANS[2], 1],
-        ],
+      [Category.Bean]: [
+        [BEANS[0], 3],
+        [BEANS[1], 2],
+        [BEANS[2], 1],
       ],
-      [
-        Category.Grain,
-        [
-          [GRAINS[0], 3],
-          [GRAINS[1], 2],
-          [GRAINS[2], 1],
-        ],
+      [Category.Grain]: [
+        [GRAINS[0], 3],
+        [GRAINS[1], 2],
+        [GRAINS[2], 1],
       ],
-    ]);
+    });
   });
 
   it('returns empty category favorites', () => {
@@ -499,14 +481,14 @@ describe('activityStore', () => {
       startDate: thisWeek,
       veggies: [],
     });
-    expect(activityStore.categoryFavorites).toEqual([
-      [Category.Fruit, []],
-      [Category.Vegetable, []],
-      [Category.Leafy, []],
-      [Category.Root, []],
-      [Category.Bean, []],
-      [Category.Grain, []],
-    ]);
+    expect(activityStore.favorites).toEqual({
+      [Category.Fruit]: [],
+      [Category.Vegetable]: [],
+      [Category.Leafy]: [],
+      [Category.Root]: [],
+      [Category.Bean]: [],
+      [Category.Grain]: [],
+    });
   });
 
   it('resets the store', () => {

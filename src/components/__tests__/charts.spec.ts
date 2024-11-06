@@ -23,7 +23,6 @@ describe('charts', () => {
 
   it('prepares data for CategoryStatusChart', () => {
     const wrapper = mount(CategoryStatusChart, {
-      shallow: true,
       props: {
         // Three roots, two vegetables, one leafy green
         veggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
@@ -39,7 +38,6 @@ describe('charts', () => {
 
   it('prepares data for AllTimeCategoriesChart', () => {
     const wrapper = mount(AllTimeCategoriesChart, {
-      shallow: true,
       props: {
         // Three roots, two vegetables, one leafy green
         veggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
@@ -74,9 +72,7 @@ describe('charts', () => {
       },
     );
 
-    const wrapper = mount(WeeklyCategoriesChart, {
-      shallow: true,
-    });
+    const wrapper = mount(WeeklyCategoriesChart);
 
     // Leafy category & week 1 are dropped out
     const {labels, datasets} = wrapper.vm.chartData;
@@ -115,9 +111,7 @@ describe('charts', () => {
       },
     );
 
-    const wrapper = mount(WeeklyAmountsChart, {
-      shallow: true,
-    });
+    const wrapper = mount(WeeklyAmountsChart);
 
     const {labels, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual(['Wk 2', 'Wk 3', 'Wk 4', 'Wk 5', 'Wk 6']);
@@ -129,7 +123,6 @@ describe('charts', () => {
     Math.round((amount / group.length) * 100);
   it('prepares data for VeggieCompletionChart', () => {
     const wrapper = mount(VeggieCompletionChart, {
-      shallow: true,
       props: {
         veggies: [
           ...take(VEGETABLES, 10),
@@ -172,9 +165,7 @@ describe('charts', () => {
       },
     );
 
-    const wrapper = mount(WeeklyCategoriesChart, {
-      shallow: true,
-    });
+    const wrapper = mount(WeeklyCategoriesChart);
 
     const {labels, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual(['Wk 1', 'Wk 2', 'Wk 3']);

@@ -9,7 +9,7 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import {ALL_VEGGIES, KEYS} from '@/utils/constants';
 import {AchievementLevel, type Achievements} from '@/utils/types';
 import VeggieSearch from '@/components/VeggieSearch.vue';
-import CategoryStatus from '@/components/CategoryStatus.vue';
+import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
@@ -71,7 +71,7 @@ provide(KEYS.challenge, currentChallenge);
 <template>
   <h1 class="sr-only">{{ $t('views.log') }}</h1>
   <VeggieSearch v-model="currentVeggies" />
-  <CategoryStatus class="log-view__chart" v-if="currentVeggies.length" :veggies="currentVeggies" />
+  <CategoryStatusChart v-if="currentVeggies.length" :veggies="currentVeggies" />
   <FrontPageAnimation class="log-view__chart" v-else />
   <TagsComponent
     :veggies="suggestions"
@@ -92,10 +92,6 @@ provide(KEYS.challenge, currentChallenge);
   </ModalDialog>
 </template>
 <style lang="scss">
-.log-view__chart {
-  max-height: min(100vw - 2rem, 400px);
-}
-
 .log-view__achievement-container {
   @apply flex-container gap-4 flex-col;
   @apply text-sm;

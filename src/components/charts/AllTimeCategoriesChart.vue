@@ -17,6 +17,7 @@ import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import {Category} from '@/utils/types';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
+ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(Tooltip, ArcElement, RadialLinearScale, Title);
 ChartJS.register(ChartDataLabels);
 
@@ -83,15 +84,15 @@ defineExpose({chartData});
 </script>
 <template>
   <ContentElement :title="$t('stats.allTimeCategories')" :ariaHidden="true">
-    <div class="flex-1">
+    <div class="relative flex-1">
       <PolarArea
         :options="chartOptions"
         :data="chartData"
         data-test-id="all-time-categories-chart"
-        aria-describedby="all-time-categories-chart-table"
+        aria-describedby="all-time-categories-table"
       />
       <ChartScreenReaderTable
-        id="all-time-categories-chart-table"
+        id="all-time-categories-table"
         :title="$t('stats.allTimeCategories')"
         :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
         :data="[chartData.datasets[0].data]"

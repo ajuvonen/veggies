@@ -1,17 +1,16 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
-import CategoryStatus from '@/components/CategoryStatus.vue';
+import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 
-describe('CategoryStatus', () => {
+describe('CategoryStatusChart', () => {
   it('renders', () => {
-    const wrapper = mount(CategoryStatus, {
+    const wrapper = mount(CategoryStatusChart, {
       props: {
         veggies: ['carrot', 'onion', 'ginger'],
       },
       global: {
         stubs: {
           'i18n-t': false,
-          CategoryStatusChart: true,
         },
       },
     });
@@ -19,7 +18,7 @@ describe('CategoryStatus', () => {
   });
 
   it('renders with totals prop', () => {
-    const wrapper = mount(CategoryStatus, {
+    const wrapper = mount(CategoryStatusChart, {
       props: {
         totals: true,
         veggies: ['potato', 'chili'],
@@ -27,10 +26,24 @@ describe('CategoryStatus', () => {
       global: {
         stubs: {
           'i18n-t': false,
-          CategoryStatusChart: true,
         },
       },
     });
     expect(wrapper.find('#category-status-center-label').text()).toBe('In Total 2 Actions');
+  });
+
+  it('prepares data for CategoryStatusChart', () => {
+    const wrapper = mount(CategoryStatusChart, {
+      props: {
+        // Three roots, two vegetables, one leafy green
+        veggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
+      },
+    });
+    const {
+      labels,
+      datasets: [{data}],
+    } = wrapper.vm.chartData;
+    expect(labels).toEqual(['Leafy', 'Vegetable', 'Root']);
+    expect(data).toEqual([1, 2, 3]);
   });
 });
