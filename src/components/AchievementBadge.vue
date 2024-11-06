@@ -157,7 +157,7 @@ const achievementProps: AchievementProps = {
 </template>
 <style lang="scss" scoped>
 .badge {
-  @apply relative select-none aspect-square self-center;
+  @apply relative select-none aspect-square self-center max-w-40;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3));
   flex: 0 0 calc(33% - 5px);
 
