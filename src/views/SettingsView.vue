@@ -6,6 +6,7 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
 import QAComponent from '@/components/QAComponent.vue';
+import BuildTime from '@/components/BuildTime.vue';
 
 const router = useRouter();
 
@@ -37,6 +38,7 @@ const reset = () => {
       >{{ $t('settings.reset.button') }}</ButtonComponent
     >
   </div>
+  <BuildTime />
   <ModalDialog v-model="resetDialogOpen" :title="$t('settings.reset.title')">
     <template #content>
       <p>{{ $t('settings.reset.text') }}</p>

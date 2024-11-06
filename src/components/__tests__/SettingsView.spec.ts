@@ -28,7 +28,13 @@ describe('SettingsView', () => {
   });
 
   it('renders', () => {
-    const wrapper = mount(SettingsView);
+    const wrapper = mount(SettingsView, {
+      global: {
+        stubs: {
+          BuildTime: true,
+        },
+      },
+    });
     expect(wrapper.html()).toMatchSnapshot();
   });
 
