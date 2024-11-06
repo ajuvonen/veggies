@@ -5,22 +5,21 @@ import CategoryStatus from '@/components/CategoryStatus.vue';
 describe('CategoryStatus', () => {
   it('renders', () => {
     const wrapper = mount(CategoryStatus, {
-      shallow: true,
       props: {
         veggies: ['carrot', 'onion', 'ginger'],
       },
       global: {
         stubs: {
           'i18n-t': false,
+          CategoryStatusChart: true,
         },
       },
     });
-    expect(wrapper.find('h1').text()).toBe('This Week 3 Veggies');
+    expect(wrapper.find('#category-status-center-label').text()).toBe('This Week 3 Veggies');
   });
 
   it('renders with totals prop', () => {
     const wrapper = mount(CategoryStatus, {
-      shallow: true,
       props: {
         totals: true,
         veggies: ['potato', 'chili'],
@@ -28,9 +27,10 @@ describe('CategoryStatus', () => {
       global: {
         stubs: {
           'i18n-t': false,
+          CategoryStatusChart: true,
         },
       },
     });
-    expect(wrapper.find('h1').text()).toBe('In Total 2 Actions');
+    expect(wrapper.find('#category-status-center-label').text()).toBe('In Total 2 Actions');
   });
 });

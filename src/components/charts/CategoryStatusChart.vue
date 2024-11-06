@@ -74,6 +74,7 @@ defineExpose({chartData});
   <Doughnut
     :data="chartData"
     :options="chartOptions"
+    aria-labelledby="category-status-center-label"
     aria-describedby="category-status-table"
     data-test-id="category-status-chart"
   />
