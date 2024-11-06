@@ -11,7 +11,7 @@ withDefaults(
 </script>
 <template>
   <div class="flex-container flex-col">
-    <h1 class="label-like" :aria-hidden="ariaHidden">{{ title }}</h1>
+    <h2 class="label-like" :aria-hidden="ariaHidden">{{ title }}</h2>
     <slot />
   </div>
 </template>

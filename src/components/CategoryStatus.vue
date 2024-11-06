@@ -13,11 +13,7 @@ withDefaults(
 </script>
 <template>
   <div class="category-status__chart-background">
-    <CategoryStatusChart
-      :veggies="veggies"
-      :totals="totals"
-      aria-labelledby="category-status-center-label"
-    />
+    <CategoryStatusChart :veggies="veggies" :totals="totals" />
     <i18n-t
       id="category-status-center-label"
       scope="global"
