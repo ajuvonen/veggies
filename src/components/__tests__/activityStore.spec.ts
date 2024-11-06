@@ -2,7 +2,9 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {createPinia, setActivePinia} from 'pinia';
-import type {Week} from '@/utils/types';
+import {Category, type Week} from '@/utils/types';
+import {take} from 'remeda';
+import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
 
 describe('activityStore', () => {
   const thisWeek = DateTime.now().startOf('week');
@@ -180,7 +182,7 @@ describe('activityStore', () => {
     expect(activityStore.currentChallenge).toBe('tomato');
   });
 
-  it('returns favorites', () => {
+  it('returns suggestions', () => {
     activityStore.startDate = threeWeeksAgo;
     activityStore.weeks.push(
       {
@@ -197,10 +199,10 @@ describe('activityStore', () => {
       },
     );
 
-    expect(activityStore.favorites).toEqual(['wheat', 'apple', 'cucumber']);
+    expect(activityStore.suggestions).toEqual(['wheat', 'apple', 'cucumber']);
   });
 
-  it('excludes this week from favorites', () => {
+  it('excludes this week from suggestions', () => {
     activityStore.startDate = twoWeeksAgo;
     activityStore.weeks.push(
       {
@@ -217,10 +219,10 @@ describe('activityStore', () => {
       },
     );
 
-    expect(activityStore.favorites).toEqual(['cucumber']);
+    expect(activityStore.suggestions).toEqual(['cucumber']);
   });
 
-  it('returns only ten most common favorites', () => {
+  it('returns only ten most common suggestions', () => {
     const expected = [
       'wheat',
       'rye',
@@ -243,7 +245,7 @@ describe('activityStore', () => {
       startDate: lastWeek,
     });
 
-    expect(activityStore.favorites).toEqual(expected);
+    expect(activityStore.suggestions).toEqual(expected);
   });
 
   it('returns unique veggies', () => {
@@ -406,6 +408,105 @@ describe('activityStore', () => {
     expect(activityStore.getWeekStarts).toEqual([lastWeek, thisWeek]);
     activityStore.startDate = thisWeek.minus({weeks: 5});
     expect(activityStore.getWeekStarts.length).toBe(6);
+  });
+
+  it('returns category favorites', () => {
+    activityStore.startDate = twoWeeksAgo;
+    activityStore.weeks.push(
+      {
+        startDate: twoWeeksAgo,
+        veggies: [
+          ...take(FRUITS, 5),
+          ...take(VEGETABLES, 5),
+          ...take(LEAFIES, 5),
+          ...take(ROOTS, 5),
+          ...take(BEANS, 5),
+          ...take(GRAINS, 5),
+        ],
+      },
+      {
+        startDate: lastWeek,
+        veggies: [
+          ...take(FRUITS, 2),
+          ...take(VEGETABLES, 2),
+          ...take(LEAFIES, 2),
+          ...take(ROOTS, 2),
+          ...take(BEANS, 2),
+          ...take(GRAINS, 2),
+        ],
+      },
+      {
+        startDate: thisWeek,
+        veggies: [FRUITS[0], VEGETABLES[0], LEAFIES[0], ROOTS[0], BEANS[0], GRAINS[0]],
+      },
+    );
+
+    expect(activityStore.categoryFavorites).toEqual([
+      [
+        Category.Fruit,
+        [
+          [FRUITS[0], 3],
+          [FRUITS[1], 2],
+          [FRUITS[2], 1],
+        ],
+      ],
+      [
+        Category.Vegetable,
+        [
+          [VEGETABLES[0], 3],
+          [VEGETABLES[1], 2],
+          [VEGETABLES[2], 1],
+        ],
+      ],
+      [
+        Category.Leafy,
+        [
+          [LEAFIES[0], 3],
+          [LEAFIES[1], 2],
+          [LEAFIES[2], 1],
+        ],
+      ],
+      [
+        Category.Root,
+        [
+          [ROOTS[0], 3],
+          [ROOTS[1], 2],
+          [ROOTS[2], 1],
+        ],
+      ],
+      [
+        Category.Bean,
+        [
+          [BEANS[0], 3],
+          [BEANS[1], 2],
+          [BEANS[2], 1],
+        ],
+      ],
+      [
+        Category.Grain,
+        [
+          [GRAINS[0], 3],
+          [GRAINS[1], 2],
+          [GRAINS[2], 1],
+        ],
+      ],
+    ]);
+  });
+
+  it('returns empty category favorites', () => {
+    activityStore.startDate = thisWeek;
+    activityStore.weeks.push({
+      startDate: thisWeek,
+      veggies: [],
+    });
+    expect(activityStore.categoryFavorites).toEqual([
+      [Category.Fruit, []],
+      [Category.Vegetable, []],
+      [Category.Leafy, []],
+      [Category.Root, []],
+      [Category.Bean, []],
+      [Category.Grain, []],
+    ]);
   });
 
   it('resets the store', () => {

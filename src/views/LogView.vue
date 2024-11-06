@@ -18,7 +18,7 @@ import AchievementBadge from '@/components/AchievementBadge.vue';
 const {t, tm} = useI18n();
 
 const activityStore = useActivityStore();
-const {favorites, currentVeggies, currentChallenge, allVeggies, uniqueVeggies} =
+const {suggestions, currentVeggies, currentChallenge, allVeggies, uniqueVeggies} =
   storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 const {achievements} = storeToRefs(useAppStateStore());
@@ -74,7 +74,7 @@ provide(KEYS.challenge, currentChallenge);
   <CategoryStatus class="log-view__chart" v-if="currentVeggies.length" :veggies="currentVeggies" />
   <FrontPageAnimation class="log-view__chart" v-else />
   <TagsComponent
-    :veggies="favorites"
+    :veggies="suggestions"
     :variant="['tag', 'primary']"
     ariaKey="general.clickToAdd"
     icon="plus"

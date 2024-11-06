@@ -687,6 +687,17 @@
     "en": "English",
     "fi": "Suomi"
   },
+  "popularity": {
+    "Bean": "Top-3 @:categories.Bean",
+    "entry": "{0} ({1})",
+    "Fruit": "Top-3 @:categories.Fruit",
+    "Grain": "Top-3 @:categories.Grain",
+    "Leafy": "Top-3 @:categories.Leafy",
+    "noEntry": "Ei lisätty",
+    "Root": "Top-3 @:categories.Root",
+    "top3Veggies": "Top-3 kasviksesi",
+    "Vegetable": "Top-3 @:categories.Vegetable"
+  },
   "qa": {
     "appPurpose": {
       "title": "Mitä sovelluksella tehdään",
@@ -742,6 +753,7 @@
     "2": "Kokonaistilastot",
     "3": "Saavutukset",
     "4": "Kasvislista",
+    "5": "Suosio",
     "allTimeCategories": "Vertailu ryhmittäin",
     "chosenStats": "Valitut tilastot",
     "grid1": {
