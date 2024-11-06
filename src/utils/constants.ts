@@ -1,6 +1,8 @@
 import type {InjectionKey, Ref} from 'vue';
 import {Category, type Locale} from './types';
 
+export const BUILD_TIME = __VITE_BUILD_TIME__;
+
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
   dropdownOptions: Symbol() as InjectionKey<(active: boolean, selected: boolean) => string>,
