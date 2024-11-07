@@ -29,6 +29,7 @@ let emojis = getRandomEmojis(4);
 .front-page-animation__container {
   @apply h-full;
   @apply flex items-center justify-end;
+  max-height: min(100vw - 2rem, 400px);
   mask-image: linear-gradient(to right, transparent 5%, black 30%, black 70%, transparent 95%);
 }
 

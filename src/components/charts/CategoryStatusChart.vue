@@ -87,21 +87,21 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <div class="chart__background">
+  <div class="category-status-chart__background">
     <Doughnut
       :data="chartData"
       :options="chartOptions"
-      aria-labelledby="category-status-center-label"
+      aria-labelledby="category-status-chart-center-label"
       aria-describedby="category-status-table"
       data-test-id="category-status-chart"
     />
     <i18n-t
-      id="category-status-center-label"
+      id="category-status-chart-center-label"
       scope="global"
       keypath="categoryStatus.centerLabel"
       tag="div"
-      class="category-status__center-label"
-      data-test-id="category-status-center-label"
+      class="category-status-chart__center-label"
+      data-test-id="category-status-chart-center-label"
     >
       <span>{{ $t(totals ? 'categoryStatus.topLabelTotal' : 'categoryStatus.topLabel') }}</span>
       <span :class="totals ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
@@ -122,12 +122,12 @@ defineExpose({chartData});
   @apply relative z-10;
 }
 
-.chart__background {
+.category-status-chart__background {
   @apply relative max-h-[50%];
   @apply flex justify-center;
 }
 
-.category-status__center-label {
+.category-status-chart__center-label {
   @apply flex flex-col items-center justify-center;
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 label-like;
 }
