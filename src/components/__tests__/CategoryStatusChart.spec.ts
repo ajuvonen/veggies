@@ -14,7 +14,7 @@ describe('CategoryStatusChart', () => {
         },
       },
     });
-    expect(wrapper.find('#category-status-center-label').text()).toBe('This Week 3 Veggies');
+    expect(wrapper.find('#category-status-chart-center-label').text()).toBe('This Week 3 Veggies');
   });
 
   it('renders with totals prop', () => {
@@ -29,7 +29,7 @@ describe('CategoryStatusChart', () => {
         },
       },
     });
-    expect(wrapper.find('#category-status-center-label').text()).toBe('In Total 2 Actions');
+    expect(wrapper.find('#category-status-chart-center-label').text()).toBe('In Total 2 Actions');
   });
 
   it('prepares data for CategoryStatusChart', () => {

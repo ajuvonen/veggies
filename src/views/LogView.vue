@@ -72,7 +72,7 @@ provide(KEYS.challenge, currentChallenge);
   <h1 class="sr-only">{{ $t('views.log') }}</h1>
   <VeggieSearch v-model="currentVeggies" />
   <CategoryStatusChart v-if="currentVeggies.length" :veggies="currentVeggies" />
-  <FrontPageAnimation class="log-view__chart" v-else />
+  <FrontPageAnimation v-else />
   <TagsComponent
     :veggies="suggestions"
     :variant="['tag', 'primary']"

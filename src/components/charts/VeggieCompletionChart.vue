@@ -110,7 +110,7 @@ defineExpose({chartData});
 </script>
 <template>
   <ContentElement :title="$t('veggiesTotal.title')" :ariaHidden="true">
-    <div class="chart__background">
+    <div class="veggie-completion-chart__background">
       <PolarArea
         :data="chartData"
         :options="chartOptions"
@@ -127,7 +127,7 @@ defineExpose({chartData});
   </ContentElement>
 </template>
 <style lang="scss" scoped>
-.chart__background {
+.veggie-completion-chart__background {
   @apply relative -my-4 max-h-[50vh];
   @apply flex-1 self-center;
 }

@@ -9,9 +9,13 @@ test('logs veggies', async ({page}) => {
   await expect(page.getByTestId('veggie-search-options')).toBeVisible();
   await page.getByTestId('veggie-search-option-apple').click();
   await expect(page.getByText(/^First veggie added!/)).toBeVisible();
-  await expect(page.getByTestId('category-status-center-label')).toHaveText('This Week 1 Veggies');
+  await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
+    'This Week 1 Veggies',
+  );
   await page.getByTestId('veggie-search-option-apricot').click();
-  await expect(page.getByTestId('category-status-center-label')).toHaveText('This Week 2 Veggies');
+  await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
+    'This Week 2 Veggies',
+  );
 
   const elements = await page.getByTestId('toast-message').all();
   for (const element of elements) {
@@ -21,7 +25,9 @@ test('logs veggies', async ({page}) => {
   await expect(page.getByTestId('toast-message')).toBeHidden();
   await page.getByTestId('navbar-link-settings').click();
   await page.getByTestId('navbar-link-log').click();
-  await expect(page.getByTestId('category-status-center-label')).toHaveText('This Week 2 Veggies');
+  await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
+    'This Week 2 Veggies',
+  );
 });
 
 test('filters veggies', async ({page}) => {

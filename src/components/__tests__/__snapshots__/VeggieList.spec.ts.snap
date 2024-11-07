@@ -3,11 +3,11 @@
 exports[`VeggieList > renders 1`] = `
 "<div data-v-5aea2802="" class="flex min-h-0">
   <div data-v-5aea2802="" class="veggie-list" data-test-id="veggie-list">
-    <div data-v-5aea2802="" class="flex-container flex-col">
+    <div data-v-9c01a269="" data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like" aria-hidden="true">Overall progress</h2>
-      <div class="relative flex-1 -my-4 max-h-[50vh] self-center">
-        <div data="[object Object]" options="[object Object]" data-test-id="veggie-completion-chart" aria-describedby="veggie-completion-table"></div>
-        <table class="sr-only" id="veggie-completion-table">
+      <div data-v-9c01a269="" class="veggie-completion-chart__background">
+        <div data-v-9c01a269="" data="[object Object]" options="[object Object]" data-test-id="veggie-completion-chart" aria-describedby="veggie-completion-table"></div>
+        <table data-v-9c01a269="" class="sr-only" id="veggie-completion-table">
           <caption>Overall progress</caption>
           <thead>
             <tr>

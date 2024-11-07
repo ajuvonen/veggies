@@ -20,7 +20,9 @@ test("shows current week's veggies", async ({page}) => {
   await expect(page.getByTestId('tag-apple')).toBeHidden();
   await expect(page.getByTestId('tag-apricot')).toBeHidden();
   await page.getByTestId('navbar-link-log').click();
-  await expect(page.getByTestId('category-status-center-label')).toHaveText('This Week 1 Veggies');
+  await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
+    'This Week 1 Veggies',
+  );
 });
 
 test('shows last five weeks', async ({page}) => {
