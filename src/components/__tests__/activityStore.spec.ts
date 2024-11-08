@@ -446,31 +446,43 @@ describe('activityStore', () => {
         [FRUITS[0], 3],
         [FRUITS[1], 2],
         [FRUITS[2], 1],
+        [FRUITS[3], 1],
+        [FRUITS[4], 1],
       ],
       [Category.Vegetable]: [
         [VEGETABLES[0], 3],
         [VEGETABLES[1], 2],
         [VEGETABLES[2], 1],
+        [VEGETABLES[3], 1],
+        [VEGETABLES[4], 1],
       ],
       [Category.Leafy]: [
         [LEAFIES[0], 3],
         [LEAFIES[1], 2],
         [LEAFIES[2], 1],
+        [LEAFIES[3], 1],
+        [LEAFIES[4], 1],
       ],
       [Category.Root]: [
         [ROOTS[0], 3],
         [ROOTS[1], 2],
         [ROOTS[2], 1],
+        [ROOTS[3], 1],
+        [ROOTS[4], 1],
       ],
       [Category.Bean]: [
         [BEANS[0], 3],
         [BEANS[1], 2],
         [BEANS[2], 1],
+        [BEANS[3], 1],
+        [BEANS[4], 1],
       ],
       [Category.Grain]: [
         [GRAINS[0], 3],
         [GRAINS[1], 2],
         [GRAINS[2], 1],
+        [GRAINS[3], 1],
+        [GRAINS[4], 1],
       ],
     });
   });
