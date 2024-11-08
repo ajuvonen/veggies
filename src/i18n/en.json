@@ -89,6 +89,7 @@
     "bottomLabel": "Veggies",
     "bottomLabelTotal": "Actions",
     "centerLabel": "{0} {1} {2}",
+    "entry": "{0} {1} ({2})",
     "topLabel": "This Week",
     "topLabelTotal": "In Total",
     "veggiesOfTheWeek": "Veggies of the Week",
@@ -993,8 +994,8 @@
     "search": "Search For Veggies"
   },
   "veggiesTotal": {
-    "title": "Overall progress",
-    "label": "{0} % completed"
+    "title": "Unique Veggies",
+    "label": "{0} % tasted"
   },
   "views": {
     "home": "Home",

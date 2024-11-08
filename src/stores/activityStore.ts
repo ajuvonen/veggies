@@ -134,7 +134,7 @@ export const useActivityStore = defineStore('activity', () => {
           groupBy((veggie) => veggie),
           entries(),
           sortBy([([, {length}]) => length, 'desc']),
-          take(3),
+          take(5),
           map(([veggie, group]) => [veggie, group.length]),
         ),
       }),

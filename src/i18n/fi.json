@@ -89,6 +89,7 @@
     "bottomLabel": "Kasvista",
     "bottomLabelTotal": "Toimintoa",
     "centerLabel": "{0} {1} {2}",
+    "entry": "{0} {1} ({2})",
     "topLabel": "Tällä Viikolla",
     "topLabelTotal": "Yhteensä",
     "veggiesOfTheWeek": "Viikon kasvikset",
@@ -130,7 +131,7 @@
       "Yksi avokado sisältää noin 22 g terveellisiä rasvoja.",
       "Avokadoja kutsutaan joskus \"alligaattoripäärynöiksi\" ulkonäkönsä vuoksi.",
       "Yksi avokado sisältää enemmän kaliumia kuin banaani.",
-      "Avokadojen siemenet sekä muut kasvin osat ovat eläimille haitallisia"
+      "Avokadojen siemenet sekä muut kasvin osat ovat eläimille haitallisia."
     ],
     "bamboo shoots": [
       "Bambusta tehdään rakennustelineitä Hongkongissa.",
@@ -1001,7 +1002,7 @@
     "search": "Etsi kasviksia"
   },
   "veggiesTotal": {
-    "title": "Kokonaisedistyminen",
+    "title": "Kokeillut kasvikset",
     "label": "{0} % kokeiltu"
   },
   "views": {
