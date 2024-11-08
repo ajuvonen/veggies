@@ -2,9 +2,9 @@
 defineProps<{
   id: string;
   title: string;
-  columnHeaders: string[];
-  data: number[][];
-  rowHeaders?: string[];
+  columnHeaders: (number | string)[];
+  data: (number | string)[][];
+  rowHeaders?: (number | string)[];
 }>();
 </script>
 <template>
@@ -24,11 +24,13 @@ defineProps<{
       <template v-if="rowHeaders">
         <tr v-for="(header, headerIndex) in rowHeaders" :key="headerIndex">
           <th>{{ header }}</th>
-          <td v-for="(value, dataIndex) in data[headerIndex]" :key="dataIndex">{{ value }}</td>
+          <td v-for="(_, dataIndex) in columnHeaders" :key="dataIndex">
+            {{ data[headerIndex]?.[dataIndex] ?? '' }}
+          </td>
         </tr>
       </template>
       <tr v-else>
-        <td v-for="(value, index) in data[0]" :key="index">{{ value }}</td>
+        <td v-for="(_, index) in columnHeaders" :key="index">{{ data[0]?.[index] ?? '' }}</td>
       </tr>
     </tbody>
   </table>

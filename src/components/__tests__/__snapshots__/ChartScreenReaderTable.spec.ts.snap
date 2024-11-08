@@ -1,5 +1,66 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`ChartScreenReaderTable > draws a complete table with missing data 1`] = `
+"<table class="sr-only" id="my-chart">
+  <caption>Spotty data</caption>
+  <thead>
+    <tr>
+      <!--v-if-->
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A</td>
+      <td>B</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>"
+`;
+
+exports[`ChartScreenReaderTable > draws a complete table with row headers and missing data 1`] = `
+"<table class="sr-only" id="my-chart">
+  <caption>Spotty data</caption>
+  <thead>
+    <tr>
+      <td></td>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>1A</td>
+      <td>2B</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>1A</td>
+      <td>2B</td>
+      <td>3C</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>"
+`;
+
 exports[`ChartScreenReaderTable > mounts 1`] = `
 "<table class="sr-only" id="my-chart">
   <caption>Amount of veggies</caption>
