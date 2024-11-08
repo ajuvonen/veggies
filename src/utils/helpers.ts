@@ -93,6 +93,9 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
         bodyFont: {
           size: 14,
         },
+        backgroundColor: 'rgba(15, 43, 42, 0.95)',
+        bodyColor: COLORS.offWhite,
+        titleColor: COLORS.offWhite,
       },
     },
   }) as ChartOptions<T>;
