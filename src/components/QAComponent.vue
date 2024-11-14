@@ -15,8 +15,7 @@ const questions = [
 const keysWithLinks = ['contact', 'studyDetails'];
 </script>
 <template>
-  <div class="flex-container flex-col min-h-0">
-    <label class="label-like">{{ $t('qa.title') }}</label>
+  <ContentElement :title="$t('qa.title')" class="min-h-0" labelTag="label">
     <div class="flex-container flex-col has-scroll">
       <Disclosure v-for="key in questions" :key="key" v-slot="{open}">
         <DisclosureButton class="QA__button" :data-test-id="`qa-button-${key}`">
@@ -46,7 +45,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
         </transition>
       </Disclosure>
     </div>
-  </div>
+  </ContentElement>
 </template>
 <style lang="scss" scoped>
 .QA__button {

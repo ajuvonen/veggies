@@ -83,7 +83,7 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement :title="$t('stats.allTimeCategories')" :ariaHidden="true">
+  <ContentElement :title="$t('stats.allTimeCategories')" :labelAttrs="{'aria-hidden': true}">
     <div class="relative flex-1">
       <PolarArea
         :options="chartOptions"

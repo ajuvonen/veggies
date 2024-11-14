@@ -35,7 +35,7 @@ exports[`VeggieList > renders 1`] = `
     </div>
     <ul data-v-5aea2802="" class="veggie-list__category">
       <div data-v-5aea2802="" class="flex-container flex-col">
-        <h2 class="label-like" aria-hidden="false">Fruits And Berries</h2>
+        <h2 class="label-like">Fruits And Berries</h2>
         <ul data-v-5aea2802="" class="veggie-list__veggies">
           <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
@@ -204,7 +204,7 @@ exports[`VeggieList > renders 1`] = `
     </ul>
     <ul data-v-5aea2802="" class="veggie-list__category">
       <div data-v-5aea2802="" class="flex-container flex-col">
-        <h2 class="label-like" aria-hidden="false">Vegetables</h2>
+        <h2 class="label-like">Vegetables</h2>
         <ul data-v-5aea2802="" class="veggie-list__veggies">
           <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
@@ -328,7 +328,7 @@ exports[`VeggieList > renders 1`] = `
     </ul>
     <ul data-v-5aea2802="" class="veggie-list__category">
       <div data-v-5aea2802="" class="flex-container flex-col">
-        <h2 class="label-like" aria-hidden="false">Leafy Greens And Herbs</h2>
+        <h2 class="label-like">Leafy Greens And Herbs</h2>
         <ul data-v-5aea2802="" class="veggie-list__veggies">
           <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
@@ -434,7 +434,7 @@ exports[`VeggieList > renders 1`] = `
     </ul>
     <ul data-v-5aea2802="" class="veggie-list__category">
       <div data-v-5aea2802="" class="flex-container flex-col">
-        <h2 class="label-like" aria-hidden="false">Roots And Bulbs</h2>
+        <h2 class="label-like">Roots And Bulbs</h2>
         <ul data-v-5aea2802="" class="veggie-list__veggies">
           <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
@@ -540,7 +540,7 @@ exports[`VeggieList > renders 1`] = `
     </ul>
     <ul data-v-5aea2802="" class="veggie-list__category">
       <div data-v-5aea2802="" class="flex-container flex-col">
-        <h2 class="label-like" aria-hidden="false">Beans And Legumes</h2>
+        <h2 class="label-like">Beans And Legumes</h2>
         <ul data-v-5aea2802="" class="veggie-list__veggies">
           <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
@@ -616,7 +616,7 @@ exports[`VeggieList > renders 1`] = `
     </ul>
     <ul data-v-5aea2802="" class="veggie-list__category">
       <div data-v-5aea2802="" class="flex-container flex-col">
-        <h2 class="label-like" aria-hidden="false">Grains, Nuts, And Seeds</h2>
+        <h2 class="label-like">Grains, Nuts, And Seeds</h2>
         <ul data-v-5aea2802="" class="veggie-list__veggies">
           <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>

@@ -109,7 +109,7 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement :title="$t('veggiesTotal.title')" :ariaHidden="true">
+  <ContentElement :title="$t('veggiesTotal.title')" :labelAttrs="{'aria-hidden': true}">
     <div class="veggie-completion-chart__background">
       <PolarArea
         :data="chartData"
