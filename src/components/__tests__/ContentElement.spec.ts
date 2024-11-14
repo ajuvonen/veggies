@@ -39,9 +39,9 @@ describe('ContentElement', () => {
     const wrapper = mount(ContentElement, {
       props: {
         title: 'Test',
-        containerAttrs: {
-          style: 'height: 100%;',
-        },
+      },
+      attrs: {
+        style: 'height: 100%;',
       },
     });
 
