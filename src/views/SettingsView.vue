@@ -26,8 +26,11 @@ const reset = () => {
   <h1 class="sr-only">{{ $t('views.settings') }}</h1>
   <LocaleChanger />
   <QAComponent />
-  <div class="flex-container flex-col justify-center">
-    <label for="reset-button" class="label-like">{{ $t('settings.reset.label') }}</label>
+  <ContentElement
+    :title="$t('settings.reset.title')"
+    :labelAttrs="{for: 'reset-button'}"
+    labelTag="label"
+  >
     <ButtonComponent
       id="reset-button"
       variant="danger"
@@ -37,7 +40,7 @@ const reset = () => {
       @click="resetDialogOpen = true"
       >{{ $t('settings.reset.button') }}</ButtonComponent
     >
-  </div>
+  </ContentElement>
   <BuildTime />
   <ModalDialog v-model="resetDialogOpen" :title="$t('settings.reset.title')">
     <template #content>

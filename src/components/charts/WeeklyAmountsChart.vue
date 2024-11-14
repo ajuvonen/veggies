@@ -53,7 +53,7 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement :title="$t('stats.weeklyAmounts')" :ariaHidden="true">
+  <ContentElement :title="$t('stats.weeklyAmounts')" :labelAttrs="{'aria-hidden': true}">
     <div class="relative flex-1">
       <Line
         :options="chartOptions"

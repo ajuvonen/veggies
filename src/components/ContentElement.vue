@@ -2,16 +2,20 @@
 withDefaults(
   defineProps<{
     title: string;
-    ariaHidden?: boolean;
+    containerAttrs?: Record<string, string | number | boolean>;
+    labelAttrs?: Record<string, string | number | boolean>;
+    labelTag?: 'h2' | 'label';
   }>(),
   {
-    ariaHidden: false,
+    containerAttrs: () => ({}),
+    labelAttrs: () => ({}),
+    labelTag: 'h2',
   },
 );
 </script>
 <template>
-  <div class="flex-container flex-col">
-    <h2 class="label-like" :aria-hidden="ariaHidden">{{ title }}</h2>
+  <div class="flex-container flex-col" v-bind="containerAttrs">
+    <component :is="labelTag" class="label-like" v-bind="labelAttrs">{{ title }}</component>
     <slot />
   </div>
 </template>

@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContentElement > renders 1`] = `
+"<div class="flex-container flex-col">
+  <h2 class="label-like">Test</h2>
+  <div>Content</div>
+</div>"
+`;
