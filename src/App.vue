@@ -44,7 +44,7 @@ watchEffect(() => {
 
 <template>
   <ToastContainer />
-  <NavBar v-if="route.name !== 'home'" :showStats="!!allVeggies.length" />
+  <NavBar :showStats="!!allVeggies.length" />
   <main>
     <RouterView />
   </main>

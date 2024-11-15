@@ -13,7 +13,7 @@ const availableLocales = computed(() =>
 );
 </script>
 <template>
-  <div class="locale-changer__container">
+  <div class="flex-container">
     <IconComponent icon="earth" />
     <ButtonComponent
       v-for="availableLocale in availableLocales"
@@ -26,9 +26,3 @@ const availableLocales = computed(() =>
     >
   </div>
 </template>
-<style lang="scss" scoped>
-.locale-changer__container {
-  @apply absolute top-4 right-4;
-  @apply flex-container;
-}
-</style>

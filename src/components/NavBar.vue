@@ -1,19 +1,26 @@
 <script setup lang="ts">
-import {RouterLink} from 'vue-router';
+import {computed} from 'vue';
+import {RouterLink, useRoute} from 'vue-router';
+import HomeLocaleChanger from '@/components/HomeLocaleChanger.vue';
 defineProps<{
   showStats: boolean;
 }>();
+
+const route = useRoute();
+
+const isHome = computed(() => route.name === 'home');
 </script>
 <template>
-  <nav class="nav">
+  <nav :class="{'navbar--home': isHome}" class="navbar">
     <RouterLink
+      v-if="!isHome"
       :aria-label="$t('views.log')"
       to="/log"
       class="nav__link nav__link--log"
       data-test-id="navbar-link-log"
       >{{ $t('general.appTitle') }}</RouterLink
     >
-    <div class="flex-container">
+    <div v-if="!isHome" class="flex-container">
       <RouterLink
         v-if="showStats"
         :title="$t('views.stats')"
@@ -34,12 +41,17 @@ defineProps<{
         <IconComponent icon="cog" size="6vw" class="nav__link-icon" />
       </RouterLink>
     </div>
+    <HomeLocaleChanger v-else />
   </nav>
 </template>
 <style scoped lang="scss">
-.nav {
+.navbar {
   @apply w-full;
   @apply flex justify-between items-center;
+
+  &--home {
+    @apply justify-end;
+  }
 }
 
 .nav__link {
