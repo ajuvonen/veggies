@@ -9,7 +9,7 @@ describe('NavBar', () => {
         showStats: false,
       },
     });
-    expect(wrapper).toBeTruthy();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('uses showStats prop', async () => {

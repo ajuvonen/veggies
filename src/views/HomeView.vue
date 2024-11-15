@@ -5,7 +5,6 @@ import {storeToRefs} from 'pinia';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import ModalDialog from '@/components/ModalDialog.vue';
-import HomeLocaleChanger from '@/components/HomeLocaleChanger.vue';
 
 const router = useRouter();
 
@@ -20,7 +19,6 @@ const start = () => {
 </script>
 <template>
   <div class="home__container">
-    <HomeLocaleChanger />
     <h1 class="home__title">{{ $t('general.appTitle') }}</h1>
     <p class="sm:text-center">
       {{ $t('home.callout') }}
