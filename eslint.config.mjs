@@ -4,6 +4,7 @@ import pluginVitest from '@vitest/eslint-plugin';
 import pluginPlaywright from 'eslint-plugin-playwright';
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 import {includeIgnoreFile} from '@eslint/compat';
+import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 import {fileURLToPath} from 'node:url';
 
 export default [
@@ -13,6 +14,7 @@ export default [
     files: ['**/*.{ts,mts,tsx,vue}'],
   },
 
+  ...pluginVueA11y.configs['flat/recommended'],
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
 

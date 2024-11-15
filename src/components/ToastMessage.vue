@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {getRandomEmojis} from '@/utils/helpers';
-import {useElementHover, useTimeout} from '@vueuse/core';
+import {useElementHover, useTimeout, useFocus} from '@vueuse/core';
 import {ref, watchEffect} from 'vue';
 
 defineProps<{
@@ -17,9 +17,10 @@ const {start, stop} = useTimeout(5500, {
 });
 
 const isHovered = useElementHover(toastMessage);
+const {focused} = useFocus(toastMessage);
 
 watchEffect(() => {
-  if (isHovered.value) {
+  if (isHovered.value || focused.value) {
     stop();
   } else {
     start();
@@ -29,11 +30,15 @@ watchEffect(() => {
 const emoji = getRandomEmojis()[0];
 </script>
 <template>
+  <!-- eslint-disable-next-line vuejs-accessibility/no-static-element-interactions -->
   <div
     ref="toastMessage"
     class="toast-message"
+    role="status"
+    tabindex="0"
     data-test-id="toast-message"
     @click="$emit('close')"
+    @keydown.enter="$emit('close')"
   >
     <div class="toast-message__content">
       <span class="text-2xl" aria-hidden="true">
@@ -47,6 +52,10 @@ const emoji = getRandomEmojis()[0];
 .toast-message {
   @apply w-full shadow-md p-4;
   @apply bg-sky-500;
+
+  &:focus {
+    @apply -outline-offset-2;
+  }
 }
 
 .toast-message__content {
