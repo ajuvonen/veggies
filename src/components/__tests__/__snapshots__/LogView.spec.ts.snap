@@ -2,7 +2,7 @@
 
 exports[`LogView > renders 1`] = `
 "<h1 class="sr-only">Track Progress</h1>
-<div class="relative h-12 z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Search For Veggies" placeholder="Search For Veggies" class="veggie-search__input" data-test-id="veggie-search-input"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-487fdf11="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+<div class="relative h-12 z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Track Weekly Veggies" placeholder="Track Weekly Veggies" class="veggie-search__input" data-test-id="veggie-search-input"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-487fdf11="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <!---->
@@ -15,7 +15,7 @@ exports[`LogView > renders 1`] = `
 
 exports[`LogView > renders with data 1`] = `
 "<h1 class="sr-only">Track Progress</h1>
-<div class="relative h-12 z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Search For Veggies" placeholder="Search For Veggies" class="veggie-search__input" data-test-id="veggie-search-input"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-487fdf11="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+<div class="relative h-12 z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Track Weekly Veggies" placeholder="Track Weekly Veggies" class="veggie-search__input" data-test-id="veggie-search-input"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-487fdf11="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <!---->
