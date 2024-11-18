@@ -33,30 +33,28 @@ const translatedVeggies = computed(() => {
 });
 </script>
 <template>
-  <div class="flex min-h-0">
-    <TransitionGroup name="tags" tag="ul" class="tags__container">
-      <li
-        v-for="{veggie, translation} in translatedVeggies"
-        :key="veggie"
-        :data-test-id="`tag-${veggie}`"
-        class="tags__tag"
+  <TransitionGroup name="tags" tag="ul" class="tags__container">
+    <li
+      v-for="{veggie, translation} in translatedVeggies"
+      :key="veggie"
+      :data-test-id="`tag-${veggie}`"
+      class="tags__tag"
+    >
+      <ButtonComponent
+        :aria-label="$t(ariaKey, [translation])"
+        :variant="variant"
+        @click="$emit('click', veggie)"
       >
-        <ButtonComponent
-          :aria-label="$t(ariaKey, [translation])"
-          :variant="variant"
-          @click="$emit('click', veggie)"
-        >
-          <IconComponent :icon="icon" />
-          {{ translation }}</ButtonComponent
-        >
-      </li>
-    </TransitionGroup>
-  </div>
+        <IconComponent :icon="icon" />
+        {{ translation }}</ButtonComponent
+      >
+    </li>
+  </TransitionGroup>
 </template>
 <style lang="scss" scoped>
 .tags__container {
-  @apply relative has-scroll w-full;
-  @apply flex-container flex-wrap justify-center;
+  @apply relative has-scroll;
+  @apply flex-container flex-wrap justify-center content-start;
 }
 
 .tags__tag {
