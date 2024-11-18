@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import {
+  mdiCalendarWeekOutline,
   mdiChartBar,
+  mdiChartLine,
   mdiCheckboxBlankOutline,
   mdiCheckboxMarkedOutline,
   mdiCheckCircleOutline,
@@ -8,15 +10,20 @@ import {
   mdiClose,
   mdiCogOutline,
   mdiEarth,
+  mdiFormatListChecks,
+  mdiHistory,
   mdiMinus,
   mdiPlus,
   mdiRadioboxBlank,
   mdiRadioboxMarked,
   mdiTrashCan,
+  mdiTrophyOutline,
 } from '@mdi/js';
 
 export type IconString =
+  | 'calendarWeekOutline'
   | 'chart'
+  | 'chartLine'
   | 'check'
   | 'checkboxBlank'
   | 'checkboxMarked'
@@ -24,11 +31,14 @@ export type IconString =
   | 'close'
   | 'cog'
   | 'earth'
+  | 'formatListChecks'
+  | 'history'
   | 'minus'
   | 'plus'
   | 'radioboxBlank'
   | 'radioboxMarked'
-  | 'trashCan';
+  | 'trashCan'
+  | 'trophyOutline';
 
 withDefaults(
   defineProps<{
@@ -41,7 +51,9 @@ withDefaults(
 );
 
 const icons = {
+  calendarWeekOutline: mdiCalendarWeekOutline,
   chart: mdiChartBar,
+  chartLine: mdiChartLine,
   check: mdiCheckCircleOutline,
   checkboxBlank: mdiCheckboxBlankOutline,
   checkboxMarked: mdiCheckboxMarkedOutline,
@@ -49,11 +61,14 @@ const icons = {
   close: mdiClose,
   cog: mdiCogOutline,
   earth: mdiEarth,
+  formatListChecks: mdiFormatListChecks,
+  history: mdiHistory,
   minus: mdiMinus,
   plus: mdiPlus,
   radioboxBlank: mdiRadioboxBlank,
   radioboxMarked: mdiRadioboxMarked,
   trashCan: mdiTrashCan,
+  trophyOutline: mdiTrophyOutline,
 };
 </script>
 <template>

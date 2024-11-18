@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
-import {useMemoize} from '@vueuse/core';
-import {Listbox, ListboxLabel, ListboxButton, ListboxOption, ListboxOptions} from '@headlessui/vue';
+import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
@@ -18,87 +17,54 @@ const {toggleVeggie} = activityStore;
 
 const selectedStat = ref(0);
 
-const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
-  const textClass = active ? 'text-slate-50' : 'text-slate-900';
-  let bgClass = 'transparent';
-  if (active) {
-    bgClass = 'bg-sky-500';
-  } else if (selected) {
-    bgClass = 'bg-sky-200';
-  }
-  return `${textClass} ${bgClass}`;
-});
+const icons = ['calendarWeekOutline', 'chartLine', 'history', 'trophyOutline', 'formatListChecks'];
 </script>
 <template>
   <h1 class="sr-only">{{ $t('views.stats') }}</h1>
-  <Listbox v-model="selectedStat" class="relative z-20" as="div" v-slot="{open}">
-    <div class="flex-container flex-col">
-      <ListboxLabel class="label-like">{{ $t('stats.chosenStats') }}</ListboxLabel>
-      <ListboxButton class="stats__list-box-button" data-test-id="stats-dropdown-button">
-        <span class="truncate">{{ $t(`stats.${selectedStat}`) }}</span>
-        <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
-      </ListboxButton>
-    </div>
-    <Transition
-      leave-active-class="transition duration-100 ease-in"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <ListboxOptions class="stats__list-box-options">
-        <ListboxOption
-          v-for="(_, index) in [...Array(5)]"
-          v-slot="{active, selected}"
-          :key="index"
-          :value="index"
-          :data-test-id="`stats-dropdown-option-${index}`"
-          as="template"
+  <TabGroup :selectedIndex="selectedStat" @change="(index) => (selectedStat = index)">
+    <TabList class="grid grid-cols-5 gap-2">
+      <Tab v-for="(_, index) in [...Array(5)]" :key="index" v-slot="{selected}" as="template">
+        <ButtonComponent
+          :aria-label="$t(`stats.${index}`)"
+          :title="$t(`stats.${index}`)"
+          :class="{'!bg-sky-700': selected}"
+          :data-test-id="`stats-tab-${index}`"
+          class="justify-center"
         >
-          <li
-            :class="[getOptionClasses(active, selected), 'stats__list-box-option']"
-            role="menuitem"
-          >
-            {{ $t(`stats.${index}`) }}
-          </li>
-        </ListboxOption>
-      </ListboxOptions>
-    </Transition>
-  </Listbox>
-  <TagsComponent
-    v-if="selectedStat === 0"
-    :veggies="currentVeggies"
-    :variant="['tag', 'remove']"
-    ariaKey="general.clickToRemove"
-    icon="minus"
-    @click="toggleVeggie"
-  />
-  <WeeklyAmountsChart v-if="selectedStat === 1" class="flex-1" />
-  <WeeklyCategoriesChart v-if="selectedStat === 1" class="flex-1" />
-  <AllTimeStatus v-if="selectedStat === 2" />
-  <CategoryStatusChart
-    v-if="selectedStat === 2"
-    totals
-    :favorites="favorites"
-    :veggies="allVeggies"
-  />
-  <AchievementList v-if="selectedStat === 3" />
-  <VeggieList :uniqueVeggies="uniqueVeggies" v-if="selectedStat === 4" />
+          <IconComponent :icon="icons[index]" />
+        </ButtonComponent>
+      </Tab>
+    </TabList>
+    <TabPanels class="flex flex-grow min-h-0">
+      <TabPanel as="template">
+        <TagsComponent
+          :veggies="currentVeggies"
+          :variant="['tag', 'remove']"
+          ariaKey="general.clickToRemove"
+          icon="minus"
+          @click="toggleVeggie"
+        />
+      </TabPanel>
+      <TabPanel class="stats__tab">
+        <WeeklyAmountsChart />
+        <WeeklyCategoriesChart />
+      </TabPanel>
+      <TabPanel class="stats__tab">
+        <AllTimeStatus />
+        <CategoryStatusChart totals :favorites="favorites" :veggies="allVeggies" />
+      </TabPanel>
+      <TabPanel as="template">
+        <VeggieList :uniqueVeggies="uniqueVeggies" />
+      </TabPanel>
+      <TabPanel as="template">
+        <AchievementList />
+      </TabPanel>
+    </TabPanels>
+  </TabGroup>
 </template>
 <style lang="scss" scoped>
-.stats__list-box-button {
-  @apply flex items-center justify-between;
-  @apply w-full button-like;
-  @apply bg-sky-500;
-
-  &:hover {
-    @apply bg-sky-600;
-  }
-}
-
-.stats__list-box-options {
-  @apply dropdown-list-container;
-}
-
-.stats__list-box-option {
-  @apply dropdown-list-option;
+.stats__tab {
+  @apply w-full;
+  @apply flex-container flex-col gap-4;
 }
 </style>

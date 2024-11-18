@@ -69,21 +69,25 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement :title="$t('stats.weeklyCategories')" :labelAttrs="{'aria-hidden': true}">
-    <div class="relative flex-1">
+  <ContentElement
+    :title="$t('stats.weeklyCategories')"
+    :labelAttrs="{'aria-hidden': true}"
+    class="flex-1"
+  >
+    <div class="relative flex-grow">
       <Bar
         :options="chartOptions"
         :data="chartData"
         data-test-id="weekly-categories-chart"
         aria-describedby="weekly-categories-table"
       />
-      <ChartScreenReaderTable
-        id="weekly-categories-table"
-        :title="$t('stats.0')"
-        :columnHeaders="chartData.labels"
-        :rowHeaders="chartData.datasets.map(prop('label'))"
-        :data="chartData.datasets.map(prop('data'))"
-      />
     </div>
+    <ChartScreenReaderTable
+      id="weekly-categories-table"
+      :title="$t('stats.weeklyCategories')"
+      :columnHeaders="chartData.labels"
+      :rowHeaders="chartData.datasets.map(prop('label'))"
+      :data="chartData.datasets.map(prop('data'))"
+    />
   </ContentElement>
 </template>
