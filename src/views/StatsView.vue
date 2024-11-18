@@ -17,7 +17,7 @@ const {toggleVeggie} = activityStore;
 
 const selectedStat = ref(0);
 
-const icons = ['calendarWeekOutline', 'chartLine', 'history', 'trophyOutline', 'formatListChecks'];
+const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks', 'trophyOutline'];
 </script>
 <template>
   <h1 class="sr-only">{{ $t('views.stats') }}</h1>
