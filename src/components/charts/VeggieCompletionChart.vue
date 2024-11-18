@@ -121,7 +121,7 @@ defineExpose({chartData});
         id="veggie-completion-table"
         :title="$t('veggiesTotal.title')"
         :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
-        :data="[chartData.datasets[0].data]"
+        :data="[chartData.datasets[0].data.map((value) => `${value} %`)]"
       />
     </div>
   </ContentElement>
