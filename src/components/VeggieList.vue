@@ -23,38 +23,34 @@ const allVeggies = computed(() => {
 </script>
 
 <template>
-  <div class="flex min-h-0">
-    <div class="veggie-list" data-test-id="veggie-list">
-      <VeggieCompletionChart :veggies="uniqueVeggies" />
-      <ul v-for="category in Category" :key="category" class="veggie-list__category">
-        <ContentElement :title="$t(`categories.${category}`)">
-          <ul class="veggie-list__veggies">
-            <li
-              v-for="{veggie, translation} in allVeggies.filter(
-                (item) => item.category === category,
-              )"
-              :key="veggie"
-              class="veggie-list__veggie"
-            >
-              <IconComponent
-                :icon="uniqueVeggies.includes(veggie) ? 'checkboxMarked' : 'checkboxBlank'"
-              />
-              <span class="truncate capitalize" :title="translation">
-                {{ translation }}
-              </span>
-              <span :data-test-id="`veggie-list-status-${veggie}`" class="sr-only">{{
-                $t(uniqueVeggies.includes(veggie) ? 'veggieList.complete' : 'veggieList.missing')
-              }}</span>
-            </li>
-          </ul>
-        </ContentElement>
-      </ul>
-    </div>
+  <div class="veggie-list" data-test-id="veggie-list">
+    <VeggieCompletionChart :veggies="uniqueVeggies" />
+    <ul v-for="category in Category" :key="category" class="veggie-list__category">
+      <ContentElement :title="$t(`categories.${category}`)">
+        <ul class="veggie-list__veggies">
+          <li
+            v-for="{veggie, translation} in allVeggies.filter((item) => item.category === category)"
+            :key="veggie"
+            class="veggie-list__veggie"
+          >
+            <IconComponent
+              :icon="uniqueVeggies.includes(veggie) ? 'checkboxMarked' : 'checkboxBlank'"
+            />
+            <span class="truncate capitalize" :title="translation">
+              {{ translation }}
+            </span>
+            <span :data-test-id="`veggie-list-status-${veggie}`" class="sr-only">{{
+              $t(uniqueVeggies.includes(veggie) ? 'veggieList.complete' : 'veggieList.missing')
+            }}</span>
+          </li>
+        </ul>
+      </ContentElement>
+    </ul>
   </div>
 </template>
 <style lang="scss" scoped>
 .veggie-list {
-  @apply has-scroll w-full;
+  @apply has-scroll m-0 p-0;
   @apply flex-container flex-col gap-4;
 }
 

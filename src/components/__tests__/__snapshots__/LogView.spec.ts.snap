@@ -8,9 +8,7 @@ exports[`LogView > renders 1`] = `
   <!---->
 </div>
 <front-page-animation-stub></front-page-animation-stub>
-<div data-v-cd627eac="" class="flex min-h-0">
-  <transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container"></transition-group-stub>
-</div>"
+<transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container"></transition-group-stub>"
 `;
 
 exports[`LogView > renders with data 1`] = `
@@ -38,18 +36,16 @@ exports[`LogView > renders with data 1`] = `
     </tbody>
   </table>
 </div>
-<div data-v-cd627eac="" class="flex min-h-0">
-  <transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
-    <li data-v-cd627eac="" data-test-id="tag-rice" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary" aria-label="Add rice">
-        <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
-        </svg> rice
-      </button></li>
-    <li data-v-cd627eac="" data-test-id="tag-rye" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary" aria-label="Add rye">
-        <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
-        </svg> rye
-      </button></li>
-  </transition-group-stub>
-</div>"
+<transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
+  <li data-v-cd627eac="" data-test-id="tag-rice" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary" aria-label="Add rice">
+      <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
+      </svg> rice
+    </button></li>
+  <li data-v-cd627eac="" data-test-id="tag-rye" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--primary" aria-label="Add rye">
+      <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
+      </svg> rye
+    </button></li>
+</transition-group-stub>"
 `;
