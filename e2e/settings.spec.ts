@@ -10,7 +10,7 @@ test('locale settings work', async ({page}) => {
   await page.getByTestId('navbar-link-log').click();
   await expect(page.getByTestId('veggie-search-input')).toHaveAttribute(
     'placeholder',
-    'Etsi kasviksia',
+    'Kirjaa viikon kasvikset',
   );
 });
 

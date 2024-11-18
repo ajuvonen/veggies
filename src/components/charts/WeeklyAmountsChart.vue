@@ -53,20 +53,24 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement :title="$t('stats.weeklyAmounts')" :labelAttrs="{'aria-hidden': true}">
-    <div class="relative flex-1">
+  <ContentElement
+    :title="$t('stats.weeklyAmounts')"
+    :labelAttrs="{'aria-hidden': true}"
+    class="flex-1"
+  >
+    <div class="relative flex-grow">
       <Line
         :options="chartOptions"
         :data="chartData"
         data-test-id="weekly-amounts-chart"
         aria-describedby="weekly-amounts-table"
       />
-      <ChartScreenReaderTable
-        id="weekly-amounts-table"
-        :title="$t('stats.weeklyAmounts')"
-        :columnHeaders="chartData.labels"
-        :data="chartData.datasets.map(prop('data'))"
-      />
     </div>
+    <ChartScreenReaderTable
+      id="weekly-amounts-table"
+      :title="$t('stats.weeklyAmounts')"
+      :columnHeaders="chartData.labels"
+      :data="chartData.datasets.map(prop('data'))"
+    />
   </ContentElement>
 </template>
