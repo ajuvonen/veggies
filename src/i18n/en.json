@@ -198,6 +198,10 @@
       "Cantaloupe was first cultivated in ancient Egypt.",
       "Cantaloupes are named after the Italian town of Cantalupo."
     ],
+    "cape gooseberry": [
+      "Cape gooseberries are native to the Andean regions of Peru, Colombia, and Ecuador.",
+      "Despite their name, cape gooseberries are not related to gooseberries."
+    ],
     "caper": [
       "Capers are the unopened flower buds of the caper bush, often pickled in vinegar or salt.",
       "Capers have been used in Mediterranean and Middle Eastern cuisine for thousands of years."
@@ -366,6 +370,11 @@
     "jackfruit": [
       "Jackfruit is the heaviest fruit to grow on a tree, weighing up to 40 kilograms.",
       "Native to South Asia, jackfruit has a sweet taste, often compared to a mix of pineapple, banana, and mango."
+    ],
+    "jalapeno": [
+      "Jalapeños are named after the Mexican city of Xalapa in Veracruz.",
+      "Jalapeños can reach up to 8000 on the Scoville heat scale, making them a hot but versatile chili.",
+      "Smoked, dried jalapeño is better known as chipotle."
     ],
     "jerusalem artichoke": [
       "Jerusalem artichokes are native to North America and were cultivated by Native Americans.",
@@ -628,6 +637,11 @@
       "Real wasabi is difficult to grow, making it rare and often substituted with horseradish.",
       "Wasabi contains compounds that have antimicrobial properties."
     ],
+    "water spinach": [
+      "Water spinach spreads aggressively, guaranteeing good crops.",
+      "Water spinach may improve water quality, but it's also invasive in certain ecosystems.",
+      "Water spinach is not related to spinach."
+    ],
     "watercress": [
       "Watercress is one of the most nutrient-dense vegetables, packed with vitamins A, C, and K."
     ],
@@ -805,6 +819,7 @@
     "cabbage": "cabbage",
     "cannellini bean": "cannellini bean",
     "cantaloupe": "cantaloupe",
+    "cape gooseberry": "cape gooseberry",
     "caper": "caper",
     "carrot": "carrot",
     "cashew nut": "cashew nut",
@@ -866,6 +881,7 @@
     "horseradish": "horseradish",
     "iceberg lettuce": "iceberg lettuce",
     "jackfruit": "jackfruit",
+    "jalapeno": "jalapeño",
     "jerusalem artichoke": "jerusalem artichoke",
     "jicama": "jicama",
     "kale": "kale",
@@ -922,6 +938,7 @@
     "pistachio nut": "pistachio nut",
     "plantain": "plantain",
     "plum": "plum",
+    "pointed pepper": "pointed pepper",
     "pomegranate": "pomegranate",
     "pomelo": "pomelo",
     "porcini": "porcini",
@@ -975,6 +992,7 @@
     "wakame": "wakame",
     "walnut": "walnut",
     "wasabi": "wasabi",
+    "water spinach": "water spinach",
     "watercress": "watercress",
     "watermelon": "watermelon",
     "wheat": "wheat",

@@ -198,6 +198,10 @@
       "Verkkomelonia viljeltiin ensimmäisen kerran muinaisessa Egyptissä.",
       "Verkkomelonin englanninkielinen nimi \"cantaloupe\" tulee Cantalupon kaupungista Italiasta."
     ],
+    "cape gooseberry": [
+      "Ananaskirsikoita kasvaa luonnossa erityisesti Perun, Kolumbian ja Ecuadorin vuoristoalueilla.",
+      "Nimestään huolimatta ananaskirsikka ei ole sukua ananakselle eikä kirsikalle."
+    ],
     "caper": [
       "Kaprikset ovat kaprispensaan aukeamattomia kukkanuppuja, jotka säilötään etikkaan tai suolaan.",
       "Kaprikset ovat olleet käytössä Välimeren ja Lähi-idän keittiöissä tuhansien vuosien ajan."
@@ -370,6 +374,11 @@
     "jackfruit": [
       "Jakkihedelmä on painavin puussa kasvava hedelmä, painaen jopa 40 kilogrammaa.",
       "Jakkihedelmä on kotoisin Etelä-Aasiasta ja sen makua verrataan usein ananaksen, banaanin ja mangon yhdistelmään."
+    ],
+    "jalapeno": [
+      "Jalepenon nimi tulee meksikolaisesta Xalapan kaupungista Veracruzissa.",
+      "Jalapeno voi yltää 8000 pisteeseen Scovillen tulisuusasteikolla, joten se on tulisen monipuolinen chili.",
+      "Savustettu ja kuivattu jalapeno tunnetaan paremmin chipotlena."
     ],
     "jerusalem artichoke": [
       "Maa-artisokka on kotoisin Pohjois-Amerikasta, ja alkuperäiskansat viljelivät sitä.",
@@ -636,6 +645,11 @@
       "Aito wasabi on vaikeasti kasvatettava, joten sitä korvataan usein piparjuurella.",
       "Wasabissa on yhdisteitä, joilla on antimikrobisia ominaisuuksia."
     ],
+    "water spinach": [
+      "Vesipinaatti leviää voimakkaasti ja on erittäin satoisa.",
+      "Vesipinaatilla voi olla vesistön laatua parantava vaikutus, mutta se on myös vieraslaji tietyissä ympäristöissä.",
+      "Vesipinaatti ei ole sukua pinaatille"
+    ],
     "watercress": [
       "Vesikrassi on yksi ravintorikkaimmista vihanneksista, täynnä A-, C- ja K-vitamiineja."
     ],
@@ -813,6 +827,7 @@
     "cabbage": "keräkaali",
     "cannellini bean": "cannellinipapu",
     "cantaloupe": "verkkomeloni",
+    "cape gooseberry": "ananaskirsikka",
     "caper": "kapris",
     "carrot": "porkkana",
     "cashew nut": "cashewpähkinä",
@@ -874,6 +889,7 @@
     "horseradish": "piparjuuri",
     "iceberg lettuce": "jäävuorisalaatti",
     "jackfruit": "jakkihedelmä",
+    "jalapeno": "jalapeno",
     "jerusalem artichoke": "maa-artisokka",
     "jicama": "pikkujamssipapu",
     "kale": "lehtikaali",
@@ -930,6 +946,7 @@
     "pistachio nut": "pistaasipähkinä",
     "plantain": "keittobanaani",
     "plum": "luumu",
+    "pointed pepper": "suippopaprika",
     "pomegranate": "granaattiomena",
     "pomelo": "pomelo",
     "porcini": "herkkutatti",
@@ -983,6 +1000,7 @@
     "wakame": "wakame",
     "walnut": "saksanpähkinä",
     "wasabi": "wasabi (maustekrassi)",
+    "water spinach": "vesipinaatti",
     "watercress": "vesikrassi",
     "watermelon": "vesimeloni",
     "wheat": "vehnä",
