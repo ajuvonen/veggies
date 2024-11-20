@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import {computed} from 'vue';
+import {computed, ref} from 'vue';
 import {useI18n} from 'vue-i18n';
+import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip, type ChartOptions} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
@@ -27,6 +28,9 @@ const props = withDefaults(
 );
 
 const {t} = useI18n();
+
+const container = ref<HTMLDivElement | null>(null);
+const {height} = useElementSize(container);
 
 const medalEmojis = ['🥇', '🥈', '🥉'];
 const getFavorites = (category: Category) =>
@@ -62,6 +66,7 @@ const chartOptions = computed(() => {
   const defaultOptions = getChartOptions<'doughnut'>(false, false, true);
   return {
     ...defaultOptions,
+    cutout: height.value < 280 ? '60%' : undefined,
     plugins: {
       ...defaultOptions.plugins,
       tooltip: {
@@ -77,6 +82,8 @@ const chartOptions = computed(() => {
       },
       datalabels: {
         ...defaultOptions.plugins?.datalabels,
+        textShadowColor: COLORS.offWhite,
+        textShadowBlur: 10,
         formatter: (_, context: Context) =>
           CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
       },
@@ -87,7 +94,7 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <div class="category-status-chart__background">
+  <div ref="container" class="category-status-chart__background">
     <Doughnut
       :data="chartData"
       :options="chartOptions"
@@ -123,8 +130,8 @@ defineExpose({chartData});
 }
 
 .category-status-chart__background {
-  @apply relative max-h-[50%];
-  @apply flex justify-center;
+  @apply relative max-h-[50%] min-h-0;
+  @apply flex-grow flex justify-center;
 }
 
 .category-status-chart__center-label {

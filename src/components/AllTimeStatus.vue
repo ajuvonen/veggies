@@ -3,7 +3,8 @@ import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 
 const activitysStore = useActivityStore();
-const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs(activitysStore);
+const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChallenges} =
+  storeToRefs(activitysStore);
 </script>
 <template>
   <div class="status__container">
@@ -51,12 +52,24 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies} = storeToRefs
       <span class="text-5xl">{{ atMostVeggies }}</span>
       <span>{{ $t('stats.grid4.bottomLabel') }}</span>
     </i18n-t>
+    <i18n-t
+      scope="global"
+      keypath="categoryStatus.centerLabel"
+      tag="div"
+      class="status__item col-span-2"
+      data-test-id="all-time-challenges"
+    >
+      <span>{{ $t('stats.grid5.topLabel') }}</span>
+      <span class="text-5xl">{{ completedChallenges }}</span>
+      <span>{{ $t('stats.grid5.bottomLabel') }}</span>
+    </i18n-t>
   </div>
 </template>
 <style lang="scss" scoped>
 .status__container {
-  @apply grid grid-cols-2 grid-rows-2 gap-4 max-h-[50%];
+  @apply grid grid-cols-2 grid-rows-3;
   @apply text-center;
+  row-gap: 1rem;
 }
 
 .status__item {

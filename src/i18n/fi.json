@@ -775,6 +775,10 @@
       "topLabel": "Enimmillään",
       "bottomLabel": "Kasvista viikossa"
     },
+    "grid5": {
+      "topLabel": "Suoritettu",
+      "bottomLabel": "Viikkohaastetta"
+    },
     "week": "Vko {0}",
     "weeklyAmounts": "Lukumäärät viikoittain",
     "weeklyCategories": "Ryhmät viikoittain"
