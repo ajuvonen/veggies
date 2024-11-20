@@ -43,13 +43,14 @@ test('shows all time stats', async ({page}) => {
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-button').click();
   await page.getByText('Apricot').click();
-  await page.getByText('Avocado').click();
+  await page.getByTestId('veggie-search-challenge').locator('.veggie-search__option').click();
   await page.goto('stats');
   await page.getByTestId('stats-tab-2').click();
   await expect(page.getByTestId('all-time-weeks')).toHaveText('In Total 1 Weeks');
   await expect(page.getByTestId('all-time-over-30')).toHaveText('Over 30 Veggies in 0 Weeks');
   await expect(page.getByTestId('all-time-unique')).toHaveText('In Total 2 Unique Veggies');
   await expect(page.getByTestId('all-time-at-most')).toHaveText('At Most 2 Veggies in a Week');
+  await expect(page.getByTestId('all-time-challenges')).toHaveText('Completed 1 Weekly Challenges');
 });
 
 test('shows veggie list', async ({page}) => {

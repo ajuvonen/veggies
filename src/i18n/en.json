@@ -767,6 +767,10 @@
       "topLabel": "At Most",
       "bottomLabel": "Veggies in a Week"
     },
+    "grid5": {
+      "topLabel": "Completed",
+      "bottomLabel": "Weekly Challenges"
+    },
     "week": "Wk {0}",
     "weeklyAmounts": "Weekly Amounts",
     "weeklyCategories": "Weekly Categories"
