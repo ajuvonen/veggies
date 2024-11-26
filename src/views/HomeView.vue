@@ -5,6 +5,7 @@ import {storeToRefs} from 'pinia';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import ModalDialog from '@/components/ModalDialog.vue';
+import BlueskyLink from '@/components/BlueskyLink.vue';
 
 const router = useRouter();
 
@@ -31,6 +32,7 @@ const start = () => {
         $t('general.start')
       }}</ButtonComponent>
     </div>
+    <BlueskyLink />
     <ModalDialog v-model="dialogOpen" :title="$t('home.infoTitle')">
       <template #content>
         <p>{{ $t('home.infoP1') }}</p>
