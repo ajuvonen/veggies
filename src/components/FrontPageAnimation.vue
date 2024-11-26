@@ -39,7 +39,7 @@ let emojis = getRandomEmojis(4);
 }
 
 .front-page-animation__icon-container {
-  @apply relative;
+  @apply relative select-none;
   @apply flex flex-col items-center;
 }
 
