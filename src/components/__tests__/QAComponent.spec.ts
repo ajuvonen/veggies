@@ -12,7 +12,7 @@ describe('QAComponent', () => {
 
   it('renders answers', async () => {
     const wrapper = mount(QAComponent);
-    wrapper.findAll('.QA__button').forEach(async (button) => {
+    wrapper.findAll('button').forEach(async (button) => {
       await button.trigger('click');
     });
     await nextTick();

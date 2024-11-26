@@ -1,41 +1,55 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`QAComponent > renders 1`] = `
-"<div data-v-bcc04aab="" class="flex-container flex-col min-h-0"><label class="label-like">Common Questions</label>
-  <div data-v-bcc04aab="" class="flex-container flex-col has-scroll"><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-0" type="button" aria-expanded="false" data-headlessui-state="" class="QA__button" data-test-id="qa-button-appPurpose"><span data-v-bcc04aab="">What's this app for?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+"<div class="flex-container flex-col min-h-0"><label class="label-like">Common Questions</label>
+  <div class="flex-container flex-col has-scroll"><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-0" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-appPurpose">
+      <!--v-if-->What's this app for? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-2" type="button" aria-expanded="false" data-headlessui-state="" class="QA__button" data-test-id="qa-button-studyDetails"><span data-v-bcc04aab="">What's the science?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-2" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-studyDetails">
+      <!--v-if-->What's the science? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-4" type="button" aria-expanded="false" data-headlessui-state="" class="QA__button" data-test-id="qa-button-whatCounts"><span data-v-bcc04aab="">What counts as a portion?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-4" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-whatCounts">
+      <!--v-if-->What counts as a portion? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-6" type="button" aria-expanded="false" data-headlessui-state="" class="QA__button" data-test-id="qa-button-categories"><span data-v-bcc04aab="">But strawberry is a...</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-6" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-categories">
+      <!--v-if-->But strawberry is a... <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-8" type="button" aria-expanded="false" data-headlessui-state="" class="QA__button" data-test-id="qa-button-isItFree"><span data-v-bcc04aab="">Is the app monetized?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-8" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isItFree">
+      <!--v-if-->Is the app monetized? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-10" type="button" aria-expanded="false" data-headlessui-state="" class="QA__button" data-test-id="qa-button-isMyDataSafe"><span data-v-bcc04aab="">Is my data safe?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-10" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isMyDataSafe">
+      <!--v-if-->Is my data safe? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-12" type="button" aria-expanded="false" data-headlessui-state="" class="QA__button" data-test-id="qa-button-contact"><span data-v-bcc04aab="">How to get in touch?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-contact">
+      <!--v-if-->How to get in touch? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
     </transition-stub>
   </div>
@@ -43,55 +57,69 @@ exports[`QAComponent > renders 1`] = `
 `;
 
 exports[`QAComponent > renders answers 1`] = `
-"<div data-v-bcc04aab="" class="flex-container flex-col min-h-0"><label class="label-like">Common Questions</label>
-  <div data-v-bcc04aab="" class="flex-container flex-col has-scroll"><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-0" type="button" aria-expanded="true" data-headlessui-state="open" class="QA__button" data-test-id="qa-button-appPurpose" aria-controls="headlessui-disclosure-panel-v-1"><span data-v-bcc04aab="">What's this app for?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
+"<div class="flex-container flex-col min-h-0"><label class="label-like">Common Questions</label>
+  <div class="flex-container flex-col has-scroll"><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-0" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-appPurpose" type="button" aria-controls="headlessui-disclosure-panel-v-1">
+      <!--v-if-->What's this app for? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
-      <div data-v-bcc04aab="" id="headlessui-disclosure-panel-v-1" data-headlessui-state="open" class="QA__panel" data-test-id="qa-panel-appPurpose">
-        <div data-v-bcc04aab="">Eat Your Veggies is a free app for tracking plant-based ingredients on weekly basis in your diet. According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not as much in the amounts you consume, but in variation.</div>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <div id="headlessui-disclosure-panel-v-1" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-appPurpose">
+        <div>Eat Your Veggies is a free app for tracking plant-based ingredients on weekly basis in your diet. According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not as much in the amounts you consume, but in variation.</div>
       </div>
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-2" type="button" aria-expanded="true" data-headlessui-state="open" class="QA__button" data-test-id="qa-button-studyDetails" aria-controls="headlessui-disclosure-panel-v-3"><span data-v-bcc04aab="">What's the science?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-2" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-studyDetails" type="button" aria-controls="headlessui-disclosure-panel-v-3">
+      <!--v-if-->What's the science? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
-      <div data-v-bcc04aab="" id="headlessui-disclosure-panel-v-3" data-headlessui-state="open" class="QA__panel" data-test-id="qa-panel-studyDetails">
-        <div data-v-bcc04aab="">I'm neither a nutritian nor a biologist, so I don't want to make exaggerated claims or interpretations. I'm not affiliated with the study in any way, but if you want to read more about the study, look up The American Gut Project from the journal of <a data-v-bcc04aab="" href="https://doi.org/10.1128/msystems.00031-18" target="_blank" noreferrer="" noopener="">American Society for Microbiology (ASM)</a>.</div>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <div id="headlessui-disclosure-panel-v-3" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-studyDetails">
+        <div>I'm neither a nutritian nor a biologist, so I don't want to make exaggerated claims or interpretations. I'm not affiliated with the study in any way, but if you want to read more about the study, look up The American Gut Project from the journal of <a href="https://doi.org/10.1128/msystems.00031-18" target="_blank" noreferrer="" noopener="">American Society for Microbiology (ASM)</a>.</div>
       </div>
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-4" type="button" aria-expanded="true" data-headlessui-state="open" class="QA__button" data-test-id="qa-button-whatCounts" aria-controls="headlessui-disclosure-panel-v-5"><span data-v-bcc04aab="">What counts as a portion?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-4" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-whatCounts" type="button" aria-controls="headlessui-disclosure-panel-v-5">
+      <!--v-if-->What counts as a portion? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
-      <div data-v-bcc04aab="" id="headlessui-disclosure-panel-v-5" data-headlessui-state="open" class="QA__panel" data-test-id="qa-panel-whatCounts">
-        <div data-v-bcc04aab="">Ultimately, how you use the app is up to your discretion. However, consider that minuscule amounts might not be of any nutritional value. Therefore I personally consider only portions of a heaping tablespoon or larger adequate. It is also worth noting that very processed foods don't count towards a portion. So ketchup should not equal a tomato.</div>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <div id="headlessui-disclosure-panel-v-5" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-whatCounts">
+        <div>Ultimately, how you use the app is up to your discretion. However, consider that minuscule amounts might not be of any nutritional value. Therefore I personally consider only portions of a heaping tablespoon or larger adequate. It is also worth noting that very processed foods don't count towards a portion. So ketchup should not equal a tomato.</div>
       </div>
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-6" type="button" aria-expanded="true" data-headlessui-state="open" class="QA__button" data-test-id="qa-button-categories" aria-controls="headlessui-disclosure-panel-v-7"><span data-v-bcc04aab="">But strawberry is a...</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-6" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-categories" type="button" aria-controls="headlessui-disclosure-panel-v-7">
+      <!--v-if-->But strawberry is a... <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
-      <div data-v-bcc04aab="" id="headlessui-disclosure-panel-v-7" data-headlessui-state="open" class="QA__panel" data-test-id="qa-panel-categories">
-        <div data-v-bcc04aab="">...false fruit, I know. Also tomato is not a vegetable in biological sense, so the app takes some liberties in its categories. Still, please report any major inaccuracies you come across! You can also request missing veggies to be added. They should be such that are commercially available globally.</div>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <div id="headlessui-disclosure-panel-v-7" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-categories">
+        <div>...false fruit, I know. Also tomato is not a vegetable in biological sense, so the app takes some liberties in its categories. Still, please report any major inaccuracies you come across! You can also request missing veggies to be added. They should be such that are commercially available globally.</div>
       </div>
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-8" type="button" aria-expanded="true" data-headlessui-state="open" class="QA__button" data-test-id="qa-button-isItFree" aria-controls="headlessui-disclosure-panel-v-9"><span data-v-bcc04aab="">Is the app monetized?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-8" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-isItFree" type="button" aria-controls="headlessui-disclosure-panel-v-9">
+      <!--v-if-->Is the app monetized? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
-      <div data-v-bcc04aab="" id="headlessui-disclosure-panel-v-9" data-headlessui-state="open" class="QA__panel" data-test-id="qa-panel-isItFree">
-        <div data-v-bcc04aab="">The app is free to use, and it has no advertisements. There will be a possibility to donate, but don't feel obliged.</div>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <div id="headlessui-disclosure-panel-v-9" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-isItFree">
+        <div>The app is free to use, and it has no advertisements. There will be a possibility to donate, but don't feel obliged.</div>
       </div>
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-10" type="button" aria-expanded="true" data-headlessui-state="open" class="QA__button" data-test-id="qa-button-isMyDataSafe" aria-controls="headlessui-disclosure-panel-v-11"><span data-v-bcc04aab="">Is my data safe?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-10" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-isMyDataSafe" type="button" aria-controls="headlessui-disclosure-panel-v-11">
+      <!--v-if-->Is my data safe? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
-      <div data-v-bcc04aab="" id="headlessui-disclosure-panel-v-11" data-headlessui-state="open" class="QA__panel" data-test-id="qa-panel-isMyDataSafe">
-        <div data-v-bcc04aab="">The data is stored in your browser's local storage and is not shared with any third parties. You can at any time you wish reset the app using the button below.</div>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <div id="headlessui-disclosure-panel-v-11" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-isMyDataSafe">
+        <div>The data is stored in your browser's local storage and is not shared with any third parties. You can at any time you wish reset the app using the button below.</div>
       </div>
-    </transition-stub><button data-v-bcc04aab="" id="headlessui-disclosure-button-v-12" type="button" aria-expanded="true" data-headlessui-state="open" class="QA__button" data-test-id="qa-button-contact" aria-controls="headlessui-disclosure-panel-v-13"><span data-v-bcc04aab="">How to get in touch?</span><svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-contact" type="button" aria-controls="headlessui-disclosure-panel-v-13">
+      <!--v-if-->How to get in touch? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button>
-    <transition-stub data-v-bcc04aab="" enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
-      <div data-v-bcc04aab="" id="headlessui-disclosure-panel-v-13" data-headlessui-state="open" class="QA__panel" data-test-id="qa-panel-contact">
-        <div data-v-bcc04aab="">You can find the project page in <a data-v-bcc04aab="" href="https://github.com/ajuvonen/veggies/" target="_blank" noreferrer="" noopener="">GitHub</a>. The page has separate boards for reporting issues and engaging in other discussion. Thank you for your interest towards the project!</div>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <div id="headlessui-disclosure-panel-v-13" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-contact">
+        <div>You can find the project page in <a href="https://github.com/ajuvonen/veggies/" target="_blank" noreferrer="" noopener="">GitHub</a>. The page has separate boards for reporting issues and engaging in other discussion. Thank you for your interest towards the project!</div>
       </div>
     </transition-stub>
   </div>
