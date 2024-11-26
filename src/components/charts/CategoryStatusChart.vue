@@ -82,8 +82,6 @@ const chartOptions = computed(() => {
       },
       datalabels: {
         ...defaultOptions.plugins?.datalabels,
-        textShadowColor: COLORS.offWhite,
-        textShadowBlur: 10,
         formatter: (_, context: Context) =>
           CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
       },

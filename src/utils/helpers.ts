@@ -76,7 +76,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
                 size: 25,
               },
               textShadowColor: '#fff',
-              textShadowBlur: 3,
+              textShadowBlur: 5,
               formatter: (value, {dataset: {label}}: Context) =>
                 value ? CATEGORY_EMOJI[label as Category] : '',
             }
