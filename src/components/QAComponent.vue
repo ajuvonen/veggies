@@ -40,6 +40,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
               <a
                 v-if="keysWithLinks.includes(key)"
                 :href="$t(`qa.${key}.link.url`)"
+                class="text-link"
                 target="_blank"
                 noreferrer
                 noopener

@@ -14,6 +14,7 @@ import TagsComponent from '@/components/TagsComponent.vue';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
+import BlueskyLink from '@/components/BlueskyLink.vue';
 
 const {t, tm} = useI18n();
 
@@ -80,6 +81,7 @@ provide(KEYS.challenge, currentChallenge);
     icon="plus"
     @click="(veggie) => toggleVeggie(veggie)"
   />
+  <BlueskyLink />
   <ModalDialog v-model="dialogOpen" :title="$t('achievements.newAchievements')">
     <template #content>
       <ul class="log-view__achievement-container">

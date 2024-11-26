@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+  mdiButterflyOutline,
   mdiCalendarWeekOutline,
   mdiChartBar,
   mdiChartLine,
@@ -21,6 +22,7 @@ import {
 } from '@mdi/js';
 
 export type IconString =
+  | 'butterflyOutline'
   | 'calendarWeekOutline'
   | 'chart'
   | 'chartLine'
@@ -51,6 +53,7 @@ withDefaults(
 );
 
 const icons = {
+  butterflyOutline: mdiButterflyOutline,
   calendarWeekOutline: mdiCalendarWeekOutline,
   chart: mdiChartBar,
   chartLine: mdiChartLine,

@@ -55,11 +55,7 @@ const isHome = computed(() => route.name === 'home');
 }
 
 .nav__link {
-  @apply rounded-md leading-[1.2];
-  @apply fill-slate-50;
-  &:hover {
-    @apply text-slate-200 fill-slate-200;
-  }
+  @apply leading-[1.2];
 }
 
 .nav__link--log {
