@@ -56,9 +56,7 @@ const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks'
       <TabPanel as="template">
         <VeggieList :uniqueVeggies="uniqueVeggies" />
       </TabPanel>
-      <TabPanel as="template">
-        <AchievementList />
-      </TabPanel>
+      <TabPanel :as="AchievementList" />
     </TabPanels>
   </TabGroup>
 </template>
