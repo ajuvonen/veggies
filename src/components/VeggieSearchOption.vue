@@ -13,8 +13,8 @@ const dropdownOptions = inject(KEYS.dropdownOptions)!;
   <ComboboxOption v-slot="{active, selected}" as="template" :key="veggie" :value="veggie">
     <li
       :class="[dropdownOptions(active, selected), 'veggie-search__option']"
-      role="menuitem"
       :data-test-id="`veggie-search-option-${veggie}`"
+      role="menuitem"
     >
       <span>
         {{ translation || $t(`veggies.${veggie}`) }}
