@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-  mdiButterflyOutline,
   mdiCalendarWeekOutline,
   mdiChartBar,
   mdiChartLine,
@@ -20,9 +19,10 @@ import {
   mdiTrashCan,
   mdiTrophyOutline,
 } from '@mdi/js';
+import {siBluesky} from 'simple-icons';
 
 export type IconString =
-  | 'butterflyOutline'
+  | 'bluesky'
   | 'calendarWeekOutline'
   | 'chart'
   | 'chartLine'
@@ -53,7 +53,7 @@ withDefaults(
 );
 
 const icons = {
-  butterflyOutline: mdiButterflyOutline,
+  bluesky: siBluesky.path,
   calendarWeekOutline: mdiCalendarWeekOutline,
   chart: mdiChartBar,
   chartLine: mdiChartLine,

@@ -87,7 +87,7 @@
   },
   "categoryStatus": {
     "bottomLabel": "Kasvista",
-    "bottomLabelTotal": "Toimintoa",
+    "bottomLabelTotal": "Lisäystä",
     "centerLabel": "{0} {1} {2}",
     "entry": "{0} {1} ({2})",
     "topLabel": "Tällä Viikolla",
@@ -687,7 +687,7 @@
     "clickToAdd": "Lisää {0}",
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
-    "follow": "Seuraa palvelussa {0}",
+    "follow": "Seuraa Blueskyssä",
     "start": "Aloita"
   },
   "home": {
@@ -1029,7 +1029,7 @@
   },
   "views": {
     "home": "Etusivu",
-    "log": "Seuraa Edistymistäsi",
+    "log": "Viikkoseuranta",
     "settings": "Asetukset",
     "stats": "Tilastot"
   }

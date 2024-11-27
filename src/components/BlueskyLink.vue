@@ -7,8 +7,8 @@
     noreferrer
     noopener
   >
-    <IconComponent icon="butterflyOutline" />
-    {{ $t('general.follow', ['Bluesky']) }}
+    <IconComponent icon="bluesky" />
+    {{ $t('general.follow') }}
   </a>
 </template>
 <style lang="scss" scoped>

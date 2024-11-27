@@ -679,7 +679,7 @@
     "clickToAdd": "Add {0}",
     "clickToRemove": "Remove {0}",
     "close": "Close",
-    "follow": "Follow on {0}",
+    "follow": "Follow on Bluesky",
     "start": "Start"
   },
   "home": {
@@ -1021,7 +1021,7 @@
   },
   "views": {
     "home": "Home",
-    "log": "Track Progress",
+    "log": "Weekly Progress",
     "settings": "Settings",
     "stats": "Statistics"
   }
