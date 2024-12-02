@@ -10,6 +10,7 @@ import {
   COLORS,
   CATEGORY_EMOJI,
   ALL_VEGGIES,
+  GRAINS,
 } from '@/utils/constants';
 import {Category} from '@/utils/types';
 import {DateTime} from 'luxon';
@@ -25,8 +26,10 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
     return Category.Root;
   } else if (BEANS.includes(veggie)) {
     return Category.Bean;
+  } else if (GRAINS.includes(veggie)) {
+    return Category.Grain;
   }
-  return Category.Grain;
+  return undefined;
 });
 
 export const getChartOptions = <T extends keyof ChartTypeRegistry>(
