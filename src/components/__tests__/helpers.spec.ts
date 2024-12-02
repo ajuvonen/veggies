@@ -45,6 +45,7 @@ describe('helpers', () => {
     expect(getCategoryForVeggie('cucumber')).toBe(Category.Vegetable);
     expect(getCategoryForVeggie('fava bean')).toBe(Category.Bean);
     expect(getCategoryForVeggie('rye')).toBe(Category.Grain);
+    expect(getCategoryForVeggie('split pea')).toBe(undefined);
   });
 
   it('returns random veggie', () => {

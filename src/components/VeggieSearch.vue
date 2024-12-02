@@ -34,7 +34,7 @@ const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
   return ALL_VEGGIES.map<TranslatedListing>((veggie) => ({
     veggie,
-    category: getCategoryForVeggie(veggie),
+    category: getCategoryForVeggie(veggie) as Category,
     translation: t(`veggies.${veggie}`),
   })).sort((a, b) => collator.compare(a.translation, b.translation));
 });
