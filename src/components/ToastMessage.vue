@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {getRandomEmojis} from '@/utils/helpers';
-import {useElementHover, useTimeout, useFocus} from '@vueuse/core';
 import {ref, watchEffect} from 'vue';
+import {useElementHover, useTimeout, useFocus} from '@vueuse/core';
+import {getRandomEmojis} from '@/utils/helpers';
 
 defineProps<{
   text: string;
