@@ -27,7 +27,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
           {{ $t(`qa.${key}.title`) }}
           <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
         </DisclosureButton>
-        <transition
+        <Transition
           enter-active-class="transition duration-100 ease-out"
           enter-from-class="transform h-0 opacity-0"
           enter-to-class="transform h-full opacity-100"
@@ -48,7 +48,7 @@ const keysWithLinks = ['contact', 'studyDetails'];
               >
             </i18n-t>
           </DisclosurePanel>
-        </transition>
+        </Transition>
       </Disclosure>
     </div>
   </ContentElement>
