@@ -89,6 +89,7 @@ export const LEAFIES = [
   'bok choy',
   'cabbage',
   'chard',
+  'choy sum',
   'cilantro',
   'collard greens',
   'dandelion greens',
@@ -202,6 +203,7 @@ export const VEGETABLES = [
 
 export const BEANS = [
   'black bean',
+  'black lentil',
   'black-eyed pea',
   'brown lentil',
   'butter bean',
@@ -219,11 +221,12 @@ export const BEANS = [
   'pinto bean',
   'red bean',
   'red lentil',
+  'scarlet runner bean',
   'snow pea',
   'soybean',
-  'split pea',
   'white bean',
   'yardlong bean',
+  'yellow lentil',
 ];
 
 export const GRAINS = [

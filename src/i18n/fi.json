@@ -112,20 +112,34 @@
       "Mantelimaito on suosittu kasvipohjainen vaihtoehto lehmänmaidolle.",
       "30 gramman annos manteleita sisältää 37 % päivittäisestä E-vitamiinista."
     ],
-    "amaranth": ["Amarantti on gluteeniton vilja."],
+    "amaranth": [
+      "Amarantti on gluteeniton vilja.",
+      "Atsteekeille amarantti oli pyhä satokasvi.",
+      "Amarantin siemeniä voi paahtaa popcornin tapaan."
+    ],
     "apple": [
       "Keskikokoinen omena sisältää noin 14 % päivittäisestä C-vitamiinista.",
-      "Maailmassa viljellään yli 7500 omenalajiketta."
+      "Maailmassa viljellään yli 7500 omenalajiketta.",
+      "Omenoissa on noin 25% ilmaa, minkä vuoksi ne kelluvat vedessä."
+    ],
+    "apricot": [
+      "Apricots appear on the Armenian coat of arms, where it symbolizes good fortune.",
+      "Apricots were among the first fruits to go to space as part of astronaut meals."
     ],
     "artichoke": [
       "Latva-artisokat ovat yksi eniten antioksidantteja sisältävistä vihanneksista.",
       "Italia on maailman suurin artisokantuottaja."
     ],
-    "arugula": ["Rucola on hyvä A-, C- ja K-vitamiinien lähde."],
+    "arugula": [
+      "Rucola on hyvä A-, C- ja K-vitamiinien lähde.",
+      "Myös rucolan kukintoja ja siemeniä voidaan syödä.",
+      "Muinaiset roomalaiset pitivät rucolaa lemmenrohtona."
+    ],
     "asparagus": [
       "Parsassa on runsaasti folaattia, joka on tärkeää solujen toiminnalle ja kudosten kasvulle.",
       "Parsa sisältää antioksidantteja, kuten E- ja C-vitamiinia.",
-      "Parsan kasvattaminen siemenestä kestää kahdesta kolmeen vuotta."
+      "Parsan kasvattaminen siemenestä kestää kahdesta kolmeen vuotta.",
+      "Vihreän parsan lisäksi saatavilla on myös valkoinen ja violetti variantti."
     ],
     "avocado": [
       "Yksi avokado sisältää noin 22 g terveellisiä rasvoja.",
@@ -135,7 +149,8 @@
     ],
     "bamboo shoots": [
       "Bambusta tehdään rakennustelineitä Hongkongissa.",
-      "Pandojen on syötävä 12-38 kg bambua päivittäin."
+      "Pandojen on syötävä 12-38 kg bambua päivittäin.",
+      "Bambu on yksi nopeimmin kasvavista kasveista."
     ],
     "banana": [
       "Banaanit ovat kasvitieteellisessä mielessä marjoja.",
@@ -145,23 +160,49 @@
     ],
     "barley": [
       "Ohraa on viljelty yli 10 000 vuotta, ja se on yksi ensimmäisistä ihmisten viljelemistä viljoista.",
-      "Ohraa käytetään mallasjuomien, kuten oluen ja viskin, valmistuksessa."
+      "Ohraa käytetään mallasjuomien, kuten oluen ja viskin, valmistuksessa.",
+      "Ohra menestyy myös ankarammissa, kylmissä ilmastoissa."
     ],
-    "basil": ["30 gramman annos tuoretta basilikaa sisältää 90 % päivittäisestä K-vitamiinista."],
+    "basil": [
+      "30 gramman annos tuoretta basilikaa sisältää 90 % päivittäisestä K-vitamiinista.",
+      "Kokeile thai- tai purppurabasilikaa saadaksesi uutta twistiä ruoanlaittoon.",
+      "Muinaisessa Egyptissä basilikaa käytettiin balsamointirituaaleissa."
+    ],
     "beet": [
       "Yksi punajuuri sisältää noin 20 % päivittäisestä folaatista, joka on tärkeää sydämen ja aivojen terveydelle.",
-      "Punajuuret voivat parantaa urheilusuoritusta lisäämällä hapen hyödyntämistä liikunnan aikana."
+      "Punajuuret voivat parantaa urheilusuoritusta lisäämällä hapen hyödyntämistä liikunnan aikana.",
+      "Ei hävikkiä! Punajuuri on kokonaan syötävä vihannes.",
+      "Kirkkaan väristä punajuurta on käytetty tekstiilien ja ruokien väriaineena."
     ],
     "bell pepper": [
       "Yksi paprika sisältää enemmän C-vitamiinia kuin appelsiini.",
-      "Punaiset paprikat ovat vain kypsiä vihreitä paprikoita, mikä tekee niistä makeampia."
+      "Punaiset paprikat ovat vain kypsiä vihreitä paprikoita, mikä tekee niistä makeampia.",
+      "Toisin kuin chili, paprika ei sisällä lainkaan kapsaisiinia. Se ei siis ole tulinen."
+    ],
+    "bitter melon": [
+      "Joissain Aasian kulttuureissa karvaskurkun uskottiin karkottavan pahoja henkiä maullaan.",
+      "Karvaskurkkua on käytetty perinteisessä lääketieteessä vuosisatojen ajan.",
+      "Karvaskurkku voi auttaa laskemaan verensokeria, koska se sisältää insuliinin tavoin vaikuttavia yhdisteitä."
+    ],
+    "black bean": [
+      "Mustapapuja on viljelty Amerikassa yli 7000 vuoden ajan.",
+      "Mustapapu sisältää paitsi rautaa, magnesiumia ja folaattia, myös proteiinia ja kuitua."
+    ],
+    "black lentil": [
+      "Mustia linssejä kutsutaan myös beluga-linsseiksi, ja ne muistuttavatkin ulkomuodoltaan kaviaaria.",
+      "Muiden linssien tavoin mustat linssit parantavat maaperän laatua kasvaessaan. Ne pärjäävät myös vähällä kastelulla."
+    ],
+    "black radish": [
+      "Perinteisessä lääketieteessä mausteista retikkaa käytetään usein flunssan oireisiin.",
+      "Retikka on tavallisesti pienempää punaista retiisiä mausteisempi."
     ],
     "blood orange": [
       "Yksi veriappelsiini sisältää noin 78 % päivittäisestä C-vitamiinista.",
       "Veriappelsiinit saavat punaisen värinsä antosyaaneista, jotka ovat harvinaisia sitrushedelmissä."
     ],
     "boysenberry": [
-      "Rudolph Boysen kehitti boysenmarjan 1920-luvulla risteyttämällä kolme eri marjaa."
+      "Rudolph Boysen kehitti boysenmarjan 1920-luvulla risteyttämällä kolme eri marjaa.",
+      "Boysenmarjojen kasvukausi on lyhyt, mutta niitä on vaikea kuljettaa kokonaisina."
     ],
     "brazil nut": [
       "30 gramman annos brasilianpähkinöitä sisältää yli 700 % päivittäisestä seleenistä.",
@@ -172,7 +213,9 @@
       "Parsakaalia pidetään superruokana korkeiden vitamiini- ja antioksidanttipitoisuuksiensa vuoksi."
     ],
     "broccolini": [
-      "Broccolini on hybridi, joka on luotu risteyttämällä parsakaali ja kiinalainen parsakaali."
+      "Broccolini on hybridi, joka on luotu risteyttämällä parsakaali ja kiinalainen parsakaali.",
+      "Broccolini on lehtineen ja varsineen kokonaan syötävä.",
+      "Broccolini sopii hyvin yhteen sitruunan, valkosipulin, soijakastikkeen tai seesamiöljyn kanssa."
     ],
     "brown lentil": [
       "Ruskeita linssejä on käytetty jo antiikin Kreikassa ja Egyptissä.",
@@ -188,7 +231,9 @@
       "Tattari on keskeinen ainesosa monissa perinteisissä ruoissa, kuten soba-nuudeleissa ja blineissä."
     ],
     "bulgur": [
-      "Bulgur valmistetaan esikypsytetystä rikotusta vehnästä, mikä tekee siitä muita täysjyväviljoja helpomman kypsentää."
+      "Bulgur valmistetaan esikypsytetystä rikotusta vehnästä, mikä tekee siitä muita täysjyväviljoja helpomman kypsentää.",
+      "Bulguria käytetään esimerkiksi salaateissa, pilahvissa, keitoissa ja kulhoruokien pohjana.",
+      "Bulgurin käytöstä on löytynyt todisteita jo muinaisten heettiläisten ajoilta."
     ],
     "cabbage": [
       "Kaalia on viljelty yli 4000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
@@ -252,7 +297,12 @@
     "chili pepper": [
       "Chilit tunnetaan kapsaisiinista, joka antaa niille niiden ominaisen tulisuuden.",
       "Chili on peräisin Meksikosta, josta se on levinnyt osaksi keittiöitä maailmanlaajuisesti.",
-      "Tulisin chililajike on Carolina Reaper, jonka keskimääräinen tulisuus on noin 1,6 miljoonaa Scoville-yksikköä."
+      "Tulisin chililajike on Pepper X, jonka tulisuus on yli 3 miljoonaa Scoville-yksikköä."
+    ],
+    "choy sum": [
+      "Sellerikaalin keltaiset kukat ovat myös syötäviä.",
+      "Sellerikaalia käytetään paljon kiinalaisessa, vietnamilaisessa ja thaimaalaisessa keittiössä.",
+      "Sellerikaalin sato on korjattavissa jopa 30:ssä päivässä."
     ],
     "cilantro": [
       "Jotkut kokevat korianterin maun saippuaiseksi geneettisen, makuaistimukseen vaikuttavan ominaisuutensa vuoksi."
@@ -281,7 +331,7 @@
       "Couscous, joka valmistetaan mannasuurimoista, on yleinen Pohjois-Afrikan keittiössä."
     ],
     "cranberry bean": [
-      "30 gramman annos karpalopapuja sisältää noin 5 g proteiinia ja 5 g kuitua."
+      "30 gramman annos borlottipapuja sisältää noin 5 g proteiinia ja 5 g kuitua."
     ],
     "cranberry": [
       "30 gramman annos karpaloita sisältää noin 14 kaloria ja hyvän määrän C-vitamiinia.",
@@ -365,7 +415,8 @@
       "Hunajamelonin uskotaan olevan peräisin Lähi-idästä, ja sitä viljeltiin muinaisessa Egyptissä."
     ],
     "horseradish": [
-      "Piparjuuren terävä maku johtuu glukosinolaateista, jotka vapautuvat juuren raastamisen yhteydessä."
+      "Piparjuuren terävä maku johtuu yhdisteistä, jotka vapautuvat juuren raastamisen yhteydessä.",
+      "Piparjuuresta on vaikea päästä eroon istuttamisen jälkeen."
     ],
     "iceberg lettuce": [
       "Jäävuorisalaatti on yksi suosituimmista salaattivihanneksista Yhdysvalloissa.",
@@ -384,7 +435,7 @@
       "Maa-artisokka on kotoisin Pohjois-Amerikasta, ja alkuperäiskansat viljelivät sitä.",
       "Nimestään huolimatta maa-artisokka ei ole sukua artisokalle."
     ],
-    "jicama": ["pikkujamssipavun juuret ovat syötäviä, mutta lehdet ovat myrkyllisiä."],
+    "jicama": ["Pikkujamssipavun juuret ovat syötäviä, mutta lehdet ovat myrkyllisiä."],
     "kale": [
       "Lehtikaali sisältää runsaasti K-, A- ja C-vitamiineja.",
       "Lehtikaalia on viljelty yli 2000 vuotta ja se oli yleinen vihannes Euroopassa keskiajalla."
@@ -599,9 +650,6 @@
       "Speltti on muinainen vilja, joka on tekemässä paluuta terveellisenä vaihtoehtona vehnälle."
     ],
     "spinach": ["Pinaatti sisältää A- ja K-vitamiineja sekä rautaa."],
-    "split pea": [
-      "Halkaistuja herneitä tavataan vihreinä ja keltaisina lajikkeina ja niitä käytetään monissa lohturuoissa."
-    ],
     "sprouts": [
       "Idut ovat nuoria kasveja, jotka korjataan heti kasvun alettua, ja syödään usein raakana.",
       "Ituja, kuten alfalfaa tai pavunituja, lisätään usein salaatteihin ja voileipiin tuomaan lisärapeutta."
@@ -674,7 +722,19 @@
       "Jamssi sisältää runsaasti kuitua, C-vitamiinia ja kaliumia."
     ],
     "yardlong bean": ["Parsapapu voi kasvaa jopa metrin pituiseksi."],
-    "yellow beet": ["Keltajuuret ovat makeampia ja miedompia kuin punajuuret."],
+    "yellow beet": [
+      "Keltajuuret ovat makeampia ja miedompia kuin punajuuret.",
+      "Toisin kuin punajuuret, keltajuuret eivät sotke koko keittiötä."
+    ],
+    "yellow lentil": [
+      "Nopeasti kypsyvistä keltaisista linsseistä saa hyvän arkipäivän aterian.",
+      "Keltaiset linssit ovat joitakin muita linssejä vatsaystävällisempiä."
+    ],
+    "yellowfoot mushroom": [
+      "Suppilovahvero viihtyy kosteassa, sammaleisessa metsässä.",
+      "Suppilovahveroita voidaan poimia vielä ensilumen pudottuakin.",
+      "Suppilovahveroista voi tehdä herkullista keittoa, risottoa tai kastikkeita."
+    ],
     "zucchini": [
       "Kesäkurpitsaa voidaan viipaloida nuudeleiksi, jolloin se tarjoaa vähähiilihydraattisen vaihtoehdon pastalle.",
       "Kurpitsat ovat kotoisin Amerikasta, mutta kesäkurpitsan kansainvälinen nimi \"zucchini\" tulee Italiasta."
@@ -706,7 +766,7 @@
   "qa": {
     "appPurpose": {
       "title": "Mitä sovelluksella tehdään",
-      "text": "Eat Your Veggies on ilmainen sovellus kasviperäisten ruoka-aineiden seuraamiseen ruokavaliossasi. Tutkimustulosten mukaan 30:n erilaisen kasviksen kuluttaminen viikoittain johtaa lukuisiin terveyshyötyihin vähemmän monipuoliseen ruokavalioon verrattuna. Avainasemassa ei siis tutkimuksen mukaan niinkään ole kulutettu määrä kuin monipuolisuus."
+      "text": "Eat Your Veggies on ilmainen sovellus kasviperäisten ruoka-aineiden seuraamiseen ruokavaliossasi. Tutkimustulosten mukaan 30:n erilaisen kasviksen kuluttaminen viikoittain johtaa lukuisiin terveyshyötyihin vähemmän monipuoliseen ruokavalioon verrattuna. Avainasemassa ei siis tutkimuksen mukaan ole vain kulutettu määrä, vaan myös monipuolisuus."
     },
     "categories": {
       "title": "Mutta mansikkahan on...",
@@ -811,6 +871,7 @@
     "bell pepper": "paprika",
     "bitter melon": "karvaskurkku",
     "black bean": "mustapapu",
+    "black lentil": "musta linssi",
     "black radish": "retikka",
     "black salsify": "mustajuuri",
     "black trumpet mushroom": "mustatorvisieni",
@@ -851,6 +912,7 @@
     "chickpea": "kikherne",
     "chili pepper": "chilipaprika",
     "chives": "ruohosipuli",
+    "choy sum": "sellerikaali (choy sum)",
     "cilantro": "korianteri",
     "clementine": "klementiini",
     "cloudberry": "hilla (lakka)",
@@ -858,7 +920,7 @@
     "collard greens": "rehuydinkaali",
     "corn": "maissi",
     "couscous": "kuskus (couscous)",
-    "cranberry bean": "karpalopapu",
+    "cranberry bean": "borlottipapu",
     "cranberry": "karpalo",
     "cucumber": "kurkku",
     "daikon": "daikon",
@@ -917,7 +979,7 @@
     "mangosteen": "mangostani",
     "manioc": "maniokki",
     "matsutake": "tuoksuvalmuska (matsutake)",
-    "millet": "millet",
+    "millet": "hirssi",
     "mint": "minttu",
     "mizuna": "japaninkaali (mizuna)",
     "mung bean": "mungpapu",
@@ -979,6 +1041,7 @@
     "safflower seed": "saflorinsiemen",
     "savoy cabbage": "savoijinkaali",
     "scallion": "kevätsipuli",
+    "scarlet runner bean": "ruusupapu",
     "sesame seed": "seesaminsiemen",
     "shallot": "salottisipuli",
     "shiitake": "shiitake",
@@ -989,7 +1052,6 @@
     "spaghetti squash": "spagettikurpitsa",
     "spelt": "speltti",
     "spinach": "pinaatti",
-    "split pea": "halkaistu herne",
     "sprouts": "idut",
     "starfruit": "karambola (tähtihedelmä)",
     "strawberry": "mansikka",
@@ -1015,6 +1077,7 @@
     "yam": "jamssi",
     "yardlong bean": "parsapapu",
     "yellow beet": "keltajuuri",
+    "yellow lentil": "keltainen linssi",
     "yellowfoot mushroom": "suppilovahvero",
     "zucchini": "kesäkurpitsa"
   },
