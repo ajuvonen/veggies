@@ -112,20 +112,34 @@
       "Almond milk is a popular plant-based alternative to dairy milk.",
       "A 30-gram serving of almonds provides 37% of the daily recommended vitamin E."
     ],
-    "amaranth": ["Amaranth is a gluten-free grain."],
+    "amaranth": [
+      "Amaranth is a gluten-free grain.",
+      "Aztecs revered amaranth as a sacred crop.",
+      "Amaranth seeds can be popped like popcorn."
+    ],
     "apple": [
       "A medium apple provides about 14% of the daily recommended vitamin C.",
-      "There are over 7,500 apple varieties grown around the world."
+      "There are over 7,500 apple varieties grown around the world.",
+      "Apples have about 25% air in them, which is why they float in water."
+    ],
+    "apricot": [
+      "Hyvää onnea symboloiva aprikoosi esiintyy Armenian vaakunassa.",
+      "Aprikoosit olivat ensimmäisten avaruuteen päässeiden hedelmien joukossa, osana astronauttien ruoka-annoksia."
     ],
     "artichoke": [
       "Artichokes are one of the richest vegetables in antioxidants.",
       "Italy is the largest producer of artichokes in the world."
     ],
-    "arugula": ["Arugula is a source of vitamins A, C, and K."],
+    "arugula": [
+      "Arugula is a source of vitamins A, C, and K.",
+      "Even the flowers and seeds of arugula can be eaten.",
+      "Ancient Romans considered arugula an aphrodisiac."
+    ],
     "asparagus": [
       "Asparagus is packed with folate, important for cell function and tissue growth.",
       "Asparagus contains antioxidants like vitamins E and C.",
-      "It takes two to three years to grow asparagus from a seed."
+      "It takes two to three years to grow asparagus from a seed.",
+      "In addition to green asparagus, there are also white and purple variants."
     ],
     "avocado": [
       "One avocado contains about 22 grams of healthy fats.",
@@ -135,7 +149,8 @@
     ],
     "bamboo shoots": [
       "Bamboo is used to build scaffolding in Hong Kong.",
-      "Pandas must eat 12-38kg of bamboo every day."
+      "Pandas must eat 12-38kg of bamboo every day.",
+      "Bamboo is one of the fastest growing plants."
     ],
     "banana": [
       "Bananas are botanically classified as berries.",
@@ -145,23 +160,49 @@
     ],
     "barley": [
       "Barley has been cultivated for over 10,000 years, being one of the first grains farmed by humans.",
-      "Barley is used to make malt for beer and whiskey production."
+      "Barley is used to make malt for beer and whiskey production.",
+      "Barley can also thrive in harsh, cold climates."
     ],
-    "basil": ["A 30-gram portion of fresh basil provides 90% of the daily recommended vitamin K."],
+    "basil": [
+      "A 30-gram portion of fresh basil provides 90% of the daily recommended vitamin K.",
+      "For an added twist, try the thai or purple basil varieties.",
+      "Basil was used in ancient Egyptian embalming rituals."
+    ],
     "beet": [
       "A single beet provides about 20% of the daily recommended folate, important for heart and brain health.",
-      "Beets might improve athletic performance by increasing oxygen use during exercise."
+      "Beets might improve athletic performance by increasing oxygen use during exercise.",
+      "Zero waste! Beets are edible throughout.",
+      "The vibrant color of beets have been used in textile and food dyes."
     ],
     "bell pepper": [
       "One bell pepper contains more vitamin C than an orange.",
-      "Red bell peppers are simply ripened green peppers, which is why they are sweeter."
+      "Red bell peppers are simply ripened green peppers, which is why they are sweeter.",
+      "Unlike chili, bell pepper contains no capsaicin. It's therefore not spicy."
+    ],
+    "bitter melon": [
+      "Bitter melon was believed to ward off evil spirits with its bitterness in some Asian cultures.",
+      "Bitter melon has been used in traditional medicine for centuries.",
+      "Bitter melon can help lower blood sugar, as it contains compounds that mimic the effects of insulin."
+    ],
+    "black bean": [
+      "Black beans have been cultivated in the Americas for over 7000 years.",
+      "In addition to providing iron, magnesium and pholate, black beans are rich in protein and fiber."
+    ],
+    "black lentil": [
+      "Black lentils are also called beluga lentils, and they indeed resemble caviar in appearance.",
+      "Like other lentils, black lentils improve soil quality as they grow. They're also water-efficient."
+    ],
+    "black radish": [
+      "Spicy black radish is often used in flu remedies in traditional medicine.",
+      "Black radish is spicier than its smaller red cousin."
     ],
     "blood orange": [
       "One blood orange provides around 78% of the daily vitamin C requirement.",
       "Blood oranges get their red color from anthocyanins, which are unusual in citrus fruits."
     ],
     "boysenberry": [
-      "Boysenberries were created in the 1920s by Rudolph Boysen, who crossed three different berries."
+      "Boysenberries were created in the 1920s by Rudolph Boysen, who crossed three different berries.",
+      "The growth season of boysenberry is short, but they are hard to transport intact whole."
     ],
     "brazil nut": [
       "A 30-gram serving of Brazil nuts provides more than 700% of the daily selenium requirement.",
@@ -172,7 +213,9 @@
       "Broccoli is often referred to as a superfood due to its high levels of vitamins and antioxidants."
     ],
     "broccolini": [
-      "Broccolini is a hybrid vegetable created by crossing broccoli and Chinese broccoli."
+      "Broccolini is a hybrid vegetable created by crossing broccoli and Chinese broccoli.",
+      "Broccolini's entire plant is tender and edible, including the thin stems and leaves.",
+      "Broccolini pairs beautifully with lemon, garlic, soy sauce, or sesame oil."
     ],
     "brown lentil": [
       "Brown lentils have been used since ancient Greece and Egypt.",
@@ -188,7 +231,9 @@
       "Buckwheat is a key ingredient in many traditional dishes, such as soba noodles and blinis."
     ],
     "bulgur": [
-      "Bulgur is made from cracked parboiled wheat, making it easy to cook compared to other whole grains."
+      "Bulgur is made from cracked parboiled wheat, making it easy to cook compared to other whole grains.",
+      "Bulgur is used for example in salads, pilafs, soups, and as grain bowl base.",
+      "The use of bulgur can be traced back as far as the Hittite empire."
     ],
     "cabbage": [
       "Cabbage has been cultivated for over 4,000 years and was a staple food in ancient Rome and Greece.",
@@ -252,7 +297,12 @@
     "chili pepper": [
       "Chilis are known for their capsaicin content, which gives them their characteristic heat.",
       "Chili originated in Mexico and has become a fundamental part of cuisines worldwide.",
-      "The spiciest chili variety is the Carolina Reaper, averaging at 1.6 million scoville units."
+      "The spiciest chili variety is the Pepper X, with heat level of over 3 million scoville units."
+    ],
+    "choy sum": [
+      "The yellow flowers of choy sum are also edible.",
+      "Choy sum is widely used in Chinese, Vietnamese, and Thai cuisines.",
+      "Choy sum is ready for harvest in as little as 30 days."
     ],
     "cilantro": [
       "Some find cilantro's flavor soapy due to a genetic trait affecting taste perception."
@@ -361,7 +411,8 @@
       "Honeydew melons are believed to have originated in the Middle East and were cultivated in ancient Egypt."
     ],
     "horseradish": [
-      "The sharp taste of horseradish comes from glucosinolates, which are released when the root is grated."
+      "The sharp taste of horseradish comes from compounds which are released when the root is grated.",
+      "Once planted, horseradish is hard to get rid of."
     ],
     "iceberg lettuce": [
       "Iceberg lettuce is one of the most popular salad greens in the U.S.",
@@ -589,9 +640,6 @@
       "Spelt is an ancient grain that's making a comeback as a healthy alternative to wheat."
     ],
     "spinach": ["Spinach provides vitamins A and K, as well as iron."],
-    "split pea": [
-      "Split peas come in green and yellow varieties and are a staple in many comfort food dishes."
-    ],
     "sprouts": [
       "Sprouts are young plants harvested just after they begin to grow, often eaten raw.",
       "Sprouts, like alfalfa or bean sprouts, are commonly added to salads and sandwiches for extra crunch."
@@ -666,7 +714,19 @@
       "Yams are rich in fiber, vitamin C, and potassium."
     ],
     "yardlong bean": ["Yardlong beans can grow up to a meter in length."],
-    "yellow beet": ["Yellow beets are sweeter and milder than their red counterparts."],
+    "yellow beet": [
+      "Yellow beets are sweeter and milder than their red counterparts.",
+      "Unlike beetroots, yellow beets don't create a mess in the kitchen."
+    ],
+    "yellow lentil": [
+      "The quickly-cooking yellow lentils make an easy weeknight meal.",
+      "Yellow lentils are easier on the stomach than some other lentils."
+    ],
+    "yellowfoot mushroom": [
+      "Yellowfoot mushrooms thrive in mossy, damp forests.",
+      "Yellowfoot mushrooms can be foraged even after the first snow has fallen.",
+      "Yellowfoot mushrooms make delicious soup, risotto, or sauces."
+    ],
     "zucchini": [
       "Zucchini can be spiralized into noodles, offering a low-carb alternative to pasta.",
       "Squashes come from the Americas, but the name \"zucchini\" comes from Italy."
@@ -698,7 +758,7 @@
   "qa": {
     "appPurpose": {
       "title": "What's this app for?",
-      "text": "Eat Your Veggies is a free app for tracking plant-based ingredients on weekly basis in your diet. According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not as much in the amounts you consume, but in variation."
+      "text": "Eat Your Veggies is a free app for tracking plant-based ingredients on weekly basis in your diet. According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not just the amounts you consume, but also variation."
     },
     "categories": {
       "title": "But strawberry is a...",
@@ -803,6 +863,7 @@
     "bell pepper": "bell pepper",
     "bitter melon": "bitter melon",
     "black bean": "black bean",
+    "black lentil": "black lentil",
     "black radish": "black radish",
     "black salsify": "black salsify",
     "black trumpet mushroom": "black trumpet mushroom",
@@ -843,6 +904,7 @@
     "chickpea": "chickpea",
     "chili pepper": "chili pepper",
     "chives": "chives",
+    "choy sum": "choy sum",
     "cilantro": "cilantro",
     "clementine": "clementine",
     "cloudberry": "cloudberry",
@@ -971,6 +1033,7 @@
     "safflower seed": "safflower seed",
     "savoy cabbage": "savoy cabbage",
     "scallion": "scallion",
+    "scarlet runner bean": "scarlet runner bean",
     "sesame seed": "sesame seed",
     "shallot": "shallot",
     "shiitake": "shiitake",
@@ -981,7 +1044,6 @@
     "spaghetti squash": "spaghetti squash",
     "spelt": "spelt",
     "spinach": "spinach",
-    "split pea": "split pea",
     "sprouts": "sprouts",
     "starfruit": "starfruit",
     "strawberry": "strawberry",
@@ -1007,6 +1069,7 @@
     "yam": "yam",
     "yardlong bean": "yardlong bean",
     "yellow beet": "yellow beet",
+    "yellow lentil": "yellow lentil",
     "yellowfoot mushroom": "yellowfoot mushroom",
     "zucchini": "zucchini"
   },
