@@ -10,7 +10,7 @@ defineProps<{
 const emit = defineEmits(['close']);
 
 const toastMessage = ref<HTMLDivElement | null>(null);
-const toastTimeout = import.meta.env.MODE === 'staging' ? 100 : 5500;
+const toastTimeout = import.meta.env.MODE === 'ci' ? 100 : 5500;
 const {start, stop} = useTimeout(toastTimeout, {
   callback: () => emit('close'),
   controls: true,
