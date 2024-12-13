@@ -113,19 +113,19 @@ exports[`AchievementList > renders 1`] = `
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">😺</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 times</div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 samples</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="50 repeat uses of same veggie" aria-label="50 repeat uses of same veggie" data-test-id="badge-favorite-2" class="badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">😽</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">50 times</div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">50 samples</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="100 repeat uses of same veggie" aria-label="100 repeat uses of same veggie" data-test-id="badge-favorite-3" class="badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">😻</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">100 times</div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">100 samples</div>
       </div>
     </div>
   </div>
@@ -291,19 +291,19 @@ exports[`AchievementList > renders with badges enabled 1`] = `
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">😺</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 times</div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 samples</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="50 repeat uses of same veggie" aria-label="50 repeat uses of same veggie" data-test-id="badge-favorite-2" class="badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">😽</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">50 times</div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">50 samples</div>
       </div>
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="100 repeat uses of same veggie" aria-label="100 repeat uses of same veggie" data-test-id="badge-favorite-3" class="badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">😻</div>
         </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">100 times</div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">100 samples</div>
       </div>
     </div>
   </div>
