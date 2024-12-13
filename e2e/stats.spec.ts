@@ -7,10 +7,6 @@ test("shows current week's veggies", async ({page}) => {
   await page.getByText(/^apple$/).click();
   await page.getByText('Apricot').click();
   await page.getByText('Avocado').click();
-  const elements = await page.getByTestId('toast-message').all();
-  for (const element of elements) {
-    await element.click();
-  }
   await page.getByTestId('navbar-link-stats').click();
   await expect(page.getByTestId('tag-apple')).toBeVisible();
   await expect(page.getByTestId('tag-apricot')).toBeVisible();
