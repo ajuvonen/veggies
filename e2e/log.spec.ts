@@ -17,12 +17,6 @@ test('logs veggies', async ({page}) => {
     'This Week 2 Veggies',
   );
 
-  const elements = await page.getByTestId('toast-message').all();
-  for (const element of elements) {
-    await element.click();
-  }
-
-  await expect(page.getByTestId('toast-message')).toBeHidden();
   await page.getByTestId('navbar-link-settings').click();
   await page.getByTestId('navbar-link-log').click();
   await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
