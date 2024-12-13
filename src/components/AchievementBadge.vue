@@ -64,20 +64,6 @@ const achievementProps: AchievementProps = {
       emoji: '🦅',
     },
   },
-  hotStreak: {
-    [AchievementLevel.Bronze]: {
-      textProps: [5],
-      emoji: '🌶️',
-    },
-    [AchievementLevel.Silver]: {
-      textProps: [10],
-      emoji: '🔥',
-    },
-    [AchievementLevel.Gold]: {
-      textProps: [20],
-      emoji: '🌋',
-    },
-  },
   experimenterBean: {
     [AchievementLevel.Gold]: {
       textProps: [15],
@@ -112,6 +98,34 @@ const achievementProps: AchievementProps = {
     [AchievementLevel.Gold]: {
       textProps: [15],
       emoji: CATEGORY_EMOJI.Vegetable,
+    },
+  },
+  favorite: {
+    [AchievementLevel.Bronze]: {
+      textProps: [20],
+      emoji: '😺',
+    },
+    [AchievementLevel.Silver]: {
+      textProps: [50],
+      emoji: '😽',
+    },
+    [AchievementLevel.Gold]: {
+      textProps: [100],
+      emoji: '😻',
+    },
+  },
+  hotStreak: {
+    [AchievementLevel.Bronze]: {
+      textProps: [5],
+      emoji: '🌶️',
+    },
+    [AchievementLevel.Silver]: {
+      textProps: [10],
+      emoji: '🔥',
+    },
+    [AchievementLevel.Gold]: {
+      textProps: [20],
+      emoji: '🌋',
     },
   },
   thirtyVeggies: {

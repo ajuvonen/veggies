@@ -50,12 +50,13 @@ export type Achievements = {
   challengeAccepted: AchievementLevel;
   committed: AchievementLevel;
   completionist: AchievementLevel;
-  hotStreak: AchievementLevel;
   experimenterBean: AchievementLevel;
   experimenterFruit: AchievementLevel;
   experimenterGrain: AchievementLevel;
   experimenterLeafy: AchievementLevel;
   experimenterRoot: AchievementLevel;
   experimenterVegetable: AchievementLevel;
+  favorite: AchievementLevel;
+  hotStreak: AchievementLevel;
   thirtyVeggies: AchievementLevel;
 };

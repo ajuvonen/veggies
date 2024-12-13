@@ -99,6 +99,25 @@ const {achievements} = storeToRefs(useAppStateStore());
         />
       </div>
     </ContentElement>
+    <ContentElement :title="$t('achievements.favorite.title')">
+      <div class="achievement-list__badge-container">
+        <AchievementBadge
+          :active="achievements.favorite >= AchievementLevel.Bronze"
+          :level="AchievementLevel.Bronze"
+          achievement="favorite"
+        />
+        <AchievementBadge
+          :active="achievements.favorite >= AchievementLevel.Silver"
+          :level="AchievementLevel.Silver"
+          achievement="favorite"
+        />
+        <AchievementBadge
+          :active="achievements.favorite >= AchievementLevel.Gold"
+          :level="AchievementLevel.Gold"
+          achievement="favorite"
+        />
+      </div>
+    </ContentElement>
     <ContentElement :title="$t('achievements.experimenterFruit.title')">
       <div class="achievement-list__badge-container">
         <AchievementBadge

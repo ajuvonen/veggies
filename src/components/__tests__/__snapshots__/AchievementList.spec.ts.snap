@@ -107,6 +107,29 @@ exports[`AchievementList > renders 1`] = `
     </div>
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
+    <h2 class="label-like">Playing Favorites</h2>
+    <div data-v-1c120264="" class="achievement-list__badge-container">
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 repeat uses of same veggie" aria-label="20 repeat uses of same veggie" data-test-id="badge-favorite-1" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">😺</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 times</div>
+      </div>
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="50 repeat uses of same veggie" aria-label="50 repeat uses of same veggie" data-test-id="badge-favorite-2" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">😽</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">50 times</div>
+      </div>
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="100 repeat uses of same veggie" aria-label="100 repeat uses of same veggie" data-test-id="badge-favorite-3" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">😻</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">100 times</div>
+      </div>
+    </div>
+  </div>
+  <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">The Experimenter</h2>
     <div data-v-1c120264="" class="achievement-list__badge-container">
       <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="15 unique fruits and berries" aria-label="15 unique fruits and berries" data-test-id="badge-experimenterFruit-3" class="badge" role="img">
@@ -258,6 +281,29 @@ exports[`AchievementList > renders with badges enabled 1`] = `
           <div data-v-06381b3c="" class="badge__emoji">🌋</div>
         </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 Weeks</div>
+      </div>
+    </div>
+  </div>
+  <div data-v-1c120264="" class="flex-container flex-col">
+    <h2 class="label-like">Playing Favorites</h2>
+    <div data-v-1c120264="" class="achievement-list__badge-container">
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="20 repeat uses of same veggie" aria-label="20 repeat uses of same veggie" data-test-id="badge-favorite-1" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">😺</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 times</div>
+      </div>
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="50 repeat uses of same veggie" aria-label="50 repeat uses of same veggie" data-test-id="badge-favorite-2" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">😽</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">50 times</div>
+      </div>
+      <div data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" title="100 repeat uses of same veggie" aria-label="100 repeat uses of same veggie" data-test-id="badge-favorite-3" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">😻</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">100 times</div>
       </div>
     </div>
   </div>
