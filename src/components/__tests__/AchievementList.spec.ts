@@ -16,7 +16,7 @@ describe('AchievementList', () => {
   it('renders', () => {
     const wrapper = mount(AchievementList);
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(19);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(22);
   });
 
   it('renders with badges enabled', () => {
@@ -36,6 +36,6 @@ describe('AchievementList', () => {
 
     const wrapper = mount(AchievementList);
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(10);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(13);
   });
 });

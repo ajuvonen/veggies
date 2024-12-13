@@ -56,9 +56,17 @@
     },
     "experimenterVegetable": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista vihannesta",
+      "ariaLabel": "{0} erilaista kasvista",
       "badgeText": "Vihannekset",
-      "3": "Olet kokeillut 15:tä erilaista vihannesta ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista kasvista ansaiten tämän palkinnon!"
+    },
+    "favorite": {
+      "title": "Oma suosikki",
+      "ariaLabel": "Sama kasvis {0} kertaa",
+      "badgeText": "{0} kertaa",
+      "1": "Olet kokeillut samaa kasvista 20 kertaa ja ansainnut pronssisen palkinnon!",
+      "2": "Olet kokeillut samaa kasvista 50 kertaa ja ansainnut hopeisen palkinnon!",
+      "3": "Olet kokeillut samaa kasvista 100 kertaa ja ansainnut kultaisen palkinnon!"
     },
     "hotStreak": {
       "title": "Putki päällä",

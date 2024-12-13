@@ -12,6 +12,7 @@ type AdvanceEvent = {
   completedChallenges: number;
   hotStreakLength: number;
   totalWeeks: number;
+  maxAmount: number;
 };
 
 type ResetEvent = {
@@ -31,14 +32,18 @@ const guards = {
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
       event.uniqueVeggies.length >= threshold,
-  hotStreak:
-    (threshold: number) =>
-    ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
-      event.hotStreakLength >= threshold,
   experimenter:
     (targetGroup: string[]) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
       intersection(event.uniqueVeggies, targetGroup).length >= 15,
+  favorite:
+    (threshold: number) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
+      event.maxAmount >= threshold,
+  hotStreak:
+    (threshold: number) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
+      event.hotStreakLength >= threshold,
   thirtyVeggies:
     (threshold: number, rising: boolean) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
@@ -200,52 +205,6 @@ export function useAchievements() {
             '3': {},
           },
         },
-        hotStreak: {
-          initial: '0',
-          states: {
-            '0': {
-              on: {
-                ADVANCE: [
-                  {
-                    target: '3',
-                    guard: guards.hotStreak(20),
-                  },
-                  {
-                    target: '2',
-                    guard: guards.hotStreak(10),
-                  },
-                  {
-                    target: '1',
-                    guard: guards.hotStreak(5),
-                  },
-                ],
-              },
-            },
-            '1': {
-              on: {
-                ADVANCE: [
-                  {
-                    target: '3',
-                    guard: guards.hotStreak(20),
-                  },
-                  {
-                    target: '2',
-                    guard: guards.hotStreak(10),
-                  },
-                ],
-              },
-            },
-            '2': {
-              on: {
-                ADVANCE: {
-                  target: '3',
-                  guard: guards.hotStreak(20),
-                },
-              },
-            },
-            '3': {},
-          },
-        },
         experimenterFruit: {
           initial: '0',
           states: {
@@ -330,6 +289,98 @@ export function useAchievements() {
             '3': {},
           },
         },
+        favorite: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.favorite(100),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.favorite(50),
+                  },
+                  {
+                    target: '1',
+                    guard: guards.favorite(20),
+                  },
+                ],
+              },
+            },
+            '1': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.favorite(100),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.favorite(50),
+                  },
+                ],
+              },
+            },
+            '2': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.favorite(100),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
+        hotStreak: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.hotStreak(20),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.hotStreak(10),
+                  },
+                  {
+                    target: '1',
+                    guard: guards.hotStreak(5),
+                  },
+                ],
+              },
+            },
+            '1': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.hotStreak(20),
+                  },
+                  {
+                    target: '2',
+                    guard: guards.hotStreak(10),
+                  },
+                ],
+              },
+            },
+            '2': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.hotStreak(20),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
         thirtyVeggies: {
           initial: '0',
           states: {
@@ -403,6 +454,7 @@ export function useAchievements() {
       hotStreakLength: number,
       totalWeeks: number,
       completedChallenges: number,
+      maxAmount: number,
     ) =>
       actor.send({
         type: 'ADVANCE',
@@ -411,6 +463,7 @@ export function useAchievements() {
         hotStreakLength,
         totalWeeks,
         completedChallenges,
+        maxAmount,
       }),
     resetAchievements: () => actor.send({type: 'RESET'}),
   };
