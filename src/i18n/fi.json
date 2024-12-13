@@ -63,7 +63,7 @@
     "favorite": {
       "title": "Oma suosikki",
       "ariaLabel": "Sama kasvis {0} kertaa",
-      "badgeText": "{0} kertaa",
+      "badgeText": "{0} kokeilua",
       "1": "Olet kokeillut samaa kasvista 20 kertaa ja ansainnut pronssisen palkinnon!",
       "2": "Olet kokeillut samaa kasvista 50 kertaa ja ansainnut hopeisen palkinnon!",
       "3": "Olet kokeillut samaa kasvista 100 kertaa ja ansainnut kultaisen palkinnon!"
