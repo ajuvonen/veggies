@@ -2,20 +2,7 @@ import {computed, ref, watchEffect} from 'vue';
 import {defineStore} from 'pinia';
 import {useNow, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import {
-  difference,
-  entries,
-  filter,
-  first,
-  groupBy,
-  map,
-  pipe,
-  prop,
-  sortBy,
-  take,
-  unique,
-  values,
-} from 'remeda';
+import {difference, entries, filter, groupBy, map, pipe, prop, sortBy, take, unique} from 'remeda';
 import {Category, type Favorites, type Challenge, type Week} from '@/utils/types';
 import {dateParser, getCategoryForVeggie, getRandomVeggie} from '@/utils/helpers';
 
@@ -155,17 +142,6 @@ export const useActivityStore = defineStore('activity', () => {
     ),
   );
 
-  const maxAmount = computed(
-    () =>
-      pipe(
-        allVeggies.value,
-        groupBy((veggie) => veggie),
-        values(),
-        sortBy([({length}) => length, 'desc']),
-        first,
-      )?.length ?? 0,
-  );
-
   // Actions
   const toggleVeggie = (targetVeggie: string) => {
     const weekStart = currentDate.value.startOf('week');
@@ -202,7 +178,6 @@ export const useActivityStore = defineStore('activity', () => {
     favorites,
     getWeekStarts,
     hotStreak,
-    maxAmount,
     over30Veggies,
     startDate,
     suggestions,

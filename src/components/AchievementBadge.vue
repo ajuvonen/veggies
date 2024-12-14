@@ -102,15 +102,15 @@ const achievementProps: AchievementProps = {
   },
   favorite: {
     [AchievementLevel.Bronze]: {
-      textProps: [20],
+      textProps: [5],
       emoji: '😺',
     },
     [AchievementLevel.Silver]: {
-      textProps: [50],
+      textProps: [20],
       emoji: '😽',
     },
     [AchievementLevel.Gold]: {
-      textProps: [100],
+      textProps: [50],
       emoji: '😻',
     },
   },
