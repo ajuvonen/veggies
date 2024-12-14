@@ -503,30 +503,6 @@ describe('activityStore', () => {
     });
   });
 
-  it('returns max amount of single veggie logged', () => {
-    activityStore.startDate = threeWeeksAgo;
-    activityStore.weeks.push(
-      {
-        startDate: threeWeeksAgo,
-        veggies: ['apple', 'edamame', 'portobello'],
-      },
-      {
-        startDate: twoWeeksAgo,
-        veggies: ['apple', 'edamame'],
-      },
-      {
-        startDate: lastWeek,
-        veggies: ['wheat'],
-      },
-      {
-        startDate: thisWeek,
-        veggies: ['apple', 'portobello', 'black trumpet mushroom'],
-      },
-    );
-
-    expect(activityStore.maxAmount).toBe(3);
-  });
-
   it('resets the store', () => {
     activityStore.startDate = thisWeek;
     activityStore.weeks.push({

@@ -62,11 +62,11 @@
     },
     "favorite": {
       "title": "Playing Favorites",
-      "ariaLabel": "{0} repeat uses of same veggie",
-      "badgeText": "{0} samples",
-      "1": "You have sampled the same veggie 20 times, earning you the bronze achievement!",
-      "2": "You have sampled the same veggie 50 times, earning you the silver achievement!",
-      "3": "You have sampled the same veggie 100, earning you the gold achievement!"
+      "ariaLabel": "{0} uses of a veggie in all categories",
+      "badgeText": "6x{0} samples",
+      "1": "You have sampled your favorite veggies at least 5 times in each category, earning you the bronze achievement!",
+      "2": "You have sampled your favorite veggies at least 20 times in each category, earning you the silver achievement!",
+      "3": "You have sampled your favorite veggies at least 100 times in each category, earning you the gold achievement!"
     },
     "hotStreak": {
       "title": "Hot Streak",

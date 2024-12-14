@@ -12,7 +12,7 @@ type Message = {
 
 export const useAppStateStore = defineStore('appState', () => {
   const {advanceAchievements, achievements, resetAchievements} = useAchievements();
-  const {currentVeggies, uniqueVeggies, hotStreak, weeks, completedChallenges, maxAmount} =
+  const {currentVeggies, uniqueVeggies, hotStreak, weeks, completedChallenges, favorites} =
     storeToRefs(useActivityStore());
 
   watchEffect(() =>
@@ -22,7 +22,7 @@ export const useAppStateStore = defineStore('appState', () => {
       hotStreak.value,
       weeks.value.length,
       completedChallenges.value,
-      maxAmount.value,
+      favorites.value,
     ),
   );
 

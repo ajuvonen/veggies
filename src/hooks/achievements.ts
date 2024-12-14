@@ -3,7 +3,7 @@ import {intersection, isDeepEqual, mapValues} from 'remeda';
 import {createActor, setup, type MachineContext} from 'xstate';
 import type {GuardArgs} from 'xstate/guards';
 import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
-import type {Achievements} from '@/utils/types';
+import type {Achievements, Favorites} from '@/utils/types';
 
 type AdvanceEvent = {
   type: 'ADVANCE';
@@ -12,7 +12,7 @@ type AdvanceEvent = {
   completedChallenges: number;
   hotStreakLength: number;
   totalWeeks: number;
-  maxAmount: number;
+  favorites: Favorites;
 };
 
 type ResetEvent = {
@@ -39,7 +39,7 @@ const guards = {
   favorite:
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
-      event.maxAmount >= threshold,
+      Object.values(event.favorites).every((favorites) => favorites[0]?.[1] >= threshold),
   hotStreak:
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
@@ -297,15 +297,15 @@ export function useAchievements() {
                 ADVANCE: [
                   {
                     target: '3',
-                    guard: guards.favorite(100),
-                  },
-                  {
-                    target: '2',
                     guard: guards.favorite(50),
                   },
                   {
-                    target: '1',
+                    target: '2',
                     guard: guards.favorite(20),
+                  },
+                  {
+                    target: '1',
+                    guard: guards.favorite(5),
                   },
                 ],
               },
@@ -315,11 +315,11 @@ export function useAchievements() {
                 ADVANCE: [
                   {
                     target: '3',
-                    guard: guards.favorite(100),
+                    guard: guards.favorite(50),
                   },
                   {
                     target: '2',
-                    guard: guards.favorite(50),
+                    guard: guards.favorite(20),
                   },
                 ],
               },
@@ -328,7 +328,7 @@ export function useAchievements() {
               on: {
                 ADVANCE: {
                   target: '3',
-                  guard: guards.favorite(100),
+                  guard: guards.favorite(50),
                 },
               },
             },
@@ -454,7 +454,7 @@ export function useAchievements() {
       hotStreakLength: number,
       totalWeeks: number,
       completedChallenges: number,
-      maxAmount: number,
+      favorites: Favorites,
     ) =>
       actor.send({
         type: 'ADVANCE',
@@ -463,7 +463,7 @@ export function useAchievements() {
         hotStreakLength,
         totalWeeks,
         completedChallenges,
-        maxAmount,
+        favorites,
       }),
     resetAchievements: () => actor.send({type: 'RESET'}),
   };
