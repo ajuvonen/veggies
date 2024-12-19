@@ -590,7 +590,7 @@
     ],
     "potato": [
       "Potatoes originated in South America and were first cultivated by the Inca civilization.",
-      "King Frederick of Prussia named potatos \"the royal vegetable\" to give them more prestige."
+      "King Frederick of Prussia supposedly named potatoes \"the royal vegetable\" to give them more prestige."
     ],
     "pumpkin seed": [
       "A 30-gram portion of pumpkin seeds provides about 7 grams of protein and is rich in magnesium."
@@ -779,6 +779,10 @@
       },
       "title": "How to get in touch?",
       "text": "You can find the project page in {0}. The page has separate boards for reporting issues and engaging in other discussion. Thank you for your interest towards the project!"
+    },
+    "howToInstall": {
+      "title": "How to install?",
+      "text": "You can install the app from a browser such as Google Chrome that supports Progressive Web Apps (PWAs). Select \"add to start screen\" from your browser's menu or click the install icon on the location bar. On mobile Safari, click \"Share\" and then \"Add to home screen\". Installing on device allows offline use, but keeps the app within your browser's sandbox."
     },
     "isItFree": {
       "title": "Is the app monetized?",
