@@ -435,7 +435,7 @@
       "Jakkihedelmä on kotoisin Etelä-Aasiasta ja sen makua verrataan usein ananaksen, banaanin ja mangon yhdistelmään."
     ],
     "jalapeno": [
-      "Jalepenon nimi tulee meksikolaisesta Xalapan kaupungista Veracruzissa.",
+      "Jalapenon nimi tulee meksikolaisesta Xalapan kaupungista Veracruzissa.",
       "Jalapeno voi yltää 8000 pisteeseen Scovillen tulisuusasteikolla, joten se on tulisen monipuolinen chili.",
       "Savustettu ja kuivattu jalapeno tunnetaan paremmin chipotlena."
     ],
@@ -598,7 +598,7 @@
     ],
     "potato": [
       "Perunat ovat kotoisin Etelä-Amerikasta, jossa inkat viljelivät niitä ensimmäisenä.",
-      "Preussin kuningas Frederick kutsui perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta."
+      "Preussin kuningas Frederick kutsui tarinan mukaan perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta."
     ],
     "pumpkin seed": [
       "30 gramman annos kurpitsansiemeniä tarjoaa noin 7 g proteiinia ja runsaasti magnesiumia."
@@ -787,6 +787,10 @@
       },
       "title": "Mihin voin ottaa yhteyttä?",
       "text": "Projektin sivu on täällä: {0}. Sivulta löytyy erilliset osiot bugien raportointiin sekä yleiseen keskusteluun. Kiitos mielenkiinnosta projektia kohtaan!"
+    },
+    "howToInstall": {
+      "title": "Miten sovellus asennetaan?",
+      "text": "Voit asentaa sovelluksen Google Chromen kaltaisella selaimella, joka tukee Progressive Web Apps -teknologiaa (PWA). Valitse \"Lisää aloitusnäyttöön\" selaimesi valikosta tai klikkaa asennuskuvaketta selaimen osoiterivillä. Safarin mobiiliversiossa, valitse \"Jaa\" ja sen jälkeen \"Lisää aloitusnäyttöön\". Laitteelle asentaminen mahdollistaa käytön ilman verkkoyhteyttä, mutta suorittaa sovelluksen edelleen selaimessa."
     },
     "isItFree": {
       "title": "Maksaako sovelluksen käyttö?",

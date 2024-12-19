@@ -44,7 +44,14 @@ exports[`QAComponent > renders 1`] = `
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-contact">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-howToInstall">
+      <!--v-if-->How to install? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <!---->
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-14" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-contact">
       <!--v-if-->How to get in touch? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg>
@@ -112,13 +119,22 @@ exports[`QAComponent > renders answers 1`] = `
       <div id="headlessui-disclosure-panel-v-11" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-isMyDataSafe">
         <div>The data is stored in your browser's local storage and is not shared with any third parties. You can at any time you wish reset the app using the button below.</div>
       </div>
-    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-contact" type="button" aria-controls="headlessui-disclosure-panel-v-13">
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-howToInstall" type="button" aria-controls="headlessui-disclosure-panel-v-13">
+      <!--v-if-->How to install? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
+      <div id="headlessui-disclosure-panel-v-13" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-howToInstall">
+        <div>You can install the app from a browser such as Google Chrome that supports Progressive Web Apps (PWAs). Select "add to start screen" from your browser's menu or click the install icon on the location bar. On mobile Safari, click "Share" and then "Add to home screen". Installing on device allows offline use, but keeps the app within your browser's sandbox.</div>
+      </div>
+    </transition-stub><button data-v-24e38f3d="" class="button button--primary w-full justify-between" id="headlessui-disclosure-button-v-14" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-contact" type="button" aria-controls="headlessui-disclosure-panel-v-15">
       <!--v-if-->How to get in touch? <svg style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg>
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
-      <div id="headlessui-disclosure-panel-v-13" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-contact">
+      <div id="headlessui-disclosure-panel-v-15" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-contact">
         <div>You can find the project page in <a href="https://github.com/ajuvonen/veggies/" class="text-link" target="_blank" noreferrer="" noopener="">GitHub</a>. The page has separate boards for reporting issues and engaging in other discussion. Thank you for your interest towards the project!</div>
       </div>
     </transition-stub>

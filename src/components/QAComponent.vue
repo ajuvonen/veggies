@@ -10,6 +10,7 @@ const questions = [
   'categories',
   'isItFree',
   'isMyDataSafe',
+  'howToInstall',
   'contact',
 ];
 

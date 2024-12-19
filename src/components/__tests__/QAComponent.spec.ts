@@ -7,7 +7,7 @@ describe('QAComponent', () => {
   it('renders', () => {
     const wrapper = mount(QAComponent);
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('[aria-expanded="false"]').length).toBe(7);
+    expect(wrapper.findAll('[aria-expanded="false"]').length).toBe(8);
   });
 
   it('renders answers', async () => {
