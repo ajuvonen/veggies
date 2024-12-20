@@ -15,6 +15,10 @@ config.global.components = {
   ContentElement,
 };
 
+config.global.directives = {
+  tippy() {},
+};
+
 const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
   findByTestId: (testId: string) => wrapper.find(`[data-test-id='${testId}']`),
   findByText: (selector: string, text: string) =>

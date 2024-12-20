@@ -62,8 +62,8 @@
     },
     "favorite": {
       "title": "Omat suosikit",
-      "ariaLabel": "Yksi kasvis {0} kertaa joka ryhmässä",
-      "badgeText": "6x{0} kokeilua",
+      "ariaLabel": "{0} kertaa kokeiltu kasvis joka ryhmässä",
+      "badgeText": "{0} kokeilua",
       "1": "Olet kokeillut suosikkikasviksiasi vähintään viisi kertaa joka ryhmässä, ansaiten pronssisen palkinnon!",
       "2": "Olet kokeillut suosikkikasviksiasi vähintään 20 kertaa joka ryhmässä, ansaiten hopeisen palkinnon!",
       "3": "Olet kokeillut suosikkikasviksiasi vähintään 50 kertaa joka ryhmässä, ansaiten kultaisen palkinnon!"

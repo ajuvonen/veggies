@@ -88,7 +88,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
             }),
       },
       tooltip: {
-        boxPadding: 5,
+        padding: 8,
         titleFont: {
           size: 14,
           weight: 'normal',
@@ -96,7 +96,7 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
         bodyFont: {
           size: 14,
         },
-        backgroundColor: 'rgba(15, 43, 42, 0.95)',
+        backgroundColor: COLORS.darkBlue,
         bodyColor: COLORS.offWhite,
         titleColor: COLORS.offWhite,
       },
