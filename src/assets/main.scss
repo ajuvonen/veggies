@@ -74,3 +74,26 @@ body {
 .outline-override > :focus {
   @apply outline-sky-500;
 }
+
+.tippy-box {
+  @apply mx-2;
+  @apply bg-sky-950;
+}
+
+.tippy-content {
+  @apply p-2 text-sm;
+  @apply text-slate-50;
+}
+
+.tippy-box[data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #082f49;
+}
+.tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: #082f49;
+}
+.tippy-box[data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: #082f49;
+}
+.tippy-box[data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: #082f49;
+}

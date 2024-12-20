@@ -143,9 +143,13 @@ const achievementProps: AchievementProps = {
 <template>
   <div
     :aria-disabled="!active"
-    :title="
-      $t(`achievements.${achievement}.ariaLabel`, achievementProps[achievement][level]!.textProps)
-    "
+    v-tippy="{
+      aria: null,
+      content: $t(
+        `achievements.${achievement}.ariaLabel`,
+        achievementProps[achievement][level]!.textProps,
+      ),
+    }"
     :aria-label="
       $t(`achievements.${achievement}.ariaLabel`, achievementProps[achievement][level]!.textProps)
     "
@@ -193,7 +197,7 @@ const achievementProps: AchievementProps = {
 
 .badge__text {
   @apply absolute bottom-[3cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase;
-  @apply bg-slate-700 text-slate-50;
+  @apply bg-sky-950 text-slate-50;
 }
 
 .badge__background--Bronze {
