@@ -129,7 +129,7 @@ defineExpose({chartData});
 
 .category-status-chart__background {
   @apply relative max-h-[50%] min-h-0;
-  @apply flex-grow flex justify-center;
+  @apply flex justify-center;
 }
 
 .category-status-chart__center-label {
