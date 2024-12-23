@@ -27,9 +27,8 @@ emojis = ['🎅', '☃️', '🤶', '🎄'];
 </template>
 <style scoped lang="scss">
 .front-page-animation__container {
-  @apply h-full;
+  @apply h-1/2;
   @apply flex items-center justify-end;
-  max-height: min(100vw - 2rem, 400px);
   mask-image: linear-gradient(to right, transparent 5%, black 30%, black 70%, transparent 95%);
 }
 
