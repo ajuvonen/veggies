@@ -37,7 +37,7 @@ const getFavorites = (category: Category) =>
   props.favorites[category].map(([veggie, amount], index) => {
     let translation = t(`veggies.${veggie}`);
     translation = translation.charAt(0).toUpperCase() + translation.slice(1);
-    return t('categoryStatus.entry', [medalEmojis[index], translation, amount]).trim();
+    return t('categoryStatus.entry', [medalEmojis[index], translation, amount]);
   });
 
 const chartData = computed(() => {
@@ -73,11 +73,7 @@ const chartOptions = computed(() => {
         ...defaultOptions.plugins?.tooltip,
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
-          label: props.totals
-            ? ({formattedValue, label}) => {
-                return [formattedValue, ...getFavorites(label as Category)];
-              }
-            : undefined,
+          footer: props.totals ? ([{label}]) => [...getFavorites(label as Category)] : undefined,
         },
       },
       datalabels: {

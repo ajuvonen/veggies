@@ -69,7 +69,6 @@ const chartOptions = computed(() => {
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
         },
-        boxPadding: 5,
       },
       datalabels: {
         ...defaultOptions.plugins?.datalabels,

@@ -75,13 +75,17 @@ body {
   @apply outline-sky-500;
 }
 
+canvas {
+  image-rendering: pixelated;
+}
+
 .tippy-box {
   @apply mx-2;
   @apply bg-sky-950;
 }
 
 .tippy-content {
-  @apply p-2 text-sm;
+  @apply px-2 text-sm;
   @apply text-slate-50;
 }
 
