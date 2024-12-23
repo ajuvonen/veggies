@@ -16,14 +16,14 @@ export const useAppStateStore = defineStore('appState', () => {
     storeToRefs(useActivityStore());
 
   watchEffect(() =>
-    advanceAchievements(
-      currentVeggies.value.length,
-      uniqueVeggies.value,
-      hotStreak.value,
-      weeks.value.length,
-      completedChallenges.value,
-      favorites.value,
-    ),
+    advanceAchievements({
+      completedChallenges: completedChallenges.value,
+      favorites: favorites.value,
+      hotStreakLength: hotStreak.value,
+      totalWeeks: weeks.value.length,
+      uniqueVeggies: uniqueVeggies.value,
+      veggiesThisWeek: currentVeggies.value.length,
+    }),
   );
 
   // State refs

@@ -2,6 +2,15 @@ import type {DateTime} from 'luxon';
 
 export type Locale = 'en' | 'fi';
 
+export type AchievementProps = {
+  completedChallenges: number;
+  favorites: Favorites;
+  hotStreakLength: number;
+  totalWeeks: number;
+  uniqueVeggies: string[];
+  veggiesThisWeek: number;
+};
+
 export enum Category {
   Fruit = 'Fruit',
   Vegetable = 'Vegetable',
