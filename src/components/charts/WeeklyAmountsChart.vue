@@ -44,9 +44,6 @@ const chartOptions = computed(() => {
   const defaultChartOptions = getChartOptions<'line'>(true, false);
   return {
     ...defaultChartOptions,
-    plugins: {
-      ...defaultChartOptions.plugins,
-    },
   };
 });
 

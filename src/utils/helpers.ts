@@ -96,6 +96,11 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
         bodyFont: {
           size: 14,
         },
+        footerFont: {
+          size: 14,
+          weight: 'normal',
+        },
+        displayColors: false,
         backgroundColor: COLORS.darkBlue,
         bodyColor: COLORS.offWhite,
         titleColor: COLORS.offWhite,

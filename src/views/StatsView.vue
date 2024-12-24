@@ -2,6 +2,7 @@
 import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue';
+import {hideAll} from 'vue-tippy';
 import {useActivityStore} from '@/stores/activityStore';
 import TagsComponent from '@/components/TagsComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
@@ -56,7 +57,7 @@ const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks'
       <TabPanel as="template">
         <VeggieList :uniqueVeggies="uniqueVeggies" />
       </TabPanel>
-      <TabPanel :as="AchievementList" />
+      <TabPanel :as="AchievementList" @scroll="hideAll" />
     </TabPanels>
   </TabGroup>
 </template>

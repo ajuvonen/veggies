@@ -3,17 +3,11 @@ import {intersection, isDeepEqual, mapValues} from 'remeda';
 import {createActor, setup, type MachineContext} from 'xstate';
 import type {GuardArgs} from 'xstate/guards';
 import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
-import type {Achievements, Favorites} from '@/utils/types';
+import type {AchievementProps, Achievements} from '@/utils/types';
 
 type AdvanceEvent = {
   type: 'ADVANCE';
-  veggiesThisWeek: number;
-  uniqueVeggies: string[];
-  completedChallenges: number;
-  hotStreakLength: number;
-  totalWeeks: number;
-  favorites: Favorites;
-};
+} & AchievementProps;
 
 type ResetEvent = {
   type: 'RESET';
@@ -448,22 +442,10 @@ export function useAchievements() {
 
   return {
     achievements,
-    advanceAchievements: (
-      veggiesThisWeek: number,
-      uniqueVeggies: string[],
-      hotStreakLength: number,
-      totalWeeks: number,
-      completedChallenges: number,
-      favorites: Favorites,
-    ) =>
+    advanceAchievements: (achievementProps: AchievementProps) =>
       actor.send({
         type: 'ADVANCE',
-        veggiesThisWeek,
-        uniqueVeggies,
-        hotStreakLength,
-        totalWeeks,
-        completedChallenges,
-        favorites,
+        ...achievementProps,
       }),
     resetAchievements: () => actor.send({type: 'RESET'}),
   };
