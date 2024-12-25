@@ -89,22 +89,7 @@ export const useActivityStore = defineStore('activity', () => {
 
   const currentVeggies = computed({
     get: () => veggiesForWeek.value(currentDate.value.startOf('week')),
-    set: (veggies: string[]) => {
-      const weekStart = currentDate.value.startOf('week');
-      const targetWeek = weeks.value.find(({startDate}) => startDate.equals(weekStart));
-      if (!targetWeek) {
-        weeks.value.push({
-          startDate: weekStart,
-          veggies,
-        });
-        challenges.value.push({
-          startDate: weekStart,
-          veggie: getRandomVeggie(),
-        });
-      } else {
-        targetWeek.veggies = veggies;
-      }
-    },
+    set: (veggies: string[]) => setVeggiesForWeek(veggies),
   });
 
   const currentChallenge = computed(
@@ -145,6 +130,10 @@ export const useActivityStore = defineStore('activity', () => {
   // Actions
   const toggleVeggie = (targetVeggie: string) => {
     const weekStart = currentDate.value.startOf('week');
+    toggleVeggieForWeek(targetVeggie, weekStart);
+  };
+
+  const toggleVeggieForWeek = (targetVeggie: string, weekStart: DateTime) => {
     const targetWeek = weeks.value.find(({startDate}) => startDate.equals(weekStart));
     if (!targetWeek) {
       weeks.value.push({
@@ -159,6 +148,25 @@ export const useActivityStore = defineStore('activity', () => {
       targetWeek.veggies.push(targetVeggie);
     } else {
       targetWeek.veggies = difference(targetWeek.veggies, [targetVeggie]);
+    }
+  };
+
+  const setVeggiesForWeek = (
+    veggies: string[],
+    weekStart: DateTime = currentDate.value.startOf('week'),
+  ) => {
+    const targetWeek = weeks.value.find(({startDate}) => startDate.equals(weekStart));
+    if (!targetWeek) {
+      weeks.value.push({
+        startDate: weekStart,
+        veggies,
+      });
+      challenges.value.push({
+        startDate: weekStart,
+        veggie: getRandomVeggie(),
+      });
+    } else {
+      targetWeek.veggies = veggies;
     }
   };
 
@@ -184,7 +192,9 @@ export const useActivityStore = defineStore('activity', () => {
     uniqueVeggies,
     veggiesForWeek,
     weeks,
+    setVeggiesForWeek,
     toggleVeggie,
+    toggleVeggieForWeek,
     $reset,
   };
 });

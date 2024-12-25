@@ -25,22 +25,33 @@ exports[`StatsView > renders current week by default 1`] = `
     </svg>
   </button></div>
 <div data-v-a19ac338="" class="flex flex-grow min-h-0">
-  <transition-group-stub data-v-cd627eac="" data-v-a19ac338="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container" id="headlessui-tabs-panel-v-5" role="tabpanel" tabindex="0" data-headlessui-state="selected">
-    <li data-v-cd627eac="" data-test-id="tag-apple" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove apple">
-        <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
-        </svg> apple
-      </button></li>
-    <li data-v-cd627eac="" data-test-id="tag-chickpea" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove chickpea">
-        <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
-        </svg> chickpea
-      </button></li>
-    <li data-v-cd627eac="" data-test-id="tag-raspberry" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove raspberry">
-        <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
-        </svg> raspberry
-      </button></li>
-  </transition-group-stub><span data-v-a19ac338="" aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-v-6" role="tabpanel" tabindex="-1" class="stats__tab"></span><span data-v-a19ac338="" aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-v-7" role="tabpanel" tabindex="-1" class="stats__tab"></span><span data-v-a19ac338="" aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-v-8" role="tabpanel" tabindex="-1"></span><span data-v-a19ac338="" aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-v-9" role="tabpanel" tabindex="-1"></span>
+  <div data-v-a19ac338="" id="headlessui-tabs-panel-v-5" role="tabpanel" tabindex="0" data-headlessui-state="selected" class="stats__tab">
+    <div class="relative z-30" data-headlessui-state="">
+      <div data-v-81c33b70="" class="flex-container flex-col"><label data-v-81c33b70="" id="headlessui-listbox-label-v-6" data-headlessui-state="" class="label-like">Choose Week</label><button data-v-81c33b70="" id="headlessui-listbox-button-v-7" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="week-editor__list-box-button" data-test-id="stats-dropdown-button"><span data-v-81c33b70="" class="truncate">Week 52/2024 (12/23-12/29)</span><svg data-v-81c33b70="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+          </svg></button></div>
+      <transition-stub data-v-81c33b70="" leaveactiveclass="transition duration-100 ease-in" leavefromclass="opacity-100" leavetoclass="opacity-0" appear="false" persisted="false" css="true">
+        <!---->
+      </transition-stub>
+    </div>
+    <!--v-if-->
+    <transition-group-stub data-v-cd627eac="" data-v-81c33b70="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
+      <li data-v-cd627eac="" data-test-id="tag-apple" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove apple">
+          <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
+          </svg> apple
+        </button></li>
+      <li data-v-cd627eac="" data-test-id="tag-chickpea" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove chickpea">
+          <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
+          </svg> chickpea
+        </button></li>
+      <li data-v-cd627eac="" data-test-id="tag-raspberry" class="tags__tag"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove raspberry">
+          <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
+          </svg> raspberry
+        </button></li>
+    </transition-group-stub>
+  </div><span data-v-a19ac338="" aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-v-9" role="tabpanel" tabindex="-1" class="stats__tab"></span><span data-v-a19ac338="" aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-v-10" role="tabpanel" tabindex="-1" class="stats__tab"></span><span data-v-a19ac338="" aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-v-11" role="tabpanel" tabindex="-1"></span><span data-v-a19ac338="" aria-hidden="true" style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;" id="headlessui-tabs-panel-v-12" role="tabpanel" tabindex="-1"></span>
 </div>"
 `;

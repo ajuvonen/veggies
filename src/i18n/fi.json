@@ -831,6 +831,7 @@
     "3": "Kasvislista",
     "4": "Saavutukset",
     "allTimeCategories": "Vertailu ryhmittäin",
+    "chooseWeek": "Valitse viikko",
     "chosenStats": "Valitut tilastot",
     "grid1": {
       "topLabel": "Yhteensä",
@@ -852,6 +853,7 @@
       "topLabel": "Suoritettu",
       "bottomLabel": "Viikkohaastetta"
     },
+    "selectedWeek": "Viikko {0}/{1} ({2}-{3})",
     "week": "Vko {0}",
     "weeklyAmounts": "Lukumäärät viikoittain",
     "weeklyCategories": "Ryhmät viikoittain"
