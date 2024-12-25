@@ -1,69 +1,43 @@
 <script setup lang="ts">
-import {provide, ref, watch} from 'vue';
+import {provide, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
-import {difference, first, omitBy} from 'remeda';
-import confetti from 'canvas-confetti';
+import {difference, first} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {ALL_VEGGIES, KEYS} from '@/utils/constants';
-import {AchievementLevel, type Achievements} from '@/utils/types';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
-import ModalDialog from '@/components/ModalDialog.vue';
-import AchievementBadge from '@/components/AchievementBadge.vue';
 import BlueskyLink from '@/components/BlueskyLink.vue';
 
 const {t, tm} = useI18n();
 
 const activityStore = useActivityStore();
-const {suggestions, currentVeggies, currentChallenge, allVeggies, uniqueVeggies} =
+const {allVeggies, uniqueVeggies, suggestions, currentVeggies, currentChallenge} =
   storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
-const {achievements} = storeToRefs(useAppStateStore());
-
 const {addToastMessage} = useAppStateStore();
-
-const newAchievements = ref({} as Partial<Achievements>);
-const dialogOpen = ref(false);
-
-const getCheer = () => t(`cheers[${Math.floor(Math.random() * 10)}]`);
 
 watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
   const addedVeggie = first(difference(newCurrentVeggies, oldCurrentVeggies));
+  const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
   if (addedVeggie) {
     if (allVeggies.value.length === 1) {
-      addToastMessage(t('toasts.firstVeggie', [getCheer()]));
+      addToastMessage(t('toasts.firstVeggie', [cheer]));
     } else if (addedVeggie === currentChallenge.value) {
-      addToastMessage(t('toasts.challengeCompleted', [getCheer()]));
+      addToastMessage(t('toasts.challengeCompleted', [cheer]));
     } else if (allVeggies.value.length % 100 === 0) {
-      addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, getCheer()]));
+      addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, cheer]));
     } else if (Math.random() <= 0.35) {
       const facts = [
         ...Object.values<string>(tm(`facts.${addedVeggie}`)),
-        t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, getCheer()]),
-        t('toasts.totalVeggies', [allVeggies.value.length, getCheer()]),
+        t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, cheer]),
+        t('toasts.totalVeggies', [allVeggies.value.length, cheer]),
       ];
       addToastMessage(facts[Math.floor(Math.random() * facts.length)]);
     }
-  }
-});
-
-watch(achievements, (newValue, oldValue) => {
-  newAchievements.value = omitBy(
-    newValue,
-    (value, key) => value === AchievementLevel.NoAchievement || oldValue[key] >= value,
-  );
-  if (Object.keys(newAchievements.value).length) {
-    dialogOpen.value = true;
-    confetti({
-      disableForReducedMotion: true,
-      particleCount: 150,
-      spread: 70,
-      origin: {x: 0.5, y: 0.7},
-    });
   }
 });
 
@@ -82,24 +56,4 @@ provide(KEYS.challenge, currentChallenge);
     @click="(veggie) => toggleVeggie(veggie)"
   />
   <BlueskyLink />
-  <ModalDialog v-model="dialogOpen" :title="$t('achievements.newAchievements')">
-    <template #content>
-      <ul class="log-view__achievement-container">
-        <li v-for="(value, key) in newAchievements" :key="key" class="log-view__achievement-row">
-          <AchievementBadge active :achievement="key" :level="value!" />
-          <p class="text-center">{{ t(`achievements.${key}.${value}`) }}</p>
-        </li>
-      </ul>
-    </template>
-  </ModalDialog>
 </template>
-<style lang="scss">
-.log-view__achievement-container {
-  @apply flex-container gap-4 flex-col;
-  @apply text-sm;
-}
-
-.log-view__achievement-row {
-  @apply flex-container flex-col;
-}
-</style>

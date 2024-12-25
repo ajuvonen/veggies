@@ -20,6 +20,15 @@ const model = defineModel<string[]>({
   required: true,
 });
 
+withDefaults(
+  defineProps<{
+    small?: boolean;
+  }>(),
+  {
+    small: false,
+  },
+);
+
 const {t, locale} = useI18n();
 const {visualHeight} = useScreen();
 
@@ -99,12 +108,14 @@ provide(KEYS.dropdownOptions, dropdownOptions);
     nullable
     multiple
     as="div"
-    class="relative h-12 z-20"
+    :class="{'h-12': !small}"
+    class="relative z-20"
     @touchstart="touching = true"
   >
     <ComboboxInput
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
+      :class="{'veggie-search__input--small': small}"
       class="veggie-search__input"
       data-test-id="veggie-search-input"
       @change="query = $event.target.value"
@@ -149,10 +160,14 @@ provide(KEYS.dropdownOptions, dropdownOptions);
 .veggie-search__input {
   @apply w-full h-full py-2 pl-4 pr-8 text-lg rounded-full;
   @apply text-slate-900 bg-slate-50;
+
+  &--small {
+    @apply h-9 text-base rounded-md leading-4;
+  }
 }
 
 .veggie-search__button {
-  @apply absolute inset-y-3 right-4;
+  @apply absolute inset-y-2 right-4;
   @apply fill-slate-900;
 }
 

@@ -823,6 +823,7 @@
     "3": "Veggie list",
     "4": "Achievements",
     "allTimeCategories": "Comparison By Categories",
+    "chooseWeek": "Choose Week",
     "chosenStats": "Chosen Statistics",
     "grid1": {
       "topLabel": "In Total",
@@ -844,6 +845,7 @@
       "topLabel": "Completed",
       "bottomLabel": "Weekly Challenges"
     },
+    "selectedWeek": "Week {0}/{1} ({2}-{3})",
     "week": "Wk {0}",
     "weeklyAmounts": "Weekly Amounts",
     "weeklyCategories": "Weekly Categories"
