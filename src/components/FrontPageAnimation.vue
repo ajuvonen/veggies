@@ -9,7 +9,7 @@ let emojis = getRandomEmojis(4);
 // Halloween
 // emojis = ['🎃', '👻', '🧟', '👽'];
 // Christmas
-emojis = ['🎅', '☃️', '🤶', '🎄'];
+// emojis = ['🎅', '☃️', '🤶', '🎄'];
 </script>
 <template>
   <div class="front-page-animation__container" aria-hidden="true">
@@ -28,7 +28,7 @@ emojis = ['🎅', '☃️', '🤶', '🎄'];
 <style scoped lang="scss">
 .front-page-animation__container {
   @apply h-1/2;
-  @apply flex items-center justify-end;
+  @apply flex items-baseline justify-end;
   mask-image: linear-gradient(to right, transparent 5%, black 30%, black 70%, transparent 95%);
 }
 

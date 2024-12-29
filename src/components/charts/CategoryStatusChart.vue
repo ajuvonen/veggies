@@ -124,7 +124,7 @@ defineExpose({chartData});
 }
 
 .category-status-chart__background {
-  @apply relative max-h-[50%] min-h-0;
+  @apply relative max-h-[50%] min-h-0 aspect-square;
   @apply flex justify-center;
 }
 
