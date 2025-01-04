@@ -7,7 +7,7 @@ defineProps<{
   translation?: string;
 }>();
 
-const dropdownOptions = inject(KEYS.dropdownOptions)!;
+const dropdownOptions = inject(KEYS.getDropdownStyles)!;
 </script>
 <template>
   <ComboboxOption v-slot="{active, selected}" as="template" :key="veggie" :value="veggie">
