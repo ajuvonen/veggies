@@ -4,7 +4,6 @@ import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {DateTime} from 'luxon';
 import {last, reverse} from 'remeda';
-import {useMemoize} from '@vueuse/core';
 import {
   Listbox,
   ListboxButton,
@@ -15,9 +14,10 @@ import {
 } from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
+import {useScreen} from '@/hooks/screen';
+import {useDropdown} from '@/hooks/dropdown';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
-import {useScreen} from '@/hooks/screen';
 
 const activityStore = useActivityStore();
 const {getWeekStarts, veggiesForWeek, challenges} = storeToRefs(activityStore);
@@ -29,6 +29,7 @@ const selectedWeekStart = ref(last(getWeekStarts.value)!);
 
 const optionsElement = ref<InstanceType<typeof ListboxOptions> | null>(null);
 const {maxHeightStyle} = useScreen(optionsElement);
+const {getDropdownStyles} = useDropdown(optionsElement);
 
 const veggies = computed({
   get: () => veggiesForWeek.value(selectedWeekStart.value),
@@ -52,17 +53,6 @@ const weekOptions = computed(() => reverse(getWeekStarts.value));
 const selectedChallenge = computed(
   () => challenges.value.find(({startDate}) => startDate.equals(selectedWeekStart.value))?.veggie,
 );
-
-const getOptionClasses = useMemoize((active: boolean, selected: boolean) => {
-  const textClass = active ? 'text-slate-50' : 'text-slate-900';
-  let bgClass = 'transparent';
-  if (active) {
-    bgClass = 'bg-sky-500';
-  } else if (selected) {
-    bgClass = 'bg-sky-200';
-  }
-  return `${textClass} ${bgClass}`;
-});
 
 provide(KEYS.challenge, selectedChallenge);
 </script>
@@ -91,7 +81,10 @@ provide(KEYS.challenge, selectedChallenge);
           :data-test-id="`week-editor-option-${index}`"
           as="template"
         >
-          <li :class="[getOptionClasses(active, selected), 'dropdown-list-option']" role="menuitem">
+          <li
+            :class="[getDropdownStyles(active, selected), 'dropdown-list-option']"
+            role="menuitem"
+          >
             {{ formatWeek(date) }}
           </li>
         </ListboxOption>

@@ -13,6 +13,7 @@ import {ALL_VEGGIES, KEYS} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useScreen} from '@/hooks/screen';
+import {useDropdown} from '@/hooks/dropdown';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import VeggieSearchChallenge from '@/components/VeggieSearchChallenge.vue';
 
@@ -37,6 +38,7 @@ const touching = ref(false);
 const openButton = ref<typeof ComboboxButton | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 const {maxHeightStyle} = useScreen(optionsElement);
+const {getDropdownStyles} = useDropdown(optionsElement);
 
 const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
@@ -76,25 +78,8 @@ const scrollToStart = async () => {
   }
 };
 
-const dropdownOptions = useMemoize(
-  (active: boolean, selected: boolean) => {
-    const textClass = active && !touching.value ? 'text-slate-50' : 'text-slate-900 fill-slate-900';
-    let bgClass = `bg-slate-50`;
-    if (active && !touching.value) {
-      bgClass = 'bg-sky-500';
-    } else if (selected) {
-      bgClass = 'bg-sky-200';
-    }
-
-    return `${textClass} ${bgClass}`;
-  },
-  {
-    getKey: (active: boolean, selected: boolean) => `${active}_${selected}_${touching.value}`,
-  },
-);
-
 watch(query, scrollToStart);
-provide(KEYS.dropdownOptions, dropdownOptions);
+provide(KEYS.getDropdownStyles, getDropdownStyles);
 </script>
 <template>
   <Combobox
@@ -105,7 +90,6 @@ provide(KEYS.dropdownOptions, dropdownOptions);
     as="div"
     :class="{'h-12': !small}"
     class="relative z-20"
-    @touchstart="touching = true"
   >
     <ComboboxInput
       :aria-label="$t('veggieSearch.search')"
