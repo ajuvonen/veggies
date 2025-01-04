@@ -7,8 +7,7 @@ const {settings} = storeToRefs(useAppStateStore());
 </script>
 <template>
   <RadioGroup v-model="settings.locale">
-    <div class="flex-container flex-col">
-      <RadioGroupLabel class="label-like">{{ $t('settings.locale') }}</RadioGroupLabel>
+    <ContentElement :title="$t('settings.locale')" :labelTag="RadioGroupLabel">
       <RadioGroupOption
         v-for="locale in $i18n.availableLocales"
         :key="locale"
@@ -22,7 +21,7 @@ const {settings} = storeToRefs(useAppStateStore());
           {{ $t(`locales.${locale}`) }}
         </RadioGroupLabel>
       </RadioGroupOption>
-    </div>
+    </ContentElement>
   </RadioGroup>
 </template>
 <style lang="scss" scoped>

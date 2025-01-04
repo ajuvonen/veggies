@@ -27,8 +27,8 @@ exports[`StatsView > renders current week by default 1`] = `
 <div data-v-a19ac338="" class="flex flex-grow min-h-0">
   <div data-v-a19ac338="" id="headlessui-tabs-panel-v-5" role="tabpanel" tabindex="0" data-headlessui-state="selected" class="stats__tab">
     <div class="relative z-30" data-headlessui-state="">
-      <div data-v-81c33b70="" class="flex-container flex-col"><label data-v-81c33b70="" id="headlessui-listbox-label-v-6" data-headlessui-state="" class="label-like">Choose Week</label>
-        <listbox-button-stub data-v-81c33b70="" as="button" class="week-editor__list-box-button" data-test-id="week-editor-dropdown-button"></listbox-button-stub>
+      <div data-v-81c33b70="" class="flex-container flex-col"><label id="headlessui-listbox-label-v-6" data-headlessui-state="" class="label-like">Choose Week</label>
+        <listbox-button-stub data-v-81c33b70="" as="button" class="week-editor__dropdown-button" data-test-id="week-editor-dropdown-button"></listbox-button-stub>
       </div>
       <!---->
     </div>
