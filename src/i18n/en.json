@@ -714,6 +714,10 @@
     "white onion": [
       "White onions have a milder flavor compared to yellow or red onions, making them ideal for raw dishes."
     ],
+    "wild mushroom": [
+      "The estimates vary, but there are about 2,000 species of edible mushrooms in the world.",
+      "Some wild mushrooms require pretreatment to remove toxins."
+    ],
     "wild rice": [
       "Wild rice is not technically rice but the seed of aquatic grass native to North America."
     ],
@@ -845,7 +849,7 @@
       "topLabel": "Completed",
       "bottomLabel": "Weekly Challenges"
     },
-    "selectedWeek": "Week {0}/{1} ({2}-{3})",
+    "selectedWeek": "Week {0} ({1}-{2})",
     "week": "Wk {0}",
     "weeklyAmounts": "Weekly Amounts",
     "weeklyCategories": "Weekly Categories"
@@ -1079,6 +1083,7 @@
     "wheat": "wheat",
     "white bean": "white bean",
     "white onion": "white onion",
+    "wild mushroom": "wild mushroom",
     "wild rice": "wild rice",
     "yam": "yam",
     "yardlong bean": "yardlong bean",
