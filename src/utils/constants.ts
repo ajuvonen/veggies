@@ -198,6 +198,7 @@ export const VEGETABLES = [
   'tomatillo',
   'tomato',
   'wakame',
+  'wild mushroom',
   'yellowfoot mushroom',
   'zucchini',
 ];
