@@ -68,16 +68,15 @@ provide(KEYS.challenge, selectedChallenge);
 </script>
 <template>
   <Listbox v-model="selectedWeekStart" class="relative z-30" as="div" v-slot="{open}">
-    <div class="flex-container flex-col">
-      <ListboxLabel class="label-like">{{ $t('stats.chooseWeek') }}</ListboxLabel>
+    <ContentElement :title="$t('stats.chooseWeek')" :labelTag="ListboxLabel">
       <ListboxButton
-        class="week-editor__list-box-button"
+        class="week-editor__dropdown-button"
         data-test-id="week-editor-dropdown-button"
       >
         <span class="truncate">{{ formatWeek(selectedWeekStart) }}</span>
         <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
       </ListboxButton>
-    </div>
+    </ContentElement>
     <TransitionRoot
       leave-active-class="transition duration-100 ease-in"
       leave-from-class="opacity-100"
@@ -109,7 +108,7 @@ provide(KEYS.challenge, selectedChallenge);
   />
 </template>
 <style lang="scss" scoped>
-.week-editor__list-box-button {
+.week-editor__dropdown-button {
   @apply flex items-center justify-between;
   @apply w-full button-like;
   @apply bg-sky-500;
