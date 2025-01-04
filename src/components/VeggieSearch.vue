@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, computed, watch, nextTick, provide} from 'vue';
+import {ref, watch, nextTick, provide} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {
   Combobox,
@@ -8,7 +8,7 @@ import {
   ComboboxOptions,
   TransitionRoot,
 } from '@headlessui/vue';
-import {useElementBounding, useMemoize} from '@vueuse/core';
+import {useMemoize} from '@vueuse/core';
 import {ALL_VEGGIES, KEYS} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
@@ -30,14 +30,13 @@ withDefaults(
 );
 
 const {t, locale} = useI18n();
-const {visualHeight} = useScreen();
 
 const query = ref('');
 const touching = ref(false);
 
 const openButton = ref<typeof ComboboxButton | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
-const {top} = useElementBounding(optionsElement);
+const {maxHeightStyle} = useScreen(optionsElement);
 
 const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
@@ -62,10 +61,6 @@ const filteredVeggies = useMemoize(
   {
     getKey: (category?: Category) => `${category}_${query.value}`,
   },
-);
-
-const availableHeightForOptions = computed(
-  () => `max-height: calc(${visualHeight.value}px - ${top.value}px - 1rem)`,
 );
 
 const onMenuClose = () => {
@@ -138,7 +133,7 @@ provide(KEYS.dropdownOptions, dropdownOptions);
     >
       <ComboboxOptions
         ref="optionsElement"
-        :style="availableHeightForOptions"
+        :style="maxHeightStyle"
         class="veggie-search__options"
         data-test-id="veggie-search-options"
       >

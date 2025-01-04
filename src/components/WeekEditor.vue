@@ -3,13 +3,21 @@ import {computed, provide, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {DateTime} from 'luxon';
-import {reverse} from 'remeda';
+import {last, reverse} from 'remeda';
 import {useMemoize} from '@vueuse/core';
-import {Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions} from '@headlessui/vue';
+import {
+  Listbox,
+  ListboxButton,
+  ListboxLabel,
+  ListboxOption,
+  ListboxOptions,
+  TransitionRoot,
+} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
+import {useScreen} from '@/hooks/screen';
 
 const activityStore = useActivityStore();
 const {getWeekStarts, veggiesForWeek, challenges} = storeToRefs(activityStore);
@@ -17,7 +25,10 @@ const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
 
 const {t, locale} = useI18n();
 
-const selectedWeekStart = ref(DateTime.now().startOf('week'));
+const selectedWeekStart = ref(last(getWeekStarts.value)!);
+
+const optionsElement = ref<InstanceType<typeof ListboxOptions> | null>(null);
+const {maxHeightStyle} = useScreen(optionsElement);
 
 const veggies = computed({
   get: () => veggiesForWeek.value(selectedWeekStart.value),
@@ -27,8 +38,7 @@ const veggies = computed({
 const formatWeek = computed(
   () => (weekStart: DateTime) =>
     t('stats.selectedWeek', [
-      weekStart.weekNumber,
-      weekStart.year,
+      weekStart.toFormat('W/kkkk'),
       weekStart.setLocale(locale.value).toLocaleString({month: 'numeric', day: 'numeric'}),
       weekStart
         .setLocale(locale.value)
@@ -60,23 +70,26 @@ provide(KEYS.challenge, selectedChallenge);
   <Listbox v-model="selectedWeekStart" class="relative z-30" as="div" v-slot="{open}">
     <div class="flex-container flex-col">
       <ListboxLabel class="label-like">{{ $t('stats.chooseWeek') }}</ListboxLabel>
-      <ListboxButton class="week-editor__list-box-button" data-test-id="stats-dropdown-button">
+      <ListboxButton
+        class="week-editor__list-box-button"
+        data-test-id="week-editor-dropdown-button"
+      >
         <span class="truncate">{{ formatWeek(selectedWeekStart) }}</span>
         <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
       </ListboxButton>
     </div>
-    <Transition
+    <TransitionRoot
       leave-active-class="transition duration-100 ease-in"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <ListboxOptions class="dropdown-list-container">
+      <ListboxOptions ref="optionsElement" :style="maxHeightStyle" class="dropdown-list-container">
         <ListboxOption
-          v-for="date in weekOptions"
+          v-for="(date, index) in weekOptions"
           v-slot="{active, selected}"
-          :key="`${date.weekNumber}-${date.year}`"
+          :key="`${date.weekNumber}-${date.weekYear}`"
           :value="date"
-          :data-test-id="`stats-dropdown-option-${date.toMillis()}`"
+          :data-test-id="`week-editor-option-${index}`"
           as="template"
         >
           <li :class="[getOptionClasses(active, selected), 'dropdown-list-option']" role="menuitem">
@@ -84,7 +97,7 @@ provide(KEYS.challenge, selectedChallenge);
           </li>
         </ListboxOption>
       </ListboxOptions>
-    </Transition>
+    </TransitionRoot>
   </Listbox>
   <VeggieSearch v-if="!DateTime.now().hasSame(selectedWeekStart, 'week')" v-model="veggies" small />
   <TagsComponent

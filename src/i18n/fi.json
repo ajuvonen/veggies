@@ -56,9 +56,9 @@
     },
     "experimenterVegetable": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista kasvista",
+      "ariaLabel": "{0} erilaista vihannesta",
       "badgeText": "Vihannekset",
-      "3": "Olet kokeillut 15:tä erilaista kasvista ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista vihannesta ansaiten tämän palkinnon!"
     },
     "favorite": {
       "title": "Omat suosikit",
@@ -193,7 +193,7 @@
       "Karvaskurkku voi auttaa laskemaan verensokeria, koska se sisältää insuliinin tavoin vaikuttavia yhdisteitä."
     ],
     "black bean": [
-      "Mustapapuja on viljelty Amerikassa yli 7000 vuoden ajan.",
+      "Mustapapuja on viljelty Amerikassa yli 7 000 vuoden ajan.",
       "Mustapapu sisältää paitsi rautaa, magnesiumia ja folaattia, myös proteiinia ja kuitua."
     ],
     "black lentil": [
@@ -244,7 +244,7 @@
       "Bulgurin käytöstä on löytynyt todisteita jo muinaisten heettiläisten ajoilta."
     ],
     "cabbage": [
-      "Kaalia on viljelty yli 4000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
+      "Kaalia on viljelty yli 4 000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
       "Euroopassa kaalia fermentoidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa."
     ],
     "cantaloupe": [
@@ -277,7 +277,7 @@
     ],
     "celery": [
       "30 gramman annos selleriä sisältää vain noin 5 kaloria, joten se on terveellinen välipala.",
-      "Selleriä on viljelty yli 3000 vuoden ajan sekä ruoaksi että lääketieteellisiin tarkoituksiin."
+      "Selleriä on viljelty yli 3 000 vuoden ajan sekä ruoaksi että lääketieteellisiin tarkoituksiin."
     ],
     "champignon": ["Herkkusieni on yksi maailman laajimmin viljellyistä ja kulutetuista sienistä."],
     "chanterelle": [
@@ -345,7 +345,7 @@
       "30 gramman annos karpaloita sisältää noin 14 kaloria ja hyvän määrän C-vitamiinia.",
       "Karpalot ovat peräisin Pohjois-Amerikasta ja niitä on käytetty sekä ravintona että lääkkeenä vuosisatojen ajan."
     ],
-    "cucumber": ["Kurkun viljelyn uskotaan alkaneen Etelä-Aasiassa yli 3000 vuotta sitten."],
+    "cucumber": ["Kurkun viljelyn uskotaan alkaneen Etelä-Aasiassa yli 3 000 vuotta sitten."],
     "dandelion greens": [
       "30 gramman annos voikukanlehtiä sisältää noin 25 % päivittäisestä A-vitamiinista sekä kuitua.",
       "Vaikka voikukkaa pidetään usein rikkaruohona, sen lehdet ovat ravitsevia."
@@ -390,7 +390,7 @@
       "Karviaisia on monia värejä; vihreät ovat tyypillisesti happamia ja punaiset makeampia."
     ],
     "grape": [
-      "Rypäleitä on viljelty yli 8000 vuotta, ja niitä käytetään myös viinin, rusinoiden ja mehujen valmistukseen.",
+      "Rypäleitä on viljelty yli 8 000 vuotta, ja niitä käytetään myös viinin, rusinoiden ja mehujen valmistukseen.",
       "Rypäleitä esiintyy monissa eri väreissä, joilla jokaisella on ainutlaatuinen maku ja rakenne.",
       "Rypäleitä kasvatetaan kuudella seitsemästä maailman mantereesta."
     ],
@@ -436,7 +436,7 @@
     ],
     "jalapeno": [
       "Jalapenon nimi tulee meksikolaisesta Xalapan kaupungista Veracruzissa.",
-      "Jalapeno voi yltää 8000 pisteeseen Scovillen tulisuusasteikolla, joten se on tulisen monipuolinen chili.",
+      "Jalapeno voi yltää 8 000 pisteeseen Scovillen tulisuusasteikolla, joten se on tulisen monipuolinen chili.",
       "Savustettu ja kuivattu jalapeno tunnetaan paremmin chipotlena."
     ],
     "jerusalem artichoke": [
@@ -446,7 +446,7 @@
     "jicama": ["Pikkujamssipavun juuret ovat syötäviä, mutta lehdet ovat myrkyllisiä."],
     "kale": [
       "Lehtikaali sisältää runsaasti K-, A- ja C-vitamiineja.",
-      "Lehtikaalia on viljelty yli 2000 vuotta ja se oli yleinen vihannes Euroopassa keskiajalla."
+      "Lehtikaalia on viljelty yli 2 000 vuotta ja se oli yleinen vihannes Euroopassa keskiajalla."
     ],
     "kamut": [
       "Kamutia uskotaan löytyneen egyptiläisistä haudoista, mikä antoi sille lempinimen \"faaraon vilja\"."
@@ -466,7 +466,7 @@
       "Sitruunoiden uskotaan olevan peräisin Aasiasta, ja merimiehet käyttivät niitä keripukin estämiseen."
     ],
     "lettuce": [
-      "Salaatti on yksi vanhimmista viljellyistä kasveista, ja sitä on kasvatettu yli 4000 vuotta."
+      "Salaatti on yksi vanhimmista viljellyistä kasveista, ja sitä on kasvatettu yli 4 000 vuotta."
     ],
     "lime": [
       "Yksi limetti sisältää noin 30 % päivittäisestä C-vitamiinista.",
@@ -477,7 +477,7 @@
       "Puolukat kasvavat villinä Pohjois-Euroopan metsissä ja ne tunnetaan kirkkaan punaisesta väristään."
     ],
     "longan": ["Longania kutsutaan myös \"lohikäärmeen silmäksi\"."],
-    "lychee": ["Litsi on kotoisin Kiinasta, ja sitä on viljelty yli 2000 vuotta."],
+    "lychee": ["Litsi on kotoisin Kiinasta, ja sitä on viljelty yli 2 000 vuotta."],
     "macadamia nut": [
       "30 gramman annos macadamiapähkinöitä sisältää noin 21 g terveellisiä rasvoja ja 2 g proteiinia."
     ],
@@ -554,7 +554,7 @@
       "Maapähkinät ovat runsas terveellisten rasvojen ja proteiinin lähde, sisältäen runsaasti energiaa.",
       "Teknisesti maapähkinät ovat palkokasveja."
     ],
-    "pear": ["Maailmassa tavataan yli 3000 päärynälajiketta."],
+    "pear": ["Maailmassa tavataan yli 3 000 päärynälajiketta."],
     "pecan nut": [
       "Pekaanipähkinät sisältävät runsaasti terveellisiä rasvoja ja yli 19 vitamiinia ja kivennäisainetta.",
       "Pekaanipähkinät ovat kotoisin Pohjois-Amerikasta ja ne olivat tärkeä ravinnonlähde alkuperäiskansoille."
@@ -575,7 +575,7 @@
       "Pintopavut on nimetty niiden pilkullisen ulkonäön mukaan, mutta ne muuttuvat ruskeiksi kypsennettyinä."
     ],
     "pistachio nut": [
-      "Pistaasipähkinöitä on viljelty yli 9000 vuotta, alun perin Lähi-idässä.",
+      "Pistaasipähkinöitä on viljelty yli 9 000 vuotta, alun perin Lähi-idässä.",
       "Pistaasit halkeavat luonnostaan kypsinä, mikä tekee niiden syömisestä helpompaa."
     ],
     "plantain": ["Banaanista poiketen, keittobanaania käytetään vain kypsennettynä."],
@@ -694,7 +694,7 @@
     ],
     "walnut": [
       "Saksanpähkinät ovat erinomainen omega-3-rasvahappojen lähde, tukien aivojen terveyttä.",
-      "Saksanpähkinät ovat yksi vanhimmista puissa kasvavista ruoista. Niiden käyttö juontaa vuoteen 7000 eaa."
+      "Saksanpähkinät ovat yksi vanhimmista puissa kasvavista ruoista. Niiden käyttö juontaa vuoteen 7 000 eaa."
     ],
     "wasabi": [
       "Wasabia käytetään mausteena japanilaisessa keittiössä ja sillä on vahva maku.",
@@ -721,6 +721,10 @@
     "white bean": ["Valkoiset pavut sisältävät runsaasti kuitua ja proteiinia."],
     "white onion": [
       "Hopeasipulilla on kelta- tai punasipulia miedompi maku, mikä tekee siitä ihanteellisen raakoihin ruokiin."
+    ],
+    "wild mushroom": [
+      "Vaihtelevien arvioiden mukaan maailmassa on noin 2 000 syötävää sienilajiketta.",
+      "Jotkin sienet pitää esikäsitellä ennen syömistä niissä esiintyvien myrkkyjen poistamiseksi."
     ],
     "wild rice": [
       "Villiriisi ei ole riisilajike, vaan Pohjois-Amerikasta peräisin olevan vesiruohon siemen."
@@ -853,7 +857,7 @@
       "topLabel": "Suoritettu",
       "bottomLabel": "Viikkohaastetta"
     },
-    "selectedWeek": "Viikko {0}/{1} ({2}-{3})",
+    "selectedWeek": "Viikko {0} ({1}-{2})",
     "week": "Vko {0}",
     "weeklyAmounts": "Lukumäärät viikoittain",
     "weeklyCategories": "Ryhmät viikoittain"
@@ -1087,6 +1091,7 @@
     "wheat": "vehnä",
     "white bean": "valkoinen papu",
     "white onion": "hopeasipuli",
+    "wild mushroom": "metsäsienet",
     "wild rice": "villiriisi",
     "yam": "jamssi",
     "yardlong bean": "parsapapu",

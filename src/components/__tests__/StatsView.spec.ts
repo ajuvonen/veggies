@@ -17,7 +17,13 @@ describe('StatsView', () => {
       startDate: DateTime.now().startOf('week'),
       veggies: ['apple', 'raspberry', 'chickpea'],
     });
-    const wrapper = mount(StatsView);
+    const wrapper = mount(StatsView, {
+      global: {
+        stubs: {
+          ListboxButton: true,
+        },
+      },
+    });
     expect(wrapper.html()).toMatchSnapshot();
   });
 
