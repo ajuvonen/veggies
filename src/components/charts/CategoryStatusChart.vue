@@ -12,8 +12,7 @@ import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
-ChartJS.register(ArcElement, Tooltip);
-ChartJS.register(ChartDataLabels);
+ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 
 const props = withDefaults(
   defineProps<{

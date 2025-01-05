@@ -18,8 +18,7 @@ import {Category} from '@/utils/types';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
-ChartJS.register(Tooltip, ArcElement, RadialLinearScale, Title);
-ChartJS.register(ChartDataLabels);
+ChartJS.register(Tooltip, ArcElement, RadialLinearScale, Title, ChartDataLabels);
 
 const props = defineProps<{
   veggies: string[];

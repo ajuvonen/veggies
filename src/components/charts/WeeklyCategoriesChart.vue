@@ -12,26 +12,27 @@ import {
 } from 'chart.js';
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import {prop, takeLast} from 'remeda';
+import {prop} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
+import {useMouse} from '@vueuse/core';
 
 ChartJS.defaults.font.family = 'Nunito';
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
-ChartJS.register(ChartDataLabels);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
 
 const {t} = useI18n();
+
+const {x} = useMouse();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
 const chartData = computed(() => {
-  const weekRange = takeLast(getWeekStarts.value, 5);
   const datasets = Object.values(Category).map((category, index) => ({
     label: category,
-    data: weekRange.map(
+    data: getWeekStarts.value.map(
       (weekStart) =>
         veggiesForWeek
           .value(weekStart)
@@ -41,8 +42,8 @@ const chartData = computed(() => {
   }));
 
   return {
-    labels: weekRange.map((weekStart) =>
-      t('stats.week', [weekStart.diff(getWeekStarts.value[0], 'weeks').weeks + 1]),
+    labels: getWeekStarts.value.map((_, index) =>
+      t('stats.week', [getWeekStarts.value.length - index]),
     ),
     datasets: datasets.filter(({data}) => data.some((value) => value)),
   };
@@ -52,10 +53,17 @@ const chartOptions = computed(() => {
   const defaultOptions = getChartOptions<'bar'>(true, true, true);
   return {
     ...defaultOptions,
+    layout: {
+      padding: {
+        right: 25,
+      },
+    },
     plugins: {
       ...defaultOptions.plugins,
       tooltip: {
         ...defaultOptions.plugins?.tooltip,
+        yAlign: 'bottom',
+        xAlign: () => (x.value < window.innerWidth / 2 ? 'left' : 'right'),
         callbacks: {
           label: ({dataset, formattedValue}) => {
             return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
@@ -72,22 +80,24 @@ defineExpose({chartData});
   <ContentElement
     :title="$t('stats.weeklyCategories')"
     :labelAttrs="{'aria-hidden': true}"
-    class="flex-1"
+    class="flex-1 overflow-hidden"
   >
-    <div class="relative flex-grow">
-      <Bar
-        :options="chartOptions"
-        :data="chartData"
-        data-test-id="weekly-categories-chart"
-        aria-describedby="weekly-categories-table"
+    <div class="h-full overflow-x-scroll has-scroll">
+      <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
+        <Bar
+          :options="chartOptions"
+          :data="chartData"
+          data-test-id="weekly-categories-chart"
+          aria-describedby="weekly-categories-table"
+        />
+      </div>
+      <ChartScreenReaderTable
+        id="weekly-categories-table"
+        :title="$t('stats.weeklyCategories')"
+        :columnHeaders="chartData.labels"
+        :rowHeaders="chartData.datasets.map(prop('label'))"
+        :data="chartData.datasets.map(prop('data'))"
       />
     </div>
-    <ChartScreenReaderTable
-      id="weekly-categories-table"
-      :title="$t('stats.weeklyCategories')"
-      :columnHeaders="chartData.labels"
-      :rowHeaders="chartData.datasets.map(prop('label'))"
-      :data="chartData.datasets.map(prop('data'))"
-    />
   </ContentElement>
 </template>

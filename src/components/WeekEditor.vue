@@ -3,7 +3,7 @@ import {computed, provide, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {DateTime} from 'luxon';
-import {last, reverse} from 'remeda';
+import {first} from 'remeda';
 import {
   Listbox,
   ListboxButton,
@@ -25,7 +25,7 @@ const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
 
 const {t, locale} = useI18n();
 
-const selectedWeekStart = ref(last(getWeekStarts.value)!);
+const selectedWeekStart = ref(first(getWeekStarts.value)!);
 
 const optionsElement = ref<InstanceType<typeof ListboxOptions> | null>(null);
 const {maxHeightStyle} = useScreen(optionsElement);
@@ -47,8 +47,6 @@ const formatWeek = computed(
         .toLocaleString({month: 'numeric', day: 'numeric'}),
     ]),
 );
-
-const weekOptions = computed(() => reverse(getWeekStarts.value));
 
 const selectedChallenge = computed(
   () => challenges.value.find(({startDate}) => startDate.equals(selectedWeekStart.value))?.veggie,
@@ -74,7 +72,7 @@ provide(KEYS.challenge, selectedChallenge);
     >
       <ListboxOptions ref="optionsElement" :style="maxHeightStyle" class="dropdown-list-container">
         <ListboxOption
-          v-for="(date, index) in weekOptions"
+          v-for="(date, index) in getWeekStarts"
           v-slot="{active, selected}"
           :key="`${date.weekNumber}-${date.weekYear}`"
           :value="date"
