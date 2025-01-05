@@ -28,7 +28,7 @@ let emojis = getRandomEmojis(4);
 <style scoped lang="scss">
 .front-page-animation__container {
   @apply h-1/2;
-  @apply flex items-baseline justify-end;
+  @apply flex items-center justify-end;
   mask-image: linear-gradient(to right, transparent 5%, black 30%, black 70%, transparent 95%);
 }
 
@@ -38,7 +38,7 @@ let emojis = getRandomEmojis(4);
 }
 
 .front-page-animation__icon-container {
-  @apply relative select-none;
+  @apply relative select-none -mt-10;
   @apply flex flex-col items-center;
 }
 
@@ -49,13 +49,13 @@ let emojis = getRandomEmojis(4);
 }
 
 .front-page-animation__icon {
-  @apply text-9xl w-[175px] static z-10;
+  @apply text-9xl w-[175px] static z-50;
   @apply flex items-center justify-center;
   animation: bounce 0.5s cubic-bezier(0.5, 0.05, 1, 0.5) infinite alternate;
 }
 
 .front-page-animation__shadow {
-  @apply absolute h-5 w-28 opacity-0 -bottom-24;
+  @apply absolute h-5 w-28 opacity-0 -bottom-16;
   @apply bg-black;
   border-radius: 50%;
   animation: shadow 0.5s cubic-bezier(0.5, 0.05, 1, 0.5) infinite alternate;
@@ -81,13 +81,13 @@ let emojis = getRandomEmojis(4);
 
 @keyframes bounce {
   0% {
-    transform: translate3d(0, 0px, 0) scaleX(1) scaleY(1);
+    transform: translate3d(0, 0, 0) scaleX(1) scaleY(1);
   }
   90% {
-    transform: translate3d(0, 100px, 0) scaleX(1) scaleY(1);
+    transform: translate3d(0, 75px, 0) scaleX(1) scaleY(1);
   }
   100% {
-    transform: translate3d(0, 100px, 0) scaleX(1.2) scaleY(0.7);
+    transform: translate3d(0, 75px, 0) scaleX(1.2) scaleY(0.7);
   }
 }
 
