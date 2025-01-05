@@ -405,7 +405,7 @@ describe('activityStore', () => {
     activityStore.startDate = thisWeek;
     expect(activityStore.getWeekStarts).toEqual([thisWeek]);
     activityStore.startDate = lastWeek;
-    expect(activityStore.getWeekStarts).toEqual([lastWeek, thisWeek]);
+    expect(activityStore.getWeekStarts).toEqual([thisWeek, lastWeek]);
     activityStore.startDate = thisWeek.minus({weeks: 5});
     expect(activityStore.getWeekStarts.length).toBe(6);
   });

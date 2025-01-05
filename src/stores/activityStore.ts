@@ -45,7 +45,9 @@ export const useActivityStore = defineStore('activity', () => {
   const getWeekStarts = computed(() => {
     if (!startDate.value) return [currentDate.value.startOf('week')];
     const totalWeeks = Math.ceil(currentDate.value.diff(startDate.value, 'week').weeks);
-    return [...Array(totalWeeks)].map((_, weekIndex) => startDate.value!.plus({weeks: weekIndex}));
+    return [...Array(totalWeeks)]
+      .map((_, weekIndex) => startDate.value!.plus({weeks: weekIndex}))
+      .reverse();
   });
 
   const hotStreak = computed(() => {

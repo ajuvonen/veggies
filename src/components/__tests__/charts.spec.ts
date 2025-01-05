@@ -76,18 +76,20 @@ describe('charts', () => {
 
     // Leafy category & week 1 are dropped out
     const {labels, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual(['Wk 2', 'Wk 3', 'Wk 4', 'Wk 5', 'Wk 6']);
-    expect(datasets).toHaveLength(5);
+    expect(labels).toEqual(['Wk 6', 'Wk 5', 'Wk 4', 'Wk 3', 'Wk 2', 'Wk 1']);
+    expect(datasets).toHaveLength(6);
     expect(datasets[0].label).toBe('Fruit');
-    expect(datasets[0].data).toEqual([0, 0, 0, 0, 2]);
+    expect(datasets[0].data).toEqual([2, 0, 0, 0, 0, 0]);
     expect(datasets[1].label).toBe('Vegetable');
-    expect(datasets[1].data).toEqual([0, 0, 0, 0, 1]);
-    expect(datasets[2].label).toBe('Root');
-    expect(datasets[2].data).toEqual([0, 0, 0, 1, 1]);
-    expect(datasets[3].label).toBe('Bean');
-    expect(datasets[3].data).toEqual([0, 0, 0, 1, 0]);
-    expect(datasets[4].label).toBe('Grain');
-    expect(datasets[4].data).toEqual([0, 0, 2, 0, 0]);
+    expect(datasets[1].data).toEqual([1, 0, 0, 0, 0, 0]);
+    expect(datasets[2].label).toBe('Leafy');
+    expect(datasets[2].data).toEqual([0, 0, 0, 0, 0, 1]);
+    expect(datasets[3].label).toBe('Root');
+    expect(datasets[3].data).toEqual([1, 1, 0, 0, 0, 0]);
+    expect(datasets[4].label).toBe('Bean');
+    expect(datasets[4].data).toEqual([0, 1, 0, 0, 0, 0]);
+    expect(datasets[5].label).toBe('Grain');
+    expect(datasets[5].data).toEqual([0, 0, 2, 0, 0, 0]);
   });
 
   it('prepares data for WeeklyAmountsChart', () => {
@@ -114,9 +116,9 @@ describe('charts', () => {
     const wrapper = mount(WeeklyAmountsChart);
 
     const {labels, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual(['Wk 2', 'Wk 3', 'Wk 4', 'Wk 5', 'Wk 6']);
+    expect(labels).toEqual(['Wk 6', 'Wk 5', 'Wk 4', 'Wk 3', 'Wk 2', 'Wk 1']);
     expect(datasets).toHaveLength(1);
-    expect(datasets[0].data).toEqual([0, 0, 2, 2, 4]);
+    expect(datasets[0].data).toEqual([4, 2, 2, 0, 0, 1]);
   });
 
   const getPercentage = (group: string[], amount: number) =>
@@ -168,7 +170,13 @@ describe('charts', () => {
     const wrapper = mount(WeeklyCategoriesChart);
 
     const {labels, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual(['Wk 1', 'Wk 2', 'Wk 3']);
+    expect(labels).toEqual(['Wk 3', 'Wk 2', 'Wk 1']);
     expect(datasets).toHaveLength(3);
+    expect(datasets[0].label).toBe('Fruit');
+    expect(datasets[0].data).toEqual([1, 0, 0]);
+    expect(datasets[1].label).toBe('Vegetable');
+    expect(datasets[1].data).toEqual([0, 0, 1]);
+    expect(datasets[2].label).toBe('Root');
+    expect(datasets[2].data).toEqual([0, 1, 0]);
   });
 });
