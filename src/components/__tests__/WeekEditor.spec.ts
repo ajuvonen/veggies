@@ -16,7 +16,9 @@ describe('WeekEditor', () => {
 
   it('renders', () => {
     const testDate = DateTime.fromFormat('30.12.2024', 'dd.MM.yyyy');
-    activityStore.startDate = testDate;
+    // @ts-expect-error: getters are writable in tests
+    activityStore.getWeekStarts = [testDate, testDate.minus({weeks: 1})];
+    activityStore.startDate = testDate.minus({weeks: 1});
     activityStore.weeks.push({
       startDate: testDate,
       veggies: ['cucumber', 'tomato'],

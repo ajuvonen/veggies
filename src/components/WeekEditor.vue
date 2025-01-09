@@ -89,7 +89,7 @@ provide(KEYS.challenge, selectedChallenge);
       </ListboxOptions>
     </TransitionRoot>
   </Listbox>
-  <VeggieSearch v-if="!DateTime.now().hasSame(selectedWeekStart, 'week')" v-model="veggies" small />
+  <VeggieSearch v-if="!selectedWeekStart.equals(first(getWeekStarts)!)" v-model="veggies" small />
   <TagsComponent
     :veggies="veggiesForWeek(selectedWeekStart)"
     :variant="['tag', 'remove']"
