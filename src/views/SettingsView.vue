@@ -27,7 +27,7 @@ const reset = () => {
   <LocaleChanger />
   <QAComponent />
   <ContentElement
-    :title="$t('settings.reset.title')"
+    :title="$t('settings.reset.label')"
     :labelAttrs="{for: 'reset-button'}"
     labelTag="label"
   >

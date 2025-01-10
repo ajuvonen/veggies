@@ -24,8 +24,8 @@ const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks'
     <TabList class="grid grid-cols-5 gap-2">
       <Tab v-for="(_, index) in [...Array(5)]" :key="index" v-slot="{selected}" as="template">
         <ButtonComponent
+          v-tippy="$t(`stats.${index}`)"
           :aria-label="$t(`stats.${index}`)"
-          :title="$t(`stats.${index}`)"
           :class="{'!bg-sky-700': selected}"
           :data-test-id="`stats-tab-${index}`"
           class="justify-center"
