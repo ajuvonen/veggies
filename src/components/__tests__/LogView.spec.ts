@@ -52,16 +52,18 @@ describe('LogView', () => {
       startDate: thisWeek,
     });
     const wrapper = mount(LogView);
-    expect(wrapper.find('.front-page-animation').exists()).toBe(false);
+    try {
+      expect(wrapper.find('.front-page-animation').exists()).toBe(false);
 
-    vi.setSystemTime(thisWeek.plus({days: 1}).toJSDate());
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    expect(wrapper.find('.front-page-animation').exists()).toBe(false);
+      vi.setSystemTime(thisWeek.plus({days: 1}).toJSDate());
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      expect(wrapper.find('.front-page-animation').exists()).toBe(false);
 
-    vi.setSystemTime(thisWeek.plus({weeks: 1}).toJSDate());
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    expect(wrapper.find('.front-page-animation').exists()).toBe(true);
-
-    vi.useRealTimers();
+      vi.setSystemTime(thisWeek.plus({weeks: 1}).toJSDate());
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      expect(wrapper.find('.front-page-animation').exists()).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
