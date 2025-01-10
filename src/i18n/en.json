@@ -85,6 +85,35 @@
       "4": "Overdrive! 40 unique veggies this week unlocks this secret achievement!"
     }
   },
+  "allTimeStatus": {
+    "atMostVeggies": {
+      "bottomLabel": "Veggies in a Week",
+      "shareText": "I've tried as many as {0} different vegetables in one week! Try this free app out: {1}",
+      "topLabel": "At Most"
+    },
+    "completedChallenges": {
+      "bottomLabel": "Weekly Challenges",
+      "shareText": "I've completed {0} weekly Eat Your Veggies -challenges! Try this free app out: {1}",
+      "topLabel": "Completed"
+    },
+    "copy": "Copy achievement to clipboard",
+    "over30Veggies": {
+      "bottomLabel": "Weeks",
+      "shareText": "I've managed to eat over 30 veggies in a week {0} times! Try this free app out: {1}",
+      "topLabel": "Over 30 Veggies in"
+    },
+    "share": "Share achievement",
+    "totalWeeks": {
+      "bottomLabel": "Weeks",
+      "shareText": "I've used Eat Your Veggies now for {0} weeks! Try this free app out: {1}",
+      "topLabel": "In Total"
+    },
+    "uniqueVeggies": {
+      "topLabel": "In Total",
+      "shareText": "So far, I've tried {0} unique veggies! Try this free app out: {1}",
+      "bottomLabel": "Unique Veggies"
+    }
+  },
   "categories": {
     "Bean": "Beans And Legumes",
     "Fruit": "Fruits And Berries",
@@ -829,26 +858,6 @@
     "allTimeCategories": "Comparison By Categories",
     "chooseWeek": "Choose Week",
     "chosenStats": "Chosen Statistics",
-    "grid1": {
-      "topLabel": "In Total",
-      "bottomLabel": "Weeks"
-    },
-    "grid2": {
-      "topLabel": "Over 30 Veggies in",
-      "bottomLabel": "Weeks"
-    },
-    "grid3": {
-      "topLabel": "In Total",
-      "bottomLabel": "Unique Veggies"
-    },
-    "grid4": {
-      "topLabel": "At Most",
-      "bottomLabel": "Veggies in a Week"
-    },
-    "grid5": {
-      "topLabel": "Completed",
-      "bottomLabel": "Weekly Challenges"
-    },
     "selectedWeek": "Week {0} ({1}-{2})",
     "week": "Wk {0}",
     "weeklyAmounts": "Weekly Amounts",

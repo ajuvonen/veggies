@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
+import StatisticShareButton from '@/components/StatContainer.vue';
 
 const activitysStore = useActivityStore();
 const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChallenges} =
@@ -15,9 +16,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChal
       class="status__item"
       data-test-id="all-time-weeks"
     >
-      <span>{{ $t('stats.grid1.topLabel') }}</span>
-      <span class="text-5xl">{{ getWeekStarts.length }}</span>
-      <span>{{ $t('stats.grid1.bottomLabel') }}</span>
+      <StatisticShareButton :statAmount="getWeekStarts.length" statKey="totalWeeks" />
     </i18n-t>
     <i18n-t
       scope="global"
@@ -26,9 +25,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChal
       class="status__item"
       data-test-id="all-time-over-30"
     >
-      <span>{{ $t('stats.grid2.topLabel') }}</span>
-      <span class="text-5xl">{{ over30Veggies }}</span>
-      <span>{{ $t('stats.grid2.bottomLabel') }}</span>
+      <StatisticShareButton :statAmount="over30Veggies" statKey="over30Veggies" />
     </i18n-t>
     <i18n-t
       scope="global"
@@ -37,9 +34,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChal
       class="status__item"
       data-test-id="all-time-unique"
     >
-      <span>{{ $t('stats.grid3.topLabel') }}</span>
-      <span class="text-5xl">{{ uniqueVeggies.length }}</span>
-      <span>{{ $t('stats.grid3.bottomLabel') }}</span>
+      <StatisticShareButton :statAmount="uniqueVeggies.length" statKey="uniqueVeggies" />
     </i18n-t>
     <i18n-t
       scope="global"
@@ -48,9 +43,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChal
       class="status__item"
       data-test-id="all-time-at-most"
     >
-      <span>{{ $t('stats.grid4.topLabel') }}</span>
-      <span class="text-5xl">{{ atMostVeggies }}</span>
-      <span>{{ $t('stats.grid4.bottomLabel') }}</span>
+      <StatisticShareButton :statAmount="atMostVeggies" statKey="atMostVeggies" />
     </i18n-t>
     <i18n-t
       scope="global"
@@ -59,9 +52,7 @@ const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChal
       class="status__item col-span-2"
       data-test-id="all-time-challenges"
     >
-      <span>{{ $t('stats.grid5.topLabel') }}</span>
-      <span class="text-5xl">{{ completedChallenges }}</span>
-      <span>{{ $t('stats.grid5.bottomLabel') }}</span>
+      <StatisticShareButton :statAmount="completedChallenges" statKey="completedChallenges" />
     </i18n-t>
   </div>
 </template>

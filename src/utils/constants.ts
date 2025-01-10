@@ -1,6 +1,8 @@
 import type {InjectionKey, Ref} from 'vue';
 import {Category, type Locale} from './types';
 
+export const APP_URL = 'https://eatyourveggies.app';
+
 export const BUILD_TIME = __VITE_BUILD_TIME__;
 
 export const KEYS = {
