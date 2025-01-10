@@ -56,7 +56,8 @@ const chartOptions = computed(() => {
             borderDashOffset: 0,
             borderWidth: 3,
             scaleID: 'y',
-            value: (ctx: EventContext) => mean(ctx.chart.data.datasets[0].data as number[]),
+            value: (ctx: EventContext) =>
+              mean(ctx.chart.data.datasets[0].data.slice(1) as number[]) ?? 0,
           },
         },
       },
