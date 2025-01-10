@@ -9,6 +9,7 @@ import {
   mdiChevronDown,
   mdiClose,
   mdiCogOutline,
+  mdiContentCopy,
   mdiEarth,
   mdiFormatListChecks,
   mdiHistory,
@@ -16,6 +17,7 @@ import {
   mdiPlus,
   mdiRadioboxBlank,
   mdiRadioboxMarked,
+  mdiShareVariant,
   mdiTrashCan,
   mdiTrophyOutline,
 } from '@mdi/js';
@@ -32,6 +34,7 @@ export type IconString =
   | 'chevron'
   | 'close'
   | 'cog'
+  | 'contentCopy'
   | 'earth'
   | 'formatListChecks'
   | 'history'
@@ -39,6 +42,7 @@ export type IconString =
   | 'plus'
   | 'radioboxBlank'
   | 'radioboxMarked'
+  | 'shareVariant'
   | 'trashCan'
   | 'trophyOutline';
 
@@ -63,6 +67,7 @@ const icons = {
   chevron: mdiChevronDown,
   close: mdiClose,
   cog: mdiCogOutline,
+  contentCopy: mdiContentCopy,
   earth: mdiEarth,
   formatListChecks: mdiFormatListChecks,
   history: mdiHistory,
@@ -70,6 +75,7 @@ const icons = {
   plus: mdiPlus,
   radioboxBlank: mdiRadioboxBlank,
   radioboxMarked: mdiRadioboxMarked,
+  shareVariant: mdiShareVariant,
   trashCan: mdiTrashCan,
   trophyOutline: mdiTrophyOutline,
 };
