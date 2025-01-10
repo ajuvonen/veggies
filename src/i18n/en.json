@@ -852,7 +852,7 @@
   "stats": {
     "0": "This week's veggies",
     "1": "Weekly statistics",
-    "2": "All time",
+    "2": "All time statistics",
     "3": "Veggie list",
     "4": "Achievements",
     "allTimeCategories": "Comparison By Categories",
@@ -1112,7 +1112,7 @@
   },
   "views": {
     "home": "Home",
-    "log": "Weekly Progress",
+    "log": "Track Weekly Progress",
     "settings": "Settings",
     "stats": "Statistics"
   }
