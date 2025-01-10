@@ -85,6 +85,35 @@
       "4": "Ylikierroksilla! 40 erilaista kasvista tällä viikolla avaa tämän salaisen palkinnon!"
     }
   },
+  "allTimeStatus": {
+    "atMostVeggies": {
+      "bottomLabel": "Kasvista viikossa",
+      "shareText": "Viikossa kokeilemieni erilaisten kasvisten enimmäismäärä on nyt {0}! Kokeile tätä ilmaista sovellusta: {1}",
+      "topLabel": "Enimmillään"
+    },
+    "completedChallenges": {
+      "bottomLabel": "Viikkohaastetta",
+      "shareText": "Olen suorittanut {0} Eat Your Veggies -viikkohaastetta! Kokeile tätä ilmaista sovellusta: {1}",
+      "topLabel": "Suoritettu"
+    },
+    "copy": "Kopioi saavutus leikepöydälle",
+    "over30Veggies": {
+      "topLabel": "Yli 30 kasvista",
+      "shareText": "Olen onnistunut syömään yli 30 kasvista viikossa {0} kertaa! Kokeile tätä ilmaista sovellusta: {1}",
+      "bottomLabel": "Viikolla"
+    },
+    "share": "Jaa saavutus",
+    "totalWeeks": {
+      "bottomLabel": "Viikkoa",
+      "shareText": "Olen käyttänyt Eat Your Veggies -sovellusta {0} viikkoa! Kokeile tätä ilmaista sovellusta: {1}",
+      "topLabel": "Yhteensä"
+    },
+    "uniqueVeggies": {
+      "bottomLabel": "Erilaista kasvista",
+      "shareText": "Olen syönyt yhteensä {0} erilaista kasvista! Kokeile tätä ilmaista sovellusta: {1}",
+      "topLabel": "Yhteensä"
+    }
+  },
   "categories": {
     "Bean": "Pavut ja palkokasvit",
     "Fruit": "Hedelmät ja marjat",
@@ -837,26 +866,6 @@
     "allTimeCategories": "Vertailu ryhmittäin",
     "chooseWeek": "Valitse viikko",
     "chosenStats": "Valitut tilastot",
-    "grid1": {
-      "topLabel": "Yhteensä",
-      "bottomLabel": "Viikkoa"
-    },
-    "grid2": {
-      "topLabel": "Yli 30 kasvista",
-      "bottomLabel": "Viikolla"
-    },
-    "grid3": {
-      "topLabel": "Yhteensä",
-      "bottomLabel": "Erilaista kasvista"
-    },
-    "grid4": {
-      "topLabel": "Enimmillään",
-      "bottomLabel": "Kasvista viikossa"
-    },
-    "grid5": {
-      "topLabel": "Suoritettu",
-      "bottomLabel": "Viikkohaastetta"
-    },
     "selectedWeek": "Viikko {0} ({1}-{2})",
     "week": "Vko {0}",
     "weeklyAmounts": "Lukumäärät viikoittain",
