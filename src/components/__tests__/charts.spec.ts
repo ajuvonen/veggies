@@ -76,7 +76,14 @@ describe('charts', () => {
 
     // Leafy category & week 1 are dropped out
     const {labels, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual(['Wk 6', 'Wk 5', 'Wk 4', 'Wk 3', 'Wk 2', 'Wk 1']);
+    expect(labels).toEqual([
+      thisWeek.toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 3}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 5}).toFormat('W/kkkk'),
+    ]);
     expect(datasets).toHaveLength(6);
     expect(datasets[0].label).toBe('Fruit');
     expect(datasets[0].data).toEqual([2, 0, 0, 0, 0, 0]);
@@ -116,7 +123,14 @@ describe('charts', () => {
     const wrapper = mount(WeeklyAmountsChart);
 
     const {labels, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual(['Wk 6', 'Wk 5', 'Wk 4', 'Wk 3', 'Wk 2', 'Wk 1']);
+    expect(labels).toEqual([
+      thisWeek.toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 3}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 5}).toFormat('W/kkkk'),
+    ]);
     expect(datasets).toHaveLength(1);
     expect(datasets[0].data).toEqual([4, 2, 2, 0, 0, 1]);
   });
@@ -170,7 +184,11 @@ describe('charts', () => {
     const wrapper = mount(WeeklyCategoriesChart);
 
     const {labels, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual(['Wk 3', 'Wk 2', 'Wk 1']);
+    expect(labels).toEqual([
+      thisWeek.toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
+    ]);
     expect(datasets).toHaveLength(3);
     expect(datasets[0].label).toBe('Fruit');
     expect(datasets[0].data).toEqual([1, 0, 0]);
