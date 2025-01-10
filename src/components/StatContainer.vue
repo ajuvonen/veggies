@@ -22,24 +22,23 @@ const shareOrCopy = async () =>
       );
 </script>
 <template>
-  <span>{{ $t(`allTimeStatus.${statKey}.topLabel`) }}</span>
-  <div class="stat-container">
-    <span>{{ statAmount }}</span>
-    <ButtonComponent
-      v-tippy="shareSupported ? t('allTimeStatus.share') : t('allTimeStatus.copy')"
-      :aria-flowto="`stat-container-${statKey}`"
-      variant="text"
-      class="h-fit"
-      @click="shareOrCopy"
-    >
-      <IconComponent :icon="shareSupported ? 'shareVariant' : 'contentCopy'" />
-    </ButtonComponent>
-  </div>
-  <span :id="`stat-container-${statKey}`">{{ $t(`allTimeStatus.${statKey}.bottomLabel`) }}</span>
+  <i18n-t scope="global" keypath="categoryStatus.centerLabel">
+    <span>{{ $t(`allTimeStatus.${statKey}.topLabel`) }}</span>
+    <span class="text-5xl">{{ statAmount }}</span>
+    <span>{{ $t(`allTimeStatus.${statKey}.bottomLabel`) }}</span>
+  </i18n-t>
+  <ButtonComponent
+    v-tippy="shareSupported ? t('allTimeStatus.share') : t('allTimeStatus.copy')"
+    :data-test-id="
+      shareSupported
+        ? `stat-container-share-button-${statKey}`
+        : `stat-container-copy-button-${statKey}`
+    "
+    style="left: calc(50% + 3rem)"
+    variant="text"
+    class="absolute"
+    @click="shareOrCopy"
+  >
+    <IconComponent :icon="shareSupported ? 'shareVariant' : 'contentCopy'" />
+  </ButtonComponent>
 </template>
-<style lang="scss" scoped>
-.stat-container {
-  @apply flex gap-2 items-center;
-  @apply text-5xl;
-}
-</style>
