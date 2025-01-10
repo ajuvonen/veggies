@@ -19,7 +19,7 @@ describe('AllTimeStatus', () => {
   it('shows total weeks', () => {
     activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
     const wrapper = mount(AllTimeStatus);
-    expect(wrapper.findByTestId('all-time-weeks').text()).toBe('In Total 3 Weeks');
+    expect(wrapper.findByTestId('all-time-status-totalWeeks').text()).toBe('In Total 3 Weeks');
   });
 
   it('shows unique veggies', () => {
@@ -35,7 +35,9 @@ describe('AllTimeStatus', () => {
       },
     );
     const wrapper = mount(AllTimeStatus);
-    expect(wrapper.findByTestId('all-time-unique').text()).toBe('In Total 5 Unique Veggies');
+    expect(wrapper.findByTestId('all-time-status-uniqueVeggies').text()).toBe(
+      'In Total 5 Unique Veggies',
+    );
   });
 
   it('shows weeks with over 30 veggies', () => {
@@ -55,7 +57,9 @@ describe('AllTimeStatus', () => {
       },
     );
     const wrapper = mount(AllTimeStatus);
-    expect(wrapper.findByTestId('all-time-over-30').text()).toBe('Over 30 Veggies in 2 Weeks');
+    expect(wrapper.findByTestId('all-time-status-over30Veggies').text()).toBe(
+      'Over 30 Veggies in 2 Weeks',
+    );
   });
 
   it('shows highest number of veggies', () => {
@@ -75,6 +79,8 @@ describe('AllTimeStatus', () => {
       },
     );
     const wrapper = mount(AllTimeStatus);
-    expect(wrapper.findByTestId('all-time-at-most').text()).toBe('At Most 31 Veggies in a Week');
+    expect(wrapper.findByTestId('all-time-status-atMostVeggies').text()).toBe(
+      'At Most 31 Veggies in a Week',
+    );
   });
 });
