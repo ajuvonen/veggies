@@ -42,9 +42,7 @@ const chartData = computed(() => {
   }));
 
   return {
-    labels: getWeekStarts.value.map((_, index) =>
-      t('stats.week', [getWeekStarts.value.length - index]),
-    ),
+    labels: getWeekStarts.value.map((weekStart) => weekStart.toFormat('W/kkkk')),
     datasets: datasets.filter(({data}) => data.some((value) => value)),
   };
 });

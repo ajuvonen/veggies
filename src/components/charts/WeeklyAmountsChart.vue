@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
-import {useI18n} from 'vue-i18n';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,15 +21,11 @@ import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
 
-const {t} = useI18n();
-
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
 const chartData = computed(() => {
   return {
-    labels: getWeekStarts.value.map((_, index) =>
-      t('stats.week', [getWeekStarts.value.length - index]),
-    ),
+    labels: getWeekStarts.value.map((weekStart) => weekStart.toFormat('W/kkkk')),
     datasets: [
       {
         data: getWeekStarts.value.map((weekStart) => veggiesForWeek.value(weekStart).length),
