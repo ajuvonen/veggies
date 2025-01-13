@@ -29,7 +29,7 @@ const selectedWeekStart = ref(first(getWeekStarts.value)!);
 
 const optionsElement = ref<InstanceType<typeof ListboxOptions> | null>(null);
 const {maxHeightStyle} = useScreen(optionsElement);
-const {getDropdownStyles} = useDropdown(optionsElement);
+const {getDropdownStyles} = useDropdown();
 
 const veggies = computed({
   get: () => veggiesForWeek.value(selectedWeekStart.value),
@@ -83,7 +83,8 @@ provide(KEYS.challenge, selectedChallenge);
             :class="[getDropdownStyles(active, selected), 'dropdown-list-option']"
             role="menuitem"
           >
-            {{ formatWeek(date) }}
+            <span class="truncate">{{ formatWeek(date) }}</span>
+            <IconComponent v-if="selected" icon="check" />
           </li>
         </ListboxOption>
       </ListboxOptions>
