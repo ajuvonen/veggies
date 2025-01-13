@@ -38,7 +38,7 @@ const touching = ref(false);
 const openButton = ref<typeof ComboboxButton | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 const {maxHeightStyle} = useScreen(optionsElement);
-const {getDropdownStyles} = useDropdown(optionsElement);
+const {getDropdownStyles} = useDropdown();
 
 const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
