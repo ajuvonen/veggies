@@ -14,7 +14,7 @@ const shareSupported = !!navigator.share;
 const shareOrCopy = async () =>
   shareSupported
     ? await navigator.share({
-        text: t(`allTimeStatus.${props.statKey}.shareText`, [props.statAmount, APP_URL]),
+        text: t(`allTimeStatus.${props.statKey}.shareText`, [props.statAmount]).trim(),
         url: APP_URL,
       })
     : navigator.clipboard.writeText(

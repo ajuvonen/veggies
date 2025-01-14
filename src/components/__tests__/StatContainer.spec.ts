@@ -64,7 +64,7 @@ describe('StatContainer', () => {
     await wrapper.findByTestId('stat-container-share-button-totalWeeks').trigger('click');
     expect(navigator.share).toHaveBeenCalledWith({
       url: 'https://eatyourveggies.app',
-      text: "I've used Eat Your Veggies now for 0 weeks! Try this free app out: https://eatyourveggies.app",
+      text: "I've used Eat Your Veggies now for 0 weeks! Try this free app out:",
     });
     Object.assign(navigator, {share});
   });
