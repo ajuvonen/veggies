@@ -806,12 +806,9 @@
       "text": "...false fruit, I know. Also tomato is not a vegetable in biological sense, so the app takes some liberties in its categories. Still, please report any major inaccuracies you come across! You can also request missing veggies to be added. They should be such that are commercially available globally."
     },
     "contact": {
-      "link": {
-        "url": "https://github.com/ajuvonen/veggies/",
-        "text": "GitHub"
-      },
+      "linkText": "Bluesky",
       "title": "How to get in touch?",
-      "text": "You can find the project page in {0}. The page has separate boards for reporting issues and engaging in other discussion. Thank you for your interest towards the project!"
+      "text": "Our {0} profile features app updates and veggie facts, and you can contact us there. Thank you for your interest towards the project!"
     },
     "howToInstall": {
       "title": "How to install?",
@@ -826,10 +823,7 @@
       "text": "The data is stored in your browser's local storage and is not shared with any third parties. You can at any time you wish reset the app using the button below."
     },
     "studyDetails": {
-      "link": {
-        "url": "https://doi.org/10.1128/msystems.00031-18",
-        "text": "American Society for Microbiology (ASM)"
-      },
+      "linkText": "American Society for Microbiology (ASM)",
       "title": "What's the science?",
       "text": "I'm neither a nutritian nor a biologist, so I don't want to make exaggerated claims or interpretations. I'm not affiliated with the study in any way, but if you want to read more about the study, look up The American Gut Project from the journal of {0}."
     },

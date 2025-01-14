@@ -2,24 +2,27 @@
 import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue';
 import IconComponent from '@/components/IconComponent.vue';
 import ButtonComponent from '@/components/ButtonComponent.vue';
+import {BLUESKY_URL} from '@/utils/constants';
 
-const questions = [
-  'appPurpose',
-  'studyDetails',
-  'whatCounts',
-  'categories',
-  'isItFree',
-  'isMyDataSafe',
-  'howToInstall',
-  'contact',
-];
-
-const keysWithLinks = ['contact', 'studyDetails'];
+const questionKeysAndLinks = {
+  appPurpose: '',
+  studyDetails: 'https://doi.org/10.1128/msystems.00031-18',
+  whatCounts: '',
+  categories: '',
+  isItFree: '',
+  isMyDataSafe: '',
+  howToInstall: '',
+  contact: BLUESKY_URL,
+};
 </script>
 <template>
   <ContentElement :title="$t('qa.title')" class="min-h-0" labelTag="label">
     <div class="flex-container flex-col has-scroll">
-      <Disclosure v-for="key in questions" :key="key" v-slot="{open}">
+      <Disclosure
+        v-for="[key, url] in Object.entries(questionKeysAndLinks)"
+        :key="key"
+        v-slot="{open}"
+      >
         <DisclosureButton
           :as="ButtonComponent"
           :data-test-id="`qa-button-${key}`"
@@ -38,15 +41,9 @@ const keysWithLinks = ['contact', 'studyDetails'];
         >
           <DisclosurePanel class="p-2" :data-test-id="`qa-panel-${key}`">
             <i18n-t :keypath="`qa.${key}.text`" tag="div" scope="global">
-              <a
-                v-if="keysWithLinks.includes(key)"
-                :href="$t(`qa.${key}.link.url`)"
-                class="text-link"
-                target="_blank"
-                noreferrer
-                noopener
-                >{{ $t(`qa.${key}.link.text`) }}</a
-              >
+              <a v-if="url" :href="url" class="text-link" target="_blank" noreferrer noopener>{{
+                $t(`qa.${key}.linkText`)
+              }}</a>
             </i18n-t>
           </DisclosurePanel>
         </Transition>

@@ -1,12 +1,8 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import {BLUESKY_URL} from '@/utils/constants';
+</script>
 <template>
-  <a
-    class="bluesky-link"
-    href="https://bsky.app/profile/eatyourveggies.app"
-    target="_blank"
-    noreferrer
-    noopener
-  >
+  <a class="bluesky-link" :href="BLUESKY_URL" target="_blank" noreferrer noopener>
     <IconComponent icon="bluesky" />
     {{ $t('general.follow') }}
   </a>
