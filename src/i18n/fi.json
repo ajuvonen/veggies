@@ -814,12 +814,9 @@
       "text": "...epähedelmä, tiedän. Tomaattikaan ei ole biologisessa mielessä vihannes, joten sovelluksessa otetaan pieniä vapauksia kategorioiden suhteen. Ilmoita silti suuret epätarkkuudet joita löydät. Voit myös ehdottaa puuttuvia vihanneksia sovellukseen lisättäväksi. Niiden pitäisi olla sellaisia, joita on kaupallisesti saatavilla maailmanlaajuisesti."
     },
     "contact": {
-      "link": {
-        "url": "https://github.com/ajuvonen/veggies/",
-        "text": "GitHub"
-      },
+      "linkText": "Blueskyssä",
       "title": "Mihin voin ottaa yhteyttä?",
-      "text": "Projektin sivu on täällä: {0}. Sivulta löytyy erilliset osiot bugien raportointiin sekä yleiseen keskusteluun. Kiitos mielenkiinnosta projektia kohtaan!"
+      "text": "Profiilimme {0} sisältää päivitystiedotteita sekä kasvisfaktoja. Voit ottaa yhteyttä tätä kautta. Kiitos mielenkiinnosta projektia kohtaan!"
     },
     "howToInstall": {
       "title": "Miten sovellus asennetaan?",
@@ -834,10 +831,7 @@
       "text": "Tietoja säilytetään ainoastaan selaimesi paikallisessa tallennustilassa laitteellasi, eikä niitä jaeta kolmansille osapuolille. Voit milloin vain tyhjentää tietosi alla olevalla napilla."
     },
     "studyDetails": {
-      "link": {
-        "url": "https://doi.org/10.1128/msystems.00031-18",
-        "text": "American Society for Microbiology (ASM)"
-      },
+      "linkText": "American Society for Microbiology (ASM)",
       "title": "Mihin sovellus perustuu?",
       "text": "En ole ravitsemusterapeutti enkä biologi, joten haluan välttää liioiteltujen terveysväittämien tai tulkintojen esittämistä. En ole kytköksissä tutkimusta tehneeseen ryhmään millään tavalla, mutta mikäli haluat lukea siitä lisää, tutustu The American Gut Projectiin julkaisussa {0}."
     },

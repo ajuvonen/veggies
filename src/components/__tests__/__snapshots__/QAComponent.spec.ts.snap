@@ -135,7 +135,7 @@ exports[`QAComponent > renders answers 1`] = `
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="transform h-0 opacity-0" entertoclass="transform h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="transform h-full opacity-100" leavetoclass="transform h-0 opacity-0" appear="false" persisted="false" css="true">
       <div id="headlessui-disclosure-panel-v-15" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-contact">
-        <div>You can find the project page in <a href="https://github.com/ajuvonen/veggies/" class="text-link" target="_blank" noreferrer="" noopener="">GitHub</a>. The page has separate boards for reporting issues and engaging in other discussion. Thank you for your interest towards the project!</div>
+        <div>Our <a href="https://bsky.app/profile/eatyourveggies.app" class="text-link" target="_blank" noreferrer="" noopener="">Bluesky</a> profile features app updates and veggie facts, and you can contact us there. Thank you for your interest towards the project!</div>
       </div>
     </transition-stub>
   </div>
