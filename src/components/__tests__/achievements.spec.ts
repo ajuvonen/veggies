@@ -146,6 +146,22 @@ describe('achievements', () => {
     expect(achievements.value.hotStreak).toEqual(AchievementLevel.Gold);
   });
 
+  it('resets hot streak', async () => {
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(getProps({hotStreakLength: 5}));
+    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Bronze);
+    advanceAchievements(getProps({hotStreakLength: 0}));
+    expect(achievements.value.hotStreak).toEqual(AchievementLevel.NoAchievement);
+    advanceAchievements(getProps({hotStreakLength: 10}));
+    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Silver);
+    advanceAchievements(getProps({hotStreakLength: 0}));
+    expect(achievements.value.hotStreak).toEqual(AchievementLevel.NoAchievement);
+    advanceAchievements(getProps({hotStreakLength: 20}));
+    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Gold);
+    advanceAchievements(getProps({hotStreakLength: 0}));
+    expect(achievements.value.hotStreak).toEqual(AchievementLevel.NoAchievement);
+  });
+
   it('advances committed', async () => {
     const {advanceAchievements, achievements} = await withSetup(useAchievements);
     advanceAchievements(getProps({totalWeeks: 11}));
