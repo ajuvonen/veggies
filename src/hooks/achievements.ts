@@ -361,18 +361,35 @@ export function useAchievements() {
                     target: '2',
                     guard: guards.hotStreak(10),
                   },
+                  {
+                    target: '0',
+                    guard: ({event}) => event.hotStreakLength === 0,
+                  },
                 ],
               },
             },
             '2': {
               on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.hotStreak(20),
+                  },
+                  {
+                    target: '0',
+                    guard: ({event}) => event.hotStreakLength === 0,
+                  },
+                ],
+              },
+            },
+            '3': {
+              on: {
                 ADVANCE: {
-                  target: '3',
-                  guard: guards.hotStreak(20),
+                  target: '0',
+                  guard: ({event}) => event.hotStreakLength === 0,
                 },
               },
             },
-            '3': {},
           },
         },
         thirtyVeggies: {
