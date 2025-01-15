@@ -4,9 +4,8 @@ import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import StatContainer from '@/components/StatContainer.vue';
 
-const activitysStore = useActivityStore();
 const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChallenges} =
-  storeToRefs(activitysStore);
+  storeToRefs(useActivityStore());
 
 const sections = computed(() => ({
   totalWeeks: getWeekStarts.value.length,
