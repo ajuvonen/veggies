@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, watch, nextTick, provide} from 'vue';
+import {ref, watch, nextTick} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {
   Combobox,
@@ -9,11 +9,10 @@ import {
   TransitionRoot,
 } from '@headlessui/vue';
 import {useMemoize} from '@vueuse/core';
-import {ALL_VEGGIES, KEYS} from '@/utils/constants';
+import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useScreen} from '@/hooks/screen';
-import {useDropdown} from '@/hooks/dropdown';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import VeggieSearchChallenge from '@/components/VeggieSearchChallenge.vue';
 
@@ -33,12 +32,10 @@ withDefaults(
 const {t, locale} = useI18n();
 
 const query = ref('');
-const touching = ref(false);
 
 const openButton = ref<typeof ComboboxButton | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 const {maxHeightStyle} = useScreen(optionsElement);
-const {getDropdownStyles} = useDropdown();
 
 const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
@@ -67,7 +64,6 @@ const filteredVeggies = useMemoize(
 
 const onMenuClose = () => {
   query.value = '';
-  touching.value = false;
   openButton.value?.$el.focus();
 };
 
@@ -79,7 +75,6 @@ const scrollToStart = async () => {
 };
 
 watch(query, scrollToStart);
-provide(KEYS.getDropdownStyles, getDropdownStyles);
 </script>
 <template>
   <Combobox
