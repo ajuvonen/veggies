@@ -3,6 +3,7 @@ import {provide, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {difference, first} from 'remeda';
+import confetti from 'canvas-confetti';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {ALL_VEGGIES, KEYS} from '@/utils/constants';
@@ -20,17 +21,28 @@ const {allVeggies, uniqueVeggies, suggestions, currentVeggies, currentChallenge}
 const {toggleVeggie} = activityStore;
 const {addToastMessage} = useAppStateStore();
 
+const showConfetti = () =>
+  confetti({
+    disableForReducedMotion: true,
+    particleCount: 150,
+    spread: 70,
+    origin: {x: 0.5, y: 0.7},
+  });
+
 watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
   const addedVeggie = first(difference(newCurrentVeggies, oldCurrentVeggies));
   const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
   if (addedVeggie) {
     if (allVeggies.value.length === 1) {
       addToastMessage(t('toasts.firstVeggie', [cheer]));
+      showConfetti();
     } else if (addedVeggie === currentChallenge.value) {
       addToastMessage(t('toasts.challengeCompleted', [cheer]));
+      showConfetti();
     } else if (allVeggies.value.length % 100 === 0) {
       addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, cheer]));
-    } else if (Math.random() <= 0.35) {
+      showConfetti();
+    } else if (Math.random() <= 0.4) {
       const facts = [
         ...Object.values<string>(tm(`facts.${addedVeggie}`)),
         t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, cheer]),
