@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import {inject} from 'vue';
 import {ComboboxOption} from '@headlessui/vue';
-import {KEYS} from '@/utils/constants';
+import {useDropdown} from '@/hooks/dropdown';
 defineProps<{
   veggie: string;
   translation?: string;
 }>();
 
-const dropdownOptions = inject(KEYS.getDropdownStyles)!;
+const {getDropdownStyles} = useDropdown();
 </script>
 <template>
   <ComboboxOption v-slot="{active, selected}" as="template" :key="veggie" :value="veggie">
     <li
-      :class="[dropdownOptions(active, selected), 'veggie-search__option']"
+      :class="[getDropdownStyles(active, selected), 'veggie-search__option']"
       :data-test-id="`veggie-search-option-${veggie}`"
       role="menuitem"
     >
