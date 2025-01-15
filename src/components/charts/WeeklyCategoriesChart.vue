@@ -25,7 +25,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabel
 
 const {t} = useI18n();
 
-const {x} = useMouse();
+const {x: mouseX} = useMouse();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
@@ -61,7 +61,7 @@ const chartOptions = computed(() => {
       tooltip: {
         ...defaultOptions.plugins?.tooltip,
         yAlign: 'bottom',
-        xAlign: () => (x.value < window.innerWidth / 2 ? 'left' : 'right'),
+        xAlign: () => (mouseX.value < window.innerWidth / 2 ? 'left' : 'right'),
         callbacks: {
           label: ({dataset, formattedValue}) => {
             return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
