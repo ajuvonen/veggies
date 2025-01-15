@@ -32,16 +32,16 @@ config.plugins.VueWrapper.install(dataTestIdPlugin);
 beforeAll(() => {
   vi.mock('vue-chartjs', () => ({
     Doughnut: {
-      template: '<div></div>',
+      template: '<div />',
     },
     PolarArea: {
-      template: '<div></div>',
+      template: '<div />',
     },
     Line: {
-      template: '<div></div>',
+      template: '<div />',
     },
     Bar: {
-      template: '<div></div>',
+      template: '<div />',
     },
   }));
 });
