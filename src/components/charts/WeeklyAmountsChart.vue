@@ -74,7 +74,7 @@ defineExpose({chartData});
     class="flex-1 overflow-hidden"
   >
     <div class="h-full overflow-x-scroll has-scroll">
-      <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
+      <div :style="{width: `max(100%, ${getWeekStarts.length * 55}px)`}" class="relative h-full">
         <Line
           :options="chartOptions as ChartOptions<'line'>"
           :data="chartData"
