@@ -28,7 +28,7 @@ describe('helpers', () => {
     >((resolve) => {
       mount({
         shallow: true,
-        template: '<div></div>',
+        template: '<div />',
         setup() {
           resolve(useI18n());
         },

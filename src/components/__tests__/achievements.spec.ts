@@ -15,7 +15,7 @@ const withSetup = <T>(hook: () => T) =>
   new Promise<T>((resolve) => {
     mount({
       shallow: true,
-      template: '<div></div>',
+      template: '<div />',
       setup() {
         resolve(hook());
       },
