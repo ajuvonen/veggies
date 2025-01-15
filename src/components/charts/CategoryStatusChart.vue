@@ -5,7 +5,7 @@ import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip, type ChartOptions} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
-import {filter, map, pipe, prop, sortBy} from 'remeda';
+import {countBy, entries, pipe, prop, sortBy} from 'remeda';
 import {Category, type Favorites} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
@@ -40,21 +40,13 @@ const getFavorites = (category: Category) =>
   });
 
 const chartData = computed(() => {
-  const veggies = pipe(
-    Object.values(Category),
-    map((category) => [
-      category,
-      props.veggies.filter((veggie) => getCategoryForVeggie(veggie) === category),
-    ]),
-    filter(([, {length}]) => !!length),
-    sortBy(([, {length}]) => length),
-  );
+  const veggies = pipe(props.veggies, countBy(getCategoryForVeggie), entries(), sortBy(prop(1)));
 
   return {
     labels: veggies.map(prop(0)),
     datasets: [
       {
-        data: veggies.map(([, {length}]) => length),
+        data: veggies.map(prop(1)),
         backgroundColor: [...(props.totals ? COLORS.chartColorsAlternate : COLORS.chartColors)],
       },
     ],

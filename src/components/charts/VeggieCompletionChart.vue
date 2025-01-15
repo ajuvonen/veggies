@@ -10,7 +10,7 @@ import {
 } from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import {prop} from 'remeda';
+import {countBy, prop} from 'remeda';
 import {Category} from '@/utils/types';
 import {
   BEANS,
@@ -44,13 +44,10 @@ const veggieLengths: Record<Category, number> = {
 };
 
 const chartData = computed(() => {
+  const groupedVeggies = countBy(props.veggies, getCategoryForVeggie);
   const veggies: [Category, number][] = Object.values(Category).map((category) => [
     category,
-    Math.round(
-      (props.veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length /
-        veggieLengths[category]) *
-        100,
-    ),
+    Math.round(((groupedVeggies[category] || 0) / veggieLengths[category]) * 100),
   ]);
 
   return {

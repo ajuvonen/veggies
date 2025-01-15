@@ -10,7 +10,7 @@ import {
   type ChartOptions,
 } from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
-import {filter, map, pipe, prop, sortBy} from 'remeda';
+import {countBy, entries, pipe, prop, sortBy} from 'remeda';
 import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
@@ -27,21 +27,13 @@ const props = defineProps<{
 const {t} = useI18n();
 
 const chartData = computed(() => {
-  const veggies = pipe(
-    Object.values(Category),
-    map((category) => [
-      category,
-      props.veggies.filter((veggie) => getCategoryForVeggie(veggie) === category),
-    ]),
-    filter(([, {length}]) => !!length),
-    sortBy(([, {length}]) => length),
-  );
+  const veggies = pipe(props.veggies, countBy(getCategoryForVeggie), entries(), sortBy(prop(1)));
 
   return {
     labels: veggies.map(prop(0)),
     datasets: [
       {
-        data: veggies.map(([, {length}]) => length),
+        data: veggies.map(prop(1)),
         backgroundColor: [...COLORS.chartColorsAlternate],
       },
     ],
