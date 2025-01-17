@@ -8,13 +8,7 @@ const {messages} = storeToRefs(appStateStore);
 const {removeToastMessage} = appStateStore;
 </script>
 <template>
-  <TransitionGroup
-    tag="div"
-    name="toasts"
-    class="toast-container"
-    aria-live="polite"
-    @before-leave="() => console.log('before-leave')"
-  >
+  <TransitionGroup tag="div" name="toasts" class="toast-container" aria-live="polite">
     <ToastMessage
       v-for="message in messages"
       :key="message.id"

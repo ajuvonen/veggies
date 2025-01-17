@@ -1,9 +1,36 @@
-import {describe, it, expect} from 'vitest';
+import {describe, it, expect, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import NavBar from '@/components/NavBar.vue';
 
+const mocks = vi.hoisted(() => ({
+  useRoute: vi.fn(),
+}));
+
+vi.mock('vue-router', async () => {
+  const actual = await vi.importActual('vue-router');
+  return {
+    ...actual,
+    useRoute: mocks.useRoute,
+  };
+});
+
 describe('NavBar', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('renders', () => {
+    mocks.useRoute.mockImplementation(() => ({name: 'log'}));
+    const wrapper = mount(NavBar, {
+      props: {
+        showStats: false,
+      },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('renders for home', async () => {
+    mocks.useRoute.mockImplementation(() => ({name: 'home'}));
     const wrapper = mount(NavBar, {
       props: {
         showStats: false,
@@ -13,6 +40,7 @@ describe('NavBar', () => {
   });
 
   it('uses showStats prop', async () => {
+    mocks.useRoute.mockImplementation(() => ({name: 'log'}));
     const wrapper = mount(NavBar, {
       props: {
         showStats: false,
