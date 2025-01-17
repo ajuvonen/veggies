@@ -1,8 +1,21 @@
-import {describe, it, expect, beforeEach, vi} from 'vitest';
+import {computed} from 'vue';
+import {describe, it, expect, beforeEach, vi, afterAll} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import LogView from '@/views/LogView.vue';
 import {useActivityStore} from '@/stores/activityStore';
+
+const mocks = vi.hoisted(() => ({
+  usePreferredReducedMotion: vi.fn(),
+}));
+
+vi.mock('@vueuse/core', async () => {
+  const actual = await vi.importActual('@vueuse/core');
+  return {
+    ...actual,
+    usePreferredReducedMotion: mocks.usePreferredReducedMotion,
+  };
+});
 
 describe('LogView', () => {
   const thisWeek = DateTime.now().startOf('week');
@@ -11,6 +24,10 @@ describe('LogView', () => {
 
   beforeEach(() => {
     activityStore = useActivityStore();
+  });
+
+  afterAll(() => {
+    vi.restoreAllMocks();
   });
 
   it('renders', () => {
@@ -27,6 +44,13 @@ describe('LogView', () => {
   it('renders with animation', () => {
     const wrapper = mount(LogView);
     expect(wrapper).toBeTruthy();
+  });
+
+  it('renders without animation when reduced motion is preferred', () => {
+    mocks.usePreferredReducedMotion.mockReturnValue(computed(() => 'reduce'));
+    const wrapper = mount(LogView);
+    expect(wrapper.find('.front-page-animation').exists()).toBe(false);
+    mocks.usePreferredReducedMotion.mockRestore();
   });
 
   it('renders with data', () => {
