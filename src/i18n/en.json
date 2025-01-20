@@ -272,6 +272,11 @@
       "Bulgur is used for example in salads, pilafs, soups, and as grain bowl base.",
       "The use of bulgur can be traced back as far as the Hittite empire."
     ],
+    "butter bean": [
+      "Butter beans get their name from their mild, creamy texture and taste.",
+      "Butter beans are high in magnesium, iron, potassium and pholate.",
+      "The alternative name for butter beans, lima beans, derives from the Peruvian capital."
+    ],
     "cabbage": [
       "Cabbage has been cultivated for over 4,000 years and was a staple food in ancient Rome and Greece.",
       "In Europe, cabbage is often fermented to make sauerkraut, a popular accompaniment to meats."
@@ -370,10 +375,12 @@
     ],
     "cranberry": [
       "A 30-gram portion of cranberries provides about 14 calories and a good amount of vitamin C.",
-      "Cranberries are native to North America and have been used for both food and medicine for centuries."
+      "Cranberries are native to North America and have been used for both food and medicine for centuries.",
+      "Cranberries are often harvested by flooding the bog and collecting the floating berries."
     ],
     "cucumber": [
-      "Cucumber crops are believed to have originated in South Asia over 3,000 years ago."
+      "Cucumber crops are believed to have originated in South Asia over 3,000 years ago.",
+      "Cucumbers are about 96% water."
     ],
     "dandelion greens": [
       "A 30-gram portion of dandelion greens provides about 25% of the daily vitamin A requirement along with fiber.",
@@ -619,7 +626,8 @@
     ],
     "potato": [
       "Potatoes originated in South America and were first cultivated by the Inca civilization.",
-      "King Frederick of Prussia supposedly named potatoes \"the royal vegetable\" to give them more prestige."
+      "King Frederick of Prussia supposedly named potatoes \"the royal vegetable\" to give them more prestige.",
+      "There are about 5,000 cultivated varieties of potato in the world."
     ],
     "pumpkin seed": [
       "A 30-gram portion of pumpkin seeds provides about 7 grams of protein and is rich in magnesium."
@@ -663,6 +671,10 @@
     "safflower seed": [
       "Safflower seeds are often used to make oil that's high in unsaturated fats.",
       "Safflower seeds are commonly used in bird feed but are also enjoyed as a snack by humans."
+    ],
+    "sesame seed": [
+      "Sesame seeds are often toasted for extra flavor.",
+      "Sesame seed oil is a popular ingredient in Asian cuisine."
     ],
     "shiitake": ["Shiitake mushrooms are prized for their meaty texture and umami flavor."],
     "sorghum": [
@@ -863,6 +875,8 @@
     "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
   },
   "veggieList": {
+    "chartLabel": "{0} % tasted",
+    "chartTitle": "Unique Veggies",
     "complete": "(complete)",
     "missing": "(missing)"
   },
@@ -1098,10 +1112,6 @@
     "challenge": "Your Weekly Challenge",
     "noResults": "No Results",
     "search": "Track Weekly Veggies"
-  },
-  "veggiesTotal": {
-    "title": "Unique Veggies",
-    "label": "{0} % tasted"
   },
   "views": {
     "home": "Home",

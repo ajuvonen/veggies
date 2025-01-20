@@ -272,6 +272,11 @@
       "Bulguria käytetään esimerkiksi salaateissa, pilahvissa, keitoissa ja kulhoruokien pohjana.",
       "Bulgurin käytöstä on löytynyt todisteita jo muinaisten heettiläisten ajoilta."
     ],
+    "butter bean": [
+      "Voipavut saavat nimensä miedon kermaisesta tekstuuristaan ja maustaan.",
+      "Voipavut sisältävät paljon rautaa, magnesiumia, kaliumia sekä folaattia.",
+      "Voipapujen toinen nimi, limanpapu, on peräisin Perun pääkaupungista."
+    ],
     "cabbage": [
       "Kaalia on viljelty yli 4 000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
       "Euroopassa kaalia fermentoidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa."
@@ -372,9 +377,13 @@
     ],
     "cranberry": [
       "30 gramman annos karpaloita sisältää noin 14 kaloria ja hyvän määrän C-vitamiinia.",
-      "Karpalot ovat peräisin Pohjois-Amerikasta ja niitä on käytetty sekä ravintona että lääkkeenä vuosisatojen ajan."
+      "Karpalot ovat peräisin Pohjois-Amerikasta ja niitä on käytetty sekä ravintona että lääkkeenä vuosisatojen ajan.",
+      "Karpalosato korjataan usein upottamalla niiden kasvualue veteen ja keräämällä kelluvat marjat."
     ],
-    "cucumber": ["Kurkun viljelyn uskotaan alkaneen Etelä-Aasiassa yli 3 000 vuotta sitten."],
+    "cucumber": [
+      "Kurkun viljelyn uskotaan alkaneen Etelä-Aasiassa yli 3 000 vuotta sitten.",
+      "96 % kurkun painosta on vettä."
+    ],
     "dandelion greens": [
       "30 gramman annos voikukanlehtiä sisältää noin 25 % päivittäisestä A-vitamiinista sekä kuitua.",
       "Vaikka voikukkaa pidetään usein rikkaruohona, sen lehdet ovat ravitsevia."
@@ -627,7 +636,8 @@
     ],
     "potato": [
       "Perunat ovat kotoisin Etelä-Amerikasta, jossa inkat viljelivät niitä ensimmäisenä.",
-      "Preussin kuningas Frederick kutsui tarinan mukaan perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta."
+      "Preussin kuningas Frederick kutsui tarinan mukaan perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta.",
+      "Maailmanlaajuisesti viljellään noin 5 000:ta erilaista perunalajiketta."
     ],
     "pumpkin seed": [
       "30 gramman annos kurpitsansiemeniä tarjoaa noin 7 g proteiinia ja runsaasti magnesiumia."
@@ -673,6 +683,10 @@
     "safflower seed": [
       "Saflorinsiemeniä käytetään runsaasti tyydyttymättömiä rasvoja sisältävän öljyn valmistukseen.",
       "Saflorinsiemeniä käytetään usein linnunruokana, mutta ne ovat myös ihmisten suosima välipala."
+    ],
+    "sesame seed": [
+      "Seesaminsiemeniä käytetään usein paahdettuna niiden maun korostamiseksi",
+      "Seesamiöljy on suosittu ainesosa aasialaisessa keittiössä."
     ],
     "shiitake": ["Siitakesieniä arvostetaan niiden lihaisan koostumuksen ja umamisen maun vuoksi."],
     "sorghum": [
@@ -871,6 +885,8 @@
     "uniqueVeggies": "Olet kokeillut {0} / {1} kasviksesta tässä sovelluksessa! {2}!"
   },
   "veggieList": {
+    "chartLabel": "{0} % kokeiltu",
+    "chartTitle": "Kokeillut kasvikset",
     "complete": "(suoritettu)",
     "missing": "(puuttuu)"
   },
@@ -1106,10 +1122,6 @@
     "challenge": "Viikkohaasteesi",
     "noResults": "Ei tuloksia",
     "search": "Kirjaa viikon kasvikset"
-  },
-  "veggiesTotal": {
-    "title": "Kokeillut kasvikset",
-    "label": "{0} % kokeiltu"
   },
   "views": {
     "home": "Etusivu",
