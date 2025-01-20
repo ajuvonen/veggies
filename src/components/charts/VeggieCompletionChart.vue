@@ -71,7 +71,7 @@ const chartOptions = computed(() => {
         ...defaultOptions.plugins?.tooltip,
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
-          label: ({formattedValue}) => t('veggiesTotal.label', [formattedValue]),
+          label: ({formattedValue}) => t('veggieList.chartLabel', [formattedValue]),
         },
       },
       datalabels: {
@@ -105,7 +105,7 @@ const chartOptions = computed(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement :title="$t('veggiesTotal.title')" :labelAttrs="{'aria-hidden': true}">
+  <ContentElement :title="$t('veggieList.chartTitle')" :labelAttrs="{'aria-hidden': true}">
     <div class="veggie-completion-chart__background">
       <PolarArea
         :data="chartData"
@@ -115,7 +115,7 @@ defineExpose({chartData});
       />
       <ChartScreenReaderTable
         id="veggie-completion-table"
-        :title="$t('veggiesTotal.title')"
+        :title="$t('veggieList.chartTitle')"
         :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
         :data="[chartData.datasets[0].data.map((value) => `${value} %`)]"
       />
