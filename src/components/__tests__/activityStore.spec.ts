@@ -1,4 +1,5 @@
 import {describe, it, expect, beforeEach} from 'vitest';
+import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {createPinia, setActivePinia} from 'pinia';
@@ -19,6 +20,28 @@ describe('activityStore', () => {
     // without having to pass it to it: `useStore(pinia)`
     setActivePinia(createPinia());
     activityStore = useActivityStore();
+  });
+
+  it('resets the date timezones', async () => {
+    localStorage.setItem('veggies-start-date', '"2025-01-20T00:00:00.000+14:00"');
+    localStorage.setItem(
+      'veggies-weeks',
+      JSON.stringify([{startDate: '2025-01-20T00:00:00.000+14:00', veggies: []}]),
+    );
+    localStorage.setItem(
+      'veggies-challenges',
+      JSON.stringify([{startDate: '2025-01-20T00:00:00.000-12:00', veggie: 'cucumber'}]),
+    );
+    const datesFromStorage = await new Promise<(DateTime | null)[]>((resolve) =>
+      mount({
+        template: '<div />',
+        setup: () => {
+          const store = useActivityStore();
+          resolve([store.startDate, store.weeks[0].startDate, store.challenges[0].startDate]);
+        },
+      }),
+    );
+    datesFromStorage.forEach((date) => expect(date).toEqual(DateTime.fromISO('2025-01-20')));
   });
 
   it('adds veggies', () => {
