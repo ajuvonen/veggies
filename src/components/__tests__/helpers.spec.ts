@@ -56,13 +56,19 @@ describe('helpers', () => {
 
   it('parses dates from JSON', () => {
     const parsed: Challenge[] = JSON.parse(
-      '[{"startDate":"2024-09-02T00:00:00.000+03:00","veggie":"nectarine"}]',
+      '[{"startDate":"2024-09-02T00:00:00.000Z","veggie":"nectarine"},{"startDate":"2024-09-16T00:00:00.000+14:00","veggie":"kale"},{"startDate":"2024-09-23T00:00:00.000-12:00","veggie":"cucumber"}]',
       dateParser,
     );
-    expect(parsed.length).toBe(1);
+    expect(parsed.length).toBe(3);
     expect(parsed[0].veggie).toBe('nectarine');
     expect(parsed[0].startDate).toBeInstanceOf(DateTime);
-    expect(parsed[0].startDate.toUTC().toISO()).toBe('2024-09-01T21:00:00.000Z');
+    expect(parsed[0].startDate).toEqual(DateTime.fromISO('2024-09-02'));
+    expect(parsed[1].veggie).toBe('kale');
+    expect(parsed[1].startDate).toBeInstanceOf(DateTime);
+    expect(parsed[1].startDate).toEqual(DateTime.fromISO('2024-09-16'));
+    expect(parsed[2].veggie).toBe('cucumber');
+    expect(parsed[2].startDate).toBeInstanceOf(DateTime);
+    expect(parsed[2].startDate).toEqual(DateTime.fromISO('2024-09-23'));
   });
 
   it('parses numbers as they are', () => {
