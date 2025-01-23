@@ -2,11 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .flex-container {
-    @apply flex gap-2;
+#app {
+  @apply h-full p-4 relative overflow-hidden;
+  @apply flex flex-col gap-6;
+  @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80%;
+}
+
+:focus {
+  @apply outline outline-2 outline-offset-[3px];
+  @apply outline-slate-50;
+}
+
+@layer base {
+  html {
+    @apply h-full;
+    scrollbar-width: none;
+    scrollbar-color: #f8fafc transparent;
   }
 
+  body {
+    @apply text-slate-50 fill-slate-50 h-full;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  a {
+    @apply rounded-md;
+    @apply fill-slate-50;
+    &:hover {
+      @apply text-slate-200 fill-slate-200;
+    }
+  }
+
+  canvas {
+    image-rendering: pixelated;
+  }
+}
+
+@layer components {
   .button-like {
     @apply text-nowrap px-4 py-2 text-sm uppercase rounded-md select-none tracking-wider cursor-pointer;
   }
@@ -25,79 +57,49 @@
     @apply flex items-center justify-between;
   }
 
+  .text-link {
+    @apply underline;
+    @apply text-slate-300 hover:text-slate-50 focus:text-slate-50;
+  }
+
+  .tippy-box {
+    @apply mx-2;
+    @apply bg-sky-950;
+  }
+
+  .tippy-content {
+    @apply px-2 text-sm;
+    @apply text-slate-50;
+  }
+
+  .tippy-box[data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: #082f49;
+  }
+  .tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: #082f49;
+  }
+  .tippy-box[data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: #082f49;
+  }
+  .tippy-box[data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: #082f49;
+  }
+}
+
+@layer utilities {
+  .flex-container {
+    @apply flex gap-2;
+  }
+
+  .outline-override {
+    > :focus {
+      @apply outline-sky-500;
+    }
+  }
+
   .has-scroll {
-    @apply overflow-hidden overflow-y-auto min-h-0 -m-2 p-2;
+    @apply overflow-auto min-h-0 -m-2 p-2;
     @apply flex-grow;
     scrollbar-width: thin;
   }
-
-  .text-link {
-    @apply underline;
-    @apply text-slate-300;
-    &:hover,
-    &:focus {
-      @apply text-slate-50;
-    }
-  }
-}
-
-a {
-  @apply rounded-md;
-  @apply fill-slate-50;
-  &:hover {
-    @apply text-slate-200 fill-slate-200;
-  }
-}
-
-html {
-  @apply h-full;
-  scrollbar-width: none;
-  scrollbar-color: #f8fafc transparent;
-}
-
-body {
-  @apply text-slate-50 fill-slate-50 h-full;
-  font-family: 'Nunito', sans-serif;
-}
-
-#app {
-  @apply h-full p-4 relative overflow-hidden;
-  @apply flex flex-col gap-6;
-  @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80%;
-}
-
-:focus {
-  @apply outline outline-2 outline-offset-[3px];
-  @apply outline-slate-50;
-}
-
-.outline-override > :focus {
-  @apply outline-sky-500;
-}
-
-canvas {
-  image-rendering: pixelated;
-}
-
-.tippy-box {
-  @apply mx-2;
-  @apply bg-sky-950;
-}
-
-.tippy-content {
-  @apply px-2 text-sm;
-  @apply text-slate-50;
-}
-
-.tippy-box[data-placement^='top'] > .tippy-arrow::before {
-  border-top-color: #082f49;
-}
-.tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: #082f49;
-}
-.tippy-box[data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: #082f49;
-}
-.tippy-box[data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: #082f49;
 }
