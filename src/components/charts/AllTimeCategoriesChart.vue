@@ -1,17 +1,10 @@
 <script lang="ts" setup>
 import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  ArcElement,
-  Tooltip,
-  Title,
-  type ChartOptions,
-} from 'chart.js';
+import {Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Title} from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
 import {countBy, entries, pipe, prop, sortBy} from 'remeda';
-import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import {Category} from '@/utils/types';
@@ -40,10 +33,8 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() => {
-  const defaultOptions = getChartOptions<'polarArea'>(false, false, true);
-  return {
-    ...defaultOptions,
+const chartOptions = computed(() =>
+  getChartOptions<'polarArea'>(false, false, false, {
     scales: {
       r: {
         ticks: {
@@ -55,20 +46,18 @@ const chartOptions = computed(() => {
       },
     },
     plugins: {
-      ...defaultOptions.plugins,
       tooltip: {
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
         },
       },
       datalabels: {
-        ...defaultOptions.plugins?.datalabels,
-        formatter: (_, context: Context) =>
+        formatter: (_, context) =>
           CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
       },
     },
-  } as ChartOptions<'polarArea'>;
-});
+  }),
+);
 
 defineExpose({chartData});
 </script>

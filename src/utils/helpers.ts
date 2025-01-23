@@ -2,6 +2,7 @@ import {useMemoize} from '@vueuse/core';
 import type {ChartOptions, ChartTypeRegistry} from 'chart.js';
 import type {Context} from 'chartjs-plugin-datalabels';
 import {DateTime} from 'luxon';
+import {mergeDeep} from 'remeda';
 import {
   FRUITS,
   VEGETABLES,
@@ -33,80 +34,85 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
 });
 
 export const getChartOptions = <T extends keyof ChartTypeRegistry>(
-  grids: boolean = false,
-  stacked: boolean = false,
-  withIcons: boolean = false,
+  grids: boolean,
+  stacked: boolean,
+  withIcons: boolean,
+  overrides: Partial<ChartOptions<T>> = {},
 ) =>
-  ({
-    responsive: true,
-    maintainAspectRatio: !grids,
-    layout: {
-      padding: 0,
-    },
-    scales: grids
-      ? {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              precision: 0,
-              color: COLORS.offWhite,
-            },
-            stacked,
-          },
-          x: {
-            beginAtZero: true,
-            ticks: {
-              precision: 0,
-              color: COLORS.offWhite,
-            },
-            stacked,
-          },
-        }
-      : undefined,
-    plugins: {
-      title: {
-        display: false,
+  mergeDeep(
+    {
+      responsive: true,
+      maintainAspectRatio: !grids,
+      layout: {
+        padding: 0,
       },
-      legend: {
-        display: false,
-      },
-      datalabels: {
-        ...(withIcons
-          ? {
-              anchor: 'center',
-              align: 'center',
-              font: {
-                size: 25,
+      scales: grids
+        ? {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                precision: 0,
+                color: COLORS.offWhite,
               },
-              textShadowColor: '#fff',
-              textShadowBlur: 5,
-              formatter: (value, {dataset: {label}}: Context) =>
-                value ? CATEGORY_EMOJI[label as Category] : '',
-            }
-          : {
-              display: false,
-            }),
-      },
-      tooltip: {
-        padding: 8,
-        titleFont: {
-          size: 14,
-          weight: 'normal',
+              stacked,
+            },
+            x: {
+              beginAtZero: true,
+              ticks: {
+                precision: 0,
+                color: COLORS.offWhite,
+              },
+              stacked,
+            },
+          }
+        : undefined,
+      plugins: {
+        title: {
+          display: false,
         },
-        bodyFont: {
-          size: 14,
+        legend: {
+          display: false,
         },
-        footerFont: {
-          size: 14,
-          weight: 'normal',
+        datalabels: {
+          ...(withIcons
+            ? {
+                anchor: 'center',
+                align: 'center',
+                font: {
+                  size: 25,
+                },
+                textShadowColor: '#fff',
+                textShadowBlur: 5,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                formatter: (value: any, {dataset: {label}}: Context) =>
+                  value ? CATEGORY_EMOJI[label as Category] : '',
+              }
+            : {
+                display: false,
+              }),
         },
-        displayColors: false,
-        backgroundColor: COLORS.darkBlue,
-        bodyColor: COLORS.offWhite,
-        titleColor: COLORS.offWhite,
+        tooltip: {
+          padding: 8,
+          titleFont: {
+            size: 14,
+            weight: 'normal',
+          },
+          bodyFont: {
+            size: 14,
+          },
+          footerFont: {
+            size: 14,
+            weight: 'normal',
+          },
+          displayColors: false,
+          backgroundColor: COLORS.darkBlue,
+          bodyColor: COLORS.offWhite,
+          titleColor: COLORS.offWhite,
+        },
       },
     },
-  }) as ChartOptions<T>;
+    overrides,
+  ) as ChartOptions<T>;
 
 export const getRandomVeggie = () => ALL_VEGGIES[Math.floor(Math.random() * ALL_VEGGIES.length)];
 

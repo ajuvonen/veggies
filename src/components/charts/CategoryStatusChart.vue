@@ -2,9 +2,9 @@
 import {computed, ref} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {useElementSize} from '@vueuse/core';
-import {Chart as ChartJS, ArcElement, Tooltip, type ChartOptions} from 'chart.js';
+import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
-import ChartDataLabels, {type Context} from 'chartjs-plugin-datalabels';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy, entries, pipe, prop, sortBy} from 'remeda';
 import {Category, type Favorites} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
@@ -53,28 +53,23 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() => {
-  const defaultOptions = getChartOptions<'doughnut'>(false, false, true);
-  return {
-    ...defaultOptions,
+const chartOptions = computed(() =>
+  getChartOptions<'doughnut'>(false, false, true, {
     cutout: height.value < 280 ? '60%' : undefined,
     plugins: {
-      ...defaultOptions.plugins,
       tooltip: {
-        ...defaultOptions.plugins?.tooltip,
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
           footer: props.totals ? ([{label}]) => [...getFavorites(label as Category)] : undefined,
         },
       },
       datalabels: {
-        ...defaultOptions.plugins?.datalabels,
-        formatter: (_, context: Context) =>
+        formatter: (_, context) =>
           CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
       },
     },
-  } as ChartOptions<'doughnut'>;
-});
+  }),
+);
 
 defineExpose({chartData});
 </script>

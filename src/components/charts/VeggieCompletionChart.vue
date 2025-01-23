@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {
-  Chart as ChartJS,
-  Tooltip,
-  RadialLinearScale,
-  ArcElement,
-  type ChartOptions,
-} from 'chart.js';
+import {Chart as ChartJS, Tooltip, RadialLinearScale, ArcElement} from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy, prop} from 'remeda';
@@ -61,20 +55,17 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() => {
-  const defaultOptions = getChartOptions<'polarArea'>(false, false, false);
-  return {
-    ...defaultOptions,
+const chartOptions = computed(() =>
+  getChartOptions<'polarArea'>(false, false, false, {
     plugins: {
-      ...defaultOptions.plugins,
       tooltip: {
-        ...defaultOptions.plugins?.tooltip,
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
           label: ({formattedValue}) => t('veggieList.chartLabel', [formattedValue]),
         },
       },
       datalabels: {
+        display: true,
         color: COLORS.offWhite,
         formatter: (value) => `${value} %`,
         anchor: 'end',
@@ -95,12 +86,12 @@ const chartOptions = computed(() => {
           font: {
             size: 25,
           },
-          callback: (value: Category) => CATEGORY_EMOJI[value],
+          callback: (value) => CATEGORY_EMOJI[value as Category],
         },
       },
     },
-  } as ChartOptions<'polarArea'>;
-});
+  }),
+);
 
 defineExpose({chartData});
 </script>

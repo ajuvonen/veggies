@@ -5,7 +5,13 @@ import {useI18n, type Composer, type VueMessageType} from 'vue-i18n';
 import type {DateTimeFormat, LocaleMessage, NumberFormat} from '@intlify/core-base';
 import {unique} from 'remeda';
 import {ALL_VEGGIES} from '@/utils/constants';
-import {dateParser, getCategoryForVeggie, getRandomEmojis, getRandomVeggie} from '@/utils/helpers';
+import {
+  dateParser,
+  getCategoryForVeggie,
+  getChartOptions,
+  getRandomEmojis,
+  getRandomVeggie,
+} from '@/utils/helpers';
 import {Category, type Challenge} from '@/utils/types';
 
 describe('helpers', () => {
@@ -79,5 +85,28 @@ describe('helpers', () => {
   it('gives unique emojis', () => {
     const emojis = getRandomEmojis(15);
     expect(unique(emojis)).toHaveLength(15);
+  });
+
+  it('combines chart configs', () => {
+    const overrides = {
+      responsive: false,
+      layout: {
+        padding: 10,
+      },
+      plugins: {
+        legend: {
+          display: true,
+        },
+      },
+    };
+
+    const result = getChartOptions<'bar'>(true, true, true, overrides);
+    expect(result.responsive).toBe(false);
+    expect(result.layout?.padding).toBe(10);
+    expect(result.plugins?.legend?.display).toBe(true);
+    // Defaults
+    expect(result.maintainAspectRatio).toBe(false);
+    expect(result.scales?.x?.stacked).toBe(true);
+    expect(result.plugins?.datalabels?.anchor).toBe('center');
   });
 });
