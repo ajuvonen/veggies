@@ -68,7 +68,7 @@ defineExpose({chartData});
     :labelAttrs="{'aria-hidden': true}"
     class="flex-1 overflow-hidden"
   >
-    <div class="h-full overflow-x-scroll has-scroll">
+    <div class="h-full has-scroll">
       <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
         <Line
           :options="chartOptions"
