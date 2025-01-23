@@ -1,35 +1,17 @@
-import {computed, onMounted, onUnmounted, ref, type ComponentPublicInstance, type Ref} from 'vue';
-import {useElementBounding} from '@vueuse/core';
+import {computed, type ComponentPublicInstance, type Ref} from 'vue';
+import {useElementBounding, useWindowSize} from '@vueuse/core';
 
 export function useScreen(element: Ref<HTMLElement | ComponentPublicInstance | null>) {
-  const visualHeight = ref(window.visualViewport?.height ?? window.innerHeight);
+  const {height} = useWindowSize({type: 'visual'});
 
   const {top} = useElementBounding(element);
 
   const maxHeightStyle = computed(
-    () => `max-height: calc(${visualHeight.value}px - ${top.value}px - 1rem)`,
+    () => `max-height: calc(${height.value}px - ${top.value}px - 1rem)`,
   );
 
-  const updateViewportHeight = () => {
-    visualHeight.value = window.visualViewport?.height ?? window.innerHeight;
-  };
-
-  onMounted(() => {
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', updateViewportHeight);
-    }
-    window.addEventListener('resize', updateViewportHeight);
-  });
-
-  onUnmounted(() => {
-    if (window.visualViewport) {
-      window.visualViewport.removeEventListener('resize', updateViewportHeight);
-    }
-    window.removeEventListener('resize', updateViewportHeight);
-  });
-
   return {
-    visualHeight,
+    visualHeight: height,
     maxHeightStyle,
   };
 }
