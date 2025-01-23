@@ -8,10 +8,9 @@ import {
   PointElement,
   LineElement,
   Tooltip,
-  type ChartOptions,
 } from 'chart.js';
 import {Line} from 'vue-chartjs';
-import ChartAnnotation, {type EventContext} from 'chartjs-plugin-annotation';
+import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean, prop} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {getChartOptions} from '@/utils/helpers';
@@ -36,12 +35,9 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() => {
-  const defaultChartOptions = getChartOptions<'line'>(true, false);
-  return {
-    ...defaultChartOptions,
+const chartOptions = computed(() =>
+  getChartOptions<'line'>(true, false, false, {
     plugins: {
-      ...defaultChartOptions.plugins,
       annotation: {
         annotations: {
           mean: {
@@ -51,8 +47,7 @@ const chartOptions = computed(() => {
             borderDashOffset: 0,
             borderWidth: 3,
             scaleID: 'y',
-            value: (ctx: EventContext) =>
-              mean(ctx.chart.data.datasets[0].data.slice(1) as number[]) ?? 0,
+            value: (ctx) => mean(ctx.chart.data.datasets[0].data.slice(1) as number[]) ?? 0,
           },
         },
       },
@@ -62,8 +57,8 @@ const chartOptions = computed(() => {
         right: 25,
       },
     },
-  };
-});
+  }),
+);
 
 defineExpose({chartData});
 </script>
@@ -76,7 +71,7 @@ defineExpose({chartData});
     <div class="h-full overflow-x-scroll has-scroll">
       <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
         <Line
-          :options="chartOptions as ChartOptions<'line'>"
+          :options="chartOptions"
           :data="chartData"
           data-test-id="weekly-amounts-chart"
           aria-describedby="weekly-amounts-table"

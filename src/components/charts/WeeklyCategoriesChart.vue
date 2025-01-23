@@ -2,14 +2,7 @@
 import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Tooltip,
-  type ChartOptions,
-} from 'chart.js';
+import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {prop} from 'remeda';
@@ -47,19 +40,15 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() => {
-  const defaultOptions = getChartOptions<'bar'>(true, true, true);
-  return {
-    ...defaultOptions,
+const chartOptions = computed(() =>
+  getChartOptions<'bar'>(true, true, true, {
     layout: {
       padding: {
         right: 25,
       },
     },
     plugins: {
-      ...defaultOptions.plugins,
       tooltip: {
-        ...defaultOptions.plugins?.tooltip,
         yAlign: 'bottom',
         xAlign: () => (mouseX.value < window.innerWidth / 2 ? 'left' : 'right'),
         callbacks: {
@@ -69,8 +58,8 @@ const chartOptions = computed(() => {
         },
       },
     },
-  } as ChartOptions<'bar'>;
-});
+  }),
+);
 
 defineExpose({chartData});
 </script>
