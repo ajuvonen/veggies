@@ -5,7 +5,7 @@ import type {ButtonVariant} from '@/components/ButtonComponent.vue';
 import type {IconString} from '@/components/IconComponent.vue';
 
 defineEmits<{
-  click: [veggie: string];
+  toggle: [veggie: string];
 }>();
 
 const props = withDefaults(
@@ -43,7 +43,7 @@ const translatedVeggies = computed(() => {
       <ButtonComponent
         :aria-label="$t(ariaKey, [translation])"
         :variant="variant"
-        @click="$emit('click', veggie)"
+        @click="$emit('toggle', veggie)"
       >
         <IconComponent :icon="icon" />
         {{ translation }}</ButtonComponent
@@ -51,7 +51,7 @@ const translatedVeggies = computed(() => {
     </li>
   </TransitionGroup>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .tags__container {
   @apply relative has-scroll;
   @apply flex-container flex-wrap justify-center content-start;

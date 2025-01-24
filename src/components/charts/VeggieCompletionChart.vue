@@ -113,7 +113,7 @@ defineExpose({chartData});
     </div>
   </ContentElement>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .veggie-completion-chart__background {
   @apply relative -my-4 max-h-[50vh];
   @apply flex-1 self-center;

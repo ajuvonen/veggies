@@ -46,7 +46,7 @@ defineProps<{
     </Dialog>
   </TransitionRoot>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .modal-dialog__backdrop {
   @apply fixed inset-0;
   @apply bg-black/30;

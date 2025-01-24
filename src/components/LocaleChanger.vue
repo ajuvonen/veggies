@@ -24,7 +24,7 @@ const {settings} = storeToRefs(useAppStateStore());
     </ContentElement>
   </RadioGroup>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .locale-changer__option {
   @apply button-like;
   @apply flex-container;

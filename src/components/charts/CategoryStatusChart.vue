@@ -104,7 +104,7 @@ defineExpose({chartData});
     />
   </div>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 :deep(canvas) {
   @apply relative z-10;
 }

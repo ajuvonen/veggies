@@ -53,7 +53,7 @@ const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks'
     </TabPanels>
   </TabGroup>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .stats__tab {
   @apply w-full;
   @apply flex-container flex-col gap-4;

@@ -7,7 +7,7 @@ import {BLUESKY_URL} from '@/utils/constants';
     {{ $t('general.follow') }}
   </a>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .bluesky-link {
   @apply uppercase text-xs !w-fit;
   @apply flex-container items-center;

@@ -22,7 +22,7 @@ const {getDropdownStyles} = useDropdown();
     </li>
   </ComboboxOption>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .veggie-search__option {
   @apply dropdown-list-option;
 }

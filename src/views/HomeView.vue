@@ -42,15 +42,15 @@ const start = () => {
     </ModalDialog>
   </div>
 </template>
-<style scoped lang="scss">
+<style scoped>
 .home__container {
   @apply flex flex-col gap-6 items-center justify-center;
   @apply h-full;
 }
 
 .home__title {
+  @apply sm:text-7xl sm:text-center uppercase;
   font-family: 'Bungee Shade', system-ui;
   font-size: 16vw;
-  @apply sm:text-7xl sm:text-center uppercase;
 }
 </style>

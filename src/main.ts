@@ -8,7 +8,7 @@ import i18n from '@/i18n';
 import '@fontsource/bungee-shade/latin-400.css';
 import '@fontsource/nunito/latin-400.css';
 import 'tippy.js/dist/tippy.css';
-import '@/assets/main.scss';
+import '@/assets/main.css';
 
 import IconComponent from '@/components/IconComponent.vue';
 import ButtonComponent from '@/components/ButtonComponent.vue';

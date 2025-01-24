@@ -131,10 +131,10 @@ const {achievements} = storeToRefs(useAppStateStore());
     </ContentElement>
   </div>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .achievement-list {
   @apply has-scroll m-0 p-0;
-  @apply flex flex-col gap-6;
+  @apply flex flex-col gap-4;
 }
 
 .achievement-list__badge-container {

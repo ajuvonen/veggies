@@ -25,7 +25,7 @@ let emojis = getRandomEmojis(4);
     </div>
   </div>
 </template>
-<style scoped lang="scss">
+<style scoped>
 .front-page-animation__container {
   @apply h-1/2;
   @apply flex items-center justify-end;

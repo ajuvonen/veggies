@@ -18,7 +18,7 @@ const challenge = inject(KEYS.challenge);
   </li>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .veggie-search__heading {
   @apply flex-container justify-start;
   @apply select-none p-2;
