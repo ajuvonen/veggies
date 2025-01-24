@@ -85,7 +85,7 @@ watch(achievements, (newValue, oldValue) => {
   </ModalDialog>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 main {
   @apply h-full min-h-0;
   @apply flex flex-col items-center gap-6;

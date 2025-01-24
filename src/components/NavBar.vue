@@ -44,14 +44,14 @@ const isHome = computed(() => route.name === 'home');
     <HomeLocaleChanger v-else />
   </nav>
 </template>
-<style scoped lang="scss">
+<style scoped>
 .navbar {
   @apply w-full;
   @apply flex justify-between items-center;
+}
 
-  &--home {
-    @apply justify-end;
-  }
+.navbar--home {
+  @apply justify-end;
 }
 
 .nav__link {

@@ -58,6 +58,6 @@ describe('ButtonComponent', () => {
 
     await wrapper.findByText('.button', 'tomato').trigger('click');
     await wrapper.findByText('.button', 'pineapple').trigger('click');
-    expect(wrapper.emitted('click')).toEqual([['tomato'], ['pineapple']]);
+    expect(wrapper.emitted('toggle')).toEqual([['tomato'], ['pineapple']]);
   });
 });

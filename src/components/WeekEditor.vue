@@ -96,10 +96,10 @@ provide(KEYS.challenge, selectedChallenge);
     :variant="['tag', 'remove']"
     ariaKey="general.clickToRemove"
     icon="minus"
-    @click="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
+    @toggle="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
   />
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .week-editor__dropdown-button {
   @apply flex items-center justify-between;
   @apply w-full button-like;

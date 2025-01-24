@@ -130,14 +130,14 @@ watch(query, scrollToStart);
     </TransitionRoot>
   </Combobox>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .veggie-search__input {
   @apply w-full h-full py-2 pl-4 pr-8 text-lg rounded-full;
   @apply text-slate-900 bg-slate-50;
+}
 
-  &--small {
-    @apply h-9 text-base rounded-md leading-4;
-  }
+.veggie-search__input--small {
+  @apply h-9 text-base rounded-md leading-4;
 }
 
 .veggie-search__button {

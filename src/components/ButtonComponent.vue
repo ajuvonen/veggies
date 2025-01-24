@@ -29,7 +29,7 @@ const getVariants = computed(() => {
     <slot></slot>
   </button>
 </template>
-<style scoped lang="scss">
+<style scoped>
 .button {
   @apply button-like;
   @apply flex-container items-center;

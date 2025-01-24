@@ -48,7 +48,7 @@ const emoji = getRandomEmojis()[0];
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .toast-message {
   @apply w-full shadow-md p-4;
   @apply bg-sky-500;

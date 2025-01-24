@@ -48,7 +48,7 @@ const allVeggies = computed(() => {
     </ul>
   </div>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .veggie-list {
   @apply has-scroll m-0 p-0;
   @apply flex-container flex-col gap-4;

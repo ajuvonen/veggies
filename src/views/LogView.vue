@@ -65,7 +65,7 @@ provide(KEYS.challenge, currentChallenge);
     :variant="['tag', 'primary']"
     ariaKey="general.clickToAdd"
     icon="plus"
-    @click="(veggie) => toggleVeggie(veggie)"
+    @toggle="(veggie) => toggleVeggie(veggie)"
   />
   <BlueskyLink />
 </template>

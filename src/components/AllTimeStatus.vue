@@ -28,7 +28,7 @@ const sections = computed(() => ({
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
+<style scoped>
 .all-time-status__container {
   @apply grid grid-cols-2 grid-rows-3;
   @apply text-center;

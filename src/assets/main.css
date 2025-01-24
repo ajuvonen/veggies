@@ -11,6 +11,10 @@
 :focus {
   @apply outline outline-2 outline-offset-[3px];
   @apply outline-slate-50;
+
+  .outline-override > & {
+    @apply outline-sky-500;
+  }
 }
 
 @layer base {
@@ -84,19 +88,13 @@
   .tippy-box[data-placement^='right'] > .tippy-arrow::before {
     border-right-color: #082f49;
   }
-}
 
-@layer utilities {
   .flex-container {
     @apply flex gap-2;
   }
+}
 
-  .outline-override {
-    > :focus {
-      @apply outline-sky-500;
-    }
-  }
-
+@layer utilities {
   .has-scroll {
     @apply overflow-auto min-h-0 -m-2 p-2;
     @apply flex-grow;
