@@ -8,13 +8,6 @@ export default defineConfig({
   define: {
     __VITE_BUILD_TIME__: JSON.stringify(new Date().toISOString()),
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler',
-      },
-    },
-  },
   plugins: [
     vue(),
     VitePWA({
