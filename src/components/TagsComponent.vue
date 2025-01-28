@@ -38,7 +38,7 @@ const translatedVeggies = computed(() => {
       v-for="{veggie, translation} in translatedVeggies"
       :key="veggie"
       :data-test-id="`tag-${veggie}`"
-      class="tags__tag"
+      class="z-10"
     >
       <ButtonComponent
         :aria-label="$t(ariaKey, [translation])"
@@ -55,10 +55,6 @@ const translatedVeggies = computed(() => {
 .tags__container {
   @apply relative has-scroll;
   @apply flex-container flex-wrap justify-center content-start;
-}
-
-.tags__tag {
-  z-index: 1;
 }
 
 /* Transition classes */
