@@ -3,7 +3,7 @@ import {inject} from 'vue';
 import VeggieSearchOption from '@/components/VeggieSearchOption.vue';
 import {KEYS} from '@/utils/constants';
 
-const challenge = inject(KEYS.challenge);
+const challenge = inject(KEYS.challenge, undefined);
 </script>
 
 <template>
