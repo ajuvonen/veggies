@@ -42,10 +42,40 @@ let emojis = getRandomEmojis(4);
   @apply flex flex-col items-center;
 }
 
-@for $i from 1 through 8 {
-  .front-page-animation__icon-container:nth-child(#{$i}) span {
-    animation-delay: -$i * calc(1s / 4);
-  }
+.front-page-animation__icon-container:nth-child(1) {
+  --i: 1;
+}
+
+.front-page-animation__icon-container:nth-child(2) {
+  --i: 2;
+}
+
+.front-page-animation__icon-container:nth-child(3) {
+  --i: 3;
+}
+
+.front-page-animation__icon-container:nth-child(4) {
+  --i: 4;
+}
+
+.front-page-animation__icon-container:nth-child(5) {
+  --i: 5;
+}
+
+.front-page-animation__icon-container:nth-child(6) {
+  --i: 6;
+}
+
+.front-page-animation__icon-container:nth-child(7) {
+  --i: 7;
+}
+
+.front-page-animation__icon-container:nth-child(8) {
+  --i: 8;
+}
+
+.front-page-animation__icon-container span {
+  animation-delay: calc(var(--i) * calc(-1s / 4));
 }
 
 .front-page-animation__icon {
