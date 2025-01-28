@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {provide, watch} from 'vue';
+import {provide, readonly, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {difference, first} from 'remeda';
@@ -53,7 +53,7 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
   }
 });
 
-provide(KEYS.challenge, currentChallenge);
+provide(KEYS.challenge, readonly(currentChallenge));
 </script>
 <template>
   <h1 class="sr-only">{{ $t('views.log') }}</h1>

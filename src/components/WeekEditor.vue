@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, provide, ref} from 'vue';
+import {computed, provide, readonly, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {DateTime} from 'luxon';
@@ -52,7 +52,7 @@ const selectedChallenge = computed(
   () => challenges.value.find(({startDate}) => startDate.equals(selectedWeekStart.value))?.veggie,
 );
 
-provide(KEYS.challenge, selectedChallenge);
+provide(KEYS.challenge, readonly(selectedChallenge));
 </script>
 <template>
   <Listbox v-model="selectedWeekStart" class="relative z-30" as="div" v-slot="{open}">
