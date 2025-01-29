@@ -186,7 +186,7 @@
     ],
     "bamboo shoots": [
       "Bambusta tehdään rakennustelineitä Hongkongissa.",
-      "Pandojen on syötävä 12-38 kg bambua päivittäin.",
+      "Pandojen on syötävä 12-38 kiloa bambua päivittäin.",
       "Bambu on yksi nopeimmin kasvavista kasveista."
     ],
     "banana": [
@@ -209,7 +209,8 @@
       "Yksi punajuuri sisältää noin 20 % päivittäisestä folaatista, joka on tärkeää sydämen ja aivojen terveydelle.",
       "Punajuuret voivat parantaa urheilusuoritusta lisäämällä hapen hyödyntämistä liikunnan aikana.",
       "Ei hävikkiä! Punajuuri on kokonaan syötävä vihannes.",
-      "Kirkkaan väristä punajuurta on käytetty tekstiilien ja ruokien väriaineena."
+      "Kirkkaan väristä punajuurta on käytetty tekstiilien ja ruokien väriaineena.",
+      "Punajuuret eivät yleensä paina 23,5 kiloa, mutta tällainen yksilö kasvatettiin Briteissä vuonna 2019."
     ],
     "bell pepper": [
       "Yksi paprika sisältää enemmän C-vitamiinia kuin appelsiini.",
@@ -279,7 +280,8 @@
     ],
     "cabbage": [
       "Kaalia on viljelty yli 4 000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
-      "Euroopassa kaalia fermentoidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa."
+      "Euroopassa kaalia fermentoidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa.",
+      "Usko tai älä, mutta painavin koskaan kasvatettu kaali painoi melkein 63 kiloa."
     ],
     "cantaloupe": [
       "Verkkomelonia viljeltiin ensimmäisen kerran muinaisessa Egyptissä.",
@@ -295,7 +297,8 @@
     ],
     "carrot": [
       "Yksi porkkana sisältää yli 100 % päivän A-vitamiinista.",
-      "Porkkanat olivat joko violetteja tai valkoisia, kunnes hollantilaiset maanviljelijät kehittivät oranssin lajikkeen 1600-luvulla."
+      "Porkkanat olivat joko violetteja tai valkoisia, kunnes hollantilaiset maanviljelijät kehittivät oranssin lajikkeen 1600-luvulla.",
+      "Painavin koskaan punnittu porkkana painoi yli kymmenen kiloa."
     ],
     "cashew nut": [
       "30 gramman annos cashewpähkinöitä sisältää noin 5 g proteiinia ja 13 g terveellisiä rasvoja.",
@@ -304,7 +307,8 @@
     ],
     "cauliflower": [
       "Kukkakaali on saanut suosiota vähähiilihydraattisena riisin ja pizzapohjan korvikkeena.",
-      "Kukkakaali kuuluu samaan perheeseen parsakaalin, kaalin ja ruusukaalin kanssa."
+      "Kukkakaali kuuluu samaan perheeseen parsakaalin, kaalin ja ruusukaalin kanssa.",
+      "Brittiläinen vihannesten kasvattaja on onnistunut kasvattamaan 27,5 kiloa painaneen kukkakaalin."
     ],
     "celeriac": [
       "Juuriselleriä on viljelty antiikin ajoista lähtien, erityisesti Välimeren alueella."
@@ -403,7 +407,10 @@
     "edamame": [
       "Edamame on kypsymätön soijapapu ja sitä tarjoillaan usein välipalana japanilaisessa keittiössä."
     ],
-    "eggplant": ["Munakoisot luokitellaan kasvitieteellisesti hedelmiksi."],
+    "eggplant": [
+      "Munakoisot luokitellaan kasvitieteellisesti hedelmiksi.",
+      "Painavin punnittu munakoiso kasvatettiin vuonna 2021, ja se painoi 3,12 kiloa."
+    ],
     "farro": ["Farro on muinainen vilja, joka oli roomalaisten sotilaiden ruokavalion perusta."],
     "fava bean": [
       "Härkäpapuja on viljelty tuhansia vuosia ja niitä käytetään Välimeren keittiössä."
@@ -499,6 +506,7 @@
       "Kumkvatti on suupalan kokoinen hedelmä, joka voidaan syödä makeine kuorineen.",
       "Kumkvatit ovat ainutlaatuisia sitrushedelmiä, sillä niiden kuori on makea, mutta hedelmäliha hapan."
     ],
+    "leek": ["Painavin kasvatettu purjosipuli painoi 9,75 kiloa."],
     "lemon": [
       "Yksi sitruuna sisältää noin 50 % päivittäisestä C-vitamiinista.",
       "Sitruunoiden uskotaan olevan peräisin Aasiasta, ja merimiehet käyttivät niitä keripukin estämiseen."
@@ -525,7 +533,8 @@
     ],
     "mango": [
       "Yksi mango sisältää noin 100 % päivittäisestä C-vitamiinista ja sisältää noin 200 kaloria.",
-      "Mango on kotoisin Etelä-Aasiasta, mutta sitä viljellään trooppisilla ja subtrooppisilla alueilla maailmanlaajuisesti."
+      "Mango on kotoisin Etelä-Aasiasta, mutta sitä viljellään trooppisilla ja subtrooppisilla alueilla maailmanlaajuisesti.",
+      "Kolumbialainen mango rikkoi maailmanennätyksen vuonna 2021 painamalla 4,25 kiloa."
     ],
     "manioc": [
       "Maniokki on merkittävä hiilihydraattien lähde trooppisilla alueilla ja siitä valmistetaan tapiokaa.",
@@ -572,7 +581,10 @@
       "Legendan mukaan jumalatar Athena antoi kreikkalaisille lahjaksi oliivipuun voittaakseen heidän uskollisuutensa.",
       "Oliiveja kerätään oliivipuista, jotka symboloivat rauhaa ja pitkäikäisyyttä."
     ],
-    "onion": ["Sipulit ovat haitallisia monille eläimille."],
+    "onion": [
+      "Sipulit ovat haitallisia monille eläimille.",
+      "Suurin tähän asti tavattu sipuli painoi lähes yhdeksän kiloa."
+    ],
     "orange": [
       "Yksi appelsiini sisältää noin 60 kaloria ja yli 100 % päivittäisestä C-vitamiinista.",
       "Appelsiinit ovat yksi maailman suosituimmista hedelmistä ja niitä kulutetaan usein mehuna.",
@@ -584,6 +596,7 @@
     "parsley": [
       "Persilja on hyvä A-, C- ja K-vitamiinien lähde, joten se on ravitseva lisä aterioihin."
     ],
+    "parsnip": ["Pisimmän palsternakan maailmanennätys on tällä hetkellä 5,7 metriä."],
     "pea sprouts": ["Herneenversoja voi kasvattaa helposti myös kotona kuivatuista herneistä."],
     "peach": [
       "Persikat ovat kotoisin Kiinasta, mutta niitä viljellään nykyisin monilla lauhkean ilmaston alueilla."
@@ -637,14 +650,16 @@
     "potato": [
       "Perunat ovat kotoisin Etelä-Amerikasta, jossa inkat viljelivät niitä ensimmäisenä.",
       "Preussin kuningas Frederick kutsui tarinan mukaan perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta.",
-      "Maailmanlaajuisesti viljellään noin 5 000:ta erilaista perunalajiketta."
+      "Maailmanlaajuisesti viljellään noin 5 000:ta erilaista perunalajiketta.",
+      "Painavin punnittu peruna painoi lähes viisi kiloa."
     ],
     "pumpkin seed": [
       "30 gramman annos kurpitsansiemeniä tarjoaa noin 7 g proteiinia ja runsaasti magnesiumia."
     ],
     "pumpkin": [
       "Kurpitsat ovat runsaasti beetakaroteenia, jonka elimistö muuntaa A-vitamiiniksi.",
-      "Kurpitsat liitetään usein Halloweeniin, ja niistä valmistetaan piirakoita ja keittoja."
+      "Kurpitsat liitetään usein Halloweeniin, ja niistä valmistetaan piirakoita ja keittoja.",
+      "Painavin punnittu kurpitsa painoi 1 226 kiloa. Se kasvatettiin vuonna 2021."
     ],
     "quince": [
       "Kvitteni sisältää runsaasti C-vitamiinia, mutta se on yleensä liian hapan syötäväksi raakana.",
@@ -706,7 +721,10 @@
       "Ituja, kuten alfalfaa tai pavunituja, lisätään usein salaatteihin ja voileipiin tuomaan lisärapeutta."
     ],
     "starfruit": ["Karambola eli tähtihedelmä tunnetaan tähtimäisestä muodostaan viipaloituna."],
-    "strawberry": ["Kasvitieteellisesti mansikka ei ole marja, vaan epähedelmä."],
+    "strawberry": [
+      "Kasvitieteellisesti mansikka ei ole marja, vaan epähedelmä.",
+      "Painavin punnittu mansikka painoi 289 grammaa."
+    ],
     "sunflower seed": [
       "Auringonkukansiemenet ovat suosittu välipala ja niitä puristetaan myös öljyksi.",
       "Auringonkukansiemenet tarjoavat hyvän E-vitamiinin ja terveellisten rasvojen lähteen."
@@ -755,7 +773,8 @@
     "watermelon": [
       "Osuvasti nimetty vesimeloni sisältää yli 90 % vettä.",
       "Vesimelonin kuori on myös syötävä ja siitä voidaan tehdä esimerkiksi säilykkeitä tai käyttää smoothieissa.",
-      "Vesimelonia viljellään yli 90 maassa."
+      "Vesimelonia viljellään yli 90 maassa.",
+      "Maailman painavin vesimeloni painoi 159 kiloa."
     ],
     "wheat": [
       "Vehnä on yksi maailman laajimmin viljellyistä kasveista.",
@@ -792,7 +811,8 @@
     ],
     "zucchini": [
       "Kesäkurpitsaa voidaan viipaloida nuudeleiksi, jolloin se tarjoaa vähähiilihydraattisen vaihtoehdon pastalle.",
-      "Kurpitsat ovat kotoisin Amerikasta, mutta kesäkurpitsan kansainvälinen nimi \"zucchini\" tulee Italiasta."
+      "Kurpitsat ovat kotoisin Amerikasta, mutta kesäkurpitsan kansainvälinen nimi \"zucchini\" tulee Italiasta.",
+      "Vaikuttavat yli 116 kiloa painanut kesäkurpitsa kasvatettiin Briteissä vuonna 2021."
     ]
   },
   "general": {
