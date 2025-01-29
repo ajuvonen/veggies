@@ -92,6 +92,7 @@ watch(query, scrollToStart);
       :class="{'veggie-search__input--small': small}"
       class="veggie-search__input"
       data-test-id="veggie-search-input"
+      autocomplete="off"
       @change="query = $event.target.value"
       @click="!open && openButton?.$el.click()"
     />
