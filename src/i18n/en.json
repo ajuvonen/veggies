@@ -209,7 +209,8 @@
       "A single beet provides about 20% of the daily recommended folate, important for heart and brain health.",
       "Beets might improve athletic performance by increasing oxygen use during exercise.",
       "Zero waste! Beets are edible throughout.",
-      "The vibrant color of beets have been used in textile and food dyes."
+      "The vibrant color of beets have been used in textile and food dyes.",
+      "Beets don't usually grow to weigh 23.5 kg, but such a specimen was grown in the UK in 2019."
     ],
     "bell pepper": [
       "One bell pepper contains more vitamin C than an orange.",
@@ -279,7 +280,8 @@
     ],
     "cabbage": [
       "Cabbage has been cultivated for over 4,000 years and was a staple food in ancient Rome and Greece.",
-      "In Europe, cabbage is often fermented to make sauerkraut, a popular accompaniment to meats."
+      "In Europe, cabbage is often fermented to make sauerkraut, a popular accompaniment to meats.",
+      "Would you believe the heaviest cabbage grown weighed almost 63 kg?"
     ],
     "cantaloupe": [
       "Cantaloupe was first cultivated in ancient Egypt.",
@@ -295,7 +297,8 @@
     ],
     "carrot": [
       "One carrot provides over 100% of the daily vitamin A requirement.",
-      "Carrots were purple or white until Dutch farmers bred the orange variety in the 17th century."
+      "Carrots were purple or white until Dutch farmers bred the orange variety in the 17th century.",
+      "The heaviest carrot ever measured weighed over ten kilos."
     ],
     "cashew nut": [
       "A 30-gram portion of cashew nuts provides about 5 grams of protein and 13 grams of healthy fats.",
@@ -304,7 +307,8 @@
     ],
     "cauliflower": [
       "Cauliflower has gained popularity as a low-carb substitute for rice and pizza crusts.",
-      "Cauliflower belongs to the same family as broccoli, cabbage, and Brussels sprouts."
+      "Cauliflower belongs to the same family as broccoli, cabbage, and Brussels sprouts.",
+      "A UK vegetable grower has managed to grow a cauliflower weighing 27.5 kg."
     ],
     "celeriac": [
       "Celeriac has been cultivated since ancient times, particularly in the Mediterranean region."
@@ -401,7 +405,10 @@
     "edamame": [
       "Edamame are immature soybeans and are often served as a snack in Japanese cuisine."
     ],
-    "eggplant": ["Eggplants are botanically classified as fruits"],
+    "eggplant": [
+      "Eggplants are botanically classified as fruits",
+      "The heaviest eggplant measured was grown in 2021, and it weighed 3.21 kg."
+    ],
     "farro": ["Farro is an ancient grain that was a staple in the diet of Roman soldiers."],
     "fava bean": [
       "Fava beans have been cultivated for thousands of years and are used in Mediterranean dishes."
@@ -493,6 +500,7 @@
       "Kumquat is a bite-sized fruit that can be eaten whole, including its sweet peel.",
       "Kumquats are unique among citrus fruits because their peel is sweet, while the flesh is tart."
     ],
+    "leek": ["The heaviest leek grown weighed 9.75 kg."],
     "lemon": [
       "One lemon provides about 50% of the daily recommended vitamin C.",
       "Lemons are believed to have originated in Asia and were used by sailors to prevent scurvy."
@@ -519,7 +527,8 @@
     ],
     "mango": [
       "One mango provides around 100% of the daily vitamin C requirement and contains about 200 calories.",
-      "Mangoes are native to South Asia but are grown in tropical and subtropical regions worldwide."
+      "Mangoes are native to South Asia but are grown in tropical and subtropical regions worldwide.",
+      "A Colombian mango was weighed at 4.25 kg in 2021, breaking the world record."
     ],
     "manioc": [
       "Manioc is a major source of carbohydrates in tropical regions and is used to make tapioca.",
@@ -562,7 +571,10 @@
       "According to legend, the goddess Athena gifted Greeks with the olive tree, thus winning their loyalty.",
       "Olives are harvested from olive trees, which are symbols of peace and longevity."
     ],
-    "onion": ["Onions are harmful for many animals."],
+    "onion": [
+      "Onions are harmful to many animals.",
+      "The largest onion to date weighed almost nine kilos."
+    ],
     "orange": [
       "One orange contains about 60 calories and provides more than 100% of the daily vitamin C requirement.",
       "Oranges are one of the most popular fruits in the world and are often consumed as juice.",
@@ -574,6 +586,7 @@
     "parsley": [
       "Parsley is a good source of vitamins A, C, and K, making it a nutritious addition to meals."
     ],
+    "parsnip": ["The world record for the longest parsnip is currently set at 5.7 metres."],
     "pea sprouts": ["Pea sprouts can also be grown home from dried peas."],
     "peach": ["Peaches are native to China but are now grown in many temperate regions worldwide."],
     "peanut": [
@@ -627,14 +640,16 @@
     "potato": [
       "Potatoes originated in South America and were first cultivated by the Inca civilization.",
       "King Frederick of Prussia supposedly named potatoes \"the royal vegetable\" to give them more prestige.",
-      "There are about 5,000 cultivated varieties of potato in the world."
+      "There are about 5,000 cultivated varieties of potato in the world.",
+      "The largest potato measured weighed almost five kilos."
     ],
     "pumpkin seed": [
       "A 30-gram portion of pumpkin seeds provides about 7 grams of protein and is rich in magnesium."
     ],
     "pumpkin": [
       "Pumpkins are rich in beta-carotene, which the body converts to vitamin A.",
-      "Pumpkins are often associated with Halloween and are used to make pies and soups."
+      "Pumpkins are often associated with Halloween and are used to make pies and soups.",
+      "The heaviest pumpkin grown weighed 1,226 kg. It was harvested in 2021."
     ],
     "quince": [
       "A quince is rich in vitamin C but is usually too tart to eat raw.",
@@ -694,7 +709,10 @@
       "Sprouts, like alfalfa or bean sprouts, are commonly added to salads and sandwiches for extra crunch."
     ],
     "starfruit": ["Starfruit, or carambola, is known for its distinctive star shape when sliced."],
-    "strawberry": ["Botanically strawberry is not a berry, but an aggregate fruit."],
+    "strawberry": [
+      "Botanically strawberry is not a berry, but an aggregate fruit.",
+      "The heaviest strawberry weighed 289 grams."
+    ],
     "sunflower seed": [
       "Sunflower seeds are a popular snack and are also pressed to make oil.",
       "Sunflower seeds provide a good source of vitamin E and healthy fats."
@@ -745,7 +763,8 @@
     "watermelon": [
       "The aptly named watermelon contains over 90% water.",
       "Watermelon rind is also edible and can be pickled or used in smoothies.",
-      "Watermelon is grown in over 90 countries around the world."
+      "Watermelon is grown in over 90 countries around the world.",
+      "World's heaviest watermelon weighed 159 kg."
     ],
     "wheat": [
       "Wheat is one of the most widely grown crops in the world.",
@@ -782,7 +801,8 @@
     ],
     "zucchini": [
       "Zucchini can be spiralized into noodles, offering a low-carb alternative to pasta.",
-      "Squashes come from the Americas, but the name \"zucchini\" comes from Italy."
+      "Squashes come from the Americas, but the name \"zucchini\" comes from Italy.",
+      "An impressive zucchini weighing over 116 kg was grown in the UK in 2021."
     ]
   },
   "general": {
