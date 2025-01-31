@@ -2,7 +2,18 @@ import {computed, ref, watchEffect} from 'vue';
 import {defineStore} from 'pinia';
 import {useNow, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import {countBy, difference, entries, filter, map, pipe, prop, sortBy, take, unique} from 'remeda';
+import {
+  countBy,
+  difference,
+  entries,
+  filter,
+  map,
+  pipe,
+  prop,
+  sortBy,
+  take,
+  takeWhile,
+} from 'remeda';
 import {Category, type Favorites, type Challenge, type Week} from '@/utils/types';
 import {dateParser, getCategoryForVeggie, getRandomVeggie} from '@/utils/helpers';
 
@@ -51,23 +62,19 @@ export const useActivityStore = defineStore('activity', () => {
   });
 
   const hotStreak = computed(() => {
-    const weekStarts = getWeekStarts.value;
-    let maxStreak = 0;
-    let currentStreak = 0;
-    weekStarts.forEach((weekStart) => {
-      if (veggiesForWeek.value(weekStart).length >= 30) {
-        currentStreak++;
-      } else {
-        currentStreak = 0;
-      }
-      maxStreak = Math.max(maxStreak, currentStreak);
-    });
-    return maxStreak;
+    let over30Weeks = takeWhile(
+      getWeekStarts.value,
+      (weekStart, weekIndex) => weekIndex === 0 || veggiesForWeek.value(weekStart).length >= 30,
+    ).length;
+    if (currentVeggies.value.length < 30) {
+      over30Weeks--;
+    }
+    return over30Weeks;
   });
 
   const allVeggies = computed(() => weeks.value.flatMap(prop('veggies')));
 
-  const uniqueVeggies = computed(() => unique(allVeggies.value));
+  const uniqueVeggies = computed(() => [...new Set(allVeggies.value)]);
 
   const over30Veggies = computed(
     () => weeks.value.filter(({veggies}) => veggies.length >= 30).length,
