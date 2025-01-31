@@ -1,23 +1,25 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`WeekEditor > renders 1`] = `
-"<div class="relative z-30" data-headlessui-state="">
-  <div data-v-81c33b70="" class="flex-container flex-col"><label id="headlessui-listbox-label-v-0" data-headlessui-state="" class="label-like">Choose Week</label><button data-v-81c33b70="" id="headlessui-listbox-button-v-1" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="week-editor__dropdown-button" data-test-id="week-editor-dropdown-button"><span data-v-81c33b70="" class="truncate">Week 1/2025 (12/30-1/5)</span><svg data-v-81c33b70="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg></button></div>
-  <!---->
-</div>
-<!--v-if-->
-<transition-group-stub data-v-cd627eac="" data-v-81c33b70="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
-  <li data-v-cd627eac="" data-test-id="tag-cucumber" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove cucumber">
-      <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
-      </svg> cucumber
-    </button></li>
-  <li data-v-cd627eac="" data-test-id="tag-tomato" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove tomato">
-      <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
-      </svg> tomato
-    </button></li>
-</transition-group-stub>"
+"<div data-v-81c33b70="" class="week-editor">
+  <div class="relative z-30" data-headlessui-state="">
+    <div data-v-81c33b70="" class="flex-container flex-col"><label id="headlessui-listbox-label-v-0" data-headlessui-state="" class="label-like">Choose Week</label><button data-v-81c33b70="" id="headlessui-listbox-button-v-1" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="week-editor__dropdown-button" data-test-id="week-editor-dropdown-button"><span data-v-81c33b70="" class="truncate">Week 1/2025 (12/30-1/5)</span><svg data-v-81c33b70="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        </svg></button></div>
+    <!---->
+  </div>
+  <!--v-if-->
+  <transition-group-stub data-v-cd627eac="" data-v-81c33b70="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
+    <li data-v-cd627eac="" data-test-id="tag-cucumber" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove cucumber">
+        <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
+        </svg> cucumber
+      </button></li>
+    <li data-v-cd627eac="" data-test-id="tag-tomato" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button button--tag button--remove" aria-label="Remove tomato">
+        <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19,13H5V11H19V13Z" class="transition-all"></path>
+        </svg> tomato
+      </button></li>
+  </transition-group-stub>
+</div>"
 `;

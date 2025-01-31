@@ -66,35 +66,36 @@
     @apply text-slate-300 hover:text-slate-50 focus:text-slate-50;
   }
 
-  .tippy-box {
-    @apply mx-2;
-    @apply bg-sky-950;
-  }
-
   .tippy-content {
     @apply px-2 text-sm;
     @apply text-slate-50;
   }
 
-  .tippy-box[data-placement^='top'] > .tippy-arrow::before {
-    border-top-color: #082f49;
-  }
-  .tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
-    border-bottom-color: #082f49;
-  }
-  .tippy-box[data-placement^='left'] > .tippy-arrow::before {
-    border-left-color: #082f49;
-  }
-  .tippy-box[data-placement^='right'] > .tippy-arrow::before {
-    border-right-color: #082f49;
+  .tippy-box {
+    @apply mx-2;
+    @apply bg-sky-950;
+
+    &[data-placement^='top'] > .tippy-arrow::before {
+      border-top-color: #082f49;
+    }
+
+    &[data-placement^='bottom'] > .tippy-arrow::before {
+      border-bottom-color: #082f49;
+    }
+
+    &[data-placement^='left'] > .tippy-arrow::before {
+      border-left-color: #082f49;
+    }
+
+    &[data-placement^='right'] > .tippy-arrow::before {
+      border-right-color: #082f49;
+    }
   }
 
   .flex-container {
     @apply flex gap-2;
   }
-}
 
-@layer utilities {
   .has-scroll {
     @apply overflow-auto min-h-0 -m-2 p-2;
     @apply flex-grow;
