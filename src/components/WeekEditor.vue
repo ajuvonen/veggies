@@ -19,6 +19,8 @@ import {useDropdown} from '@/hooks/dropdown';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 
+defineEmits(['scroll']);
+
 const activityStore = useActivityStore();
 const {getWeekStarts, veggiesForWeek, challenges} = storeToRefs(activityStore);
 const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
@@ -55,49 +57,56 @@ const selectedChallenge = computed(
 provide(KEYS.challenge, readonly(selectedChallenge));
 </script>
 <template>
-  <Listbox v-model="selectedWeekStart" class="relative z-30" as="div" v-slot="{open}">
-    <ContentElement :title="$t('stats.chooseWeek')" :labelTag="ListboxLabel">
-      <ListboxButton
-        class="week-editor__dropdown-button"
-        data-test-id="week-editor-dropdown-button"
-      >
-        <span class="truncate">{{ formatWeek(selectedWeekStart) }}</span>
-        <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
-      </ListboxButton>
-    </ContentElement>
-    <TransitionRoot
-      leave-active-class="transition duration-100 ease-in"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <ListboxOptions ref="optionsElement" :style="maxHeightStyle" class="dropdown-list-container">
-        <ListboxOption
-          v-for="(date, index) in getWeekStarts"
-          v-slot="{active, selected}"
-          :key="`${date.weekNumber}-${date.weekYear}`"
-          :value="date"
-          :data-test-id="`week-editor-option-${index}`"
-          as="template"
+  <div class="week-editor">
+    <Listbox v-model="selectedWeekStart" class="relative z-30" as="div" v-slot="{open}">
+      <ContentElement :title="$t('stats.chooseWeek')" :labelTag="ListboxLabel">
+        <ListboxButton
+          class="week-editor__dropdown-button"
+          data-test-id="week-editor-dropdown-button"
         >
-          <li
-            :class="[getDropdownStyles(active, selected), 'dropdown-list-option']"
-            role="menuitem"
+          <span class="truncate">{{ formatWeek(selectedWeekStart) }}</span>
+          <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
+        </ListboxButton>
+      </ContentElement>
+      <TransitionRoot
+        leave-active-class="transition duration-100 ease-in"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
+      >
+        <ListboxOptions
+          ref="optionsElement"
+          :style="maxHeightStyle"
+          class="dropdown-list-container"
+        >
+          <ListboxOption
+            v-for="(date, index) in getWeekStarts"
+            v-slot="{active, selected}"
+            :key="`${date.weekNumber}-${date.weekYear}`"
+            :value="date"
+            :data-test-id="`week-editor-option-${index}`"
+            as="template"
           >
-            <span class="truncate">{{ formatWeek(date) }}</span>
-            <IconComponent v-if="selected" icon="check" />
-          </li>
-        </ListboxOption>
-      </ListboxOptions>
-    </TransitionRoot>
-  </Listbox>
-  <VeggieSearch v-if="!selectedWeekStart.equals(first(getWeekStarts)!)" v-model="veggies" small />
-  <TagsComponent
-    :veggies="veggiesForWeek(selectedWeekStart)"
-    :variant="['tag', 'remove']"
-    ariaKey="general.clickToRemove"
-    icon="minus"
-    @toggle="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
-  />
+            <li
+              :class="[getDropdownStyles(active, selected), 'dropdown-list-option']"
+              role="menuitem"
+            >
+              <span class="truncate">{{ formatWeek(date) }}</span>
+              <IconComponent v-if="selected" icon="check" />
+            </li>
+          </ListboxOption>
+        </ListboxOptions>
+      </TransitionRoot>
+    </Listbox>
+    <VeggieSearch v-if="!selectedWeekStart.equals(first(getWeekStarts)!)" v-model="veggies" small />
+    <TagsComponent
+      :veggies="veggiesForWeek(selectedWeekStart)"
+      :variant="['tag', 'remove']"
+      ariaKey="general.clickToRemove"
+      icon="minus"
+      @scroll="$emit('scroll')"
+      @toggle="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
+    />
+  </div>
 </template>
 <style scoped>
 .week-editor__dropdown-button {

@@ -3,6 +3,7 @@ import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue';
 import {hideAll} from 'vue-tippy';
+import {useThrottleFn} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
@@ -17,6 +18,8 @@ const {allVeggies, uniqueVeggies, favorites} = storeToRefs(useActivityStore());
 const selectedStat = ref(0);
 
 const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks', 'trophyOutline'];
+
+const hideTooltips = useThrottleFn(hideAll);
 </script>
 <template>
   <h1 class="sr-only">{{ $t('views.stats') }}</h1>
@@ -35,9 +38,7 @@ const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks'
       </Tab>
     </TabList>
     <TabPanels class="flex flex-grow min-h-0">
-      <TabPanel class="stats__tab">
-        <WeekEditor />
-      </TabPanel>
+      <TabPanel :as="WeekEditor" class="stats__tab" @scroll="hideTooltips" />
       <TabPanel class="stats__tab">
         <WeeklyAmountsChart />
         <WeeklyCategoriesChart />
@@ -46,10 +47,13 @@ const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks'
         <AllTimeStatus />
         <CategoryStatusChart totals :favorites="favorites" :veggies="allVeggies" />
       </TabPanel>
-      <TabPanel as="template">
-        <VeggieList :uniqueVeggies="uniqueVeggies" />
-      </TabPanel>
-      <TabPanel :as="AchievementList" @scroll="hideAll" />
+      <TabPanel
+        :as="VeggieList"
+        :uniqueVeggies="uniqueVeggies"
+        class="stats__tab"
+        @scroll="hideTooltips"
+      />
+      <TabPanel :as="AchievementList" class="stats__tab" @scroll="hideTooltips" />
     </TabPanels>
   </TabGroup>
 </template>
