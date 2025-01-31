@@ -39,7 +39,7 @@ test('shows all time stats', async ({page}) => {
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-button').click();
   await page.getByText('Apricot').click();
-  await page.getByTestId('veggie-search-challenge').locator('.veggie-search__option').click();
+  await page.getByTestId('veggie-search-challenge').locator('.dropdown-list-option').click();
   await page.goto('stats');
   await page.getByTestId('stats-tab-2').click();
   await expect(page.getByTestId('all-time-status-totalWeeks')).toHaveText('In Total 1 Weeks');
@@ -72,7 +72,7 @@ test('shows achievements', async ({page}) => {
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-button').click();
   const elements = (
-    await page.getByTestId('veggie-search-group-Fruit').locator('.veggie-search__option').all()
+    await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
   ).slice(0, 15);
   for (const element of elements) {
     await element.click();

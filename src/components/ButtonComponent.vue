@@ -24,33 +24,20 @@ const getVariants = computed(() => {
 });
 </script>
 <template>
-  <button @click="$emit('click')" :class="`button ${getVariants}`">
+  <button @click="$emit('click')" :class="`button-like ${getVariants}`">
     <IconComponent v-if="icon" :icon="icon" />
     <slot></slot>
   </button>
 </template>
 <style scoped>
-.button {
-  @apply button-like;
-  @apply flex-container items-center;
-}
-
 .button--primary,
 .button--tag {
-  @apply bg-sky-500;
-
-  &:hover {
-    @apply bg-sky-600;
-  }
+  @apply bg-sky-500 hover:bg-sky-600;
 }
 
 .button--text {
   @apply bg-transparent;
-  @apply p-0;
-
-  &:hover {
-    @apply underline;
-  }
+  @apply p-0 hover:underline;
 }
 
 .button--tag {
@@ -58,18 +45,10 @@ const getVariants = computed(() => {
 }
 
 .button--danger {
-  @apply bg-red-500;
-
-  &:hover {
-    @apply bg-red-600;
-  }
+  @apply bg-red-500 hover:bg-red-600;
 }
 
 .button--remove {
-  @apply bg-green-500;
-
-  &:hover {
-    @apply bg-red-600;
-  }
+  @apply bg-green-500 hover:bg-red-600;
 }
 </style>

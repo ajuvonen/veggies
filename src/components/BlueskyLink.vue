@@ -9,7 +9,7 @@ import {BLUESKY_URL} from '@/utils/constants';
 </template>
 <style scoped>
 .bluesky-link {
-  @apply uppercase text-xs !w-fit;
+  @apply uppercase text-xs w-fit;
   @apply flex-container items-center;
 }
 </style>

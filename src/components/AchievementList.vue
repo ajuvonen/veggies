@@ -7,7 +7,7 @@ import AchievementBadge from '@/components/AchievementBadge.vue';
 const {achievements} = storeToRefs(useAppStateStore());
 </script>
 <template>
-  <div class="achievement-list" data-test-id="achievement-list">
+  <div class="has-scroll m-0 p-0" data-test-id="achievement-list">
     <ContentElement :title="$t('achievements.thirtyVeggies.title')">
       <div class="achievement-list__badge-container">
         <AchievementBadge
@@ -132,10 +132,6 @@ const {achievements} = storeToRefs(useAppStateStore());
   </div>
 </template>
 <style scoped>
-.achievement-list {
-  @apply has-scroll m-0 p-0;
-}
-
 .achievement-list__badge-container {
   @apply px-2;
   @apply flex-container justify-evenly flex-wrap;

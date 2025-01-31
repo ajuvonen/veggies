@@ -114,7 +114,7 @@ watch(query, scrollToStart);
       <ComboboxOptions
         ref="optionsElement"
         :style="maxHeightStyle"
-        class="veggie-search__options"
+        class="dropdown-list-options"
         data-test-id="veggie-search-options"
       >
         <li v-if="filteredVeggies().length === 0 && query !== ''" class="veggie-search__no-results">
@@ -146,7 +146,7 @@ watch(query, scrollToStart);
   @apply fill-slate-900;
 }
 
-.veggie-search__options {
+.dropdown-list-options {
   @apply dropdown-list-container;
   scrollbar-width: thin;
   scrollbar-color: initial;

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AchievementList > renders 1`] = `
-"<div data-v-1c120264="" class="achievement-list" data-test-id="achievement-list">
+"<div data-v-1c120264="" class="has-scroll m-0 p-0" data-test-id="achievement-list">
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">This week's toil</h2>
     <div data-v-1c120264="" class="achievement-list__badge-container">
@@ -174,7 +174,7 @@ exports[`AchievementList > renders 1`] = `
 `;
 
 exports[`AchievementList > renders with badges enabled 1`] = `
-"<div data-v-1c120264="" class="achievement-list" data-test-id="achievement-list">
+"<div data-v-1c120264="" class="has-scroll m-0 p-0" data-test-id="achievement-list">
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">This week's toil</h2>
     <div data-v-1c120264="" class="achievement-list__badge-container">

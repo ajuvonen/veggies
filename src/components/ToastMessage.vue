@@ -50,12 +50,8 @@ const emoji = getRandomEmojis()[0];
 </template>
 <style scoped>
 .toast-message {
-  @apply w-full shadow-md p-4;
+  @apply w-full shadow-md p-4 focus:-outline-offset-2;
   @apply bg-sky-500;
-
-  &:focus {
-    @apply -outline-offset-2;
-  }
 }
 
 .toast-message__content {

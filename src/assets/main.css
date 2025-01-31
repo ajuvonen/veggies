@@ -31,10 +31,7 @@
 
   a {
     @apply rounded-md;
-    @apply fill-slate-50;
-    &:hover {
-      @apply text-slate-200 fill-slate-200;
-    }
+    @apply fill-slate-50 hover:text-slate-200 hover:fill-slate-200;
   }
 
   canvas {
@@ -44,6 +41,7 @@
 
 @layer components {
   .button-like {
+    @apply flex-container items-center;
     @apply text-nowrap px-4 py-2 text-sm uppercase rounded-md select-none tracking-wider cursor-pointer;
   }
 

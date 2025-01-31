@@ -110,12 +110,8 @@ provide(KEYS.challenge, readonly(selectedChallenge));
 </template>
 <style scoped>
 .week-editor__dropdown-button {
-  @apply flex items-center justify-between;
-  @apply w-full button-like;
-  @apply bg-sky-500;
-
-  &:hover {
-    @apply bg-sky-600;
-  }
+  @apply button-like;
+  @apply justify-between;
+  @apply bg-sky-500 hover:bg-sky-600;
 }
 </style>

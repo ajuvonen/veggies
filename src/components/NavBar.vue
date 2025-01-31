@@ -11,34 +11,26 @@ const route = useRoute();
 const isHome = computed(() => route.name === 'home');
 </script>
 <template>
-  <nav :class="{'navbar--home': isHome}" class="navbar">
+  <nav :class="{'justify-end': isHome}" class="navbar">
     <RouterLink
       v-if="!isHome"
       :aria-label="$t('views.log')"
       to="/log"
-      class="nav__link nav__link--log"
+      class="navbar__log-link"
       data-test-id="navbar-link-log"
       >{{ $t('general.appTitle') }}</RouterLink
     >
     <div v-if="!isHome" class="flex-container">
       <RouterLink
         v-if="showStats"
-        :title="$t('views.stats')"
-        :aria-label="$t('views.stats')"
+        v-tippy="$t('views.stats')"
         to="/stats"
-        class="nav__link"
         data-test-id="navbar-link-stats"
       >
-        <IconComponent icon="chart" size="6vw" class="nav__link-icon" />
+        <IconComponent icon="chart" size="6vw" class="navbar__link-icon" />
       </RouterLink>
-      <RouterLink
-        :title="$t('views.settings')"
-        :aria-label="$t('views.settings')"
-        to="/settings"
-        class="nav__link"
-        data-test-id="navbar-link-settings"
-      >
-        <IconComponent icon="cog" size="6vw" class="nav__link-icon" />
+      <RouterLink v-tippy="$t('views.settings')" to="/settings" data-test-id="navbar-link-settings">
+        <IconComponent icon="cog" size="6vw" class="navbar__link-icon" />
       </RouterLink>
     </div>
     <HomeLocaleChanger v-else />
@@ -50,21 +42,13 @@ const isHome = computed(() => route.name === 'home');
   @apply flex justify-between items-center;
 }
 
-.navbar--home {
-  @apply justify-end;
-}
-
-.nav__link {
-  @apply leading-[1.2];
-}
-
-.nav__link--log {
+.navbar__log-link {
   font-family: 'Bungee Shade', system-ui;
   font-size: 6vw;
   @apply uppercase sm:text-4xl rounded-md;
 }
 
-.nav__link-icon {
+.navbar__link-icon {
   @apply max-h-7 min-h-5 max-w-7 min-w-5;
 }
 </style>

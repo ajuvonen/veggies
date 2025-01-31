@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`VeggieList > renders 1`] = `
-"<div data-v-5aea2802="" class="veggie-list" data-test-id="veggie-list">
+"<div data-v-5aea2802="" class="has-scroll m-0 p-0" data-test-id="veggie-list">
   <div data-v-9c01a269="" data-v-5aea2802="" class="flex-container flex-col">
     <h2 class="label-like" aria-hidden="true">Unique Veggies</h2>
     <div data-v-9c01a269="" class="veggie-completion-chart__background">
@@ -32,10 +32,10 @@ exports[`VeggieList > renders 1`] = `
       </table>
     </div>
   </div>
-  <ul data-v-5aea2802="" class="veggie-list__category">
+  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Fruits And Berries</h2>
-      <ul data-v-5aea2802="" class="veggie-list__veggies">
+      <ul data-v-5aea2802="" class="columns-2 md:columns-3">
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="apple">apple</span><span data-v-5aea2802="" data-test-id="veggie-list-status-apple" class="sr-only">(missing)</span></li>
@@ -204,10 +204,10 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="veggie-list__category">
+  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Vegetables</h2>
-      <ul data-v-5aea2802="" class="veggie-list__veggies">
+      <ul data-v-5aea2802="" class="columns-2 md:columns-3">
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="artichoke">artichoke</span><span data-v-5aea2802="" data-test-id="veggie-list-status-artichoke" class="sr-only">(missing)</span></li>
@@ -337,10 +337,10 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="veggie-list__category">
+  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Leafy Greens And Herbs</h2>
-      <ul data-v-5aea2802="" class="veggie-list__veggies">
+      <ul data-v-5aea2802="" class="columns-2 md:columns-3">
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="arugula">arugula</span><span data-v-5aea2802="" data-test-id="veggie-list-status-arugula" class="sr-only">(missing)</span></li>
@@ -449,10 +449,10 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="veggie-list__category">
+  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Roots And Bulbs</h2>
-      <ul data-v-5aea2802="" class="veggie-list__veggies">
+      <ul data-v-5aea2802="" class="columns-2 md:columns-3">
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="bamboo shoots">bamboo shoots</span><span data-v-5aea2802="" data-test-id="veggie-list-status-bamboo shoots" class="sr-only">(missing)</span></li>
@@ -555,10 +555,10 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="veggie-list__category">
+  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Beans And Legumes</h2>
-      <ul data-v-5aea2802="" class="veggie-list__veggies">
+      <ul data-v-5aea2802="" class="columns-2 md:columns-3">
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="black bean">black bean</span><span data-v-5aea2802="" data-test-id="veggie-list-status-black bean" class="sr-only">(missing)</span></li>
@@ -637,10 +637,10 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="veggie-list__category">
+  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Grains, Nuts, And Seeds</h2>
-      <ul data-v-5aea2802="" class="veggie-list__veggies">
+      <ul data-v-5aea2802="" class="columns-2 md:columns-3">
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="almond">almond</span><span data-v-5aea2802="" data-test-id="veggie-list-status-almond" class="sr-only">(missing)</span></li>

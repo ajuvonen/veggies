@@ -34,9 +34,8 @@ const shareOrCopy = async () =>
         ? `stat-container-share-button-${statKey}`
         : `stat-container-copy-button-${statKey}`
     "
-    style="left: calc(50% + 3rem)"
     variant="text"
-    class="absolute"
+    class="absolute left-[calc(50%+3rem)]"
     @click="shareOrCopy"
   >
     <IconComponent :icon="shareSupported ? 'shareVariant' : 'contentCopy'" />
