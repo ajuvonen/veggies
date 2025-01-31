@@ -11,7 +11,7 @@ const {getDropdownStyles} = useDropdown();
 <template>
   <ComboboxOption v-slot="{active, selected}" as="template" :key="veggie" :value="veggie">
     <li
-      :class="[getDropdownStyles(active, selected), 'veggie-search__option']"
+      :class="[getDropdownStyles(active, selected), 'dropdown-list-option']"
       :data-test-id="`veggie-search-option-${veggie}`"
       role="menuitem"
     >
@@ -22,8 +22,3 @@ const {getDropdownStyles} = useDropdown();
     </li>
   </ComboboxOption>
 </template>
-<style scoped>
-.veggie-search__option {
-  @apply dropdown-list-option;
-}
-</style>

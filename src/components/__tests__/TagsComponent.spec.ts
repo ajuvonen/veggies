@@ -12,8 +12,8 @@ describe('ButtonComponent', () => {
       },
     });
 
-    expect(wrapper.findByText('.button', 'tomato').exists()).toBe(true);
-    expect(wrapper.findByText('.button', 'pineapple').exists()).toBe(true);
+    expect(wrapper.findByText('.button-like', 'tomato').exists()).toBe(true);
+    expect(wrapper.findByText('.button-like', 'pineapple').exists()).toBe(true);
   });
 
   it('works with variant string', () => {
@@ -26,8 +26,8 @@ describe('ButtonComponent', () => {
       },
     });
 
-    expect(wrapper.findByText('.button', 'tomato').classes()).includes('button--danger');
-    expect(wrapper.findByText('.button', 'pineapple').classes()).includes('button--danger');
+    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('button--danger');
+    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes('button--danger');
   });
 
   it('works with variant array', () => {
@@ -40,10 +40,10 @@ describe('ButtonComponent', () => {
       },
     });
 
-    expect(wrapper.findByText('.button', 'tomato').classes()).includes('button--tag');
-    expect(wrapper.findByText('.button', 'tomato').classes()).includes('button--primary');
-    expect(wrapper.findByText('.button', 'pineapple').classes()).includes('button--tag');
-    expect(wrapper.findByText('.button', 'pineapple').classes()).includes('button--primary');
+    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('button--tag');
+    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('button--primary');
+    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes('button--tag');
+    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes('button--primary');
   });
 
   it('emits click', async () => {
@@ -56,8 +56,8 @@ describe('ButtonComponent', () => {
       },
     });
 
-    await wrapper.findByText('.button', 'tomato').trigger('click');
-    await wrapper.findByText('.button', 'pineapple').trigger('click');
+    await wrapper.findByText('.button-like', 'tomato').trigger('click');
+    await wrapper.findByText('.button-like', 'pineapple').trigger('click');
     expect(wrapper.emitted('toggle')).toEqual([['tomato'], ['pineapple']]);
   });
 });

@@ -76,7 +76,7 @@ watch(achievements, (newValue, oldValue) => {
   <ModalDialog v-model="dialogOpen" :title="$t('achievements.newAchievements')">
     <template #content>
       <ul class="achievement-container">
-        <li v-for="(value, key) in newAchievements" :key="key" class="achievement-row">
+        <li v-for="(value, key) in newAchievements" :key="key" class="flex-container flex-col">
           <AchievementBadge active :achievement="key" :level="value!" />
           <p class="text-center">{{ t(`achievements.${key}.${value}`) }}</p>
         </li>
@@ -97,9 +97,5 @@ main {
 .achievement-container {
   @apply flex-container gap-4 flex-col;
   @apply text-sm;
-}
-
-.achievement-row {
-  @apply flex-container flex-col;
 }
 </style>

@@ -48,7 +48,7 @@ test('weekly challenges work', async ({page}) => {
   await expect(page.getByTestId('veggie-search-challenges')).toBeHidden();
   await page.getByTestId('veggie-search-option-apple').click();
   await expect(page.getByTestId('veggie-search-challenge')).toBeVisible();
-  await page.getByTestId('veggie-search-challenge').locator('.veggie-search__option').click();
+  await page.getByTestId('veggie-search-challenge').locator('.dropdown-list-option').click();
   await expect(page.getByText(/^You have completed your weekly challenge!/)).toBeVisible();
 });
 
@@ -57,7 +57,7 @@ test('achievement notifications work', async ({page}) => {
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-button').click();
   const elements = (
-    await page.getByTestId('veggie-search-group-Fruit').locator('.veggie-search__option').all()
+    await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
   ).slice(0, 15);
   for (const element of elements) {
     await element.click();
@@ -73,13 +73,13 @@ test('weekly achievement works', async ({page}) => {
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-button').click();
   const fruits = (
-    await page.getByTestId('veggie-search-group-Fruit').locator('.veggie-search__option').all()
+    await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
   ).slice(0, 10);
   const vegetables = (
-    await page.getByTestId('veggie-search-group-Vegetable').locator('.veggie-search__option').all()
+    await page.getByTestId('veggie-search-group-Vegetable').locator('.dropdown-list-option').all()
   ).slice(0, 10);
   const grains = (
-    await page.getByTestId('veggie-search-group-Grain').locator('.veggie-search__option').all()
+    await page.getByTestId('veggie-search-group-Grain').locator('.dropdown-list-option').all()
   ).slice(0, 10);
   for (const element of fruits.concat(vegetables, grains)) {
     await element.click();

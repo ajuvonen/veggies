@@ -8,7 +8,7 @@ describe('ButtonComponent', () => {
       slots: {default: 'test button'},
     });
 
-    expect(wrapper.find('.button').text()).toBe('test button');
+    expect(wrapper.find('.button-like').text()).toBe('test button');
   });
 
   it('shows icon', () => {
@@ -17,7 +17,7 @@ describe('ButtonComponent', () => {
       props: {icon: 'cog'},
     });
 
-    expect(wrapper.find('.button').text()).toBe('test button');
+    expect(wrapper.find('.button-like').text()).toBe('test button');
     expect(wrapper.find('svg').exists()).toBe(true);
   });
 
@@ -27,7 +27,7 @@ describe('ButtonComponent', () => {
       props: {variant: 'danger'},
     });
 
-    expect(wrapper.find('.button').classes()).includes('button--danger');
+    expect(wrapper.find('.button-like').classes()).includes('button--danger');
   });
 
   it('works with variant array', () => {
@@ -36,8 +36,8 @@ describe('ButtonComponent', () => {
       props: {variant: ['danger', 'tag']},
     });
 
-    expect(wrapper.find('.button').classes()).includes('button--danger');
-    expect(wrapper.find('.button').classes()).includes('button--tag');
+    expect(wrapper.find('.button-like').classes()).includes('button--danger');
+    expect(wrapper.find('.button-like').classes()).includes('button--tag');
   });
 
   it('emits click', async () => {
@@ -45,7 +45,7 @@ describe('ButtonComponent', () => {
       slots: {default: 'test button'},
     });
 
-    await wrapper.find('.button').trigger('click');
+    await wrapper.find('.button-like').trigger('click');
     expect(wrapper.emitted('click')).toEqual([[]]);
   });
 });

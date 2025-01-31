@@ -23,11 +23,11 @@ const allVeggies = computed(() => {
 </script>
 
 <template>
-  <div class="veggie-list" data-test-id="veggie-list">
+  <div class="has-scroll m-0 p-0" data-test-id="veggie-list">
     <VeggieCompletionChart :veggies="uniqueVeggies" />
-    <ul v-for="category in Category" :key="category" class="veggie-list__category">
+    <ul v-for="category in Category" :key="category" class="flex-container gap-4 flex-col">
       <ContentElement :title="$t(`categories.${category}`)">
-        <ul class="veggie-list__veggies">
+        <ul class="columns-2 md:columns-3">
           <li
             v-for="{veggie, translation} in allVeggies.filter((item) => item.category === category)"
             :key="veggie"
@@ -49,18 +49,6 @@ const allVeggies = computed(() => {
   </div>
 </template>
 <style scoped>
-.veggie-list {
-  @apply has-scroll m-0 p-0;
-}
-
-.veggie-list__category {
-  @apply flex-container gap-4 flex-col;
-}
-
-.veggie-list__veggies {
-  @apply columns-2 md:columns-3;
-}
-
 .veggie-list__veggie {
   @apply flex-container items-center;
 }

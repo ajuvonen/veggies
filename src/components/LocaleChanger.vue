@@ -14,7 +14,7 @@ const {settings} = storeToRefs(useAppStateStore());
         :value="locale"
         :data-test-id="`locale-button-${locale}`"
         v-slot="{checked}"
-        class="locale-changer__option"
+        class="button-like bg-sky-500 hover:bg-sky-600"
       >
         <IconComponent :icon="checked ? 'radioboxMarked' : 'radioboxBlank'" />
         <RadioGroupLabel as="span">
@@ -24,15 +24,3 @@ const {settings} = storeToRefs(useAppStateStore());
     </ContentElement>
   </RadioGroup>
 </template>
-<style scoped>
-.locale-changer__option {
-  @apply button-like;
-  @apply flex-container;
-  @apply bg-sky-500;
-
-  &:hover,
-  &:focus {
-    @apply bg-sky-600;
-  }
-}
-</style>

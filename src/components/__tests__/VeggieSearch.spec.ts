@@ -28,7 +28,7 @@ describe('VeggieSearch', () => {
     await input.setValue('tomato');
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
     expect(wrapper.findAll('.veggie-search__heading').length).toBe(1);
-    expect(wrapper.find('.veggie-search__option').text()).toContain('tomato');
+    expect(wrapper.find('.dropdown-list-option').text()).toContain('tomato');
     expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(false);
   });
 
@@ -36,7 +36,7 @@ describe('VeggieSearch', () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
     await input.setValue('bar');
-    expect(wrapper.findAll('.veggie-search__option').length).toBe(2);
+    expect(wrapper.findAll('.dropdown-list-option').length).toBe(2);
     expect(wrapper.findAll('.veggie-search__heading').length).toBe(2);
   });
 
@@ -44,7 +44,7 @@ describe('VeggieSearch', () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
     await input.setValue('test');
-    expect(wrapper.find('.veggie-search__option').exists()).toBe(false);
+    expect(wrapper.find('.dropdown-list-option').exists()).toBe(false);
     expect(wrapper.find('.veggie-search__no-results').isVisible()).toBe(true);
   });
 

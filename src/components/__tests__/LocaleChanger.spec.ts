@@ -17,7 +17,7 @@ describe('LocaleChanger', () => {
 
   it('shows available languages', () => {
     const wrapper = mount(LocaleChanger);
-    const options = wrapper.findAll('.locale-changer__option');
+    const options = wrapper.findAll('.button-like');
     expect(options).toHaveLength(2);
     expect(options.some((button) => button.text() === 'English')).toBe(true);
     expect(options.some((button) => button.text() === 'Suomi')).toBe(true);
@@ -26,7 +26,7 @@ describe('LocaleChanger', () => {
   it('changes language', async () => {
     const wrapper = mount(LocaleChanger);
     expect(appStateStore.settings.locale).toBe('en');
-    await wrapper.findAll('.locale-changer__option')[1].trigger('click');
+    await wrapper.findAll('.button-like')[1].trigger('click');
     expect(appStateStore.settings.locale).toBe('fi');
   });
 });
