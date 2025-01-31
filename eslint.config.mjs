@@ -7,24 +7,22 @@ import {includeIgnoreFile} from '@eslint/compat';
 import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 import {fileURLToPath} from 'node:url';
 
-export default [
+export default defineConfigWithVueTs(
   includeIgnoreFile(fileURLToPath(new URL('./.gitignore', import.meta.url))),
   {
     name: 'app/files-to-lint',
     files: ['**/*.{ts,mts,tsx,vue}'],
   },
-
-  ...pluginVueA11y.configs['flat/recommended'],
-  ...defineConfigWithVueTs(pluginVue.configs['flat/essential'], vueTsConfigs.recommended),
-
+  pluginVueA11y.configs['flat/recommended'],
+  pluginVue.configs['flat/essential'],
+  vueTsConfigs.recommended,
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
-
   {
     ...pluginPlaywright.configs['flat/recommended'],
     files: ['e2e/**/*.spec.ts'],
   },
   skipFormatting,
-];
+);
