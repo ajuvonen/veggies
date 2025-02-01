@@ -642,6 +642,11 @@
       "Pomelo on suurin sitrushedelmä ja läheistä sukua greipille.",
       "Pomelot tunnetaan paksuista kuoristaan ja ne voivat painaa jopa 2 kilogrammaa."
     ],
+    "poppy seed": [
+      "Turkki, Tsekki ja Espanja ovat unikonsiementen suurimmat tuottajat.",
+      "Unikonsiemeniä käytetään usein täytteenä juutalaisissa perinneleivonnaisissa.",
+      "Unikonsiemenet ja sitruuna ovat hyvin yhteen sopiva makupari."
+    ],
     "porcini": ["Tatteja on vaikea viljellä, ja ne kerätään yleensä luonnosta."],
     "portobello": [
       "Portobello-sieniä käytetään usein lihankorvikkeena niiden täyteläisen koostumuksen vuoksi.",
@@ -1072,6 +1077,7 @@
     "pointed pepper": "suippopaprika",
     "pomegranate": "granaattiomena",
     "pomelo": "pomelo",
+    "poppy seed": "unikonsiemen",
     "porcini": "herkkutatti",
     "portobello": "portobello",
     "potato": "peruna",
