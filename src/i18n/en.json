@@ -630,6 +630,11 @@
       "Pomelo is the largest citrus fruit and is closely related to the grapefruit.",
       "Pomelos are known for their thick rinds and can weigh up to 2 kilograms."
     ],
+    "poppy seed": [
+      "Turkiye, Czechia, and Spain are the largest producers of poppy seeds.",
+      "Poppy seeds are often used in filling traditional Jewish pastries.",
+      "Poppy seeds and lemon make a good taste pairing."
+    ],
     "porcini": [
       "Porcini mushrooms are difficult to cultivate and are typically foraged in the wild."
     ],
@@ -1062,6 +1067,7 @@
     "pointed pepper": "pointed pepper",
     "pomegranate": "pomegranate",
     "pomelo": "pomelo",
+    "poppy seed": "poppy seed",
     "porcini": "porcini",
     "portobello": "portobello",
     "potato": "potato",

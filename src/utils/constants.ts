@@ -257,6 +257,7 @@ export const GRAINS = [
   'pecan nut',
   'pine nut',
   'pistachio nut',
+  'poppy seed',
   'pumpkin seed',
   'quinoa',
   'rice',
