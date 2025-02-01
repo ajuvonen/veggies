@@ -11,7 +11,7 @@ const route = useRoute();
 const isHome = computed(() => route.name === 'home');
 </script>
 <template>
-  <nav :class="{'justify-end': isHome}" class="navbar">
+  <nav :class="{'navbar--home': isHome}" class="navbar">
     <RouterLink
       v-if="!isHome"
       :aria-label="$t('views.log')"
@@ -40,6 +40,10 @@ const isHome = computed(() => route.name === 'home');
 .navbar {
   @apply w-full;
   @apply flex justify-between items-center;
+}
+
+.navbar--home {
+  @apply justify-end;
 }
 
 .navbar__log-link {
