@@ -8,7 +8,7 @@ defineProps<{
   active: boolean;
 }>();
 
-type AchievementProps = Record<
+type BadgeProps = Record<
   keyof Achievements,
   Partial<
     Record<
@@ -21,7 +21,7 @@ type AchievementProps = Record<
   >
 >;
 
-const achievementProps: AchievementProps = {
+const badgeProps: BadgeProps = {
   challengeAccepted: {
     [AchievementLevel.Bronze]: {
       textProps: [5],
@@ -147,11 +147,11 @@ const achievementProps: AchievementProps = {
       aria: null,
       content: $t(
         `achievements.${achievement}.ariaLabel`,
-        achievementProps[achievement][level]!.textProps,
+        badgeProps[achievement][level]!.textProps,
       ),
     }"
     :aria-label="
-      $t(`achievements.${achievement}.ariaLabel`, achievementProps[achievement][level]!.textProps)
+      $t(`achievements.${achievement}.ariaLabel`, badgeProps[achievement][level]!.textProps)
     "
     :data-test-id="`badge-${achievement}-${level}`"
     class="badge"
@@ -163,13 +163,11 @@ const achievementProps: AchievementProps = {
       aria-hidden="true"
     >
       <div class="badge__emoji">
-        {{ achievementProps[achievement][level]!.emoji }}
+        {{ badgeProps[achievement][level]!.emoji }}
       </div>
     </div>
     <div aria-hidden="true" class="badge__text">
-      {{
-        $t(`achievements.${achievement}.badgeText`, achievementProps[achievement][level]!.textProps)
-      }}
+      {{ $t(`achievements.${achievement}.badgeText`, badgeProps[achievement][level]!.textProps) }}
     </div>
   </div>
 </template>
