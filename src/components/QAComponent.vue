@@ -33,11 +33,11 @@ const questionKeysAndLinks = {
         </DisclosureButton>
         <Transition
           enter-active-class="transition duration-100 ease-out"
-          enter-from-class="transform h-0 opacity-0"
-          enter-to-class="transform h-full opacity-100"
+          enter-from-class="h-0 opacity-0"
+          enter-to-class="h-full opacity-100"
           leave-active-class="transition duration-75 ease-out"
-          leave-from-class="transform h-full opacity-100"
-          leave-to-class="transform h-0 opacity-0"
+          leave-from-class="h-full opacity-100"
+          leave-to-class="h-0 opacity-0"
         >
           <DisclosurePanel class="p-2" :data-test-id="`qa-panel-${key}`">
             <i18n-t :keypath="`qa.${key}.text`" tag="div" scope="global">
