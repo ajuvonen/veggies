@@ -37,7 +37,7 @@ const hideTooltips = useThrottleFn(hideAll);
         </ButtonComponent>
       </Tab>
     </TabList>
-    <TabPanels class="flex flex-grow min-h-0">
+    <TabPanels class="flex grow min-h-0">
       <TabPanel :as="WeekEditor" class="stats__tab" @scroll="hideTooltips" />
       <TabPanel class="stats__tab">
         <WeeklyAmountsChart />

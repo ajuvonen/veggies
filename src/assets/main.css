@@ -96,7 +96,7 @@
 
   .has-scroll {
     @apply overflow-auto min-h-0 -m-2 p-2;
-    @apply flex-grow;
+    @apply grow;
     scrollbar-width: thin;
   }
 }
