@@ -115,7 +115,7 @@ defineExpose({chartData});
 </template>
 <style scoped>
 .veggie-completion-chart__background {
-  @apply relative -my-4 max-h-[50vh];
+  @apply relative overflow-hidden -my-4 max-h-[50vh];
   @apply flex-1 self-center;
 }
 </style>
