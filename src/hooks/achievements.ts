@@ -443,7 +443,7 @@ export function useAchievements() {
     }),
   ).start();
 
-  const achievements = ref(mapValues(actor.getSnapshot().value, Number) as Achievements);
+  const achievements = ref<Achievements>(mapValues(actor.getSnapshot().value, Number));
 
   const subscription = actor.subscribe((snapshot) => {
     const mapped = mapValues(snapshot.value, Number);

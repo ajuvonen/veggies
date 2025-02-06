@@ -159,7 +159,7 @@ const veggieEmojis = [
   '🥜',
   '🫘',
   '🌿',
-];
+] as const;
 export const getRandomEmojis = (amount: number = 1) => {
   const emojis = new Set<string>();
   while (emojis.size < amount) {

@@ -132,18 +132,18 @@
     "veggiesOfTheWeek": "Veggies of the Week",
     "veggiesTotal": "All Actions in Total"
   },
-  "cheers": {
-    "0": "Good job",
-    "1": "Nice",
-    "2": "Wow",
-    "3": "Amazing",
-    "4": "Incredible",
-    "5": "Awesome",
-    "6": "Great",
-    "7": "Well done",
-    "8": "Fantastic",
-    "9": "Keep at it"
-  },
+  "cheers": [
+    "Good job",
+    "Nice",
+    "Wow",
+    "Amazing",
+    "Incredible",
+    "Awesome",
+    "Great",
+    "Well done",
+    "Fantastic",
+    "Keep at it"
+  ],
   "facts": {
     "almond": [
       "Almond milk is a popular plant-based alternative to dairy milk.",

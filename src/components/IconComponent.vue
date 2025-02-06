@@ -78,7 +78,7 @@ const icons = {
   shareVariant: mdiShareVariant,
   trashCan: mdiTrashCan,
   trophyOutline: mdiTrophyOutline,
-};
+} as const;
 </script>
 <template>
   <svg :style="{width: size, height: size}" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">

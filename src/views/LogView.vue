@@ -31,8 +31,9 @@ const showConfetti = () =>
 
 watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
   const addedVeggie = first(difference(newCurrentVeggies, oldCurrentVeggies));
-  const cheer = t(`cheers[${Math.floor(Math.random() * 10)}]`);
   if (addedVeggie) {
+    const cheers: string[] = tm('cheers');
+    const cheer = cheers[Math.floor(Math.random() * cheers.length)];
     if (allVeggies.value.length === 1) {
       addToastMessage(t('toasts.firstVeggie', [cheer]));
       showConfetti();

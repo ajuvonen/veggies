@@ -18,7 +18,7 @@ export const COLORS = {
   chartColorsAlternate: ['#fdc5f5', '#f7aef8', '#b388eb', '#8093f1', '#79b8f4', '#72ddf7'],
   offWhite: '#f8fafc',
   darkBlue: '#083344',
-};
+} as const;
 
 export const CATEGORY_EMOJI = {
   [Category.Fruit]: '🍎',
@@ -27,7 +27,7 @@ export const CATEGORY_EMOJI = {
   [Category.Root]: '🥕',
   [Category.Bean]: '🫛',
   [Category.Grain]: '🌾',
-};
+} as const;
 
 export const FRUITS = [
   'apple',
