@@ -132,18 +132,18 @@
     "veggiesOfTheWeek": "Viikon kasvikset",
     "veggiesTotal": "Kaikki toiminnot yhteensä"
   },
-  "cheers": {
-    "0": "Hienoa",
-    "1": "Mahtavaa",
-    "2": "Hyvä",
-    "3": "Upeaa",
-    "4": "Jatka samaan tahtiin",
-    "5": "Loistavaa",
-    "6": "Hyvin tehty",
-    "7": "Täydellistä",
-    "8": "Erinomaista",
-    "9": "Hyvää työtä"
-  },
+  "cheers": [
+    "Hienoa",
+    "Mahtavaa",
+    "Hyvä",
+    "Upeaa",
+    "Jatka samaan tahtiin",
+    "Loistavaa",
+    "Hyvin tehty",
+    "Täydellistä",
+    "Erinomaista",
+    "Hyvää työtä"
+  ],
   "facts": {
     "almond": [
       "Mantelimaito on suosittu kasvipohjainen vaihtoehto lehmänmaidolle.",
@@ -1106,7 +1106,7 @@
     "scarlet runner bean": "ruusupapu",
     "sesame seed": "seesaminsiemen",
     "shallot": "salottisipuli",
-    "shiitake": "shiitake",
+    "shiitake": "siitake",
     "snow pea": "sokeriherne",
     "sorghum": "durra",
     "sorrel": "suolaheinä",

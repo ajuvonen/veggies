@@ -13,7 +13,7 @@ const questionKeysAndLinks = {
   isMyDataSafe: '',
   howToInstall: '',
   contact: BLUESKY_URL,
-};
+} as const;
 </script>
 <template>
   <ContentElement :title="$t('qa.title')" class="min-h-0" labelTag="label">
