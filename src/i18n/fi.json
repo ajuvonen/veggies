@@ -152,7 +152,8 @@
     "amaranth": [
       "Amarantti on gluteeniton vilja.",
       "Atsteekeille amarantti oli pyhä satokasvi.",
-      "Amarantin siemeniä voi paahtaa popcornin tapaan."
+      "Amarantin siemeniä voi paahtaa popcornin tapaan.",
+      "Amaranttia keitetään usein puuroksi tai lisätään keittoihin ja patoihin."
     ],
     "apple": [
       "Keskikokoinen omena sisältää noin 14 % päivittäisestä C-vitamiinista.",
@@ -198,7 +199,8 @@
     "barley": [
       "Ohraa on viljelty yli 10 000 vuotta, ja se on yksi ensimmäisistä ihmisten viljelemistä viljoista.",
       "Ohraa käytetään mallasjuomien, kuten oluen ja viskin, valmistuksessa.",
-      "Ohra menestyy myös ankarammissa, kylmissä ilmastoissa."
+      "Ohra menestyy myös ankarammissa, kylmissä ilmastoissa.",
+      "Itä-Euroopassa ohraa käytetään tuhtien keittoruokien ainesosana."
     ],
     "basil": [
       "30 gramman annos tuoretta basilikaa sisältää 90 % päivittäisestä K-vitamiinista.",
@@ -266,12 +268,14 @@
     "buckwheat": [
       "Tattari on suosittu gluteeniton viljavalmiste.",
       "Tattari ei ole sukua vehnälle, vaan se on raparperinsukuisen kasvin siemen.",
-      "Tattari on keskeinen ainesosa monissa perinteisissä ruoissa, kuten soba-nuudeleissa ja blineissä."
+      "Tattari on keskeinen ainesosa monissa perinteisissä ruoissa, kuten soba-nuudeleissa ja blineissä.",
+      "Tattari on tavanomainen ainesosa itä-eurooppalaisissa ja aasialaisissa keittiöissä."
     ],
     "bulgur": [
       "Bulgur valmistetaan esikypsytetystä rikotusta vehnästä, mikä tekee siitä muita täysjyväviljoja helpomman kypsentää.",
       "Bulguria käytetään esimerkiksi salaateissa, pilahvissa, keitoissa ja kulhoruokien pohjana.",
-      "Bulgurin käytöstä on löytynyt todisteita jo muinaisten heettiläisten ajoilta."
+      "Bulgurin käytöstä on löytynyt todisteita jo muinaisten heettiläisten ajoilta.",
+      "Lähi-Idässä bulgurista valmistetaan esimerkiksi tabboulehia."
     ],
     "butter bean": [
       "Voipavut saavat nimensä miedon kermaisesta tekstuuristaan ja maustaan.",
@@ -411,7 +415,10 @@
       "Munakoisot luokitellaan kasvitieteellisesti hedelmiksi.",
       "Painavin punnittu munakoiso kasvatettiin vuonna 2021, ja se painoi 3,12 kiloa."
     ],
-    "farro": ["Farro on muinainen vilja, joka oli roomalaisten sotilaiden ruokavalion perusta."],
+    "farro": [
+      "Farro on muinainen vilja, joka oli roomalaisten sotilaiden ruokavalion perusta.",
+      "Farroa käytetään esimerkiksi salaatteihin, risottoihin ja keittoihin."
+    ],
     "fava bean": [
       "Härkäpapuja on viljelty tuhansia vuosia ja niitä käytetään Välimeren keittiössä."
     ],
@@ -545,7 +552,8 @@
     ],
     "millet": [
       "30 gramman annos hirssiä sisältää noin 11 g proteiinia. Hirssi on myös gluteeniton.",
-      "Hirssi on muinainen vilja, ja peruselintarvike monissa osissa Afrikkaa ja Aasiaa."
+      "Hirssi on muinainen vilja, ja peruselintarvike monissa osissa Afrikkaa ja Aasiaa.",
+      "Hirssiä käytetään esimerkiksi intialaisten roti-leipien valmistukseen."
     ],
     "mint": [
       "Minttu on myös suosittu cocktailainesosa, jota käytetään esimerkiksi minttujulepissa."
@@ -711,7 +719,8 @@
     "shiitake": ["Siitakesieniä arvostetaan niiden lihaisan koostumuksen ja umamisen maun vuoksi."],
     "sorghum": [
       "Durra on gluteeniton vilja, jota käytetään usein puuron, jauhon ja siirapin valmistukseen.",
-      "Kuivuutta hyvin kestävä durra on tärkeä viljelykasvi vähäsateisilla alueilla."
+      "Kuivuutta hyvin kestävä durra on tärkeä viljelykasvi vähäsateisilla alueilla.",
+      "Duraa käytetään monissa muodoissa eri puolilla Afrikkaa ja Aasiaa."
     ],
     "soybean": [
       "Soijapapuja käytetään tofun, soijamaidon ja muiden kasvipohjaisten tuotteiden valmistukseen.",
@@ -752,7 +761,8 @@
     ],
     "triticale": [
       "Ruisvehnä on hybridi, joka on luotu risteyttämällä vehnä ja ruis tuottamaan molempien ominaisuuksia.",
-      "Ruisvehnää käytetään usein eläinrehussa, mutta sen suosio ihmisravintona on kasvussa."
+      "Ruisvehnää käytetään usein eläinrehussa, mutta sen suosio ihmisravintona on kasvussa.",
+      "Ruisvehnää on ollut kaupallisesti saatavilla vain lyhyen aikaa."
     ],
     "wakame": [
       "Wakame on merilevä, jota käytetään yleisesti japanilaisissa ruoissa.",
