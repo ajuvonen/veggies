@@ -50,8 +50,7 @@
   }
 
   .dropdown-list-container {
-    @apply absolute mt-2 w-full overflow-x-hidden rounded-md shadow-lg ring-2;
-    @apply bg-slate-50 ring-black/5;
+    @apply absolute mt-2 w-full overflow-x-hidden rounded-md shadow-lg;
   }
 
   .dropdown-list-option {
