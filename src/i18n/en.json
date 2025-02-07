@@ -152,7 +152,8 @@
     "amaranth": [
       "Amaranth is a gluten-free grain.",
       "Aztecs revered amaranth as a sacred crop.",
-      "Amaranth seeds can be popped like popcorn."
+      "Amaranth seeds can be popped like popcorn.",
+      "Amaranth is often cooked as porridge or added to soups and stews."
     ],
     "apple": [
       "A medium apple provides about 14% of the daily recommended vitamin C.",
@@ -198,7 +199,8 @@
     "barley": [
       "Barley has been cultivated for over 10,000 years, being one of the first grains farmed by humans.",
       "Barley is used to make malt for beer and whiskey production.",
-      "Barley can also thrive in harsh, cold climates."
+      "Barley can also thrive in harsh, cold climates.",
+      "In Eastern Europe, barley is used in hearty soups."
     ],
     "basil": [
       "A 30-gram portion of fresh basil provides 90% of the daily recommended vitamin K.",
@@ -266,12 +268,14 @@
     "buckwheat": [
       "Buckwheat is a popular gluten-free grain alternative.",
       "Buckwheat is not related to wheat and is actually a seed from a plant related to rhubarb.",
-      "Buckwheat is a key ingredient in many traditional dishes, such as soba noodles and blinis."
+      "Buckwheat is a key ingredient in many traditional dishes, such as soba noodles and blinis.",
+      "Buckwheat is prominent in Eastern European and Asian cuisines."
     ],
     "bulgur": [
       "Bulgur is made from cracked parboiled wheat, making it easy to cook compared to other whole grains.",
       "Bulgur is used for example in salads, pilafs, soups, and as grain bowl base.",
-      "The use of bulgur can be traced back as far as the Hittite empire."
+      "The use of bulgur can be traced back as far as the Hittite empire.",
+      "In Middle East, bulgur is used to make for example tabbouleh."
     ],
     "butter bean": [
       "Butter beans get their name from their mild, creamy texture and taste.",
@@ -409,7 +413,10 @@
       "Eggplants are botanically classified as fruits",
       "The heaviest eggplant measured was grown in 2021, and it weighed 3.21 kg."
     ],
-    "farro": ["Farro is an ancient grain that was a staple in the diet of Roman soldiers."],
+    "farro": [
+      "Farro is an ancient grain that was a staple in the diet of Roman soldiers.",
+      "Farro is used for example in salads, risottos, and soups."
+    ],
     "fava bean": [
       "Fava beans have been cultivated for thousands of years and are used in Mediterranean dishes."
     ],
@@ -539,7 +546,8 @@
     ],
     "millet": [
       "A 30-gram portion of millet provides about 11 grams of protein and is gluten-free.",
-      "Millet is an ancient grain that is a staple food in many parts of Africa and Asia."
+      "Millet is an ancient grain that is a staple food in many parts of Africa and Asia.",
+      "Millet is used for example in the making or Indian roti-bread."
     ],
     "mint": ["Mint is also a popular cocktail ingredient, used in cocktails such as mint julep."],
     "mizuna": [
@@ -699,7 +707,8 @@
     "shiitake": ["Shiitake mushrooms are prized for their meaty texture and umami flavor."],
     "sorghum": [
       "Sorghum is a gluten-free grain often used to make porridge, flour, and syrup.",
-      "Sorghum is drought-resistant, making it an important crop in arid regions."
+      "Sorghum is drought-resistant, making it an important crop in arid regions.",
+      "Sorghum is used in many forms across Africa and Asia."
     ],
     "soybean": [
       "Soybeans are used to make tofu, soy milk, and other plant-based products.",
@@ -742,7 +751,8 @@
     ],
     "triticale": [
       "Triticale is a hybrid grain created by crossing wheat and rye, combining traits of both.",
-      "Triticale is often used in cereals and animal feed but is gaining popularity in human foods."
+      "Triticale is often used in cereals and animal feed but is gaining popularity in human foods.",
+      "Triticale has only recently been developed to a commercially viable state."
     ],
     "wakame": [
       "Wakame is a type of seaweed commonly used in Japanese food.",
