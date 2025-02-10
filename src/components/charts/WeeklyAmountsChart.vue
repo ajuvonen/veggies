@@ -57,6 +57,11 @@ const chartOptions = computed(() =>
         right: 25,
       },
     },
+    elements: {
+      point: {
+        hitRadius: 15,
+      },
+    },
   }),
 );
 
