@@ -6,6 +6,7 @@ import {RouterView, useRoute} from 'vue-router';
 import {useRegisterSW} from 'virtual:pwa-register/vue';
 import {omitBy} from 'remeda';
 import confetti from 'canvas-confetti';
+import {usePreferredDark} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {AchievementLevel, type Achievements} from '@/utils/types';
@@ -17,6 +18,8 @@ import ToastContainer from '@/components/ToastContainer.vue';
 const {t, locale} = useI18n();
 
 const route = useRoute();
+
+const isDark = usePreferredDark();
 
 const {settings, achievements} = storeToRefs(useAppStateStore());
 const {allVeggies} = storeToRefs(useActivityStore());
@@ -49,6 +52,21 @@ watchEffect(() => {
     document.title = t('general.appTitleAppend', [t(`views.${route.name.toString()}`)]);
   }
 });
+
+watch(
+  isDark,
+  () => {
+    try {
+      const highlightColor = getComputedStyle(document.documentElement).getPropertyValue(
+        '--color-highlight',
+      );
+      document.querySelector('[name="theme-color"]')?.setAttribute('content', highlightColor);
+    } catch (e) {
+      console.error(e);
+    }
+  },
+  {immediate: true},
+);
 
 watch(achievements, (newValue, oldValue) => {
   newAchievements.value = omitBy(
