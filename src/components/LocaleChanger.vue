@@ -14,7 +14,7 @@ const {settings} = storeToRefs(useAppStateStore());
         :value="locale"
         :data-test-id="`locale-button-${locale}`"
         v-slot="{checked}"
-        class="button-like bg-sky-500 hover:bg-sky-600"
+        class="button-like bg-[--color-highlight] hover:bg-sky-600"
       >
         <IconComponent :icon="checked ? 'radioboxMarked' : 'radioboxBlank'" />
         <RadioGroupLabel as="span">

@@ -34,18 +34,34 @@ describe('dropdown', () => {
   it('returns correct styles', async () => {
     mocks.usePointer.mockImplementation(() => ({pointerType: ref('mouse')}));
     const {getDropdownStyles} = await withSetup();
-    expect(getDropdownStyles(true, true)).toBe('text-slate-50 bg-sky-500');
-    expect(getDropdownStyles(true, false)).toBe('text-slate-50 bg-sky-500');
-    expect(getDropdownStyles(false, true)).toBe('text-slate-900 fill-slate-900 bg-sky-200');
-    expect(getDropdownStyles(false, false)).toBe('text-slate-900 fill-slate-900 bg-slate-50');
+    expect(getDropdownStyles(true, true)).toBe(
+      'text-[--color-text] fill-[--color-text] bg-[--color-highlight]',
+    );
+    expect(getDropdownStyles(true, false)).toBe(
+      'text-[--color-text] fill-[--color-text] bg-[--color-highlight]',
+    );
+    expect(getDropdownStyles(false, true)).toBe(
+      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-sky-200 dark:bg-sky-300',
+    );
+    expect(getDropdownStyles(false, false)).toBe(
+      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-[--color-bg-alternative]',
+    );
   });
 
   it('returns correct styles when touch is used', async () => {
     mocks.usePointer.mockImplementation(() => ({pointerType: ref('touch')}));
     const {getDropdownStyles} = await withSetup();
-    expect(getDropdownStyles(true, true)).toBe('text-slate-900 fill-slate-900 bg-sky-200');
-    expect(getDropdownStyles(true, false)).toBe('text-slate-900 fill-slate-900 bg-slate-50');
-    expect(getDropdownStyles(false, true)).toBe('text-slate-900 fill-slate-900 bg-sky-200');
-    expect(getDropdownStyles(false, false)).toBe('text-slate-900 fill-slate-900 bg-slate-50');
+    expect(getDropdownStyles(true, true)).toBe(
+      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-sky-200 dark:bg-sky-300',
+    );
+    expect(getDropdownStyles(true, false)).toBe(
+      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-[--color-bg-alternative]',
+    );
+    expect(getDropdownStyles(false, true)).toBe(
+      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-sky-200 dark:bg-sky-300',
+    );
+    expect(getDropdownStyles(false, false)).toBe(
+      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-[--color-bg-alternative]',
+    );
   });
 });

@@ -29,7 +29,7 @@ const hideTooltips = useThrottleFn(hideAll);
         <ButtonComponent
           v-tippy="$t(`stats.${index}`)"
           :aria-label="$t(`stats.${index}`)"
-          :class="{'!bg-sky-700': selected}"
+          :class="{'!bg-[--color-highlight-dark]': selected}"
           :data-test-id="`stats-tab-${index}`"
           class="justify-center"
         >

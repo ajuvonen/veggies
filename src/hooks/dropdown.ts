@@ -8,12 +8,14 @@ export function useDropdown() {
   const getDropdownStyles = useMemoize(
     (active: boolean, selected: boolean) => {
       const textClass =
-        active && hasMouse.value ? 'text-slate-50' : 'text-slate-900 fill-slate-900';
-      let bgClass = `bg-slate-50`;
+        active && hasMouse.value
+          ? 'text-[--color-text] fill-[--color-text]'
+          : 'text-[--color-text-alternative] fill-[--color-text-alternative]';
+      let bgClass = `bg-[--color-bg-alternative]`;
       if (active && hasMouse.value) {
-        bgClass = 'bg-sky-500';
+        bgClass = 'bg-[--color-highlight]';
       } else if (selected) {
-        bgClass = 'bg-sky-200';
+        bgClass = 'bg-sky-200 dark:bg-sky-300';
       }
 
       return `${textClass} ${bgClass}`;
