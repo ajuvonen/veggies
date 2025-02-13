@@ -30,6 +30,6 @@ defineProps<{
 .veggie-search__heading {
   @apply flex-container justify-start;
   @apply select-none p-2;
-  @apply bg-slate-300 text-slate-900;
+  @apply bg-[--color-tooltip] text-[--color-text];
 }
 </style>

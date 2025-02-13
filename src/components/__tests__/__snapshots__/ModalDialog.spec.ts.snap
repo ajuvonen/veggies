@@ -3,11 +3,11 @@
 exports[`ModalDialog > shows dialog 1`] = `
 "<div data-v-0f2dec55="" class="relative z-20">
   <!-- The backdrop, rendered as a fixed sibling to the panel container -->
-  <div data-v-0f2dec55="" class="fixed inset-0 bg-black/30" aria-hidden="true"></div><!-- Full-screen container to center the panel -->
+  <div data-v-0f2dec55="" class="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true"></div><!-- Full-screen container to center the panel -->
   <div data-v-0f2dec55="" class="modal-dialog__container">
     <div data-v-0f2dec55="" data-test-id="dialog" class="modal-dialog">
       <div data-v-0f2dec55="" class="modal-dialog__header outline-override">
-        <dialog-title-stub data-v-0f2dec55="" as="h2" class="modal-dialog__title"></dialog-title-stub><button data-v-24e38f3d="" data-v-0f2dec55="" class="button-like button--text fill-slate-900" aria-label="Close" data-test-id="dialog-close-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <dialog-title-stub data-v-0f2dec55="" as="h2" class="modal-dialog__title"></dialog-title-stub><button data-v-24e38f3d="" data-v-0f2dec55="" class="button-like button--text fill-[--color-text-alternative]" aria-label="Close" data-test-id="dialog-close-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" class="transition-all"></path>
           </svg></button>
       </div>

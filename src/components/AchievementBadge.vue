@@ -176,15 +176,14 @@ const badgeProps: BadgeProps = {
   @apply relative select-none aspect-square self-center max-w-40;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3));
   flex: 0 0 calc(33% - 5px);
-
-  &[aria-disabled='true'] {
-    opacity: 0.5;
-  }
 }
 
 .badge__background {
   @apply relative w-full h-full rounded-full border-4 overflow-hidden text-[17cqmin] sm:text-[14cqmin];
   @apply flex items-center justify-center;
+  [aria-disabled='true'] > & {
+    opacity: 0.5;
+  }
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 1px #334155;
 }
@@ -195,7 +194,7 @@ const badgeProps: BadgeProps = {
 
 .badge__text {
   @apply absolute bottom-[3cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase;
-  @apply bg-sky-950 text-slate-50;
+  @apply bg-[--color-tooltip] text-[--color-text];
 }
 
 .badge__background--Bronze {

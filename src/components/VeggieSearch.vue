@@ -134,7 +134,11 @@ watch(query, scrollToStart);
 <style scoped>
 .veggie-search__input {
   @apply w-full h-full py-2 pl-4 pr-8 text-lg rounded-full;
-  @apply text-slate-900 bg-slate-50;
+  @apply text-[--color-text-alternative] bg-[--color-bg-alternative];
+
+  &::placeholder {
+    @apply text-gray-500;
+  }
 }
 
 .veggie-search__input--small {
@@ -142,8 +146,8 @@ watch(query, scrollToStart);
 }
 
 .veggie-search__button {
-  @apply absolute inset-y-2 right-4;
-  @apply fill-slate-900;
+  @apply absolute inset-y-2 right-4 rounded-md;
+  @apply fill-[--color-text-alternative];
 }
 
 .dropdown-list-options {
@@ -154,6 +158,6 @@ watch(query, scrollToStart);
 
 .veggie-search__no-results {
   @apply select-none px-4 py-2;
-  @apply text-slate-700;
+  @apply bg-[--color-bg-alternative] text-[--color-text-alternative];
 }
 </style>

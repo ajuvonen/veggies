@@ -112,6 +112,6 @@ provide(KEYS.challenge, readonly(selectedChallenge));
 .week-editor__dropdown-button {
   @apply button-like;
   @apply justify-between;
-  @apply bg-sky-500 hover:bg-sky-600;
+  @apply bg-[--color-highlight] hover:bg-sky-600;
 }
 </style>

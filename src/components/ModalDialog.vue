@@ -19,7 +19,7 @@ defineProps<{
   >
     <Dialog static class="relative z-20" @close="model = false">
       <!-- The backdrop, rendered as a fixed sibling to the panel container -->
-      <div class="fixed inset-0 bg-black/30" aria-hidden="true" />
+      <div class="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
       <div class="modal-dialog__container">
         <DialogPanel data-test-id="dialog" class="modal-dialog">
@@ -28,7 +28,7 @@ defineProps<{
             <ButtonComponent
               v-if="!$slots.buttons"
               :aria-label="$t('general.close')"
-              class="fill-slate-900"
+              class="fill-[--color-text-alternative]"
               variant="text"
               icon="close"
               data-test-id="dialog-close-button"
@@ -55,7 +55,7 @@ defineProps<{
 .modal-dialog {
   @apply w-full max-w-xl max-h-full rounded-md p-4 shadow-xl;
   @apply flex flex-col gap-4;
-  @apply bg-slate-50;
+  @apply bg-[--color-bg-alternative];
 }
 
 .modal-dialog__title {
@@ -74,7 +74,7 @@ defineProps<{
 
 .modal-dialog__title,
 .modal-dialog__content {
-  @apply text-slate-900;
+  @apply text-[--color-text-alternative];
 }
 
 .modal-dialog__buttons {

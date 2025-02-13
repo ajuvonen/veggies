@@ -32,7 +32,7 @@ const getVariants = computed(() => {
 <style scoped>
 .button--primary,
 .button--tag {
-  @apply bg-sky-500 hover:bg-sky-600;
+  @apply bg-[--color-highlight] hover:bg-sky-600;
 }
 
 .button--text {
@@ -45,10 +45,10 @@ const getVariants = computed(() => {
 }
 
 .button--danger {
-  @apply bg-red-500 hover:bg-red-600;
+  @apply bg-red-500 dark:bg-red-700 hover:bg-red-600;
 }
 
 .button--remove {
-  @apply bg-green-500 hover:bg-red-600;
+  @apply bg-green-500 dark:bg-green-700 hover:bg-red-600;
 }
 </style>
