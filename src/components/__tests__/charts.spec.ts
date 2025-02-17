@@ -7,7 +7,6 @@ import {useActivityStore} from '@/stores/activityStore';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
-import AllTimeCategoriesChart from '@/components/charts/AllTimeCategoriesChart.vue';
 import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue';
 
 describe('charts', () => {
@@ -23,21 +22,6 @@ describe('charts', () => {
 
   it('prepares data for CategoryStatusChart', () => {
     const wrapper = mount(CategoryStatusChart, {
-      props: {
-        // Three roots, two vegetables, one leafy green
-        veggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
-      },
-    });
-    const {
-      labels,
-      datasets: [{data}],
-    } = wrapper.vm.chartData;
-    expect(labels).toEqual(['Leafy', 'Vegetable', 'Root']);
-    expect(data).toEqual([1, 2, 3]);
-  });
-
-  it('prepares data for AllTimeCategoriesChart', () => {
-    const wrapper = mount(AllTimeCategoriesChart, {
       props: {
         // Three roots, two vegetables, one leafy green
         veggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
