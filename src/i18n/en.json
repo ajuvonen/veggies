@@ -64,9 +64,9 @@
       "title": "Playing Favorites",
       "ariaLabel": "{0} uses of one veggie in all categories",
       "badgeText": "{0} uses",
-      "1": "You have sampled your favorite veggies at least 5 times in each category, earning you the bronze achievement!",
-      "2": "You have sampled your favorite veggies at least 20 times in each category, earning you the silver achievement!",
-      "3": "You have sampled your favorite veggies at least 100 times in each category, earning you the gold achievement!"
+      "1": "You have used your favorite veggie at least 5 times in each category, earning you the bronze achievement!",
+      "2": "You have used your favorite veggie at least 20 times in each category, earning you the silver achievement!",
+      "3": "You have used your favorite veggie at least 100 times in each category, earning you the gold achievement!"
     },
     "hotStreak": {
       "title": "Hot Streak",
