@@ -14,7 +14,7 @@ type BadgeProps = Record<
     Record<
       AchievementLevel,
       {
-        textProps: (string | number)[];
+        textProps: number[];
         emoji: string;
       }
     >

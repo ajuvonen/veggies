@@ -5,6 +5,7 @@ import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue';
 import {hideAll} from 'vue-tippy';
 import {useThrottleFn} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
+import type {IconString} from '@/components/IconComponent.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
@@ -17,7 +18,13 @@ const {allVeggies, uniqueVeggies, favorites} = storeToRefs(useActivityStore());
 
 const selectedStat = ref(0);
 
-const icons = ['calendarWeekOutline', 'chartLine', 'history', 'formatListChecks', 'trophyOutline'];
+const icons: IconString[] = [
+  'calendarWeekOutline',
+  'chartLine',
+  'history',
+  'formatListChecks',
+  'trophyOutline',
+] as const;
 
 const hideTooltips = useThrottleFn(hideAll);
 </script>
