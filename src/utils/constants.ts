@@ -11,7 +11,7 @@ export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
 };
 
-export const LOCALES: Locale[] = ['en', 'fi'];
+export const LOCALES: Locale[] = ['en', 'fi'] as const;
 
 export const COLORS = {
   chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
