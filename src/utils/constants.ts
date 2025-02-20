@@ -1,4 +1,5 @@
 import type {InjectionKey, Ref} from 'vue';
+import type {UseMemoizeReturn} from '@vueuse/core';
 import {Category, type Locale} from './types';
 
 export const APP_URL = 'https://eatyourveggies.app';
@@ -9,9 +10,12 @@ export const BUILD_TIME = __VITE_BUILD_TIME__;
 
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
+  dropdownStyles: Symbol() as InjectionKey<
+    UseMemoizeReturn<string, [active: boolean, selected: boolean]>
+  >,
 };
 
-export const LOCALES: Locale[] = ['en', 'fi'];
+export const LOCALES: Locale[] = ['en', 'fi'] as const;
 
 export const COLORS = {
   chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],

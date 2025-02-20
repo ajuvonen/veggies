@@ -1,5 +1,5 @@
 import {ref} from 'vue';
-import {intersection, isDeepEqual, mapValues} from 'remeda';
+import {intersection, mapValues} from 'remeda';
 import {createActor, setup, type MachineContext} from 'xstate';
 import type {GuardArgs} from 'xstate/guards';
 import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
@@ -446,10 +446,7 @@ export function useAchievements() {
   const achievements = ref<Achievements>(mapValues(actor.getSnapshot().value, Number));
 
   const subscription = actor.subscribe((snapshot) => {
-    const mapped = mapValues(snapshot.value, Number);
-    if (!isDeepEqual(achievements.value, mapped)) {
-      achievements.value = mapped;
-    }
+    achievements.value = mapValues(snapshot.value, Number);
   });
 
   window.addEventListener('beforeunload', () => {
