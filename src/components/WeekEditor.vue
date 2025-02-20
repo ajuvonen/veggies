@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, provide, readonly, ref} from 'vue';
+import {computed, inject, provide, readonly, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {DateTime} from 'luxon';
@@ -15,7 +15,6 @@ import {
 import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
 import {useScreen} from '@/hooks/screen';
-import {useDropdown} from '@/hooks/dropdown';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 
@@ -31,7 +30,6 @@ const selectedWeekStart = ref(first(getWeekStarts.value)!);
 
 const optionsElement = ref<InstanceType<typeof ListboxOptions> | null>(null);
 const {maxHeightStyle} = useScreen(optionsElement);
-const {getDropdownStyles} = useDropdown();
 
 const veggies = computed({
   get: () => veggiesForWeek.value(selectedWeekStart.value),
@@ -55,6 +53,7 @@ const selectedChallenge = computed(
 );
 
 provide(KEYS.challenge, readonly(selectedChallenge));
+const getDropdownStyles = inject(KEYS.dropdownStyles);
 </script>
 <template>
   <div class="week-editor">
@@ -87,7 +86,7 @@ provide(KEYS.challenge, readonly(selectedChallenge));
             as="template"
           >
             <li
-              :class="[getDropdownStyles(active, selected), 'dropdown-list-option']"
+              :class="[getDropdownStyles!(active, selected), 'dropdown-list-option']"
               role="menuitem"
             >
               <span class="truncate">{{ formatWeek(date) }}</span>

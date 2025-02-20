@@ -2,6 +2,7 @@ import {afterAll, beforeAll, beforeEach, vi} from 'vitest';
 import {config, mount} from '@vue/test-utils';
 import {createTestingPinia} from '@pinia/testing';
 import i18n from './src/i18n';
+import {KEYS} from './src/utils/constants';
 import router from './src/router';
 import ButtonComponent from './src/components/ButtonComponent.vue';
 import IconComponent from './src/components/IconComponent.vue';
@@ -17,6 +18,10 @@ config.global.components = {
 
 config.global.directives = {
   tippy() {},
+};
+
+config.global.provide = {
+  [KEYS.dropdownStyles]: vi.fn(),
 };
 
 const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
