@@ -14,7 +14,7 @@ import AchievementList from '@/components/AchievementList.vue';
 import VeggieList from '@/components/VeggieList.vue';
 import WeekEditor from '@/components/WeekEditor.vue';
 
-const {allVeggies, uniqueVeggies, favorites} = storeToRefs(useActivityStore());
+const {allVeggies, uniqueVeggies, favorites, achievements} = storeToRefs(useActivityStore());
 
 const selectedStat = ref(0);
 
@@ -60,7 +60,12 @@ const hideTooltips = useThrottleFn(hideAll);
         class="stats__tab"
         @scroll="hideTooltips"
       />
-      <TabPanel :as="AchievementList" class="stats__tab" @scroll="hideTooltips" />
+      <TabPanel
+        :as="AchievementList"
+        :achievements="achievements"
+        class="stats__tab"
+        @scroll="hideTooltips"
+      />
     </TabPanels>
   </TabGroup>
 </template>

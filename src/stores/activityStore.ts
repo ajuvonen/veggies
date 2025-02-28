@@ -16,16 +16,12 @@ import {
 } from 'remeda';
 import {Category, type Favorites, type Challenge, type Week} from '@/utils/types';
 import {dateParser, getCategoryForVeggie, getRandomVeggie} from '@/utils/helpers';
+import {useAchievements} from '@/hooks/achievements';
 
 export const useActivityStore = defineStore('activity', () => {
+  const {advanceAchievements, achievements, resetAchievements} = useAchievements();
   const reactiveNow = useNow({interval: 2000});
   const currentDate = ref(DateTime.now());
-  watchEffect(() => {
-    const now = DateTime.fromJSDate(reactiveNow.value) as DateTime<true>;
-    if (!currentDate.value.hasSame(now, 'day')) {
-      currentDate.value = now;
-    }
-  });
 
   // State refs
   const startDate = useStorage<DateTime | null>('veggies-start-date', null, localStorage, {
@@ -182,9 +178,30 @@ export const useActivityStore = defineStore('activity', () => {
     startDate.value = null;
     weeks.value = [];
     challenges.value = [];
+    resetAchievements();
   };
 
+  // Watchers
+  watchEffect(() => {
+    const now = DateTime.fromJSDate(reactiveNow.value) as DateTime<true>;
+    if (!currentDate.value.hasSame(now, 'day')) {
+      currentDate.value = now;
+    }
+  });
+
+  watchEffect(() =>
+    advanceAchievements({
+      completedChallenges: completedChallenges.value,
+      favorites: favorites.value,
+      hotStreakLength: hotStreak.value,
+      totalWeeks: weeks.value.length,
+      uniqueVeggies: uniqueVeggies.value,
+      veggiesThisWeek: currentVeggies.value.length,
+    }),
+  );
+
   return {
+    achievements,
     allVeggies,
     atMostVeggies,
     challenges,
