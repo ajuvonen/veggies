@@ -21,8 +21,8 @@ const route = useRoute();
 
 const isDark = usePreferredDark();
 
-const {settings, achievements} = storeToRefs(useAppStateStore());
-const {allVeggies} = storeToRefs(useActivityStore());
+const {settings} = storeToRefs(useAppStateStore());
+const {allVeggies, achievements} = storeToRefs(useActivityStore());
 
 const newAchievements = ref({} as Partial<Achievements>);
 

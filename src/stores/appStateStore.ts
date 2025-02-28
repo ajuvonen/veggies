@@ -1,9 +1,7 @@
-import {ref, watchEffect} from 'vue';
-import {defineStore, storeToRefs} from 'pinia';
+import {ref} from 'vue';
+import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import type {Settings} from '@/utils/types';
-import {useAchievements} from '@/hooks/achievements';
-import {useActivityStore} from '@/stores/activityStore';
 
 type Message = {
   id: string;
@@ -11,21 +9,6 @@ type Message = {
 };
 
 export const useAppStateStore = defineStore('appState', () => {
-  const {advanceAchievements, achievements, resetAchievements} = useAchievements();
-  const {currentVeggies, uniqueVeggies, hotStreak, weeks, completedChallenges, favorites} =
-    storeToRefs(useActivityStore());
-
-  watchEffect(() =>
-    advanceAchievements({
-      completedChallenges: completedChallenges.value,
-      favorites: favorites.value,
-      hotStreakLength: hotStreak.value,
-      totalWeeks: weeks.value.length,
-      uniqueVeggies: uniqueVeggies.value,
-      veggiesThisWeek: currentVeggies.value.length,
-    }),
-  );
-
   // State refs
   const settings = useStorage<Settings>(
     'veggies-settings',
@@ -40,6 +23,7 @@ export const useAppStateStore = defineStore('appState', () => {
 
   const messages = ref<Message[]>([]);
 
+  // Actions
   const addToastMessage = (text: string) => {
     messages.value.push({
       id: crypto.randomUUID(),
@@ -56,13 +40,11 @@ export const useAppStateStore = defineStore('appState', () => {
     settings.value = {
       locale: 'en',
     };
-    resetAchievements();
   };
 
   return {
     messages,
     settings,
-    achievements,
     addToastMessage,
     removeToastMessage,
     $reset,

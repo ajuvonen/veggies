@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {storeToRefs} from 'pinia';
-import {AchievementLevel, Category} from '@/utils/types';
-import {useAppStateStore} from '@/stores/appStateStore';
+import {AchievementLevel, Category, type Achievements} from '@/utils/types';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 
-const {achievements} = storeToRefs(useAppStateStore());
+defineProps<{
+  achievements: Achievements;
+}>();
 </script>
 <template>
   <div class="has-scroll m-0 p-0" data-test-id="achievement-list">
