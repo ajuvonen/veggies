@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <div class="has-scroll m-0 p-0" data-test-id="achievement-list">
     <ContentElement :title="$t('achievements.thirtyVeggies.title')">
-      <div class="achievement-list__badge-container">
+      <ul class="achievement-list__badge-container">
         <AchievementBadge
           :active="achievements.thirtyVeggies >= AchievementLevel.Gold"
           :level="AchievementLevel.Gold"
@@ -21,10 +21,10 @@ defineProps<{
           :level="AchievementLevel.Platinum"
           achievement="thirtyVeggies"
         />
-      </div>
+      </ul>
     </ContentElement>
     <ContentElement :title="$t('achievements.completionist.title')">
-      <div class="achievement-list__badge-container">
+      <ul class="achievement-list__badge-container">
         <AchievementBadge
           :active="achievements.completionist >= AchievementLevel.Bronze"
           :level="AchievementLevel.Bronze"
@@ -40,10 +40,10 @@ defineProps<{
           :level="AchievementLevel.Gold"
           achievement="completionist"
         />
-      </div>
+      </ul>
     </ContentElement>
     <ContentElement :title="$t('achievements.challengeAccepted.title')">
-      <div class="achievement-list__badge-container">
+      <ul class="achievement-list__badge-container">
         <AchievementBadge
           :active="achievements.challengeAccepted >= AchievementLevel.Bronze"
           :level="AchievementLevel.Bronze"
@@ -59,10 +59,10 @@ defineProps<{
           :level="AchievementLevel.Gold"
           achievement="challengeAccepted"
         />
-      </div>
+      </ul>
     </ContentElement>
     <ContentElement :title="$t('achievements.committed.title')">
-      <div class="achievement-list__badge-container">
+      <ul class="achievement-list__badge-container">
         <AchievementBadge
           :active="achievements.committed >= AchievementLevel.Bronze"
           :level="AchievementLevel.Bronze"
@@ -78,10 +78,10 @@ defineProps<{
           :level="AchievementLevel.Gold"
           achievement="committed"
         />
-      </div>
+      </ul>
     </ContentElement>
     <ContentElement :title="$t('achievements.hotStreak.title')">
-      <div class="achievement-list__badge-container">
+      <ul class="achievement-list__badge-container">
         <AchievementBadge
           :active="achievements.hotStreak >= AchievementLevel.Bronze"
           :level="AchievementLevel.Bronze"
@@ -97,10 +97,10 @@ defineProps<{
           :level="AchievementLevel.Gold"
           achievement="hotStreak"
         />
-      </div>
+      </ul>
     </ContentElement>
     <ContentElement :title="$t('achievements.favorite.title')">
-      <div class="achievement-list__badge-container">
+      <ul class="achievement-list__badge-container">
         <AchievementBadge
           :active="achievements.favorite >= AchievementLevel.Bronze"
           :level="AchievementLevel.Bronze"
@@ -116,10 +116,10 @@ defineProps<{
           :level="AchievementLevel.Gold"
           achievement="favorite"
         />
-      </div>
+      </ul>
     </ContentElement>
     <ContentElement :title="$t('achievements.experimenterFruit.title')">
-      <div class="achievement-list__badge-container">
+      <ul class="achievement-list__badge-container">
         <AchievementBadge
           v-for="category in Category"
           :key="category"
@@ -127,7 +127,7 @@ defineProps<{
           :achievement="`experimenter${category}`"
           :active="achievements[`experimenter${category}`] === AchievementLevel.Gold"
         />
-      </div>
+      </ul>
     </ContentElement>
   </div>
 </template>
