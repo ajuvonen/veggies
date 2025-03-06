@@ -41,6 +41,7 @@ const reset = () => {
       max="20"
       step="5"
     />
+    <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
     <output for="suggestions-count-slider">{{ settings.suggestionCount }}</output>
   </ContentElement>
   <QAComponent />
