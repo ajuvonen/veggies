@@ -888,6 +888,7 @@
       "text": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
       "title": "Are you sure you want to reset?"
     },
+    "suggestionCount": "Amount of suggestions to show",
     "title": "Settings"
   },
   "stats": {

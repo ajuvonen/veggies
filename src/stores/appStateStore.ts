@@ -14,6 +14,7 @@ export const useAppStateStore = defineStore('appState', () => {
     'veggies-settings',
     {
       locale: 'en',
+      suggestionCount: 10,
     },
     localStorage,
     {
@@ -39,6 +40,7 @@ export const useAppStateStore = defineStore('appState', () => {
     messages.value = [];
     settings.value = {
       locale: 'en',
+      suggestionCount: 10,
     };
   };
 

@@ -1,5 +1,5 @@
 import {computed, ref, watchEffect} from 'vue';
-import {defineStore} from 'pinia';
+import {defineStore, storeToRefs} from 'pinia';
 import {useNow, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {
@@ -17,8 +17,10 @@ import {
 import {Category, type Favorites, type Challenge, type Week} from '@/utils/types';
 import {dateParser, getCategoryForVeggie, getRandomVeggie} from '@/utils/helpers';
 import {useAchievements} from '@/hooks/achievements';
+import {useAppStateStore} from '@/stores/appStateStore';
 
 export const useActivityStore = defineStore('activity', () => {
+  const {settings} = storeToRefs(useAppStateStore());
   const {advanceAchievements, achievements, resetAchievements} = useAchievements();
   const reactiveNow = useNow({interval: 2000});
   const currentDate = ref(DateTime.now());
@@ -110,7 +112,7 @@ export const useActivityStore = defineStore('activity', () => {
       countBy((veggie) => veggie),
       entries(),
       sortBy([prop(1), 'desc']),
-      take(10),
+      take(settings.value.suggestionCount),
       map(prop(0)),
     ),
   );

@@ -74,7 +74,7 @@ const chartOptions = computed(() =>
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="container" class="category-status-chart__background">
+  <div ref="container" :class="{'shrink-0': !totals}" class="category-status-chart__background">
     <Doughnut
       :data="chartData"
       :options="chartOptions"
@@ -110,7 +110,7 @@ defineExpose({chartData});
 }
 
 .category-status-chart__background {
-  @apply relative overflow-hidden max-h-[50%] min-h-0 aspect-square;
+  @apply relative overflow-hidden h-[calc(100vmin-2rem)] max-h-[400px];
   @apply flex justify-center;
 }
 

@@ -36,6 +36,7 @@ export type Challenge = {
 
 export type Settings = {
   locale: Locale;
+  suggestionCount: number;
 };
 
 export type Listing = {
