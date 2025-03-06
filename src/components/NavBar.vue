@@ -14,6 +14,7 @@ const isHome = computed(() => route.name === 'home');
   <nav :class="{'navbar--home': isHome}" class="navbar">
     <RouterLink
       v-if="!isHome"
+      v-tippy="$t('views.log')"
       :aria-label="$t('views.log')"
       to="/log"
       class="navbar__log-link"
@@ -24,12 +25,18 @@ const isHome = computed(() => route.name === 'home');
       <RouterLink
         v-if="showStats"
         v-tippy="$t('views.stats')"
+        :aria-label="$t('views.stats')"
         to="/stats"
         data-test-id="navbar-link-stats"
       >
         <IconComponent icon="chart" size="6vw" class="navbar__link-icon" />
       </RouterLink>
-      <RouterLink v-tippy="$t('views.settings')" to="/settings" data-test-id="navbar-link-settings">
+      <RouterLink
+        v-tippy="$t('views.settings')"
+        :aria-label="$t('views.settings')"
+        to="/settings"
+        data-test-id="navbar-link-settings"
+      >
         <IconComponent icon="cog" size="6vw" class="navbar__link-icon" />
       </RouterLink>
     </div>

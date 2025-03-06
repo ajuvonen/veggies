@@ -141,15 +141,9 @@ const badgeProps: BadgeProps = {
 };
 </script>
 <template>
-  <div
+  <li
+    v-tippy="$t(`achievements.${achievement}.ariaLabel`, badgeProps[achievement][level]!.textProps)"
     :aria-disabled="!active"
-    v-tippy="{
-      aria: null,
-      content: $t(
-        `achievements.${achievement}.ariaLabel`,
-        badgeProps[achievement][level]!.textProps,
-      ),
-    }"
     :aria-label="
       $t(`achievements.${achievement}.ariaLabel`, badgeProps[achievement][level]!.textProps)
     "
@@ -169,7 +163,7 @@ const badgeProps: BadgeProps = {
     <div aria-hidden="true" class="badge__text">
       {{ $t(`achievements.${achievement}.badgeText`, badgeProps[achievement][level]!.textProps) }}
     </div>
-  </div>
+  </li>
 </template>
 <style scoped>
 .badge {
