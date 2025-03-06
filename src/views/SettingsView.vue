@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 import {useRouter} from 'vue-router';
+import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
@@ -11,7 +12,9 @@ import BuildTime from '@/components/BuildTime.vue';
 const router = useRouter();
 
 const {$reset: activityReset} = useActivityStore();
-const {$reset: appStateReset} = useAppStateStore();
+const appStateStore = useAppStateStore();
+const {settings} = storeToRefs(appStateStore);
+const {$reset: appStateReset} = appStateStore;
 
 const resetDialogOpen = ref(false);
 
@@ -25,6 +28,21 @@ const reset = () => {
 <template>
   <h1 class="sr-only">{{ $t('views.settings') }}</h1>
   <LocaleChanger />
+  <ContentElement
+    :title="$t('settings.suggestionCount')"
+    :labelAttrs="{for: 'suggestions-count-slider'}"
+    labelTag="label"
+  >
+    <input
+      id="suggestions-count-slider"
+      v-model.number="settings.suggestionCount"
+      type="range"
+      min="0"
+      max="20"
+      step="5"
+    />
+    <output for="suggestions-count-slider">{{ settings.suggestionCount }}</output>
+  </ContentElement>
   <QAComponent />
   <ContentElement
     :title="$t('settings.reset.label')"
@@ -60,3 +78,18 @@ const reset = () => {
     </template>
   </ModalDialog>
 </template>
+<style scoped>
+#suggestions-count-slider {
+  @apply appearance-none h-4 rounded-md;
+  @apply bg-[--color-bg-alternative];
+
+  &::-webkit-slider-thumb {
+    @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
+    @apply bg-[--color-highlight] hover:bg-sky-600;
+  }
+  &::-moz-range-thumb {
+    @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
+    @apply bg-[--color-highlight] hover:bg-sky-600;
+  }
+}
+</style>

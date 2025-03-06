@@ -1,11 +1,12 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
-import {useActivityStore} from '@/stores/activityStore';
 import {createPinia, setActivePinia} from 'pinia';
-import {Category, type Week} from '@/utils/types';
 import {take} from 'remeda';
+import {Category, type Week} from '@/utils/types';
 import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
+import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 
 describe('activityStore', () => {
   const thisWeek = DateTime.now().startOf('week');
@@ -13,6 +14,7 @@ describe('activityStore', () => {
   const twoWeeksAgo = thisWeek.minus({weeks: 2});
   const threeWeeksAgo = thisWeek.minus({weeks: 3});
   let activityStore: ReturnType<typeof useActivityStore>;
+  let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
     // creates a fresh pinia and makes it active
@@ -20,6 +22,7 @@ describe('activityStore', () => {
     // without having to pass it to it: `useStore(pinia)`
     setActivePinia(createPinia());
     activityStore = useActivityStore();
+    appStateStore = useAppStateStore();
   });
 
   it('resets the date timezones', async () => {
@@ -245,7 +248,7 @@ describe('activityStore', () => {
     expect(activityStore.suggestions).toEqual(['cucumber']);
   });
 
-  it('returns only ten most common suggestions', () => {
+  it('returns correct suggestion amount', () => {
     const expected = [
       'wheat',
       'rye',
@@ -269,6 +272,10 @@ describe('activityStore', () => {
     });
 
     expect(activityStore.suggestions).toEqual(expected);
+    appStateStore.settings.suggestionCount = 5;
+    expect(activityStore.suggestions).toEqual(expected.slice(0, 5));
+    appStateStore.settings.suggestionCount = 0;
+    expect(activityStore.suggestions).toEqual([]);
   });
 
   it('returns unique veggies', () => {
@@ -508,15 +515,31 @@ describe('activityStore', () => {
     activityStore.startDate = thisWeek;
     activityStore.weeks.push({
       startDate: thisWeek,
-      veggies: ['cucumber', 'tomato'],
+      veggies: [...take(VEGETABLES, 15), ...take(FRUITS, 15)],
     });
     activityStore.challenges.push({
       startDate: thisWeek,
       veggie: 'longan',
     });
+
     activityStore.$reset();
+
     expect(activityStore.startDate).toBe(null);
     expect(activityStore.weeks).toHaveLength(0);
     expect(activityStore.challenges).toHaveLength(0);
+    expect(activityStore.achievements).toEqual({
+      challengeAccepted: 0,
+      committed: 0,
+      completionist: 0,
+      experimenterBean: 0,
+      experimenterFruit: 0,
+      experimenterGrain: 0,
+      experimenterLeafy: 0,
+      experimenterRoot: 0,
+      experimenterVegetable: 0,
+      favorite: 0,
+      hotStreak: 0,
+      thirtyVeggies: 0,
+    });
   });
 });

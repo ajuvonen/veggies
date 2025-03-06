@@ -1,6 +1,6 @@
 import {describe, it, expect, beforeEach} from 'vitest';
-import {useAppStateStore} from '@/stores/appStateStore';
 import {createPinia, setActivePinia} from 'pinia';
+import {useAppStateStore} from '@/stores/appStateStore';
 
 describe('appStateStore', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
@@ -16,6 +16,7 @@ describe('appStateStore', () => {
   it('adds messages', () => {
     appStateStore.addToastMessage('hello');
     expect(appStateStore.messages).toHaveLength(1);
+    expect(appStateStore.messages[0].text).toBe('hello');
   });
 
   it('removes messages', () => {
@@ -28,9 +29,11 @@ describe('appStateStore', () => {
 
   it('resets the store', () => {
     appStateStore.settings.locale = 'fi';
+    appStateStore.settings.suggestionCount = 20;
     appStateStore.addToastMessage('hello');
     appStateStore.$reset();
     expect(appStateStore.settings.locale).toBe('en');
+    expect(appStateStore.settings.suggestionCount).toBe(10);
     expect(appStateStore.messages).toHaveLength(0);
   });
 });

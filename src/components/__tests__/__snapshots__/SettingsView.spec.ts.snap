@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`SettingsView > renders 1`] = `
-"<h1 class="sr-only">Settings</h1>
+"<h1 data-v-5e0b544f="" class="sr-only">Settings</h1>
 <div id="headlessui-radiogroup-v-0" role="radiogroup">
   <div class="flex-container flex-col"><label id="headlessui-label-v-1" class="label-like">Language</label>
     <div id="headlessui-radiogroup-option-v-2" role="radio" aria-checked="true" tabindex="0" data-headlessui-state="checked" data-test-id="locale-button-en" class="button-like bg-[--color-highlight] hover:bg-sky-600"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -12,7 +12,8 @@ exports[`SettingsView > renders 1`] = `
       </svg><span id="headlessui-label-v-5">Suomi</span></div>
   </div>
 </div>
-<div class="flex-container flex-col min-h-0"><label class="label-like">Common Questions</label>
+<div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="suggestions-count-slider">Amount of suggestions to show</label><input data-v-5e0b544f="" id="suggestions-count-slider" type="range" min="0" max="20" step="5"><output data-v-5e0b544f="" for="suggestions-count-slider">10</output></div>
+<div data-v-5e0b544f="" class="flex-container flex-col min-h-0"><label class="label-like">Common Questions</label>
   <div class="flex-container flex-col has-scroll"><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-6" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-appPurpose">
       <!--v-if-->What's this app for? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
@@ -72,8 +73,8 @@ exports[`SettingsView > renders 1`] = `
     </transition-stub>
   </div>
 </div>
-<div class="flex-container flex-col"><label class="label-like" for="reset-button">Remove all data from the app</label><button data-v-24e38f3d="" class="button-like button--danger self-end" id="reset-button" data-test-id="reset-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+<div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="reset-button">Remove all data from the app</label><button data-v-24e38f3d="" data-v-5e0b544f="" class="button-like button--danger self-end" id="reset-button" data-test-id="reset-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" class="transition-all"></path>
     </svg>Reset</button></div>
-<build-time-stub></build-time-stub>"
+<build-time-stub data-v-5e0b544f=""></build-time-stub>"
 `;
