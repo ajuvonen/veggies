@@ -142,16 +142,22 @@ export const useActivityStore = defineStore('activity', () => {
   const toggleVeggieForWeek = (targetVeggie: string, weekStart: DateTime) => {
     const targetWeek = weeks.value.find(({startDate}) => startDate.equals(weekStart));
     if (!targetWeek) {
-      weeks.value.push({
-        startDate: weekStart,
-        veggies: [targetVeggie],
-      });
-      challenges.value.push({
-        startDate: weekStart,
-        veggie: getRandomVeggie(),
-      });
+      weeks.value = [
+        ...weeks.value,
+        {
+          startDate: weekStart,
+          veggies: [targetVeggie],
+        },
+      ];
+      challenges.value = [
+        ...challenges.value,
+        {
+          startDate: weekStart,
+          veggie: getRandomVeggie(),
+        },
+      ];
     } else if (!targetWeek.veggies.includes(targetVeggie)) {
-      targetWeek.veggies.push(targetVeggie);
+      targetWeek.veggies = [...targetWeek.veggies, targetVeggie];
     } else {
       targetWeek.veggies = difference(targetWeek.veggies, [targetVeggie]);
     }
@@ -163,14 +169,20 @@ export const useActivityStore = defineStore('activity', () => {
   ) => {
     const targetWeek = weeks.value.find(({startDate}) => startDate.equals(weekStart));
     if (!targetWeek) {
-      weeks.value.push({
-        startDate: weekStart,
-        veggies,
-      });
-      challenges.value.push({
-        startDate: weekStart,
-        veggie: getRandomVeggie(),
-      });
+      weeks.value = [
+        ...weeks.value,
+        {
+          startDate: weekStart,
+          veggies,
+        },
+      ];
+      challenges.value = [
+        ...challenges.value,
+        {
+          startDate: weekStart,
+          veggie: getRandomVeggie(),
+        },
+      ];
     } else {
       targetWeek.veggies = veggies;
     }
