@@ -2,6 +2,7 @@ import {fileURLToPath, URL} from 'node:url';
 import {defineConfig} from 'vite';
 import {VitePWA} from 'vite-plugin-pwa';
 import vue from '@vitejs/plugin-vue';
+import vueDevTools from 'vite-plugin-vue-devtools';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vueDevTools(),
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
@@ -56,6 +58,21 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          chartJS: [
+            'chart.js',
+            'chartjs-plugin-annotation',
+            'chartjs-plugin-datalabels',
+            'vue-chartjs',
+            '@/components/ChartScreenReaderTable.vue',
+          ],
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
