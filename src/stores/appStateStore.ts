@@ -26,10 +26,13 @@ export const useAppStateStore = defineStore('appState', () => {
 
   // Actions
   const addToastMessage = (text: string) => {
-    messages.value.push({
-      id: crypto.randomUUID(),
-      text,
-    });
+    messages.value = [
+      ...messages.value,
+      {
+        id: crypto.randomUUID(),
+        text,
+      },
+    ];
   };
 
   const removeToastMessage = (targetId: string) => {
