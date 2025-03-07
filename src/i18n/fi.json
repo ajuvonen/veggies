@@ -415,6 +415,11 @@
       "Munakoisot luokitellaan kasvitieteellisesti hedelmiksi.",
       "Painavin punnittu munakoiso kasvatettiin vuonna 2021, ja se painoi 3,12 kiloa."
     ],
+    "enoki": [
+      "Enoki-sieniä viljellään pimeässä, jolloin ne jäävät valkoisiksi toisin kuin luonnossa esiintyvät lajitoverinsa.",
+      "Enokien kaltaiset sienet säilyvät parhaiten jääkaapissa hengittävässä astiassa.",
+      "Enoki-sieniä käytetään usein keitoissa, hot potissa tai paistetuissa ruoissa."
+    ],
     "farro": [
       "Farro on muinainen vilja, joka oli roomalaisten sotilaiden ruokavalion perusta.",
       "Farroa käytetään esimerkiksi salaatteihin, risottoihin ja keittoihin."
@@ -717,6 +722,11 @@
       "Seesamiöljy on suosittu ainesosa aasialaisessa keittiössä."
     ],
     "shiitake": ["Siitakesieniä arvostetaan niiden lihaisan koostumuksen ja umamisen maun vuoksi."],
+    "shimeji": [
+      "Shimeji-sienen tyypilliset alalajit ovat valkoinen bunapi-shimeji ja ruskea buna-shimeji.",
+      "Kypsentämättömien shimeji-sienten maku on kitkerä, mutta kypsänä ne ovat umamisia.",
+      "Shimeji-sienet sopivat hyvin yhteen esimerkiksi valkosipulin, soijan ja merenelävien kanssa."
+    ],
     "sorghum": [
       "Durra on gluteeniton vilja, jota käytetään usein puuron, jauhon ja siirapin valmistukseen.",
       "Kuivuutta hyvin kestävä durra on tärkeä viljelykasvi vähäsateisilla alueilla.",
@@ -1003,6 +1013,7 @@
     "edamame": "edamamepapu",
     "eggplant": "munakoiso",
     "endive": "endiivi",
+    "enoki": "enoki",
     "farro": "farro",
     "fava bean": "härkäpapu",
     "fennel": "fenkoli",
@@ -1117,6 +1128,7 @@
     "sesame seed": "seesaminsiemen",
     "shallot": "salottisipuli",
     "shiitake": "siitake",
+    "shimeji": "shimeji",
     "snow pea": "sokeriherne",
     "sorghum": "durra",
     "sorrel": "suolaheinä",

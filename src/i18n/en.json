@@ -413,6 +413,11 @@
       "Eggplants are botanically classified as fruits",
       "The heaviest eggplant measured was grown in 2021, and it weighed 3.21 kg."
     ],
+    "enoki": [
+      "Enoki mushrooms are cultivated in the dark, which turns them white as opposed to the darker varieties found in nature.",
+      "Mushrooms such as enoki are best stored in a breathable container in the fridge.",
+      "Enoki are comonly used in soups, hot pots, and stir-fries."
+    ],
     "farro": [
       "Farro is an ancient grain that was a staple in the diet of Roman soldiers.",
       "Farro is used for example in salads, risottos, and soups."
@@ -705,6 +710,11 @@
       "Sesame seed oil is a popular ingredient in Asian cuisine."
     ],
     "shiitake": ["Shiitake mushrooms are prized for their meaty texture and umami flavor."],
+    "shimeji": [
+      "The common varieties of shimeji mushrooms include the white bunapi-shimeji and the brown buna-shimeji.",
+      "Uncooked shimeji mushrooms have a bitter taste, but they develop umami flavor when cooked.",
+      "Shimeji mushrooms pair well for example with soy sauce, garlic, and seafood."
+    ],
     "sorghum": [
       "Sorghum is a gluten-free grain often used to make porridge, flour, and syrup.",
       "Sorghum is drought-resistant, making it an important crop in arid regions.",
@@ -993,6 +1003,7 @@
     "edamame": "edamame",
     "eggplant": "eggplant",
     "endive": "endive",
+    "enoki": "enoki",
     "farro": "farro",
     "fava bean": "fava bean",
     "fennel": "fennel",
@@ -1107,6 +1118,7 @@
     "sesame seed": "sesame seed",
     "shallot": "shallot",
     "shiitake": "shiitake",
+    "shimeji": "shimeji",
     "snow pea": "snow pea",
     "sorghum": "sorghum",
     "sorrel": "sorrel",
