@@ -2,7 +2,7 @@ import {useMemoize} from '@vueuse/core';
 import type {ChartOptions, ChartTypeRegistry} from 'chart.js';
 import type {Context} from 'chartjs-plugin-datalabels';
 import {DateTime} from 'luxon';
-import {mergeDeep} from 'remeda';
+import {mergeDeep, sample} from 'remeda';
 import {
   FRUITS,
   VEGETABLES,
@@ -159,11 +159,6 @@ const veggieEmojis = [
   '🥜',
   '🫘',
   '🌿',
-] as const;
-export const getRandomEmojis = (amount: number = 1) => {
-  const emojis = new Set<string>();
-  while (emojis.size < amount) {
-    emojis.add(veggieEmojis[Math.floor(Math.random() * veggieEmojis.length)]);
-  }
-  return Array.from(emojis);
-};
+  '🍄‍🟫',
+];
+export const getRandomEmojis = (amount: number = 1) => sample(veggieEmojis, amount);
