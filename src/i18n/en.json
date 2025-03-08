@@ -231,6 +231,11 @@
       "Bitter melon has been used in traditional medicine for centuries.",
       "Bitter melon can help lower blood sugar, as it contains compounds that mimic the effects of insulin."
     ],
+    "blackcurrant": [
+      "Blackcurrants contain up to four times as much vitamin C as oranges.",
+      "Some theories suggest that blackcurrants could improve cognitive function.",
+      "Cultivating blackcurrants was forbidden in many parts of the U.S. in the 20th century, in fear of plant diseases."
+    ],
     "black bean": [
       "Black beans have been cultivated in the Americas for over 7000 years.",
       "In addition to providing iron, magnesium and pholate, black beans are rich in protein and fiber."
@@ -698,6 +703,11 @@
     "rambutan": [
       "Rambutan is closely related to lychee and longan, sharing similar flavors and textures."
     ],
+    "redcurrant": [
+      "Redcurrants are low in calories, but high in vitamin C, fiber, and antioxidants.",
+      "Redcurrants are commonly used in Europe for jellies, juice, or wine.",
+      "Redcurrants are also loved by birds, which is why gardeners work extra to protect their crops."
+    ],
     "red bean": [
       "In Asia, red beans are often used to make sweet red bean paste, a popular filling in desserts."
     ],
@@ -971,6 +981,7 @@
     "black trumpet mushroom": "black trumpet mushroom",
     "black-eyed pea": "black-eyed pea",
     "blackberry": "blackberry",
+    "blackcurrant": "blackcurrant",
     "blood grapefruit": "blood grapefruit",
     "blood orange": "blood orange",
     "blueberry": "blueberry",
@@ -1131,6 +1142,7 @@
     "red leaf lettuce": "red leaf lettuce",
     "red lentil": "red lentil",
     "red onion": "red onion",
+    "redcurrant": "redcurrant",
     "rhubarb": "rhubarb",
     "rice": "rice",
     "romaine": "romaine",

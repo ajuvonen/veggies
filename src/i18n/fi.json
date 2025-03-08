@@ -231,6 +231,11 @@
       "Karvaskurkkua on käytetty perinteisessä lääketieteessä vuosisatojen ajan.",
       "Karvaskurkku voi auttaa laskemaan verensokeria, koska se sisältää insuliinin tavoin vaikuttavia yhdisteitä."
     ],
+    "blackcurrant": [
+      "Mustaherukat sisältävät jopa neljä kertaa enemmän C-vitamiinia kuin appelsiinit.",
+      "Joidenkin arvioiden mukaan mustaherukalla voi olla aivotoimintoja parantava vaikutus.",
+      "Mustaherukoiden kasvatus oli paikoin kiellettyä Yhdysvalloissa 1900-luvulla kasvitautien pelossa."
+    ],
     "black bean": [
       "Mustapapuja on viljelty Amerikassa yli 7 000 vuoden ajan.",
       "Mustapapu sisältää paitsi rautaa, magnesiumia ja folaattia, myös proteiinia ja kuitua."
@@ -708,6 +713,11 @@
     "rambutan": [
       "Rambutan on läheistä sukua litsille ja longanille, ja niissä onkin samankaltainen maku ja koostumus."
     ],
+    "redcurrant": [
+      "Punaherukat ovat vähäkalorisia, mutta niissä on paljon C-vitamiinia, kuitua ja antioksidantteja.",
+      "Punaherukoita käytetään Euroopassa yleisesti esimerkiksi hilloissa, mehuissa tai viinin valmistamiseen.",
+      "Punaherukat ovat myös lintujen suosiossa, joten puutarhurien on suojattava satoaan."
+    ],
     "red bean": [
       "Aasiassa punaisia papuja käytetään usein makean punapaputahnan valmistukseen, joka on suosittu täyte jälkiruoissa."
     ],
@@ -959,8 +969,6 @@
     "missing": "(puuttuu)"
   },
   "veggies": {
-    "morel": "huhtasieni",
-    "king oyster mushroom": "putkivinokas",
     "almond": "manteli",
     "amaranth": "amarantti",
     "apple": "omena",
@@ -983,6 +991,7 @@
     "black trumpet mushroom": "mustatorvisieni",
     "black-eyed pea": "mustasilmäpapu",
     "blackberry": "karhunvatukka",
+    "blackcurrant": "mustaherukka",
     "blood grapefruit": "verigreippi",
     "blood orange": "veriappelsiini",
     "blueberry": "mustikka",
@@ -1069,6 +1078,7 @@
     "kale": "lehtikaali",
     "kamut": "kamut",
     "kidney bean": "kidneypapu",
+    "king oyster mushroom": "putkivinokas",
     "kiwi": "kiivi",
     "kohlrabi": "kyssäkaali",
     "kumquat": "kumkvatti",
@@ -1089,6 +1099,7 @@
     "millet": "hirssi",
     "mint": "minttu",
     "mizuna": "japaninkaali (mizuna)",
+    "morel": "huhtasieni",
     "mung bean": "mungpapu",
     "musk gourd": "myskikurpitsa",
     "mustard greens": "sareptansinappi",
@@ -1141,6 +1152,7 @@
     "red leaf lettuce": "lollo rosso",
     "red lentil": "punainen linssi",
     "red onion": "punasipuli",
+    "redcurrant": "punaherukka",
     "rhubarb": "raparperi",
     "rice": "riisi",
     "romaine": "roomansalaatti (romaine)",
