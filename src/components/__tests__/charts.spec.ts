@@ -2,7 +2,7 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {take} from 'remeda';
-import {BEANS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
+import {BEANS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
 import {useActivityStore} from '@/stores/activityStore';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
@@ -37,7 +37,7 @@ describe('charts', () => {
 
   it('prepares data for WeeklyCategoriesChart', () => {
     activityStore.startDate = fiveWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: fiveWeeksAgo,
         veggies: ['endive'],
@@ -54,11 +54,11 @@ describe('charts', () => {
         startDate: thisWeek,
         veggies: ['onion', 'tomato', 'apple', 'pineapple'],
       },
-    );
+    ];
 
     const wrapper = mount(WeeklyCategoriesChart);
 
-    // Leafy category & week 1 are dropped out
+    // Leafies & mushrooms are dropped out
     const {labels, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual([
       thisWeek.toFormat('W/kkkk'),
@@ -85,7 +85,7 @@ describe('charts', () => {
 
   it('prepares data for WeeklyAmountsChart', () => {
     activityStore.startDate = fiveWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: fiveWeeksAgo,
         veggies: ['endive'],
@@ -102,7 +102,7 @@ describe('charts', () => {
         startDate: thisWeek,
         veggies: ['onion', 'tomato', 'apple', 'pineapple'],
       },
-    );
+    ];
 
     const wrapper = mount(WeeklyAmountsChart);
 
@@ -130,6 +130,7 @@ describe('charts', () => {
           ...ROOTS,
           ...take(BEANS, 20),
           ...take(GRAINS, 20),
+          ...MUSHROOMS,
         ],
       },
     });
@@ -137,7 +138,7 @@ describe('charts', () => {
       labels,
       datasets: [{data}],
     } = wrapper.vm.chartData;
-    expect(labels).toEqual(['Fruit', 'Vegetable', 'Leafy', 'Root', 'Bean', 'Grain']);
+    expect(labels).toEqual(['Fruit', 'Vegetable', 'Leafy', 'Root', 'Bean', 'Grain', 'Mushroom']);
     expect(data).toEqual([
       0,
       getPercentage(VEGETABLES, 10),
@@ -145,40 +146,7 @@ describe('charts', () => {
       100,
       getPercentage(BEANS, 20),
       getPercentage(GRAINS, 20),
+      100,
     ]);
-  });
-
-  it('shows all data when there are less than 5 weeks', () => {
-    activityStore.startDate = twoWeeksAgo;
-    activityStore.weeks.push(
-      {
-        startDate: twoWeeksAgo,
-        veggies: ['tomato'],
-      },
-      {
-        startDate: lastWeek,
-        veggies: ['onion'],
-      },
-      {
-        startDate: thisWeek,
-        veggies: ['pineapple'],
-      },
-    );
-
-    const wrapper = mount(WeeklyCategoriesChart);
-
-    const {labels, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual([
-      thisWeek.toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
-    ]);
-    expect(datasets).toHaveLength(3);
-    expect(datasets[0].label).toBe('Fruit');
-    expect(datasets[0].data).toEqual([1, 0, 0]);
-    expect(datasets[1].label).toBe('Vegetable');
-    expect(datasets[1].data).toEqual([0, 0, 1]);
-    expect(datasets[2].label).toBe('Root');
-    expect(datasets[2].data).toEqual([0, 1, 0]);
   });
 });

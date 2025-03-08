@@ -2,7 +2,7 @@ import {ref} from 'vue';
 import {intersection, mapValues} from 'remeda';
 import {createActor, setup, type MachineContext} from 'xstate';
 import type {GuardArgs} from 'xstate/guards';
-import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
+import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
 import type {AchievementProps, Achievements} from '@/utils/types';
 
 type AdvanceEvent = {
@@ -27,9 +27,9 @@ const guards = {
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
       event.uniqueVeggies.length >= threshold,
   experimenter:
-    (targetGroup: string[]) =>
+    (targetGroup: string[], threshold: number = 15) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
-      intersection(event.uniqueVeggies, targetGroup).length >= 15,
+      intersection(event.uniqueVeggies, targetGroup).length >= threshold,
   favorite:
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
@@ -199,6 +199,20 @@ export function useAchievements() {
             '3': {},
           },
         },
+        experimenterBean: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.experimenter(BEANS),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
         experimenterFruit: {
           initial: '0',
           states: {
@@ -213,14 +227,14 @@ export function useAchievements() {
             '3': {},
           },
         },
-        experimenterVegetable: {
+        experimenterGrain: {
           initial: '0',
           states: {
             '0': {
               on: {
                 ADVANCE: {
                   target: '3',
-                  guard: guards.experimenter(VEGETABLES),
+                  guard: guards.experimenter(GRAINS),
                 },
               },
             },
@@ -241,6 +255,20 @@ export function useAchievements() {
             '3': {},
           },
         },
+        experimenterMushroom: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: {
+                  target: '3',
+                  guard: guards.experimenter(MUSHROOMS, 10),
+                },
+              },
+            },
+            '3': {},
+          },
+        },
         experimenterRoot: {
           initial: '0',
           states: {
@@ -255,28 +283,14 @@ export function useAchievements() {
             '3': {},
           },
         },
-        experimenterBean: {
+        experimenterVegetable: {
           initial: '0',
           states: {
             '0': {
               on: {
                 ADVANCE: {
                   target: '3',
-                  guard: guards.experimenter(BEANS),
-                },
-              },
-            },
-            '3': {},
-          },
-        },
-        experimenterGrain: {
-          initial: '0',
-          states: {
-            '0': {
-              on: {
-                ADVANCE: {
-                  target: '3',
-                  guard: guards.experimenter(GRAINS),
+                  guard: guards.experimenter(VEGETABLES),
                 },
               },
             },

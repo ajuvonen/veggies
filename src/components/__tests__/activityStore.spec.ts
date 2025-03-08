@@ -4,7 +4,7 @@ import {DateTime} from 'luxon';
 import {createPinia, setActivePinia} from 'pinia';
 import {take} from 'remeda';
 import {Category, type Week} from '@/utils/types';
-import {BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
+import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 
@@ -68,7 +68,7 @@ describe('activityStore', () => {
       veggies: ['tomato'],
       startDate: lastWeek,
     };
-    activityStore.weeks.push(lastWeekItem);
+    activityStore.weeks = [lastWeekItem];
     activityStore.toggleVeggie('tomato');
     expect(activityStore.weeks).toHaveLength(2);
     expect(activityStore.weeks[1].veggies).toHaveLength(1);
@@ -79,7 +79,7 @@ describe('activityStore', () => {
 
   it('returns all veggies', () => {
     activityStore.startDate = lastWeek;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: lastWeek,
         veggies: ['eggplant', 'broccoli', 'ginger', 'apple'],
@@ -88,7 +88,7 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggies: ['apple', 'tomato'],
       },
-    );
+    ];
 
     const allVeggies = activityStore.allVeggies;
     expect(allVeggies).toEqual(['eggplant', 'broccoli', 'ginger', 'apple', 'apple', 'tomato']);
@@ -96,7 +96,7 @@ describe('activityStore', () => {
 
   it("returns this week's veggies", () => {
     activityStore.startDate = lastWeek;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: lastWeek,
         veggies: ['cucumber', 'tomato'],
@@ -105,13 +105,13 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggies: ['cucumber', 'tomato'],
       },
-    );
+    ];
     expect(activityStore.currentVeggies).toEqual(['cucumber', 'tomato']);
   });
 
   it('returns completed challenges', () => {
     activityStore.startDate = twoWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
         veggies: ['cucumber'],
@@ -124,8 +124,8 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggies: ['rice', 'leek'],
       },
-    );
-    activityStore.challenges.push(
+    ];
+    activityStore.challenges = [
       {
         startDate: twoWeeksAgo,
         veggie: 'cucumber',
@@ -138,14 +138,14 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggie: 'rice',
       },
-    );
+    ];
 
     expect(activityStore.completedChallenges).toEqual(2);
   });
 
   it("sets this week's veggies", () => {
     activityStore.startDate = lastWeek;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: lastWeek,
         veggies: ['cucumber', 'longan'],
@@ -154,7 +154,7 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggies: ['cucumber', 'tomato'],
       },
-    );
+    ];
     activityStore.currentVeggies = ['banana', 'apple'];
     expect(activityStore.currentVeggies).toEqual(['banana', 'apple']);
     expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'longan']);
@@ -162,10 +162,12 @@ describe('activityStore', () => {
 
   it("sets this week's veggies from empty", () => {
     activityStore.startDate = lastWeek;
-    activityStore.weeks.push({
-      startDate: lastWeek,
-      veggies: ['cucumber', 'longan'],
-    });
+    activityStore.weeks = [
+      {
+        startDate: lastWeek,
+        veggies: ['cucumber', 'longan'],
+      },
+    ];
     activityStore.currentVeggies = ['banana', 'apple'];
     expect(activityStore.currentVeggies).toEqual(['banana', 'apple']);
     expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'longan']);
@@ -174,7 +176,7 @@ describe('activityStore', () => {
 
   it("returns specific week's veggies", () => {
     activityStore.startDate = lastWeek;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         veggies: ['apple'],
         startDate: lastWeek,
@@ -183,7 +185,7 @@ describe('activityStore', () => {
         veggies: ['cucumber', 'tomato'],
         startDate: thisWeek,
       },
-    );
+    ];
 
     expect(activityStore.veggiesForWeek(lastWeek)).toEqual(['apple']);
     expect(activityStore.veggiesForWeek(thisWeek)).toEqual(['cucumber', 'tomato']);
@@ -193,24 +195,28 @@ describe('activityStore', () => {
   it("returns this week's challenge", () => {
     activityStore.startDate = lastWeek;
 
-    activityStore.challenges.push({
-      startDate: lastWeek,
-      veggie: 'cucumber',
-    });
+    activityStore.challenges = [
+      {
+        startDate: lastWeek,
+        veggie: 'cucumber',
+      },
+    ];
 
     expect(activityStore.currentChallenge).toBe(undefined);
 
-    activityStore.challenges.push({
-      startDate: thisWeek,
-      veggie: 'tomato',
-    });
+    activityStore.challenges = [
+      {
+        startDate: thisWeek,
+        veggie: 'tomato',
+      },
+    ];
 
     expect(activityStore.currentChallenge).toBe('tomato');
   });
 
   it('returns suggestions', () => {
     activityStore.startDate = threeWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: threeWeeksAgo,
         veggies: ['wheat', 'apple', 'cucumber'],
@@ -223,27 +229,27 @@ describe('activityStore', () => {
         startDate: lastWeek,
         veggies: ['cucumber'],
       },
-    );
+    ];
 
     expect(activityStore.suggestions).toEqual(['wheat', 'apple', 'cucumber']);
   });
 
   it('excludes this week from suggestions', () => {
     activityStore.startDate = twoWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
-        veggies: ['wheat', 'apple'],
-        startDate: thisWeek,
+        veggies: ['apple'],
+        startDate: twoWeeksAgo,
       },
       {
         veggies: ['cucumber', 'wheat'],
         startDate: lastWeek,
       },
       {
-        veggies: ['apple'],
-        startDate: twoWeeksAgo,
+        veggies: ['wheat', 'apple'],
+        startDate: thisWeek,
       },
-    );
+    ];
 
     expect(activityStore.suggestions).toEqual(['cucumber']);
   });
@@ -262,14 +268,16 @@ describe('activityStore', () => {
       'endive',
     ];
     activityStore.startDate = twoWeeksAgo;
-    activityStore.weeks.push({
-      veggies: [...expected, 'lettuce', 'broccoli', 'lychee'],
-      startDate: twoWeeksAgo,
-    });
-    activityStore.weeks.push({
-      veggies: [...expected, 'lettuce', 'barley'],
-      startDate: lastWeek,
-    });
+    activityStore.weeks = [
+      {
+        veggies: [...expected, 'lettuce', 'broccoli', 'lychee'],
+        startDate: twoWeeksAgo,
+      },
+      {
+        veggies: [...expected, 'lettuce', 'barley'],
+        startDate: lastWeek,
+      },
+    ];
 
     expect(activityStore.suggestions).toEqual(expected);
     appStateStore.settings.suggestionCount = 5;
@@ -280,7 +288,7 @@ describe('activityStore', () => {
 
   it('returns unique veggies', () => {
     activityStore.startDate = lastWeek;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         veggies: ['tomato', 'apple', 'banana'],
         startDate: lastWeek,
@@ -289,32 +297,36 @@ describe('activityStore', () => {
         veggies: ['apple', 'tomato', 'cherry'],
         startDate: thisWeek,
       },
-    );
+    ];
 
     expect(activityStore.uniqueVeggies).toEqual(['tomato', 'apple', 'banana', 'cherry']);
   });
 
   it('returns 0 as streak length', () => {
     activityStore.startDate = thisWeek;
-    activityStore.weeks.push({
-      startDate: thisWeek,
-      veggies: [...Array(29)],
-    });
+    activityStore.weeks = [
+      {
+        startDate: thisWeek,
+        veggies: [...Array(29)],
+      },
+    ];
     expect(activityStore.hotStreak).toBe(0);
   });
 
   it('returns 1 as streak length', () => {
     activityStore.startDate = thisWeek;
-    activityStore.weeks.push({
-      startDate: thisWeek,
-      veggies: [...Array(30)],
-    });
+    activityStore.weeks = [
+      {
+        startDate: thisWeek,
+        veggies: [...Array(30)],
+      },
+    ];
     expect(activityStore.hotStreak).toBe(1);
   });
 
   it('missing week ends streak', () => {
     activityStore.startDate = threeWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: threeWeeksAgo,
         veggies: [...Array(30)],
@@ -327,13 +339,13 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggies: [...Array(30)],
       },
-    );
+    ];
     expect(activityStore.hotStreak).toBe(1);
   });
 
   it('missing current week does not end streak', () => {
     activityStore.startDate = twoWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
         veggies: [...Array(30)],
@@ -342,13 +354,13 @@ describe('activityStore', () => {
         startDate: lastWeek,
         veggies: [...Array(30)],
       },
-    );
+    ];
     expect(activityStore.hotStreak).toBe(2);
   });
 
   it('too few veggies ends streak', () => {
     activityStore.startDate = threeWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: threeWeeksAgo,
         veggies: [...Array(30)],
@@ -365,13 +377,13 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggies: [...Array(30)],
       },
-    );
+    ];
     expect(activityStore.hotStreak).toBe(1);
   });
 
   it('returns amount of weeks with over 30 veggies', () => {
     activityStore.startDate = twoWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
         veggies: [...Array(30)],
@@ -384,14 +396,14 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggies: [...Array(29)],
       },
-    );
+    ];
 
     expect(activityStore.over30Veggies).toBe(2);
   });
 
   it('returns the amount of most veggies in a week', () => {
     activityStore.startDate = twoWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
         veggies: [...Array(12)],
@@ -404,7 +416,7 @@ describe('activityStore', () => {
         startDate: thisWeek,
         veggies: [],
       },
-    );
+    ];
 
     expect(activityStore.atMostVeggies).toBe(12);
   });
@@ -420,7 +432,7 @@ describe('activityStore', () => {
 
   it('returns category favorites', () => {
     activityStore.startDate = twoWeeksAgo;
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
         veggies: [
@@ -430,6 +442,7 @@ describe('activityStore', () => {
           ...take(ROOTS, 5),
           ...take(BEANS, 5),
           ...take(GRAINS, 5),
+          ...take(MUSHROOMS, 5),
         ],
       },
       {
@@ -441,13 +454,22 @@ describe('activityStore', () => {
           ...take(ROOTS, 2),
           ...take(BEANS, 2),
           ...take(GRAINS, 2),
+          ...take(MUSHROOMS, 2),
         ],
       },
       {
         startDate: thisWeek,
-        veggies: [FRUITS[0], VEGETABLES[0], LEAFIES[0], ROOTS[0], BEANS[0], GRAINS[0]],
+        veggies: [
+          FRUITS[0],
+          VEGETABLES[0],
+          LEAFIES[0],
+          ROOTS[0],
+          BEANS[0],
+          GRAINS[0],
+          MUSHROOMS[0],
+        ],
       },
-    );
+    ];
 
     expect(activityStore.favorites).toEqual({
       [Category.Fruit]: [
@@ -492,15 +514,24 @@ describe('activityStore', () => {
         [GRAINS[3], 1],
         [GRAINS[4], 1],
       ],
+      [Category.Mushroom]: [
+        [MUSHROOMS[0], 3],
+        [MUSHROOMS[1], 2],
+        [MUSHROOMS[2], 1],
+        [MUSHROOMS[3], 1],
+        [MUSHROOMS[4], 1],
+      ],
     });
   });
 
   it('returns empty category favorites', () => {
     activityStore.startDate = thisWeek;
-    activityStore.weeks.push({
-      startDate: thisWeek,
-      veggies: [],
-    });
+    activityStore.weeks = [
+      {
+        startDate: thisWeek,
+        veggies: [],
+      },
+    ];
     expect(activityStore.favorites).toEqual({
       [Category.Fruit]: [],
       [Category.Vegetable]: [],
@@ -508,19 +539,24 @@ describe('activityStore', () => {
       [Category.Root]: [],
       [Category.Bean]: [],
       [Category.Grain]: [],
+      [Category.Mushroom]: [],
     });
   });
 
   it('resets the store', () => {
     activityStore.startDate = thisWeek;
-    activityStore.weeks.push({
-      startDate: thisWeek,
-      veggies: [...take(VEGETABLES, 15), ...take(FRUITS, 15)],
-    });
-    activityStore.challenges.push({
-      startDate: thisWeek,
-      veggie: 'longan',
-    });
+    activityStore.weeks = [
+      {
+        startDate: thisWeek,
+        veggies: [...take(VEGETABLES, 15), ...take(FRUITS, 15)],
+      },
+    ];
+    activityStore.challenges = [
+      {
+        startDate: thisWeek,
+        veggie: 'longan',
+      },
+    ];
 
     activityStore.$reset();
 
@@ -535,6 +571,7 @@ describe('activityStore', () => {
       experimenterFruit: 0,
       experimenterGrain: 0,
       experimenterLeafy: 0,
+      experimenterMushroom: 0,
       experimenterRoot: 0,
       experimenterVegetable: 0,
       favorite: 0,

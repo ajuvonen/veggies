@@ -48,6 +48,12 @@
       "badgeText": "Vihreät",
       "3": "Olet kokeillut 15:tä erilaista lehtivihreää ja yrttiä ansaiten tämän palkinnon!"
     },
+    "experimenterMushroom": {
+      "title": "Kokeilija",
+      "ariaLabel": "{0} erilaista sientä",
+      "badgeText": "Sienet",
+      "3": "Olet kokeillut kymmentä erilaista sientä ansaiten tämän palkinnon!"
+    },
     "experimenterRoot": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista juuresta",
@@ -119,6 +125,7 @@
     "Fruit": "Hedelmät ja marjat",
     "Grain": "Vilja, pähkinät ja siemenet",
     "Leafy": "Lehtivihreät ja yrtit",
+    "Mushroom": "Sienet",
     "Root": "Juurekset",
     "Vegetable": "Vihannekset"
   },
@@ -508,6 +515,11 @@
     "kamut": [
       "Kamutia uskotaan löytyneen egyptiläisistä haudoista, mikä antoi sille lempinimen \"faaraon vilja\"."
     ],
+    "king oyster mushroom": [
+      "Putkivinokas, englanniksi \"king oyster mushroom\", on nimestään huolimatta eri sieni kuin osterivinokas.",
+      "Putkivinokkaita voi paistaa viipaloituna pannulla ja käyttää esimerkiksi pastassa.",
+      "Putkivinokkaita voi löytää myynnistä aasialaisten ruokien erikoiskaupoista."
+    ],
     "kiwi": [
       "Yksi kiivi sisältää enemmän kuin päivittäisen suositellun määrän C-vitamiinia.",
       "Kiivi tunnettiin alun perin \"kiinankarviaisena\", mutta nimi muutettiin markkinoinnin vuoksi Uudessa-Seelannissa.",
@@ -524,7 +536,8 @@
       "Sitruunoiden uskotaan olevan peräisin Aasiasta, ja merimiehet käyttivät niitä keripukin estämiseen."
     ],
     "lettuce": [
-      "Salaatti on yksi vanhimmista viljellyistä kasveista, ja sitä on kasvatettu yli 4 000 vuotta."
+      "Salaatti on yksi vanhimmista viljellyistä kasveista, ja sitä on kasvatettu yli 4 000 vuotta.",
+      "Muinaiset salaattilajikkeet olivat kitkerämpiä. Jalostustyö on johtanut miedompien lajikkeiden kehittämiseen."
     ],
     "lime": [
       "Yksi limetti sisältää noin 30 % päivittäisestä C-vitamiinista.",
@@ -553,7 +566,8 @@
       "Maniokki on kypsennettävä oikein, sillä raakana se voi olla myrkyllinen syanogeenisten yhdisteidensä vuoksi."
     ],
     "matsutake": [
-      "Matsutake on arvostettu sieni Japanissa, ja harvinaisuutensa vuoksi se voi olla erittäin kallis."
+      "Matsutake on arvostettu sieni Japanissa, ja harvinaisuutensa vuoksi se voi olla erittäin kallis.",
+      "Matsutaken kaupallinen viljely on vaikeaa, joten sientä tuodaan tavallisesti ulkomailta."
     ],
     "millet": [
       "30 gramman annos hirssiä sisältää noin 11 g proteiinia. Hirssi on myös gluteeniton.",
@@ -565,6 +579,10 @@
     ],
     "mizuna": [
       "Mizuna on nopeasti kasvava lehtivihannes, joka kerätään tyypillisesti nuorena parhaan maun saavuttamiseksi."
+    ],
+    "morel": [
+      "Huhtasieni on helppo sekoittaa tappavan myrkylliseen korvasieneen.",
+      "Huhtasienet on hyvä kypsentää ennen käyttöä, koska ne voivat muuten aiheuttaa vatsakipuja."
     ],
     "mung bean": [
       "30 gramman annos mung-papuja sisältää noin 7 g proteiinia ja runsaasti kuitua.",
@@ -816,6 +834,10 @@
     "wild rice": [
       "Villiriisi ei ole riisilajike, vaan Pohjois-Amerikasta peräisin olevan vesiruohon siemen."
     ],
+    "wood-ear mushroom": [
+      "Juudaksenkorvaa käytetään aasialaisessa ruoassa esimerkiksi keittojen ainesosana.",
+      "Juudaksenkorvaa voidaan kasvattaa kaupallisesti erilaisilla puupinnoilla."
+    ],
     "yam": [
       "Jamssi sekoitetaan usein bataatteihin, mutta ne ovat eri lajeja.",
       "Jamssi sisältää runsaasti kuitua, C-vitamiinia ja kaliumia."
@@ -925,7 +947,7 @@
   },
   "toasts": {
     "challengeCompleted": "Suoritit viikkohaasteesi! {0}!",
-    "firstVeggie": "Ensimmäinen kasvis lisätty! Viikkohaasteesi on {0}.",
+    "firstVeggie": "Ensimmäinen kasvis lisätty! {0}!",
     "newChallenge": "Taas mennään! Viikkohaasteesi on {0}.",
     "totalVeggies": "Olet kirjannut yhteensä jo {0} kasvista! {1}!",
     "uniqueVeggies": "Olet kokeillut {0} / {1} kasviksesta tässä sovelluksessa! {2}!"
@@ -937,6 +959,8 @@
     "missing": "(puuttuu)"
   },
   "veggies": {
+    "morel": "huhtasieni",
+    "king oyster mushroom": "putkivinokas",
     "almond": "manteli",
     "amaranth": "amarantti",
     "apple": "omena",
@@ -1160,6 +1184,7 @@
     "white onion": "hopeasipuli",
     "wild mushroom": "metsäsienet",
     "wild rice": "villiriisi",
+    "wood-ear mushroom": "juudaksenkorva (wood-ear mushroom)",
     "yam": "jamssi",
     "yardlong bean": "parsapapu",
     "yellow beet": "keltajuuri",

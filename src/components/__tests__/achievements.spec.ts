@@ -9,7 +9,16 @@ import {
   type Favorites,
 } from '@/utils/types';
 import {take} from 'remeda';
-import {ALL_VEGGIES, BEANS, FRUITS, GRAINS, LEAFIES, ROOTS, VEGETABLES} from '@/utils/constants';
+import {
+  ALL_VEGGIES,
+  BEANS,
+  FRUITS,
+  GRAINS,
+  LEAFIES,
+  MUSHROOMS,
+  ROOTS,
+  VEGETABLES,
+} from '@/utils/constants';
 
 const withSetup = <T>(hook: () => T) =>
   new Promise<T>((resolve) => {
@@ -30,6 +39,7 @@ const defaultAchievements: Achievements = {
   experimenterFruit: AchievementLevel.NoAchievement,
   experimenterGrain: AchievementLevel.NoAchievement,
   experimenterLeafy: AchievementLevel.NoAchievement,
+  experimenterMushroom: AchievementLevel.NoAchievement,
   experimenterRoot: AchievementLevel.NoAchievement,
   experimenterVegetable: AchievementLevel.NoAchievement,
   favorite: AchievementLevel.NoAchievement,
@@ -108,6 +118,14 @@ describe('achievements', () => {
     expect(achievements.value.experimenterLeafy).toEqual(AchievementLevel.NoAchievement);
     advanceAchievements(getProps({uniqueVeggies: take(LEAFIES, 15)}));
     expect(achievements.value.experimenterLeafy).toBe(AchievementLevel.Gold);
+  });
+
+  it('advances experimenterMushroom', async () => {
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(getProps({uniqueVeggies: take(MUSHROOMS, 9)}));
+    expect(achievements.value.experimenterMushroom).toEqual(AchievementLevel.NoAchievement);
+    advanceAchievements(getProps({uniqueVeggies: take(MUSHROOMS, 10)}));
+    expect(achievements.value.experimenterMushroom).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterBean', async () => {
@@ -234,6 +252,7 @@ describe('achievements', () => {
       experimenterFruit: AchievementLevel.Gold,
       experimenterGrain: AchievementLevel.Gold,
       experimenterLeafy: AchievementLevel.Gold,
+      experimenterMushroom: AchievementLevel.Gold,
       experimenterVegetable: AchievementLevel.Gold,
       favorite: AchievementLevel.Gold,
       hotStreak: AchievementLevel.Gold,
