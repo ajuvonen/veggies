@@ -88,6 +88,12 @@ const badgeProps: BadgeProps = {
       emoji: CATEGORY_EMOJI.Leafy,
     },
   },
+  experimenterMushroom: {
+    [AchievementLevel.Gold]: {
+      textProps: [10],
+      emoji: CATEGORY_EMOJI.Mushroom,
+    },
+  },
   experimenterRoot: {
     [AchievementLevel.Gold]: {
       textProps: [15],

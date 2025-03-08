@@ -48,6 +48,12 @@
       "badgeText": "Leafy Greens",
       "3": "You have enjoyed 15 unique leafy greens and herbs, earning you this achievement!"
     },
+    "experimenterMushroom": {
+      "title": "The Experimenter",
+      "ariaLabel": "{0} unique mushrooms",
+      "badgeText": "Mushrooms",
+      "3": "You have enjoyed 10 unique mushrooms, earning you this achievement!"
+    },
     "experimenterRoot": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique roots and bulbs",
@@ -119,6 +125,7 @@
     "Fruit": "Fruits And Berries",
     "Grain": "Grains, Nuts, And Seeds",
     "Leafy": "Leafy Greens And Herbs",
+    "Mushroom": "Mushrooms",
     "Root": "Roots And Bulbs",
     "Vegetable": "Vegetables"
   },
@@ -502,6 +509,11 @@
     "kamut": [
       "Kamut is believed to have been found in Egyptian tombs, giving it the nickname \"pharaoh's grain\"."
     ],
+    "king oyster mushroom": [
+      "King oyster mushroom is different from a regular oyster mushroom, despite its name.",
+      "King oyster mushrooms can be sliced and seared, and used for example in pastas.",
+      "You can find king oyster mushrooms from Asian grocery stores."
+    ],
     "kiwi": [
       "One kiwi provides more than the daily recommended vitamin C.",
       "Kiwi was originally known as 'Chinese gooseberry', but its name was changed for marketing in New Zealand.",
@@ -518,7 +530,8 @@
       "Lemons are believed to have originated in Asia and were used by sailors to prevent scurvy."
     ],
     "lettuce": [
-      "Lettuce is one of the oldest cultivated plants, with records of it being grown over 4,000 years ago."
+      "Lettuce is one of the oldest cultivated plants, with records of it being grown over 4,000 years ago.",
+      "Ancient lettuce varieties were bitter. Cultivation has led to development of milder varieties."
     ],
     "lime": [
       "One lime provides about 30% of the daily recommended vitamin C.",
@@ -547,7 +560,8 @@
       "Manioc must be cooked properly, as raw manioc can be toxic due to cyanogenic compounds."
     ],
     "matsutake": [
-      "Matsutake is a prized mushroom in Japan and can be quite expensive due to its rarity."
+      "Matsutake is a prized mushroom in Japan and can be quite expensive due to its rarity.",
+      "Cultivating matsutake is difficult, and it's more commonly imported."
     ],
     "millet": [
       "A 30-gram portion of millet provides about 11 grams of protein and is gluten-free.",
@@ -557,6 +571,10 @@
     "mint": ["Mint is also a popular cocktail ingredient, used in cocktails such as mint julep."],
     "mizuna": [
       "Mizuna is a fast-growing leafy green, typically harvested when young for the best flavor."
+    ],
+    "morel": [
+      "Morels can be confused with false morels, some of which are lethally poisonous.",
+      "Even true morels should be cooked before eating, as they may cause stomach aches when raw."
     ],
     "mung bean": [
       "A 30-gram portion of mung beans provides about 7 grams of protein and is rich in fiber.",
@@ -806,6 +824,10 @@
     "wild rice": [
       "Wild rice is not technically rice but the seed of aquatic grass native to North America."
     ],
+    "wood-ear mushroom": [
+      "Wood-ear mushroom is used in Asian cuisine, for example in soups.",
+      "Wood-ear mushrooms can be cultivated commercially on top of wooden surfaces."
+    ],
     "yam": [
       "Yams are often confused with sweet potatoes, but they are botanically different.",
       "Yams are rich in fiber, vitamin C, and potassium."
@@ -915,7 +937,7 @@
   },
   "toasts": {
     "challengeCompleted": "You have completed your weekly challenge! {0}!",
-    "firstVeggie": "First veggie added! Your weekly challenge is {0}.",
+    "firstVeggie": "First veggie added! {0}!",
     "newChallenge": "Let's go! Your weekly challenge is {0}.",
     "totalVeggies": "You have reached a total of {0} veggies! {1}!",
     "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
@@ -972,7 +994,7 @@
     "cauliflower": "cauliflower",
     "celeriac": "celeriac",
     "celery": "celery",
-    "champignon": "champignon",
+    "champignon": "champignon (button)",
     "chanterelle": "chanterelle",
     "chard": "chard",
     "chayote": "chayote",
@@ -1035,6 +1057,7 @@
     "kale": "kale",
     "kamut": "kamut",
     "kidney bean": "kidney bean",
+    "king oyster mushroom": "king oyster mushroom",
     "kiwi": "kiwi",
     "kohlrabi": "kohlrabi",
     "kumquat": "kumquat",
@@ -1055,6 +1078,7 @@
     "millet": "millet",
     "mint": "mint",
     "mizuna": "mizuna",
+    "morel": "morel",
     "mung bean": "mung bean",
     "musk gourd": "musk gourd",
     "mustard greens": "mustard greens",
@@ -1150,6 +1174,7 @@
     "white onion": "white onion",
     "wild mushroom": "wild mushroom",
     "wild rice": "wild rice",
+    "wood-ear mushroom": "wood-ear mushroom",
     "yam": "yam",
     "yardlong bean": "yardlong bean",
     "yellow beet": "yellow beet",

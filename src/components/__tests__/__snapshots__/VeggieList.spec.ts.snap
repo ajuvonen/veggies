@@ -17,10 +17,12 @@ exports[`VeggieList > renders 1`] = `
             <th>Roots And Bulbs</th>
             <th>Beans And Legumes</th>
             <th>Grains, Nuts, And Seeds</th>
+            <th>Mushrooms</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td>0 %</td>
             <td>0 %</td>
             <td>0 %</td>
             <td>0 %</td>
@@ -225,9 +227,6 @@ exports[`VeggieList > renders 1`] = `
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="bitter melon">bitter melon</span><span data-v-5aea2802="" data-test-id="veggie-list-status-bitter melon" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="black trumpet mushroom">black trumpet mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-black trumpet mushroom" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="broccoli">broccoli</span><span data-v-5aea2802="" data-test-id="veggie-list-status-broccoli" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
@@ -241,12 +240,6 @@ exports[`VeggieList > renders 1`] = `
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="celery">celery</span><span data-v-5aea2802="" data-test-id="veggie-list-status-celery" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="champignon">champignon</span><span data-v-5aea2802="" data-test-id="veggie-list-status-champignon" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="chanterelle">chanterelle</span><span data-v-5aea2802="" data-test-id="veggie-list-status-chanterelle" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="chayote">chayote</span><span data-v-5aea2802="" data-test-id="veggie-list-status-chayote" class="sr-only">(missing)</span></li>
@@ -267,19 +260,10 @@ exports[`VeggieList > renders 1`] = `
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="eggplant">eggplant</span><span data-v-5aea2802="" data-test-id="veggie-list-status-eggplant" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="enoki">enoki</span><span data-v-5aea2802="" data-test-id="veggie-list-status-enoki" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="hedgehog mushroom">hedgehog mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-hedgehog mushroom" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="hokkaido pumpkin">hokkaido pumpkin</span><span data-v-5aea2802="" data-test-id="veggie-list-status-hokkaido pumpkin" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="jalapeño">jalapeño</span><span data-v-5aea2802="" data-test-id="veggie-list-status-jalapeno" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="matsutake">matsutake</span><span data-v-5aea2802="" data-test-id="veggie-list-status-matsutake" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="musk gourd">musk gourd</span><span data-v-5aea2802="" data-test-id="veggie-list-status-musk gourd" class="sr-only">(missing)</span></li>
@@ -294,31 +278,16 @@ exports[`VeggieList > renders 1`] = `
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="olive">olive</span><span data-v-5aea2802="" data-test-id="veggie-list-status-olive" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="oyster mushroom">oyster mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-oyster mushroom" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="plantain">plantain</span><span data-v-5aea2802="" data-test-id="veggie-list-status-plantain" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="pointed pepper">pointed pepper</span><span data-v-5aea2802="" data-test-id="veggie-list-status-pointed pepper" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="porcini">porcini</span><span data-v-5aea2802="" data-test-id="veggie-list-status-porcini" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="portobello">portobello</span><span data-v-5aea2802="" data-test-id="veggie-list-status-portobello" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="pumpkin">pumpkin</span><span data-v-5aea2802="" data-test-id="veggie-list-status-pumpkin" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="rhubarb">rhubarb</span><span data-v-5aea2802="" data-test-id="veggie-list-status-rhubarb" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="shiitake">shiitake</span><span data-v-5aea2802="" data-test-id="veggie-list-status-shiitake" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="shimeji">shimeji</span><span data-v-5aea2802="" data-test-id="veggie-list-status-shimeji" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="spaghetti squash">spaghetti squash</span><span data-v-5aea2802="" data-test-id="veggie-list-status-spaghetti squash" class="sr-only">(missing)</span></li>
@@ -331,12 +300,6 @@ exports[`VeggieList > renders 1`] = `
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="wakame">wakame</span><span data-v-5aea2802="" data-test-id="veggie-list-status-wakame" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="wild mushroom">wild mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-wild mushroom" class="sr-only">(missing)</span></li>
-        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
-          </svg><span data-v-5aea2802="" class="truncate capitalize" title="yellowfoot mushroom">yellowfoot mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-yellowfoot mushroom" class="sr-only">(missing)</span></li>
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="zucchini">zucchini</span><span data-v-5aea2802="" data-test-id="veggie-list-status-zucchini" class="sr-only">(missing)</span></li>
@@ -758,6 +721,61 @@ exports[`VeggieList > renders 1`] = `
         <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
           </svg><span data-v-5aea2802="" class="truncate capitalize" title="wild rice">wild rice</span><span data-v-5aea2802="" data-test-id="veggie-list-status-wild rice" class="sr-only">(missing)</span></li>
+      </ul>
+    </div>
+  </ul>
+  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
+    <div data-v-5aea2802="" class="flex-container flex-col">
+      <h2 class="label-like">Mushrooms</h2>
+      <ul data-v-5aea2802="" class="columns-2 md:columns-3">
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="black trumpet mushroom">black trumpet mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-black trumpet mushroom" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="champignon (button)">champignon (button)</span><span data-v-5aea2802="" data-test-id="veggie-list-status-champignon" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="chanterelle">chanterelle</span><span data-v-5aea2802="" data-test-id="veggie-list-status-chanterelle" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="enoki">enoki</span><span data-v-5aea2802="" data-test-id="veggie-list-status-enoki" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="hedgehog mushroom">hedgehog mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-hedgehog mushroom" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="king oyster mushroom">king oyster mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-king oyster mushroom" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="matsutake">matsutake</span><span data-v-5aea2802="" data-test-id="veggie-list-status-matsutake" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="morel">morel</span><span data-v-5aea2802="" data-test-id="veggie-list-status-morel" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="oyster mushroom">oyster mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-oyster mushroom" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="porcini">porcini</span><span data-v-5aea2802="" data-test-id="veggie-list-status-porcini" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="portobello">portobello</span><span data-v-5aea2802="" data-test-id="veggie-list-status-portobello" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="shiitake">shiitake</span><span data-v-5aea2802="" data-test-id="veggie-list-status-shiitake" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="shimeji">shimeji</span><span data-v-5aea2802="" data-test-id="veggie-list-status-shimeji" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="wild mushroom">wild mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-wild mushroom" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="wood-ear mushroom">wood-ear mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-wood-ear mushroom" class="sr-only">(missing)</span></li>
+        <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" class="transition-all"></path>
+          </svg><span data-v-5aea2802="" class="truncate capitalize" title="yellowfoot mushroom">yellowfoot mushroom</span><span data-v-5aea2802="" data-test-id="veggie-list-status-yellowfoot mushroom" class="sr-only">(missing)</span></li>
       </ul>
     </div>
   </ul>

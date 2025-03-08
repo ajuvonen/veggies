@@ -18,6 +18,7 @@ export enum Category {
   Root = 'Root',
   Bean = 'Bean',
   Grain = 'Grain',
+  Mushroom = 'Mushroom',
 }
 
 export type Favorites = {
@@ -64,6 +65,7 @@ export type Achievements = {
   experimenterFruit: AchievementLevel;
   experimenterGrain: AchievementLevel;
   experimenterLeafy: AchievementLevel;
+  experimenterMushroom: AchievementLevel;
   experimenterRoot: AchievementLevel;
   experimenterVegetable: AchievementLevel;
   favorite: AchievementLevel;

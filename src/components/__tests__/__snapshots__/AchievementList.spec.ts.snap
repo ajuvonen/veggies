@@ -168,6 +168,12 @@ exports[`AchievementList > renders 1`] = `
         </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
       </li>
+      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" aria-label="10 unique mushrooms" data-test-id="badge-experimenterMushroom-3" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🍄‍🟫</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Mushrooms</div>
+      </li>
     </ul>
   </div>
 </div>"
@@ -345,6 +351,12 @@ exports[`AchievementList > renders with badges enabled 1`] = `
           <div data-v-06381b3c="" class="badge__emoji">🌾</div>
         </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
+      </li>
+      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" aria-label="10 unique mushrooms" data-test-id="badge-experimenterMushroom-3" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🍄‍🟫</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Mushrooms</div>
       </li>
     </ul>
   </div>

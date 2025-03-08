@@ -4,15 +4,16 @@ import type {Context} from 'chartjs-plugin-datalabels';
 import {DateTime} from 'luxon';
 import {mergeDeep, sample} from 'remeda';
 import {
-  FRUITS,
-  VEGETABLES,
-  LEAFIES,
-  ROOTS,
-  BEANS,
-  COLORS,
-  CATEGORY_EMOJI,
   ALL_VEGGIES,
+  BEANS,
+  CATEGORY_EMOJI,
+  COLORS,
+  FRUITS,
   GRAINS,
+  LEAFIES,
+  MUSHROOMS,
+  ROOTS,
+  VEGETABLES,
 } from '@/utils/constants';
 import {Category} from '@/utils/types';
 
@@ -29,6 +30,8 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
     return Category.Bean;
   } else if (GRAINS.includes(veggie)) {
     return Category.Grain;
+  } else if (MUSHROOMS.includes(veggie)) {
+    return Category.Mushroom;
   }
   return undefined;
 });

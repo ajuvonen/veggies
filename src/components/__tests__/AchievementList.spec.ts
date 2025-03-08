@@ -14,6 +14,7 @@ describe('AchievementList', () => {
           experimenterFruit: 0,
           experimenterGrain: 0,
           experimenterLeafy: 0,
+          experimenterMushroom: 0,
           experimenterRoot: 0,
           experimenterVegetable: 0,
           favorite: 0,
@@ -23,7 +24,7 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(22);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(23);
   });
 
   it('renders with badges enabled', async () => {
@@ -37,6 +38,7 @@ describe('AchievementList', () => {
           experimenterFruit: 3,
           experimenterGrain: 3,
           experimenterLeafy: 3,
+          experimenterMushroom: 3,
           experimenterRoot: 3,
           experimenterVegetable: 3,
           favorite: 0,

@@ -13,6 +13,7 @@ import {
   FRUITS,
   GRAINS,
   LEAFIES,
+  MUSHROOMS,
   ROOTS,
   VEGETABLES,
 } from '@/utils/constants';
@@ -35,6 +36,7 @@ const veggieLengths: Record<Category, number> = {
   [Category.Root]: ROOTS.length,
   [Category.Bean]: BEANS.length,
   [Category.Grain]: GRAINS.length,
+  [Category.Mushroom]: MUSHROOMS.length,
 };
 
 const chartData = computed(() => {

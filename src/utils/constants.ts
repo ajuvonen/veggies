@@ -18,8 +18,16 @@ export const KEYS = {
 export const LOCALES: Locale[] = ['en', 'fi'] as const;
 
 export const COLORS = {
-  chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49'],
-  chartColorsAlternate: ['#fdc5f5', '#f7aef8', '#b388eb', '#8093f1', '#79b8f4', '#72ddf7'],
+  chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49', '#0B1623'],
+  chartColorsAlternate: [
+    '#fdc5f5',
+    '#f7aef8',
+    '#b388eb',
+    '#8093f1',
+    '#79b8f4',
+    '#72ddf7',
+    '#bae6fd',
+  ],
   offWhite: '#f8fafc',
   darkBlue: '#0c4a6e',
 } as const;
@@ -31,6 +39,7 @@ export const CATEGORY_EMOJI = {
   [Category.Root]: '🥕',
   [Category.Bean]: '🫛',
   [Category.Grain]: '🌾',
+  [Category.Mushroom]: '🍄‍🟫',
 } as const;
 
 export const FRUITS = [
@@ -171,45 +180,51 @@ export const VEGETABLES = [
   'avocado',
   'bell pepper',
   'bitter melon',
-  'black trumpet mushroom',
   'broccoli',
   'broccolini',
   'brussels sprouts',
   'cauliflower',
   'celery',
-  'champignon',
-  'chanterelle',
   'chayote',
   'cherry tomato',
   'chili pepper',
   'corn',
   'cucumber',
   'eggplant',
-  'enoki',
-  'hedgehog mushroom',
   'hokkaido pumpkin',
   'jalapeno',
-  'matsutake',
   'musk gourd',
   'nori',
   'okra',
   'olive',
-  'oyster mushroom',
   'plantain',
   'pointed pepper',
-  'porcini',
-  'portobello',
   'pumpkin',
   'rhubarb',
-  'shiitake',
-  'shimeji',
   'spaghetti squash',
   'tomatillo',
   'tomato',
   'wakame',
-  'wild mushroom',
-  'yellowfoot mushroom',
   'zucchini',
+];
+
+export const MUSHROOMS = [
+  'black trumpet mushroom',
+  'champignon',
+  'chanterelle',
+  'enoki',
+  'hedgehog mushroom',
+  'king oyster mushroom',
+  'matsutake',
+  'morel',
+  'oyster mushroom',
+  'porcini',
+  'portobello',
+  'shiitake',
+  'shimeji',
+  'wild mushroom',
+  'wood-ear mushroom',
+  'yellowfoot mushroom',
 ];
 
 export const BEANS = [
@@ -280,4 +295,12 @@ export const GRAINS = [
   'wild rice',
 ];
 
-export const ALL_VEGGIES = [...FRUITS, ...VEGETABLES, ...LEAFIES, ...ROOTS, ...BEANS, ...GRAINS];
+export const ALL_VEGGIES = [
+  ...FRUITS,
+  ...VEGETABLES,
+  ...LEAFIES,
+  ...ROOTS,
+  ...BEANS,
+  ...GRAINS,
+  ...MUSHROOMS,
+];
