@@ -13,10 +13,12 @@ describe('StatsView', () => {
 
   it('renders current week by default', () => {
     activityStore.startDate = DateTime.now().startOf('week');
-    activityStore.weeks.push({
-      startDate: DateTime.now().startOf('week'),
-      veggies: ['apple', 'raspberry', 'chickpea'],
-    });
+    activityStore.weeks = [
+      {
+        startDate: DateTime.now().startOf('week'),
+        veggies: ['apple', 'raspberry', 'chickpea'],
+      },
+    ];
     const wrapper = mount(StatsView, {
       global: {
         stubs: {
@@ -29,10 +31,12 @@ describe('StatsView', () => {
 
   it('renders five previous weeks', async () => {
     activityStore.startDate = DateTime.now().startOf('week');
-    activityStore.weeks.push({
-      startDate: DateTime.now().startOf('week'),
-      veggies: ['apple', 'raspberry', 'chickpea'],
-    });
+    activityStore.weeks = [
+      {
+        startDate: DateTime.now().startOf('week'),
+        veggies: ['apple', 'raspberry', 'chickpea'],
+      },
+    ];
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-1').trigger('click');
@@ -42,10 +46,12 @@ describe('StatsView', () => {
 
   it('renders all time data', async () => {
     activityStore.startDate = DateTime.now().startOf('week');
-    activityStore.weeks.push({
-      startDate: DateTime.now().startOf('week'),
-      veggies: ['apple', 'raspberry', 'chickpea'],
-    });
+    activityStore.weeks = [
+      {
+        startDate: DateTime.now().startOf('week'),
+        veggies: ['apple', 'raspberry', 'chickpea'],
+      },
+    ];
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-2').trigger('click');
@@ -54,10 +60,12 @@ describe('StatsView', () => {
 
   it('renders veggie list', async () => {
     activityStore.startDate = DateTime.now().startOf('week');
-    activityStore.weeks.push({
-      startDate: DateTime.now().startOf('week'),
-      veggies: ['apple', 'raspberry', 'chickpea'],
-    });
+    activityStore.weeks = [
+      {
+        startDate: DateTime.now().startOf('week'),
+        veggies: ['apple', 'raspberry', 'chickpea'],
+      },
+    ];
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-3').trigger('click');
@@ -66,10 +74,12 @@ describe('StatsView', () => {
 
   it('renders achievements', async () => {
     activityStore.startDate = DateTime.now().startOf('week');
-    activityStore.weeks.push({
-      startDate: DateTime.now().startOf('week'),
-      veggies: ['apple', 'raspberry', 'chickpea'],
-    });
+    activityStore.weeks = [
+      {
+        startDate: DateTime.now().startOf('week'),
+        veggies: ['apple', 'raspberry', 'chickpea'],
+      },
+    ];
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-4').trigger('click');

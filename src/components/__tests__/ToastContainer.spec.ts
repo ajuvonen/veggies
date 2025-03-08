@@ -13,10 +13,12 @@ describe('ToastContainer', () => {
 
   it('shows toast message', async () => {
     const wrapper = mount(ToastContainer);
-    appStateStore.messages.push({
-      id: crypto.randomUUID(),
-      text: 'Test message',
-    });
+    appStateStore.messages = [
+      {
+        id: crypto.randomUUID(),
+        text: 'Test message',
+      },
+    ];
     await nextTick();
     expect(wrapper.findByTestId('toast-message').exists()).toBe(true);
     expect(wrapper.find('.toast-message__content').text()).toContain('Test message');
@@ -25,10 +27,12 @@ describe('ToastContainer', () => {
   it('hides toast message on click', async () => {
     const wrapper = mount(ToastContainer);
     const id = crypto.randomUUID();
-    appStateStore.messages.push({
-      id,
-      text: 'Test message',
-    });
+    appStateStore.messages = [
+      {
+        id,
+        text: 'Test message',
+      },
+    ];
     await nextTick();
     await wrapper.findByTestId('toast-message').trigger('click');
     expect(appStateStore.removeToastMessage).toBeCalledWith(id);
@@ -37,10 +41,12 @@ describe('ToastContainer', () => {
   it('hides toast message after timeout', async () => {
     mount(ToastContainer);
     const id = crypto.randomUUID();
-    appStateStore.messages.push({
-      id,
-      text: 'Test message',
-    });
+    appStateStore.messages = [
+      {
+        id,
+        text: 'Test message',
+      },
+    ];
     await new Promise((resolve) => setTimeout(resolve, 5600));
     expect(appStateStore.removeToastMessage).toBeCalledWith(id);
   }, 6000);
