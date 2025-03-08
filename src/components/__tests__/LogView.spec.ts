@@ -55,26 +55,38 @@ describe('LogView', () => {
 
   it('renders with data', () => {
     activityStore.startDate = lastWeek;
-    activityStore.weeks.push(
-      {
-        veggies: ['wheat'],
-        startDate: thisWeek,
-      },
+    activityStore.weeks = [
       {
         veggies: ['rye', 'rice', 'wheat'],
         startDate: lastWeek,
       },
-    );
+      {
+        veggies: ['wheat'],
+        startDate: thisWeek,
+      },
+    ];
+    activityStore.challenges = [
+      {
+        startDate: lastWeek,
+        veggie: 'radish',
+      },
+      {
+        startDate: thisWeek,
+        veggie: 'morel',
+      },
+    ];
     const wrapper = mount(LogView);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('renders empty when week changes', async () => {
     activityStore.startDate = thisWeek;
-    activityStore.weeks.push({
-      veggies: ['rye', 'rice', 'wheat'],
-      startDate: thisWeek,
-    });
+    activityStore.weeks = [
+      {
+        veggies: ['rye', 'rice', 'wheat'],
+        startDate: thisWeek,
+      },
+    ];
     const wrapper = mount(LogView);
     try {
       expect(wrapper.find('.front-page-animation').exists()).toBe(false);

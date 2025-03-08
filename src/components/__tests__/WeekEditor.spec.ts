@@ -19,10 +19,12 @@ describe('WeekEditor', () => {
     // @ts-expect-error: getters are writable in tests
     activityStore.getWeekStarts = [testDate, testDate.minus({weeks: 1})];
     activityStore.startDate = testDate.minus({weeks: 1});
-    activityStore.weeks.push({
-      startDate: testDate,
-      veggies: ['cucumber', 'tomato'],
-    });
+    activityStore.weeks = [
+      {
+        startDate: testDate,
+        veggies: ['cucumber', 'tomato'],
+      },
+    ];
     const wrapper = mount(WeekEditor);
     expect(wrapper.findByTestId('veggie-search-input').exists()).toBe(false);
     expect(wrapper.html()).toMatchSnapshot();
@@ -41,10 +43,12 @@ describe('WeekEditor', () => {
 
   it('renders past week', async () => {
     activityStore.startDate = lastWeek;
-    activityStore.weeks.push({
-      startDate: lastWeek,
-      veggies: ['longan', 'rambutan'],
-    });
+    activityStore.weeks = [
+      {
+        startDate: lastWeek,
+        veggies: ['longan', 'rambutan'],
+      },
+    ];
     const wrapper = mount(WeekEditor);
     await wrapper.findByTestId('week-editor-dropdown-button').trigger('click');
     await wrapper.findByTestId('week-editor-option-1').trigger('click');

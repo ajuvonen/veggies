@@ -24,7 +24,7 @@ describe('AllTimeStatus', () => {
 
   it('shows unique veggies', () => {
     activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 1});
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: DateTime.now().startOf('week').minus({weeks: 1}),
         veggies: ['apple', 'cucumber', 'potato'],
@@ -33,7 +33,7 @@ describe('AllTimeStatus', () => {
         startDate: DateTime.now().startOf('week'),
         veggies: ['apple', 'cucumber', 'rice', 'fennel'],
       },
-    );
+    ];
     const wrapper = mount(AllTimeStatus);
     expect(wrapper.findByTestId('all-time-status-uniqueVeggies').text()).toBe(
       'In Total 5 Unique Veggies',
@@ -42,7 +42,7 @@ describe('AllTimeStatus', () => {
 
   it('shows weeks with over 30 veggies', () => {
     activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: DateTime.now().startOf('week').minus({weeks: 2}),
         veggies: [...Array(31)],
@@ -55,7 +55,7 @@ describe('AllTimeStatus', () => {
         startDate: DateTime.now().startOf('week'),
         veggies: [...Array(30)],
       },
-    );
+    ];
     const wrapper = mount(AllTimeStatus);
     expect(wrapper.findByTestId('all-time-status-over30Veggies').text()).toBe(
       'Over 30 Veggies in 2 Weeks',
@@ -64,7 +64,7 @@ describe('AllTimeStatus', () => {
 
   it('shows highest number of veggies', () => {
     activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
-    activityStore.weeks.push(
+    activityStore.weeks = [
       {
         startDate: DateTime.now().startOf('week').minus({weeks: 2}),
         veggies: [...Array(31)],
@@ -77,7 +77,7 @@ describe('AllTimeStatus', () => {
         startDate: DateTime.now().startOf('week'),
         veggies: [...Array(30)],
       },
-    );
+    ];
     const wrapper = mount(AllTimeStatus);
     expect(wrapper.findByTestId('all-time-status-atMostVeggies').text()).toBe(
       'At Most 31 Veggies in a Week',
