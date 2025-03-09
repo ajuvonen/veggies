@@ -225,7 +225,7 @@ export const MUSHROOMS = [
   'shiitake',
   'shimeji',
   'wild mushroom',
-  'wood-ear mushroom',
+  'wood ear mushroom',
   'yellowfoot mushroom',
 ];
 
