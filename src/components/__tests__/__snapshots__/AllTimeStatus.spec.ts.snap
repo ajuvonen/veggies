@@ -1,28 +1,28 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AllTimeStatus > renders 1`] = `
-"<div data-v-0fe4e394="" class="all-time-status__container">
-  <div data-v-0fe4e394="" class="all-time-status__item" data-test-id="all-time-status-totalWeeks"><span>In Total</span> <span class="text-5xl">1</span> <span>Weeks</span><button data-v-80d8986d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-totalWeeks">
+"<div data-v-900f68cf="" class="all-time-status__container">
+  <div data-v-900f68cf="" class="all-time-status__item" data-test-id="all-time-status-totalWeeks"><span>In Total</span> <span class="text-5xl">1</span> <span>Weeks</span><button data-v-24e38f3d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-totalWeeks">
       <!--v-if--><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" class="transition-all"></path>
       </svg>
     </button></div>
-  <div data-v-0fe4e394="" class="all-time-status__item" data-test-id="all-time-status-over30Veggies"><span>Over 30 Veggies in</span> <span class="text-5xl">0</span> <span>Weeks</span><button data-v-80d8986d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-over30Veggies">
+  <div data-v-900f68cf="" class="all-time-status__item" data-test-id="all-time-status-over30Veggies"><span>Over 30 Veggies in</span> <span class="text-5xl">0</span> <span>Weeks</span><button data-v-24e38f3d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-over30Veggies">
       <!--v-if--><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" class="transition-all"></path>
       </svg>
     </button></div>
-  <div data-v-0fe4e394="" class="all-time-status__item" data-test-id="all-time-status-uniqueVeggies"><span>In Total</span> <span class="text-5xl">0</span> <span>Unique Veggies</span><button data-v-80d8986d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-uniqueVeggies">
+  <div data-v-900f68cf="" class="all-time-status__item" data-test-id="all-time-status-uniqueVeggies"><span>In Total</span> <span class="text-5xl">0</span> <span>Unique Veggies</span><button data-v-24e38f3d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-uniqueVeggies">
       <!--v-if--><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" class="transition-all"></path>
       </svg>
     </button></div>
-  <div data-v-0fe4e394="" class="all-time-status__item" data-test-id="all-time-status-atMostVeggies"><span>At Most</span> <span class="text-5xl">0</span> <span>Veggies in a Week</span><button data-v-80d8986d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-atMostVeggies">
+  <div data-v-900f68cf="" class="all-time-status__item" data-test-id="all-time-status-atMostVeggies"><span>At Most</span> <span class="text-5xl">0</span> <span>Veggies in a Week</span><button data-v-24e38f3d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-atMostVeggies">
       <!--v-if--><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" class="transition-all"></path>
       </svg>
     </button></div>
-  <div data-v-0fe4e394="" class="col-span-2 all-time-status__item" data-test-id="all-time-status-completedChallenges"><span>Completed</span> <span class="text-5xl">0</span> <span>Weekly Challenges</span><button data-v-80d8986d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-completedChallenges">
+  <div data-v-900f68cf="" class="col-span-2 all-time-status__item" data-test-id="all-time-status-completedChallenges"><span>Completed</span> <span class="text-5xl">0</span> <span>Weekly Challenges</span><button data-v-24e38f3d="" class="button-like button--text absolute left-[calc(50%+3rem)]" data-test-id="stat-container-copy-button-completedChallenges">
       <!--v-if--><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" class="transition-all"></path>
       </svg>

@@ -2,29 +2,29 @@
 
 exports[`LogView > renders 1`] = `
 "<h1 class="sr-only">Track Weekly Progress</h1>
-<div class="h-12 relative z-20" data-headlessui-state=""><input data-v-5e03ecd3="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Track Weekly Veggies" placeholder="Track Weekly Veggies" class="veggie-search__input" data-test-id="veggie-search-input" autocomplete="off"><button data-v-5e03ecd3="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-5e03ecd3="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+<div class="h-12 relative z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Track Weekly Veggies" placeholder="Track Weekly Veggies" class="veggie-search__input" data-test-id="veggie-search-input" autocomplete="off"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-487fdf11="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <!---->
 </div>
 <front-page-animation-stub></front-page-animation-stub>
-<transition-group-stub data-v-ab07ea34="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container"></transition-group-stub>
-<a data-v-5b6d707a="" class="bluesky-link" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener=""><svg data-v-5b6d707a="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+<transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container"></transition-group-stub>
+<a data-v-ba48d2a1="" class="bluesky-link" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener=""><svg data-v-ba48d2a1="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z" class="transition-all"></path>
   </svg> Follow on Bluesky</a>"
 `;
 
 exports[`LogView > renders with data 1`] = `
 "<h1 class="sr-only">Track Weekly Progress</h1>
-<div class="h-12 relative z-20" data-headlessui-state=""><input data-v-5e03ecd3="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Track Weekly Veggies" placeholder="Track Weekly Veggies" class="veggie-search__input" data-test-id="veggie-search-input" autocomplete="off"><button data-v-5e03ecd3="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-5e03ecd3="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+<div class="h-12 relative z-20" data-headlessui-state=""><input data-v-487fdf11="" value="" id="headlessui-combobox-input-v-0" aria-expanded="false" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-label="Track Weekly Veggies" placeholder="Track Weekly Veggies" class="veggie-search__input" data-test-id="veggie-search-input" autocomplete="off"><button data-v-487fdf11="" id="headlessui-combobox-button-v-1" type="button" tabindex="-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="veggie-search__button" data-test-id="veggie-search-button"><svg data-v-487fdf11="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <!---->
 </div>
-<div data-v-c3096fcf="" class="shrink-0 category-status-chart__background">
-  <div data-v-c3096fcf="" data="[object Object]" options="[object Object]" aria-labelledby="category-status-chart-center-label" aria-describedby="category-status-table" data-test-id="category-status-chart"></div>
-  <div data-v-c3096fcf="" id="category-status-chart-center-label" class="category-status-chart__center-label" data-test-id="category-status-chart-center-label"><span data-v-c3096fcf="">This Week</span> <span data-v-c3096fcf="" class="text-6xl">1</span> <span data-v-c3096fcf="">Veggies</span></div>
-  <table data-v-c3096fcf="" class="sr-only" id="category-status-table">
+<div data-v-38bd5fcc="" class="shrink-0 category-status-chart__background">
+  <div data-v-38bd5fcc="" data="[object Object]" options="[object Object]" aria-labelledby="category-status-chart-center-label" aria-describedby="category-status-table" data-test-id="category-status-chart"></div>
+  <div data-v-38bd5fcc="" id="category-status-chart-center-label" class="category-status-chart__center-label" data-test-id="category-status-chart-center-label"><span data-v-38bd5fcc="">This Week</span> <span data-v-38bd5fcc="" class="text-6xl">1</span> <span data-v-38bd5fcc="">Veggies</span></div>
+  <table data-v-38bd5fcc="" class="sr-only" id="category-status-table">
     <caption>Veggies of the Week</caption>
     <thead>
       <tr>
@@ -39,19 +39,19 @@ exports[`LogView > renders with data 1`] = `
     </tbody>
   </table>
 </div>
-<transition-group-stub data-v-ab07ea34="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
-  <li data-v-ab07ea34="" data-test-id="tag-rice" class="z-10"><button data-v-80d8986d="" data-v-ab07ea34="" class="button-like button--tag button--primary" aria-label="Add rice">
-      <!--v-if--><svg data-v-ab07ea34="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+<transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" class="tags__container">
+  <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button-like button--tag button--primary" aria-label="Add rice">
+      <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
       </svg> rice
     </button></li>
-  <li data-v-ab07ea34="" data-test-id="tag-rye" class="z-10"><button data-v-80d8986d="" data-v-ab07ea34="" class="button-like button--tag button--primary" aria-label="Add rye">
-      <!--v-if--><svg data-v-ab07ea34="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+  <li data-v-cd627eac="" data-test-id="tag-rye" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button-like button--tag button--primary" aria-label="Add rye">
+      <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
       </svg> rye
     </button></li>
 </transition-group-stub>
-<a data-v-5b6d707a="" class="bluesky-link" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener=""><svg data-v-5b6d707a="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+<a data-v-ba48d2a1="" class="bluesky-link" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener=""><svg data-v-ba48d2a1="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
     <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z" class="transition-all"></path>
   </svg> Follow on Bluesky</a>"
 `;
