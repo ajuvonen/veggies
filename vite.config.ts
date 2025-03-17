@@ -16,8 +16,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       manifest: {
         name: 'Eat Your Veggies',
-        short_name: 'Eat Your Veggies',
-        description: 'Embrace a healthier lifestyle by eating at least 30 veggies each week.',
+        description:
+          'Embrace a healthier lifestyle by eating at least 30 different veggies each week. Track your progress for free with Eat Your Veggies.',
         orientation: 'portrait',
         dir: 'ltr',
         icons: [
