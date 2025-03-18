@@ -1,0 +1,47 @@
+{
+  "packageId": "app.eatyourveggies.twa",
+  "host": "eatyourveggies.app",
+  "name": "Eat Your Veggies",
+  "launcherName": "Eat Your Veggies",
+  "display": "standalone",
+  "themeColor": "#0EA5E9",
+  "themeColorDark": "#0369A1",
+  "navigationColor": "#075985",
+  "navigationColorDark": "#1F2937",
+  "navigationDividerColor": "#075985",
+  "navigationDividerColorDark": "#1F2937",
+  "backgroundColor": "#0EA5E9",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://eatyourveggies.app/pwa-512.png",
+  "maskableIconUrl": "https://eatyourveggies.app/pwa-512-maskable.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "C:\\Sources\\Personal\\play-store-veggies\\android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "2",
+  "appVersionCode": 2,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://eatyourveggies.app/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://eatyourveggies.app/",
+  "minSdkVersion": 21,
+  "orientation": "portrait",
+  "fingerprints": [
+    {
+      "value": "09:31:8D:2F:7E:4B:D1:3D:25:D3:7E:CF:C5:8D:80:F3:39:22:86:F9:45:7C:85:66:6D:CF:9F:54:5E:4D:54:CA"
+    }
+  ],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "appVersion": "2"
+}
