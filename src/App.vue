@@ -58,7 +58,7 @@ watch(
   () => {
     try {
       const highlightColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-highlight',
+        '--color-theme',
       );
       document.querySelector('[name="theme-color"]')?.setAttribute('content', highlightColor);
     } catch (e) {

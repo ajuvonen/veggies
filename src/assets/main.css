@@ -11,6 +11,7 @@
   --color-highlight: #0ea5e9;
   --color-highlight-dark: #0369a1;
   --color-tooltip: #0c4a6e;
+  --color-theme: #0284c7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
     --color-highlight: #0369a1;
     --color-highlight-dark: #0c4a6e;
     --color-tooltip: #0c4a6e;
+    --color-theme: #1f2937;
   }
 }
 
