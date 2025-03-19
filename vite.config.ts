@@ -46,7 +46,7 @@ export default defineConfig({
             purpose: 'maskable',
           },
         ],
-        theme_color: '#0ea5e9',
+        theme_color: '#0284c7',
         background_color: '#0ea5e9',
         categories: ['food', 'health', 'lifestyle'],
       },
