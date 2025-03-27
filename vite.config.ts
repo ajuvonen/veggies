@@ -51,7 +51,7 @@ export default defineConfig({
         categories: ['food', 'health', 'lifestyle'],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png}'],
+        globPatterns: ['**/*.{js,css,html,woff,woff2}'],
       },
       devOptions: {
         enabled: false,
