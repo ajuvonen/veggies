@@ -236,9 +236,9 @@ describe('achievements', () => {
     expect(achievements.value.favorite).toEqual(AchievementLevel.NoAchievement);
     advanceAchievements(getProps({favorites: getFavorites(5)}));
     expect(achievements.value.favorite).toEqual(AchievementLevel.Bronze);
-    advanceAchievements(getProps({favorites: getFavorites(20)}));
+    advanceAchievements(getProps({favorites: getFavorites(15)}));
     expect(achievements.value.favorite).toEqual(AchievementLevel.Silver);
-    advanceAchievements(getProps({favorites: getFavorites(50)}));
+    advanceAchievements(getProps({favorites: getFavorites(30)}));
     expect(achievements.value.favorite).toEqual(AchievementLevel.Gold);
   });
 

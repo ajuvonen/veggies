@@ -4,75 +4,75 @@
       "title": "Haaste vastaanotettu",
       "ariaLabel": "{0} suoritettua viikkohaastetta",
       "badgeText": "{0} haastetta",
-      "1": "Olet suorittanut viisi viikkohastetta ja ansainnut pronssisen palkinnon!",
-      "2": "Olet suorittanut kymmenen viikkohastetta ja ansainnut hopeisen palkinnon!",
-      "3": "Olet suorittanut 20 viikkohastetta ja ansainnut kultaisen palkinnon!"
+      "1": "Olet suorittanut viisi viikkohastetta!",
+      "2": "Olet suorittanut kymmenen viikkohastetta!",
+      "3": "Olet suorittanut 20 viikkohastetta!"
     },
     "committed": {
       "title": "Sitoutunut",
       "ariaLabel": "{0} kuukauden aktiivinen käyttö",
       "badgeText": "{0} kuukautta",
-      "1": "Olet käyttänyt sovellusta aktiivisesti kolme kuukautta ja ansainnut pronssisen palkinnon!",
-      "2": "Olet käyttänyt sovellusta aktiivisesti kuusi kuukautta ja ansainnut hopeisen palkinnon!",
-      "3": "Olet käyttänyt sovellusta aktiivisesti yhden vuoden ja ansainnut kultaisen palkinnon!"
+      "1": "Olet käyttänyt sovellusta aktiivisesti kolme kuukautta! Miltä tuntuu?",
+      "2": "Olet käyttänyt sovellusta aktiivisesti kuusi kuukautta! Hyvää työtä!",
+      "3": "Olet käyttänyt sovellusta aktiivisesti yhden vuoden! Esimerkillistä sitoutumista!"
     },
     "completionist": {
       "title": "Keräilijä",
       "ariaLabel": "{0} erilaista kasvista",
       "badgeText": "{0} kasvista",
-      "1": "Olet lisännyt yhteensä 40 erilaista kasvista ja ansainnut pronssisen palkinnon!",
-      "2": "Olet lisännyt kunnioitettavat 80 erilaista kasvista ja ansainnut hopeisen palkinnon!",
-      "3": "Olet lisännyt uskomattomat 150 erilaista kasvista ja ansainnut kultaisen palkinnon!"
+      "1": "Olet lisännyt yhteensä 40 erilaista kasvista!",
+      "2": "Olet lisännyt kunnioitettavat 80 erilaista kasvista!",
+      "3": "Olet lisännyt uskomattomat 150 erilaista kasvista!"
     },
     "experimenterBean": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista papua ja palkokasvia",
       "badgeText": "Pavut",
-      "3": "Olet kokeillut 15:tä erilaista papua ja palkokasvia ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista papua ja palkokasvia!"
     },
     "experimenterFruit": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista hedelmää ja marjaa",
       "badgeText": "Hedelmät",
-      "3": "Olet kokeillut 15:tä erilaista hedelmää ja marjaa ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista hedelmää ja marjaa!"
     },
     "experimenterGrain": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista viljaa, pähkinää ja siementä",
       "badgeText": "Viljat",
-      "3": "Olet kokeillut 15:tä erilaista viljaa, pähkinää ja siementä ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista viljaa, pähkinää ja siementä!"
     },
     "experimenterLeafy": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista lehtivihreää",
       "badgeText": "Vihreät",
-      "3": "Olet kokeillut 15:tä erilaista lehtivihreää ja yrttiä ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista lehtivihreää ja yrttiä!"
     },
     "experimenterMushroom": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista sientä",
       "badgeText": "Sienet",
-      "3": "Olet kokeillut kymmentä erilaista sientä ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut kymmentä erilaista sientä!"
     },
     "experimenterRoot": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista juuresta",
       "badgeText": "Juurekset",
-      "3": "Olet kokeillut 15:tä erilaista juuresta ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista juuresta!"
     },
     "experimenterVegetable": {
       "title": "Kokeilija",
       "ariaLabel": "{0} erilaista vihannesta",
       "badgeText": "Vihannekset",
-      "3": "Olet kokeillut 15:tä erilaista vihannesta ansaiten tämän palkinnon!"
+      "3": "Olet kokeillut 15:tä erilaista vihannesta!"
     },
     "favorite": {
       "title": "Omat suosikit",
       "ariaLabel": "{0} kertaa kirjattu kasvis joka ryhmässä",
       "badgeText": "{0} kirjausta",
-      "1": "Olet kirjannut suosikkiasi vähintään viisi kertaa joka ryhmässä, ansaiten pronssisen palkinnon!",
-      "2": "Olet kirjannut suosikkiasi vähintään 20 kertaa joka ryhmässä, ansaiten hopeisen palkinnon!",
-      "3": "Olet kirjannut suosikkiasi vähintään 50 kertaa joka ryhmässä, ansaiten kultaisen palkinnon!"
+      "1": "Olet kirjannut suosikkiasi vähintään viisi kertaa joka ryhmässä!",
+      "2": "Olet kirjannut suosikkiasi vähintään 15 kertaa joka ryhmässä!",
+      "3": "Olet kirjannut suosikkiasi vähintään 30 kertaa joka ryhmässä!"
     },
     "hotStreak": {
       "title": "Putki päällä",
