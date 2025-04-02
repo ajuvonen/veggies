@@ -34,6 +34,7 @@ const {t, locale} = useI18n();
 const query = ref('');
 
 const openButton = ref<typeof ComboboxButton | null>(null);
+const searchInput = ref<typeof ComboboxInput | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 const {maxHeightStyle} = useScreen(optionsElement);
 
@@ -75,6 +76,12 @@ const scrollToStart = async () => {
 };
 
 watch(query, scrollToStart);
+watch(model, () => {
+  if (searchInput.value) {
+    searchInput.value.$el.value = '';
+    searchInput.value.$el.dispatchEvent(new Event('input', {bubbles: true}));
+  }
+});
 </script>
 <template>
   <Combobox
@@ -87,6 +94,7 @@ watch(query, scrollToStart);
     class="relative z-20"
   >
     <ComboboxInput
+      ref="searchInput"
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
       :class="{'veggie-search__input--small': small}"
