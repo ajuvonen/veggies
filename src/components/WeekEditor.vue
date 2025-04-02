@@ -96,7 +96,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
         </ListboxOptions>
       </TransitionRoot>
     </Listbox>
-    <VeggieSearch v-if="!selectedWeekStart.equals(first(getWeekStarts)!)" v-model="veggies" small />
+    <VeggieSearch v-if="!selectedWeekStart.equals(first(getWeekStarts)!)" v-model="veggies" />
     <TagsComponent
       :veggies="veggiesForWeek(selectedWeekStart)"
       :variant="['tag', 'remove']"

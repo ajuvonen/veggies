@@ -20,15 +20,6 @@ const model = defineModel<string[]>({
   required: true,
 });
 
-withDefaults(
-  defineProps<{
-    small?: boolean;
-  }>(),
-  {
-    small: false,
-  },
-);
-
 const {t, locale} = useI18n();
 
 const query = ref('');
@@ -84,20 +75,11 @@ watch(model, () => {
 });
 </script>
 <template>
-  <Combobox
-    v-model="model"
-    v-slot="{open}"
-    nullable
-    multiple
-    as="div"
-    :class="{'h-12': !small}"
-    class="relative z-20"
-  >
+  <Combobox v-model="model" v-slot="{open}" nullable multiple as="div" class="relative z-20">
     <ComboboxInput
       ref="searchInput"
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
-      :class="{'veggie-search__input--small': small}"
       class="veggie-search__input"
       data-test-id="veggie-search-input"
       autocomplete="off"
@@ -147,10 +129,6 @@ watch(model, () => {
   &::placeholder {
     @apply text-gray-500;
   }
-}
-
-.veggie-search__input--small {
-  @apply h-9 text-base rounded-md leading-4;
 }
 
 .veggie-search__button {
