@@ -305,11 +305,11 @@ export function useAchievements() {
                 ADVANCE: [
                   {
                     target: '3',
-                    guard: guards.favorite(50),
+                    guard: guards.favorite(30),
                   },
                   {
                     target: '2',
-                    guard: guards.favorite(20),
+                    guard: guards.favorite(15),
                   },
                   {
                     target: '1',
@@ -323,11 +323,11 @@ export function useAchievements() {
                 ADVANCE: [
                   {
                     target: '3',
-                    guard: guards.favorite(50),
+                    guard: guards.favorite(30),
                   },
                   {
                     target: '2',
-                    guard: guards.favorite(20),
+                    guard: guards.favorite(15),
                   },
                 ],
               },
@@ -336,7 +336,7 @@ export function useAchievements() {
               on: {
                 ADVANCE: {
                   target: '3',
-                  guard: guards.favorite(50),
+                  guard: guards.favorite(30),
                 },
               },
             },

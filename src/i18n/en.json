@@ -4,75 +4,75 @@
       "title": "Challenge Accepted",
       "ariaLabel": "{0} completed weekly challenges",
       "badgeText": "{0} challenges",
-      "1": "You have completed five weekly challenges, earning you the bronze achievement!",
-      "2": "You have completed ten weekly challenges, earning you the silver achievement!",
-      "3": "You have completed twenty weekly challenges, earning you the gold achievement!"
+      "1": "You have completed five weekly challenges!",
+      "2": "You have completed ten weekly challenges!",
+      "3": "You have completed twenty weekly challenges!"
     },
     "committed": {
       "title": "The Committed",
       "ariaLabel": "{0} months of active use",
       "badgeText": "{0} months",
-      "1": "You have used the app for three months, earning you the bronze achievement!",
-      "2": "You have used the app for six months, earning you the silver achievement!",
-      "3": "You have used the app for one year, earning you the gold achievement!"
+      "1": "You have used the app for three months! How does it feel?",
+      "2": "You have used the app for six months! You're doing great!",
+      "3": "You have used the app for one year! Now that's commitment!"
     },
     "completionist": {
       "title": "The Completionist",
       "ariaLabel": "{0} unique veggies",
       "badgeText": "{0} veggies",
-      "1": "You have added a total of 40 unique veggies, earning you the bronze achievement!",
-      "2": "You have added a respectable amount of 80 unique veggies, earning you the silver achievement!",
-      "3": "You have added a whopping amount of 150 unique veggies, earning you the gold achievement!"
+      "1": "You have added a total of 40 unique veggies!",
+      "2": "You have added a respectable amount of 80 unique veggies!",
+      "3": "You have added a whopping amount of 150 unique veggies!"
     },
     "experimenterBean": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique beans and legumes",
       "badgeText": "Beans",
-      "3": "You have enjoyed 15 unique beans and legumes, earning you this achievement!"
+      "3": "You have enjoyed 15 unique beans and legumes!"
     },
     "experimenterFruit": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique fruits and berries",
       "badgeText": "Fruits",
-      "3": "You have enjoyed 15 unique fruits and berries, earning you this achievement!"
+      "3": "You have enjoyed 15 unique fruits and berries!"
     },
     "experimenterGrain": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique grains, nuts and seeds",
       "badgeText": "Grains",
-      "3": "You have enjoyed 15 unique grains, nuts and seeds, earning you this achievement!"
+      "3": "You have enjoyed 15 unique grains, nuts and seeds!"
     },
     "experimenterLeafy": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique leafy greens",
       "badgeText": "Leafy Greens",
-      "3": "You have enjoyed 15 unique leafy greens and herbs, earning you this achievement!"
+      "3": "You have enjoyed 15 unique leafy greens and herbs!"
     },
     "experimenterMushroom": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique mushrooms",
       "badgeText": "Mushrooms",
-      "3": "You have enjoyed 10 unique mushrooms, earning you this achievement!"
+      "3": "You have enjoyed 10 unique mushrooms!"
     },
     "experimenterRoot": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique roots and bulbs",
       "badgeText": "Roots",
-      "3": "You have enjoyed 15 unique roots and bulbs, earning you this achievement!"
+      "3": "You have enjoyed 15 unique roots and bulbs!"
     },
     "experimenterVegetable": {
       "title": "The Experimenter",
       "ariaLabel": "{0} unique vegetables",
       "badgeText": "Vegetables",
-      "3": "You have enjoyed 15 unique vegetables, earning you this achievement!"
+      "3": "You have enjoyed 15 unique vegetables!"
     },
     "favorite": {
       "title": "Playing Favorites",
-      "ariaLabel": "{0} uses of one veggie in all categories",
+      "ariaLabel": "{0} uses of a single veggie in all categories",
       "badgeText": "{0} uses",
-      "1": "You have used your favorite veggie at least 5 times in each category, earning you the bronze achievement!",
-      "2": "You have used your favorite veggie at least 20 times in each category, earning you the silver achievement!",
-      "3": "You have used your favorite veggie at least 100 times in each category, earning you the gold achievement!"
+      "1": "You have used a single veggie at least 5 times from each category!",
+      "2": "You have used a single veggie at least 15 times from each category!",
+      "3": "You have used a single veggie at least 30 times from each category!"
     },
     "hotStreak": {
       "title": "Hot Streak",
