@@ -3,7 +3,7 @@ import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {createPinia, setActivePinia} from 'pinia';
 import {take} from 'remeda';
-import {Category, type Week} from '@/utils/types';
+import {AchievementLevel, Category, type Week} from '@/utils/types';
 import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -564,19 +564,21 @@ describe('activityStore', () => {
     expect(activityStore.weeks).toHaveLength(0);
     expect(activityStore.challenges).toHaveLength(0);
     expect(activityStore.achievements).toEqual({
-      challengeAccepted: 0,
-      committed: 0,
-      completionist: 0,
-      experimenterBean: 0,
-      experimenterFruit: 0,
-      experimenterGrain: 0,
-      experimenterLeafy: 0,
-      experimenterMushroom: 0,
-      experimenterRoot: 0,
-      experimenterVegetable: 0,
-      favorite: 0,
-      hotStreak: 0,
-      thirtyVeggies: 0,
+      challengeAccepted: AchievementLevel.NoAchievement,
+      committed: AchievementLevel.NoAchievement,
+      completionist: AchievementLevel.NoAchievement,
+      experimenterBean: AchievementLevel.NoAchievement,
+      experimenterFruit: AchievementLevel.NoAchievement,
+      experimenterGrain: AchievementLevel.NoAchievement,
+      experimenterLeafy: AchievementLevel.NoAchievement,
+      experimenterMushroom: AchievementLevel.NoAchievement,
+      experimenterRoot: AchievementLevel.NoAchievement,
+      experimenterVegetable: AchievementLevel.NoAchievement,
+      favorite: AchievementLevel.NoAchievement,
+      hotStreak: AchievementLevel.NoAchievement,
+      thirtyVeggies: AchievementLevel.NoAchievement,
+      thousandsOdd: AchievementLevel.NoAchievement,
+      thousandsEven: AchievementLevel.NoAchievement,
     });
   });
 });

@@ -8,6 +8,28 @@ defineProps<{
 </script>
 <template>
   <div class="has-scroll m-0 p-0" data-test-id="achievement-list">
+    <ContentElement
+      v-if="achievements.thousandsOdd !== achievements.thousandsEven"
+      :title="$t('achievements.thousandsOdd.title')"
+      data-test-id="thousands-container"
+    >
+      <ul class="achievement-list__badge-container">
+        <AchievementBadge
+          v-if="achievements.thousandsOdd === AchievementLevel.Platinum"
+          :active="true"
+          :level="AchievementLevel.Platinum"
+          achievement="thousandsOdd"
+          data-test-id="thousands-odd-achievement"
+        />
+        <AchievementBadge
+          v-if="achievements.thousandsEven === AchievementLevel.Platinum"
+          :active="true"
+          :level="AchievementLevel.Platinum"
+          achievement="thousandsEven"
+          data-test-id="thousands-even-achievement"
+        />
+      </ul>
+    </ContentElement>
     <ContentElement :title="$t('achievements.thirtyVeggies.title')">
       <ul class="achievement-list__badge-container">
         <AchievementBadge

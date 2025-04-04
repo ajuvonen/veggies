@@ -112,11 +112,11 @@ const badgeProps: BadgeProps = {
       emoji: '😺',
     },
     [AchievementLevel.Silver]: {
-      textProps: [20],
+      textProps: [15],
       emoji: '😽',
     },
     [AchievementLevel.Gold]: {
-      textProps: [50],
+      textProps: [30],
       emoji: '😻',
     },
   },
@@ -142,6 +142,18 @@ const badgeProps: BadgeProps = {
     [AchievementLevel.Platinum]: {
       textProps: [40],
       emoji: '💎',
+    },
+  },
+  thousandsOdd: {
+    [AchievementLevel.Platinum]: {
+      emoji: '🐐',
+      textProps: [0],
+    },
+  },
+  thousandsEven: {
+    [AchievementLevel.Platinum]: {
+      emoji: '🐐',
+      textProps: [0],
     },
   },
 };

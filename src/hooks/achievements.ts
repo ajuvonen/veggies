@@ -42,6 +42,24 @@ const guards = {
     (threshold: number, rising: boolean) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
       rising ? event.veggiesThisWeek >= threshold : event.veggiesThisWeek < threshold,
+  thousandsOdd:
+    (reverse: boolean = false) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) => {
+      const thousands = Math.floor(event.totalVeggies / 1000);
+      if (!thousands) {
+        return reverse;
+      }
+      return (thousands % 2 === 0) === reverse;
+    },
+  thousandsEven:
+    (reverse: boolean = false) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) => {
+      const thousands = Math.floor(event.totalVeggies / 1000);
+      if (!thousands) {
+        return reverse;
+      }
+      return (thousands % 2 === 1) === reverse;
+    },
 };
 
 export function useAchievements() {
@@ -447,6 +465,56 @@ export function useAchievements() {
                   {
                     target: '3',
                     guard: guards.thirtyVeggies(40, false),
+                  },
+                ],
+              },
+            },
+          },
+        },
+        thousandsOdd: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '4',
+                    guard: guards.thousandsOdd(),
+                  },
+                ],
+              },
+            },
+            '4': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '0',
+                    guard: guards.thousandsOdd(true),
+                  },
+                ],
+              },
+            },
+          },
+        },
+        thousandsEven: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '4',
+                    guard: guards.thousandsEven(),
+                  },
+                ],
+              },
+            },
+            '4': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '0',
+                    guard: guards.thousandsEven(true),
                   },
                 ],
               },

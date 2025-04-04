@@ -89,6 +89,17 @@
       "badgeText": "{0} Weekly",
       "3": "You reached this week's goal - but why stop here!",
       "4": "Overdrive! 40 unique veggies this week unlocks this secret achievement!"
+    },
+    "thousandsOdd": {
+      "title": "A thousand and one veggies",
+      "ariaLabel": "A thousand veggies logged",
+      "badgeText": "GOAT",
+      "4": "You have logged a thousand veggies!"
+    },
+    "thousandsEven": {
+      "ariaLabel": "A thousand veggies logged",
+      "badgeText": "GOAT",
+      "4": "You have logged a thousand veggies!"
     }
   },
   "allTimeStatus": {
