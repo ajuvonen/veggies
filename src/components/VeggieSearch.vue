@@ -68,7 +68,7 @@ const scrollToStart = async () => {
 
 watch(query, scrollToStart);
 watch(model, () => {
-  if (searchInput.value) {
+  if (searchInput.value && query.value) {
     searchInput.value.$el.value = '';
     searchInput.value.$el.dispatchEvent(new Event('input', {bubbles: true}));
   }
