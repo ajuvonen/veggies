@@ -89,6 +89,17 @@
       "badgeText": "{0} viikossa",
       "3": "Tämän viikon tavoite on saavutettu - mutta älä lopeta tähän!",
       "4": "Ylikierroksilla! 40 erilaista kasvista tällä viikolla avaa tämän salaisen palkinnon!"
+    },
+    "thousandsOdd": {
+      "title": "Tuhat ja yksi kasvista",
+      "ariaLabel": "Tuhansia kasviksia kirjattuna",
+      "badgeText": "GOAT",
+      "4": "Olet kirjannut täydet tuhat kasvista!"
+    },
+    "thousandsEven": {
+      "ariaLabel": "Tuhansia kasviksia kirjattuna",
+      "badgeText": "GOAT",
+      "4": "Olet kirjannut täydet tuhat kasvista!"
     }
   },
   "allTimeStatus": {

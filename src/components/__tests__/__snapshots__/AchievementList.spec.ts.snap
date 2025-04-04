@@ -2,6 +2,7 @@
 
 exports[`AchievementList > renders 1`] = `
 "<div data-v-1c120264="" class="has-scroll m-0 p-0" data-test-id="achievement-list">
+  <!--v-if-->
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">This week's toil</h2>
     <ul data-v-1c120264="" class="achievement-list__badge-container">
@@ -181,6 +182,18 @@ exports[`AchievementList > renders 1`] = `
 
 exports[`AchievementList > renders with badges enabled 1`] = `
 "<div data-v-1c120264="" class="has-scroll m-0 p-0" data-test-id="achievement-list">
+  <div data-v-1c120264="" class="flex-container flex-col" data-test-id="thousands-container">
+    <h2 class="label-like">A thousand and one veggies</h2>
+    <ul data-v-1c120264="" class="achievement-list__badge-container">
+      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="false" aria-label="A thousand veggies logged" data-test-id="thousands-odd-achievement" class="badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Platinum" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🐐</div>
+        </div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">GOAT</div>
+      </li>
+      <!--v-if-->
+    </ul>
+  </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">This week's toil</h2>
     <ul data-v-1c120264="" class="achievement-list__badge-container">

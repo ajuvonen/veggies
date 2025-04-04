@@ -208,6 +208,7 @@ export const useActivityStore = defineStore('activity', () => {
       completedChallenges: completedChallenges.value,
       favorites: favorites.value,
       hotStreakLength: hotStreak.value,
+      totalVeggies: allVeggies.value.length,
       totalWeeks: weeks.value.length,
       uniqueVeggies: uniqueVeggies.value,
       veggiesThisWeek: currentVeggies.value.length,

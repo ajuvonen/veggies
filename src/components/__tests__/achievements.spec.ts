@@ -45,6 +45,8 @@ const defaultAchievements: Achievements = {
   favorite: AchievementLevel.NoAchievement,
   hotStreak: AchievementLevel.NoAchievement,
   thirtyVeggies: AchievementLevel.NoAchievement,
+  thousandsOdd: AchievementLevel.NoAchievement,
+  thousandsEven: AchievementLevel.NoAchievement,
 };
 
 const getFavorites = (amount: number = 0) =>
@@ -60,6 +62,7 @@ const getProps = (achievementProps: Partial<AchievementProps> = {}): Achievement
   completedChallenges: 0,
   favorites: getFavorites(),
   hotStreakLength: 0,
+  totalVeggies: 0,
   totalWeeks: 0,
   uniqueVeggies: [],
   veggiesThisWeek: 0,
@@ -242,6 +245,22 @@ describe('achievements', () => {
     expect(achievements.value.favorite).toEqual(AchievementLevel.Gold);
   });
 
+  it('advances thousands', async () => {
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(getProps({totalVeggies: 999}));
+    expect(achievements.value.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
+    expect(achievements.value.thousandsEven).toEqual(AchievementLevel.NoAchievement);
+    advanceAchievements(getProps({totalVeggies: 1000}));
+    expect(achievements.value.thousandsOdd).toEqual(AchievementLevel.Platinum);
+    expect(achievements.value.thousandsEven).toEqual(AchievementLevel.NoAchievement);
+    advanceAchievements(getProps({totalVeggies: 2000}));
+    expect(achievements.value.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
+    expect(achievements.value.thousandsEven).toEqual(AchievementLevel.Platinum);
+    advanceAchievements(getProps({totalVeggies: 2001}));
+    expect(achievements.value.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
+    expect(achievements.value.thousandsEven).toEqual(AchievementLevel.Platinum);
+  });
+
   it('resets achievements', async () => {
     const expectedAchievements: Achievements = {
       challengeAccepted: AchievementLevel.Gold,
@@ -257,12 +276,15 @@ describe('achievements', () => {
       favorite: AchievementLevel.Gold,
       hotStreak: AchievementLevel.Gold,
       thirtyVeggies: AchievementLevel.Platinum,
+      thousandsOdd: AchievementLevel.Platinum,
+      thousandsEven: AchievementLevel.NoAchievement,
     };
     const {advanceAchievements, achievements, resetAchievements} = await withSetup(useAchievements);
     advanceAchievements({
       completedChallenges: 20,
       favorites: getFavorites(50),
       hotStreakLength: 30,
+      totalVeggies: 1000,
       totalWeeks: 52,
       uniqueVeggies: ALL_VEGGIES,
       veggiesThisWeek: 40,

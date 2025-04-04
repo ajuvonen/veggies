@@ -6,6 +6,7 @@ export type AchievementProps = {
   completedChallenges: number;
   favorites: Favorites;
   hotStreakLength: number;
+  totalVeggies: number;
   totalWeeks: number;
   uniqueVeggies: string[];
   veggiesThisWeek: number;
@@ -71,4 +72,6 @@ export type Achievements = {
   favorite: AchievementLevel;
   hotStreak: AchievementLevel;
   thirtyVeggies: AchievementLevel;
+  thousandsOdd: AchievementLevel;
+  thousandsEven: AchievementLevel;
 };
