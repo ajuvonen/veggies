@@ -11,7 +11,7 @@ import {
 } from 'chart.js';
 import {Line} from 'vue-chartjs';
 import ChartAnnotation from 'chartjs-plugin-annotation';
-import {mean, prop} from 'remeda';
+import {mean} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
@@ -88,7 +88,7 @@ defineExpose({chartData});
         id="weekly-amounts-table"
         :title="$t('stats.weeklyAmounts')"
         :columnHeaders="chartData.labels"
-        :data="chartData.datasets.map(prop('data'))"
+        :data="chartData.datasets.map(({data}) => data)"
       />
     </div>
   </ContentElement>

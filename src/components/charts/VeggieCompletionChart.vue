@@ -4,7 +4,7 @@ import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, Tooltip, RadialLinearScale, ArcElement} from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import {countBy, prop} from 'remeda';
+import {countBy} from 'remeda';
 import {Category} from '@/utils/types';
 import {
   BEANS,
@@ -47,10 +47,10 @@ const chartData = computed(() => {
   ]);
 
   return {
-    labels: veggies.map(prop(0)),
+    labels: veggies.map(([category]) => category),
     datasets: [
       {
-        data: veggies.map(prop(1)),
+        data: veggies.map(([, percentage]) => percentage),
         backgroundColor: [...COLORS.chartColorsAlternate],
       },
     ],

@@ -5,7 +5,6 @@ import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import {prop} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
@@ -82,8 +81,8 @@ defineExpose({chartData});
         id="weekly-categories-table"
         :title="$t('stats.weeklyCategories')"
         :columnHeaders="chartData.labels"
-        :rowHeaders="chartData.datasets.map(prop('label'))"
-        :data="chartData.datasets.map(prop('data'))"
+        :rowHeaders="chartData.datasets.map(({label}) => label)"
+        :data="chartData.datasets.map(({data}) => data)"
       />
     </div>
   </ContentElement>
