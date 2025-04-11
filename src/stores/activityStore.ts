@@ -2,18 +2,7 @@ import {computed, ref, watchEffect} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
 import {useNow, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
-import {
-  countBy,
-  difference,
-  entries,
-  filter,
-  map,
-  pipe,
-  prop,
-  sortBy,
-  take,
-  takeWhile,
-} from 'remeda';
+import {countBy, difference, entries, map, pipe, prop, sortBy, take, takeWhile} from 'remeda';
 import {Category, type Favorites, type Challenge, type Week} from '@/utils/types';
 import {dateParser, getCategoryForVeggie, getRandomVeggie} from '@/utils/helpers';
 import {useAchievements} from '@/hooks/achievements';
@@ -107,8 +96,7 @@ export const useActivityStore = defineStore('activity', () => {
 
   const suggestions = computed(() =>
     pipe(
-      allVeggies.value,
-      filter((veggie) => !currentVeggies.value.includes(veggie)),
+      allVeggies.value.filter((veggie) => !currentVeggies.value.includes(veggie)),
       countBy((veggie) => veggie),
       entries(),
       sortBy([prop(1), 'desc']),
