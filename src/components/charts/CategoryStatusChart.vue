@@ -36,7 +36,7 @@ const getFavorites = (category: Category) =>
   props.favorites[category].map(([veggie, amount], index) => {
     let translation = t(`veggies.${veggie}`);
     translation = translation.charAt(0).toUpperCase() + translation.slice(1);
-    return t('categoryStatus.entry', [medalEmojis[index], translation, amount]);
+    return `${medalEmojis[index]} ${translation} (${amount})`;
   });
 
 const chartData = computed(() => {
