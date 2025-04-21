@@ -97,6 +97,7 @@ export const FRUITS = [
   'rambutan',
   'raspberry',
   'redcurrant',
+  'sea buckthorn',
   'starfruit',
   'strawberry',
   'watermelon',
