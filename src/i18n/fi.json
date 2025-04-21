@@ -175,11 +175,12 @@
     "apple": [
       "Keskikokoinen omena sisältää noin 14 % päivittäisestä C-vitamiinista.",
       "Maailmassa viljellään yli 7500 omenalajiketta.",
-      "Omenoissa on noin 25% ilmaa, minkä vuoksi ne kelluvat vedessä."
+      "Omenoissa on noin 25% ilmaa, minkä vuoksi ne kelluvat vedessä.",
+      "Kiina tuottaa eniten omenoita maailmassa."
     ],
     "apricot": [
-      "Apricots appear on the Armenian coat of arms, where it symbolizes good fortune.",
-      "Apricots were among the first fruits to go to space as part of astronaut meals."
+      "Aprikoosit ovat tärkeä osa armenialaista kulttuuria, ja niitä on kutsuttu \"armenialaisiksi omenoiksi\".",
+      "Aprikoosit olivat ensimmäisten avaruuteen päässeiden hedelmien joukossa, osana astronauttien aterioita."
     ],
     "artichoke": [
       "Latva-artisokat ovat yksi eniten antioksidantteja sisältävistä vihanneksista.",
@@ -211,7 +212,8 @@
       "Banaanit ovat kasvitieteellisessä mielessä marjoja.",
       "Yksi banaani sisältää noin 12 % päivittäisestä kaliumista.",
       "Banaanit ovat yksi parhaista B6-vitamiinin lähteistä, tukien kognitiivista terveyttä.",
-      "Banaanien sisältämä tryptofaani muuttuu elimistössä serotoniiniksi ja voi parantaa mielialaa."
+      "Banaanien sisältämä tryptofaani muuttuu elimistössä serotoniiniksi ja voi parantaa mielialaa.",
+      "Intia on maailman suurin banaanien tuottaja."
     ],
     "barley": [
       "Ohraa on viljelty yli 10 000 vuotta, ja se on yksi ensimmäisistä ihmisten viljelemistä viljoista.",
@@ -241,11 +243,6 @@
       "Karvaskurkkua on käytetty perinteisessä lääketieteessä vuosisatojen ajan.",
       "Karvaskurkku voi auttaa laskemaan verensokeria, koska se sisältää insuliinin tavoin vaikuttavia yhdisteitä."
     ],
-    "blackcurrant": [
-      "Mustaherukat sisältävät jopa neljä kertaa enemmän C-vitamiinia kuin appelsiinit.",
-      "Joidenkin arvioiden mukaan mustaherukalla voi olla aivotoimintoja parantava vaikutus.",
-      "Mustaherukoiden kasvatus oli paikoin kiellettyä Yhdysvalloissa 1900-luvulla kasvitautien pelossa."
-    ],
     "black bean": [
       "Mustapapuja on viljelty Amerikassa yli 7 000 vuoden ajan.",
       "Mustapapu sisältää paitsi rautaa, magnesiumia ja folaattia, myös proteiinia ja kuitua."
@@ -258,9 +255,47 @@
       "Perinteisessä lääketieteessä mausteista retikkaa käytetään usein flunssan oireisiin.",
       "Retikka on tavallisesti pienempää punaista retiisiä mausteisempi."
     ],
+    "black salsify": [
+      "Mustajuuren karu ulkoasu pettää. Sen miellyttävä maku muistuttaa maa-artisokkaa.",
+      "Mustajuuri voi tuntua tahmaiselta kuorittaessa. Käsineiden pitäminen tai veden alla kuoriminen auttaa."
+    ],
+    "black trumpet mushroom": [
+      "Mustatorvisienen maku on intensiivisen umaminen. Se on arvostettu ruokasieni.",
+      "Mustatorvisienten löytäminen luonnosta voi olla vaikeaa niiden värityksen vuoksi.",
+      "Mustatorivisienellä on karmiva englanninkielinen lempinimi \"Trumpet of the Dead\"."
+    ],
+    "black-eyed pea": [
+      "Mustasilmäpavut ovat alunperin kotoisin Länsi-Afrikasta.",
+      "Mustasilmäpavut pystyvät kasvamaan ankarissakin olosuhteissa ja ne parantavat maaperän laatua."
+    ],
+    "blackberry": [
+      "Karhunvatukka on helppo sekoittaa mustiin vadelmiin, jotka ovat kuitenkin selkeästi makeampia.",
+      "Muinaiset roomalaiset käyttivät karhunvatukkaa lääkkeenä kihtiin ja kurkkukipuun.",
+      "Karhunvatukka saa värinsä samasta aineesta kuin veriappelsiinit."
+    ],
+    "blackcurrant": [
+      "Mustaherukat sisältävät jopa neljä kertaa enemmän C-vitamiinia kuin appelsiinit.",
+      "Joidenkin arvioiden mukaan mustaherukalla voi olla aivotoimintoja parantava vaikutus.",
+      "Mustaherukoiden kasvatus oli paikoin kiellettyä Yhdysvalloissa 1900-luvulla kasvitautien pelossa."
+    ],
+    "blood grapefruit": [
+      "Greippiä suositellaan vältettävän tiettyjen lääkekuurien aikana.",
+      "Nimestään huolimatta verigreippi ei ole sukua veriappelsiinille.",
+      "Verigreippi on joitakin muita greippilajikkeita makeampi."
+    ],
     "blood orange": [
       "Yksi veriappelsiini sisältää noin 78 % päivittäisestä C-vitamiinista.",
       "Veriappelsiinit saavat punaisen värinsä antosyaaneista, jotka ovat harvinaisia sitrushedelmissä."
+    ],
+    "blueberry": [
+      "Mustikat sisältävät muun muassa kuitua, C- ja K-vitamiinia, sekä mangaania.",
+      "Tutkimusten mukaan mustikka voi vaikuttaa positiivisesti aivojen toimintaan.",
+      "Maailmasta löytyy yli 30 erilaista mustikkalajiketta."
+    ],
+    "bok choy": [
+      "Paksoista voidaan syödä sekä rapeat varret, että pehmeämmät lehdet.",
+      "Paksoi sisältää paljon A-, C-, ja K-vitamiinia.",
+      "Paksoita on viljelty Kiinassa yli 5 000 vuotta."
     ],
     "boysenberry": [
       "Rudolph Boysen kehitti boysenmarjan 1920-luvulla risteyttämällä kolme eri marjaa.",
@@ -309,6 +344,11 @@
       "Euroopassa kaalia fermentoidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa.",
       "Usko tai älä, mutta painavin koskaan kasvatettu kaali painoi melkein 63 kiloa."
     ],
+    "cannellini bean": [
+      "Cannellinipapuja kutsutaan myös valkoisiksi kidneypavuiksi.",
+      "Kypsennetyt cannellinipavut kestävät hyvin pakastamista, mikä tekee niistä hyvän arkiruoan.",
+      "Cannellinipavut ovat kotoisin Argentiinasta, mutta niitä käytetään laajalti italialaisessa keittiössä."
+    ],
     "cantaloupe": [
       "Verkkomelonia viljeltiin ensimmäisen kerran muinaisessa Egyptissä.",
       "Verkkomelonin englanninkielinen nimi \"cantaloupe\" tulee Cantalupon kaupungista Italiasta."
@@ -337,22 +377,44 @@
       "Brittiläinen vihannesten kasvattaja on onnistunut kasvattamaan 27,5 kiloa painaneen kukkakaalin."
     ],
     "celeriac": [
-      "Juuriselleriä on viljelty antiikin ajoista lähtien, erityisesti Välimeren alueella."
+      "Juuriselleriä on viljelty antiikin ajoista lähtien, erityisesti Välimeren alueella.",
+      "Juuriselleripyree on maistuva vaihtoehto perunasoseelle.",
+      "Hiljaa hyvä tulee! Juurisellerin kasvu täysikokoiseksi vie jopa 100-120 päivää."
     ],
     "celery": [
       "30 gramman annos selleriä sisältää vain noin 5 kaloria, joten se on terveellinen välipala.",
       "Selleriä on viljelty yli 3 000 vuoden ajan sekä ruoaksi että lääketieteellisiin tarkoituksiin."
     ],
-    "champignon": ["Herkkusieni on yksi maailman laajimmin viljellyistä ja kulutetuista sienistä."],
-    "chanterelle": [
-      "Kanttarelleja kerätään usein luonnosta, erityisesti Euroopan ja Pohjois-Amerikan metsistä."
+    "champignon": [
+      "Herkkusieni on yksi maailman laajimmin viljellyistä ja kulutetuista sienistä.",
+      "Herkkusienen kansainvälinen nimi \"champignon\" kuulostaa hienolta, mutta tarkoittaa vain sientä ranskaksi.",
+      "Herkkusieniä on viljelty Ranskassa 1600-luvulta lähtien."
     ],
-    "chard": ["30 gramman annos lehtimangoldia sisältää noin 40 % päivän K-vitamiinista."],
+    "chanterelle": [
+      "Kanttarelleja kerätään usein luonnosta, erityisesti Euroopan ja Pohjois-Amerikan metsistä.",
+      "Kanttarellit kasvavat usein tiettyjen puiden yhteydessä.",
+      "Kanttarellien kaupallinen viljely ei ole onnistunut."
+    ],
+    "chard": [
+      "Lehtimangoldi on peräisin Välimeren alueelta.",
+      "Lehtimangoldin sisältämä oksalaatti voi haitata kalsiumin imeytymistä.",
+      "30 gramman annos lehtimangoldia sisältää noin 40 % päivän K-vitamiinista."
+    ],
     "chayote": [
+      "Kajottikurpitsa on kurpitsan ja melonin kaukainen sukulainen.",
+      "Kajottikurpitsa on alunperin kotoisin Väli-Amerikasta.",
       "Vaikka kajottikurpitsa on kasvitieteellisesti hedelmä, sitä käytetään suolaisissa ruoissa kuin vihannesta."
     ],
+    "cherimoya": [
+      "Cherimoyan makua on kuvattu sekoitukseksi banaania, ananasta, papaijaa ja muita hedelmiä.",
+      "Cherimoyan kuori ja siemenet eivät ole syötäviä.",
+      "Cherimoya on alunperin kotoisin Andien rinteiltä."
+    ],
     "cherry tomato": [
-      "Yksi kirsikkatomaatti sisältää noin 3 kaloria, mikä tekee siitä terveellisen välipalan."
+      "Kirsikkatomaatin uskotaan olevan pienen villitomaatin ja viljellyn tomaatin risteytys.",
+      "Yksi kirsikkatomaatti sisältää noin 3 kaloria, mikä tekee siitä terveellisen välipalan.",
+      "Kirsikkatomaatit maistuivat myös Denethorille, Gondorin käskynhaltijalle.",
+      "Kirsikkatomaatteja tavataan punaisina, keltaisina, oransseina, vihreinä, mustina ja jopa raidallisina."
     ],
     "cherry": [
       "Kirsikat tunnetaan antioksidanttisista ominaisuuksistaan, ja niitä on viljelty antiikin ajoista lähtien.",
@@ -371,13 +433,19 @@
       "Chili on peräisin Meksikosta, josta se on levinnyt osaksi keittiöitä maailmanlaajuisesti.",
       "Tulisin chililajike on Pepper X, jonka tulisuus on yli 3 miljoonaa Scoville-yksikköä."
     ],
+    "chives": [
+      "Myös ruohosipulin kukat ovat syötäviä.",
+      "Ruohosipuli on monivuotinen kasvi, joka tuottaa joka vuosi uuden sadon.",
+      "Lisää ruohosipuli vasta ruoanlaiton loppuvaiheessa säilyttääksesi sen maun."
+    ],
     "choy sum": [
       "Sellerikaalin keltaiset kukat ovat myös syötäviä.",
       "Sellerikaalia käytetään paljon kiinalaisessa, vietnamilaisessa ja thaimaalaisessa keittiössä.",
       "Sellerikaalin sato on korjattavissa jopa 30:ssä päivässä."
     ],
     "cilantro": [
-      "Jotkut kokevat korianterin maun saippuaiseksi geneettisen, makuaistimukseen vaikuttavan ominaisuutensa vuoksi."
+      "Jotkut kokevat korianterin maun saippuaiseksi geneettisen, makuaistimukseen vaikuttavan ominaisuutensa vuoksi.",
+      "Korianterin siemeniä käytetään mausteena ja niitä löydettiin väitetysti jopa Tutankhamonin haudasta."
     ],
     "clementine": [
       "Klementiini sisältää noin 60 % päivittäisestä C-vitamiinista, joten se on immuunijärjestelmää tukeva välipala.",
@@ -400,10 +468,15 @@
       "Noin 60-70 % maailmassa tuotetusta maissista päätyy eläinten rehuksi."
     ],
     "couscous": [
-      "Couscous, joka valmistetaan mannasuurimoista, on yleinen Pohjois-Afrikan keittiössä."
+      "Kuskus, joka valmistetaan mannasuurimoista, on yleinen Pohjois-Afrikan keittiössä.",
+      "Kuskus saattaa näyttää viljanjyviltä, mutta se on eräänlaista pastaa.",
+      "Kuskusin juuret ovat Pohjois-Afrikan berberiyhteisöissä.",
+      "Kokeile eri kokoisia kuskushelmiä ruoanlaitossa!"
     ],
     "cranberry bean": [
-      "30 gramman annos borlottipapuja sisältää noin 5 g proteiinia ja 5 g kuitua."
+      "30 gramman annos borlottipapuja sisältää noin 5 g proteiinia ja 5 g kuitua.",
+      "Italialaisesta nimestään huolimatta, borlottipavut ovat alunperin kotoisin Kolumbiasta.",
+      "Borlottipavut sisältävät paljon rautaa, magnesiumia ja folaattia."
     ],
     "cranberry": [
       "30 gramman annos karpaloita sisältää noin 14 kaloria ja hyvän määrän C-vitamiinia.",
@@ -412,7 +485,8 @@
     ],
     "cucumber": [
       "Kurkun viljelyn uskotaan alkaneen Etelä-Aasiassa yli 3 000 vuotta sitten.",
-      "96 % kurkun painosta on vettä."
+      "96 % kurkun painosta on vettä.",
+      "Koska kurkku kasvaa kukasta ja sisältää siemeniä, se on kasvitieteellisesti hedelmä."
     ],
     "dandelion greens": [
       "30 gramman annos voikukanlehtiä sisältää noin 25 % päivittäisestä A-vitamiinista sekä kuitua.",
@@ -420,7 +494,8 @@
     ],
     "date": [
       "Yksi taateli sisältää noin 20 kaloria ja se on hyvä luonnollisten sokereiden lähde.",
-      "Taateleita on viljelty Lähi-idässä tuhansien vuosien ajan."
+      "Taateleita on viljelty Lähi-idässä tuhansien vuosien ajan.",
+      "Taatelit kestävät hyvin kuivuutta ja menestyvät suolaisessakin maaperässä."
     ],
     "dragon fruit": [
       "Pitaija on kotoisin Keski-Amerikasta ja se on saavuttanut maailmanlaajuisen suosion.",
@@ -431,7 +506,8 @@
       "Huolimatta pistävästä hajustaan, durian on suosittu herkku monissa Aasian maissa."
     ],
     "edamame": [
-      "Edamame on kypsymätön soijapapu ja sitä tarjoillaan usein välipalana japanilaisessa keittiössä."
+      "Edamame on kypsymätön soijapapu ja sitä tarjoillaan usein välipalana japanilaisessa keittiössä.",
+      "Edamame sisältää tärkeitä aminohappoja, kuitua ja omega-3-rasvahappoja."
     ],
     "eggplant": [
       "Munakoisot luokitellaan kasvitieteellisesti hedelmiksi.",
@@ -475,7 +551,8 @@
     ],
     "grapefruit": [
       "Yksi greippi sisältää noin 100 % päivittäisestä C-vitamiinista.",
-      "Greipit löydettiin Barbadokselta 1700-luvulla ja niiden uskotaan olevan pomelon ja appelsiinin hybridi."
+      "Greipit löydettiin Barbadokselta 1700-luvulla ja niiden uskotaan olevan pomelon ja appelsiinin hybridi.",
+      "Greippiä suositellaan vältettävän tiettyjen lääkekuurien aikana."
     ],
     "green lentil": [
       "30 gramman annos vihreitä linssejä sisältää noin 7 g proteiinia ja runsaasti kuitua.",
@@ -563,7 +640,10 @@
       "Puolukat kasvavat villinä Pohjois-Euroopan metsissä ja ne tunnetaan kirkkaan punaisesta väristään."
     ],
     "longan": ["Longania kutsutaan myös \"lohikäärmeen silmäksi\"."],
-    "lychee": ["Litsi on kotoisin Kiinasta, ja sitä on viljelty yli 2 000 vuotta."],
+    "lychee": [
+      "Litsi on kotoisin Kiinasta, ja sitä on viljelty yli 2 000 vuotta.",
+      "Kiina tuottaa noin 65% maailman litseistä."
+    ],
     "macadamia nut": [
       "30 gramman annos macadamiapähkinöitä sisältää noin 21 g terveellisiä rasvoja ja 2 g proteiinia."
     ],
@@ -637,15 +717,19 @@
       "Appelsiinien uskotaan olevan peräisin Kaakkois-Aasiasta, josta kauppiaat levittivät niitä ympäri maailmaa."
     ],
     "papaya": [
-      "Papaijaa käytetään usein salaateissa, smoothieissa ja jälkiruoissa sekä perinteisessä lääketieteessä."
+      "Papaijaa käytetään usein salaateissa, smoothieissa ja jälkiruoissa sekä perinteisessä lääketieteessä.",
+      "Intia tuottaa eniten papaijoita maailmassa."
     ],
     "parsley": [
-      "Persilja on hyvä A-, C- ja K-vitamiinien lähde, joten se on ravitseva lisä aterioihin."
+      "Persilja on hyvä A-, C- ja K-vitamiinien lähde, joten se on ravitseva lisä aterioihin.",
+      "Lehtipersilja on lähinnä koristeena käytettyä kähäräpersiljaa suositumpaa ruoanlaitossa."
     ],
     "parsnip": ["Pisimmän palsternakan maailmanennätys on tällä hetkellä 6,5 metriä."],
+    "passion fruit": ["Noin puolet maailman passiohedelmistä tuotetaan Brasiliassa."],
     "pea sprouts": ["Herneenversoja voi kasvattaa helposti myös kotona kuivatuista herneistä."],
     "peach": [
-      "Persikat ovat kotoisin Kiinasta, mutta niitä viljellään nykyisin monilla lauhkean ilmaston alueilla."
+      "Persikat ovat kotoisin Kiinasta, mutta niitä viljellään nykyisin monilla lauhkean ilmaston alueilla.",
+      "Kiina tuottaa yli puolet maailman persikoista."
     ],
     "peanut": [
       "Maapähkinät ovat runsas terveellisten rasvojen ja proteiinin lähde, sisältäen runsaasti energiaa.",
@@ -666,7 +750,8 @@
     ],
     "pineapple": [
       "Ananas sisältää bromelaiinia, entsyymiä, joka auttaa hajottamaan proteiineja.",
-      "Ananaskasvi voi tuottaa vain yhden hedelmän kerrallaan."
+      "Ananaskasvi voi tuottaa vain yhden hedelmän kerrallaan.",
+      "Maailman johtava ananasten tuottaja on Costa Rica."
     ],
     "pinto bean": [
       "Pintopavut on nimetty niiden pilkullisen ulkonäön mukaan, mutta ne muuttuvat ruskeiksi kypsennettyinä."
@@ -714,7 +799,8 @@
     ],
     "quince": [
       "Kvitteni sisältää runsaasti C-vitamiinia, mutta se on yleensä liian hapan syötäväksi raakana.",
-      "Kvitteneitä on viljelty antiikin ajoista lähtien, ja ne olivat joskus rakkauden ja hedelmällisyyden symboli."
+      "Kvitteneitä on viljelty antiikin ajoista lähtien, ja ne olivat joskus rakkauden ja hedelmällisyyden symboli.",
+      "Kvitteni menestyy myös vuoristoisilla seuduilla, joissa maaperän laatu on huono."
     ],
     "quinoa": [
       "Kvinoa on gluteeniton vilja, joka on saanut suosiota korkeaproteiinisena ruoka-aineena.",
@@ -723,6 +809,7 @@
     "rambutan": [
       "Rambutan on läheistä sukua litsille ja longanille, ja niissä onkin samankaltainen maku ja koostumus."
     ],
+    "raspberry": ["Maailman johtava vadelmien tuottaja on Venäjä."],
     "redcurrant": [
       "Punaherukat ovat vähäkalorisia, mutta niissä on paljon C-vitamiinia, kuitua ja antioksidantteja.",
       "Punaherukoita käytetään Euroopassa yleisesti esimerkiksi hilloissa, mehuissa tai viinin valmistamiseen.",
@@ -754,6 +841,11 @@
     "safflower seed": [
       "Saflorinsiemeniä käytetään runsaasti tyydyttymättömiä rasvoja sisältävän öljyn valmistukseen.",
       "Saflorinsiemeniä käytetään usein linnunruokana, mutta ne ovat myös ihmisten suosima välipala."
+    ],
+    "sea buckthorn": [
+      "Tyrni sisältää kaikista villeinä esiintyvistä marjoista eniten ravintoaineita.",
+      "Tuoreet tyrnin marjat ovat erittäin happamia, mistä syystä niitä nautitaan usein prosessoituina.",
+      "Tyrniä tavataan erittäin kylmissäkin ilmastoissa, kuten Siperiassa ja Himalajalla."
     ],
     "sesame seed": [
       "Seesaminsiemeniä käytetään usein paahdettuna niiden maun korostamiseksi",
@@ -969,6 +1061,7 @@
     "challengeCompleted": "Suoritit viikkohaasteesi! {0}!",
     "firstVeggie": "Ensimmäinen kasvis lisätty! {0}!",
     "newChallenge": "Taas mennään! Viikkohaasteesi on {0}.",
+    "occurrences": "Olet lisännyt tämän kasviksen jo {0} kertaa! {1}!",
     "totalVeggies": "Olet kirjannut yhteensä jo {0} kasvista! {1}!",
     "uniqueVeggies": "Olet kokeillut {0} / {1} kasviksesta tässä sovelluksessa! {2}!"
   },
@@ -1172,6 +1265,7 @@
     "savoy cabbage": "savoijinkaali",
     "scallion": "kevätsipuli",
     "scarlet runner bean": "ruusupapu",
+    "sea buckthorn": "tyrni",
     "sesame seed": "seesaminsiemen",
     "shallot": "salottisipuli",
     "shiitake": "siitake",

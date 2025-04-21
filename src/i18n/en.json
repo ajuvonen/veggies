@@ -175,10 +175,11 @@
     "apple": [
       "A medium apple provides about 14% of the daily recommended vitamin C.",
       "There are over 7,500 apple varieties grown around the world.",
-      "Apples have about 25% air in them, which is why they float in water."
+      "Apples have about 25% air in them, which is why they float in water.",
+      "China produces the most apples in the world."
     ],
     "apricot": [
-      "An apricot symbolizing good fortune is featured in the Armenian coat of arms.",
+      "Apricots have a high symbolical value in Armenian culture, and they have been called \"Armenian apples\".",
       "Apricots were among the first fruits to go to space as part of astronaut meals."
     ],
     "artichoke": [
@@ -211,7 +212,8 @@
       "Bananas are botanically classified as berries.",
       "One banana provides around 12% of the daily potassium requirement.",
       "Bananas are one of the best sources of vitamin B6, supporting cognitive health.",
-      "Bananas can help improve mood as they contain tryptophan, which the body converts to serotonin."
+      "Bananas can help improve mood as they contain tryptophan, which the body converts to serotonin.",
+      "India is the world's largest producer of bananas."
     ],
     "barley": [
       "Barley has been cultivated for over 10,000 years, being one of the first grains farmed by humans.",
@@ -241,11 +243,6 @@
       "Bitter melon has been used in traditional medicine for centuries.",
       "Bitter melon can help lower blood sugar, as it contains compounds that mimic the effects of insulin."
     ],
-    "blackcurrant": [
-      "Blackcurrants contain up to four times as much vitamin C as oranges.",
-      "Some theories suggest that blackcurrants could improve cognitive function.",
-      "Cultivating blackcurrants was forbidden in many parts of the U.S. in the 20th century, in fear of plant diseases."
-    ],
     "black bean": [
       "Black beans have been cultivated in the Americas for over 7000 years.",
       "In addition to providing iron, magnesium and pholate, black beans are rich in protein and fiber."
@@ -258,9 +255,47 @@
       "Spicy black radish is often used in flu remedies in traditional medicine.",
       "Black radish is spicier than its smaller red cousin."
     ],
+    "black salsify": [
+      "Don't let the humble appearance of black salsify deceive you. It has a delicate aroma resembling that of Jerusalem artichoke.",
+      "Black salsify might feel sticky when peeled. Wear gloves or peel under cold water to make it easier."
+    ],
+    "black trumpet mushroom": [
+      "Black trumpet mushrooms have an intense flavor full of umami. They're a prized culinary mushroom.",
+      "Foraging black trumpet mushrooms can be difficult due to their coloring.",
+      "Black trumpet mushrooms have a creepy nickname: \"Trumpet of the Dead\"."
+    ],
+    "black-eyed pea": [
+      "Black-eyed peas are originally from West Africa.",
+      "Black-eyed peas can grow in harsh conditions and they can improve soil quality."
+    ],
+    "blackberry": [
+      "Blackberries are easily confused with much sweeter black raspberries.",
+      "Ancient Romans used blackberries as medicine for gout and sore throat.",
+      "Blackberries get their dark color from the same ingredient as blood oranges."
+    ],
+    "blackcurrant": [
+      "Blackcurrants contain up to four times as much vitamin C as oranges.",
+      "Some theories suggest that blackcurrants could improve cognitive function.",
+      "Cultivating blackcurrants was forbidden in many parts of the U.S. in the 20th century, in fear of plant diseases."
+    ],
+    "blood grapefruit": [
+      "Grapefruits are not recommended for consumption with certain prescription medicines.",
+      "Despite its name, blood grapefruit is not related to blood orange.",
+      "Blood grapefruit is sweeter than some other grapefruit varieties."
+    ],
     "blood orange": [
       "One blood orange provides around 78% of the daily vitamin C requirement.",
       "Blood oranges get their red color from anthocyanins, which are unusual in citrus fruits."
+    ],
+    "blueberry": [
+      "Blueberries contain for example fiber, vitamins C and K, and manganese.",
+      "According to studies, blueberries can improve cognitive function.",
+      "There are over 30 different blueberry varieties in the world."
+    ],
+    "bok choy": [
+      "Both the crispy stalks and tender leaves of bok choy are edible.",
+      "Bok choy contains plenty of vitamins A, C, and K.",
+      "Bok choy has been cultivated in China for over 5,000 years."
     ],
     "boysenberry": [
       "Boysenberries were created in the 1920s by Rudolph Boysen, who crossed three different berries.",
@@ -309,6 +344,11 @@
       "In Europe, cabbage is often fermented to make sauerkraut, a popular accompaniment to meats.",
       "Would you believe the heaviest cabbage grown weighed almost 63 kg?"
     ],
+    "cannellini bean": [
+      "Cannellini beans are also called white kidney beans.",
+      "Cooked cannellini beans remain intact when refrigerated, which makes them a good everyday dish.",
+      "Cannellini beans are originally from Argentina, but became popular in Italian cuisine."
+    ],
     "cantaloupe": [
       "Cantaloupe was first cultivated in ancient Egypt.",
       "Cantaloupes are named after the Italian town of Cantalupo."
@@ -337,23 +377,45 @@
       "A UK vegetable grower has managed to grow a cauliflower weighing 27.5 kg."
     ],
     "celeriac": [
-      "Celeriac has been cultivated since ancient times, particularly in the Mediterranean region."
+      "Celeriac has been cultivated since ancient times, particularly in the Mediterranean region.",
+      "Pureéd celeriac is a tasty alternative to mashed potatoes.",
+      "Easy does it! Celeriac can take up to 100-120 days to fully mature."
     ],
     "celery": [
       "A 30-gram portion of celery contains only about 5 calories, making it a healthy snack.",
       "Celery has been cultivated for over 3,000 years for both culinary and medicinal purposes."
     ],
     "champignon": [
-      "Champignons are one of the most widely cultivated and consumed mushrooms in the world."
+      "Champignons are one of the most widely cultivated and consumed mushrooms in the world.",
+      "Champignon sounds fancy, but it's just French for \"mushroom\".",
+      "Champignons have been cultivated in France since the 17th century."
     ],
     "chanterelle": [
-      "Chanterelles are often foraged in the wild, especially in European and North American forests."
+      "Chanterelles are often foraged in the wild, especially in European and North American forests.",
+      "Chanterelles often grow in proximity of specific trees.",
+      "Chanterelles cannot be commercially farmed."
     ],
-    "chard": ["A 30-gram portion of chard provides about 40% of the daily vitamin K requirement."],
+    "chard": [
+      "Chard is originally from the Mediterranean.",
+      "The oxalate contained in chard can interfere with calcium absorption.",
+      "A 30-gram portion of chard provides about 40% of the daily vitamin K requirement."
+    ],
     "chayote": [
+      "Chayote is a distant cousin of pumpkins and melons.",
+      "Chayote is indigenous to Mesoamerica.",
       "Though botanically a fruit, chayote is treated like a vegetable in savory dishes."
     ],
-    "cherry tomato": ["One cherry tomato contains about 3 calories, making it a healthy snack."],
+    "cherimoya": [
+      "The taste of cherimoya has been described as a mix of banana, pineapple, papaya, and other fruits.",
+      "The peel and seeds of cherimoya are not edible.",
+      "Cherimoya is indigenous to the Andean region."
+    ],
+    "cherry tomato": [
+      "Cherry tomato is thought to be a cross between a tiny wild tomato and cultivated tomatoes.",
+      "One cherry tomato contains about 3 calories, making it a healthy snack.",
+      "Also Denethor, steward of Gondor, was fond of cherry tomatoes.",
+      "Cherry tomatoes come in red, yellow, orange, green, black, and even striped varieties."
+    ],
     "cherry": [
       "Cherries are known for their antioxidant properties and have been cultivated since ancient times.",
       "Cherries are fruits which are relative to plums, peaches, and nectarines."
@@ -371,13 +433,19 @@
       "Chili originated in Mexico and has become a fundamental part of cuisines worldwide.",
       "The spiciest chili variety is the Pepper X, with heat level of over 3 million scoville units."
     ],
+    "chives": [
+      "Also the flowers of chives are edible.",
+      "Chives are perennials, so they produce fresh harvest every year.",
+      "Add chives only at the last stages of cooking, to preserve their flavor."
+    ],
     "choy sum": [
       "The yellow flowers of choy sum are also edible.",
       "Choy sum is widely used in Chinese, Vietnamese, and Thai cuisines.",
       "Choy sum is ready for harvest in as little as 30 days."
     ],
     "cilantro": [
-      "Some find cilantro's flavor soapy due to a genetic trait affecting taste perception."
+      "Some find cilantro's flavor soapy due to a genetic trait affecting taste perception.",
+      "Seeds of cilantro (or coriander) are used as spice and were supposedly found also from King Tut's tomb."
     ],
     "clementine": [
       "A clementine provides about 60% of the daily vitamin C requirement, making it an immune-boosting snack.",
@@ -399,9 +467,16 @@
       "Corn, originally domesticated in Mexico, is one of the most important cereal crops globally.",
       "About 60-70% of corn produced globally is fed to livestock."
     ],
-    "couscous": ["Couscous, made from semolina wheat, is common in North African cuisine."],
+    "couscous": [
+      "Couscous, made from semolina wheat, is common in North African cuisine.",
+      "Couscous may look like a grain, but it's more like a pasta.",
+      "The roots of couscous are in the Berber communities of North Africa.",
+      "Try different size couscous pearls in you dishes!"
+    ],
     "cranberry bean": [
-      "A 30-gram portion of cranberry beans provides about 5 grams of protein and 5 grams of fiber."
+      "A 30-gram portion of cranberry beans provides about 5 grams of protein and 5 grams of fiber.",
+      "Despite their Italian-sounding name \"borlotti bean\", these beans originated in Colombia.",
+      "Cranberry beans are rich in iron, magnesium, and folate."
     ],
     "cranberry": [
       "A 30-gram portion of cranberries provides about 14 calories and a good amount of vitamin C.",
@@ -410,7 +485,8 @@
     ],
     "cucumber": [
       "Cucumber crops are believed to have originated in South Asia over 3,000 years ago.",
-      "Cucumbers are about 96% water."
+      "Cucumbers are about 96% water.",
+      "It grows from a flower and contains seeds - so botanically cucumber is a fruit."
     ],
     "dandelion greens": [
       "A 30-gram portion of dandelion greens provides about 25% of the daily vitamin A requirement along with fiber.",
@@ -418,7 +494,8 @@
     ],
     "date": [
       "One date provides about 20 calories and is a good source of natural sugars.",
-      "Dates have been cultivated in the Middle East for thousands of years."
+      "Dates have been cultivated in the Middle East for thousands of years.",
+      "Dates are very drought resistant and tolerate saline soil."
     ],
     "dragon fruit": [
       "Dragon fruit is native to Central America and has become popular worldwide.",
@@ -429,7 +506,8 @@
       "Despite its pungent smell, durian is a popular delicacy in many Asian countries."
     ],
     "edamame": [
-      "Edamame are immature soybeans and are often served as a snack in Japanese cuisine."
+      "Edamame are immature soybeans and are often served as a snack in Japanese cuisine.",
+      "Edamame contains amino acids, fiber, and omega-3 fatty acids."
     ],
     "eggplant": [
       "Eggplants are botanically classified as fruits",
@@ -469,7 +547,8 @@
     ],
     "grapefruit": [
       "One grapefruit provides around 100% of the daily recommended vitamin C.",
-      "Grapefruits, discovered in Barbados in the 18th century, are believed to be a cross between a pomelo and an orange."
+      "Grapefruits, discovered in Barbados in the 18th century, are believed to be a cross between a pomelo and an orange.",
+      "Grapefruits are not recommended for consumption with certain prescription medicines."
     ],
     "green lentil": [
       "A 30-gram portion of green lentils provides about 7 grams of protein and is high in fiber.",
@@ -557,7 +636,10 @@
       "Lingonberries grow wild in the forests of Northern Europe and are known for their bright red color."
     ],
     "longan": ["Longan is also called \"the dragon's eye\"."],
-    "lychee": ["Lychee is native to China and has been cultivated for over 2,000 years."],
+    "lychee": [
+      "Lychee is native to China and has been cultivated for over 2,000 years.",
+      "China produces about 65% of lychees worldwide."
+    ],
     "macadamia nut": [
       "A 30-gram portion of macadamia nuts provides about 21 grams of healthy fats and 2 grams of protein."
     ],
@@ -627,14 +709,20 @@
       "Oranges are believed to have originated in Southeast Asia and were spread by traders."
     ],
     "papaya": [
-      "Papaya is often used in salads, smoothies, and desserts, as well as in traditional medicine."
+      "Papaya is often used in salads, smoothies, and desserts, as well as in traditional medicine.",
+      "India produces the most papayas in the world."
     ],
     "parsley": [
-      "Parsley is a good source of vitamins A, C, and K, making it a nutritious addition to meals."
+      "Parsley is a good source of vitamins A, C, and K, making it a nutritious addition to meals.",
+      "Flat-leaf parsley is often preferred in cooking to its curly cousin, which is usually used as garnish."
     ],
     "parsnip": ["The world record for the longest parsnip is currently set at 6.5 metres."],
+    "passion fruit": ["About half of the world's passion fruit are produced in Brazil."],
     "pea sprouts": ["Pea sprouts can also be grown home from dried peas."],
-    "peach": ["Peaches are native to China but are now grown in many temperate regions worldwide."],
+    "peach": [
+      "Peaches are native to China but are now grown in many temperate regions worldwide.",
+      "China produces more than half of the peaches worldwide."
+    ],
     "peanut": [
       "Peanuts are rich in healthy fats and protein, providing sustained energy.",
       "Peanuts are technically legumes."
@@ -654,7 +742,8 @@
     ],
     "pineapple": [
       "Pineapple contains bromelain, an enzyme that helps break down proteins.",
-      "The pineapple plant can produce only one fruit at a time."
+      "The pineapple plant can produce only one fruit at a time.",
+      "World's leading pineapple producer is Costa Rica."
     ],
     "pinto bean": [
       "Pinto beans are named for their speckled appearance when raw but turn brown when cooked."
@@ -704,7 +793,8 @@
     ],
     "quince": [
       "A quince is rich in vitamin C but is usually too tart to eat raw.",
-      "Quinces have been cultivated since ancient times and were once a symbol of love and fertility."
+      "Quinces have been cultivated since ancient times and were once a symbol of love and fertility.",
+      "Quince can thrive also mountaineous regions with poor soil quality."
     ],
     "quinoa": [
       "Quinoa is a gluten-free grain that has gained popularity as a high-protein food.",
@@ -713,6 +803,7 @@
     "rambutan": [
       "Rambutan is closely related to lychee and longan, sharing similar flavors and textures."
     ],
+    "raspberry": ["World's leading raspberry producer is Russia."],
     "redcurrant": [
       "Redcurrants are low in calories, but high in vitamin C, fiber, and antioxidants.",
       "Redcurrants are commonly used in Europe for jellies, juice, or wine.",
@@ -742,6 +833,11 @@
     "safflower seed": [
       "Safflower seeds are often used to make oil that's high in unsaturated fats.",
       "Safflower seeds are commonly used in bird feed but are also enjoyed as a snack by humans."
+    ],
+    "sea buckthorn": [
+      "Sea buckthorn has the highest nutritional value of all wild berries.",
+      "Fresh sea buckthorn berries taste very sour, and they are usually eaten processed.",
+      "Sea buckthorn can be found also in extremely cold climates, such as Siberia or the Himalayas."
     ],
     "sesame seed": [
       "Sesame seeds are often toasted for extra flavor.",
@@ -959,6 +1055,7 @@
     "challengeCompleted": "You have completed your weekly challenge! {0}!",
     "firstVeggie": "First veggie added! {0}!",
     "newChallenge": "Let's go! Your weekly challenge is {0}.",
+    "occurrences": "You have added this veggie already {0} times! {1}!",
     "totalVeggies": "You have reached a total of {0} veggies! {1}!",
     "uniqueVeggies": "You have sampled {0} out of {1} veggies on this app! {2}!"
   },
@@ -1162,6 +1259,7 @@
     "savoy cabbage": "savoy cabbage",
     "scallion": "scallion",
     "scarlet runner bean": "scarlet runner bean",
+    "sea buckthorn": "sea buckthorn",
     "sesame seed": "sesame seed",
     "shallot": "shallot",
     "shiitake": "shiitake",
