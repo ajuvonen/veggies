@@ -45,12 +45,18 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
     } else if (allVeggies.value.length % 100 === 0) {
       addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, cheer]));
       showConfetti();
-    } else if (Math.random() <= 0.4) {
+    } else if (Math.random() <= 0.5) {
       const facts = [
         ...Object.values<string>(tm(`facts.${addedVeggie}`)),
         t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, cheer]),
         t('toasts.totalVeggies', [allVeggies.value.length, cheer]),
       ];
+
+      const occurrences = allVeggies.value.filter((veggie) => veggie === addedVeggie).length;
+      if (occurrences > 1) {
+        facts.push(t('toasts.occurrences', [occurrences, cheer]));
+      }
+
       addToastMessage(facts[Math.floor(Math.random() * facts.length)]);
     }
   }
