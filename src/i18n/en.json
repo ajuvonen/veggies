@@ -191,6 +191,12 @@
       "Even the flowers and seeds of arugula can be eaten.",
       "Ancient Romans considered arugula an aphrodisiac."
     ],
+    "asian pear": [
+      "Though sometimes called apple pear, this fruit is not an apple hybrid.",
+      "Asian pears have been cultivated in China and Japan for over 3,000 years.",
+      "In Japan and South Korea, hand-wrapped Asian pears can be given as a high-end gift.",
+      "Asian pears pair well with cheese and charcuterie boards."
+    ],
     "asparagus": [
       "Asparagus is packed with folate, important for cell function and tissue growth.",
       "Asparagus contains antioxidants like vitamins E and C.",
@@ -554,6 +560,11 @@
       "A 30-gram portion of green lentils provides about 7 grams of protein and is high in fiber.",
       "Green lentils hold their shape well after cooking, making them ideal for salads, soups, and stews.",
       "Lentils have been a part in Middle Eastern and Indian cuisines for thousands of years."
+    ],
+    "grenadilla": [
+      "Grenadilla is used in similar way as passion fruit, but it's sweeter and less tart.",
+      "Grenadilla is native to South America, where it grows at high altitudes.",
+      "The seeds of grenadilla are edible."
     ],
     "guava": [
       "One guava provides over 200% of the daily recommended vitamin C.",
@@ -1072,6 +1083,7 @@
     "apricot": "apricot",
     "artichoke": "artichoke",
     "arugula": "arugula",
+    "asian pear": "asian pear (nashi)",
     "asparagus": "asparagus",
     "avocado": "avocado",
     "bamboo shoots": "bamboo shoots",
@@ -1116,7 +1128,7 @@
     "chanterelle": "chanterelle",
     "chard": "chard",
     "chayote": "chayote",
-    "cherimoya": "cherimoya",
+    "cherimoya": "cherimoya (annona)",
     "cherry tomato": "cherry tomato",
     "cherry": "cherry",
     "chestnut": "chestnut",
@@ -1159,6 +1171,7 @@
     "grapefruit": "grapefruit",
     "green bean": "green bean",
     "green lentil": "green lentil",
+    "grenadilla": "grenadilla",
     "guava": "guava",
     "hazelnut": "hazelnut",
     "hedgehog mushroom": "hedgehog mushroom",

@@ -191,6 +191,12 @@
       "Myös rucolan kukintoja ja siemeniä voidaan syödä.",
       "Muinaiset roomalaiset pitivät rucolaa lemmenrohtona."
     ],
+    "asian pear": [
+      "Nimestään huolimatta omenapäärynä ei ole omenan hybridilajike.",
+      "Omenapäärynöitä on viljelty Kiinassa ja Japanissa yli 3 000 vuotta.",
+      "Japanissa ja Etelä-Koreassa käsinpakattu omenapäärynä voi olla tyylikäs lahja.",
+      "Omenapäärynä sopii hyvin juusto- ja leikkeletarjottimelle."
+    ],
     "asparagus": [
       "Parsassa on runsaasti folaattia, joka on tärkeää solujen toiminnalle ja kudosten kasvulle.",
       "Parsa sisältää antioksidantteja, kuten E- ja C-vitamiinia.",
@@ -553,6 +559,11 @@
       "Yksi greippi sisältää noin 100 % päivittäisestä C-vitamiinista.",
       "Greipit löydettiin Barbadokselta 1700-luvulla ja niiden uskotaan olevan pomelon ja appelsiinin hybridi.",
       "Greippiä suositellaan vältettävän tiettyjen lääkekuurien aikana."
+    ],
+    "grenadilla": [
+      "Grenadillaa käytetään samoin tavoin kuin passiohedelmää, mutta se on makeampi ja vähemmän kirpeä.",
+      "Grenadilla on alunperin kotoisin Etelä-Amerikasta, jossa se kasvaa vuoristoisessa ilmanalassa.",
+      "Grenadillan siemenet ovat syötäviä."
     ],
     "green lentil": [
       "30 gramman annos vihreitä linssejä sisältää noin 7 g proteiinia ja runsaasti kuitua.",
@@ -1078,6 +1089,7 @@
     "apricot": "aprikoosi",
     "artichoke": "latva-artisokka",
     "arugula": "rucola",
+    "asian pear": "omenapäärynä (nashi)",
     "asparagus": "tankoparsa",
     "avocado": "avokado",
     "bamboo shoots": "bambunverso",
@@ -1122,7 +1134,7 @@
     "chanterelle": "kantarelli",
     "chard": "mangoldi",
     "chayote": "kajottikurpitsa",
-    "cherimoya": "cherimoya",
+    "cherimoya": "cherimoya (annoona)",
     "cherry tomato": "kirsikkatomaatti",
     "cherry": "kirsikka",
     "chestnut": "kastanja",
@@ -1141,8 +1153,9 @@
     "cranberry bean": "borlottipapu",
     "cranberry": "karpalo",
     "cucumber": "kurkku",
-    "daikon": "daikon",
+    "daikon": "valkoretikka (daikon)",
     "dandelion greens": "voikukka",
+    "grenadilla": "grenadilla",
     "date": "taateli",
     "dill": "tilli",
     "dragon fruit": "pitaija (lohikäärmehedelmä)",
