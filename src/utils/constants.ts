@@ -45,6 +45,7 @@ export const CATEGORY_EMOJI = {
 export const FRUITS = [
   'apple',
   'apricot',
+  'asian pear',
   'banana',
   'blackberry',
   'blackcurrant',
@@ -68,6 +69,7 @@ export const FRUITS = [
   'gooseberry',
   'grape',
   'grapefruit',
+  'grenadilla',
   'guava',
   'honeydew melon',
   'jackfruit',
