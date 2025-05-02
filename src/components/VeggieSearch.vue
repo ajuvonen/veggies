@@ -20,7 +20,7 @@ const model = defineModel<string[]>({
   required: true,
 });
 
-const {t, locale} = useI18n();
+const {t, tm, locale} = useI18n();
 
 const query = ref('');
 
@@ -35,20 +35,21 @@ const allVeggies = useMemoize(() => {
     veggie,
     category: getCategoryForVeggie(veggie) as Category,
     translation: t(`veggies.${veggie}`),
+    synonyms: Object.values<string>(tm(`synonyms.${veggie}`)),
   })).sort((a, b) => collator.compare(a.translation, b.translation));
 });
 
 const filteredVeggies = useMemoize(
-  (category?: Category) =>
-    allVeggies().filter(
-      (item) =>
-        (!category || item.category === category) &&
-        (!query.value ||
-          item.translation
-            .toLowerCase()
-            .replace(/\s+/g, '')
-            .includes(query.value.toLowerCase().replace(/\s+/g, ''))),
-    ),
+  (category?: Category) => {
+    const cleanedQuery = query.value.toLowerCase().replace(/\s+/g, '');
+    return allVeggies().filter(
+      (veggie) =>
+        (!category || veggie.category === category) &&
+        (!cleanedQuery ||
+          veggie.translation.replace(/\s+/g, '').includes(cleanedQuery) ||
+          veggie.synonyms.some((synonym) => synonym.replace(/\s+/g, '').includes(cleanedQuery))),
+    );
+  },
   {
     getKey: (category?: Category) => `${category}_${query.value}`,
   },
