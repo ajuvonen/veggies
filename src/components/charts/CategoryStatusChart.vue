@@ -31,7 +31,7 @@ const {t} = useI18n();
 const container = ref<HTMLDivElement | null>(null);
 const {height} = useElementSize(container);
 
-const medalEmojis = ['🥇', '🥈', '🥉', '🕓', '🕔'];
+const medalEmojis = ['🥇', '🥈', '🥉', '🍀', '🖐️', '🕕'];
 const getFavorites = (category: Category) =>
   props.favorites[category].map(([veggie, amount], index) => {
     let translation = t(`veggies.${veggie}`);

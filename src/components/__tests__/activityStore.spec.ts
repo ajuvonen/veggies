@@ -436,13 +436,13 @@ describe('activityStore', () => {
       {
         startDate: twoWeeksAgo,
         veggies: [
-          ...take(FRUITS, 5),
-          ...take(VEGETABLES, 5),
-          ...take(LEAFIES, 5),
-          ...take(ROOTS, 5),
-          ...take(BEANS, 5),
-          ...take(GRAINS, 5),
-          ...take(MUSHROOMS, 5),
+          ...take(FRUITS, 7),
+          ...take(VEGETABLES, 7),
+          ...take(LEAFIES, 7),
+          ...take(ROOTS, 7),
+          ...take(BEANS, 7),
+          ...take(GRAINS, 7),
+          ...take(MUSHROOMS, 7),
         ],
       },
       {
@@ -478,6 +478,7 @@ describe('activityStore', () => {
         [FRUITS[2], 1],
         [FRUITS[3], 1],
         [FRUITS[4], 1],
+        [FRUITS[5], 1],
       ],
       [Category.Vegetable]: [
         [VEGETABLES[0], 3],
@@ -485,6 +486,7 @@ describe('activityStore', () => {
         [VEGETABLES[2], 1],
         [VEGETABLES[3], 1],
         [VEGETABLES[4], 1],
+        [VEGETABLES[5], 1],
       ],
       [Category.Leafy]: [
         [LEAFIES[0], 3],
@@ -492,6 +494,7 @@ describe('activityStore', () => {
         [LEAFIES[2], 1],
         [LEAFIES[3], 1],
         [LEAFIES[4], 1],
+        [LEAFIES[5], 1],
       ],
       [Category.Root]: [
         [ROOTS[0], 3],
@@ -499,6 +502,7 @@ describe('activityStore', () => {
         [ROOTS[2], 1],
         [ROOTS[3], 1],
         [ROOTS[4], 1],
+        [ROOTS[5], 1],
       ],
       [Category.Bean]: [
         [BEANS[0], 3],
@@ -506,6 +510,7 @@ describe('activityStore', () => {
         [BEANS[2], 1],
         [BEANS[3], 1],
         [BEANS[4], 1],
+        [BEANS[5], 1],
       ],
       [Category.Grain]: [
         [GRAINS[0], 3],
@@ -513,6 +518,7 @@ describe('activityStore', () => {
         [GRAINS[2], 1],
         [GRAINS[3], 1],
         [GRAINS[4], 1],
+        [GRAINS[5], 1],
       ],
       [Category.Mushroom]: [
         [MUSHROOMS[0], 3],
@@ -520,6 +526,7 @@ describe('activityStore', () => {
         [MUSHROOMS[2], 1],
         [MUSHROOMS[3], 1],
         [MUSHROOMS[4], 1],
+        [MUSHROOMS[5], 1],
       ],
     });
   });
