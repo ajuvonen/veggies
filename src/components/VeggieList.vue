@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
+import {useMemoize} from '@vueuse/core';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
@@ -12,12 +12,13 @@ defineProps<{
 
 const {t, locale} = useI18n();
 
-const allVeggies = computed(() => {
+const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
   return ALL_VEGGIES.map<TranslatedListing>((veggie) => ({
     veggie,
     category: getCategoryForVeggie(veggie) as Category,
     translation: t(`veggies.${veggie}`),
+    synonyms: [],
   })).sort((a, b) => collator.compare(a.translation, b.translation));
 });
 </script>
@@ -29,7 +30,9 @@ const allVeggies = computed(() => {
       <ContentElement :title="$t(`categories.${category}`)">
         <ul class="columns-2 md:columns-3">
           <li
-            v-for="{veggie, translation} in allVeggies.filter((item) => item.category === category)"
+            v-for="{veggie, translation} in allVeggies().filter(
+              (item) => item.category === category,
+            )"
             :key="veggie"
             class="veggie-list__veggie"
           >

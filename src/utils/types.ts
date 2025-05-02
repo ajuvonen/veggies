@@ -48,6 +48,7 @@ export type Listing = {
 
 export type TranslatedListing = Listing & {
   translation: string;
+  synonyms: string[];
 };
 
 export enum AchievementLevel {

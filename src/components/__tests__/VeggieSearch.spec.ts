@@ -32,6 +32,18 @@ describe('VeggieSearch', () => {
     expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(false);
   });
 
+  it('filters veggies by synonyms', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('bilberry');
+    expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
+    expect(wrapper.find('.dropdown-list-option').text()).toContain('blueberry');
+    await input.setValue('au');
+    expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
+    expect(wrapper.findByText('.dropdown-list-option', 'cauliflower').exists()).toBe(true);
+    expect(wrapper.findByText('.dropdown-list-option', 'eggplant').exists()).toBe(true);
+  });
+
   it('shows all categories with matches', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
