@@ -117,7 +117,7 @@ export const LEAFIES = [
   'dandelion greens',
   'dill',
   'endive',
-  'frisée',
+  'frisee',
   'holy basil',
   'iceberg lettuce',
   'kale',
