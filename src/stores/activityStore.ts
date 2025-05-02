@@ -114,7 +114,7 @@ export const useActivityStore = defineStore('activity', () => {
           countBy((veggie) => veggie),
           entries(),
           sortBy([prop(1), 'desc']),
-          take(5),
+          take(6),
         ),
       }),
       {} as Favorites,
