@@ -10,7 +10,7 @@ The project is a Vue-frontend created with TypeScript and bundled with Vite. It 
 
 ## Requirements
 
-Node 20+
+Node 22+
 
 PWA functionalities require a PWA-compatible browser.
 
