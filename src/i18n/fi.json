@@ -105,29 +105,29 @@
   "allTimeStatus": {
     "atMostVeggies": {
       "bottomLabel": "Kasvista viikossa",
-      "shareText": "Viikossa kokeilemieni erilaisten kasvisten enimmäismäärä on nyt {0}! Kokeile tätä ilmaista sovellusta: {1}",
+      "shareText": "Viikossa kokeilemieni erilaisten kasvisten enimmäismäärä on nyt {0}! Kokeile ilmaiseksi: {1}",
       "topLabel": "Enimmillään"
     },
     "completedChallenges": {
       "bottomLabel": "Viikkohaastetta",
-      "shareText": "Olen suorittanut {0} Eat Your Veggies -viikkohaastetta! Kokeile tätä ilmaista sovellusta: {1}",
+      "shareText": "Olen suorittanut {0} Eat Your Veggies -viikkohaastetta! Kokeile ilmaiseksi: {1}",
       "topLabel": "Suoritettu"
     },
     "copy": "Kopioi saavutus leikepöydälle",
     "over30Veggies": {
       "topLabel": "Yli 30 kasvista",
-      "shareText": "Olen onnistunut syömään yli 30 kasvista viikossa {0} kertaa! Kokeile tätä ilmaista sovellusta: {1}",
+      "shareText": "Olen onnistunut syömään yli 30 kasvista viikossa {0} kertaa! Kokeile ilmaiseksi: {1}",
       "bottomLabel": "Viikolla"
     },
     "share": "Jaa saavutus",
     "totalWeeks": {
       "bottomLabel": "Viikkoa",
-      "shareText": "Olen käyttänyt Eat Your Veggies -sovellusta {0} viikkoa! Kokeile tätä ilmaista sovellusta: {1}",
+      "shareText": "Olen käyttänyt Eat Your Veggies -sovellusta {0} viikkoa! Kokeile ilmaiseksi: {1}",
       "topLabel": "Yhteensä"
     },
     "uniqueVeggies": {
       "bottomLabel": "Erilaista kasvista",
-      "shareText": "Olen syönyt yhteensä {0} erilaista kasvista! Kokeile tätä ilmaista sovellusta: {1}",
+      "shareText": "Olen syönyt yhteensä {0} erilaista kasvista! Kokeile ilmaiseksi: {1}",
       "topLabel": "Yhteensä"
     }
   },
@@ -1042,7 +1042,7 @@
     "title": "Yleisiä kysymyksiä",
     "whatCounts": {
       "title": "Mikä lasketaan annokseksi?",
-      "text": "Se, miten sovellusta käytät, on viime kädessä kiinni omasta harkinnastasi. Huomioi kuitenkin, että hyvin vähäisissä määrissä kasviksia ei ole merkittävää ravitsemuksellista arvoa. Itse lasken mukaan vain kukkurallista ruokalusikkaa suuremmat annoskoot. Mainittakoon myös, että pitkälle prosessoiduilla ruoka-aineilla ei pidä korvata kasviksia. Ketsuppia ei siis lasketa tomaatiksi."
+      "text": "Se, miten sovellusta käytät, on viime kädessä kiinni omasta harkinnastasi. Huomioi kuitenkin, että hyvin vähäisissä määrissä kasviksia ei ole merkittävää ravitsemuksellista arvoa. Mainittakoon myös, että pitkälle prosessoiduilla ruoka-aineilla ei pidä korvata kasviksia. Ketsuppia ei siis lasketa tomaatiksi."
     }
   },
   "settings": {

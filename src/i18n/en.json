@@ -105,29 +105,29 @@
   "allTimeStatus": {
     "atMostVeggies": {
       "bottomLabel": "Veggies in a Week",
-      "shareText": "I've tried as many as {0} different vegetables in one week! Try this free app out: {1}",
+      "shareText": "I've tried as many as {0} different vegetables in one week! Try for free: {1}",
       "topLabel": "At Most"
     },
     "completedChallenges": {
       "bottomLabel": "Weekly Challenges",
-      "shareText": "I've completed {0} weekly Eat Your Veggies -challenges! Try this free app out: {1}",
+      "shareText": "I've completed {0} weekly Eat Your Veggies -challenges! Try for free: {1}",
       "topLabel": "Completed"
     },
     "copy": "Copy achievement to clipboard",
     "over30Veggies": {
       "bottomLabel": "Weeks",
-      "shareText": "I've managed to eat over 30 veggies in a week {0} times! Try this free app out: {1}",
+      "shareText": "I've managed to eat over 30 veggies in a week {0} times! Try for free: {1}",
       "topLabel": "Over 30 Veggies in"
     },
     "share": "Share achievement",
     "totalWeeks": {
       "bottomLabel": "Weeks",
-      "shareText": "I've used Eat Your Veggies now for {0} weeks! Try this free app out: {1}",
+      "shareText": "I've used Eat Your Veggies now for {0} weeks! Try for free: {1}",
       "topLabel": "In Total"
     },
     "uniqueVeggies": {
       "topLabel": "In Total",
-      "shareText": "So far, I've tried {0} unique veggies! Try this free app out: {1}",
+      "shareText": "So far, I've tried {0} unique veggies! Try for free: {1}",
       "bottomLabel": "Unique Veggies"
     }
   },
@@ -1036,7 +1036,7 @@
     "title": "Common Questions",
     "whatCounts": {
       "title": "What counts as a portion?",
-      "text": "Ultimately, how you use the app is up to your discretion. However, consider that minuscule amounts might not be of any nutritional value. Therefore I personally consider only portions of a heaping tablespoon or larger adequate. It is also worth noting that very processed foods don't count towards a portion. So ketchup should not equal a tomato."
+      "text": "Ultimately, how you use the app is up to your discretion. However, consider that minuscule amounts might not be of any nutritional value. It is also worth noting that very processed foods don't count towards a portion. So ketchup should not equal a tomato."
     }
   },
   "settings": {
