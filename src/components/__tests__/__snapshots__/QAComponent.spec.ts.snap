@@ -90,7 +90,7 @@ exports[`QAComponent > renders answers 1`] = `
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
       <div id="headlessui-disclosure-panel-v-5" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-whatCounts">
-        <div>Ultimately, how you use the app is up to your discretion. However, consider that minuscule amounts might not be of any nutritional value. Therefore I personally consider only portions of a heaping tablespoon or larger adequate. It is also worth noting that very processed foods don't count towards a portion. So ketchup should not equal a tomato.</div>
+        <div>Ultimately, how you use the app is up to your discretion. However, consider that minuscule amounts might not be of any nutritional value. It is also worth noting that very processed foods don't count towards a portion. So ketchup should not equal a tomato.</div>
       </div>
     </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-6" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-categories" type="button" aria-controls="headlessui-disclosure-panel-v-7">
       <!--v-if-->But strawberry is a... <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
