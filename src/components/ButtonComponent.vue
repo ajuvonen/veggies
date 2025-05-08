@@ -2,7 +2,7 @@
 import {computed} from 'vue';
 import type {IconString} from '@/components/IconComponent.vue';
 
-export type ButtonVariant = 'primary' | 'danger' | 'tag' | 'remove' | 'text';
+export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'tag' | 'remove' | 'text';
 
 defineEmits(['click']);
 const props = withDefaults(
@@ -33,6 +33,10 @@ const getVariants = computed(() => {
 .button--primary,
 .button--tag {
   @apply bg-[--color-highlight] hover:bg-sky-600;
+}
+
+.button--secondary {
+  @apply bg-[--color-bg-alternative] text-[--color-text-alternative] hover:bg-sky-600 hover:text-[--color-text];
 }
 
 .button--text {
