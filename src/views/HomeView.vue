@@ -25,12 +25,15 @@ const start = () => {
       {{ $t('home.callout') }}
     </p>
     <div class="flex-container justify-center">
-      <ButtonComponent data-test-id="home-info-button" @click="dialogOpen = true">{{
-        $t('home.info')
-      }}</ButtonComponent>
       <ButtonComponent data-test-id="home-start-button" @click="start()">{{
         $t('general.start')
       }}</ButtonComponent>
+      <ButtonComponent
+        variant="secondary"
+        data-test-id="home-info-button"
+        @click="dialogOpen = true"
+        >{{ $t('home.info') }}</ButtonComponent
+      >
     </div>
     <BlueskyLink />
     <ModalDialog v-model="dialogOpen" :title="$t('home.infoTitle')">

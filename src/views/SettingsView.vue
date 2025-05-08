@@ -66,9 +66,12 @@ const reset = () => {
       <p>{{ $t('settings.reset.text') }}</p>
     </template>
     <template #buttons>
-      <ButtonComponent data-test-id="cancel-button" @click="resetDialogOpen = false">{{
-        $t('general.cancel')
-      }}</ButtonComponent>
+      <ButtonComponent
+        variant="secondary"
+        data-test-id="cancel-button"
+        @click="resetDialogOpen = false"
+        >{{ $t('general.cancel') }}</ButtonComponent
+      >
       <ButtonComponent
         data-test-id="confirm-button"
         variant="danger"
