@@ -83,7 +83,10 @@ watch(model, () => {
       :placeholder="$t('veggieSearch.search')"
       class="veggie-search__input"
       data-test-id="veggie-search-input"
+      inputmode="text"
       autocomplete="off"
+      autocorrect="off"
+      autocapitalize="none"
       @change="query = $event.target.value"
       @click="!open && openButton?.$el.click()"
     />
