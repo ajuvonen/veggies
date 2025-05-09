@@ -89,63 +89,58 @@ watch(model, () => {
 });
 </script>
 <template>
-  <form autocomplete="off">
-    <Combobox v-model="model" v-slot="{open}" nullable multiple as="div" class="relative z-20">
-      <ComboboxInput
-        ref="searchInput"
-        :aria-label="$t('veggieSearch.search')"
-        :placeholder="$t('veggieSearch.search')"
-        class="veggie-search__input"
-        data-test-id="veggie-search-input"
-        inputmode="text"
-        autocomplete="new-password"
-        autocorrect="off"
-        autocapitalize="none"
-        @change="query = $event.target.value"
-        @click="!open && openButton?.$el.click()"
-      />
-      <ComboboxButton
-        ref="openButton"
-        :class="open ? 'rotate-180 transform' : ''"
-        class="veggie-search__button"
-        data-test-id="veggie-search-button"
+  <Combobox v-model="model" v-slot="{open}" nullable multiple as="div" class="relative z-20">
+    <ComboboxInput
+      ref="searchInput"
+      :aria-label="$t('veggieSearch.search')"
+      :placeholder="$t('veggieSearch.search')"
+      class="veggie-search__input"
+      data-test-id="veggie-search-input"
+      inputmode="text"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="none"
+      @change="query = $event.target.value"
+      @click="!open && openButton?.$el.click()"
+    />
+    <ComboboxButton
+      ref="openButton"
+      :class="open ? 'rotate-180 transform' : ''"
+      class="veggie-search__button"
+      data-test-id="veggie-search-button"
+    >
+      <IconComponent icon="chevronDown" aria-hidden="true" />
+    </ComboboxButton>
+    <TransitionRoot
+      leave="ease-in duration-100"
+      leaveFrom="opacity-100"
+      leaveTo="opacity-0"
+      @after-enter="scrollToStart"
+      @after-leave="onMenuClose"
+    >
+      <ComboboxOptions
+        ref="optionsElement"
+        :style="maxHeightStyle"
+        class="dropdown-list-options"
+        data-test-id="veggie-search-options"
       >
-        <IconComponent icon="chevronDown" aria-hidden="true" />
-      </ComboboxButton>
-      <TransitionRoot
-        leave="ease-in duration-100"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-        @after-enter="scrollToStart"
-        @after-leave="onMenuClose"
-      >
-        <ComboboxOptions
-          ref="optionsElement"
-          :style="maxHeightStyle"
-          class="dropdown-list-options"
-          data-test-id="veggie-search-options"
-        >
-          <li
-            v-if="filteredVeggies().length === 0 && query !== ''"
-            class="veggie-search__no-results"
-          >
-            {{ $t('veggieSearch.noResults') }}
-          </li>
-          <VeggieSearchChallenge v-if="!query.length" />
-          <VeggieSearchGroup
-            v-for="(category, _, index) in Category"
-            ref="groups"
-            :key="category"
-            :category="category"
-            :items="filteredVeggies(category)"
-            :showControls="!query.length"
-            @previous="jump(index - 1)"
-            @next="jump(index + 1)"
-          />
-        </ComboboxOptions>
-      </TransitionRoot>
-    </Combobox>
-  </form>
+        <li v-if="filteredVeggies().length === 0 && query !== ''" class="veggie-search__no-results">
+          {{ $t('veggieSearch.noResults') }}
+        </li>
+        <VeggieSearchChallenge v-if="!query.length" />
+        <VeggieSearchGroup
+          v-for="(category, _, index) in Category"
+          ref="groups"
+          :key="category"
+          :category="category"
+          :items="filteredVeggies(category)"
+          :showControls="!query.length"
+          @previous="jump(index - 1)"
+          @next="jump(index + 1)"
+        />
+      </ComboboxOptions>
+    </TransitionRoot>
+  </Combobox>
 </template>
 <style scoped>
 .veggie-search__input {
