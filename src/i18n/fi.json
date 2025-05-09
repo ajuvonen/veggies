@@ -1075,6 +1075,7 @@
     "blueberry": ["pensasmustikka"],
     "bok choy": [""],
     "butter bean": ["limanpapu"],
+    "cabbage": ["valkokaali"],
     "celeriac": [""],
     "champignon": [""],
     "chanterelle": ["keltavahvero"],
@@ -1362,7 +1363,9 @@
   },
   "veggieSearch": {
     "challenge": "Viikkohaasteesi",
+    "nextCategory": "Seuraava ryhmä",
     "noResults": "Ei tuloksia",
+    "previousCategory": "Edellinen ryhmä",
     "search": "Kirjaa viikon kasvikset"
   },
   "views": {

@@ -3,7 +3,7 @@ import {mount} from '@vue/test-utils';
 import IconComponent, {type IconString} from '@/components/IconComponent.vue';
 
 describe('IconComponent', () => {
-  it('renders icon', () => {
+  it('renders icons', () => {
     const icons: IconString[] = [
       'bluesky',
       'calendarWeekOutline',
@@ -12,7 +12,9 @@ describe('IconComponent', () => {
       'check',
       'checkboxBlank',
       'checkboxMarked',
-      'chevron',
+      'chevronDoubleDown',
+      'chevronDoubleUp',
+      'chevronDown',
       'close',
       'cog',
       'contentCopy',
@@ -34,7 +36,7 @@ describe('IconComponent', () => {
           icon,
         },
       });
-      expect(wrapper.html()).toMatchSnapshot();
+      expect(wrapper.html()).toMatchSnapshot(`renders ${icon}`);
     });
   });
 

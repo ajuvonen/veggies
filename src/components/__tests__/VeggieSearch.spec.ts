@@ -32,6 +32,18 @@ describe('VeggieSearch', () => {
     expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(false);
   });
 
+  it('shows jump controls', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('');
+    expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
+    expect(wrapper.findByTestId('veggie-search-previous-Fruit').isVisible()).toBe(true);
+    expect(wrapper.findByTestId('veggie-search-next-Fruit').isVisible()).toBe(true);
+    await input.setValue('a');
+    expect(wrapper.findByTestId('veggie-search-previous-Fruit').exists()).toBe(false);
+    expect(wrapper.findByTestId('veggie-search-next-Fruit').exists()).toBe(false);
+  });
+
   it('filters veggies by synonyms', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');

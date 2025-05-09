@@ -64,7 +64,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
           data-test-id="week-editor-dropdown-button"
         >
           <span class="truncate">{{ formatWeek(selectedWeekStart) }}</span>
-          <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
+          <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevronDown" />
         </ListboxButton>
       </ContentElement>
       <TransitionRoot
