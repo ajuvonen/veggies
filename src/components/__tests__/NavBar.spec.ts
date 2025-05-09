@@ -19,7 +19,17 @@ describe('NavBar', () => {
     vi.restoreAllMocks();
   });
 
-  it('renders', () => {
+  it('renders for home', async () => {
+    mocks.useRoute.mockImplementation(() => ({name: 'home'}));
+    const wrapper = mount(NavBar, {
+      props: {
+        showStats: false,
+      },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('renders for log', () => {
     mocks.useRoute.mockImplementation(() => ({name: 'log'}));
     const wrapper = mount(NavBar, {
       props: {
@@ -29,8 +39,18 @@ describe('NavBar', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders for home', async () => {
-    mocks.useRoute.mockImplementation(() => ({name: 'home'}));
+  it('renders for stats', async () => {
+    mocks.useRoute.mockImplementation(() => ({name: 'stats'}));
+    const wrapper = mount(NavBar, {
+      props: {
+        showStats: false,
+      },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('renders for settings', async () => {
+    mocks.useRoute.mockImplementation(() => ({name: 'settings'}));
     const wrapper = mount(NavBar, {
       props: {
         showStats: false,

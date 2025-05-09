@@ -29,7 +29,6 @@ const icons: IconString[] = [
 const hideTooltips = useThrottleFn(hideAll);
 </script>
 <template>
-  <h1 class="sr-only">{{ $t('views.stats') }}</h1>
   <TabGroup :selectedIndex="selectedStat" @change="(index) => (selectedStat = index)">
     <TabList class="grid grid-cols-5 gap-2">
       <Tab v-for="(_, index) in [...Array(5)]" :key="index" v-slot="{selected}" as="template">

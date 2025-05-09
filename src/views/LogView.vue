@@ -65,7 +65,6 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
 provide(KEYS.challenge, readonly(currentChallenge));
 </script>
 <template>
-  <h1 class="sr-only">{{ $t('views.log') }}</h1>
   <VeggieSearch v-model="currentVeggies" />
   <CategoryStatusChart v-if="currentVeggies.length" :veggies="currentVeggies" />
   <FrontPageAnimation v-else />

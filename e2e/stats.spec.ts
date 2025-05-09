@@ -7,7 +7,7 @@ test("shows current week's veggies", async ({page}) => {
   await page.getByText(/^apple$/).click();
   await page.getByText('Apricot').click();
   await page.getByText('Avocado').click();
-  await page.getByTestId('navbar-link-stats').click();
+  await page.getByTestId('navbar-stats-link').click();
   await expect(page.getByTestId('tag-apple')).toBeVisible();
   await expect(page.getByTestId('tag-apricot')).toBeVisible();
   await expect(page.getByTestId('tag-avocado')).toBeVisible();
@@ -15,7 +15,7 @@ test("shows current week's veggies", async ({page}) => {
   await page.getByTestId('tag-apricot').click();
   await expect(page.getByTestId('tag-apple')).toBeHidden();
   await expect(page.getByTestId('tag-apricot')).toBeHidden();
-  await page.getByTestId('navbar-link-log').click();
+  await page.getByTestId('navbar-log-link').click();
   await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
     'This Week 1 Veggies',
   );
