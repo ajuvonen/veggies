@@ -18,7 +18,7 @@ defineProps<{
         <span aria-hidden="true">{{ CATEGORY_EMOJI[category] }}</span>
         <span>{{ $t(`categories.${category}`) }} ({{ items.length }})</span>
       </div>
-      <div v-if="showControls" class="flex-container gap-4">
+      <div v-if="showControls" class="flex-container">
         <ButtonComponent
           :aria-label="$t('veggieSearch.previousCategory')"
           :data-test-id="`veggie-search-previous-${category}`"
