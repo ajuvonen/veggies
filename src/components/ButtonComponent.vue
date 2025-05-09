@@ -36,7 +36,7 @@ const getVariants = computed(() => {
 }
 
 .button--secondary {
-  @apply bg-[--color-bg-alternative] text-[--color-text-alternative] hover:bg-sky-600 hover:text-[--color-text];
+  @apply bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:bg-sky-600 hover:text-[--color-text] hover:fill-[--color-text];
 }
 
 .button--text {
