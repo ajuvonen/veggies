@@ -9,6 +9,7 @@ import {
   mdiChevronDoubleDown,
   mdiChevronDoubleUp,
   mdiChevronDown,
+  mdiChevronLeft,
   mdiClose,
   mdiCogOutline,
   mdiContentCopy,
@@ -36,6 +37,7 @@ export type IconString =
   | 'chevronDoubleDown'
   | 'chevronDoubleUp'
   | 'chevronDown'
+  | 'chevronLeft'
   | 'close'
   | 'cog'
   | 'contentCopy'
@@ -71,6 +73,7 @@ const icons = {
   chevronDoubleDown: mdiChevronDoubleDown,
   chevronDoubleUp: mdiChevronDoubleUp,
   chevronDown: mdiChevronDown,
+  chevronLeft: mdiChevronLeft,
   close: mdiClose,
   cog: mdiCogOutline,
   contentCopy: mdiContentCopy,
