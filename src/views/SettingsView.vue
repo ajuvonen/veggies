@@ -2,6 +2,7 @@
 import {ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
+import {useI18n} from 'vue-i18n';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
@@ -11,22 +12,47 @@ import BuildTime from '@/components/BuildTime.vue';
 
 const router = useRouter();
 
+const {t} = useI18n();
+
 const {$reset: activityReset} = useActivityStore();
 const appStateStore = useAppStateStore();
 const {settings} = storeToRefs(appStateStore);
 const {$reset: appStateReset} = appStateStore;
 
 const resetDialogOpen = ref(false);
+const debugCounter = ref(0);
 
 const reset = () => {
   activityReset();
   appStateReset();
   router.push({name: 'home'});
 };
+
+const copyData = () => {
+  try {
+    navigator.clipboard.writeText(
+      t('settings.copy.text', [
+        localStorage.getItem('veggies-start-date'),
+        JSON.stringify(JSON.parse(localStorage.getItem('veggies-weeks') || ''), null, 2),
+        localStorage.getItem('veggies-challenges'),
+        localStorage.getItem('veggies-settings'),
+      ]),
+    );
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (err) {
+    navigator.clipboard.writeText(
+      t('settings.copy.text', [
+        localStorage.getItem('veggies-start-date'),
+        localStorage.getItem('veggies-weeks'),
+        localStorage.getItem('veggies-challenges'),
+        localStorage.getItem('veggies-settings'),
+      ]),
+    );
+  }
+};
 </script>
 
 <template>
-  <h1 class="sr-only">{{ $t('views.settings') }}</h1>
   <LocaleChanger />
   <ContentElement
     :title="$t('settings.suggestionCount')"
@@ -60,7 +86,23 @@ const reset = () => {
       >{{ $t('settings.reset.button') }}</ButtonComponent
     >
   </ContentElement>
-  <BuildTime />
+  <BuildTime v-if="debugCounter < 5" @click="debugCounter++" />
+  <ContentElement
+    v-else
+    :title="$t('settings.copy.label')"
+    :labelAttrs="{for: 'copy-button'}"
+    labelTag="label"
+  >
+    <ButtonComponent
+      id="copy-button"
+      variant="secondary"
+      icon="contentCopy"
+      data-test-id="copy-button"
+      class="self-end"
+      @click="copyData"
+      >{{ $t('settings.copy.button') }}</ButtonComponent
+    >
+  </ContentElement>
   <ModalDialog v-model="resetDialogOpen" :title="$t('settings.reset.title')">
     <template #content>
       <p>{{ $t('settings.reset.text') }}</p>

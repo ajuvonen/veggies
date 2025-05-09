@@ -53,4 +53,13 @@ describe('SettingsView', () => {
     expect(appStateStore.$reset).toBeCalledTimes(0);
     expect(activityStore.$reset).toBeCalledTimes(0);
   });
+
+  it('shows debug functions', async () => {
+    const wrapper = mounter();
+    expect(wrapper.findByTestId('copy-button').exists()).toBe(false);
+    for (let i = 0; i < 5; i++) {
+      await wrapper.findByTestId('build-time').trigger('click');
+    }
+    expect(wrapper.findByTestId('copy-button').exists()).toBe(true);
+  });
 });

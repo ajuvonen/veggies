@@ -1046,6 +1046,11 @@
     }
   },
   "settings": {
+    "copy": {
+      "button": "Copy",
+      "label": "Copy app data to clipboard",
+      "text": "Start date:\n{0}\n\nWeeks:\n{1}\n\nChallenges:\n{2}\n\nSettings:\n{3}"
+    },
     "locale": "Kieli",
     "reset": {
       "button": "Tyhjennä",
