@@ -66,11 +66,11 @@ const routeName = computed(() =>
 
 .navbar__header {
   font-family: 'Bungee Shade', system-ui;
-  font-size: 6vw;
+  font-size: 5.8vw;
   @apply uppercase sm:text-4xl rounded-md;
 }
 
 .navbar__link-icon {
-  @apply max-h-7 min-h-5 max-w-7 min-w-5;
+  @apply m-1 max-h-7 min-h-5 max-w-7 min-w-5;
 }
 </style>
