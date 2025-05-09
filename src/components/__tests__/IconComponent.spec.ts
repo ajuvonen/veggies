@@ -15,7 +15,7 @@ describe('IconComponent', () => {
       'chevronDoubleDown',
       'chevronDoubleUp',
       'chevronDown',
-      'chevronLeft',
+      'chevronLeftCircle',
       'close',
       'cog',
       'contentCopy',

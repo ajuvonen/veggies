@@ -24,14 +24,14 @@ const routeName = computed(() =>
     </h1>
     <div v-if="!isHome" class="flex-container">
       <RouterLink
-        v-if="!isHome && route.name !== 'log'"
+        v-if="route.name !== 'log'"
         v-tippy="$t('views.log')"
         :aria-label="$t('views.log')"
         to="/log"
         class="navbar__log-link"
         data-test-id="navbar-log-link"
       >
-        <IconComponent icon="chevronLeft" size="6vw" class="navbar__link-icon" />
+        <IconComponent icon="chevronLeftCircle" size="6vw" class="navbar__link-icon" />
       </RouterLink>
       <RouterLink
         v-if="showStats"

@@ -5,11 +5,11 @@ import {
   mdiChartLine,
   mdiCheckboxBlankOutline,
   mdiCheckboxMarkedOutline,
-  mdiCheckCircleOutline,
+  mdiCheckCircle,
   mdiChevronDoubleDown,
   mdiChevronDoubleUp,
   mdiChevronDown,
-  mdiChevronLeft,
+  mdiChevronLeftCircle,
   mdiClose,
   mdiCogOutline,
   mdiContentCopy,
@@ -37,7 +37,7 @@ export type IconString =
   | 'chevronDoubleDown'
   | 'chevronDoubleUp'
   | 'chevronDown'
-  | 'chevronLeft'
+  | 'chevronLeftCircle'
   | 'close'
   | 'cog'
   | 'contentCopy'
@@ -67,13 +67,13 @@ const icons = {
   calendarWeekOutline: mdiCalendarWeekOutline,
   chart: mdiChartBar,
   chartLine: mdiChartLine,
-  check: mdiCheckCircleOutline,
+  check: mdiCheckCircle,
   checkboxBlank: mdiCheckboxBlankOutline,
   checkboxMarked: mdiCheckboxMarkedOutline,
   chevronDoubleDown: mdiChevronDoubleDown,
   chevronDoubleUp: mdiChevronDoubleUp,
   chevronDown: mdiChevronDown,
-  chevronLeft: mdiChevronLeft,
+  chevronLeftCircle: mdiChevronLeftCircle,
   close: mdiClose,
   cog: mdiCogOutline,
   contentCopy: mdiContentCopy,
