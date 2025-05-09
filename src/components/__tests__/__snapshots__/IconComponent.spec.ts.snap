@@ -26,7 +26,7 @@ exports[`IconComponent > renders icons > renders chartLine 1`] = `
 
 exports[`IconComponent > renders icons > renders check 1`] = `
 "<svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" class="transition-all"></path>
+  <path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" class="transition-all"></path>
 </svg>"
 `;
 
@@ -60,9 +60,9 @@ exports[`IconComponent > renders icons > renders chevronDown 1`] = `
 </svg>"
 `;
 
-exports[`IconComponent > renders icons > renders chevronLeft 1`] = `
+exports[`IconComponent > renders icons > renders chevronLeftCircle 1`] = `
 "<svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-  <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" class="transition-all"></path>
+  <path d="M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M15.4,16.6L10.8,12L15.4,7.4L14,6L8,12L14,18L15.4,16.6Z" class="transition-all"></path>
 </svg>"
 `;
 
