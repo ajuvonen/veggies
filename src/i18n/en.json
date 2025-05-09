@@ -1069,6 +1069,7 @@
     "blueberry": ["bilberry"],
     "bok choy": ["pak choi"],
     "butter bean": ["lima bean"],
+    "cabbage": [""],
     "celeriac": ["celery root"],
     "champignon": ["button", "cremini"],
     "chanterelle": [""],
@@ -1356,7 +1357,9 @@
   },
   "veggieSearch": {
     "challenge": "Your Weekly Challenge",
+    "nextCategory": "Next Category",
     "noResults": "No Results",
+    "previousCategory": "Previous Category",
     "search": "Add Weekly Veggies"
   },
   "views": {

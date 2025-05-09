@@ -23,6 +23,7 @@ const model = defineModel<string[]>({
 const {t, tm, locale} = useI18n();
 
 const query = ref('');
+const groups = ref<InstanceType<typeof VeggieSearchGroup>[]>([]);
 
 const openButton = ref<typeof ComboboxButton | null>(null);
 const searchInput = ref<typeof ComboboxInput | null>(null);
@@ -67,6 +68,13 @@ const scrollToStart = async () => {
   }
 };
 
+const jump = (index: number) => {
+  const parsedIndex =
+    index < 0 ? groups.value.length - 1 : index > groups.value.length - 1 ? 0 : index;
+  const targetGroup = groups.value[parsedIndex];
+  targetGroup.$el.scrollIntoView({behavior: 'smooth', block: 'start'});
+};
+
 watch(query, scrollToStart);
 watch(model, () => {
   if (searchInput.value && query.value) {
@@ -96,7 +104,7 @@ watch(model, () => {
       class="veggie-search__button"
       data-test-id="veggie-search-button"
     >
-      <IconComponent icon="chevron" aria-hidden="true" />
+      <IconComponent icon="chevronDown" aria-hidden="true" />
     </ComboboxButton>
     <TransitionRoot
       leave="ease-in duration-100"
@@ -116,10 +124,14 @@ watch(model, () => {
         </li>
         <VeggieSearchChallenge v-if="!query.length" />
         <VeggieSearchGroup
-          v-for="category in Category"
+          v-for="(category, _, index) in Category"
+          ref="groups"
           :key="category"
           :category="category"
           :items="filteredVeggies(category)"
+          :showControls="!query.length"
+          @previous="jump(index - 1)"
+          @next="jump(index + 1)"
         />
       </ComboboxOptions>
     </TransitionRoot>

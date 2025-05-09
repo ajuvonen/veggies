@@ -6,6 +6,8 @@ import {
   mdiCheckboxBlankOutline,
   mdiCheckboxMarkedOutline,
   mdiCheckCircleOutline,
+  mdiChevronDoubleDown,
+  mdiChevronDoubleUp,
   mdiChevronDown,
   mdiClose,
   mdiCogOutline,
@@ -31,7 +33,9 @@ export type IconString =
   | 'check'
   | 'checkboxBlank'
   | 'checkboxMarked'
-  | 'chevron'
+  | 'chevronDoubleDown'
+  | 'chevronDoubleUp'
+  | 'chevronDown'
   | 'close'
   | 'cog'
   | 'contentCopy'
@@ -64,7 +68,9 @@ const icons = {
   check: mdiCheckCircleOutline,
   checkboxBlank: mdiCheckboxBlankOutline,
   checkboxMarked: mdiCheckboxMarkedOutline,
-  chevron: mdiChevronDown,
+  chevronDoubleDown: mdiChevronDoubleDown,
+  chevronDoubleUp: mdiChevronDoubleUp,
+  chevronDown: mdiChevronDown,
   close: mdiClose,
   cog: mdiCogOutline,
   contentCopy: mdiContentCopy,

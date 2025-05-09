@@ -29,7 +29,7 @@ const questionKeysAndLinks = {
           class="w-full justify-between"
         >
           {{ $t(`qa.${key}.title`) }}
-          <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevron" />
+          <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevronDown" />
         </DisclosureButton>
         <Transition
           enter-active-class="transition duration-100 ease-out"
