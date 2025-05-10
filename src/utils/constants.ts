@@ -138,6 +138,7 @@ export const LEAFIES = [
   'sorrel',
   'spinach',
   'sprouts',
+  'thai basil',
   'thyme',
   'water spinach',
   'watercress',

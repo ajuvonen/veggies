@@ -582,6 +582,11 @@
       "A 30-gram portion of hemp seeds provides about 10 grams of protein and is rich in omega-3 fatty acids.",
       "Hemp seeds come from the same species as cannabis, but they contain very little THC."
     ],
+    "holy basil": [
+      "Holy basil is often confused with thai basil, but they have different flavor profiles.",
+      "The taste of holy basil is peppery, with a slightly bitter aftertaste.",
+      "Holy basil is also used in traditional medicine."
+    ],
     "honeydew melon": [
       "Honeydew melons are believed to have originated in the Middle East and were cultivated in ancient Egypt."
     ],
@@ -897,6 +902,11 @@
       "Teff is an ancient grain native to Ethiopia and is used to make the traditional bread, injera.",
       "Teff is naturally gluten-free, making it popular among those with gluten sensitivities."
     ],
+    "thai basil": [
+      "Thai basil is often confused with holy basil, but they have different flavor profiles.",
+      "The taste of thai basil is spicy, with a hint of licorice or anise.",
+      "Thai basil comes from the tropical climate of Southeast Asia."
+    ],
     "tomatillo": [
       "Tomatillos are encased in a papery husk that needs to be removed before consumption."
     ],
@@ -1090,6 +1100,7 @@
     "fava bean": ["broad bean"],
     "frisee": ["curly endive"],
     "green bean": ["string bean"],
+    "holy basil": ["tulsi"],
     "mandarin": ["satsuma"],
     "manioc": ["cassava", "tapioca"],
     "matsutake": [""],
@@ -1336,6 +1347,7 @@
     "sweet potato": "sweet potato",
     "taro": "taro",
     "teff": "teff",
+    "thai basil": "thai basil",
     "thyme": "thyme",
     "tomatillo": "tomatillo",
     "tomato": "tomato",
