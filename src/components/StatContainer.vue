@@ -29,6 +29,7 @@ const shareOrCopy = async () =>
   </i18n-t>
   <ButtonComponent
     v-tippy="shareSupported ? t('allTimeStatus.share') : t('allTimeStatus.copy')"
+    :aria-label="shareSupported ? t('allTimeStatus.share') : t('allTimeStatus.copy')"
     :data-test-id="
       shareSupported
         ? `stat-container-share-button-${statKey}`
