@@ -13,14 +13,18 @@ const {t} = useI18n();
 
 const isHome = computed(() => route.name === 'home');
 
-const routeName = computed(() =>
-  route.name === 'log' ? t('general.appTitle') : t(`views.${route.name?.toString()}`),
-);
+const headerTitle = computed(() => {
+  const routeName = route.name?.toString();
+  return {
+    name: !routeName || routeName === 'log' ? t('general.appTitle') : t(`views.${routeName}`),
+    ariaLabel: !routeName ? t('general.appTitle') : t(`views.${routeName}`),
+  };
+});
 </script>
 <template>
   <nav :class="{'navbar--home': isHome}" class="navbar">
-    <h1 v-if="!isHome" :aria-label="$t(`views.${route.name?.toString()}`)" class="navbar__header">
-      {{ routeName }}
+    <h1 v-if="!isHome" :aria-label="headerTitle.ariaLabel" class="navbar__header">
+      {{ headerTitle.name }}
     </h1>
     <div v-if="!isHome" class="flex-container">
       <RouterLink
