@@ -100,10 +100,10 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
     <TagsComponent
       :veggies="veggiesForWeek(selectedWeekStart)"
       :variant="['tag', 'remove']"
+      :toggleFn="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
       ariaKey="general.clickToRemove"
       icon="minus"
       @scroll="$emit('scroll')"
-      @toggle="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
     />
   </div>
 </template>

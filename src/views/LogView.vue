@@ -71,9 +71,9 @@ provide(KEYS.challenge, readonly(currentChallenge));
   <TagsComponent
     :veggies="suggestions"
     :variant="['tag', 'primary']"
+    :toggleFn="toggleVeggie"
     ariaKey="general.clickToAdd"
     icon="plus"
-    @toggle="(veggie) => toggleVeggie(veggie)"
   />
   <BlueskyLink />
 </template>

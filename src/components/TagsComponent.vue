@@ -1,12 +1,9 @@
 <script lang="ts" setup>
-import {computed} from 'vue';
+import {computed, ref, nextTick} from 'vue';
 import {useI18n} from 'vue-i18n';
 import type {ButtonVariant} from '@/components/ButtonComponent.vue';
 import type {IconString} from '@/components/IconComponent.vue';
-
-defineEmits<{
-  toggle: [veggie: string];
-}>();
+import ButtonComponent from '@/components/ButtonComponent.vue';
 
 const props = withDefaults(
   defineProps<{
@@ -14,6 +11,7 @@ const props = withDefaults(
     icon: IconString;
     variant?: ButtonVariant | ButtonVariant[];
     ariaKey: string;
+    toggleFn: (veggie: string) => void;
   }>(),
   {
     variant: () => ['primary'],
@@ -21,6 +19,9 @@ const props = withDefaults(
 );
 
 const {t, locale} = useI18n();
+
+const tags = ref<typeof ButtonComponent | null>(null);
+const listElement = ref<HTMLUListElement | null>(null);
 
 const translatedVeggies = computed(() => {
   const collator = new Intl.Collator(locale.value);
@@ -31,19 +32,28 @@ const translatedVeggies = computed(() => {
     }))
     .sort((a, b) => collator.compare(a.translation, b.translation));
 });
+
+const toggle = async (veggie: string, index: number) => {
+  props.toggleFn(veggie);
+  await nextTick();
+  const focusElement =
+    tags.value?.[index] || tags.value?.[tags.value.length - 1] || listElement.value;
+  focusElement.$el.focus();
+};
 </script>
 <template>
-  <TransitionGroup name="tags" tag="ul" class="tags__container">
+  <TransitionGroup ref="listElement" tabindex="-1" name="tags" tag="ul" class="tags__container">
     <li
-      v-for="{veggie, translation} in translatedVeggies"
+      v-for="({veggie, translation}, index) in translatedVeggies"
       :key="veggie"
       :data-test-id="`tag-${veggie}`"
       class="z-10"
     >
       <ButtonComponent
+        ref="tags"
         :aria-label="$t(ariaKey, [translation])"
         :variant="variant"
-        @click="$emit('toggle', veggie)"
+        @click="toggle(veggie, index)"
       >
         <IconComponent :icon="icon" />
         {{ translation }}</ButtonComponent

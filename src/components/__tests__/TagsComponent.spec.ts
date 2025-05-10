@@ -1,4 +1,4 @@
-import {describe, it, expect} from 'vitest';
+import {describe, it, expect, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import TagsComponent from '@/components/TagsComponent.vue';
 
@@ -9,6 +9,7 @@ describe('ButtonComponent', () => {
         veggies: ['tomato', 'pineapple'],
         icon: 'plus',
         ariaKey: 'general.clickToAdd',
+        toggleFn: () => {},
       },
     });
 
@@ -23,6 +24,7 @@ describe('ButtonComponent', () => {
         variant: 'danger',
         icon: 'minus',
         ariaKey: 'general.clickToRemove',
+        toggleFn: () => {},
       },
     });
 
@@ -37,6 +39,7 @@ describe('ButtonComponent', () => {
         variant: ['tag', 'primary'],
         icon: 'plus',
         ariaKey: 'general.clickToAdd',
+        toggleFn: () => {},
       },
     });
 
@@ -47,17 +50,21 @@ describe('ButtonComponent', () => {
   });
 
   it('emits click', async () => {
+    const toggleFn = vi.fn();
     const wrapper = mount(TagsComponent, {
       props: {
         veggies: ['tomato', 'pineapple'],
         variant: ['tag', 'primary'],
         icon: 'minus',
         ariaKey: 'general.clickToRemove',
+        toggleFn,
       },
     });
 
     await wrapper.findByText('.button-like', 'tomato').trigger('click');
     await wrapper.findByText('.button-like', 'pineapple').trigger('click');
-    expect(wrapper.emitted('toggle')).toEqual([['tomato'], ['pineapple']]);
+    expect(toggleFn).toBeCalledTimes(2);
+    expect(toggleFn).toBeCalledWith('tomato');
+    expect(toggleFn).toBeCalledWith('pineapple');
   });
 });
