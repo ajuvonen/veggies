@@ -586,6 +586,11 @@
       "30 gramman annos hampunsiemeniä sisältää noin 10 g proteiinia ja runsaasti omega-3-rasvahappoja.",
       "Hampunsiemenet tulevat samasta lajista kuin kannabis, mutta ne sisältävät vain vähän THC:tä."
     ],
+    "holy basil": [
+      "Pyhäbasilika sekoitetaan usein thaibasilikaan, mutta niillä on erilainen makuprofiili.",
+      "Pyhäbaslikan maku on pippurinen ja jälkimaku hieman kitkerä.",
+      "Pyhäbasilikaa käytetään myös perinteisessä lääketieteessä."
+    ],
     "honeydew melon": [
       "Hunajamelonin uskotaan olevan peräisin Lähi-idästä, ja sitä viljeltiin muinaisessa Egyptissä."
     ],
@@ -905,6 +910,11 @@
       "Teff on Etiopiasta kotoisin oleva muinainen vilja, jota käytetään perinteisen leivän, injeran, valmistukseen.",
       "Teff on luonnostaan gluteeniton, mikä tekee siitä suositun gluteeniyliherkille."
     ],
+    "thai basil": [
+      "Thaibasilika sekoitetaan usein pyhäbasilikaan, mutta niillä on erilainen makuprofiili.",
+      "Thaibasilikan maku on lakritsainen ja mausteinen, hieman anista muistuttava.",
+      "Thaibasilika on kotoisin Kaakkois-Aasian trooppisesta ilmastosta."
+    ],
     "tomatillo": ["Tomatillojen paperimainen kuori täytyy poistaa ennen käyttöä."],
     "tomato": [
       "Vaikka tomaatti usein luokitellaan vihannekseksi, se on kasvitieteellisesti hedelmä.",
@@ -1096,6 +1106,7 @@
     "fava bean": [""],
     "frisee": [""],
     "green bean": ["haricot"],
+    "holy basil": [""],
     "mandarin": ["satsuma"],
     "manioc": ["kassava", "tapioka"],
     "matsutake": ["matsutake"],
@@ -1228,7 +1239,7 @@
     "hedgehog mushroom": "vaaleaorakas",
     "hemp seed": "hampunsiemen",
     "hokkaido pumpkin": "hokkaidokurpitsa",
-    "holy basil": "thaibasilika",
+    "holy basil": "pyhäbasilika",
     "honeydew melon": "hunajameloni",
     "horseradish": "piparjuuri",
     "iceberg lettuce": "jäävuorisalaatti",
@@ -1342,6 +1353,7 @@
     "sweet potato": "bataatti",
     "taro": "taro",
     "teff": "teff",
+    "thai basil": "thaibasilika",
     "thyme": "timjami",
     "tomatillo": "tomatillo",
     "tomato": "tomaatti",
