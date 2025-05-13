@@ -29,7 +29,7 @@ describe('VeggieSearch', () => {
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
     expect(wrapper.findAll('.veggie-search__heading').length).toBe(1);
     expect(wrapper.find('.dropdown-list-option').text()).toContain('tomato');
-    expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(false);
+    expect(wrapper.find('#veggie-search-label-challenge').exists()).toBe(false);
   });
 
   it('shows jump controls', async () => {
@@ -76,8 +76,8 @@ describe('VeggieSearch', () => {
     const wrapper = mounter(['tomato']);
     const input = wrapper.findByTestId('veggie-search-input');
     await input.setValue('om');
-    const listItem = wrapper.findByText('li', 'tomato');
-    const notSelected = wrapper.findByText('li', 'pomelo');
+    const listItem = wrapper.findByText('div', 'tomato');
+    const notSelected = wrapper.findByText('div', 'pomelo');
     expect(listItem.findComponent(IconComponent).exists()).toBe(true);
     expect(notSelected.findComponent(IconComponent).exists()).toBe(false);
   });
@@ -86,12 +86,12 @@ describe('VeggieSearch', () => {
     const wrapper = mounter();
     await wrapper.findByTestId('veggie-search-button').trigger('click');
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
-    expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(false);
+    expect(wrapper.find('#veggie-search-label-challenge').exists()).toBe(false);
   });
 
   it('shows challenge if available', async () => {
     const wrapper = mounter([], 'raspberry');
     await wrapper.findByTestId('veggie-search-button').trigger('click');
-    expect(wrapper.find('#veggie-search-heading-challenge').exists()).toBe(true);
+    expect(wrapper.find('#veggie-search-label-challenge').exists()).toBe(true);
   });
 });

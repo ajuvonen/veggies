@@ -7,14 +7,17 @@ const challenge = inject(KEYS.challenge, undefined);
 </script>
 
 <template>
-  <li v-if="challenge" data-test-id="veggie-search-challenge">
-    <div id="veggie-search-heading-challenge" class="veggie-search__heading">
+  <li
+    v-if="challenge"
+    role="group"
+    aria-labelledby="veggie-search-label-challenge"
+    data-test-id="veggie-search-challenge"
+  >
+    <div class="veggie-search__heading">
       <span aria-hidden="true">🎖️</span>
-      <span>{{ $t('veggieSearch.challenge') }}</span>
+      <span id="veggie-search-label-challenge" role="text">{{ $t('veggieSearch.challenge') }}</span>
     </div>
-    <ul :aria-labelledby="'veggie-search-heading-challenge'" role="group">
-      <VeggieSearchOption :veggie="challenge" />
-    </ul>
+    <VeggieSearchOption :veggie="challenge" />
   </li>
 </template>
 
@@ -22,6 +25,6 @@ const challenge = inject(KEYS.challenge, undefined);
 .veggie-search__heading {
   @apply flex-container justify-start;
   @apply select-none p-2;
-  @apply bg-[--color-tooltip] text-[--color-text];
+  @apply bg-[--color-tooltip];
 }
 </style>

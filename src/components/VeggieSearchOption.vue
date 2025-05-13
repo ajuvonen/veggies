@@ -11,15 +11,14 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
 </script>
 <template>
   <ComboboxOption v-slot="{active, selected}" as="template" :key="veggie" :value="veggie">
-    <li
+    <div
       :class="[getDropdownStyles!(active, selected), 'dropdown-list-option']"
       :data-test-id="`veggie-search-option-${veggie}`"
-      role="menuitem"
     >
       <span>
         {{ translation || $t(`veggies.${veggie}`) }}
       </span>
       <IconComponent v-if="selected" icon="check" />
-    </li>
+    </div>
   </ComboboxOption>
 </template>
