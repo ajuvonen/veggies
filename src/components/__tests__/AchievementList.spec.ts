@@ -5,6 +5,7 @@ import AchievementList from '@/components/AchievementList.vue';
 
 const getAchievements = (achievements: Partial<Achievements> = {}) => ({
   allOnRed: AchievementLevel.NoAchievement,
+  botanicalBerries: AchievementLevel.NoAchievement,
   challengeAccepted: AchievementLevel.NoAchievement,
   committed: AchievementLevel.NoAchievement,
   completionist: AchievementLevel.NoAchievement,
@@ -32,14 +33,15 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(25);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(26);
   });
 
-  it('renders with badges enabled', async () => {
+  it('renders with some badges enabled', async () => {
     const wrapper = mount(AchievementList, {
       props: {
         achievements: getAchievements({
           allOnRed: AchievementLevel.Gold,
+          botanicalBerries: AchievementLevel.Gold,
           completionist: AchievementLevel.Silver,
           experimenterBean: AchievementLevel.Gold,
           experimenterFruit: AchievementLevel.Gold,

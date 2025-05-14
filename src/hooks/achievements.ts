@@ -4,6 +4,7 @@ import {createActor, setup, type MachineContext} from 'xstate';
 import type {GuardArgs} from 'xstate/guards';
 import {
   BEANS,
+  BOTANICAL_BERRIES,
   FRUITS,
   GRAINS,
   LEAFIES,
@@ -24,12 +25,6 @@ type ResetEvent = {
 };
 
 const guards = {
-  allOnRed:
-    (rising: boolean) =>
-    ({event}: GuardArgs<MachineContext, AdvanceEvent>) => {
-      const redAmount = intersection(RED_VEGGIES, event.veggiesThisWeek).length;
-      return rising ? redAmount >= 10 : redAmount < 10;
-    },
   challengeAccepted:
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
@@ -54,12 +49,6 @@ const guards = {
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
       event.hotStreakLength >= threshold,
-  goNuts:
-    (rising: boolean) =>
-    ({event}: GuardArgs<MachineContext, AdvanceEvent>) => {
-      const nutsAmount = intersection(NUTS, event.veggiesThisWeek).length;
-      return rising ? nutsAmount >= 5 : nutsAmount < 5;
-    },
   thirtyVeggies:
     (threshold: number, rising: boolean) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
@@ -81,6 +70,12 @@ const guards = {
         return reverse;
       }
       return (thousands % 2 === 1) === reverse;
+    },
+  weeklyAward:
+    (matchingArray: string[], targetAmount: number, rising: boolean) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) => {
+      const achievedAmount = intersection(matchingArray, event.veggiesThisWeek).length;
+      return rising ? achievedAmount >= targetAmount : achievedAmount < targetAmount;
     },
 };
 
@@ -109,7 +104,7 @@ export function useAchievements() {
                 ADVANCE: [
                   {
                     target: '3',
-                    guard: guards.allOnRed(true),
+                    guard: guards.weeklyAward(RED_VEGGIES, 10, true),
                   },
                 ],
               },
@@ -119,7 +114,32 @@ export function useAchievements() {
                 ADVANCE: [
                   {
                     target: '0',
-                    guard: guards.allOnRed(false),
+                    guard: guards.weeklyAward(RED_VEGGIES, 10, false),
+                  },
+                ],
+              },
+            },
+          },
+        },
+        botanicalBerries: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.weeklyAward(BOTANICAL_BERRIES, 15, true),
+                  },
+                ],
+              },
+            },
+            '3': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '0',
+                    guard: guards.weeklyAward(BOTANICAL_BERRIES, 15, false),
                   },
                 ],
               },
@@ -416,7 +436,7 @@ export function useAchievements() {
                 ADVANCE: [
                   {
                     target: '3',
-                    guard: guards.goNuts(true),
+                    guard: guards.weeklyAward(NUTS, 5, true),
                   },
                 ],
               },
@@ -426,7 +446,7 @@ export function useAchievements() {
                 ADVANCE: [
                   {
                     target: '0',
-                    guard: guards.goNuts(false),
+                    guard: guards.weeklyAward(NUTS, 5, false),
                   },
                 ],
               },

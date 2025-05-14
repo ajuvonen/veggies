@@ -12,6 +12,7 @@ import {take} from 'remeda';
 import {
   ALL_VEGGIES,
   BEANS,
+  BOTANICAL_BERRIES,
   FRUITS,
   GRAINS,
   LEAFIES,
@@ -35,6 +36,7 @@ const withSetup = <T>(hook: () => T) =>
 
 const defaultAchievements: Achievements = {
   allOnRed: AchievementLevel.NoAchievement,
+  botanicalBerries: AchievementLevel.NoAchievement,
   challengeAccepted: AchievementLevel.NoAchievement,
   committed: AchievementLevel.NoAchievement,
   completionist: AchievementLevel.NoAchievement,
@@ -289,6 +291,28 @@ describe('achievements', () => {
     expect(achievements.value.allOnRed).toEqual(AchievementLevel.NoAchievement);
   });
 
+  it('advances botanical berries', async () => {
+    const {advanceAchievements, achievements} = await withSetup(useAchievements);
+    advanceAchievements(
+      getProps({
+        veggiesThisWeek: take(BOTANICAL_BERRIES, 14),
+      }),
+    );
+    expect(achievements.value.botanicalBerries).toEqual(AchievementLevel.NoAchievement);
+    advanceAchievements(
+      getProps({
+        veggiesThisWeek: take(BOTANICAL_BERRIES, 15),
+      }),
+    );
+    expect(achievements.value.botanicalBerries).toEqual(AchievementLevel.Gold);
+    advanceAchievements(
+      getProps({
+        veggiesThisWeek: take(BOTANICAL_BERRIES, 14),
+      }),
+    );
+    expect(achievements.value.botanicalBerries).toEqual(AchievementLevel.NoAchievement);
+  });
+
   it('advances thousands', async () => {
     const {advanceAchievements, achievements} = await withSetup(useAchievements);
     advanceAchievements(getProps({totalVeggies: 999}));
@@ -308,6 +332,7 @@ describe('achievements', () => {
   it('resets achievements', async () => {
     const expectedAchievements: Achievements = {
       allOnRed: AchievementLevel.Gold,
+      botanicalBerries: AchievementLevel.Gold,
       challengeAccepted: AchievementLevel.Gold,
       committed: AchievementLevel.Gold,
       completionist: AchievementLevel.Gold,
@@ -333,7 +358,12 @@ describe('achievements', () => {
       totalVeggies: 1000,
       totalWeeks: 52,
       uniqueVeggies: ALL_VEGGIES,
-      veggiesThisWeek: [...take(ALL_VEGGIES, 25), ...take(RED_VEGGIES, 10), ...take(NUTS, 5)],
+      veggiesThisWeek: [
+        ...take(ALL_VEGGIES, 20),
+        ...take(BOTANICAL_BERRIES, 15),
+        ...take(RED_VEGGIES, 10),
+        ...take(NUTS, 5),
+      ],
     });
     expect(achievements.value).toEqual(expectedAchievements);
     resetAchievements();

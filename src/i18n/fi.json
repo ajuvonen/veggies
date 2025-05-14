@@ -5,6 +5,11 @@
       "badgeText": "Punoitus",
       "3": "Näetkö punaista? Olet lisännyt kymmenen punaista kasvista tällä viikolla!"
     },
+    "botanicalBerries": {
+      "ariaLabel": "{0} kasvitieteellistä marjaa tällä viikolla.",
+      "badgeText": "\"Marjat\"",
+      "3": "Mikä vain voi olla marja, kun tarpeeksi viisastellaan. Olet lisännyt 15 kasvitieteellistä marjaa tällä viikolla!"
+    },
     "challengeAccepted": {
       "title": "Haaste vastaanotettu",
       "ariaLabel": "{0} suoritettua viikkohaastetta",
