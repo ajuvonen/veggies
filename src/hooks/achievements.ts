@@ -2,7 +2,17 @@ import {ref} from 'vue';
 import {intersection, mapValues} from 'remeda';
 import {createActor, setup, type MachineContext} from 'xstate';
 import type {GuardArgs} from 'xstate/guards';
-import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
+import {
+  BEANS,
+  FRUITS,
+  GRAINS,
+  LEAFIES,
+  MUSHROOMS,
+  NUTS,
+  RED_VEGGIES,
+  ROOTS,
+  VEGETABLES,
+} from '@/utils/constants';
 import type {AchievementProps, Achievements} from '@/utils/types';
 
 type AdvanceEvent = {
@@ -14,6 +24,12 @@ type ResetEvent = {
 };
 
 const guards = {
+  allOnRed:
+    (rising: boolean) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) => {
+      const redAmount = intersection(RED_VEGGIES, event.veggiesThisWeek).length;
+      return rising ? redAmount >= 10 : redAmount < 10;
+    },
   challengeAccepted:
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
@@ -38,10 +54,16 @@ const guards = {
     (threshold: number) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
       event.hotStreakLength >= threshold,
+  goNuts:
+    (rising: boolean) =>
+    ({event}: GuardArgs<MachineContext, AdvanceEvent>) => {
+      const nutsAmount = intersection(NUTS, event.veggiesThisWeek).length;
+      return rising ? nutsAmount >= 5 : nutsAmount < 5;
+    },
   thirtyVeggies:
     (threshold: number, rising: boolean) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) =>
-      rising ? event.veggiesThisWeek >= threshold : event.veggiesThisWeek < threshold,
+      rising ? event.veggiesThisWeek.length >= threshold : event.veggiesThisWeek.length < threshold,
   thousandsOdd:
     (reverse: boolean = false) =>
     ({event}: GuardArgs<MachineContext, AdvanceEvent>) => {
@@ -79,6 +101,31 @@ export function useAchievements() {
         ],
       },
       states: {
+        allOnRed: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.allOnRed(true),
+                  },
+                ],
+              },
+            },
+            '3': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '0',
+                    guard: guards.allOnRed(false),
+                  },
+                ],
+              },
+            },
+          },
+        },
         challengeAccepted: {
           initial: '0',
           states: {
@@ -359,6 +406,31 @@ export function useAchievements() {
               },
             },
             '3': {},
+          },
+        },
+        goNuts: {
+          initial: '0',
+          states: {
+            '0': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '3',
+                    guard: guards.goNuts(true),
+                  },
+                ],
+              },
+            },
+            '3': {
+              on: {
+                ADVANCE: [
+                  {
+                    target: '0',
+                    guard: guards.goNuts(false),
+                  },
+                ],
+              },
+            },
           },
         },
         hotStreak: {

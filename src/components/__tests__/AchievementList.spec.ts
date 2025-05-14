@@ -4,6 +4,7 @@ import {AchievementLevel, type Achievements} from '@/utils/types';
 import AchievementList from '@/components/AchievementList.vue';
 
 const getAchievements = (achievements: Partial<Achievements> = {}) => ({
+  allOnRed: AchievementLevel.NoAchievement,
   challengeAccepted: AchievementLevel.NoAchievement,
   committed: AchievementLevel.NoAchievement,
   completionist: AchievementLevel.NoAchievement,
@@ -15,6 +16,7 @@ const getAchievements = (achievements: Partial<Achievements> = {}) => ({
   experimenterRoot: AchievementLevel.NoAchievement,
   experimenterVegetable: AchievementLevel.NoAchievement,
   favorite: AchievementLevel.NoAchievement,
+  goNuts: AchievementLevel.NoAchievement,
   hotStreak: AchievementLevel.NoAchievement,
   thirtyVeggies: AchievementLevel.NoAchievement,
   thousandsOdd: AchievementLevel.NoAchievement,
@@ -30,13 +32,14 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(23);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(25);
   });
 
   it('renders with badges enabled', async () => {
     const wrapper = mount(AchievementList, {
       props: {
         achievements: getAchievements({
+          allOnRed: AchievementLevel.Gold,
           completionist: AchievementLevel.Silver,
           experimenterBean: AchievementLevel.Gold,
           experimenterFruit: AchievementLevel.Gold,
@@ -45,6 +48,7 @@ describe('AchievementList', () => {
           experimenterMushroom: AchievementLevel.Gold,
           experimenterRoot: AchievementLevel.Gold,
           experimenterVegetable: AchievementLevel.Gold,
+          goNuts: AchievementLevel.Gold,
           thirtyVeggies: AchievementLevel.Platinum,
           thousandsOdd: AchievementLevel.Platinum,
         }),

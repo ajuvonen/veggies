@@ -33,6 +33,16 @@ defineProps<{
     <ContentElement :title="$t('achievements.thirtyVeggies.title')">
       <ul class="achievement-list__badge-container">
         <AchievementBadge
+          :active="achievements.allOnRed === AchievementLevel.Gold"
+          :level="AchievementLevel.Gold"
+          achievement="allOnRed"
+        />
+        <AchievementBadge
+          :active="achievements.goNuts === AchievementLevel.Gold"
+          :level="AchievementLevel.Gold"
+          achievement="goNuts"
+        />
+        <AchievementBadge
           :active="achievements.thirtyVeggies >= AchievementLevel.Gold"
           :level="AchievementLevel.Gold"
           achievement="thirtyVeggies"
