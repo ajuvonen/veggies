@@ -12,16 +12,16 @@ defineProps<{
 </script>
 
 <template>
-  <li
+  <ul
     v-if="items.length"
     :aria-labelledby="`veggie-search-label-${category}`"
     :data-test-id="`veggie-search-group-${category}`"
     role="group"
   >
-    <div class="veggie-search__heading">
-      <div class="flex-container">
+    <li class="veggie-search__heading" role="presentation">
+      <div class="flex-container" role="presentation">
         <span aria-hidden="true">{{ CATEGORY_EMOJI[category] }}</span>
-        <span :id="`veggie-search-label-${category}`" role="text"
+        <span :id="`veggie-search-label-${category}`" role="presentation"
           >{{ $t(`categories.${category}`) }} ({{ items.length }})</span
         >
       </div>
@@ -47,14 +47,14 @@ defineProps<{
           <IconComponent icon="chevronDoubleDown" />
         </ButtonComponent>
       </div>
-    </div>
+    </li>
     <VeggieSearchOption
       v-for="{veggie, translation} in items"
       :key="veggie"
       :veggie="veggie"
       :translation="translation"
     />
-  </li>
+  </ul>
 </template>
 
 <style scoped>

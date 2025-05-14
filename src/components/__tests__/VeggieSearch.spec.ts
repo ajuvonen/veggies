@@ -76,8 +76,8 @@ describe('VeggieSearch', () => {
     const wrapper = mounter(['tomato']);
     const input = wrapper.findByTestId('veggie-search-input');
     await input.setValue('om');
-    const listItem = wrapper.findByText('div', 'tomato');
-    const notSelected = wrapper.findByText('div', 'pomelo');
+    const listItem = wrapper.findByText('li', 'tomato');
+    const notSelected = wrapper.findByText('li', 'pomelo');
     expect(listItem.findComponent(IconComponent).exists()).toBe(true);
     expect(notSelected.findComponent(IconComponent).exists()).toBe(false);
   });

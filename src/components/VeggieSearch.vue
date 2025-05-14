@@ -121,10 +121,15 @@ watch(model, () => {
       <ComboboxOptions
         ref="optionsElement"
         :style="maxHeightStyle"
+        as="div"
         class="dropdown-list-options"
         data-test-id="veggie-search-options"
       >
-        <li v-if="filteredVeggies().length === 0 && query !== ''" class="veggie-search__no-results">
+        <li
+          v-if="filteredVeggies().length === 0 && query !== ''"
+          class="veggie-search__no-results"
+          role="presentation"
+        >
           {{ $t('veggieSearch.noResults') }}
         </li>
         <VeggieSearchChallenge v-if="!query.length" />
