@@ -9,7 +9,7 @@ export type AchievementProps = {
   totalVeggies: number;
   totalWeeks: number;
   uniqueVeggies: string[];
-  veggiesThisWeek: number;
+  veggiesThisWeek: string[];
 };
 
 export enum Category {
@@ -60,6 +60,7 @@ export enum AchievementLevel {
 }
 
 export type Achievements = {
+  allOnRed: AchievementLevel;
   challengeAccepted: AchievementLevel;
   committed: AchievementLevel;
   completionist: AchievementLevel;
@@ -71,6 +72,7 @@ export type Achievements = {
   experimenterRoot: AchievementLevel;
   experimenterVegetable: AchievementLevel;
   favorite: AchievementLevel;
+  goNuts: AchievementLevel;
   hotStreak: AchievementLevel;
   thirtyVeggies: AchievementLevel;
   thousandsOdd: AchievementLevel;

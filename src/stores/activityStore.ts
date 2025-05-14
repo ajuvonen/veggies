@@ -199,7 +199,7 @@ export const useActivityStore = defineStore('activity', () => {
       totalVeggies: allVeggies.value.length,
       totalWeeks: weeks.value.length,
       uniqueVeggies: uniqueVeggies.value,
-      veggiesThisWeek: currentVeggies.value.length,
+      veggiesThisWeek: currentVeggies.value,
     }),
   );
 

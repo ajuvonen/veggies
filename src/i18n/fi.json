@@ -1,5 +1,10 @@
 {
   "achievements": {
+    "allOnRed": {
+      "ariaLabel": "{0} punaista kasvista tällä viikolla.",
+      "badgeText": "Punoitus",
+      "3": "Näetkö punaista? Olet lisännyt kymmenen punaista kasvista tällä viikolla!"
+    },
     "challengeAccepted": {
       "title": "Haaste vastaanotettu",
       "ariaLabel": "{0} suoritettua viikkohaastetta",
@@ -73,6 +78,11 @@
       "1": "Olet kirjannut suosikkiasi vähintään viisi kertaa joka ryhmässä!",
       "2": "Olet kirjannut suosikkiasi vähintään 15 kertaa joka ryhmässä!",
       "3": "Olet kirjannut suosikkiasi vähintään 30 kertaa joka ryhmässä!"
+    },
+    "goNuts": {
+      "ariaLabel": "{0} erilaista pähkinää tällä viikolla.",
+      "badgeText": "Pähkinöinä",
+      "3": "Olet lisännyt viisi erilaista pähkinää tällä viikolla!"
     },
     "hotStreak": {
       "title": "Putki päällä",

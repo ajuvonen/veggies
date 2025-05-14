@@ -571,6 +571,7 @@ describe('activityStore', () => {
     expect(activityStore.weeks).toHaveLength(0);
     expect(activityStore.challenges).toHaveLength(0);
     expect(activityStore.achievements).toEqual({
+      allOnRed: AchievementLevel.NoAchievement,
       challengeAccepted: AchievementLevel.NoAchievement,
       committed: AchievementLevel.NoAchievement,
       completionist: AchievementLevel.NoAchievement,
@@ -582,6 +583,7 @@ describe('activityStore', () => {
       experimenterRoot: AchievementLevel.NoAchievement,
       experimenterVegetable: AchievementLevel.NoAchievement,
       favorite: AchievementLevel.NoAchievement,
+      goNuts: AchievementLevel.NoAchievement,
       hotStreak: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.NoAchievement,
       thousandsOdd: AchievementLevel.NoAchievement,

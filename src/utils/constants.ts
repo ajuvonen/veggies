@@ -310,3 +310,39 @@ export const ALL_VEGGIES = [
   ...GRAINS,
   ...MUSHROOMS,
 ];
+
+export const RED_VEGGIES = [
+  'beet',
+  'bell pepper',
+  'blood grapefruit',
+  'blood orange',
+  'cherry',
+  'cherry tomato',
+  'chili pepper',
+  'cranberry',
+  'lingonberry',
+  'pointed pepper',
+  'pomegranate',
+  'radish',
+  'raspberry',
+  'red bean',
+  'red cabbage',
+  'red currant',
+  'red onion',
+  'strawberry',
+  'tomato',
+  'watermelon',
+];
+
+export const NUTS = [
+  'brazil nut',
+  'cashew nut',
+  'chestnut',
+  'hazelnut',
+  'macadamia nut',
+  'peanut',
+  'pecan nut',
+  'pine nut',
+  'pistachio nut',
+  'walnut',
+];

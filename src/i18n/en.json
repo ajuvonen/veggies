@@ -1,5 +1,10 @@
 {
   "achievements": {
+    "allOnRed": {
+      "ariaLabel": "{0} red veggies this week.",
+      "badgeText": "All on red",
+      "3": "Put it all on red! You have added ten different red veggies this week!"
+    },
     "challengeAccepted": {
       "title": "Challenge Accepted",
       "ariaLabel": "{0} completed weekly challenges",
@@ -73,6 +78,11 @@
       "1": "You have used a single veggie at least 5 times from each category!",
       "2": "You have used a single veggie at least 15 times from each category!",
       "3": "You have used a single veggie at least 30 times from each category!"
+    },
+    "goNuts": {
+      "ariaLabel": "{0} varieties of nuts this week.",
+      "badgeText": "Go nuts",
+      "3": "You have added 5 nuts this week!"
     },
     "hotStreak": {
       "title": "Hot Streak",

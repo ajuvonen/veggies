@@ -22,6 +22,12 @@ type BadgeProps = Record<
 >;
 
 const badgeProps: BadgeProps = {
+  allOnRed: {
+    [AchievementLevel.Gold]: {
+      textProps: [10],
+      emoji: '♥️',
+    },
+  },
   challengeAccepted: {
     [AchievementLevel.Bronze]: {
       textProps: [5],
@@ -120,6 +126,12 @@ const badgeProps: BadgeProps = {
       emoji: '😻',
     },
   },
+  goNuts: {
+    [AchievementLevel.Gold]: {
+      textProps: [5],
+      emoji: '🥜',
+    },
+  },
   hotStreak: {
     [AchievementLevel.Bronze]: {
       textProps: [5],
@@ -166,6 +178,7 @@ const badgeProps: BadgeProps = {
       $t(`achievements.${achievement}.ariaLabel`, badgeProps[achievement][level]!.textProps)
     "
     :data-test-id="`badge-${achievement}-${level}`"
+    :class="`badge__${achievement}`"
     class="badge"
     role="img"
   >
@@ -231,6 +244,10 @@ const badgeProps: BadgeProps = {
   .badge__emoji {
     mix-blend-mode: normal;
   }
+}
+
+.badge__allOnRed .badge__emoji {
+  mix-blend-mode: normal;
 }
 
 .badge__background::after {
