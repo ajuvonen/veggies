@@ -5,6 +5,11 @@
       "badgeText": "All on red",
       "3": "Put it all on red! You have added ten different red veggies this week!"
     },
+    "botanicalBerries": {
+      "ariaLabel": "{0} botanical berries this week.",
+      "badgeText": "\"Berries\"",
+      "3": "Everything is a berry, if you squint hard enough. You have added 15 botanical berries this week!"
+    },
     "challengeAccepted": {
       "title": "Challenge Accepted",
       "ariaLabel": "{0} completed weekly challenges",

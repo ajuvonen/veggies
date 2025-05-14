@@ -28,6 +28,12 @@ const badgeProps: BadgeProps = {
       emoji: '♥️',
     },
   },
+  botanicalBerries: {
+    [AchievementLevel.Gold]: {
+      textProps: [15],
+      emoji: '🍅',
+    },
+  },
   challengeAccepted: {
     [AchievementLevel.Bronze]: {
       textProps: [5],
