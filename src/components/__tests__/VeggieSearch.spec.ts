@@ -82,16 +82,24 @@ describe('VeggieSearch', () => {
     expect(notSelected.findComponent(IconComponent).exists()).toBe(false);
   });
 
+  it('shows clear button', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('om');
+    const clearButton = wrapper.findByTestId('veggie-search-clear-button');
+    expect(clearButton.exists()).toBe(true);
+  });
+
   it('shows list on button click', async () => {
     const wrapper = mounter();
-    await wrapper.findByTestId('veggie-search-button').trigger('click');
+    await wrapper.findByTestId('veggie-search-toggle-button').trigger('click');
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
     expect(wrapper.find('#veggie-search-label-challenge').exists()).toBe(false);
   });
 
   it('shows challenge if available', async () => {
     const wrapper = mounter([], 'raspberry');
-    await wrapper.findByTestId('veggie-search-button').trigger('click');
+    await wrapper.findByTestId('veggie-search-toggle-button').trigger('click');
     expect(wrapper.find('#veggie-search-label-challenge').exists()).toBe(true);
   });
 });
