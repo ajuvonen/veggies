@@ -56,11 +56,6 @@ const filteredVeggies = useMemoize(
   },
 );
 
-const onMenuClose = () => {
-  query.value = '';
-  openButton.value?.$el.focus();
-};
-
 const scrollToStart = async () => {
   await nextTick();
   if (optionsElement.value) {
@@ -80,13 +75,12 @@ const jump = (index: number) => {
   }
 };
 
+const clearQuery = () => {
+  query.value = '';
+  searchInput.value?.$el.focus();
+};
+
 watch(query, scrollToStart);
-watch(model, () => {
-  if (searchInput.value && query.value) {
-    searchInput.value.$el.value = '';
-    searchInput.value.$el.dispatchEvent(new Event('input', {bubbles: true}));
-  }
-});
 </script>
 <template>
   <Combobox v-model="model" v-slot="{open}" nullable multiple as="div" class="relative z-20">
@@ -95,21 +89,27 @@ watch(model, () => {
       :aria-label="$t('veggieSearch.search')"
       :placeholder="$t('veggieSearch.search')"
       class="veggie-search__input"
-      data-test-id="veggie-search-input"
       inputmode="search"
       autocomplete="off"
       autocorrect="off"
       autocapitalize="none"
-      @focus="console.log('focus')"
-      @blur="console.log('blur')"
+      data-test-id="veggie-search-input"
       @change="query = $event.target.value"
       @click="!open && openButton?.$el.click()"
+    />
+    <ButtonComponent
+      v-if="query"
+      variant="text"
+      icon="close"
+      class="absolute top-1/2 -translate-y-1/2 right-10 fill-gray-500"
+      data-test-id="veggie-search-clear-button"
+      @click="clearQuery"
     />
     <ComboboxButton
       ref="openButton"
       :class="open ? 'rotate-180 transform' : ''"
       class="veggie-search__button"
-      data-test-id="veggie-search-button"
+      data-test-id="veggie-search-toggle-button"
     >
       <IconComponent icon="chevronDown" aria-hidden="true" />
     </ComboboxButton>
@@ -118,7 +118,7 @@ watch(model, () => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
       @after-enter="scrollToStart"
-      @after-leave="onMenuClose"
+      @after-leave="query = ''"
     >
       <ComboboxOptions
         ref="optionsElement"

@@ -3,7 +3,7 @@ import {test, expect} from '@playwright/test';
 test("shows current week's veggies", async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   await page.getByText(/^apple$/).click();
   await page.getByText('Apricot').click();
   await page.getByText('Avocado').click();
@@ -24,7 +24,7 @@ test("shows current week's veggies", async ({page}) => {
 test('shows last five weeks', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   await page.getByText('Apricot').click();
   await page.goto('stats');
   await page.getByTestId('stats-tab-1').click();
@@ -37,7 +37,7 @@ test('shows last five weeks', async ({page}) => {
 test('shows all time stats', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   await page.getByText('Apricot').click();
   await page.getByTestId('veggie-search-challenge').locator('.dropdown-list-option').click();
   await page.goto('stats');
@@ -60,7 +60,7 @@ test('shows all time stats', async ({page}) => {
 test('shows veggie list', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   await page.getByText('Apricot').click();
   await page.goto('stats');
   await page.getByTestId('stats-tab-3').click();
@@ -70,7 +70,7 @@ test('shows veggie list', async ({page}) => {
 test('shows achievements', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   const elements = (
     await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
   ).slice(0, 15);
