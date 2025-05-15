@@ -100,6 +100,8 @@ watch(model, () => {
       autocomplete="off"
       autocorrect="off"
       autocapitalize="none"
+      @focus="console.log('focus')"
+      @blur="console.log('blur')"
       @change="query = $event.target.value"
       @click="!open && openButton?.$el.click()"
     />

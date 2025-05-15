@@ -76,14 +76,6 @@
       "badgeText": "Vegetables",
       "3": "You have enjoyed 15 unique vegetables!"
     },
-    "favorite": {
-      "title": "Playing Favorites",
-      "ariaLabel": "{0} uses of a single veggie in all categories",
-      "badgeText": "{0} uses",
-      "1": "You have used a single veggie at least 5 times from each category!",
-      "2": "You have used a single veggie at least 15 times from each category!",
-      "3": "You have used a single veggie at least 30 times from each category!"
-    },
     "goNuts": {
       "ariaLabel": "{0} varieties of nuts this week.",
       "badgeText": "Go nuts",
@@ -1090,6 +1082,7 @@
     "chosenStats": "Chosen Statistics",
     "selectedWeek": "Week {0} ({1}-{2})",
     "weeklyAmounts": "Weekly Amounts",
+    "weeklyAchievements": "Weekly Achievements",
     "weeklyCategories": "Weekly Categories"
   },
   "synonyms": {

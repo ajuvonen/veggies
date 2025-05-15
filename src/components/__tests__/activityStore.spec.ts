@@ -531,25 +531,6 @@ describe('activityStore', () => {
     });
   });
 
-  it('returns empty category favorites', () => {
-    activityStore.startDate = thisWeek;
-    activityStore.weeks = [
-      {
-        startDate: thisWeek,
-        veggies: [],
-      },
-    ];
-    expect(activityStore.favorites).toEqual({
-      [Category.Fruit]: [],
-      [Category.Vegetable]: [],
-      [Category.Leafy]: [],
-      [Category.Root]: [],
-      [Category.Bean]: [],
-      [Category.Grain]: [],
-      [Category.Mushroom]: [],
-    });
-  });
-
   it('resets the store', () => {
     activityStore.startDate = thisWeek;
     activityStore.weeks = [
@@ -583,7 +564,6 @@ describe('activityStore', () => {
       experimenterMushroom: AchievementLevel.NoAchievement,
       experimenterRoot: AchievementLevel.NoAchievement,
       experimenterVegetable: AchievementLevel.NoAchievement,
-      favorite: AchievementLevel.NoAchievement,
       goNuts: AchievementLevel.NoAchievement,
       hotStreak: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.NoAchievement,

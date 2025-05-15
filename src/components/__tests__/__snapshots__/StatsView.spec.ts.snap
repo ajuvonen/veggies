@@ -32,6 +32,32 @@ exports[`StatsView > renders current week by default 1`] = `
       <!---->
     </div>
     <!--v-if-->
+    <ul data-v-81c33b70="" class="flex-container justify-evenly" aria-label="Weekly Achievements">
+      <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="10 red veggies this week." data-test-id="badge-allOnRed-3" class="badge__allOnRed badge__noLabel badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">♥️</div>
+        </div>
+        <!--v-if-->
+      </li>
+      <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="15 botanical berries this week." data-test-id="badge-botanicalBerries-3" class="badge__botanicalBerries badge__noLabel badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🍅</div>
+        </div>
+        <!--v-if-->
+      </li>
+      <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="5 varieties of nuts this week." data-test-id="badge-goNuts-3" class="badge__goNuts badge__noLabel badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🥜</div>
+        </div>
+        <!--v-if-->
+      </li>
+      <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="30 unique veggies this week" data-test-id="badge-thirtyVeggies-3" class="badge__thirtyVeggies badge__noLabel badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">🎉</div>
+        </div>
+        <!--v-if-->
+      </li>
+    </ul>
     <transition-group-stub data-v-cd627eac="" data-v-81c33b70="" name="tags" tag="ul" appear="false" persisted="false" css="true" tabindex="-1" class="tags__container">
       <li data-v-cd627eac="" data-test-id="tag-apple" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button-like button--tag button--remove" aria-label="Remove apple">
           <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">

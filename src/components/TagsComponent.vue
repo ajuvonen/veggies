@@ -42,7 +42,14 @@ const toggle = async (veggie: string, index: number) => {
 };
 </script>
 <template>
-  <TransitionGroup ref="listElement" tabindex="-1" name="tags" tag="ul" class="tags__container">
+  <TransitionGroup
+    v-if="veggies.length"
+    ref="listElement"
+    tabindex="-1"
+    name="tags"
+    tag="ul"
+    class="tags__container"
+  >
     <li
       v-for="({veggie, translation}, index) in translatedVeggies"
       :key="veggie"

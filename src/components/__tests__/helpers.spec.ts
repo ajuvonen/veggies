@@ -6,13 +6,14 @@ import type {DateTimeFormat, LocaleMessage, NumberFormat} from '@intlify/core-ba
 import {unique} from 'remeda';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {
+  achievementLevelHelper,
   dateParser,
   getCategoryForVeggie,
   getChartOptions,
   getRandomEmojis,
   getRandomVeggie,
 } from '@/utils/helpers';
-import {Category, type Challenge} from '@/utils/types';
+import {AchievementLevel, Category, type Challenge} from '@/utils/types';
 
 describe('helpers', () => {
   it('has translation for all veggies', async () => {
@@ -108,5 +109,22 @@ describe('helpers', () => {
     expect(result.maintainAspectRatio).toBe(false);
     expect(result.scales?.x?.stacked).toBe(true);
     expect(result.plugins?.datalabels?.anchor).toBe('center');
+  });
+
+  it('returns correct achievement levels', () => {
+    const levels: [number, AchievementLevel][] = [
+      [40, AchievementLevel.Platinum],
+      [30, AchievementLevel.Gold],
+      [20, AchievementLevel.Silver],
+      [10, AchievementLevel.Bronze],
+    ];
+    expect(achievementLevelHelper(levels, 9)).toBe(AchievementLevel.NoAchievement);
+    expect(achievementLevelHelper(levels, 10)).toBe(AchievementLevel.Bronze);
+    expect(achievementLevelHelper(levels, 19)).toBe(AchievementLevel.Bronze);
+    expect(achievementLevelHelper(levels, 20)).toBe(AchievementLevel.Silver);
+    expect(achievementLevelHelper(levels, 29)).toBe(AchievementLevel.Silver);
+    expect(achievementLevelHelper(levels, 30)).toBe(AchievementLevel.Gold);
+    expect(achievementLevelHelper(levels, 40)).toBe(AchievementLevel.Platinum);
+    expect(achievementLevelHelper(levels, 41)).toBe(AchievementLevel.Platinum);
   });
 });

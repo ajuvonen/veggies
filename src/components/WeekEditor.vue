@@ -14,14 +14,16 @@ import {
 } from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
+import {AchievementLevel, type Achievements} from '@/utils/types';
 import {useScreen} from '@/hooks/screen';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
+import AchievementBadge from '@/components/AchievementBadge.vue';
 
 defineEmits(['scroll']);
 
 const activityStore = useActivityStore();
-const {getWeekStarts, veggiesForWeek, challenges} = storeToRefs(activityStore);
+const {getWeekStarts, veggiesForWeek, challenges, weeklyAchievements} = storeToRefs(activityStore);
 const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
 
 const {t, locale} = useI18n();
@@ -97,6 +99,18 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
       </TransitionRoot>
     </Listbox>
     <VeggieSearch v-if="!selectedWeekStart.equals(first(getWeekStarts)!)" v-model="veggies" />
+    <ul class="flex-container justify-evenly" :aria-label="$t('stats.weeklyAchievements')">
+      <AchievementBadge
+        v-for="[achievement, level] in Object.entries(
+          weeklyAchievements(veggiesForWeek(selectedWeekStart)),
+        )"
+        :key="achievement"
+        :achievement="achievement as keyof Achievements"
+        :level="level || AchievementLevel.Gold"
+        :active="level >= AchievementLevel.Gold"
+        noLabel
+      />
+    </ul>
     <TagsComponent
       :veggies="veggiesForWeek(selectedWeekStart)"
       :variant="['tag', 'remove']"
