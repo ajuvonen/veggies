@@ -2,11 +2,19 @@
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {AchievementLevel, type Achievements} from '@/utils/types';
 
-defineProps<{
-  achievement: keyof Achievements;
-  level: AchievementLevel;
-  active: boolean;
-}>();
+withDefaults(
+  defineProps<{
+    achievement: keyof Achievements;
+    level: AchievementLevel;
+    active: boolean;
+    as?: keyof HTMLElementTagNameMap;
+    noLabel?: boolean;
+  }>(),
+  {
+    as: 'li',
+    noLabel: false,
+  },
+);
 
 type BadgeProps = Record<
   keyof Achievements,
@@ -118,20 +126,6 @@ const badgeProps: BadgeProps = {
       emoji: CATEGORY_EMOJI.Vegetable,
     },
   },
-  favorite: {
-    [AchievementLevel.Bronze]: {
-      textProps: [5],
-      emoji: '😺',
-    },
-    [AchievementLevel.Silver]: {
-      textProps: [15],
-      emoji: '😽',
-    },
-    [AchievementLevel.Gold]: {
-      textProps: [30],
-      emoji: '😻',
-    },
-  },
   goNuts: {
     [AchievementLevel.Gold]: {
       textProps: [5],
@@ -177,14 +171,15 @@ const badgeProps: BadgeProps = {
 };
 </script>
 <template>
-  <li
+  <Component
     v-tippy="$t(`achievements.${achievement}.ariaLabel`, badgeProps[achievement][level]!.textProps)"
+    :is="as"
     :aria-disabled="!active"
     :aria-label="
       $t(`achievements.${achievement}.ariaLabel`, badgeProps[achievement][level]!.textProps)
     "
     :data-test-id="`badge-${achievement}-${level}`"
-    :class="`badge__${achievement}`"
+    :class="[`badge__${achievement}`, {badge__noLabel: noLabel}]"
     class="badge"
     role="img"
   >
@@ -197,16 +192,18 @@ const badgeProps: BadgeProps = {
         {{ badgeProps[achievement][level]!.emoji }}
       </div>
     </div>
-    <div aria-hidden="true" class="badge__text">
+    <div v-if="!noLabel" aria-hidden="true" class="badge__text">
       {{ $t(`achievements.${achievement}.badgeText`, badgeProps[achievement][level]!.textProps) }}
     </div>
-  </li>
+  </Component>
 </template>
 <style scoped>
 .badge {
   @apply relative select-none aspect-square self-center max-w-40;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3));
-  flex: 0 0 calc(33% - 5px);
+  &:not(.badge__noLabel) {
+    flex: 0 0 calc(33% - 5px);
+  }
 }
 
 .badge__background {
@@ -215,12 +212,20 @@ const badgeProps: BadgeProps = {
   [aria-disabled='true'] > & {
     opacity: 0.5;
   }
+  .badge__noLabel > & {
+    @apply text-3xl;
+  }
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 1px #334155;
 }
 
 .badge__emoji {
   mix-blend-mode: luminosity;
+
+  .badge__background--Platinum > &,
+  .badge__allOnRed > & {
+    mix-blend-mode: normal;
+  }
 }
 
 .badge__text {
@@ -246,14 +251,6 @@ const badgeProps: BadgeProps = {
 .badge__background--Platinum {
   background: linear-gradient(135deg, #ffffff, #d9d9d9);
   border-color: #f0f0f0;
-
-  .badge__emoji {
-    mix-blend-mode: normal;
-  }
-}
-
-.badge__allOnRed .badge__emoji {
-  mix-blend-mode: normal;
 }
 
 .badge__background::after {

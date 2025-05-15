@@ -136,25 +136,6 @@ defineProps<{
         />
       </ul>
     </ContentElement>
-    <ContentElement :title="$t('achievements.favorite.title')">
-      <ul class="achievement-list__badge-container">
-        <AchievementBadge
-          :active="achievements.favorite >= AchievementLevel.Bronze"
-          :level="AchievementLevel.Bronze"
-          achievement="favorite"
-        />
-        <AchievementBadge
-          :active="achievements.favorite >= AchievementLevel.Silver"
-          :level="AchievementLevel.Silver"
-          achievement="favorite"
-        />
-        <AchievementBadge
-          :active="achievements.favorite >= AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="favorite"
-        />
-      </ul>
-    </ContentElement>
     <ContentElement :title="$t('achievements.experimenterFruit.title')">
       <ul class="achievement-list__badge-container">
         <AchievementBadge

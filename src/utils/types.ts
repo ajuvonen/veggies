@@ -2,16 +2,6 @@ import type {DateTime} from 'luxon';
 
 export type Locale = 'en' | 'fi';
 
-export type AchievementProps = {
-  completedChallenges: number;
-  favorites: Favorites;
-  hotStreakLength: number;
-  totalVeggies: number;
-  totalWeeks: number;
-  uniqueVeggies: string[];
-  veggiesThisWeek: string[];
-};
-
 export enum Category {
   Fruit = 'Fruit',
   Vegetable = 'Vegetable',
@@ -72,7 +62,6 @@ export type Achievements = {
   experimenterMushroom: AchievementLevel;
   experimenterRoot: AchievementLevel;
   experimenterVegetable: AchievementLevel;
-  favorite: AchievementLevel;
   goNuts: AchievementLevel;
   hotStreak: AchievementLevel;
   thirtyVeggies: AchievementLevel;

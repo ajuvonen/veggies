@@ -15,7 +15,7 @@ import {
   ROOTS,
   VEGETABLES,
 } from '@/utils/constants';
-import {Category} from '@/utils/types';
+import {AchievementLevel, Category} from '@/utils/types';
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
   if (FRUITS.includes(veggie)) {
@@ -165,3 +165,6 @@ const veggieEmojis = [
   '🍄‍🟫',
 ];
 export const getRandomEmojis = (amount: number = 1) => sample(veggieEmojis, amount);
+
+export const achievementLevelHelper = (levels: [number, AchievementLevel][], value: number) =>
+  levels.find(([threshold]) => value >= threshold)?.[1] ?? AchievementLevel.NoAchievement;
