@@ -223,7 +223,7 @@ const badgeProps: BadgeProps = {
   mix-blend-mode: luminosity;
 
   .badge__background--Platinum > &,
-  .badge__allOnRed > & {
+  .badge__allOnRed & {
     mix-blend-mode: normal;
   }
 }
