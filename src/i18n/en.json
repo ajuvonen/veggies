@@ -1022,7 +1022,7 @@
   "qa": {
     "appPurpose": {
       "title": "What's this app for?",
-      "text": "Eat Your Veggies is a free app for tracking plant-based ingredients on weekly basis in your diet. According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not just the amounts you consume, but also variation."
+      "text": "Eat Your Veggies is a free app for tracking plant-based ingredients in your diet. Whenever you eat plant-based ingredients, or \"veggies\", you can search them in the app and add them to your weekly record. Each veggie counts only once per week."
     },
     "categories": {
       "title": "But strawberry is a...",
@@ -1048,7 +1048,7 @@
     "studyDetails": {
       "linkText": "American Society for Microbiology (ASM)",
       "title": "What's the science?",
-      "text": "I'm neither a nutritian nor a biologist, so I don't want to make exaggerated claims or interpretations. I'm not affiliated with the study in any way, but if you want to read more about the study, look up The American Gut Project from the journal of {0}."
+      "text": "According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not just the amounts you consume, but also variation. If you want to read more about the study, look up The American Gut Project from the journal of {0}."
     },
     "title": "Common Questions",
     "whatCounts": {
@@ -1069,7 +1069,7 @@
       "text": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
       "title": "Are you sure you want to reset?"
     },
-    "suggestionCount": "Amount of suggestions to show",
+    "suggestionCount": "Suggestions on the front page",
     "title": "Settings"
   },
   "stats": {
