@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed} from 'vue';
+import {computed, onMounted, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {
   Chart as ChartJS,
@@ -11,7 +11,7 @@ import {
 } from 'chart.js';
 import {Line} from 'vue-chartjs';
 import ChartAnnotation from 'chartjs-plugin-annotation';
-import {mean} from 'remeda';
+import {mean, reverse} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
@@ -24,12 +24,15 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
+const chartContainer = ref<HTMLDivElement | null>(null);
+
 const chartData = computed(() => {
+  const weekStarts = reverse(getWeekStarts.value);
   return {
-    labels: getWeekStarts.value.map((weekStart) => weekStart.toFormat('W/kkkk')),
+    labels: weekStarts.map((weekStart) => weekStart.toFormat('W/kkkk')),
     datasets: [
       {
-        data: getWeekStarts.value.map((weekStart) => veggiesForWeek.value(weekStart).length),
+        data: weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length),
         borderColor: COLORS.chartColorsAlternate[2],
         backgroundColor: COLORS.chartColorsAlternate[2],
       },
@@ -67,6 +70,12 @@ const chartOptions = computed(() =>
   }),
 );
 
+onMounted(() => {
+  if (chartContainer.value) {
+    chartContainer.value.scrollLeft = chartContainer.value.scrollWidth;
+  }
+});
+
 defineExpose({chartData});
 </script>
 <template>
@@ -75,7 +84,7 @@ defineExpose({chartData});
     :labelAttrs="{'aria-hidden': true}"
     class="flex-1 overflow-hidden"
   >
-    <div class="h-full has-scroll m-0 p-0" @scroll="$emit('scroll')">
+    <div ref="chartContainer" class="h-full has-scroll m-0 p-0" @scroll="$emit('scroll')">
       <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
         <Line
           :options="chartOptions"
