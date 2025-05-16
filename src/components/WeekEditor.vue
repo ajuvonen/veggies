@@ -52,7 +52,9 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
           class="week-editor__dropdown-button"
           data-test-id="week-editor-dropdown-button"
         >
-          <span class="truncate">{{ formatWeekString(selectedWeekStart) }}</span>
+          <time :datetime="selectedWeekStart.toFormat(`yyyy'W'WW`)" class="truncate">{{
+            formatWeekString(selectedWeekStart)
+          }}</time>
           <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevronDown" />
         </ListboxButton>
       </ContentElement>
@@ -78,7 +80,9 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
               :class="[getDropdownStyles!(active, selected), 'dropdown-list-option']"
               role="menuitem"
             >
-              <span class="truncate">{{ formatWeekString(date) }}</span>
+              <time :datetime="date.toFormat(`yyyy'W'WW`)" class="truncate">{{
+                formatWeekString(date)
+              }}</time>
               <IconComponent v-if="selected" icon="check" />
             </li>
           </ListboxOption>
