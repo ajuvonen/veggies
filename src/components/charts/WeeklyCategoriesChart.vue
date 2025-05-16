@@ -6,12 +6,14 @@ import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {reverse} from 'remeda';
+import {useMouse} from '@vueuse/core';
+import {DateTime} from 'luxon';
+import {useDateTime} from '@/hooks/dateTime';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
-import {useMouse} from '@vueuse/core';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
@@ -21,6 +23,8 @@ const {t} = useI18n();
 const {x: mouseX} = useMouse();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
+
+const {formatWeekString} = useDateTime();
 
 const chartContainer = ref<HTMLDivElement | null>(null);
 
@@ -55,6 +59,10 @@ const chartOptions = computed(() =>
         yAlign: 'bottom',
         xAlign: () => (mouseX.value < window.innerWidth / 2 ? 'left' : 'right'),
         callbacks: {
+          title: (data) => {
+            const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
+            return formatWeekString(weekStart);
+          },
           label: ({dataset, formattedValue}) => {
             return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
           },
