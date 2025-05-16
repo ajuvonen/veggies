@@ -115,7 +115,8 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
       :veggies="veggiesForWeek(selectedWeekStart)"
       :variant="['tag', 'remove']"
       :toggleFn="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
-      ariaKey="general.clickToRemove"
+      :ariaLabel="$t('stats.veggiesForWeek')"
+      ariaTagKey="general.clickToRemove"
       icon="minus"
       @scroll="$emit('scroll')"
     />
