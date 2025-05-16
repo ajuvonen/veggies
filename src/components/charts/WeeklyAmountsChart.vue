@@ -12,6 +12,8 @@ import {
 import {Line} from 'vue-chartjs';
 import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean, reverse} from 'remeda';
+import {DateTime} from 'luxon';
+import {useDateTime} from '@/hooks/dateTime';
 import {useActivityStore} from '@/stores/activityStore';
 import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
@@ -25,6 +27,8 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
 const chartContainer = ref<HTMLDivElement | null>(null);
+
+const {formatWeekString} = useDateTime();
 
 const chartData = computed(() => {
   const weekStarts = reverse(getWeekStarts.value);
@@ -53,6 +57,14 @@ const chartOptions = computed(() =>
             borderWidth: 3,
             scaleID: 'y',
             value: (ctx) => mean(ctx.chart.data.datasets[0].data.slice(1) as number[]) ?? 0,
+          },
+        },
+      },
+      tooltip: {
+        callbacks: {
+          title: (data) => {
+            const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
+            return formatWeekString(weekStart);
           },
         },
       },

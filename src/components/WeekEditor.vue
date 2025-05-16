@@ -16,6 +16,7 @@ import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
 import {AchievementLevel, type Achievements} from '@/utils/types';
 import {useScreen} from '@/hooks/screen';
+import {useDateTime} from '@/hooks/dateTime';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
@@ -25,8 +26,6 @@ defineEmits(['scroll']);
 const activityStore = useActivityStore();
 const {getWeekStarts, veggiesForWeek, challenges, weeklyAchievements} = storeToRefs(activityStore);
 const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
-
-const {t, locale} = useI18n();
 
 const selectedWeekStart = ref(first(getWeekStarts.value)!);
 
@@ -38,17 +37,7 @@ const veggies = computed({
   set: (veggies) => setVeggiesForWeek(veggies, selectedWeekStart.value),
 });
 
-const formatWeek = computed(
-  () => (weekStart: DateTime) =>
-    t('stats.selectedWeek', [
-      weekStart.toFormat('W/kkkk'),
-      weekStart.setLocale(locale.value).toLocaleString({month: 'numeric', day: 'numeric'}),
-      weekStart
-        .setLocale(locale.value)
-        .endOf('week')
-        .toLocaleString({month: 'numeric', day: 'numeric'}),
-    ]),
-);
+const {formatWeekString} = useDateTime();
 
 const selectedChallenge = computed(
   () => challenges.value.find(({startDate}) => startDate.equals(selectedWeekStart.value))?.veggie,
@@ -65,7 +54,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
           class="week-editor__dropdown-button"
           data-test-id="week-editor-dropdown-button"
         >
-          <span class="truncate">{{ formatWeek(selectedWeekStart) }}</span>
+          <span class="truncate">{{ formatWeekString(selectedWeekStart) }}</span>
           <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevronDown" />
         </ListboxButton>
       </ContentElement>
@@ -91,7 +80,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
               :class="[getDropdownStyles!(active, selected), 'dropdown-list-option']"
               role="menuitem"
             >
-              <span class="truncate">{{ formatWeek(date) }}</span>
+              <span class="truncate">{{ formatWeekString(date) }}</span>
               <IconComponent v-if="selected" icon="check" />
             </li>
           </ListboxOption>
