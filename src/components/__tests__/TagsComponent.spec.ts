@@ -8,7 +8,8 @@ describe('ButtonComponent', () => {
       props: {
         veggies: ['tomato', 'pineapple'],
         icon: 'plus',
-        ariaKey: 'general.clickToAdd',
+        ariaTagKey: 'general.clickToAdd',
+        ariaLabel: 'Suggestions',
         toggleFn: () => {},
       },
     });
@@ -23,7 +24,8 @@ describe('ButtonComponent', () => {
         veggies: ['tomato', 'pineapple'],
         variant: 'danger',
         icon: 'minus',
-        ariaKey: 'general.clickToRemove',
+        ariaTagKey: 'general.clickToRemove',
+        ariaLabel: 'Suggestions',
         toggleFn: () => {},
       },
     });
@@ -38,7 +40,8 @@ describe('ButtonComponent', () => {
         veggies: ['tomato', 'pineapple'],
         variant: ['tag', 'primary'],
         icon: 'plus',
-        ariaKey: 'general.clickToAdd',
+        ariaTagKey: 'general.clickToAdd',
+        ariaLabel: 'Suggestions',
         toggleFn: () => {},
       },
     });
@@ -56,7 +59,8 @@ describe('ButtonComponent', () => {
         veggies: ['tomato', 'pineapple'],
         variant: ['tag', 'primary'],
         icon: 'minus',
-        ariaKey: 'general.clickToRemove',
+        ariaTagKey: 'general.clickToRemove',
+        ariaLabel: 'Suggestions',
         toggleFn,
       },
     });

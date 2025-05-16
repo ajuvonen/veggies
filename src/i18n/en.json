@@ -1073,7 +1073,7 @@
     "title": "Settings"
   },
   "stats": {
-    "0": "This week's veggies",
+    "0": "Edit weeks",
     "1": "Weekly statistics",
     "2": "All time statistics",
     "3": "Veggie list",
@@ -1081,6 +1081,7 @@
     "chooseWeek": "Choose Week",
     "chosenStats": "Chosen Statistics",
     "selectedWeek": "Week {0} ({1}-{2})",
+    "veggiesForWeek": "Veggies for Week",
     "weeklyAmounts": "Weekly Amounts",
     "weeklyAchievements": "Weekly Achievements",
     "weeklyCategories": "Weekly Categories"
@@ -1107,6 +1108,7 @@
     "eggplant": ["aubergine"],
     "fava bean": ["broad bean"],
     "frisee": ["curly endive"],
+    "grape": [""],
     "green bean": ["string bean"],
     "holy basil": ["tulsi"],
     "mandarin": ["satsuma"],
@@ -1115,6 +1117,7 @@
     "mizuna": [""],
     "napa cabbage": ["chinese cabbage"],
     "persimmon": ["kaki"],
+    "plum": ["prune"],
     "redcurrant": [""],
     "romaine": [""],
     "rutabaga": ["swede"],
@@ -1385,7 +1388,8 @@
     "nextCategory": "Next Category",
     "noResults": "No Results",
     "previousCategory": "Previous Category",
-    "search": "Add Weekly Veggies"
+    "search": "Add Weekly Veggies",
+    "suggestions": "Suggestions"
   },
   "views": {
     "home": "Home",

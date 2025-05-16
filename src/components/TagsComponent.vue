@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, ref, nextTick} from 'vue';
+import {computed, ref, nextTick, type ComponentPublicInstance} from 'vue';
 import {useI18n} from 'vue-i18n';
 import type {ButtonVariant} from '@/components/ButtonComponent.vue';
 import type {IconString} from '@/components/IconComponent.vue';
@@ -10,7 +10,8 @@ const props = withDefaults(
     veggies: string[];
     icon: IconString;
     variant?: ButtonVariant | ButtonVariant[];
-    ariaKey: string;
+    ariaLabel: string;
+    ariaTagKey: string;
     toggleFn: (veggie: string) => void;
   }>(),
   {
@@ -20,8 +21,8 @@ const props = withDefaults(
 
 const {t, locale} = useI18n();
 
-const tags = ref<typeof ButtonComponent | null>(null);
-const listElement = ref<HTMLUListElement | null>(null);
+const tags = ref<Record<string, ComponentPublicInstance | null>>({});
+const listElement = ref<typeof HTMLUListElement | null>(null);
 
 const translatedVeggies = computed(() => {
   const collator = new Intl.Collator(locale.value);
@@ -34,44 +35,54 @@ const translatedVeggies = computed(() => {
 });
 
 const toggle = async (veggie: string, index: number) => {
+  const targetVeggie = translatedVeggies.value[index + 1] || translatedVeggies.value[index - 1];
+  const focusElement = targetVeggie ? tags.value[targetVeggie.veggie]?.$el : listElement.value;
   props.toggleFn(veggie);
   await nextTick();
-  const focusElement =
-    tags.value?.[index] || tags.value?.[tags.value.length - 1] || listElement.value;
-  focusElement.$el.focus();
+  focusElement.focus();
 };
 </script>
 <template>
-  <TransitionGroup
-    v-if="veggies.length"
+  <ul
     ref="listElement"
+    :class="{'tags__container--empty': !veggies.length}"
+    :aria-label="ariaLabel"
     tabindex="-1"
-    name="tags"
     tag="ul"
     class="tags__container"
   >
-    <li
-      v-for="({veggie, translation}, index) in translatedVeggies"
-      :key="veggie"
-      :data-test-id="`tag-${veggie}`"
-      class="z-10"
-    >
-      <ButtonComponent
-        ref="tags"
-        :aria-label="$t(ariaKey, [translation])"
-        :variant="variant"
-        @click="toggle(veggie, index)"
+    <TransitionGroup name="tags">
+      <li
+        v-for="({veggie, translation}, index) in translatedVeggies"
+        :key="veggie"
+        :data-test-id="`tag-${veggie}`"
+        class="z-10"
       >
-        <IconComponent :icon="icon" />
-        {{ translation }}</ButtonComponent
-      >
-    </li>
-  </TransitionGroup>
+        <ButtonComponent
+          :ref="
+            (el) => {
+              tags[veggie] = el as ComponentPublicInstance;
+            }
+          "
+          :aria-label="$t(ariaTagKey, [translation])"
+          :variant="variant"
+          @click="toggle(veggie, index)"
+        >
+          <IconComponent :icon="icon" />
+          {{ translation }}</ButtonComponent
+        >
+      </li>
+    </TransitionGroup>
+  </ul>
 </template>
 <style scoped>
 .tags__container {
   @apply relative has-scroll;
   @apply flex-container flex-wrap justify-center content-start;
+
+  &--empty {
+    @apply pointer-events-none;
+  }
 }
 
 /* Transition classes */

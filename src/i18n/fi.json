@@ -1079,7 +1079,7 @@
     "title": "Asetukset"
   },
   "stats": {
-    "0": "Tämän viikon kasvikset",
+    "0": "Muokkaa viikkoja",
     "1": "Viikkotilastot",
     "2": "Kokonaistilastot",
     "3": "Kasvislista",
@@ -1087,6 +1087,7 @@
     "chooseWeek": "Valitse viikko",
     "chosenStats": "Valitut tilastot",
     "selectedWeek": "Viikko {0} ({1}-{2})",
+    "veggiesForWeek": "Viikon kasvikset",
     "weeklyAchievements": "Viikon saavutukset",
     "weeklyAmounts": "Lukumäärät viikoittain",
     "weeklyCategories": "Ryhmät viikoittain"
@@ -1113,6 +1114,7 @@
     "eggplant": [""],
     "fava bean": [""],
     "frisee": [""],
+    "grape": ["viinirypäle", "rusina"],
     "green bean": ["haricot"],
     "holy basil": [""],
     "mandarin": ["satsuma"],
@@ -1121,6 +1123,7 @@
     "mizuna": ["mizuna"],
     "napa cabbage": [""],
     "persimmon": ["kaki"],
+    "plum": [""],
     "redcurrant": ["punaviinimarja"],
     "romaine": ["romaine"],
     "rutabaga": [""],
@@ -1391,7 +1394,8 @@
     "nextCategory": "Seuraava ryhmä",
     "noResults": "Ei tuloksia",
     "previousCategory": "Edellinen ryhmä",
-    "search": "Kirjaa viikon kasvikset"
+    "search": "Kirjaa viikon kasvikset",
+    "suggestions": "Ehdotukset"
   },
   "views": {
     "home": "Etusivu",
