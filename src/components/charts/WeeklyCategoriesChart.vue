@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import {computed} from 'vue';
+import {computed, onMounted, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {reverse} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
@@ -21,10 +22,13 @@ const {x: mouseX} = useMouse();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
+const chartContainer = ref<HTMLDivElement | null>(null);
+
 const chartData = computed(() => {
+  const weekStarts = reverse(getWeekStarts.value);
   const datasets = Object.values(Category).map((category, index) => ({
     label: category,
-    data: getWeekStarts.value.map(
+    data: weekStarts.map(
       (weekStart) =>
         veggiesForWeek
           .value(weekStart)
@@ -34,7 +38,7 @@ const chartData = computed(() => {
   }));
 
   return {
-    labels: getWeekStarts.value.map((weekStart) => weekStart.toFormat('W/kkkk')),
+    labels: weekStarts.map((weekStart) => weekStart.toFormat('W/kkkk')),
     datasets: datasets.filter(({data}) => data.some((value) => value)),
   };
 });
@@ -60,6 +64,12 @@ const chartOptions = computed(() =>
   }),
 );
 
+onMounted(() => {
+  if (chartContainer.value) {
+    chartContainer.value.scrollLeft = chartContainer.value.scrollWidth;
+  }
+});
+
 defineExpose({chartData});
 </script>
 <template>
@@ -68,7 +78,7 @@ defineExpose({chartData});
     :labelAttrs="{'aria-hidden': true}"
     class="flex-1 overflow-hidden"
   >
-    <div class="h-full has-scroll m-0 p-0">
+    <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
       <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
         <Bar
           :options="chartOptions"
@@ -81,7 +91,7 @@ defineExpose({chartData});
         id="weekly-categories-table"
         :title="$t('stats.weeklyCategories')"
         :columnHeaders="chartData.labels"
-        :rowHeaders="chartData.datasets.map(({label}) => label)"
+        :rowHeaders="chartData.datasets.map(({label}) => t(`categories.${label}`))"
         :data="chartData.datasets.map(({data}) => data)"
       />
     </div>

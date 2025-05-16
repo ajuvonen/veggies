@@ -61,26 +61,26 @@ describe('charts', () => {
     // Leafies & mushrooms are dropped out
     const {labels, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual([
-      thisWeek.toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 3}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
       thisWeek.minus({weeks: 5}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 3}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
+      thisWeek.toFormat('W/kkkk'),
     ]);
     expect(datasets).toHaveLength(6);
     expect(datasets[0].label).toBe('Fruit');
-    expect(datasets[0].data).toEqual([2, 0, 0, 0, 0, 0]);
+    expect(datasets[0].data).toEqual([0, 0, 0, 0, 0, 2]);
     expect(datasets[1].label).toBe('Vegetable');
-    expect(datasets[1].data).toEqual([1, 0, 0, 0, 0, 0]);
+    expect(datasets[1].data).toEqual([0, 0, 0, 0, 0, 1]);
     expect(datasets[2].label).toBe('Leafy');
-    expect(datasets[2].data).toEqual([0, 0, 0, 0, 0, 1]);
+    expect(datasets[2].data).toEqual([1, 0, 0, 0, 0, 0]);
     expect(datasets[3].label).toBe('Root');
-    expect(datasets[3].data).toEqual([1, 1, 0, 0, 0, 0]);
+    expect(datasets[3].data).toEqual([0, 0, 0, 0, 1, 1]);
     expect(datasets[4].label).toBe('Bean');
-    expect(datasets[4].data).toEqual([0, 1, 0, 0, 0, 0]);
+    expect(datasets[4].data).toEqual([0, 0, 0, 0, 1, 0]);
     expect(datasets[5].label).toBe('Grain');
-    expect(datasets[5].data).toEqual([0, 0, 2, 0, 0, 0]);
+    expect(datasets[5].data).toEqual([0, 0, 0, 2, 0, 0]);
   });
 
   it('prepares data for WeeklyAmountsChart', () => {
@@ -108,15 +108,15 @@ describe('charts', () => {
 
     const {labels, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual([
-      thisWeek.toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 3}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
       thisWeek.minus({weeks: 5}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 3}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
+      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
+      thisWeek.toFormat('W/kkkk'),
     ]);
     expect(datasets).toHaveLength(1);
-    expect(datasets[0].data).toEqual([4, 2, 2, 0, 0, 1]);
+    expect(datasets[0].data).toEqual([1, 0, 0, 2, 2, 4]);
   });
 
   const getPercentage = (group: string[], amount: number) =>
