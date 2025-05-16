@@ -101,9 +101,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
     <VeggieSearch v-if="!selectedWeekStart.equals(first(getWeekStarts)!)" v-model="veggies" />
     <ul class="flex-container justify-evenly" :aria-label="$t('stats.weeklyAchievements')">
       <AchievementBadge
-        v-for="[achievement, level] in Object.entries(
-          weeklyAchievements(veggiesForWeek(selectedWeekStart)),
-        )"
+        v-for="[achievement, level] in Object.entries(weeklyAchievements(veggies))"
         :key="achievement"
         :achievement="achievement as keyof Achievements"
         :level="level || AchievementLevel.Gold"
@@ -112,7 +110,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
       />
     </ul>
     <TagsComponent
-      :veggies="veggiesForWeek(selectedWeekStart)"
+      :veggies="veggies"
       :variant="['tag', 'remove']"
       :toggleFn="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
       :ariaLabel="$t('stats.veggiesForWeek')"
