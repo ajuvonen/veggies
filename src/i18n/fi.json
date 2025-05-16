@@ -1028,7 +1028,7 @@
   "qa": {
     "appPurpose": {
       "title": "Mitä sovelluksella tehdään",
-      "text": "Eat Your Veggies on ilmainen sovellus kasviperäisten ruoka-aineiden seuraamiseen ruokavaliossasi. Tutkimustulosten mukaan 30:n erilaisen kasviksen kuluttaminen viikoittain johtaa lukuisiin terveyshyötyihin vähemmän monipuoliseen ruokavalioon verrattuna. Avainasemassa ei siis tutkimuksen mukaan ole vain kulutettu määrä, vaan myös monipuolisuus."
+      "text": "Eat Your Veggies on ilmainen sovellus kasviperäisten ruoka-aineiden seuraamiseen ruokavaliossasi. Voit etsiä viikon aikana syömiäsi kasviperäisiä aineksia ja lisätä niitä sovelluksessa. Jokainen kasvis lasketaan vain kerran viikkoa kohden."
     },
     "categories": {
       "title": "Mutta mansikkahan on...",
@@ -1054,7 +1054,7 @@
     "studyDetails": {
       "linkText": "American Society for Microbiology (ASM)",
       "title": "Mihin sovellus perustuu?",
-      "text": "En ole ravitsemusterapeutti enkä biologi, joten haluan välttää liioiteltujen terveysväittämien tai tulkintojen esittämistä. En ole kytköksissä tutkimusta tehneeseen ryhmään millään tavalla, mutta mikäli haluat lukea siitä lisää, tutustu The American Gut Projectiin julkaisussa {0}."
+      "text": "Tutkimustulosten mukaan 30:n erilaisen kasviksen kuluttaminen viikoittain johtaa lukuisiin terveyshyötyihin vähemmän monipuoliseen ruokavalioon verrattuna. Avainasemassa ei siis tutkimuksen mukaan ole vain kulutettu määrä, vaan myös monipuolisuus. Mikäli haluat lukea siitä lisää, tutustu The American Gut Projectiin julkaisussa {0}."
     },
     "title": "Yleisiä kysymyksiä",
     "whatCounts": {
@@ -1075,7 +1075,7 @@
       "text": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
       "title": "Haluatko tyhjentää sovelluksen?"
     },
-    "suggestionCount": "Näytettävien ehdotusten lukumäärä",
+    "suggestionCount": "Etusivulla nätettävät ehdotukset",
     "title": "Asetukset"
   },
   "stats": {
