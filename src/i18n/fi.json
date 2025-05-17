@@ -76,14 +76,6 @@
       "badgeText": "Vihannekset",
       "3": "Olet kokeillut 15:tä erilaista vihannesta!"
     },
-    "favorite": {
-      "title": "Omat suosikit",
-      "ariaLabel": "{0} kertaa kirjattu kasvis joka ryhmässä",
-      "badgeText": "{0} kirjausta",
-      "1": "Olet kirjannut suosikkiasi vähintään viisi kertaa joka ryhmässä!",
-      "2": "Olet kirjannut suosikkiasi vähintään 15 kertaa joka ryhmässä!",
-      "3": "Olet kirjannut suosikkiasi vähintään 30 kertaa joka ryhmässä!"
-    },
     "goNuts": {
       "ariaLabel": "{0} erilaista pähkinää tällä viikolla.",
       "badgeText": "Pähkinöinä",
@@ -1036,7 +1028,7 @@
   "qa": {
     "appPurpose": {
       "title": "Mitä sovelluksella tehdään",
-      "text": "Eat Your Veggies on ilmainen sovellus kasviperäisten ruoka-aineiden seuraamiseen ruokavaliossasi. Tutkimustulosten mukaan 30:n erilaisen kasviksen kuluttaminen viikoittain johtaa lukuisiin terveyshyötyihin vähemmän monipuoliseen ruokavalioon verrattuna. Avainasemassa ei siis tutkimuksen mukaan ole vain kulutettu määrä, vaan myös monipuolisuus."
+      "text": "Eat Your Veggies on ilmainen sovellus kasviperäisten ruoka-aineiden seuraamiseen ruokavaliossasi. Voit etsiä viikon aikana syömiäsi kasviperäisiä aineksia ja lisätä niitä sovelluksessa. Jokainen kasvis lasketaan vain kerran viikkoa kohden."
     },
     "categories": {
       "title": "Mutta mansikkahan on...",
@@ -1062,7 +1054,7 @@
     "studyDetails": {
       "linkText": "American Society for Microbiology (ASM)",
       "title": "Mihin sovellus perustuu?",
-      "text": "En ole ravitsemusterapeutti enkä biologi, joten haluan välttää liioiteltujen terveysväittämien tai tulkintojen esittämistä. En ole kytköksissä tutkimusta tehneeseen ryhmään millään tavalla, mutta mikäli haluat lukea siitä lisää, tutustu The American Gut Projectiin julkaisussa {0}."
+      "text": "Tutkimustulosten mukaan 30:n erilaisen kasviksen kuluttaminen viikoittain johtaa lukuisiin terveyshyötyihin vähemmän monipuoliseen ruokavalioon verrattuna. Avainasemassa ei siis tutkimuksen mukaan ole vain kulutettu määrä, vaan myös monipuolisuus. Mikäli haluat lukea siitä lisää, tutustu The American Gut Projectiin julkaisussa {0}."
     },
     "title": "Yleisiä kysymyksiä",
     "whatCounts": {
@@ -1083,11 +1075,11 @@
       "text": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
       "title": "Haluatko tyhjentää sovelluksen?"
     },
-    "suggestionCount": "Näytettävien ehdotusten lukumäärä",
+    "suggestionCount": "Etusivulla nätettävät ehdotukset",
     "title": "Asetukset"
   },
   "stats": {
-    "0": "Tämän viikon kasvikset",
+    "0": "Muokkaa viikkoja",
     "1": "Viikkotilastot",
     "2": "Kokonaistilastot",
     "3": "Kasvislista",
@@ -1095,6 +1087,8 @@
     "chooseWeek": "Valitse viikko",
     "chosenStats": "Valitut tilastot",
     "selectedWeek": "Viikko {0} ({1}-{2})",
+    "veggiesForWeek": "Viikon kasvikset",
+    "weeklyAchievements": "Viikon saavutukset",
     "weeklyAmounts": "Lukumäärät viikoittain",
     "weeklyCategories": "Ryhmät viikoittain"
   },
@@ -1120,6 +1114,7 @@
     "eggplant": [""],
     "fava bean": [""],
     "frisee": [""],
+    "grape": ["rusina"],
     "green bean": ["haricot"],
     "holy basil": [""],
     "mandarin": ["satsuma"],
@@ -1128,6 +1123,7 @@
     "mizuna": ["mizuna"],
     "napa cabbage": [""],
     "persimmon": ["kaki"],
+    "plum": [""],
     "redcurrant": ["punaviinimarja"],
     "romaine": ["romaine"],
     "rutabaga": [""],
@@ -1245,7 +1241,7 @@
     "garlic": "valkosipuli",
     "ginger": "inkivääri",
     "gooseberry": "karviainen",
-    "grape": "rypäle",
+    "grape": "viinirypäle",
     "grapefruit": "greippi",
     "green bean": "vihreä papu",
     "green lentil": "vihreä linssi",
@@ -1398,7 +1394,8 @@
     "nextCategory": "Seuraava ryhmä",
     "noResults": "Ei tuloksia",
     "previousCategory": "Edellinen ryhmä",
-    "search": "Kirjaa viikon kasvikset"
+    "search": "Kirjaa viikon kasvikset",
+    "suggestions": "Ehdotukset"
   },
   "views": {
     "home": "Etusivu",

@@ -126,29 +126,6 @@ exports[`AchievementList > renders 1`] = `
     </ul>
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
-    <h2 class="label-like">Playing Favorites</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" aria-label="5 uses of a single veggie in all categories" data-test-id="badge-favorite-1" class="badge__favorite badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">😺</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 uses</div>
-      </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" aria-label="15 uses of a single veggie in all categories" data-test-id="badge-favorite-2" class="badge__favorite badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">😽</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">15 uses</div>
-      </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" aria-label="30 uses of a single veggie in all categories" data-test-id="badge-favorite-3" class="badge__favorite badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">😻</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 uses</div>
-      </li>
-    </ul>
-  </div>
-  <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">The Experimenter</h2>
     <ul data-v-1c120264="" class="achievement-list__badge-container">
       <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" aria-label="15 unique fruits and berries" data-test-id="badge-experimenterFruit-3" class="badge__experimenterFruit badge" role="img">
@@ -336,29 +313,6 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
           <div data-v-06381b3c="" class="badge__emoji">🌋</div>
         </div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">20 Weeks</div>
-      </li>
-    </ul>
-  </div>
-  <div data-v-1c120264="" class="flex-container flex-col">
-    <h2 class="label-like">Playing Favorites</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" aria-label="5 uses of a single veggie in all categories" data-test-id="badge-favorite-1" class="badge__favorite badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">😺</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 uses</div>
-      </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" aria-label="15 uses of a single veggie in all categories" data-test-id="badge-favorite-2" class="badge__favorite badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">😽</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">15 uses</div>
-      </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-disabled="true" aria-label="30 uses of a single veggie in all categories" data-test-id="badge-favorite-3" class="badge__favorite badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">😻</div>
-        </div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 uses</div>
       </li>
     </ul>
   </div>

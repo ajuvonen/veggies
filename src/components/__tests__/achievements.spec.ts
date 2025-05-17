@@ -1,14 +1,6 @@
-import {describe, it, expect} from 'vitest';
-import {mount} from '@vue/test-utils';
-import {useAchievements} from '@/hooks/achievements';
-import {
-  AchievementLevel,
-  Category,
-  type AchievementProps,
-  type Achievements,
-  type Favorites,
-} from '@/utils/types';
+import {describe, it, expect, beforeEach} from 'vitest';
 import {take} from 'remeda';
+import {AchievementLevel, type Achievements, type Week} from '@/utils/types';
 import {
   ALL_VEGGIES,
   BEANS,
@@ -22,351 +14,196 @@ import {
   ROOTS,
   VEGETABLES,
 } from '@/utils/constants';
+import {useActivityStore} from '@/stores/activityStore';
+import {DateTime} from 'luxon';
 
-const withSetup = <T>(hook: () => T) =>
-  new Promise<T>((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(hook());
-      },
-    });
-  });
-
-const defaultAchievements: Achievements = {
-  allOnRed: AchievementLevel.NoAchievement,
-  botanicalBerries: AchievementLevel.NoAchievement,
-  challengeAccepted: AchievementLevel.NoAchievement,
-  committed: AchievementLevel.NoAchievement,
-  completionist: AchievementLevel.NoAchievement,
-  experimenterBean: AchievementLevel.NoAchievement,
-  experimenterFruit: AchievementLevel.NoAchievement,
-  experimenterGrain: AchievementLevel.NoAchievement,
-  experimenterLeafy: AchievementLevel.NoAchievement,
-  experimenterMushroom: AchievementLevel.NoAchievement,
-  experimenterRoot: AchievementLevel.NoAchievement,
-  experimenterVegetable: AchievementLevel.NoAchievement,
-  favorite: AchievementLevel.NoAchievement,
-  goNuts: AchievementLevel.NoAchievement,
-  hotStreak: AchievementLevel.NoAchievement,
-  thirtyVeggies: AchievementLevel.NoAchievement,
-  thousandsOdd: AchievementLevel.NoAchievement,
-  thousandsEven: AchievementLevel.NoAchievement,
-};
-
-const getFavorites = (amount: number = 0) =>
-  Object.values(Category).reduce(
-    (acc, category) => ({
-      ...acc,
-      [category]: amount ? [['veggie', amount]] : [],
-    }),
-    {} as Favorites,
-  );
-
-const getProps = (achievementProps: Partial<AchievementProps> = {}): AchievementProps => ({
-  completedChallenges: 0,
-  favorites: getFavorites(),
-  hotStreakLength: 0,
-  totalVeggies: 0,
-  totalWeeks: 0,
-  uniqueVeggies: [],
-  veggiesThisWeek: [],
-  ...achievementProps,
-});
+const createWeeks = (amount: number, veggies: string[] = []): Week[] =>
+  [...Array(amount)]
+    .map((_, index) => ({
+      startDate: DateTime.now().startOf('week').minus({weeks: index}),
+      veggies,
+    }))
+    .reverse();
 
 describe('achievements', () => {
+  let activityStore: ReturnType<typeof useActivityStore>;
+
+  beforeEach(() => {
+    activityStore = useActivityStore();
+  });
+
   it('sets initial status', async () => {
-    const {achievements} = await withSetup(useAchievements);
-    expect(achievements.value).toEqual(defaultAchievements);
+    const defaultAchievements: Achievements = {
+      allOnRed: AchievementLevel.NoAchievement,
+      botanicalBerries: AchievementLevel.NoAchievement,
+      challengeAccepted: AchievementLevel.NoAchievement,
+      committed: AchievementLevel.NoAchievement,
+      completionist: AchievementLevel.NoAchievement,
+      experimenterBean: AchievementLevel.NoAchievement,
+      experimenterFruit: AchievementLevel.NoAchievement,
+      experimenterGrain: AchievementLevel.NoAchievement,
+      experimenterLeafy: AchievementLevel.NoAchievement,
+      experimenterMushroom: AchievementLevel.NoAchievement,
+      experimenterRoot: AchievementLevel.NoAchievement,
+      experimenterVegetable: AchievementLevel.NoAchievement,
+      goNuts: AchievementLevel.NoAchievement,
+      hotStreak: AchievementLevel.NoAchievement,
+      thirtyVeggies: AchievementLevel.NoAchievement,
+      thousandsOdd: AchievementLevel.NoAchievement,
+      thousandsEven: AchievementLevel.NoAchievement,
+    };
+    expect(activityStore.achievements).toEqual(defaultAchievements);
   });
 
   it('advances completionist', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: [...Array(39)]}));
-    expect(achievements.value.completionist).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({uniqueVeggies: [...Array(40)]}));
-    expect(achievements.value.completionist).toBe(AchievementLevel.Bronze);
-    advanceAchievements(getProps({uniqueVeggies: [...Array(80)]}));
-    expect(achievements.value.completionist).toBe(AchievementLevel.Silver);
-    advanceAchievements(getProps({uniqueVeggies: [...Array(150)]}));
-    expect(achievements.value.completionist).toBe(AchievementLevel.Gold);
-  });
-
-  it('goes straight to silver', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: [...Array(80)]}));
-    expect(achievements.value.completionist).toBe(AchievementLevel.Silver);
-  });
-
-  it('completionist goes straight to gold', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: [...Array(150)]}));
-    expect(achievements.value.completionist).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 39));
+    expect(activityStore.achievements.completionist).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 40));
+    expect(activityStore.achievements.completionist).toBe(AchievementLevel.Bronze);
+    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 80));
+    expect(activityStore.achievements.completionist).toBe(AchievementLevel.Silver);
+    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 150));
+    expect(activityStore.achievements.completionist).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterFruit', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: take(FRUITS, 14)}));
-    expect(achievements.value.experimenterFruit).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({uniqueVeggies: take(FRUITS, 15)}));
-    expect(achievements.value.experimenterFruit).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(FRUITS, 14));
+    expect(activityStore.achievements.experimenterFruit).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(FRUITS, 15));
+    expect(activityStore.achievements.experimenterFruit).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterVegetable', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: take(VEGETABLES, 14)}));
-    expect(achievements.value.experimenterVegetable).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({uniqueVeggies: take(VEGETABLES, 15)}));
-    expect(achievements.value.experimenterVegetable).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(VEGETABLES, 14));
+    expect(activityStore.achievements.experimenterVegetable).toEqual(
+      AchievementLevel.NoAchievement,
+    );
+    activityStore.weeks = createWeeks(1, take(VEGETABLES, 15));
+    expect(activityStore.achievements.experimenterVegetable).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterLeafy', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: take(LEAFIES, 14)}));
-    expect(achievements.value.experimenterLeafy).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({uniqueVeggies: take(LEAFIES, 15)}));
-    expect(achievements.value.experimenterLeafy).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(LEAFIES, 14));
+    expect(activityStore.achievements.experimenterLeafy).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(LEAFIES, 15));
+    expect(activityStore.achievements.experimenterLeafy).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterMushroom', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: take(MUSHROOMS, 9)}));
-    expect(achievements.value.experimenterMushroom).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({uniqueVeggies: take(MUSHROOMS, 10)}));
-    expect(achievements.value.experimenterMushroom).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(MUSHROOMS, 14));
+    expect(activityStore.achievements.experimenterMushroom).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(MUSHROOMS, 15));
+    expect(activityStore.achievements.experimenterMushroom).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterBean', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: take(BEANS, 14)}));
-    expect(achievements.value.experimenterBean).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({uniqueVeggies: take(BEANS, 15)}));
-    expect(achievements.value.experimenterBean).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(BEANS, 14));
+    expect(activityStore.achievements.experimenterBean).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(BEANS, 15));
+    expect(activityStore.achievements.experimenterBean).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterRoot', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: take(ROOTS, 14)}));
-    expect(achievements.value.experimenterRoot).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({uniqueVeggies: take(ROOTS, 15)}));
-    expect(achievements.value.experimenterRoot).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(ROOTS, 14));
+    expect(activityStore.achievements.experimenterRoot).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(ROOTS, 15));
+    expect(activityStore.achievements.experimenterRoot).toBe(AchievementLevel.Gold);
   });
 
   it('advances experimenterGrain', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({uniqueVeggies: take(GRAINS, 14)}));
-    expect(achievements.value.experimenterGrain).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({uniqueVeggies: take(GRAINS, 15)}));
-    expect(achievements.value.experimenterGrain).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(GRAINS, 14));
+    expect(activityStore.achievements.experimenterGrain).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(GRAINS, 15));
+    expect(activityStore.achievements.experimenterGrain).toBe(AchievementLevel.Gold);
   });
 
   it('advances hot streak', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({hotStreakLength: 4}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({hotStreakLength: 5}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Bronze);
-    advanceAchievements(getProps({hotStreakLength: 10}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Silver);
-    advanceAchievements(getProps({hotStreakLength: 20}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Gold);
-  });
-
-  it('resets hot streak', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({hotStreakLength: 5}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Bronze);
-    advanceAchievements(getProps({hotStreakLength: 0}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({hotStreakLength: 10}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Silver);
-    advanceAchievements(getProps({hotStreakLength: 0}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({hotStreakLength: 20}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.Gold);
-    advanceAchievements(getProps({hotStreakLength: 0}));
-    expect(achievements.value.hotStreak).toEqual(AchievementLevel.NoAchievement);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.hotStreak = 4;
+    expect(activityStore.achievements.hotStreak).toEqual(AchievementLevel.NoAchievement);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.hotStreak = 5;
+    expect(activityStore.achievements.hotStreak).toEqual(AchievementLevel.Bronze);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.hotStreak = 10;
+    expect(activityStore.achievements.hotStreak).toEqual(AchievementLevel.Silver);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.hotStreak = 20;
+    expect(activityStore.achievements.hotStreak).toEqual(AchievementLevel.Gold);
   });
 
   it('advances committed', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({totalWeeks: 11}));
-    expect(achievements.value.committed).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({totalWeeks: 12}));
-    expect(achievements.value.committed).toEqual(AchievementLevel.Bronze);
-    advanceAchievements(getProps({totalWeeks: 26}));
-    expect(achievements.value.committed).toEqual(AchievementLevel.Silver);
-    advanceAchievements(getProps({totalWeeks: 52}));
-    expect(achievements.value.committed).toEqual(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(11);
+    expect(activityStore.achievements.committed).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(12);
+    expect(activityStore.achievements.committed).toEqual(AchievementLevel.Bronze);
+    activityStore.weeks = createWeeks(26);
+    expect(activityStore.achievements.committed).toEqual(AchievementLevel.Silver);
+    activityStore.weeks = createWeeks(52);
+    expect(activityStore.achievements.committed).toEqual(AchievementLevel.Gold);
   });
 
   it('advances challengeAccepted', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({completedChallenges: 4}));
-    expect(achievements.value.challengeAccepted).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({completedChallenges: 5}));
-    expect(achievements.value.challengeAccepted).toEqual(AchievementLevel.Bronze);
-    advanceAchievements(getProps({completedChallenges: 10}));
-    expect(achievements.value.challengeAccepted).toEqual(AchievementLevel.Silver);
-    advanceAchievements(getProps({completedChallenges: 20}));
-    expect(achievements.value.challengeAccepted).toEqual(AchievementLevel.Gold);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.completedChallenges = 4;
+    expect(activityStore.achievements.challengeAccepted).toEqual(AchievementLevel.NoAchievement);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.completedChallenges = 5;
+    expect(activityStore.achievements.challengeAccepted).toEqual(AchievementLevel.Bronze);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.completedChallenges = 10;
+    expect(activityStore.achievements.challengeAccepted).toEqual(AchievementLevel.Silver);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.completedChallenges = 20;
+    expect(activityStore.achievements.challengeAccepted).toEqual(AchievementLevel.Gold);
   });
 
   it('advances thirtyVeggies', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 29)}));
-    expect(achievements.value.thirtyVeggies).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 30)}));
-    expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.Gold);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 40)}));
-    expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.Platinum);
-  });
-
-  it('resets thirtyVeggies', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 30)}));
-    expect(achievements.value.thirtyVeggies).toEqual(AchievementLevel.Gold);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 0)}));
-    expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 40)}));
-    expect(achievements.value.thirtyVeggies).toEqual(AchievementLevel.Platinum);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 0)}));
-    expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 40)}));
-    expect(achievements.value.thirtyVeggies).toEqual(AchievementLevel.Platinum);
-    advanceAchievements(getProps({veggiesThisWeek: take(ALL_VEGGIES, 39)}));
-    expect(achievements.value.thirtyVeggies).toBe(AchievementLevel.Gold);
-  });
-
-  it('advances favorite', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({favorites: getFavorites(4)}));
-    expect(achievements.value.favorite).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({favorites: getFavorites(5)}));
-    expect(achievements.value.favorite).toEqual(AchievementLevel.Bronze);
-    advanceAchievements(getProps({favorites: getFavorites(15)}));
-    expect(achievements.value.favorite).toEqual(AchievementLevel.Silver);
-    advanceAchievements(getProps({favorites: getFavorites(30)}));
-    expect(achievements.value.favorite).toEqual(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 29));
+    expect(activityStore.achievements.thirtyVeggies).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 30));
+    expect(activityStore.achievements.thirtyVeggies).toBe(AchievementLevel.Gold);
+    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 40));
+    expect(activityStore.achievements.thirtyVeggies).toBe(AchievementLevel.Platinum);
   });
 
   it('advances go nuts', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({veggiesThisWeek: take(NUTS, 4)}));
-    expect(achievements.value.goNuts).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(
-      getProps({
-        veggiesThisWeek: take(NUTS, 5),
-      }),
-    );
-    expect(achievements.value.goNuts).toEqual(AchievementLevel.Gold);
-    advanceAchievements(
-      getProps({
-        veggiesThisWeek: take(NUTS, 4),
-      }),
-    );
-    expect(achievements.value.goNuts).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(NUTS, 4));
+    expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(NUTS, 5));
+    expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.Gold);
   });
 
   it('advances all on red', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(
-      getProps({
-        veggiesThisWeek: take(RED_VEGGIES, 9),
-      }),
-    );
-    expect(achievements.value.allOnRed).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(
-      getProps({
-        veggiesThisWeek: take(RED_VEGGIES, 10),
-      }),
-    );
-    expect(achievements.value.allOnRed).toEqual(AchievementLevel.Gold);
-    advanceAchievements(
-      getProps({
-        veggiesThisWeek: take(RED_VEGGIES, 9),
-      }),
-    );
-    expect(achievements.value.allOnRed).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(RED_VEGGIES, 9));
+    expect(activityStore.achievements.allOnRed).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(RED_VEGGIES, 10));
+    expect(activityStore.achievements.allOnRed).toEqual(AchievementLevel.Gold);
   });
 
   it('advances botanical berries', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(
-      getProps({
-        veggiesThisWeek: take(BOTANICAL_BERRIES, 14),
-      }),
-    );
-    expect(achievements.value.botanicalBerries).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(
-      getProps({
-        veggiesThisWeek: take(BOTANICAL_BERRIES, 15),
-      }),
-    );
-    expect(achievements.value.botanicalBerries).toEqual(AchievementLevel.Gold);
-    advanceAchievements(
-      getProps({
-        veggiesThisWeek: take(BOTANICAL_BERRIES, 14),
-      }),
-    );
-    expect(achievements.value.botanicalBerries).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(BOTANICAL_BERRIES, 14));
+    expect(activityStore.achievements.botanicalBerries).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(BOTANICAL_BERRIES, 15));
+    expect(activityStore.achievements.botanicalBerries).toEqual(AchievementLevel.Gold);
   });
 
   it('advances thousands', async () => {
-    const {advanceAchievements, achievements} = await withSetup(useAchievements);
-    advanceAchievements(getProps({totalVeggies: 999}));
-    expect(achievements.value.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
-    expect(achievements.value.thousandsEven).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({totalVeggies: 1000}));
-    expect(achievements.value.thousandsOdd).toEqual(AchievementLevel.Platinum);
-    expect(achievements.value.thousandsEven).toEqual(AchievementLevel.NoAchievement);
-    advanceAchievements(getProps({totalVeggies: 2000}));
-    expect(achievements.value.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
-    expect(achievements.value.thousandsEven).toEqual(AchievementLevel.Platinum);
-    advanceAchievements(getProps({totalVeggies: 2001}));
-    expect(achievements.value.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
-    expect(achievements.value.thousandsEven).toEqual(AchievementLevel.Platinum);
-  });
-
-  it('resets achievements', async () => {
-    const expectedAchievements: Achievements = {
-      allOnRed: AchievementLevel.Gold,
-      botanicalBerries: AchievementLevel.Gold,
-      challengeAccepted: AchievementLevel.Gold,
-      committed: AchievementLevel.Gold,
-      completionist: AchievementLevel.Gold,
-      experimenterBean: AchievementLevel.Gold,
-      experimenterRoot: AchievementLevel.Gold,
-      experimenterFruit: AchievementLevel.Gold,
-      experimenterGrain: AchievementLevel.Gold,
-      experimenterLeafy: AchievementLevel.Gold,
-      experimenterMushroom: AchievementLevel.Gold,
-      experimenterVegetable: AchievementLevel.Gold,
-      favorite: AchievementLevel.Gold,
-      goNuts: AchievementLevel.Gold,
-      hotStreak: AchievementLevel.Gold,
-      thirtyVeggies: AchievementLevel.Platinum,
-      thousandsOdd: AchievementLevel.Platinum,
-      thousandsEven: AchievementLevel.NoAchievement,
-    };
-    const {advanceAchievements, achievements, resetAchievements} = await withSetup(useAchievements);
-    advanceAchievements({
-      completedChallenges: 20,
-      favorites: getFavorites(50),
-      hotStreakLength: 30,
-      totalVeggies: 1000,
-      totalWeeks: 52,
-      uniqueVeggies: ALL_VEGGIES,
-      veggiesThisWeek: [
-        ...take(ALL_VEGGIES, 20),
-        ...take(BOTANICAL_BERRIES, 15),
-        ...take(RED_VEGGIES, 10),
-        ...take(NUTS, 5),
-      ],
-    });
-    expect(achievements.value).toEqual(expectedAchievements);
-    resetAchievements();
-    expect(achievements.value).toEqual(defaultAchievements);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.allVeggies = [...Array(999)];
+    expect(activityStore.achievements.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
+    expect(activityStore.achievements.thousandsEven).toEqual(AchievementLevel.NoAchievement);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.allVeggies = [...Array(1000)];
+    expect(activityStore.achievements.thousandsOdd).toEqual(AchievementLevel.Platinum);
+    expect(activityStore.achievements.thousandsEven).toEqual(AchievementLevel.NoAchievement);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.allVeggies = [...Array(2000)];
+    expect(activityStore.achievements.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
+    expect(activityStore.achievements.thousandsEven).toEqual(AchievementLevel.Platinum);
+    // @ts-expect-error: getters are writable in tests
+    activityStore.allVeggies = [...Array(2001)];
+    expect(activityStore.achievements.thousandsOdd).toEqual(AchievementLevel.NoAchievement);
+    expect(activityStore.achievements.thousandsEven).toEqual(AchievementLevel.Platinum);
   });
 });

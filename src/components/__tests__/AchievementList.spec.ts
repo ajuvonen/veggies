@@ -16,7 +16,6 @@ const getAchievements = (achievements: Partial<Achievements> = {}) => ({
   experimenterMushroom: AchievementLevel.NoAchievement,
   experimenterRoot: AchievementLevel.NoAchievement,
   experimenterVegetable: AchievementLevel.NoAchievement,
-  favorite: AchievementLevel.NoAchievement,
   goNuts: AchievementLevel.NoAchievement,
   hotStreak: AchievementLevel.NoAchievement,
   thirtyVeggies: AchievementLevel.NoAchievement,
@@ -33,7 +32,7 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(26);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(23);
   });
 
   it('renders with some badges enabled', async () => {
@@ -57,7 +56,7 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(13);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(10);
   });
 
   it('renders the thousands achievement correctly', async () => {

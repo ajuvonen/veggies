@@ -72,7 +72,8 @@ provide(KEYS.challenge, readonly(currentChallenge));
     :veggies="suggestions"
     :variant="['tag', 'primary']"
     :toggleFn="toggleVeggie"
-    ariaKey="general.clickToAdd"
+    :ariaLabel="$t('veggieSearch.suggestions')"
+    ariaTagKey="general.clickToAdd"
     icon="plus"
   />
   <BlueskyLink />

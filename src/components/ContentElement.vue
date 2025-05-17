@@ -3,7 +3,7 @@ withDefaults(
   defineProps<{
     title: string;
     labelAttrs?: Record<string, string | number | boolean>;
-    labelTag?: ObjectConstructor | string;
+    labelTag?: ObjectConstructor | keyof HTMLElementTagNameMap;
   }>(),
   {
     labelAttrs: () => ({}),

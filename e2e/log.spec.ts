@@ -5,7 +5,7 @@ import {test, expect} from '@playwright/test';
 test('logs veggies', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   await expect(page.getByTestId('veggie-search-options')).toBeVisible();
   await page.getByTestId('veggie-search-option-apple').click();
   await expect(page.getByText(/^First veggie added!/)).toBeVisible();
@@ -43,10 +43,19 @@ test('filters veggies in Finnish', async ({page}) => {
   await expect(page.getByTestId('veggie-search-option-cherry tomato')).toBeVisible();
 });
 
+test('clears search', async ({page}) => {
+  await page.goto('/');
+  await page.getByTestId('home-start-button').click();
+  await page.getByTestId('veggie-search-input').fill('cher');
+  await expect(page.getByTestId('veggie-search-clear-button')).toBeVisible();
+  await page.getByTestId('veggie-search-clear-button').click();
+  await expect(page.getByTestId('veggie-search-input')).toHaveValue('');
+});
+
 test('weekly challenges work', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   await expect(page.getByTestId('veggie-search-challenges')).toBeHidden();
   await page.getByTestId('veggie-search-option-apple').click();
   await expect(page.getByTestId('veggie-search-challenge')).toBeVisible();
@@ -57,7 +66,7 @@ test('weekly challenges work', async ({page}) => {
 test('achievement notifications work', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   const elements = (
     await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
   ).slice(0, 15);
@@ -73,7 +82,7 @@ test('achievement notifications work', async ({page}) => {
 test('weekly achievement works', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
   const fruits = (
     await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
   ).slice(0, 10);

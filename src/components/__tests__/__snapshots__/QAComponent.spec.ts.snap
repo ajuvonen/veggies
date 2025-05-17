@@ -72,7 +72,7 @@ exports[`QAComponent > renders answers 1`] = `
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
       <div id="headlessui-disclosure-panel-v-1" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-appPurpose">
-        <div>Eat Your Veggies is a free app for tracking plant-based ingredients on weekly basis in your diet. According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not just the amounts you consume, but also variation.</div>
+        <div>Eat Your Veggies is a free app for tracking plant-based ingredients in your diet. Whenever you eat plant-based ingredients, or "veggies", you can search them in the app and add them to your weekly record. Each veggie counts only once per week.</div>
       </div>
     </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-2" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-studyDetails" type="button" aria-controls="headlessui-disclosure-panel-v-3">
       <!--v-if-->What's the science? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
@@ -81,7 +81,7 @@ exports[`QAComponent > renders answers 1`] = `
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
       <div id="headlessui-disclosure-panel-v-3" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-studyDetails">
-        <div>I'm neither a nutritian nor a biologist, so I don't want to make exaggerated claims or interpretations. I'm not affiliated with the study in any way, but if you want to read more about the study, look up The American Gut Project from the journal of <a href="https://doi.org/10.1128/msystems.00031-18" class="text-link" target="_blank" noreferrer="" noopener="">American Society for Microbiology (ASM)</a>.</div>
+        <div>According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not just the amounts you consume, but also variation. If you want to read more about the study, look up The American Gut Project from the journal of <a href="https://doi.org/10.1128/msystems.00031-18" class="text-link" target="_blank" noreferrer="" noopener="">American Society for Microbiology (ASM)</a>.</div>
       </div>
     </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-4" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-whatCounts" type="button" aria-controls="headlessui-disclosure-panel-v-5">
       <!--v-if-->What counts as a portion? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
