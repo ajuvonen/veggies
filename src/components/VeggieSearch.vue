@@ -141,13 +141,13 @@ onClickOutside(combobox, () => {
           class="dropdown-list-options"
           data-test-id="veggie-search-options"
         >
-          <li
+          <div
             v-if="filteredVeggies().length === 0 && query !== ''"
             class="veggie-search__no-results"
             role="presentation"
           >
             {{ $t('veggieSearch.noResults') }}
-          </li>
+          </div>
           <VeggieSearchChallenge v-if="!query.length" />
           <VeggieSearchGroup
             v-for="(category, _, index) in Category"
