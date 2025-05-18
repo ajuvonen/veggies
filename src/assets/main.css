@@ -38,8 +38,9 @@
   @apply outline outline-2 outline-offset-[3px];
   @apply outline-[--color-focus-outline];
 
-  .outline-override > & {
-    @apply outline-[--color-highlight];
+  .outline-override > &,
+  &.outline-override {
+    @apply outline-[--color-theme];
   }
 }
 

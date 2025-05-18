@@ -25,6 +25,7 @@ describe('VeggieSearch', () => {
   it('filters veggies', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
     await input.setValue('tomato');
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
     expect(wrapper.findAll('.veggie-search__heading').length).toBe(1);
@@ -35,6 +36,7 @@ describe('VeggieSearch', () => {
   it('shows jump controls', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
     await input.setValue('');
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
     expect(wrapper.findByTestId('veggie-search-previous-Fruit').isVisible()).toBe(true);
@@ -47,6 +49,7 @@ describe('VeggieSearch', () => {
   it('filters veggies by synonyms', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
     await input.setValue('bilberry');
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
     expect(wrapper.find('.dropdown-list-option').text()).toContain('blueberry');
@@ -59,6 +62,7 @@ describe('VeggieSearch', () => {
   it('shows all categories with matches', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
     await input.setValue('bar');
     expect(wrapper.findAll('.dropdown-list-option').length).toBe(2);
     expect(wrapper.findAll('.veggie-search__heading').length).toBe(2);
@@ -67,6 +71,7 @@ describe('VeggieSearch', () => {
   it('displays no results', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
     await input.setValue('test');
     expect(wrapper.find('.dropdown-list-option').exists()).toBe(false);
     expect(wrapper.find('.veggie-search__no-results').isVisible()).toBe(true);
@@ -75,6 +80,7 @@ describe('VeggieSearch', () => {
   it('shows selection', async () => {
     const wrapper = mounter(['tomato']);
     const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
     await input.setValue('om');
     const listItem = wrapper.findByText('li', 'tomato');
     const notSelected = wrapper.findByText('li', 'pomelo');
@@ -85,6 +91,7 @@ describe('VeggieSearch', () => {
   it('shows clear button', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
     await input.setValue('om');
     const clearButton = wrapper.findByTestId('veggie-search-clear-button');
     expect(clearButton.exists()).toBe(true);
