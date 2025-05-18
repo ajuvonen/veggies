@@ -1,14 +1,8 @@
 <script setup lang="ts">
 import {ref, watch, nextTick} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxButton,
-  ComboboxOptions,
-  TransitionRoot,
-} from '@headlessui/vue';
-import {useMemoize} from '@vueuse/core';
+import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
+import {useMemoize, onClickOutside, useFocusWithin} from '@vueuse/core';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
@@ -23,11 +17,13 @@ const model = defineModel<string[]>({
 const {t, tm, locale} = useI18n();
 
 const query = ref('');
+const manualOpen = ref(false);
 const groups = ref<InstanceType<typeof VeggieSearchGroup>[]>([]);
 
-const openButton = ref<typeof ComboboxButton | null>(null);
-const searchInput = ref<typeof ComboboxInput | null>(null);
+const combobox = ref<HTMLDivElement | null>(null);
+const searchInput = ref<HTMLInputElement | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
+const {focused} = useFocusWithin(combobox);
 const {maxHeightStyle} = useScreen(optionsElement);
 
 const allVeggies = useMemoize(() => {
@@ -63,7 +59,7 @@ const scrollToStart = async () => {
   }
 };
 
-const jump = (index: number) => {
+const jumpToCategory = (index: number) => {
   if (optionsElement.value) {
     const parsedIndex =
       index < 0 ? groups.value.length - 1 : index > groups.value.length - 1 ? 0 : index;
@@ -77,77 +73,96 @@ const jump = (index: number) => {
 
 const clearQuery = () => {
   query.value = '';
-  searchInput.value?.$el.focus();
+  searchInput.value?.focus();
 };
 
 watch(query, scrollToStart);
+
+watch(focused, () => {
+  if (!focused.value) {
+    manualOpen.value = false;
+  }
+});
+
+onClickOutside(combobox, () => {
+  manualOpen.value = false;
+});
 </script>
 <template>
-  <Combobox v-model="model" v-slot="{open}" nullable multiple as="div" class="relative z-20">
-    <ComboboxInput
-      ref="searchInput"
-      :aria-label="$t('veggieSearch.search')"
-      :placeholder="$t('veggieSearch.search')"
-      class="veggie-search__input"
-      inputmode="search"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="none"
-      data-test-id="veggie-search-input"
-      @change="query = $event.target.value"
-      @click="!open && openButton?.$el.click()"
-    />
-    <ButtonComponent
-      v-if="query"
-      variant="text"
-      icon="close"
-      class="absolute top-1/2 -translate-y-1/2 right-10 fill-gray-500"
-      data-test-id="veggie-search-clear-button"
-      @click="clearQuery"
-    />
-    <ComboboxButton
-      ref="openButton"
-      :class="open ? 'rotate-180 transform' : ''"
-      class="veggie-search__button"
-      data-test-id="veggie-search-toggle-button"
-    >
-      <IconComponent icon="chevronDown" aria-hidden="true" />
-    </ComboboxButton>
-    <TransitionRoot
-      leave="ease-in duration-100"
-      leaveFrom="opacity-100"
-      leaveTo="opacity-0"
-      @after-enter="scrollToStart"
-      @after-leave="query = ''"
-    >
-      <ComboboxOptions
-        ref="optionsElement"
-        :style="maxHeightStyle"
-        as="div"
-        class="dropdown-list-options"
-        data-test-id="veggie-search-options"
-      >
-        <li
-          v-if="filteredVeggies().length === 0 && query !== ''"
-          class="veggie-search__no-results"
-          role="presentation"
-        >
-          {{ $t('veggieSearch.noResults') }}
-        </li>
-        <VeggieSearchChallenge v-if="!query.length" />
-        <VeggieSearchGroup
-          v-for="(category, _, index) in Category"
-          ref="groups"
-          :key="category"
-          :category="category"
-          :items="filteredVeggies(category)"
-          :showControls="!query.length"
-          @previous="jump(index - 1)"
-          @next="jump(index + 1)"
+  <div ref="combobox">
+    <Combobox v-model="model" v-slot="{open}" nullable multiple as="div" class="relative z-20">
+      <ComboboxInput as="template">
+        <input
+          ref="searchInput"
+          v-model="query"
+          :aria-label="$t('veggieSearch.search')"
+          :aria-expanded="open || manualOpen"
+          :placeholder="$t('veggieSearch.search')"
+          class="veggie-search__input"
+          inputmode="search"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="none"
+          data-test-id="veggie-search-input"
+          @focus="manualOpen = true"
         />
-      </ComboboxOptions>
-    </TransitionRoot>
-  </Combobox>
+      </ComboboxInput>
+      <ButtonComponent
+        v-if="query"
+        variant="text"
+        icon="close"
+        class="veggie-search__button !right-10 outline-override"
+        data-test-id="veggie-search-clear-button"
+        @click="clearQuery"
+      />
+      <ButtonComponent
+        :class="{'rotate-180 transform': manualOpen}"
+        :aria-expanded="open || manualOpen"
+        variant="text"
+        icon="chevronDown"
+        class="veggie-search__button outline-override"
+        data-test-id="veggie-search-toggle-button"
+        aria-haspopup="listbox"
+        aria-controls="veggie-search-options"
+        @click="manualOpen = !manualOpen"
+      />
+      <Transition
+        leaveActiveClass="ease-in duration-200"
+        leaveFromClass="opacity-100"
+        leaveToClass="opacity-0"
+      >
+        <ComboboxOptions
+          v-show="manualOpen"
+          ref="optionsElement"
+          id="veggie-search-options"
+          :style="maxHeightStyle"
+          static
+          as="div"
+          class="dropdown-list-options"
+          data-test-id="veggie-search-options"
+        >
+          <li
+            v-if="filteredVeggies().length === 0 && query !== ''"
+            class="veggie-search__no-results"
+            role="presentation"
+          >
+            {{ $t('veggieSearch.noResults') }}
+          </li>
+          <VeggieSearchChallenge v-if="!query.length" />
+          <VeggieSearchGroup
+            v-for="(category, _, index) in Category"
+            ref="groups"
+            :key="category"
+            :category="category"
+            :items="filteredVeggies(category)"
+            :showControls="!query.length"
+            @previous="jumpToCategory(index - 1)"
+            @next="jumpToCategory(index + 1)"
+          />
+        </ComboboxOptions>
+      </Transition>
+    </Combobox>
+  </div>
 </template>
 <style scoped>
 .veggie-search__input {
@@ -160,7 +175,7 @@ watch(query, scrollToStart);
 }
 
 .veggie-search__button {
-  @apply absolute inset-y-2 right-4 rounded-md;
+  @apply absolute inset-y-2 right-4;
   @apply fill-[--color-text-alternative];
 }
 
