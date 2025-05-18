@@ -103,6 +103,7 @@ onClickOutside(combobox, () => {
           autocomplete="off"
           autocorrect="off"
           autocapitalize="none"
+          maxlength="20"
           data-test-id="veggie-search-input"
           @focus="manualOpen = true"
         />
@@ -111,7 +112,7 @@ onClickOutside(combobox, () => {
         v-if="query"
         variant="text"
         icon="close"
-        class="veggie-search__button !right-10 outline-override"
+        class="veggie-search__button right-14 outline-override"
         data-test-id="veggie-search-clear-button"
         @click="clearQuery"
       />
@@ -120,7 +121,7 @@ onClickOutside(combobox, () => {
         :aria-expanded="open || manualOpen"
         variant="text"
         icon="chevronDown"
-        class="veggie-search__button outline-override"
+        class="veggie-search__button right-4 outline-override"
         data-test-id="veggie-search-toggle-button"
         aria-haspopup="listbox"
         aria-controls="veggie-search-options"
@@ -166,7 +167,7 @@ onClickOutside(combobox, () => {
 </template>
 <style scoped>
 .veggie-search__input {
-  @apply w-full h-full py-2 pl-4 pr-8 text-lg rounded-full;
+  @apply w-full h-full py-2 pl-4 pr-24 text-lg rounded-full;
   @apply text-[--color-text-alternative] bg-[--color-bg-alternative];
 
   &::placeholder {
@@ -175,7 +176,7 @@ onClickOutside(combobox, () => {
 }
 
 .veggie-search__button {
-  @apply absolute inset-y-2 right-4;
+  @apply absolute inset-y-2 px-1;
   @apply fill-[--color-text-alternative];
 }
 
