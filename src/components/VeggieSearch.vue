@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, watch, nextTick} from 'vue';
+import {ref, watch} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
 import {useMemoize, onClickOutside, useFocusWithin} from '@vueuse/core';
@@ -19,10 +19,10 @@ const {t, tm, locale} = useI18n();
 const query = ref('');
 const manualOpen = ref(false);
 const groups = ref<InstanceType<typeof VeggieSearchGroup>[]>([]);
-
 const combobox = ref<HTMLDivElement | null>(null);
 const searchInput = ref<HTMLInputElement | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
+
 const {focused} = useFocusWithin(combobox);
 const {maxHeightStyle} = useScreen(optionsElement);
 
@@ -52,13 +52,6 @@ const filteredVeggies = useMemoize(
   },
 );
 
-const scrollToStart = async () => {
-  await nextTick();
-  if (optionsElement.value) {
-    optionsElement.value.$el.scrollTop = 0;
-  }
-};
-
 const jumpToCategory = (index: number) => {
   if (optionsElement.value) {
     const parsedIndex =
@@ -76,8 +69,6 @@ const clearQuery = () => {
   searchInput.value?.focus();
 };
 
-watch(query, scrollToStart);
-
 watch(focused, () => {
   if (!focused.value) {
     manualOpen.value = false;
@@ -89,15 +80,15 @@ onClickOutside(combobox, () => {
 });
 </script>
 <template>
-  <div ref="combobox">
-    <Combobox v-model="model" v-slot="{open}" nullable multiple as="div" class="relative z-20">
+  <div ref="combobox" class="relative z-20">
+    <Combobox v-model="model" nullable multiple>
       <ComboboxInput as="template">
         <input
           ref="searchInput"
-          v-model="query"
           :aria-label="$t('veggieSearch.search')"
-          :aria-expanded="open || manualOpen"
+          :aria-expanded="manualOpen"
           :placeholder="$t('veggieSearch.search')"
+          :value="query"
           class="veggie-search__input"
           inputmode="search"
           autocomplete="off"
@@ -105,6 +96,12 @@ onClickOutside(combobox, () => {
           autocapitalize="none"
           maxlength="20"
           data-test-id="veggie-search-input"
+          @input="
+            (event: Event) => {
+              // @ts-expect-error: event.target has a value
+              query = event.target?.value;
+            }
+          "
           @focus="manualOpen = true"
         />
       </ComboboxInput>
@@ -118,7 +115,7 @@ onClickOutside(combobox, () => {
       />
       <ButtonComponent
         :class="{'rotate-180 transform': manualOpen}"
-        :aria-expanded="open || manualOpen"
+        :aria-expanded="manualOpen"
         variant="text"
         icon="chevronDown"
         class="veggie-search__button right-4 outline-override"
@@ -143,13 +140,13 @@ onClickOutside(combobox, () => {
           data-test-id="veggie-search-options"
         >
           <div
-            v-if="filteredVeggies().length === 0 && query !== ''"
+            v-if="query && !filteredVeggies().length"
             class="veggie-search__no-results"
             role="presentation"
           >
             {{ $t('veggieSearch.noResults') }}
           </div>
-          <VeggieSearchChallenge v-if="!query.length" />
+          <VeggieSearchChallenge v-if="!query" />
           <VeggieSearchGroup
             v-for="(category, _, index) in Category"
             ref="groups"
