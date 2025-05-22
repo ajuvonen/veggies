@@ -34,8 +34,8 @@ const copyData = () => {
       t('settings.copy.text', [
         localStorage.getItem('veggies-start-date'),
         JSON.stringify(JSON.parse(localStorage.getItem('veggies-weeks') || ''), null, 2),
-        localStorage.getItem('veggies-challenges'),
-        localStorage.getItem('veggies-settings'),
+        JSON.stringify(JSON.parse(localStorage.getItem('veggies-challenges') || ''), null, 2),
+        JSON.stringify(JSON.parse(localStorage.getItem('veggies-settings') || ''), null, 2),
       ]),
     );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
