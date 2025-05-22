@@ -25,7 +25,6 @@ const start = () => {
 };
 
 onMounted(() => {
-  console.log(preferredLanguages.value);
   const startupLocale =
     preferredLanguages.value
       .map((language) => language.split('-')[0])
