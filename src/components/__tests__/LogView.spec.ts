@@ -1,12 +1,12 @@
 import {computed} from 'vue';
-import {describe, it, expect, beforeEach, vi, afterAll} from 'vitest';
+import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import LogView from '@/views/LogView.vue';
 import {useActivityStore} from '@/stores/activityStore';
 
 const mocks = vi.hoisted(() => ({
-  usePreferredReducedMotion: vi.fn(),
+  usePreferredReducedMotion: vi.fn(() => computed(() => 'no-preference')),
 }));
 
 vi.mock('@vueuse/core', async () => {
@@ -26,7 +26,7 @@ describe('LogView', () => {
     activityStore = useActivityStore();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     vi.restoreAllMocks();
   });
 
@@ -50,7 +50,6 @@ describe('LogView', () => {
     mocks.usePreferredReducedMotion.mockReturnValue(computed(() => 'reduce'));
     const wrapper = mount(LogView);
     expect(wrapper.find('.front-page-animation').exists()).toBe(false);
-    mocks.usePreferredReducedMotion.mockRestore();
   });
 
   it('renders with data', () => {

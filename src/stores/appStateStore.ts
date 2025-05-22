@@ -2,6 +2,7 @@ import {ref} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
 import type {Settings} from '@/utils/types';
+import {DEFAULT_LOCALE} from '@/utils/constants';
 
 type Message = {
   id: string;
@@ -13,7 +14,7 @@ export const useAppStateStore = defineStore('appState', () => {
   const settings = useStorage<Settings>(
     'veggies-settings',
     {
-      locale: 'en',
+      locale: DEFAULT_LOCALE,
       suggestionCount: 10,
     },
     localStorage,
@@ -42,7 +43,7 @@ export const useAppStateStore = defineStore('appState', () => {
   const $reset = () => {
     messages.value = [];
     settings.value = {
-      locale: 'en',
+      locale: DEFAULT_LOCALE,
       suggestionCount: 10,
     };
   };

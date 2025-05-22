@@ -8,6 +8,8 @@ export const BLUESKY_URL = 'https://bsky.app/profile/eatyourveggies.app';
 
 export const BUILD_TIME = __VITE_BUILD_TIME__;
 
+export const DEFAULT_LOCALE: Locale = 'en';
+
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
   dropdownStyles: Symbol() as InjectionKey<
@@ -312,6 +314,7 @@ export const ALL_VEGGIES = [
 ];
 
 export const RED_VEGGIES = [
+  'apple',
   'beet',
   'bell pepper',
   'blood grapefruit',
@@ -335,9 +338,11 @@ export const RED_VEGGIES = [
 ];
 
 export const NUTS = [
+  'almond',
   'brazil nut',
   'cashew nut',
   'chestnut',
+  'coconut',
   'hazelnut',
   'macadamia nut',
   'peanut',
