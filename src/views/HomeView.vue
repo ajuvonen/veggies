@@ -1,15 +1,21 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import {onMounted, ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
 import {DateTime} from 'luxon';
+import {usePreferredLanguages} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
+import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
+import type {Locale} from '@/utils/types';
 import ModalDialog from '@/components/ModalDialog.vue';
 import BlueskyLink from '@/components/BlueskyLink.vue';
 
 const router = useRouter();
+const preferredLanguages = usePreferredLanguages();
 
 const {startDate} = storeToRefs(useActivityStore());
+const {settings} = storeToRefs(useAppStateStore());
 
 const dialogOpen = ref(false);
 
@@ -17,6 +23,16 @@ const start = () => {
   startDate.value = DateTime.now().startOf('week');
   router.replace({name: 'log'});
 };
+
+onMounted(() => {
+  console.log(preferredLanguages.value);
+  const startupLocale =
+    preferredLanguages.value
+      .map((language) => language.split('-')[0])
+      .find((language: string): language is Locale => LOCALES.includes(language as Locale)) ||
+    DEFAULT_LOCALE;
+  settings.value.locale = startupLocale;
+});
 </script>
 <template>
   <div class="home__container">
