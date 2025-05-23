@@ -11,7 +11,7 @@ const props = withDefaults(
     icon?: IconString;
   }>(),
   {
-    variant: () => 'primary',
+    variant: 'primary',
   },
 );
 
