@@ -15,7 +15,7 @@ import {mean, reverse} from 'remeda';
 import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useActivityStore} from '@/stores/activityStore';
-import {getChartOptions} from '@/utils/helpers';
+import {getChartOptions, getTooltipPositioner} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
@@ -23,6 +23,7 @@ defineEmits(['scroll']);
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
+Tooltip.positioners.customAlign = getTooltipPositioner<'line'>();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
@@ -61,6 +62,7 @@ const chartOptions = computed(() =>
         },
       },
       tooltip: {
+        position: 'customAlign',
         callbacks: {
           title: (data) => {
             const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
