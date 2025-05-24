@@ -14,8 +14,10 @@ import {
   mdiCogOutline,
   mdiContentCopy,
   mdiEarth,
+  mdiDatabaseExport,
   mdiFormatListChecks,
   mdiHistory,
+  mdiDatabaseImport,
   mdiMinus,
   mdiPlus,
   mdiRadioboxBlank,
@@ -41,6 +43,8 @@ export type IconString =
   | 'close'
   | 'cog'
   | 'contentCopy'
+  | 'databaseExport'
+  | 'databaseImport'
   | 'earth'
   | 'formatListChecks'
   | 'history'
@@ -77,6 +81,8 @@ const icons = {
   close: mdiClose,
   cog: mdiCogOutline,
   contentCopy: mdiContentCopy,
+  databaseExport: mdiDatabaseExport,
+  databaseImport: mdiDatabaseImport,
   earth: mdiEarth,
   formatListChecks: mdiFormatListChecks,
   history: mdiHistory,

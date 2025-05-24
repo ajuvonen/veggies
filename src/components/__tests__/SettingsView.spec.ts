@@ -1,9 +1,10 @@
-import {describe, it, expect, beforeEach} from 'vitest';
+import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useActivityStore} from '@/stores/activityStore';
 import SettingsView from '@/views/SettingsView.vue';
 import DialogStub from './DialogStub.vue';
+import {nextTick} from 'vue';
 
 const mounter = () =>
   mount(SettingsView, {
@@ -54,12 +55,24 @@ describe('SettingsView', () => {
     expect(activityStore.$reset).toBeCalledTimes(0);
   });
 
-  it('shows debug functions', async () => {
+  it('starts file download', async () => {
     const wrapper = mounter();
-    expect(wrapper.findByTestId('copy-button').exists()).toBe(false);
-    for (let i = 0; i < 5; i++) {
-      await wrapper.findByTestId('build-time').trigger('click');
+    const link = document.createElement('a');
+    link.click = vi.fn();
+    vi.stubGlobal('URL', {
+      createObjectURL: vi.fn(() => 'https://eatyourveggies.app/'),
+      revokeObjectURL: vi.fn(),
+    });
+    const createElementSpy = vi.spyOn(document, 'createElement').mockImplementation(() => link);
+
+    wrapper.findByTestId('export-button').trigger('click');
+    await nextTick();
+    try {
+      expect(link.href).toBe('https://eatyourveggies.app/');
+      expect(link.click).toHaveBeenCalledTimes(1);
+    } finally {
+      vi.unstubAllGlobals();
+      createElementSpy.mockRestore();
     }
-    expect(wrapper.findByTestId('copy-button').exists()).toBe(true);
   });
 });

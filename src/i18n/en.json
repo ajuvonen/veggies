@@ -1057,10 +1057,15 @@
     }
   },
   "settings": {
-    "copy": {
-      "button": "Copy",
-      "label": "Copy app data to clipboard",
-      "text": "Start date:\n{0}\n\nWeeks:\n{1}\n\nChallenges:\n{2}\n\nSettings:\n{3}"
+    "exportImport": {
+      "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache or change your default browser.",
+      "export": "Export",
+      "exportSuccess": "Data exported successfully.",
+      "failure": "Unexpected error. Data may be corrupted.",
+      "fileName": "EatYourVeggies.json",
+      "import": "Import",
+      "importSuccess": "Data imported successfully.",
+      "label": "Export or import app data"
     },
     "locale": "Language",
     "reset": {
