@@ -1063,6 +1063,7 @@
     }
   },
   "settings": {
+    "disableAnimations": "Poista graafien animaatiot käytöstä",
     "exportImport": {
       "description": "Luo datastasi varmuuskopio tai palauta se tällä toiminnolla. Käyttökohteita ovat esimerkiksi tilanteet, jolloin haluat pyyhkiä selaimesi välimuistin tai vaihdat oletusselaintasi.",
       "export": "Vie",

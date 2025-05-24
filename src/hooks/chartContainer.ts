@@ -1,8 +1,9 @@
-import {computed, onMounted, type Ref} from 'vue';
-import {useMouse} from '@vueuse/core';
+import {onMounted, type Ref} from 'vue';
+import {useElementBounding, useMouse} from '@vueuse/core';
 
 export function useChartContainer(chartContainer: Ref<HTMLDivElement | null>) {
   const {x: mouseX, y: mouseY} = useMouse();
+  const {top, bottom} = useElementBounding(chartContainer);
 
   onMounted(() => {
     if (chartContainer.value) {
@@ -10,14 +11,8 @@ export function useChartContainer(chartContainer: Ref<HTMLDivElement | null>) {
     }
   });
 
-  const chartMidPointY = computed(() => {
-    const chartTop = chartContainer.value?.getBoundingClientRect().top ?? 0;
-    const chartBottom = chartContainer.value?.getBoundingClientRect().bottom ?? 0;
-    return (chartTop + chartBottom) / 2;
-  });
-
   return {
-    yAlign: () => (mouseY.value < chartMidPointY.value ? 'top' : 'bottom'),
+    yAlign: () => (mouseY.value < (top.value + bottom.value) / 2 ? 'top' : 'bottom'),
     xAlign: () => {
       let align: 'left' | 'center' | 'right' = 'center';
       if (mouseX.value < window.innerWidth / 2 - 50) {
