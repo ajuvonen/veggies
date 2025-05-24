@@ -16,6 +16,7 @@ import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
@@ -24,6 +25,7 @@ ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
+const {settings} = storeToRefs(useAppStateStore());
 
 const chartContainer = ref<HTMLDivElement | null>(null);
 const {xAlign, yAlign} = useChartContainer(chartContainer);
@@ -45,7 +47,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'line'>(true, false, false, {
+  getChartOptions<'line'>(true, false, false, settings.value.disableAnimations, {
     plugins: {
       annotation: {
         annotations: {

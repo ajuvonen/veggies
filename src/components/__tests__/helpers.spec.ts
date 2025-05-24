@@ -101,7 +101,7 @@ describe('helpers', () => {
       },
     };
 
-    const result = getChartOptions<'bar'>(true, true, true, overrides);
+    const result = getChartOptions<'bar'>(true, true, true, false, overrides);
     expect(result.responsive).toBe(false);
     expect(result.layout?.padding).toBe(10);
     expect(result.plugins?.legend?.display).toBe(true);
@@ -109,6 +109,15 @@ describe('helpers', () => {
     expect(result.maintainAspectRatio).toBe(false);
     expect(result.scales?.x?.stacked).toBe(true);
     expect(result.plugins?.datalabels?.anchor).toBe('center');
+  });
+
+  it('disables animations', () => {
+    let result = getChartOptions<'bar'>(true, true, true, true);
+    expect(result.animation).toBe(false);
+    expect(result.plugins?.tooltip?.animation).toBe(false);
+    result = getChartOptions<'bar'>(true, true, true, false);
+    expect(result.animation).toBe(undefined);
+    expect(result.plugins?.tooltip?.animation).toBe(true);
   });
 
   it('returns correct achievement levels', () => {

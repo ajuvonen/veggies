@@ -39,6 +39,13 @@ describe('SettingsView', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
+  it('toggles animations', async () => {
+    const wrapper = mounter();
+    expect(appStateStore.settings.disableAnimations).toBe(false);
+    await wrapper.findByTestId('disable-animations-button').trigger('click');
+    expect(appStateStore.settings.disableAnimations).toBe(true);
+  });
+
   it('resets the app', async () => {
     const wrapper = mounter();
     await wrapper.findByTestId('reset-button').trigger('click');

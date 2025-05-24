@@ -2,6 +2,7 @@
 import {ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
+import {Switch} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
@@ -44,6 +45,19 @@ const reset = () => {
       />
       <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
       <output for="suggestions-count-slider">{{ settings.suggestionCount }}</output>
+    </ContentElement>
+    <ContentElement
+      :title="$t('settings.disableAnimations')"
+      :labelAttrs="{for: 'disable-animations-button'}"
+      labelTag="label"
+    >
+      <Switch
+        id="disable-animations-button"
+        v-model="settings.disableAnimations"
+        data-test-id="disable-animations-button"
+      >
+        <span class="disable-animations__toggler" />
+      </Switch>
     </ContentElement>
     <QAComponent />
     <ExportImport />
@@ -97,6 +111,23 @@ const reset = () => {
   &::-moz-range-thumb {
     @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
     @apply bg-[--color-highlight] hover:bg-sky-600;
+  }
+}
+
+:deep(#disable-animations-button) {
+  @apply relative inline-flex h-6 w-11 items-center rounded-full;
+  @apply bg-[--color-bg-alternative];
+
+  > span {
+    @apply inline-block h-4 w-4 transform rounded-full transition translate-x-1;
+    @apply bg-[--color-highlight];
+  }
+
+  &[data-headlessui-state='checked'] {
+    @apply bg-[--color-highlight];
+    > span {
+      @apply translate-x-6 bg-[--color-bg-alternative];
+    }
   }
 }
 </style>

@@ -1057,6 +1057,7 @@
     }
   },
   "settings": {
+    "disableAnimations": "Disable chart animations",
     "exportImport": {
       "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache or change your default browser.",
       "export": "Export",
