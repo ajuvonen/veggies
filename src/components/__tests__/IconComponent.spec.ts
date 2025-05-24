@@ -19,6 +19,8 @@ describe('IconComponent', () => {
       'close',
       'cog',
       'contentCopy',
+      'databaseExport',
+      'databaseImport',
       'earth',
       'formatListChecks',
       'history',
