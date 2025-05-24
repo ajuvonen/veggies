@@ -20,8 +20,6 @@ import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
-defineEmits(['scroll']);
-
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
 
@@ -94,7 +92,7 @@ defineExpose({chartData});
     :labelAttrs="{'aria-hidden': true}"
     class="flex-1 overflow-hidden"
   >
-    <div ref="chartContainer" class="h-full has-scroll m-0 p-0" @scroll="$emit('scroll')">
+    <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
       <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
         <Line
           :options="chartOptions"
