@@ -8,15 +8,15 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {reverse} from 'remeda';
 import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
+import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
-import {getCategoryForVeggie, getChartOptions, getTooltipPositioner} from '@/utils/helpers';
+import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
-Tooltip.positioners.customAlign = getTooltipPositioner<'bar'>();
 
 const {t} = useI18n();
 
@@ -25,6 +25,7 @@ const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 const {formatWeekString} = useDateTime();
 
 const chartContainer = ref<HTMLDivElement | null>(null);
+const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {
   const weekStarts = reverse(getWeekStarts.value);
@@ -54,7 +55,8 @@ const chartOptions = computed(() =>
     },
     plugins: {
       tooltip: {
-        position: 'customAlign',
+        xAlign,
+        yAlign,
         callbacks: {
           title: (data) => {
             const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
