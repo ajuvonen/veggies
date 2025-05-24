@@ -2,17 +2,15 @@
 import {ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
-import {useI18n} from 'vue-i18n';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
 import QAComponent from '@/components/QAComponent.vue';
+import ExportImport from '@/components/ExportImport.vue';
 import BuildTime from '@/components/BuildTime.vue';
 
 const router = useRouter();
-
-const {t} = useI18n();
 
 const {$reset: activityReset} = useActivityStore();
 const appStateStore = useAppStateStore();
@@ -20,89 +18,52 @@ const {settings} = storeToRefs(appStateStore);
 const {$reset: appStateReset} = appStateStore;
 
 const resetDialogOpen = ref(false);
-const debugCounter = ref(0);
 
 const reset = () => {
   activityReset();
   appStateReset();
   router.push({name: 'home'});
 };
-
-const copyData = () => {
-  try {
-    navigator.clipboard.writeText(
-      t('settings.copy.text', [
-        localStorage.getItem('veggies-start-date'),
-        JSON.stringify(JSON.parse(localStorage.getItem('veggies-weeks') || ''), null, 2),
-        JSON.stringify(JSON.parse(localStorage.getItem('veggies-challenges') || ''), null, 2),
-        JSON.stringify(JSON.parse(localStorage.getItem('veggies-settings') || ''), null, 2),
-      ]),
-    );
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (err) {
-    navigator.clipboard.writeText(
-      t('settings.copy.text', [
-        localStorage.getItem('veggies-start-date'),
-        localStorage.getItem('veggies-weeks'),
-        localStorage.getItem('veggies-challenges'),
-        localStorage.getItem('veggies-settings'),
-      ]),
-    );
-  }
-};
 </script>
 
 <template>
-  <LocaleChanger />
-  <ContentElement
-    :title="$t('settings.suggestionCount')"
-    :labelAttrs="{for: 'suggestions-count-slider'}"
-    labelTag="label"
-  >
-    <input
-      id="suggestions-count-slider"
-      v-model.number="settings.suggestionCount"
-      type="range"
-      min="0"
-      max="20"
-      step="5"
-    />
-    <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
-    <output for="suggestions-count-slider">{{ settings.suggestionCount }}</output>
-  </ContentElement>
-  <QAComponent />
-  <ContentElement
-    :title="$t('settings.reset.label')"
-    :labelAttrs="{for: 'reset-button'}"
-    labelTag="label"
-  >
-    <ButtonComponent
-      id="reset-button"
-      variant="danger"
-      icon="trashCan"
-      data-test-id="reset-button"
-      class="self-end"
-      @click="resetDialogOpen = true"
-      >{{ $t('settings.reset.button') }}</ButtonComponent
+  <div class="flex-container flex-col gap-4 has-scroll">
+    <LocaleChanger />
+    <ContentElement
+      :title="$t('settings.suggestionCount')"
+      :labelAttrs="{for: 'suggestions-count-slider'}"
+      labelTag="label"
     >
-  </ContentElement>
-  <BuildTime v-if="debugCounter < 5" @click="debugCounter++" />
-  <ContentElement
-    v-else
-    :title="$t('settings.copy.label')"
-    :labelAttrs="{for: 'copy-button'}"
-    labelTag="label"
-  >
-    <ButtonComponent
-      id="copy-button"
-      variant="secondary"
-      icon="contentCopy"
-      data-test-id="copy-button"
-      class="self-end"
-      @click="copyData"
-      >{{ $t('settings.copy.button') }}</ButtonComponent
+      <input
+        id="suggestions-count-slider"
+        v-model.number="settings.suggestionCount"
+        type="range"
+        min="0"
+        max="20"
+        step="5"
+      />
+      <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
+      <output for="suggestions-count-slider">{{ settings.suggestionCount }}</output>
+    </ContentElement>
+    <QAComponent />
+    <ExportImport />
+    <ContentElement
+      :title="$t('settings.reset.label')"
+      :labelAttrs="{for: 'reset-button'}"
+      labelTag="label"
     >
-  </ContentElement>
+      <ButtonComponent
+        id="reset-button"
+        variant="danger"
+        icon="trashCan"
+        data-test-id="reset-button"
+        class="self-end"
+        @click="resetDialogOpen = true"
+        >{{ $t('settings.reset.button') }}</ButtonComponent
+      >
+    </ContentElement>
+    <BuildTime />
+  </div>
   <ModalDialog v-model="resetDialogOpen" :title="$t('settings.reset.title')">
     <template #content>
       <p>{{ $t('settings.reset.text') }}</p>

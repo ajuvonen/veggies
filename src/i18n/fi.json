@@ -1063,10 +1063,15 @@
     }
   },
   "settings": {
-    "copy": {
-      "button": "Copy",
-      "label": "Copy app data to clipboard",
-      "text": "Start date:\n{0}\n\nWeeks:\n{1}\n\nChallenges:\n{2}\n\nSettings:\n{3}"
+    "exportImport": {
+      "description": "Luo datastasi varmuuskopio tai palauta se tällä toiminnolla. Käyttökohteita ovat esimerkiksi tilanteet, jolloin haluat pyyhkiä selaimesi välimuistin tai vaihdat oletusselaintasi.",
+      "export": "Vie",
+      "exportSuccess": "Tiedot viety onnistuneesti.",
+      "failure": "Odottamaton virhe. Data voi olla vioittunut.",
+      "fileName": "EatYourVeggies.json",
+      "import": "Tuo",
+      "importSuccess": "Tiedot tuotu onnistuneesti.",
+      "label": "Vie tai tuo sovelluksen tiedot"
     },
     "locale": "Kieli",
     "reset": {

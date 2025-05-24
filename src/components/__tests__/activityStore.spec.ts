@@ -26,7 +26,7 @@ describe('activityStore', () => {
   });
 
   it('resets the date timezones', async () => {
-    localStorage.setItem('veggies-start-date', '"2025-01-20T00:00:00.000+14:00"');
+    localStorage.setItem('veggies-start-date', '2025-01-20T00:00:00.000+14:00');
     localStorage.setItem(
       'veggies-weeks',
       JSON.stringify([{startDate: '2025-01-20T00:00:00.000+14:00', veggies: []}]),
