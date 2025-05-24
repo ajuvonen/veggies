@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, onMounted, ref} from 'vue';
+import {computed, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {
   Chart as ChartJS,
@@ -14,8 +14,9 @@ import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean, reverse} from 'remeda';
 import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
+import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
-import {getChartOptions, getTooltipPositioner} from '@/utils/helpers';
+import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
@@ -23,11 +24,11 @@ defineEmits(['scroll']);
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
-Tooltip.positioners.customAlign = getTooltipPositioner<'line'>();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
 const chartContainer = ref<HTMLDivElement | null>(null);
+const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const {formatWeekString} = useDateTime();
 
@@ -62,7 +63,8 @@ const chartOptions = computed(() =>
         },
       },
       tooltip: {
-        position: 'customAlign',
+        yAlign,
+        xAlign,
         callbacks: {
           title: (data) => {
             const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
@@ -83,12 +85,6 @@ const chartOptions = computed(() =>
     },
   }),
 );
-
-onMounted(() => {
-  if (chartContainer.value) {
-    chartContainer.value.scrollLeft = chartContainer.value.scrollWidth;
-  }
-});
 
 defineExpose({chartData});
 </script>

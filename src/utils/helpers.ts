@@ -1,10 +1,5 @@
 import {useMemoize} from '@vueuse/core';
-import type {
-  ActiveElement,
-  ChartOptions,
-  ChartTypeRegistry,
-  TooltipPositionerFunction,
-} from 'chart.js';
+import type {ChartOptions, ChartType} from 'chart.js';
 import type {Context} from 'chartjs-plugin-datalabels';
 import {DateTime} from 'luxon';
 import {mergeDeep, sample} from 'remeda';
@@ -41,7 +36,7 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
   return undefined;
 });
 
-export const getChartOptions = <T extends keyof ChartTypeRegistry>(
+export const getChartOptions = <T extends ChartType>(
   grids: boolean,
   stacked: boolean,
   withIcons: boolean,
@@ -121,35 +116,6 @@ export const getChartOptions = <T extends keyof ChartTypeRegistry>(
     },
     overrides,
   ) as ChartOptions<T>;
-
-export const getTooltipPositioner = <T extends keyof ChartTypeRegistry>() =>
-  function (elements: readonly ActiveElement[]) {
-    if (!elements.length) return false;
-
-    const {x, y} = elements[0].element;
-    const {chartArea, canvas} = this.chart;
-
-    // Convert element position to viewport coordinates
-    const viewportX = canvas.getBoundingClientRect().left + x;
-    const viewportMidX = window.innerWidth / 2;
-    let xAlign: 'left' | 'center' | 'right' = 'center';
-    if (viewportX < viewportMidX - 50) {
-      xAlign = 'left';
-    } else if (viewportX > viewportMidX + 50) {
-      xAlign = 'right';
-    }
-
-    // Vertical alignment based on chart area
-    const chartMidY = (chartArea.top + chartArea.bottom) / 2;
-    const yAlign = y < chartMidY ? 'top' : 'bottom';
-
-    return {
-      x,
-      y,
-      xAlign,
-      yAlign,
-    };
-  } as TooltipPositionerFunction<T>;
 
 export const getRandomVeggie = () => ALL_VEGGIES[Math.floor(Math.random() * ALL_VEGGIES.length)];
 
