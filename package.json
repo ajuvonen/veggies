@@ -30,7 +30,7 @@
     "luxon": "^3.6.1",
     "pinia": "^3.0.2",
     "remeda": "^2.22.1",
-    "simple-icons": "^14.14.0",
+    "simple-icons": "^14.15.0",
     "vue": "3.5.14",
     "vue-chartjs": "^5.3.2",
     "vue-i18n": "^11.1.4",
