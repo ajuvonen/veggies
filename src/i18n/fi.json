@@ -902,6 +902,11 @@
       "Kasvitieteellisesti mansikka ei ole marja, vaan epähedelmä.",
       "Painavin punnittu mansikka painoi 289 grammaa."
     ],
+    "sugar snap pea": [
+      "Toisin kuin tavalliset herneet, taittoherneet voi syödä palkoineen.",
+      "Taittoherneet ovat tavallisen herneen ja sokeriherneen risteytys.",
+      "Taittoherneet ovat hyvä C- ja K-vitamiinien sekä folaatin lähde."
+    ],
     "sunflower seed": [
       "Auringonkukansiemenet ovat suosittu välipala ja niitä puristetaan myös öljyksi.",
       "Auringonkukansiemenet tarjoavat hyvän E-vitamiinin ja terveellisten rasvojen lähteen."
@@ -1136,6 +1141,7 @@
     "scallion": [""],
     "soybean": ["tofu"],
     "starfruit": ["tähtihedelmä"],
+    "sugar snap pea": ["salaattiherne", "sugar snap pea"],
     "wasabi": ["wasabi"],
     "wood ear mushroom": ["wood ear mushroom"],
     "yellowfoot mushroom": [""],
@@ -1366,6 +1372,7 @@
     "sprouts": "idut",
     "starfruit": "karambola",
     "strawberry": "mansikka",
+    "sugar snap pea": "taittoherne",
     "sunflower seed": "auringonkukansiemen",
     "sweet potato": "bataatti",
     "taro": "taro",

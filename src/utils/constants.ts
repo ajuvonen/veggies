@@ -257,6 +257,7 @@ export const BEANS = [
   'red lentil',
   'scarlet runner bean',
   'snow pea',
+  'sugar snap pea',
   'soybean',
   'white bean',
   'yardlong bean',
