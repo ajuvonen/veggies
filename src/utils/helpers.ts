@@ -1,5 +1,5 @@
 import {useMemoize} from '@vueuse/core';
-import type {ChartOptions, ChartType} from 'chart.js';
+import type {ChartOptions, ChartType, Scale} from 'chart.js';
 import type {Context} from 'chartjs-plugin-datalabels';
 import {DateTime} from 'luxon';
 import {mergeDeep, sample} from 'remeda';
@@ -61,6 +61,20 @@ export const getChartOptions = <T extends ChartType>(
                 color: COLORS.offWhite,
               },
               stacked,
+            },
+            y1: {
+              position: 'right',
+              beginAtZero: true,
+              ticks: {
+                precision: 0,
+                color: COLORS.offWhite,
+              },
+              stacked,
+              afterBuildTicks: (axis: Scale) => {
+                axis.ticks = [...axis.chart.scales.y.ticks];
+                axis.min = axis.chart.scales.y.min;
+                axis.max = axis.chart.scales.y.max;
+              },
             },
             x: {
               beginAtZero: true,
