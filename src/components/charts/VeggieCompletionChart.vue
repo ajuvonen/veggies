@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {computed} from 'vue';
-import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, Tooltip, RadialLinearScale, ArcElement} from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
@@ -19,7 +18,6 @@ import {
   VEGETABLES,
 } from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
-import {useAppStateStore} from '@/stores/appStateStore';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
@@ -30,8 +28,6 @@ const props = defineProps<{
 }>();
 
 const {t} = useI18n();
-
-const {settings} = storeToRefs(useAppStateStore());
 
 const veggieLengths: Record<Category, number> = {
   [Category.Fruit]: FRUITS.length,
@@ -62,7 +58,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'polarArea'>(false, false, false, settings.value.disableAnimations, {
+  getChartOptions<'polarArea'>(false, false, false, false, {
     plugins: {
       tooltip: {
         callbacks: {

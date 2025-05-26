@@ -1057,9 +1057,9 @@
     }
   },
   "settings": {
-    "disableAnimations": "Disable chart animations",
+    "disableAnimations": "Disable large charts' animations",
     "exportImport": {
-      "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache or change your default browser.",
+      "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.",
       "export": "Export",
       "exportSuccess": "Data exported successfully.",
       "failure": "Unexpected error. Data may be corrupted.",
