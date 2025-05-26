@@ -258,7 +258,7 @@
     ],
     "black bean": [
       "Black beans have been cultivated in the Americas for over 7000 years.",
-      "In addition to providing iron, magnesium and pholate, black beans are rich in protein and fiber."
+      "In addition to providing iron, magnesium and folate, black beans are rich in protein and fiber."
     ],
     "black lentil": [
       "Black lentils are also called beluga lentils, and they indeed resemble caviar in appearance.",
@@ -349,7 +349,7 @@
     ],
     "butter bean": [
       "Butter beans get their name from their mild, creamy texture and taste.",
-      "Butter beans are high in magnesium, iron, potassium and pholate.",
+      "Butter beans are high in magnesium, iron, potassium and folate.",
       "The alternative name for butter beans, lima beans, derives from the Peruvian capital."
     ],
     "cabbage": [
@@ -894,6 +894,11 @@
       "Botanically strawberry is not a berry, but an aggregate fruit.",
       "The heaviest strawberry weighed 289 grams."
     ],
+    "sugar snap pea": [
+      "Unlike garden peas, sugar snap peas are edible throughout.",
+      "Sugar snaps are a cross between garden pea and snow pea.",
+      "Sugar snap peas are a good source of vitamins C and K, as well as folate."
+    ],
     "sunflower seed": [
       "Sunflower seeds are a popular snack and are also pressed to make oil.",
       "Sunflower seeds provide a good source of vitamin E and healthy fats."
@@ -1130,6 +1135,7 @@
     "scallion": ["green onion", "spring onion"],
     "soybean": ["tofu"],
     "starfruit": ["carambola"],
+    "sugar snap pea": [""],
     "wasabi": [""],
     "wood ear mushroom": [""],
     "yellowfoot mushroom": ["funnel chanterelle"],
@@ -1360,6 +1366,7 @@
     "sprouts": "sprouts",
     "starfruit": "star fruit",
     "strawberry": "strawberry",
+    "sugar snap pea": "sugar snap pea",
     "sunflower seed": "sunflower seed",
     "sweet potato": "sweet potato",
     "taro": "taro",

@@ -181,6 +181,8 @@ const veggieEmojis = [
   '🫘',
   '🌿',
   '🍄‍🟫',
+  '🌾',
+  '🌰',
 ];
 export const getRandomEmojis = (amount: number = 1) => sample(veggieEmojis, amount);
 
