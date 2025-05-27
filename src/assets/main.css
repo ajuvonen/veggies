@@ -30,7 +30,7 @@
 
 #app {
   @apply h-full p-4 relative overflow-hidden;
-  @apply flex flex-col gap-4;
+  @apply flex flex-col gap-5;
   @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80% dark:bg-none dark:bg-gray-800;
 }
 
