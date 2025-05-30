@@ -47,7 +47,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
 <template>
   <div class="week-editor">
     <Listbox v-model="selectedWeekStart" class="relative z-30" as="div" v-slot="{open}">
-      <ContentElement :title="$t('stats.chooseWeek')" :labelTag="ListboxLabel">
+      <ContentElement :title="$t('stats.editWeek')" :labelTag="ListboxLabel">
         <ListboxButton
           class="week-editor__dropdown-button"
           data-test-id="week-editor-dropdown-button"
@@ -89,7 +89,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
         </ListboxOptions>
       </TransitionRoot>
     </Listbox>
-    <VeggieSearch v-if="!selectedWeekStart.equals(first(getWeekStarts)!)" v-model="veggies" />
+    <VeggieSearch v-model="veggies" />
     <ul class="flex-container justify-evenly" :aria-label="$t('stats.weeklyAchievements')">
       <AchievementBadge
         v-for="[achievement, level] in Object.entries(weeklyAchievements(veggies))"

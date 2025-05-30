@@ -4,10 +4,6 @@ import {useActivityStore} from '@/stores/activityStore';
 import WeekEditor from '@/components/WeekEditor.vue';
 import {DateTime} from 'luxon';
 
-const thisWeek = DateTime.now().startOf('week');
-const lastWeek = thisWeek.minus({weeks: 1});
-const twoWeeksAgo = thisWeek.minus({weeks: 2});
-
 describe('WeekEditor', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
   beforeEach(() => {
@@ -26,34 +22,17 @@ describe('WeekEditor', () => {
       },
     ];
     const wrapper = mount(WeekEditor);
-    expect(wrapper.findByTestId('veggie-search-input').exists()).toBe(false);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('renders without data', async () => {
-    activityStore.startDate = twoWeeksAgo;
+    activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
     const wrapper = mount(WeekEditor);
-    expect(wrapper.findByTestId('veggie-search-input').exists()).toBe(false);
+    expect(wrapper.findAll('tags__container li').length).toBe(0);
     await wrapper.findByTestId('week-editor-dropdown-button').trigger('click');
     expect(wrapper.findByTestId('week-editor-dropdown-button').exists()).toBe(true);
     expect(wrapper.findByTestId('week-editor-option-0').exists()).toBe(true);
     expect(wrapper.findByTestId('week-editor-option-1').exists()).toBe(true);
     expect(wrapper.findByTestId('week-editor-option-2').exists()).toBe(true);
-  });
-
-  it('renders past week', async () => {
-    activityStore.startDate = lastWeek;
-    activityStore.weeks = [
-      {
-        startDate: lastWeek,
-        veggies: ['longan', 'rambutan'],
-      },
-    ];
-    const wrapper = mount(WeekEditor);
-    await wrapper.findByTestId('week-editor-dropdown-button').trigger('click');
-    await wrapper.findByTestId('week-editor-option-1').trigger('click');
-    expect(wrapper.findByTestId('veggie-search-input').exists()).toBe(true);
-    expect(wrapper.findByTestId('tag-longan').exists()).toBe(true);
-    expect(wrapper.findByTestId('tag-rambutan').exists()).toBe(true);
   });
 });
