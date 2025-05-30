@@ -73,12 +73,14 @@ export const useActivityStore = defineStore('activity', () => {
   });
 
   // Computed getters
+  const currentWeekStart = computed(() => currentDate.value.startOf('week'));
+
   const getWeekStarts = computed(() => {
-    if (!startDate.value) return [currentDate.value.startOf('week')];
+    if (!startDate.value) return [currentWeekStart.value];
     const totalWeeks = Math.ceil(currentDate.value.diff(startDate.value, 'week').weeks);
-    return [...Array(totalWeeks)]
-      .map((_, weekIndex) => startDate.value!.plus({weeks: weekIndex}))
-      .reverse();
+    return Array.from({length: totalWeeks}, (_, weekIndex) =>
+      currentWeekStart.value.minus({weeks: weekIndex}),
+    );
   });
 
   const hotStreak = computed(() => {
@@ -117,14 +119,12 @@ export const useActivityStore = defineStore('activity', () => {
   );
 
   const currentVeggies = computed({
-    get: () => veggiesForWeek.value(currentDate.value.startOf('week')),
+    get: () => veggiesForWeek.value(currentWeekStart.value),
     set: (veggies: string[]) => setVeggiesForWeek(veggies),
   });
 
   const currentChallenge = computed(
-    () =>
-      challenges.value.find(({startDate}) => startDate.equals(currentDate.value.startOf('week')))
-        ?.veggie,
+    () => challenges.value.find(({startDate}) => startDate.equals(currentWeekStart.value))?.veggie,
   );
 
   const suggestions = computed(() =>
@@ -249,10 +249,8 @@ export const useActivityStore = defineStore('activity', () => {
   }));
 
   // Actions
-  const toggleVeggie = (targetVeggie: string) => {
-    const weekStart = currentDate.value.startOf('week');
-    toggleVeggieForWeek(targetVeggie, weekStart);
-  };
+  const toggleVeggie = (targetVeggie: string) =>
+    toggleVeggieForWeek(targetVeggie, currentWeekStart.value);
 
   const toggleVeggieForWeek = (targetVeggie: string, weekStart: DateTime) => {
     const targetWeek = weeks.value.find(({startDate}) => startDate.equals(weekStart));
@@ -278,10 +276,7 @@ export const useActivityStore = defineStore('activity', () => {
     }
   };
 
-  const setVeggiesForWeek = (
-    veggies: string[],
-    weekStart: DateTime = currentDate.value.startOf('week'),
-  ) => {
+  const setVeggiesForWeek = (veggies: string[], weekStart: DateTime = currentWeekStart.value) => {
     const targetWeek = weeks.value.find(({startDate}) => startDate.equals(weekStart));
     if (!targetWeek) {
       weeks.value = [
