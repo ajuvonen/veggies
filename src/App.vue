@@ -91,7 +91,11 @@ watch(achievements, (newValue, oldValue) => {
   <main>
     <RouterView />
   </main>
-  <ModalDialog v-model="dialogOpen" :title="$t('achievements.newAchievements')">
+  <ModalDialog
+    id="achievements-dialog"
+    v-model="dialogOpen"
+    :title="$t('achievements.newAchievements')"
+  >
     <template #content>
       <ul class="achievement-container">
         <li v-for="(value, key) in newAchievements" :key="key" class="flex-container flex-col">
