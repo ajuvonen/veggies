@@ -37,7 +37,7 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
     if (allVeggies.value.length === 1) {
       addToastMessage(t('toasts.firstVeggie', [cheer]));
       showConfetti();
-    } else if (newCurrentVeggies.length && !oldCurrentVeggies.length) {
+    } else if (currentChallenge.value && newCurrentVeggies.length && !oldCurrentVeggies.length) {
       addToastMessage(t('toasts.newChallenge', [t(`veggies.${currentChallenge.value}`)]));
     } else if (addedVeggie === currentChallenge.value) {
       addToastMessage(t('toasts.challengeCompleted', [cheer]));
