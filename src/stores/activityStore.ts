@@ -1,6 +1,6 @@
 import {computed, ref, watchEffect} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
-import {useNow, useStorage} from '@vueuse/core';
+import {debounceFilter, useNow, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {
   countBy,
@@ -50,6 +50,7 @@ export const useActivityStore = defineStore('activity', () => {
   // State refs
   const startDate = useStorage<DateTime | null>('veggies-start-date', null, localStorage, {
     mergeDefaults: true,
+    eventFilter: debounceFilter(2000),
     serializer: {
       read: (v) => (v ? DateTime.fromISO(v.replace(/"/g, '').split('T')[0]) : null),
       write: (v) => v?.toISO() ?? '',
@@ -58,6 +59,7 @@ export const useActivityStore = defineStore('activity', () => {
 
   const weeks = useStorage<Week[]>('veggies-weeks', [], localStorage, {
     mergeDefaults: true,
+    eventFilter: debounceFilter(2000),
     serializer: {
       read: (v) => (v ? JSON.parse(v, dateParser) : null),
       write: (v) => JSON.stringify(v),
@@ -66,6 +68,7 @@ export const useActivityStore = defineStore('activity', () => {
 
   const challenges = useStorage<Challenge[]>('veggies-challenges', [], localStorage, {
     mergeDefaults: true,
+    eventFilter: debounceFilter(2000),
     serializer: {
       read: (v) => (v ? JSON.parse(v, dateParser) : null),
       write: (v) => JSON.stringify(v),
