@@ -23,7 +23,6 @@ const combobox = ref<HTMLDivElement | null>(null);
 const searchInput = ref<HTMLInputElement | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 
-const {focused} = useFocusWithin(combobox);
 const {maxHeightStyle} = useScreen(optionsElement);
 
 const allVeggies = useMemoize(() => {
@@ -69,15 +68,15 @@ const clearQuery = () => {
   searchInput.value?.focus();
 };
 
-watch(focused, () => {
-  if (!focused.value) {
+onClickOutside(
+  combobox,
+  () => {
     manualOpen.value = false;
-  }
-});
-
-onClickOutside(combobox, () => {
-  manualOpen.value = false;
-});
+  },
+  {
+    ignore: ['.toast-message', '#achievements-dialog'],
+  },
+);
 </script>
 <template>
   <div ref="combobox" class="relative z-20">
@@ -103,6 +102,7 @@ onClickOutside(combobox, () => {
             }
           "
           @focus="manualOpen = true"
+          @keydown.tab="manualOpen = false"
         />
       </ComboboxInput>
       <ButtonComponent
