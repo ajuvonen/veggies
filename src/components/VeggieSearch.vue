@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {ref, watch} from 'vue';
+import {ref} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
-import {useMemoize, onClickOutside, useFocusWithin} from '@vueuse/core';
+import {useMemoize, onClickOutside} from '@vueuse/core';
 import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
