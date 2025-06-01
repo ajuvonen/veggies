@@ -28,9 +28,9 @@ const {lengthX, isSwiping} = useSwipe(toastMessage, {
       offsetX.value = 0;
       return;
     } else if (offsetX.value < 0) {
-      offsetX.value = window.innerWidth;
-    } else {
       offsetX.value = -window.innerWidth;
+    } else {
+      offsetX.value = window.innerWidth;
     }
     emit('close');
   },
@@ -72,7 +72,7 @@ const emoji = getRandomEmojis()[0];
 </template>
 <style scoped>
 .toast-message {
-  @apply w-full shadow-md p-4 transform transition-all duration-100 cursor-pointer;
+  @apply w-full shadow-md p-4 transform transition-all duration-[50ms] cursor-pointer;
   @apply bg-[--color-highlight];
 
   &--remove {
