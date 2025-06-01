@@ -26,7 +26,7 @@ test('shows last five weeks', async ({page}) => {
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-toggle-button').click();
   await page.getByText('Apricot').click();
-  await page.goto('stats');
+  await page.getByTestId('navbar-stats-link').click();
   await page.getByTestId('stats-tab-1').click();
   await expect(page.getByTestId('weekly-amounts-chart')).toBeVisible();
   await expect(page.getByTestId('weekly-categories-chart')).toBeVisible();
@@ -40,7 +40,7 @@ test('shows all time stats', async ({page}) => {
   await page.getByTestId('veggie-search-toggle-button').click();
   await page.getByText('Apricot').click();
   await page.getByTestId('veggie-search-challenge').locator('.dropdown-list-option').click();
-  await page.goto('stats');
+  await page.getByTestId('navbar-stats-link').click();
   await page.getByTestId('stats-tab-2').click();
   await expect(page.getByTestId('all-time-status-totalWeeks')).toHaveText('In Total 1 Weeks');
   await expect(page.getByTestId('all-time-status-over30Veggies')).toHaveText(
@@ -62,7 +62,7 @@ test('shows veggie list', async ({page}) => {
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-toggle-button').click();
   await page.getByText('Apricot').click();
-  await page.goto('stats');
+  await page.getByTestId('navbar-stats-link').click();
   await page.getByTestId('stats-tab-3').click();
   await expect(page.getByTestId('veggie-list-status-apricot')).toHaveText('(complete)');
 });
@@ -78,7 +78,7 @@ test('shows achievements', async ({page}) => {
     await element.click();
   }
   await page.getByTestId('dialog-close-button').click();
-  await page.goto('stats');
+  await page.getByTestId('navbar-stats-link').click();
   await page.getByTestId('stats-tab-4').click();
   await expect(page.getByTestId('badge-experimenterFruit-3')).toHaveAttribute(
     'aria-disabled',
