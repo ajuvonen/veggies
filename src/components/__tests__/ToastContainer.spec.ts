@@ -1,14 +1,30 @@
-import {nextTick} from 'vue';
-import {describe, it, expect, beforeEach} from 'vitest';
+import {nextTick, ref} from 'vue';
+import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {useAppStateStore} from '@/stores/appStateStore';
 import ToastContainer from '@/components/ToastContainer.vue';
+
+const mocks = vi.hoisted(() => ({
+  usePointer: vi.fn(() => ({pointerType: ref('mouse')})),
+}));
+
+vi.mock('@vueuse/core', async () => {
+  const actual = await vi.importActual('@vueuse/core');
+  return {
+    ...actual,
+    usePointer: mocks.usePointer,
+  };
+});
 
 describe('ToastContainer', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
     appStateStore = useAppStateStore();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('shows toast message', async () => {
@@ -36,6 +52,21 @@ describe('ToastContainer', () => {
     await nextTick();
     await wrapper.findByTestId('toast-message').trigger('click');
     expect(appStateStore.removeToastMessage).toBeCalledWith(id);
+  });
+
+  it('does not hide toast message on touch', async () => {
+    mocks.usePointer.mockReturnValueOnce({pointerType: ref('touch')});
+    const wrapper = mount(ToastContainer);
+    const id = crypto.randomUUID();
+    appStateStore.messages = [
+      {
+        id,
+        text: 'Test message',
+      },
+    ];
+    await nextTick();
+    await wrapper.findByTestId('toast-message').trigger('click');
+    expect(appStateStore.removeToastMessage).not.toBeCalledWith(id);
   });
 
   it('hides toast message after timeout', async () => {

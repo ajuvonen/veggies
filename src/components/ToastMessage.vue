@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref, watchEffect} from 'vue';
-import {useElementHover, useTimeout, useFocus} from '@vueuse/core';
+import {useElementHover, useTimeout, useSwipe, usePointer} from '@vueuse/core';
 import {getRandomEmojis} from '@/utils/helpers';
 
 defineProps<{
@@ -9,6 +9,7 @@ defineProps<{
 
 const emit = defineEmits(['close']);
 
+const offsetX = ref(0);
 const toastMessage = ref<HTMLDivElement | null>(null);
 const toastTimeout = import.meta.env.MODE === 'ci' ? 100 : 5500;
 const {start, stop} = useTimeout(toastTimeout, {
@@ -16,11 +17,29 @@ const {start, stop} = useTimeout(toastTimeout, {
   controls: true,
 });
 
+const {pointerType} = usePointer();
+
+const {lengthX, isSwiping} = useSwipe(toastMessage, {
+  onSwipe() {
+    offsetX.value = -Math.round(lengthX.value);
+  },
+  onSwipeEnd() {
+    if (Math.abs(offsetX.value) < 100) {
+      offsetX.value = 0;
+      return;
+    } else if (offsetX.value < 0) {
+      offsetX.value = window.innerWidth;
+    } else {
+      offsetX.value = -window.innerWidth;
+    }
+    emit('close');
+  },
+});
+
 const isHovered = useElementHover(toastMessage);
-const {focused} = useFocus(toastMessage);
 
 watchEffect(() => {
-  if (isHovered.value || focused.value) {
+  if (isHovered.value || isSwiping.value) {
     stop();
   } else {
     start();
@@ -33,11 +52,14 @@ const emoji = getRandomEmojis()[0];
   <!-- eslint-disable-next-line vuejs-accessibility/no-static-element-interactions -->
   <div
     ref="toastMessage"
+    :style="{transform: `translateX(${offsetX}px)`}"
+    :class="{
+      'toast-message--remove': Math.abs(offsetX) > 100,
+    }"
     class="toast-message"
     role="status"
-    tabindex="0"
     data-test-id="toast-message"
-    @click="$emit('close')"
+    @click="pointerType !== 'touch' && emit('close')"
     @keydown.enter="$emit('close')"
   >
     <div class="toast-message__content">
@@ -50,8 +72,12 @@ const emoji = getRandomEmojis()[0];
 </template>
 <style scoped>
 .toast-message {
-  @apply w-full shadow-md p-4 focus:-outline-offset-2;
+  @apply w-full shadow-md p-4 transform transition-all duration-100 cursor-pointer;
   @apply bg-[--color-highlight];
+
+  &--remove {
+    @apply bg-red-500;
+  }
 }
 
 .toast-message__content {
