@@ -33,9 +33,9 @@ const {lengthX, isSwiping} = useSwipe(toastMessage, {
         offsetX.value = 0;
         return;
       } else if (lengthX.value < 0) {
-        offsetX.value = -window.innerWidth;
-      } else {
         offsetX.value = window.innerWidth;
+      } else {
+        offsetX.value = -window.innerWidth;
       }
       removing.value = true;
     }
