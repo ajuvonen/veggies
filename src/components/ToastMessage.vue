@@ -9,6 +9,7 @@ defineProps<{
 
 const emit = defineEmits(['close']);
 
+const removing = ref(false);
 const offsetX = ref(0);
 const toastMessage = ref<HTMLDivElement | null>(null);
 const toastTimeout = import.meta.env.MODE === 'ci' ? 100 : 5500;
@@ -20,19 +21,27 @@ const {start, stop} = useTimeout(toastTimeout, {
 const {pointerType} = usePointer();
 
 const {lengthX, isSwiping} = useSwipe(toastMessage, {
+  threshold: 20,
   onSwipe() {
-    offsetX.value = -Math.round(lengthX.value);
+    if (!removing.value) {
+      offsetX.value = -Math.round(lengthX.value);
+    }
   },
   onSwipeEnd() {
-    if (Math.abs(offsetX.value) < 100) {
-      offsetX.value = 0;
-      return;
-    } else if (offsetX.value < 0) {
-      offsetX.value = -window.innerWidth;
-    } else {
-      offsetX.value = window.innerWidth;
+    if (!removing.value) {
+      if (Math.abs(offsetX.value) < 100) {
+        offsetX.value = 0;
+        return;
+      } else if (offsetX.value < 0) {
+        offsetX.value = -window.innerWidth;
+      } else {
+        offsetX.value = window.innerWidth;
+      }
+      removing.value = true;
     }
-    emit('close');
+    setTimeout(() => {
+      emit('close');
+    }, 200);
   },
 });
 
@@ -55,6 +64,7 @@ const emoji = getRandomEmojis()[0];
     :style="{transform: `translateX(${offsetX}px)`}"
     :class="{
       'toast-message--remove': Math.abs(offsetX) > 100,
+      'toast-message--removing': removing,
     }"
     class="toast-message"
     role="status"
@@ -72,11 +82,15 @@ const emoji = getRandomEmojis()[0];
 </template>
 <style scoped>
 .toast-message {
-  @apply w-full shadow-md p-4 transform transition-all duration-[50ms] cursor-pointer;
+  @apply w-full shadow-md p-4 cursor-pointer;
   @apply bg-[--color-highlight];
 
   &--remove {
     @apply bg-red-500;
+  }
+
+  &--removing {
+    @apply transition-all duration-200;
   }
 }
 
