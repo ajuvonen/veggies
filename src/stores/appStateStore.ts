@@ -1,6 +1,6 @@
 import {ref} from 'vue';
 import {defineStore} from 'pinia';
-import {debounceFilter, useStorage} from '@vueuse/core';
+import {useStorage} from '@vueuse/core';
 import type {Settings} from '@/utils/types';
 import {DEFAULT_LOCALE} from '@/utils/constants';
 
@@ -21,7 +21,6 @@ export const useAppStateStore = defineStore('appState', () => {
     localStorage,
     {
       mergeDefaults: true,
-      eventFilter: debounceFilter(2000),
     },
   );
 
