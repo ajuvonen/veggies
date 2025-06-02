@@ -23,7 +23,6 @@ test('home page actions work', async ({page}) => {
 test('home is unreachable after start', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
-  await page.waitForTimeout(3000);
   await expect(page).toHaveURL('log');
   await page.goto('/');
   await expect(page).toHaveURL('log');
