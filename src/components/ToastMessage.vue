@@ -21,34 +21,27 @@ const {start, stop} = useTimeout(toastTimeout, {
 const {pointerType} = usePointer();
 
 const {lengthX, isSwiping} = useSwipe(toastMessage, {
-  threshold: 20,
+  threshold: 0,
   onSwipe() {
-    if (!removing.value) {
-      offsetX.value = -Math.round(lengthX.value);
-    }
+    offsetX.value = -Math.round(lengthX.value);
   },
   onSwipeEnd() {
-    if (!removing.value) {
-      if (Math.abs(lengthX.value) < 100) {
-        offsetX.value = 0;
-        return;
-      } else if (lengthX.value < 0) {
-        offsetX.value = window.innerWidth;
-      } else {
-        offsetX.value = -window.innerWidth;
-      }
+    if (Math.abs(lengthX.value) > 50) {
+      offsetX.value = lengthX.value < 0 ? window.innerWidth : -window.innerWidth;
       removing.value = true;
+      setTimeout(() => {
+        emit('close');
+      }, 200);
+    } else {
+      offsetX.value = 0;
     }
-    setTimeout(() => {
-      emit('close');
-    }, 200);
   },
 });
 
 const isHovered = useElementHover(toastMessage);
 
 watchEffect(() => {
-  if (isHovered.value || isSwiping.value) {
+  if (isHovered.value || isSwiping.value || removing.value) {
     stop();
   } else {
     start();
@@ -63,7 +56,7 @@ const emoji = getRandomEmojis()[0];
     ref="toastMessage"
     :style="{transform: `translateX(${offsetX}px)`}"
     :class="{
-      'toast-message--remove': Math.abs(offsetX) > 100,
+      'toast-message--remove': Math.abs(offsetX) > 50,
       'toast-message--removing': removing,
     }"
     class="toast-message"
