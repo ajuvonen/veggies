@@ -29,10 +29,10 @@ const {lengthX, isSwiping} = useSwipe(toastMessage, {
   },
   onSwipeEnd() {
     if (!removing.value) {
-      if (Math.abs(offsetX.value) < 100) {
+      if (Math.abs(lengthX.value) < 100) {
         offsetX.value = 0;
         return;
-      } else if (offsetX.value < 0) {
+      } else if (lengthX.value < 0) {
         offsetX.value = -window.innerWidth;
       } else {
         offsetX.value = window.innerWidth;
@@ -90,7 +90,7 @@ const emoji = getRandomEmojis()[0];
   }
 
   &--removing {
-    @apply transition-all duration-200;
+    @apply opacity-0 transition-all duration-200;
   }
 }
 
