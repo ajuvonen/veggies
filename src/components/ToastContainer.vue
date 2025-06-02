@@ -29,10 +29,14 @@ const {removeToastMessage} = appStateStore;
   transition: all 0.5s ease;
 }
 
+.toasts-leave-from,
+.toasts-enter-to {
+  opacity: 1;
+}
+
 .toasts-enter-from,
 .toasts-leave-to {
   opacity: 0;
-  transform: translateY(-60px);
 }
 
 .toasts-leave-active {
