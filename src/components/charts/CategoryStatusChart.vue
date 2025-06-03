@@ -26,18 +26,31 @@ const props = withDefaults(
   },
 );
 
-const {t} = useI18n();
+const {t, locale} = useI18n();
 
 const container = ref<HTMLDivElement | null>(null);
 const {height} = useElementSize(container);
 
 const medalEmojis = ['🥇', '🥈', '🥉', '🍀', '🖐️', '🕕'];
+
+const translateAndCapitalize = (veggie: string) => {
+  const translation = t(`veggies.${veggie}`);
+  return translation.charAt(0).toUpperCase() + translation.slice(1);
+};
+
 const getFavorites = (category: Category) =>
   props.favorites[category].map(([veggie, amount], index) => {
-    let translation = t(`veggies.${veggie}`);
-    translation = translation.charAt(0).toUpperCase() + translation.slice(1);
+    const translation = translateAndCapitalize(veggie);
     return `${medalEmojis[index]} ${translation} (${amount})`;
   });
+
+const getVeggiesForCategory = (category: Category) => {
+  const collator = new Intl.Collator(locale.value);
+  return props.veggies
+    .filter((veggie) => getCategoryForVeggie(veggie) === category)
+    .map(translateAndCapitalize)
+    .sort((a, b) => collator.compare(a, b));
+};
 
 const chartData = computed(() => {
   const veggies = pipe(props.veggies, countBy(getCategoryForVeggie), entries(), sortBy(prop(1)));
@@ -60,7 +73,10 @@ const chartOptions = computed(() =>
       tooltip: {
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
-          footer: props.totals ? ([{label}]) => [...getFavorites(label as Category)] : undefined,
+          footer: ([{label}]) =>
+            props.totals
+              ? getFavorites(label as Category)
+              : getVeggiesForCategory(label as Category),
         },
       },
       datalabels: {
