@@ -352,10 +352,15 @@
       "Voipavut sisältävät paljon rautaa, magnesiumia, kaliumia sekä folaattia.",
       "Voipapujen toinen nimi, limanpapu, on peräisin Perun pääkaupungista."
     ],
+    "butternut squash": [
+      "Myskikurpitsa on jalostettu 1940-luvulla Massachusettsissa.",
+      "Myskikurpitsaköynnös voi kasvaa jopa viisimetriseksi.",
+      "Myskikurpitsaa sopii hyvin mausteisiinkin ruokiin."
+    ],
     "cabbage": [
-      "Kaalia on viljelty yli 4 000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
-      "Euroopassa kaalia fermentoidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa.",
-      "Usko tai älä, mutta painavin koskaan kasvatettu kaali painoi melkein 63 kiloa."
+      "Kaalia on viljelty yli 4 000oidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa.",
+      "Usko tai älä, mutta pain vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
+      "Euroopassa kaalia fermentavin koskaan kasvatettu kaali painoi melkein 63 kiloa."
     ],
     "cannellini bean": [
       "Cannellinipapuja kutsutaan myös valkoisiksi kidneypavuiksi.",
@@ -593,13 +598,18 @@
       "30 gramman annos hampunsiemeniä sisältää noin 10 g proteiinia ja runsaasti omega-3-rasvahappoja.",
       "Hampunsiemenet tulevat samasta lajista kuin kannabis, mutta ne sisältävät vain vähän THC:tä."
     ],
+    "hokkaido pumpkin": [
+      "Nimestään huolimatta hokkaidokurpitsa ei ole lähtöisin Japanista.",
+      "Hokkaidokurpitsa voidaan syödä kuorineen."
+    ],
     "holy basil": [
       "Pyhäbasilika sekoitetaan usein thaibasilikaan, mutta niillä on erilainen makuprofiili.",
       "Pyhäbaslikan maku on pippurinen ja jälkimaku hieman kitkerä.",
       "Pyhäbasilikaa käytetään myös perinteisessä lääketieteessä."
     ],
     "honeydew melon": [
-      "Hunajamelonin uskotaan olevan peräisin Lähi-idästä, ja sitä viljeltiin muinaisessa Egyptissä."
+      "Hunajamelonin uskotaan olevan peräisin Lähi-idästä, ja sitä viljeltiin muinaisessa Egyptissä.",
+      "Hunajameloni on ollut aikanaan niin arvostettu, että sitä on kasvatettu Valkoisen talon kasvihuoneessakin."
     ],
     "horseradish": [
       "Piparjuuren terävä maku johtuu yhdisteistä, jotka vapautuvat juuren raastamisen yhteydessä.",
@@ -622,13 +632,23 @@
       "Maa-artisokka on kotoisin Pohjois-Amerikasta, ja alkuperäiskansat viljelivät sitä.",
       "Nimestään huolimatta maa-artisokka ei ole sukua artisokalle."
     ],
-    "jicama": ["Pikkujamssipavun juuret ovat syötäviä, mutta lehdet ovat myrkyllisiä."],
+    "jicama": [
+      "Pikkujamssipavun juuret ovat syötäviä, mutta lehdet ovat myrkyllisiä.",
+      "Toisin kuin monet muut juuret, jicama maistuu myös raakana."
+    ],
     "kale": [
       "Lehtikaali sisältää runsaasti K-, A- ja C-vitamiineja.",
       "Lehtikaalia on viljelty yli 2 000 vuotta ja se oli yleinen vihannes Euroopassa keskiajalla."
     ],
     "kamut": [
-      "Kamutia uskotaan löytyneen egyptiläisistä haudoista, mikä antoi sille lempinimen \"faaraon vilja\"."
+      "Kamutia uskotaan löytyneen egyptiläisistä haudoista, mikä antoi sille lempinimen \"faaraon vilja\".",
+      "Kamut ei ole gluteeniton, mutta saattaa sopia joitakin viljoja paremmin herkkävatsaisille.",
+      "Kamut on tavaramerkki, jota ei saa käyttää ilman lupaa."
+    ],
+    "kidney bean": [
+      "Raa'at kidneypavut ovat myrkyllisiä ja ne aiheuttavat vatsavaivoja.",
+      "Kidneypavut parantavat maaperän laatua muiden papujen tavoin.",
+      "Kidneypapuja käytetään usein mausteisten patojen, kuten chili con carnen, valmistuksessa."
     ],
     "king oyster mushroom": [
       "Putkivinokas, englanniksi \"king oyster mushroom\", on nimestään huolimatta eri sieni kuin osterivinokas.",
@@ -640,12 +660,19 @@
       "Kiivi tunnettiin alun perin \"kiinankarviaisena\", mutta nimi muutettiin markkinoinnin vuoksi Uudessa-Seelannissa.",
       "Kiivin karvainen kuori on syötävä, vaikka monet eivät pidä sen syömisestä."
     ],
-    "kohlrabi": ["Kyssäkaali saapui Yhdysvaltoihin vasta 1800-luvulla."],
+    "kohlrabi": [
+      "Kyssäkaali saapui Yhdysvaltoihin vasta 1800-luvulla.",
+      "Kyssäkaalia voidaan kasvattaa menestyksekkäästi pohjoismaissakin."
+    ],
     "kumquat": [
       "Kumkvatti on suupalan kokoinen hedelmä, joka voidaan syödä makeine kuorineen.",
       "Kumkvatit ovat ainutlaatuisia sitrushedelmiä, sillä niiden kuori on makea, mutta hedelmäliha hapan."
     ],
-    "leek": ["Painavin kasvatettu purjosipuli painoi 9,75 kiloa."],
+    "leek": [
+      "Painavin kasvatettu purjosipuli painoi 9,75 kiloa.",
+      "Purjo on Walesin kansallinen symboli.",
+      "Kokeile grillattua purjoa muiden grilliruokien kumppanina."
+    ],
     "lemon": [
       "Yksi sitruuna sisältää noin 50 % päivittäisestä C-vitamiinista.",
       "Sitruunoiden uskotaan olevan peräisin Aasiasta, ja merimiehet käyttivät niitä keripukin estämiseen."
@@ -662,13 +689,21 @@
       "Puolukat ovat yleisiä skandinaavisessa keittiössä, ja niistä tehdään usein hilloa liharuoan lisukkeeksi.",
       "Puolukat kasvavat villinä Pohjois-Euroopan metsissä ja ne tunnetaan kirkkaan punaisesta väristään."
     ],
-    "longan": ["Longania kutsutaan myös \"lohikäärmeen silmäksi\"."],
+    "longan": [
+      "Longania kutsutaan myös \"lohikäärmeen silmäksi\".",
+      "Longan on maultaan kuin vähemmän hapan litsihedelmä.",
+      "Perinteisessä lääketieteessä longanilla uskotaan olevan rauhoittava vaikutus."
+    ],
     "lychee": [
       "Litsi on kotoisin Kiinasta, ja sitä on viljelty yli 2 000 vuotta.",
       "Kiina tuottaa noin 65% maailman litseistä."
     ],
     "macadamia nut": [
-      "30 gramman annos macadamiapähkinöitä sisältää noin 21 g terveellisiä rasvoja ja 2 g proteiinia."
+      "30 gramman annos macadamiapähkinöitä sisältää noin 21 g terveellisiä rasvoja ja 2 g proteiinia.",
+      "Macadamiapähkinöiden kuori on samanvahvuista terästä kovempaa.",
+      "Australiasta kotoisin olevan macadamiapähkinän alkuperäinen nimi oli kindal kindal.",
+      "Macadamiapähkinät voivat olla lemmikeille vaaraksi.",
+      "Havaiji on maailman suurin macadamiapähkinöiden tuottaja."
     ],
     "mandarin": [
       "Mandariini on hyvä C-vitamiinin lähde ja se sisältää noin 40 kaloria.",
@@ -678,6 +713,11 @@
       "Yhdestä mangosta saa 100 % päivittäisestä C-vitamiinista ja se sisältää noin 200 kaloria.",
       "Mango on kotoisin Etelä-Aasiasta, mutta sitä viljellään trooppisilla ja subtrooppisilla alueilla maailmanlaajuisesti.",
       "Kolumbialainen mango rikkoi maailmanennätyksen vuonna 2021 painamalla 4,25 kiloa."
+    ],
+    "mangosteen": [
+      "Mangostanipuiden kasvu hedelmiä tuottaviksi kestää kahdeksasta kymmeneen vuotta.",
+      "Mangostanin paksu ja kitkerä kuori ei ole syötävä.",
+      "Mangostanin sisältämien antioksidanttien tervesvaikutuksia liioiteltiin 2000-luvulla."
     ],
     "manioc": [
       "Maniokki on merkittävä hiilihydraattien lähde trooppisilla alueilla ja siitä valmistetaan tapiokaa.",
@@ -693,10 +733,15 @@
       "Hirssiä käytetään esimerkiksi intialaisten roti-leipien valmistukseen."
     ],
     "mint": [
-      "Minttu on myös suosittu cocktailainesosa, jota käytetään esimerkiksi minttujulepissa."
+      "Minttu on myös suosittu cocktailainesosa, jota käytetään esimerkiksi minttujulepissa.",
+      "Mintun viilentävä maku aiheutuu mentholista, joka aktivoi kylmäreseptoreja.",
+      "Mintusta on olemassa yli 25 erilaisen makuista ja näköistä varianttia."
     ],
     "mizuna": [
-      "Mizuna on nopeasti kasvava lehtivihannes, joka kerätään tyypillisesti nuorena parhaan maun saavuttamiseksi."
+      "Japaninkaali on nopeasti kasvava lehtivihannes, joka kerätään tyypillisesti nuorena parhaan maun saavuttamiseksi.",
+      "Japaninkaalia on kasvatettu Kiotossa jo yli 2 000 vuoden ajan.",
+      "Japaninkaalin sisällöstä noin 89 % on vettä.",
+      "Japaninkaalia on kasvatettu myös kansainvälisellä avaruusasemalla."
     ],
     "morel": [
       "Huhtasieni on helppo sekoittaa tappavan myrkylliseen korvasieneen.",
@@ -707,10 +752,14 @@
       "Mung-pavut ovat erittäin ravitsevia, ja niitä on viljelty Intiassa tuhansien vuosien ajan."
     ],
     "mustard greens": [
-      "Sareptansinappi sisältää A-, C- ja K-vitamiineja ja siinä on mausteinen maku."
+      "Sareptansinappi sisältää A-, C- ja K-vitamiineja ja siinä on mausteinen maku.",
+      "Kypsentämätön sareptansinappi maistuu tuliselta sen sisältämien glukosinolaattien vuoksi.",
+      "Sareptansinappi on osa monia ruokakulttuureita: sitä viljellään esimerkiksi Intiassa, Afrikassa ja Kiinassa."
     ],
     "napa cabbage": [
-      "Kiinankaalia käytetään yleisesti aasialaisissa ruoissa, erityisesti paistoksissa ja kimchissä."
+      "Kiinankaalia käytetään yleisesti aasialaisissa ruoissa, erityisesti wokeissa ja keitoissa.",
+      "Kiinankaali on tavallisin kimchin raaka-aine.",
+      "Toisin kuin monet muut kaalit, kiinankaali ei tuoksu voimakkaasti kypsennettäessä."
     ],
     "nectarine": [
       "Nektariinit ovat sileitä persikoita, joita nautitaan tuoreena tai jälkiruoissa.",
@@ -721,9 +770,20 @@
       "Noria käytetään yleisesti sushin käärimiseen ja se on keskeinen ainesosa japanilaisessa keittiössä.",
       "Nori on merilevää, joka usein paahdetaan maun parantamiseksi."
     ],
-    "oat": ["Kaurapuuro on suosittu aamiainen ja kauraa käytetään yleisesti myös muissa ruoissa."],
+    "oak leaf lettuce": [
+      "Tammenlehväsalaatista on olemassa punainen ja vihreä variantti.",
+      "Tammenlehväsalaatti sisältää A- ja K-vitamiinia sekä folaattia.",
+      "Nopeasti kasvava tammenlehväsalaatti on korjattavissa jo 40-50:n päivän kuluttua."
+    ],
+    "oat": [
+      "Kaurapuuro on suosittu aamiainen ja kauraa käytetään yleisesti myös muissa ruoissa.",
+      "Kaura on luonnostaan gluteeniton, mutta siihen saattaa päätyä gluteenia tuotantoprosessissa.",
+      "Kauraa on ennen pidetty eläinten ja köyhien ruokana, nyt sen arvostus on parempi."
+    ],
     "okra": [
-      "Okra tunnetaan uniikista koostumuksestaan ja sitä käytetään usein etelävaltioiden ruoissa ja gumbossa."
+      "Okra tunnetaan uniikista koostumuksestaan ja sitä käytetään usein etelävaltioiden ruoissa ja gumbossa.",
+      "Okran uskotaan olevan alunperin kotoisin Etiopian tai Länsi-Afrikan alueelta.",
+      "Okran tekstuuri toimii esimerkiksi patojen sakeuttajana."
     ],
     "olive": [
       "Oliivit ovat hyvä terveellisten rasvojen lähde.",
@@ -743,13 +803,34 @@
       "Papaijaa käytetään usein salaateissa, smoothieissa ja jälkiruoissa sekä perinteisessä lääketieteessä.",
       "Intia tuottaa eniten papaijoita maailmassa."
     ],
+    "parsley root": [
+      "Juuripersiljaa voidaan käyttää kuin muitakin juureksia.",
+      "Juuripersiljaa voi olla vaikea löytää, ja ulkonäön puolesta se on helppo sekoittaa palsternakkaan.",
+      "Juuripersilja on edelleen suosittua esimerkiksi Puolassa, Unkarissa ja Saksassa."
+    ],
     "parsley": [
       "Persilja on hyvä A-, C- ja K-vitamiinien lähde, joten se on ravitseva lisä aterioihin.",
       "Lehtipersilja on lähinnä koristeena käytettyä kähäräpersiljaa suositumpaa ruoanlaitossa."
     ],
-    "parsnip": ["Pisimmän palsternakan maailmanennätys on tällä hetkellä 6,5 metriä."],
-    "passion fruit": ["Noin puolet maailman passiohedelmistä tuotetaan Brasiliassa."],
-    "pea sprouts": ["Herneenversoja voi kasvattaa helposti myös kotona kuivatuista herneistä."],
+    "parsnip": [
+      "Pisimmän palsternakan maailmanennätys on tällä hetkellä 6,5 metriä.",
+      "Palsternakkaa on käytetty makeutusaineena ennen sokerin saatavuuden paraemista.",
+      "Palsternakka oli perusruokaa keskiajan Euroopassa."
+    ],
+    "passion fruit": [
+      "Noin puolet maailman passiohedelmistä tuotetaan Brasiliassa.",
+      "Passiohedelmä on saanut nimensä lähetyssaarnaajilta, jotka näkivät sen kukissa kristillistä symboliikkaa.",
+      "Rypistynyt kuori kertoo siitä, että passiohedelmä on kypsä."
+    ],
+    "pea sprouts": [
+      "Herneenversoja voi kasvattaa helposti myös kotona kuivatuista herneistä.",
+      "Koristeellisuuden lisäksi herneenversot ovat hyvä lisä salaatteihin tai wokkeihin."
+    ],
+    "pea": [
+      "Herneet eroavat taittoherneistä ja sokeriherneistä siinä, että niiden kuori on sitkeä.",
+      "Tuoreissa herneissä sokerit eivät ole muuttuneet vielä tärkkelykseksi, joten ne ovat säilöttyjä makeampia.",
+      "Tuorehernekeitto on maukas alkuruoka."
+    ],
     "peach": [
       "Persikat ovat kotoisin Kiinasta, mutta niitä viljellään nykyisin monilla lauhkean ilmaston alueilla.",
       "Kiina tuottaa yli puolet maailman persikoista."
@@ -766,6 +847,11 @@
     "persimmon": [
       "Persimonit jaetaan kahteen päätyyppiin: kirpeisiin (kuten hachiya) ja makeisiin (kuten fuyu).",
       "Persimon on Japanin kansallishedelmä."
+    ],
+    "piel de sapo": [
+      "Piel de sapo tarkoittaa sammakon nahkaa, mikä viittaa melonin pinnan tekstuuriin.",
+      "Piel de sapo -melonit ovat kotoisin Espanjasta, jossa niitä kasvatetaan etenkin La Manchan alueella.",
+      "Piel de sapoa kutsutaan hyvän säilyvyytensä vuoksi myös nimellä \"Christmas melon\"."
     ],
     "pine nut": [
       "Pinjansiemeniä käytetään usein peston valmistukseen.",
@@ -810,7 +896,8 @@
       "Perunat ovat kotoisin Etelä-Amerikasta, jossa inkat viljelivät niitä ensimmäisenä.",
       "Preussin kuningas Frederick kutsui tarinan mukaan perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta.",
       "Maailmanlaajuisesti viljellään noin 5 000:ta erilaista perunalajiketta.",
-      "Painavin punnittu peruna painoi lähes viisi kiloa."
+      "Painavin punnittu peruna painoi lähes viisi kiloa.",
+      "Keitä, muussaa, nakkaa pataan. Peruna on monikäyttöinen juures."
     ],
     "pumpkin seed": [
       "30 gramman annos kurpitsansiemeniä tarjoaa noin 7 g proteiinia ja runsaasti magnesiumia."
@@ -1129,12 +1216,14 @@
     "grape": ["rusina"],
     "green bean": ["haricot"],
     "holy basil": [""],
+    "jicama": [""],
     "mandarin": ["satsuma"],
     "manioc": ["kassava", "tapioka"],
     "matsutake": ["matsutake"],
     "mizuna": ["mizuna"],
     "napa cabbage": [""],
     "persimmon": ["kaki"],
+    "piel de sapo": [""],
     "plum": [""],
     "redcurrant": ["punaviinimarja"],
     "romaine": ["romaine"],
@@ -1200,6 +1289,7 @@
     "buckwheat": "tattari",
     "bulgur": "bulgur",
     "butter bean": "voipapu",
+    "butternut squash": "myskikurpitsa",
     "cabbage": "keräkaali",
     "cannellini bean": "cannellinipapu",
     "cantaloupe": "verkkomeloni",
@@ -1235,7 +1325,6 @@
     "cucumber": "kurkku",
     "daikon": "valkoretikka",
     "dandelion greens": "voikukka",
-    "grenadilla": "grenadilla",
     "date": "taateli",
     "dill": "tilli",
     "dragon fruit": "pitaija",
@@ -1258,6 +1347,7 @@
     "grapefruit": "greippi",
     "green bean": "vihreä papu",
     "green lentil": "vihreä linssi",
+    "grenadilla": "grenadilla",
     "guava": "guava",
     "hazelnut": "hasselpähkinä",
     "hedgehog mushroom": "vaaleaorakas",
@@ -1297,7 +1387,6 @@
     "mizuna": "japaninkaali",
     "morel": "huhtasieni",
     "mung bean": "mungpapu",
-    "musk gourd": "myskikurpitsa",
     "mustard greens": "sareptansinappi",
     "napa cabbage": "kiinankaali",
     "nectarine": "nektariini",
@@ -1321,6 +1410,7 @@
     "pear": "päärynä",
     "pecan nut": "pekaanipähkinä",
     "persimmon": "persimon",
+    "piel de sapo": "piel de sapo",
     "pine nut": "pinjansiemen",
     "pineapple": "ananas",
     "pinto bean": "pintopapu",

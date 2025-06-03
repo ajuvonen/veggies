@@ -352,6 +352,11 @@
       "Butter beans are high in magnesium, iron, potassium and folate.",
       "The alternative name for butter beans, lima beans, derives from the Peruvian capital."
     ],
+    "butternut squash": [
+      "Buttenut squash was developed in Massachusetts in the 1940s.",
+      "Butternut sqush vines can grow up to five meters long.",
+      "Butternut pairs well also with spicy foods."
+    ],
     "cabbage": [
       "Cabbage has been cultivated for over 4,000 years and was a staple food in ancient Rome and Greece.",
       "In Europe, cabbage is often fermented to make sauerkraut, a popular accompaniment to meats.",
@@ -589,13 +594,18 @@
       "A 30-gram portion of hemp seeds provides about 10 grams of protein and is rich in omega-3 fatty acids.",
       "Hemp seeds come from the same species as cannabis, but they contain very little THC."
     ],
+    "hokkaido pumpkin": [
+      "Despite its name, hokkaido pumpkins are not originally from Japan.",
+      "The skin of hokkaido pumpkin is edible."
+    ],
     "holy basil": [
       "Holy basil is often confused with thai basil, but they have different flavor profiles.",
       "The taste of holy basil is peppery, with a slightly bitter aftertaste.",
       "Holy basil is also used in traditional medicine."
     ],
     "honeydew melon": [
-      "Honeydew melons are believed to have originated in the Middle East and were cultivated in ancient Egypt."
+      "Honeydew melons are believed to have originated in the Middle East and were cultivated in ancient Egypt.",
+      "Honeydew melon was once so prized, it was grown in the greenrooms of the White House."
     ],
     "horseradish": [
       "The sharp taste of horseradish comes from compounds which are released when the root is grated.",
@@ -618,13 +628,23 @@
       "Jerusalem artichokes are native to North America and were cultivated by Native Americans.",
       "Despite the name, Jerusalem artichokes are not related to artichokes and have no connection to Jerusalem."
     ],
-    "jicama": ["While the roots of the jicama plant are edible, the leaves are poisonous."],
+    "jicama": [
+      "While the roots of the jicama plant are edible, the leaves are poisonous.",
+      "Unlike many other roots, jicama is tasty also uncooked."
+    ],
     "kale": [
       "Kale is packed with significant amounts of vitamins K, A, and C.",
       "Kale has been cultivated for over 2,000 years and was common in Europe during the Middle Ages."
     ],
     "kamut": [
-      "Kamut is believed to have been found in Egyptian tombs, giving it the nickname \"pharaoh's grain\"."
+      "Kamut is believed to have been found in Egyptian tombs, giving it the nickname \"pharaoh's grain\".",
+      "Kamut is not gluten free, but might be more suitable than some grains for those with mild sensitivities.",
+      "Kamut is a trademark, which can't be freely applied."
+    ],
+    "kidney bean": [
+      "Raw kidney beans are toxic, and cause stomach problems.",
+      "Like other beans, kidney beans can improve soil quality.",
+      "Kidney beans are a common ingredient in spicy stews, such as chili con carne."
     ],
     "king oyster mushroom": [
       "King oyster mushroom is different from a regular oyster mushroom, despite its name.",
@@ -636,12 +656,19 @@
       "Kiwi was originally known as 'Chinese gooseberry', but its name was changed for marketing in New Zealand.",
       "The fuzzy skin of the kiwi is edible, though many prefer not to eat it."
     ],
-    "kohlrabi": ["Kohlrabi didn't arrive to the US until the 1800's."],
+    "kohlrabi": [
+      "Kohlrabi didn't arrive to the US until the 1800's.",
+      "Kohlrabi can be grown successfully also in the Nordic countries."
+    ],
     "kumquat": [
       "Kumquat is a bite-sized fruit that can be eaten whole, including its sweet peel.",
       "Kumquats are unique among citrus fruits because their peel is sweet, while the flesh is tart."
     ],
-    "leek": ["The heaviest leek grown weighed 9.75 kg."],
+    "leek": [
+      "The heaviest leek grown weighed 9.75 kg.",
+      "Leek is the national emblem of Wales.",
+      "Try grilled leek as an accompaniment to other grilled dishes."
+    ],
     "lemon": [
       "One lemon provides about 50% of the daily recommended vitamin C.",
       "Lemons are believed to have originated in Asia and were used by sailors to prevent scurvy."
@@ -658,13 +685,21 @@
       "Lingonberries are common in Scandinavian cuisine, often made into jam to accompany meat dishes.",
       "Lingonberries grow wild in the forests of Northern Europe and are known for their bright red color."
     ],
-    "longan": ["Longan is also called \"the dragon's eye\"."],
+    "longan": [
+      "Longan is also called \"the dragon's eye\".",
+      "Longan tastes like a less acidic lychee.",
+      "In traditional medicine, longan is thought to have a calming effect."
+    ],
     "lychee": [
       "Lychee is native to China and has been cultivated for over 2,000 years.",
       "China produces about 65% of lychees worldwide."
     ],
     "macadamia nut": [
-      "A 30-gram portion of macadamia nuts provides about 21 grams of healthy fats and 2 grams of protein."
+      "A 30-gram portion of macadamia nuts provides about 21 grams of healthy fats and 2 grams of protein.",
+      "The shell of macadamia nut is stronger than steel of same thickness.",
+      "Macadamia nuts originate from Australia, where they were called kindal kindal.",
+      "Macadamia nuts can be dangerous to pets.",
+      "Hawaii is the largest producer of macadamia nuts globally."
     ],
     "mandarin": [
       "Mandarin is a good source of vitamin C and contains about 40 calories.",
@@ -674,6 +709,11 @@
       "One mango provides 100% of the daily vitamin C requirement and contains about 200 calories.",
       "Mangoes are native to South Asia but are grown in tropical and subtropical regions worldwide.",
       "A Colombian mango was weighed at 4.25 kg in 2021, breaking the world record."
+    ],
+    "mangosteen": [
+      "Mangosteen trees take eight to ten years to bear fruit.",
+      "The thick and bitter rind of mangosteens is not edible.",
+      "The health benefits of antioxidants contained in mangosteens were exaggerated in the 2000s."
     ],
     "manioc": [
       "Manioc is a major source of carbohydrates in tropical regions and is used to make tapioca.",
@@ -688,9 +728,16 @@
       "Millet is an ancient grain that is a staple food in many parts of Africa and Asia.",
       "Millet is used for example in the making or Indian roti-bread."
     ],
-    "mint": ["Mint is also a popular cocktail ingredient, used in cocktails such as mint julep."],
+    "mint": [
+      "Mint is also a popular cocktail ingredient, used in cocktails such as mint julep.",
+      "The cooling taste of mint comes from menthol, which activates cold reseptors.",
+      "There are over 25 different looking and tasting mint varieties."
+    ],
     "mizuna": [
-      "Mizuna is a fast-growing leafy green, typically harvested when young for the best flavor."
+      "Mizuna is a fast-growing leafy green, typically harvested when young for the best flavor.",
+      "Mizuna has been grown in Kyoto for over 2,000 years.",
+      "About 89% of mizuna is water.",
+      "Mizuna has been grown also on the international space station."
     ],
     "morel": [
       "Morels can be confused with false morels, some of which are lethally poisonous.",
@@ -700,9 +747,15 @@
       "A 30-gram portion of mung beans provides about 7 grams of protein and is rich in fiber.",
       "Mung beans are highly nutritious and have been cultivated in India for thousands of years."
     ],
-    "mustard greens": ["Mustard greens provide vitamins A, C, and K and have a spicy flavor."],
+    "mustard greens": [
+      "Mustard greens provide vitamins A, C, and K and have a spicy flavor.",
+      "Uncooked mustar greens have a spicy flavor due to the glucosinolates they contain.",
+      "Mustart greens are a part of multiple cuisines: it is cultivated in India, Africa, and China, for example."
+    ],
     "napa cabbage": [
-      "Napa cabbage is commonly used in Asian dishes, especially in stir-fries and kimchi."
+      "Napa cabbage is commonly used in Asian dishes, especially in stir-fries and soups.",
+      "Napa cabbage is the most common ingredient of kimchi.",
+      "Unlike many cabbages, napa cabbage doesn't release odors when cooked."
     ],
     "nectarine": [
       "Nectarines are smooth-skinned peaches which are enjoyed fresh or in desserts.",
@@ -713,9 +766,20 @@
       "Nori is commonly used to wrap sushi and is a key ingredient in Japanese cuisine.",
       "Nori is a seaweed which is often toasted for added flavor."
     ],
-    "oat": ["Oats are often consumed as oatmeal and are a popular breakfast choice."],
+    "oak leaf lettuce": [
+      "There are red and green varieties of oakleaf lettuce.",
+      "Oakleaf lettuce contains vitamins A and K, as well as folate.",
+      "Fast-growing oakleaf lettuce can be harvested already 40-50 days after planting."
+    ],
+    "oat": [
+      "Oats are often consumed as oatmeal and are a popular breakfast choice.",
+      "Oat is naturally gluten-free, but it might be contaminated with gluten during processing.",
+      "In the past, oats were considered feed for animals and poor people. Now they are more esteemed."
+    ],
     "okra": [
-      "Okra is known for its unique texture and is commonly used in Southern cooking and gumbo."
+      "Okra is known for its unique texture and is commonly used in Southern cooking and gumbo.",
+      "Okra is believed to originate from Ethiopia or West-Africa.",
+      "The texture of okra can be used for example in thickening stews."
     ],
     "olive": [
       "Olives are rich in healthy fats.",
@@ -735,13 +799,34 @@
       "Papaya is often used in salads, smoothies, and desserts, as well as in traditional medicine.",
       "India produces the most papayas in the world."
     ],
+    "parsley root": [
+      "Parsley root can be used the same ways other root vegetables can.",
+      "Parsley root may be hard to find, and appearance-wise it's easily confused with parsnip.",
+      "Parsley root is still popular for example in Poland, Hungary, and Germany."
+    ],
     "parsley": [
       "Parsley is a good source of vitamins A, C, and K, making it a nutritious addition to meals.",
       "Flat-leaf parsley is often preferred in cooking to its curly cousin, which is usually used as garnish."
     ],
-    "parsnip": ["The world record for the longest parsnip is currently set at 6.5 metres."],
-    "passion fruit": ["About half of the world's passion fruit are produced in Brazil."],
-    "pea sprouts": ["Pea sprouts can also be grown home from dried peas."],
+    "parsnip": [
+      "The world record for the longest parsnip is currently set at 6.5 metres.",
+      "Parsnip was used as a sweetener before sugar was commonly available.",
+      "Parsnip was a staple food in medieval Europe."
+    ],
+    "passion fruit": [
+      "About half of the world's passion fruit are produced in Brazil.",
+      "Passion fruit was named by missionaries who saw Christian symbolism in its flowers.",
+      "Wrinkled rind is a sign that a passion fruit is ripe."
+    ],
+    "pea sprouts": [
+      "Pea sprouts can also be grown home from dried peas.",
+      "In addition to being decorative, pea sprouts are a good addition to woks and salads."
+    ],
+    "pea": [
+      "Garden peas differ from snow peas and sugar snaps in that their shell is chewy.",
+      "The sugars in fresh peas have not yet converted to starch, which makes them sweeter than conserved ones.",
+      "Try fresh garden pea soup for a tasty appetizer."
+    ],
     "peach": [
       "Peaches are native to China but are now grown in many temperate regions worldwide.",
       "China produces more than half of the peaches worldwide."
@@ -758,6 +843,11 @@
     "persimmon": [
       "Persimmons come in two main types: astringent (like Hachiya) and non-astringent (like Fuyu).",
       "Persimmons are the national fruit of Japan."
+    ],
+    "piel de sapo": [
+      "Piel de sapo means \"toad skin\", a reference to the melon's surface texture.",
+      "Piel de sapo comes from Spain, with La Mancha being the main region where it's grown.",
+      "Piel de sapo is also called \"Christmas melon\" because its long-keeping qualities."
     ],
     "pine nut": [
       "Pine nuts are often used to make pesto, a popular Italian sauce.",
@@ -804,7 +894,8 @@
       "Potatoes originated in South America and were first cultivated by the Inca civilization.",
       "King Frederick of Prussia supposedly named potatoes \"the royal vegetable\" to give them more prestige.",
       "There are about 5,000 cultivated varieties of potato in the world.",
-      "The largest potato measured weighed almost five kilos."
+      "The largest potato measured weighed almost five kilos.",
+      "Boil 'em, mash 'em, stick 'em in a stew. Potato is a versatile veggie."
     ],
     "pumpkin seed": [
       "A 30-gram portion of pumpkin seeds provides about 7 grams of protein and is rich in magnesium."
@@ -1123,12 +1214,14 @@
     "grape": [""],
     "green bean": ["string bean"],
     "holy basil": ["tulsi"],
+    "jicama": ["yam bean"],
     "mandarin": ["satsuma"],
     "manioc": ["cassava", "tapioca"],
     "matsutake": [""],
     "mizuna": [""],
     "napa cabbage": ["chinese cabbage"],
     "persimmon": ["kaki"],
+    "piel de sapo": ["christmas melon", "santa claus melon"],
     "plum": ["prune"],
     "redcurrant": [""],
     "romaine": [""],
@@ -1194,6 +1287,7 @@
     "buckwheat": "buckwheat",
     "bulgur": "bulgur",
     "butter bean": "butter bean",
+    "butternut squash": "butternut squash",
     "cabbage": "cabbage",
     "cannellini bean": "cannellini bean",
     "cantaloupe": "cantaloupe",
@@ -1291,7 +1385,6 @@
     "mizuna": "mizuna",
     "morel": "morel",
     "mung bean": "mung bean",
-    "musk gourd": "musk gourd",
     "mustard greens": "mustard greens",
     "napa cabbage": "napa cabbage",
     "nectarine": "nectarine",
@@ -1315,6 +1408,7 @@
     "pear": "pear",
     "pecan nut": "pecan nut",
     "persimmon": "persimmon",
+    "piel de sapo": "piel de sapo",
     "pine nut": "pine nut",
     "pineapple": "pineapple",
     "pinto bean": "pinto bean",
