@@ -28,34 +28,6 @@ import {
 } from '@mdi/js';
 import {siBluesky} from 'simple-icons';
 
-export type IconString =
-  | 'bluesky'
-  | 'calendarWeekOutline'
-  | 'chart'
-  | 'chartLine'
-  | 'check'
-  | 'checkboxBlank'
-  | 'checkboxMarked'
-  | 'chevronDoubleDown'
-  | 'chevronDoubleUp'
-  | 'chevronDown'
-  | 'chevronLeftCircle'
-  | 'close'
-  | 'cog'
-  | 'contentCopy'
-  | 'databaseExport'
-  | 'databaseImport'
-  | 'earth'
-  | 'formatListChecks'
-  | 'history'
-  | 'minus'
-  | 'plus'
-  | 'radioboxBlank'
-  | 'radioboxMarked'
-  | 'shareVariant'
-  | 'trashCan'
-  | 'trophyOutline';
-
 withDefaults(
   defineProps<{
     icon: IconString;
@@ -94,6 +66,8 @@ const icons = {
   trashCan: mdiTrashCan,
   trophyOutline: mdiTrophyOutline,
 } as const;
+
+export type IconString = keyof typeof icons;
 </script>
 <template>
   <svg :style="{width: size, height: size}" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">

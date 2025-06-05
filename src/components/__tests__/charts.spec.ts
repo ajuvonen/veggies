@@ -119,7 +119,7 @@ describe('charts', () => {
     expect(datasets[0].data).toEqual([1, 0, 0, 2, 2, 4]);
   });
 
-  const getPercentage = (group: string[], amount: number) =>
+  const getPercentage = (group: readonly string[], amount: number) =>
     Math.round((amount / group.length) * 100);
   it('prepares data for VeggieCompletionChart', () => {
     const wrapper = mount(VeggieCompletionChart, {

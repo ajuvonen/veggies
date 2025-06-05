@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import {computed, ref, nextTick, type ComponentPublicInstance} from 'vue';
 import {useI18n} from 'vue-i18n';
-import type {ButtonVariant} from '@/components/ButtonComponent.vue';
 import type {IconString} from '@/components/IconComponent.vue';
-import ButtonComponent from '@/components/ButtonComponent.vue';
+import ButtonComponent, {type ButtonVariant} from '@/components/ButtonComponent.vue';
 
 const props = withDefaults(
   defineProps<{

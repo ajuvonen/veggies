@@ -17,7 +17,7 @@ export const KEYS = {
   >,
 };
 
-export const LOCALES: Locale[] = ['en', 'fi'] as const;
+export const LOCALES: readonly Locale[] = ['en', 'fi'] as const;
 
 export const COLORS = {
   chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49', '#0B1623'],
@@ -44,7 +44,7 @@ export const CATEGORY_EMOJI = {
   [Category.Mushroom]: '🍄‍🟫',
 } as const;
 
-export const FRUITS = [
+export const FRUITS: readonly string[] = [
   'apple',
   'apricot',
   'asian pear',
@@ -108,7 +108,7 @@ export const FRUITS = [
   'watermelon',
 ];
 
-export const LEAFIES = [
+export const LEAFIES: readonly string[] = [
   'arugula',
   'basil',
   'bok choy',
@@ -147,7 +147,7 @@ export const LEAFIES = [
   'watercress',
 ];
 
-export const ROOTS = [
+export const ROOTS: readonly string[] = [
   'bamboo shoots',
   'beet',
   'black radish',
@@ -183,7 +183,7 @@ export const ROOTS = [
   'yellow beet',
 ];
 
-export const VEGETABLES = [
+export const VEGETABLES: readonly string[] = [
   'artichoke',
   'asparagus',
   'avocado',
@@ -217,7 +217,7 @@ export const VEGETABLES = [
   'zucchini',
 ];
 
-export const MUSHROOMS = [
+export const MUSHROOMS: readonly string[] = [
   'black trumpet mushroom',
   'champignon',
   'chanterelle',
@@ -236,7 +236,7 @@ export const MUSHROOMS = [
   'yellowfoot mushroom',
 ];
 
-export const BEANS = [
+export const BEANS: readonly string[] = [
   'black bean',
   'black lentil',
   'black-eyed pea',
@@ -265,7 +265,7 @@ export const BEANS = [
   'yellow lentil',
 ];
 
-export const GRAINS = [
+export const GRAINS: readonly string[] = [
   'almond',
   'amaranth',
   'barley',
@@ -305,7 +305,7 @@ export const GRAINS = [
   'wild rice',
 ];
 
-export const ALL_VEGGIES = [
+export const ALL_VEGGIES: readonly string[] = [
   ...FRUITS,
   ...VEGETABLES,
   ...LEAFIES,
@@ -315,14 +315,14 @@ export const ALL_VEGGIES = [
   ...MUSHROOMS,
 ];
 
-export const RED_VEGGIES = [
+export const RED_VEGGIES: readonly string[] = [
   'apple',
   'beet',
   'bell pepper',
   'blood grapefruit',
   'blood orange',
-  'cherry',
   'cherry tomato',
+  'cherry',
   'chili pepper',
   'cranberry',
   'lingonberry',
@@ -332,14 +332,14 @@ export const RED_VEGGIES = [
   'raspberry',
   'red bean',
   'red cabbage',
-  'red currant',
   'red onion',
+  'redcurrant',
   'strawberry',
   'tomato',
   'watermelon',
 ];
 
-export const NUTS = [
+export const NUTS: readonly string[] = [
   'almond',
   'brazil nut',
   'cashew nut',
@@ -354,7 +354,7 @@ export const NUTS = [
   'walnut',
 ];
 
-export const BOTANICAL_BERRIES = [
+export const BOTANICAL_BERRIES: readonly string[] = [
   'banana',
   'bell pepper',
   'blood grapefruit',
@@ -380,6 +380,7 @@ export const BOTANICAL_BERRIES = [
   'orange',
   'papaya',
   'passion fruit',
+  'piel de sapo',
   'plantain',
   'pointed pepper',
   'pomelo',
