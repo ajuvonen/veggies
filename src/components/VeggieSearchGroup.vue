@@ -29,23 +29,21 @@ defineProps<{
         <ButtonComponent
           :aria-label="$t('veggieSearch.previousCategory')"
           :data-test-id="`veggie-search-previous-${category}`"
+          icon="chevronDoubleUp"
           variant="text"
           class="hover:fill-[--color-link-hover]"
           role="button"
           @click="$emit('previous')"
-        >
-          <IconComponent icon="chevronDoubleUp" />
-        </ButtonComponent>
+        />
         <ButtonComponent
           :aria-label="$t('veggieSearch.nextCategory')"
           :data-test-id="`veggie-search-next-${category}`"
+          icon="chevronDoubleDown"
           variant="text"
           class="hover:fill-[--color-link-hover]"
           role="button"
           @click="$emit('next')"
-        >
-          <IconComponent icon="chevronDoubleDown" />
-        </ButtonComponent>
+        />
       </div>
     </li>
     <VeggieSearchOption

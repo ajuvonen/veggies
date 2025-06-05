@@ -145,7 +145,7 @@ export const dateParser = (key: string, value: any) => {
   return value;
 };
 
-const veggieEmojis = [
+const veggieEmojis: readonly string[] = [
   '🥝',
   '🥥',
   '🍇',

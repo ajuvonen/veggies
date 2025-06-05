@@ -13,16 +13,16 @@ export enum Category {
 }
 
 export type Favorites = {
-  [key in Category]: [string, number][];
+  [key in Category]: readonly [string, number][];
 };
 
 export type Week = {
   veggies: string[];
-  startDate: DateTime;
+  readonly startDate: DateTime;
 };
 
 export type Challenge = {
-  startDate: DateTime;
+  readonly startDate: DateTime;
   veggie: string;
 };
 
@@ -33,13 +33,13 @@ export type Settings = {
 };
 
 export type Listing = {
-  veggie: string;
-  category: Category;
+  readonly veggie: string;
+  readonly category: Category;
 };
 
 export type TranslatedListing = Listing & {
-  translation: string;
-  synonyms: string[];
+  readonly translation: string;
+  readonly synonyms: string[];
 };
 
 export enum AchievementLevel {
