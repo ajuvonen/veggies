@@ -56,7 +56,7 @@ test('weekly challenges work', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-toggle-button').click();
-  await expect(page.getByTestId('veggie-search-challenges')).toBeHidden();
+  await expect(page.getByTestId('veggie-search-challenge')).toBeHidden();
   await page.getByTestId('veggie-search-option-apple').click();
   await expect(page.getByTestId('veggie-search-challenge')).toBeVisible();
   await page.getByTestId('veggie-search-challenge').locator('.dropdown-list-option').click();
