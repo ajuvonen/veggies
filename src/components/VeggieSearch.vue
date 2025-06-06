@@ -97,8 +97,8 @@ onClickOutside(
           data-test-id="veggie-search-input"
           @input="
             (event: Event) => {
-              // @ts-expect-error: event.target has a value
-              query = event.target?.value;
+              const target = event.target as HTMLInputElement;
+              query = target.value;
             }
           "
           @focus="manualOpen = true"
@@ -165,11 +165,7 @@ onClickOutside(
 <style scoped>
 .veggie-search__input {
   @apply w-full h-full py-2 pl-4 pr-24 text-lg rounded-full;
-  @apply text-[--color-text-alternative] bg-[--color-bg-alternative];
-
-  &::placeholder {
-    @apply text-gray-500;
-  }
+  @apply text-[--color-text-alternative] bg-[--color-bg-alternative] placeholder-gray-500;
 }
 
 .veggie-search__button {
