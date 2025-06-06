@@ -46,6 +46,8 @@ describe('ButtonComponent', () => {
     });
 
     await wrapper.find('.button-like').trigger('click');
-    expect(wrapper.emitted('click')).toEqual([[]]);
+    await wrapper.find('.button-like').trigger('click');
+    await wrapper.find('.button-like').trigger('click');
+    expect(wrapper.emitted('click')?.length).toBe(3);
   });
 });
