@@ -24,7 +24,7 @@ const getVariants = computed(() => {
 });
 </script>
 <template>
-  <button @click="$emit('click')" :class="`button-like ${getVariants}`">
+  <button @click="$emit('click', $event)" :class="`button-like ${getVariants}`">
     <IconComponent v-if="icon" :icon="icon" />
     <slot></slot>
   </button>
