@@ -835,7 +835,11 @@
       "Peanuts are rich in healthy fats and protein, providing sustained energy.",
       "Peanuts are technically legumes."
     ],
-    "pear": ["There are over 3,000 varieties of pear wordlwide."],
+    "pear": [
+      "There are over 3,000 varieties of pear wordlwide.",
+      "Pears ripen often only after picking.",
+      "China, Italy, Argentina and the U.S. are large producers of pears."
+    ],
     "pecan nut": [
       "Pecan nuts are rich in healthy fats and contain more than 19 vitamins and minerals.",
       "Pecans are native to North America and were a major food source for Indigenous peoples."
@@ -859,16 +863,26 @@
       "World's leading pineapple producer is Costa Rica."
     ],
     "pinto bean": [
-      "Pinto beans are named for their speckled appearance when raw but turn brown when cooked."
+      "Pinto beans are named for their speckled appearance when raw but turn brown when cooked.",
+      "\"Pinto\" means \"painted\" in Spanish, a referencet to the beans' appearance.",
+      "Pinto beans provide a high yield and are drought-resistant."
     ],
     "pistachio nut": [
       "Pistachio nuts have been cultivated for over 9,000 years, originally in the Middle East.",
       "Pistachios naturally split open when ripe, making them easier to eat."
     ],
-    "plantain": ["Unlike bananas, plantains are only used cooked."],
+    "plantain": [
+      "Unlike bananas, plantains are only used cooked.",
+      "Plantain contains plenty of vitamins A, B6, and C.",
+      "In Cuba, plantains are used to make plant-based mince called picadillo de plátano."
+    ],
     "plum": [
       "Plums are high in vitamin C and antioxidants, especially in their skins.",
       "Plums are related to cherries and almonds and can be eaten fresh or dried to make prunes."
+    ],
+    "pointed pepper": [
+      "Pointed pepper contains over 200% of the daily required vitamin C.",
+      "Like other veggies of the capsicum family, pointed peppers are botanically berries."
     ],
     "pomegranate": [
       "Pomegranates are known for their vibrant red seeds, called arils, which are rich in fiber.",
@@ -884,7 +898,9 @@
       "Poppy seeds and lemon make a good taste pairing."
     ],
     "porcini": [
-      "Porcini mushrooms are difficult to cultivate and are typically foraged in the wild."
+      "Porcini mushrooms are difficult to cultivate and are typically foraged in the wild.",
+      "The largest porcini mushrooms can weigh over a kilo.",
+      "Drying intensifies a porcini mushroom's flavor."
     ],
     "portobello": [
       "Portobello mushrooms are often used as a meat substitute due to their hearty texture.",
@@ -898,7 +914,14 @@
       "Boil 'em, mash 'em, stick 'em in a stew. Potato is a versatile veggie."
     ],
     "pumpkin seed": [
-      "A 30-gram portion of pumpkin seeds provides about 7 grams of protein and is rich in magnesium."
+      "A 30-gram portion of pumpkin seeds provides about 7 grams of protein and is rich in magnesium.",
+      "Fresh seeds should be roasted first for best results.",
+      "Pumpkin seeds contain magnesium and zinc."
+    ],
+    "prickly pear": [
+      "Prickly pear cacti can be grown to fight deforestation, in addition to harvesting their fruits.",
+      "In Mexico, also the cactus pads of opuntia species are used for food. This is called \"nopal\".",
+      "Pricly pear can be used for example in jams, candies, and juice."
     ],
     "pumpkin": [
       "Pumpkins are rich in beta-carotene, which the body converts to vitamin A.",
@@ -914,31 +937,76 @@
       "Quinoa is a gluten-free grain that has gained popularity as a high-protein food.",
       "Quinoa has been cultivated for thousands of years, originally in the Andes Mountains."
     ],
-    "rambutan": [
-      "Rambutan is closely related to lychee and longan, sharing similar flavors and textures."
+    "radicchio": [
+      "Radicchio looks like cabbage, but it's actually related to endive.",
+      "The taste of radicchio smoothes out when cooked.",
+      "There's a festival in Treviso, Italy in honor or radicchio."
     ],
-    "raspberry": ["World's leading raspberry producer is Russia."],
+    "radish": [
+      "The mustardy flavor of radishes smoothes out when cooked.",
+      "Radish is one of the oldest cultivated vegetables.",
+      "The name of radish comes from the Latin word radix, which means \"root\"."
+    ],
+    "rambutan": [
+      "Rambutan is closely related to lychee and longan, sharing similar flavors and textures.",
+      "The name of rambutan comes from the Malay word rambut, which means \"hair\".",
+      "Rambutans grow in the tropical climate of Malaysia and Indonesia.",
+      "The seed of rambutan is bitter and mildly toxic."
+    ],
+    "raspberry": [
+      "World's leading raspberry producer is Russia.",
+      "Raspberries are not berries in the botanical sense.",
+      "Raspberries are high in fiber."
+    ],
     "redcurrant": [
       "Redcurrants are low in calories, but high in vitamin C, fiber, and antioxidants.",
       "Redcurrants are commonly used in Europe for jellies, juice, or wine.",
       "Redcurrants are also loved by birds, which is why gardeners work extra to protect their crops."
     ],
     "red bean": [
-      "In Asia, red beans are often used to make sweet red bean paste, a popular filling in desserts."
+      "In Asia, red beans are often used to make sweet red bean paste, a popular filling in desserts.",
+      "Common snacks that use red beans include dorayaki, taiyaki, and mochi."
+    ],
+    "red cabbage": [
+      "As with many other plants, red cabbage also gets its color from compounds called anthocyanins.",
+      "Red cabbage changes color based on the pH of the food. Acidic vinegar intensifies the red hue.",
+      "In the medieval times, red cabbage was also used as dye."
+    ],
+    "red leaf lettuce": [
+      "Red salad varieties can contain slightly more antioxidants than their grene brethren.",
+      "Try pairing red leaf lettuce with goat cheese or nuts in your salad.",
+      "Red salad varieties gained popularity only as late as the Renaissance."
     ],
     "red lentil": [
       "Red lentils are quick-cooking and often used in soups and stews.",
       "Red lentils lose their shape when cooked, making them perfect for thickening dishes."
     ],
-    "red onion": ["Red onions turn a soft pink color when cooked and are often used for pickling."],
+    "red onion": [
+      "Red onions turn a soft pink color when cooked and are often used for pickling.",
+      "Red onions are milder than some other onion varieties.",
+      "Chilling red onions in the fridge before cutting can save some tears."
+    ],
     "rhubarb": [
       "Rhubarb is used in desserts, but it's actually a vegetable.",
       "Rhubarb should be paired with high-calcium ingredients, such as dairy.",
       "Though its stalks are edible, rhubarb leaves are toxic."
     ],
-    "rice": ["Rice is a staple food for more than half of the world's population."],
+    "rice": [
+      "Rice is a staple food for more than half of the world's population.",
+      "There are over 40,000 rice varieties in the world.",
+      "Brown whole-grain rice is healthier than white rice.",
+      "Basmati, jasmine, arborio...choose the right type of rice for your purposes.",
+      "The cultivation of rice has likely begun in the Yangtze river valley."
+    ],
+    "romaine": [
+      "Romaine lettuce is the base ingredient for caesar-salad.",
+      "Because of its hefty leaves, romaine can handle a lot of dressing.",
+      "Romaine was probably named due to arriving to Europe via the papal gardens."
+    ],
     "rutabaga": [
-      "Rutabagas are sometimes confused with turnips, but they are larger and have a yellowish flesh."
+      "Rutabagas are sometimes confused with turnips, but they are larger and have a yellowish flesh.",
+      "Rutabaga is a cross between turnip and potato, originating probably in Scandinavia.",
+      "Germany relied a lot on rutabagas during the World Wars. One winter in particular was dubbed the rutabaga winter."
     ],
     "rye": [
       "Rye is a grain often used to make bread, especially in northern and eastern Europe.",
@@ -947,6 +1015,22 @@
     "safflower seed": [
       "Safflower seeds are often used to make oil that's high in unsaturated fats.",
       "Safflower seeds are commonly used in bird feed but are also enjoyed as a snack by humans."
+    ],
+    "savoy cabbage": [
+      "Savoy cabbage is more cold- and pest-resistant than many other leafy greens.",
+      "Savoy cabbage holds its shape when cooked, even better than regular cabbage.",
+      "Savoy cabbage contains for example vitamins C and K, as well as manganese, folate, and calcium."
+    ],
+    "scallion": [
+      "Scallions are harvested before fully maturing. Some varieties never grow to full size.",
+      "Scallion is more suitable than other onions for people with sensitive stomachs.",
+      "The white part of scallion is fit for cooking, the green for garnish.",
+      "Replanting and growing scallions can also be done at home."
+    ],
+    "scarlet runner bean": [
+      "The stems of scarlet runner beans can grow over three meters tall.",
+      "Scarlet runner beans are more cold-resistant than other beans.",
+      "Scarlet runner bean was originally introduced to Europe as a decorative plant."
     ],
     "sea buckthorn": [
       "Sea buckthorn has the highest nutritional value of all wild berries.",
@@ -957,33 +1041,64 @@
       "Sesame seeds are often toasted for extra flavor.",
       "Sesame seed oil is a popular ingredient in Asian cuisine."
     ],
-    "shiitake": ["Shiitake mushrooms are prized for their meaty texture and umami flavor."],
+    "shallot": [
+      "The milder taste of shallots make them a good choice to use in sauces, for example.",
+      "The name of shallots come from an ancient city in the Middle East, where Greeks theorized they come from.",
+      "The mild taste of shallot is a combination of garlic and onion."
+    ],
+    "shiitake": [
+      "Shiitake mushrooms are prized for their meaty texture and umami flavor.",
+      "Shiitake mushrooms have been cultivated for more than a thousand years.",
+      "Uncooked shiitake mushrooms cause allergic symptoms to some."
+    ],
     "shimeji": [
       "The common varieties of shimeji mushrooms include the white bunapi-shimeji and the brown buna-shimeji.",
       "Uncooked shimeji mushrooms have a bitter taste, but they develop umami flavor when cooked.",
       "Shimeji mushrooms pair well for example with soy sauce, garlic, and seafood."
+    ],
+    "snow pea": [
+      "Snow peas differ from sugar snaps in that their shell is flat.",
+      "Snow peas are often used in Asian cuisine."
     ],
     "sorghum": [
       "Sorghum is a gluten-free grain often used to make porridge, flour, and syrup.",
       "Sorghum is drought-resistant, making it an important crop in arid regions.",
       "Sorghum is used in many forms across Africa and Asia."
     ],
+    "sorrel": [
+      "There are many varieties of sorrel, each used for different purposes due to different flavor profiles.",
+      "The leaves of sorrel should be harvested while young, for best tasting results.",
+      "Like rhubarb, sorrel contains oxalic acid. Overuse should be avoided."
+    ],
     "soybean": [
       "Soybeans are used to make tofu, soy milk, and other plant-based products.",
       "Soybeans are a key ingredient in many plant-based diets due to their high protein content."
     ],
     "spelt": [
-      "Spelt is an ancient grain that's making a comeback as a healthy alternative to wheat."
+      "Spelt is an ancient grain that's making a comeback as a healthy alternative to wheat.",
+      "Spelt is not gluten free, but it contains less gluten than many other grains.",
+      "Wheat can be substituted with spelt in many recipes, but pay attention to the amount of water."
     ],
-    "spinach": ["Spinach provides vitamins A and K, as well as iron."],
+    "spinach": [
+      "Spinach provides vitamins A and K, as well as iron.",
+      "Popeye's recommendation in 1930s boosted the sale of spinach by 33% overnight.",
+      "Spinach may help lower blood pressure.",
+      "Catherine de Medici of Florence was rumored to like spinach so much, many spinach dishes are still called \"à la Florentine\"."
+    ],
     "sprouts": [
       "Sprouts are young plants harvested just after they begin to grow, often eaten raw.",
       "Sprouts, like alfalfa or bean sprouts, are commonly added to salads and sandwiches for extra crunch."
     ],
-    "starfruit": ["Star fruit, or carambola, is known for its distinctive star shape when sliced."],
+    "starfruit": [
+      "Star fruit, or carambola, is known for its distinctive star shape when sliced.",
+      "Star fruit is not recommended for people with impaired kidney function, due to their oxalate content.",
+      "You don't need to peel star fruits, but it's best to remove seeds."
+    ],
     "strawberry": [
       "Botanically strawberry is not a berry, but an aggregate fruit.",
-      "The heaviest strawberry weighed 289 grams."
+      "The heaviest strawberry weighed 289 grams.",
+      "The cultivation of strawberries began in France in the 1950s.",
+      "Over two million strawberries are served each year with cream at the Wimbledon tennis tournament."
     ],
     "sugar snap pea": [
       "Unlike garden peas, sugar snap peas are edible throughout.",
@@ -995,7 +1110,13 @@
       "Sunflower seeds provide a good source of vitamin E and healthy fats."
     ],
     "sweet potato": [
-      "Sweet potatoes are rich in beta-carotene, which the body converts to vitamin A."
+      "Sweet potatoes are rich in beta-carotene, which the body converts to vitamin A.",
+      "Despite their name, sweet potatoes are not related to potatoes.",
+      "There are multiple color variants of sweet potato: orange, purple, even white."
+    ],
+    "tapioca": [
+      "Tapioca is a popular snack in Latin America.",
+      "Tapioca is also used to make tapioca pudding and tapioca pearls."
     ],
     "taro": [
       "A 30-gram portion of taro contains about 10% of your daily fiber intake.",
@@ -1011,7 +1132,9 @@
       "Thai basil comes from the tropical climate of Southeast Asia."
     ],
     "tomatillo": [
-      "Tomatillos are encased in a papery husk that needs to be removed before consumption."
+      "Tomatillos are encased in a papery husk that needs to be removed before consumption.",
+      "The most well-known use for tomatillos is in the salsa verde sauce.",
+      "Tomatillos grow fast, but require at least two plants for pollination."
     ],
     "tomato": [
       "Though often considered a vegetable, tomatoes are botanically classified as fruits.",
@@ -1021,6 +1144,11 @@
       "Triticale is a hybrid grain created by crossing wheat and rye, combining traits of both.",
       "Triticale is often used in cereals and animal feed but is gaining popularity in human foods.",
       "Triticale has only recently been developed to a commercially viable state."
+    ],
+    "turnip": [
+      "Before the arrival of potato, turnip was a European source for starch.",
+      "The leaves of turnip are edible, just like those of carrots.",
+      "The use of turnips as animal feed has probably reduced their appeal in cuisine."
     ],
     "wakame": [
       "Wakame is a type of seaweed commonly used in Japanese food.",
@@ -1153,7 +1281,7 @@
     }
   },
   "settings": {
-    "disableAnimations": "Disable large charts' animations",
+    "disableAnimations": "Remove charts' animations",
     "exportImport": {
       "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.",
       "export": "Export",
@@ -1223,7 +1351,10 @@
     "persimmon": ["kaki"],
     "piel de sapo": ["christmas melon", "santa claus melon"],
     "plum": ["prune"],
+    "porcini": ["king bolete"],
+    "radicchio": ["leaf chicory"],
     "redcurrant": [""],
+    "red bean": ["adzuki bean"],
     "romaine": [""],
     "rutabaga": ["swede"],
     "scallion": ["green onion", "spring onion"],

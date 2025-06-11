@@ -839,7 +839,11 @@
       "Maapähkinät ovat runsas terveellisten rasvojen ja proteiinin lähde, sisältäen runsaasti energiaa.",
       "Teknisesti maapähkinät ovat palkokasveja."
     ],
-    "pear": ["Maailmassa tavataan yli 3 000 päärynälajiketta."],
+    "pear": [
+      "Maailmassa tavataan yli 3 000 päärynälajiketta.",
+      "Päärynät kypsyvät usein vasta poimimisen jälkeen.",
+      "Kiina, Italia, Argentiina ja Yhdysvallat ovat suuria päärynöiden tuottajamaita."
+    ],
     "pecan nut": [
       "Pekaanipähkinät sisältävät runsaasti terveellisiä rasvoja ja yli 19 vitamiinia ja kivennäisainetta.",
       "Pekaanipähkinät ovat kotoisin Pohjois-Amerikasta ja ne olivat tärkeä ravinnonlähde alkuperäiskansoille."
@@ -863,16 +867,26 @@
       "Maailman johtava ananasten tuottaja on Costa Rica."
     ],
     "pinto bean": [
-      "Pintopavut on nimetty niiden pilkullisen ulkonäön mukaan, mutta ne muuttuvat ruskeiksi kypsennettyinä."
+      "Pintopavut on nimetty niiden pilkullisen ulkonäön mukaan, mutta ne muuttuvat ruskeiksi kypsennettyinä.",
+      "\"Pinto\" tarkoittaa maalattua espanjaksi, mikä on viittaus papujen ulkonäköön.",
+      "Pintopavut ovat satoisia ja kestävät hyvin kuivuutta."
     ],
     "pistachio nut": [
       "Pistaasipähkinöitä on viljelty yli 9 000 vuotta, alun perin Lähi-idässä.",
       "Pistaasit halkeavat luonnostaan kypsinä, mikä tekee niiden syömisestä helpompaa."
     ],
-    "plantain": ["Banaanista poiketen, keittobanaania käytetään vain kypsennettynä."],
+    "plantain": [
+      "Banaanista poiketen, keittobanaania käytetään vain kypsennettynä.",
+      "Keittobanaani sisältää paljon A-, B6- ja C-vitamiineja.",
+      "Kuubassa keittobanaaneista tehdään kasvipohjaista \"jauhelihaa\", picadillo de plátanoa."
+    ],
     "plum": [
       "Luumuissa, erityisesti niiden kuoressa, on runsaasti C-vitamiinia ja antioksidantteja.",
       "Luumu on sukua kirsikoille ja manteleille, ja niitä voidaan syödä tuoreina tai kuivattuina."
+    ],
+    "pointed pepper": [
+      "Suippopaprika sisältää jopa 200 % päivittäisestä C-vitamiinin tarpeesta.",
+      "Kuten muutkin capsicum-perheen kasvit, suippopaprikat ovat kasvitieteellisessä mielessä marjoja."
     ],
     "pomegranate": [
       "Granaattiomenat tunnetaan pirteän punaisista siemenistään, joissa on runsaasti kuitua.",
@@ -887,7 +901,11 @@
       "Unikonsiemeniä käytetään usein täytteenä juutalaisissa perinneleivonnaisissa.",
       "Unikonsiemenet ja sitruuna ovat hyvin yhteen sopiva makupari."
     ],
-    "porcini": ["Tatteja on vaikea viljellä, ja ne kerätään yleensä luonnosta."],
+    "porcini": [
+      "Tatteja on vaikea viljellä, ja ne kerätään yleensä luonnosta.",
+      "Suurimmat tatit voivat olla jopa kilon painoisia.",
+      "Kuivattaminen vahvistaa tattien makua."
+    ],
     "portobello": [
       "Portobello-sieniä käytetään usein lihankorvikkeena niiden täyteläisen koostumuksen vuoksi.",
       "Portobello-sienet ovat täysin kasvaneita viljeltyjä herkkusieniä."
@@ -899,8 +917,15 @@
       "Painavin punnittu peruna painoi lähes viisi kiloa.",
       "Keitä, muussaa, nakkaa pataan. Peruna on monikäyttöinen juures."
     ],
+    "prickly pear": [
+      "Kaktusviikunoita voidaan istuttaa hedelmiensä lisäksi aavikoitumisen estämiseksi.",
+      "Meksikossa myös opuntia-kaktuksen lehtiä käytetään ravintona. Tästä käytetään nimitystä \"nopal\".",
+      "Kaktusviikunaa käytetään esimerkiksi hilloihin, makeisiin ja mehuihin."
+    ],
     "pumpkin seed": [
-      "30 gramman annos kurpitsansiemeniä tarjoaa noin 7 g proteiinia ja runsaasti magnesiumia."
+      "30 gramman annos kurpitsansiemeniä tarjoaa noin 7 g proteiinia ja runsaasti magnesiumia.",
+      "Tuoreet siemenet kannattaa paahtaa ensin parhaan lopputuloksen saavuttamiseksi.",
+      "Kurpitsansiemenet sisältävät magnesiumia ja sinkkiä."
     ],
     "pumpkin": [
       "Kurpitsat ovat runsaasti beetakaroteenia, jonka elimistö muuntaa A-vitamiiniksi.",
@@ -916,33 +941,76 @@
       "Kvinoa on gluteeniton vilja, joka on saanut suosiota korkeaproteiinisena ruoka-aineena.",
       "Kvinoa on ollut viljelyssä tuhansia vuosia, alun perin Andien vuoristossa."
     ],
-    "rambutan": [
-      "Rambutan on läheistä sukua litsille ja longanille, ja niissä onkin samankaltainen maku ja koostumus."
+    "radicchio": [
+      "Punasikuri näyttää kaalilta, mutta se on ennemminkin endiivin sukulainen.",
+      "Punasikurin maku pehmenee kypsennettäessä.",
+      "Italian Trevisossa järjestetään festivaalia punasikurin kunniaksi."
     ],
-    "raspberry": ["Maailman johtava vadelmien tuottaja on Venäjä."],
-    "redcurrant": [
-      "Punaherukat ovat vähäkalorisia, mutta niissä on paljon C-vitamiinia, kuitua ja antioksidantteja.",
-      "Punaherukoita käytetään Euroopassa yleisesti esimerkiksi hilloissa, mehuissa tai viinin valmistamiseen.",
-      "Punaherukat ovat myös lintujen suosiossa, joten puutarhurien on suojattava satoaan."
+    "radish": [
+      "Retiisin sinappinen aromi vaimenee kypsennettäessä.",
+      "Retiisi on yksi varhaisimmista viljellyistä vihanneksista.",
+      "Retiisin nimi tulee latinan sanasta radix, joka tarkoittaa juurta."
+    ],
+    "rambutan": [
+      "Rambutan on läheistä sukua litsille ja longanille, ja niissä onkin samankaltainen maku ja koostumus.",
+      "Rambutanin nimi tulee malesiankielisestä sanasta rambut, joka tarkoittaa hiuksia.",
+      "Rambutan kasvaa Malesian ja Indonesian trooppisessa ilmastossa.",
+      "Rambutanin siemen on kitkerä ja miedosti myrkyllinen."
+    ],
+    "raspberry": [
+      "Maailman johtava vadelmien tuottaja on Venäjä.",
+      "Vadelmat eivät ole kasvitieteellisessä mielessä marjoja.",
+      "Vadelmat sisältävät runsaasti kuitua."
     ],
     "red bean": [
-      "Aasiassa punaisia papuja käytetään usein makean punapaputahnan valmistukseen, joka on suosittu täyte jälkiruoissa."
+      "Aasiassa punaisia papuja käytetään usein makean punapaputahnan valmistukseen, joka on suosittu täyte jälkiruoissa.",
+      "Tavallisia punapapuja hyödyntäviä välipaloja ovat esimerkiksi dorayaki, taiyaki ja mochi."
+    ],
+    "red cabbage": [
+      "Kuten monien muidenkin kasvien, punakaalin värisävyt tulevat antosyaani-nimisistä yhdisteistä.",
+      "Punakaalin väri muuttuu ruoan happamuuden mukaan. Hapan etikka voimistaa punaisuutta.",
+      "Keskiajalla punakaalia on käytetty myös väriaineena."
+    ],
+    "red leaf lettuce": [
+      "Punaisissa salaattilajikkeissa voi olla hieman vihreitä enemmän antioksidantteja.",
+      "Kokeile lollo rossoa salaatissa esimerkiksi vuohenjuuston tai pähkinöiden kanssa.",
+      "Punaiset salaattilajikkeet tulivat suosioon vasta renessanssin myötä."
     ],
     "red lentil": [
       "Punaiset linssit kypsyvät nopeasti ja niitä käytetään usein keitoissa ja pataruoissa.",
       "Punaiset linssit menettävät muotonsa kypsennyksessä, joten ne sopivat hyvin ruokien sakeuttamiseen."
     ],
     "red onion": [
-      "Punasipulit muuttuvat pinkeiksi kypsentäessä, ja niitä käytetään usein etikkasäilykkeisiin."
+      "Punasipulit muuttuvat pinkeiksi kypsentäessä, ja niitä käytetään usein etikkasäilykkeisiin.",
+      "Punasipulit ovat joitakin muita sipulilajikkeita miedompia.",
+      "Punasipulien kylmentäminen jääkaapissa ennen leikkaamista voi säästää kyyneliä."
+    ],
+    "redcurrant": [
+      "Punaherukat ovat vähäkalorisia, mutta niissä on paljon C-vitamiinia, kuitua ja antioksidantteja.",
+      "Punaherukoita käytetään Euroopassa yleisesti esimerkiksi hilloissa, mehuissa tai viinin valmistamiseen.",
+      "Punaherukat ovat myös lintujen suosiossa, joten puutarhurien on suojattava satoaan."
     ],
     "rhubarb": [
       "Raparperia käytetään jälkiruoissa, mutta se on itse asiassa vihannes.",
       "Raparperin kanssa tulisi nauttia runsaasti kalsiumia sisältäviä ruokia, kuten maitotuotteita.",
       "Vaikka raparperin varret ovat syötäviä, sen lehdet ovat myrkyllisiä."
     ],
-    "rice": ["Riisi on peruselintarvike yli puolelle maailman väestöstä."],
+    "rice": [
+      "Riisi on peruselintarvike yli puolelle maailman väestöstä.",
+      "Maailmassa tavataan yli 40 000 riisilajiketta.",
+      "Ruskea kokojyväriisi on valkoista riisiä terveellisempää.",
+      "Basmati, jasmiini, arborio...valitse riisi käyttötarkoituksen mukaan.",
+      "Riisin viljely on todennäköisesti saanut alkunsa Yangtze-joen laaksosta."
+    ],
+    "romaine": [
+      "Roomansalaatti on caesar-salaatin pohja-aines.",
+      "Roomansalaatti kestää tukevien lehtiensä vuoksi paremmin runsaita kastikkeita.",
+      "Roomansalaatti on saanut nimensä todennäköisesti tultuaan Eurooppaan paavin puutarhojen avustuksella."
+    ],
     "rutabaga": [
-      "Lanttu sekoitetaan joskus nauriiseen, mutta lanttu on suurempi ja siinä on kellertävä malto."
+      "Lanttu sekoitetaan joskus nauriiseen, mutta lanttu on suurempi ja siinä on kellertävä malto.",
+      "Lanttu on todennäköisesti Skandinaviassa syntynyt perunan ja turnipsin risteytys.",
+      "Saksassa turvauduttiin lanttuihin maailmansotien aikoina. Yhtä talvea tuolta ajalta kutsutaan turnipsitalveksi."
     ],
     "rye": [
       "Ruista käytetään usein leivän valmistukseen, erityisesti Pohjois- ja Itä-Euroopassa.",
@@ -951,6 +1019,22 @@
     "safflower seed": [
       "Saflorinsiemeniä käytetään runsaasti tyydyttymättömiä rasvoja sisältävän öljyn valmistukseen.",
       "Saflorinsiemeniä käytetään usein linnunruokana, mutta ne ovat myös ihmisten suosima välipala."
+    ],
+    "savoy cabbage": [
+      "Savoijinkaali kestää kylmää ja tuholaisia paremmin kuin monet muut lehtivihreät.",
+      "Savoijinkaali kestää kypsennystä tavallista keräkaalia paremmin.",
+      "Savoijinkaali sisältää esimerkiksi C- ja K-vitamiinia, mangaania, folaattia ja kalsiumia."
+    ],
+    "scallion": [
+      "Kevätsipulit kerätään ennen niiden kasvamista täysikasvuisiksi. Joidenkin lajikkeiden kasvu pysähtyy itsestään.",
+      "Kevätsipuli sopii muita sipuleita paremmin herkkävatsaisille.",
+      "Kevätsipulin valkoinen osa sopii kypsennettäväksi, vihreät osat koristeeksi.",
+      "Kevätsipulin uudelleenistutus ja kasvatus onnistuu myös kotikonstein."
+    ],
+    "scarlet runner bean": [
+      "Ruusupavun varret voivat kasvaa yli kolmimetrisiksi.",
+      "Ruusupapu kestää kylmää monia muita papuja paremmin.",
+      "Ruusupapua tuotiin Euroopaan aluksi koristekasviksi."
     ],
     "sea buckthorn": [
       "Tyrni sisältää kaikista villeinä esiintyvistä marjoista eniten ravintoaineita.",
@@ -961,33 +1045,64 @@
       "Seesaminsiemeniä käytetään usein paahdettuna niiden maun korostamiseksi",
       "Seesamiöljy on suosittu ainesosa aasialaisessa keittiössä."
     ],
-    "shiitake": ["Siitakesieniä arvostetaan niiden lihaisan koostumuksen ja umamisen maun vuoksi."],
+    "shallot": [
+      "Salottisipulin miedompi maku tekee siitä hyvän valinnan esimerkiksi kastikkeisiin.",
+      "Salottisipuli on saanut nimensä Lähi-Idän alueella sijainneesta kaupungista, josta kreikkalaiset uskoivat sen olevan peräisin.",
+      "Salottisipulin maku on miedompi yhdistelmä valkosipulia ja sipulia."
+    ],
+    "shiitake": [
+      "Siitakesieniä arvostetaan niiden lihaisan koostumuksen ja umamisen maun vuoksi.",
+      "Siitakesieniä on viljelty yli tuhannen vuoden ajan.",
+      "Kypsentämättömät siitakesienet aiheuttavat joillekin allergisia oireita."
+    ],
     "shimeji": [
       "Shimeji-sienen tyypilliset alalajit ovat valkoinen bunapi-shimeji ja ruskea buna-shimeji.",
       "Kypsentämättömien shimeji-sienten maku on kitkerä, mutta kypsänä ne ovat umamisia.",
       "Shimeji-sienet sopivat hyvin yhteen esimerkiksi valkosipulin, soijan ja merenelävien kanssa."
+    ],
+    "snow pea": [
+      "Sokeriherneet eroavat taittoherneistä litteän kuorensa vuoksi.",
+      "Sokeriherneitä käytetään usein aasialaisessa keittiössä."
     ],
     "sorghum": [
       "Durra on gluteeniton vilja, jota käytetään usein puuron, jauhon ja siirapin valmistukseen.",
       "Kuivuutta hyvin kestävä durra on tärkeä viljelykasvi vähäsateisilla alueilla.",
       "Duraa käytetään monissa muodoissa eri puolilla Afrikkaa ja Aasiaa."
     ],
+    "sorrel": [
+      "Suolaheinästä on useita eri variaatioita, joita käytetään makunsa vuoksi eri tarkoituksiin.",
+      "Suolaheinän lehdet kannattaa kerätä nuorina parhaan maun takaamiseksi.",
+      "Kuten raparperi, suolaheinä sisältää oksaalihappoa. Liikakäyttöä kannattaa välttää."
+    ],
     "soybean": [
       "Soijapapuja käytetään tofun, soijamaidon ja muiden kasvipohjaisten tuotteiden valmistukseen.",
       "Soijapavut ovat keskeinen ainesosa monissa kasvisruokavalioissa niiden korkean proteiinipitoisuuden vuoksi."
     ],
     "spelt": [
-      "Speltti on muinainen vilja, joka on tekemässä paluuta terveellisenä vaihtoehtona vehnälle."
+      "Speltti on muinainen vilja, joka on tekemässä paluuta terveellisenä vaihtoehtona vehnälle.",
+      "Speltti ei ole gluteenitonta, mutta sisältää sitä monia viljoja vähemmän.",
+      "Monessa reseptissä vehnäjauhoja voi korvata speltillä, mutta nesteen määrää pitää tarkkailla."
     ],
-    "spinach": ["Pinaatti sisältää A- ja K-vitamiineja sekä rautaa."],
+    "spinach": [
+      "Pinaatti sisältää A- ja K-vitamiineja sekä rautaa.",
+      "Kippari-Kallen suosituksesta pinaatin myynti nousi 1930-luvulla 33 % yhdessä päivässä.",
+      "Pinaatilla saattaa olla verenpainetta laskevia vaikutuksia.",
+      "Firenzen Catherine de Medici piti pinaatista tarinan mukaan niin paljon, että monen pinaattiannoksen nimi on edelleen \"à la Florentine\"."
+    ],
     "sprouts": [
       "Idut ovat nuoria kasveja, jotka korjataan heti kasvun alettua, ja syödään usein raakana.",
       "Ituja, kuten alfalfaa tai pavunituja, lisätään usein salaatteihin ja voileipiin tuomaan lisärapeutta."
     ],
-    "starfruit": ["Karambola eli tähtihedelmä tunnetaan tähtimäisestä muodostaan viipaloituna."],
+    "starfruit": [
+      "Karambola eli tähtihedelmä tunnetaan tähtimäisestä muodostaan viipaloituna.",
+      "Karambolaa ei suositella munuaisten toimintahäiriöistä kärsiville, sen sisältämän oksalaatin vuoksi.",
+      "Karambolaa ei tarvitse kuoria, mutta siemenet kannattaa poistaa.."
+    ],
     "strawberry": [
       "Kasvitieteellisesti mansikka ei ole marja, vaan epähedelmä.",
-      "Painavin punnittu mansikka painoi 289 grammaa."
+      "Painavin punnittu mansikka painoi 289 grammaa.",
+      "Mansikoiden viljely aloitettiin Ranskassa 1750-luvulla.",
+      "Yli kaksi miljoonaa mansikkaa tarjoillaan joka vuosi kerman kera Wimbledonin tennisturnauksessa."
     ],
     "sugar snap pea": [
       "Toisin kuin tavalliset herneet, taittoherneet voi syödä palkoineen.",
@@ -999,7 +1114,9 @@
       "Auringonkukansiemenet tarjoavat hyvän E-vitamiinin ja terveellisten rasvojen lähteen."
     ],
     "sweet potato": [
-      "Bataatit sisältävät runsaasti beetakaroteenia, jonka elimistö muuttaa A-vitamiiniksi."
+      "Bataatit sisältävät runsaasti beetakaroteenia, jonka elimistö muuttaa A-vitamiiniksi.",
+      "Nimestä \"sweet potato\" huolimatta, bataatit eivät ole sukua perunoille.",
+      "Bataatista on monta värivaihtoehtoa: oranssi, purppura, jopa valkoinen."
     ],
     "taro": [
       "30 gramman annos taroa sisältää noin 10 % päivittäisestä kuidun tarpeesta.",
@@ -1014,7 +1131,11 @@
       "Thaibasilikan maku on lakritsainen ja mausteinen, hieman anista muistuttava.",
       "Thaibasilika on kotoisin Kaakkois-Aasian trooppisesta ilmastosta."
     ],
-    "tomatillo": ["Tomatillojen paperimainen kuori täytyy poistaa ennen käyttöä."],
+    "tomatillo": [
+      "Tomatillojen paperimainen kuori täytyy poistaa ennen käyttöä.",
+      "Tomatillojen suosituin käyttökohde on salsa verde -kastike.",
+      "Tomatillot ovat nopeakasvuisia, mutta vaativat pölytykseen aina kaksi eri kasvia."
+    ],
     "tomato": [
       "Vaikka tomaatti usein luokitellaan vihannekseksi, se on kasvitieteellisesti hedelmä.",
       "Maailmassa tavataan yli 10 000 tomaattilajiketta."
@@ -1023,6 +1144,11 @@
       "Ruisvehnä on hybridi, joka on luotu risteyttämällä vehnä ja ruis tuottamaan molempien ominaisuuksia.",
       "Ruisvehnää käytetään usein eläinrehussa, mutta sen suosio ihmisravintona on kasvussa.",
       "Ruisvehnää on ollut kaupallisesti saatavilla vain lyhyen aikaa."
+    ],
+    "turnip": [
+      "Turnipsi oli ennen perunaa Eurooppalainen tärkkelyksen lähde.",
+      "Turnipsin naatit ovat syötäviä, kuten porkkanankin.",
+      "Turnipsien käyttö eläinten rehuna on aiheetta vähentänyt niiden suosiota ruoanlaitossa."
     ],
     "wakame": [
       "Wakame on merilevä, jota käytetään yleisesti japanilaisissa ruoissa.",
@@ -1155,7 +1281,7 @@
     }
   },
   "settings": {
-    "disableAnimations": "Poista isojen graafien animaatiot",
+    "disableAnimations": "Poista graafien animaatiot",
     "exportImport": {
       "description": "Luo datastasi varmuuskopio tai palauta se tällä toiminnolla. Käyttökohteita ovat esimerkiksi tilanteet, jolloin haluat pyyhkiä selaimesi välimuistin, tai vaihdat puhelinta tai oletusselaintasi.",
       "export": "Vie",
@@ -1225,7 +1351,10 @@
     "persimmon": ["kaki"],
     "piel de sapo": [""],
     "plum": [""],
+    "porcini": [""],
+    "radicchio": ["punasalaatti"],
     "redcurrant": ["punaviinimarja"],
+    "red bean": ["adsukipapu"],
     "romaine": ["romaine"],
     "rutabaga": [""],
     "scallion": [""],
