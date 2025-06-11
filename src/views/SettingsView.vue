@@ -115,12 +115,12 @@ const reset = () => {
 }
 
 :deep(#disable-animations-button) {
-  @apply relative inline-flex h-6 w-11 items-center rounded-full;
+  @apply relative inline-flex h-4 w-12 items-center rounded-md;
   @apply bg-[--color-bg-alternative];
 
   > span {
-    @apply inline-block h-4 w-4 transform rounded-full transition translate-x-1;
-    @apply bg-[--color-highlight];
+    @apply inline-block w-6 h-6 transform rounded-md transition-transform;
+    @apply bg-[--color-highlight] hover:!bg-sky-600;
   }
 
   &[data-headlessui-state='checked'] {
