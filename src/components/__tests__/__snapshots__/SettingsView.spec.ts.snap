@@ -13,7 +13,7 @@ exports[`SettingsView > renders 1`] = `
     </div>
   </div>
   <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="suggestions-count-slider">Suggestions on the front page</label><input data-v-5e0b544f="" id="suggestions-count-slider" type="range" min="0" max="20" step="5"><!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label --><output data-v-5e0b544f="" for="suggestions-count-slider">10</output></div>
-  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="disable-animations-button">Disable large charts' animations</label>
+  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="disable-animations-button">Remove charts' animations</label>
     <!----><button data-test-id="disable-animations-button" id="disable-animations-button" role="switch" type="button" tabindex="0" aria-checked="false" data-headlessui-state=""><span data-v-5e0b544f="" class="disable-animations__toggler"></span></button>
   </div>
   <div data-v-5e0b544f="" class="flex-container flex-col">
