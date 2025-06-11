@@ -56,7 +56,9 @@ const reset = () => {
         v-model="settings.disableAnimations"
         data-test-id="disable-animations-button"
       >
-        <span class="disable-animations__toggler" />
+        <div class="disable-animations__toggler">
+          <IconComponent :icon="settings.disableAnimations ? 'check' : 'close'" />
+        </div>
       </Switch>
     </ContentElement>
     <QAComponent />
@@ -102,7 +104,7 @@ const reset = () => {
 <style scoped>
 #suggestions-count-slider {
   @apply appearance-none h-4 rounded-md;
-  @apply bg-[--color-bg-alternative];
+  @apply bg-[--color-tooltip];
 
   &::-webkit-slider-thumb {
     @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
@@ -116,18 +118,16 @@ const reset = () => {
 
 :deep(#disable-animations-button) {
   @apply relative inline-flex h-4 w-12 items-center rounded-md;
-  @apply bg-[--color-bg-alternative];
+  @apply bg-[--color-tooltip];
 
-  > span {
+  > div {
     @apply inline-block w-6 h-6 transform rounded-md transition-transform;
-    @apply bg-[--color-highlight] hover:!bg-sky-600;
+    @apply flex items-center justify-center;
+    @apply bg-[--color-bg-alternative] fill-[--color-text-alternative] hover:!bg-sky-600 hover:fill-[--color-text];
   }
 
-  &[data-headlessui-state='checked'] {
-    @apply bg-[--color-highlight];
-    > span {
-      @apply translate-x-6 bg-[--color-bg-alternative];
-    }
+  &[data-headlessui-state='checked'] > div {
+    @apply translate-x-6 bg-[--color-highlight] fill-[--color-text];
   }
 }
 </style>
