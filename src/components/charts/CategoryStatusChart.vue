@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue';
+import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
@@ -9,6 +10,7 @@ import {countBy, entries, pipe, prop, sortBy} from 'remeda';
 import {Category, type Favorites} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
+import {useAppStateStore} from '@/stores/appStateStore';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
@@ -27,6 +29,8 @@ const props = withDefaults(
 );
 
 const {t, locale} = useI18n();
+
+const {settings} = storeToRefs(useAppStateStore());
 
 const container = ref<HTMLDivElement | null>(null);
 const {height} = useElementSize(container);
@@ -67,7 +71,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'doughnut'>(false, false, true, false, {
+  getChartOptions<'doughnut'>(false, false, true, settings.value.disableAnimations, {
     cutout: height.value < 280 ? '60%' : undefined,
     plugins: {
       tooltip: {
