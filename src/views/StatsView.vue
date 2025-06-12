@@ -19,11 +19,11 @@ const {allVeggies, uniqueVeggies, favorites, achievements} = storeToRefs(useActi
 const selectedStat = ref(0);
 
 const icons: IconString[] = [
-  'calendarWeekOutline',
+  'calendarWeek',
   'chartLine',
   'history',
   'formatListChecks',
-  'trophyOutline',
+  'trophy',
 ] as const;
 
 const hideTooltips = useThrottleFn(hideAll);

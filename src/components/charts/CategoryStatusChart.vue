@@ -64,14 +64,14 @@ const chartData = computed(() => {
     datasets: [
       {
         data: veggies.map(prop(1)),
-        backgroundColor: [...(props.totals ? COLORS.chartColorsAlternate : COLORS.chartColors)],
+        backgroundColor: props.totals ? COLORS.chartColorsAlternate : COLORS.chartColors,
       },
     ],
   };
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'doughnut'>(false, false, true, settings.value.disableAnimations, {
+  getChartOptions<'doughnut'>(false, false, true, settings.value.showAnimations, {
     cutout: height.value < 280 ? '60%' : undefined,
     plugins: {
       tooltip: {

@@ -1,23 +1,23 @@
 <script setup lang="ts">
 import {
+  mdiArrowLeftBoldOutline,
   mdiCalendarWeekOutline,
   mdiChartBar,
   mdiChartLine,
+  mdiCheck,
   mdiCheckboxBlankOutline,
   mdiCheckboxMarkedOutline,
-  mdiCheckCircle,
   mdiChevronDoubleDown,
   mdiChevronDoubleUp,
   mdiChevronDown,
-  mdiChevronLeftCircle,
   mdiClose,
   mdiCogOutline,
   mdiContentCopy,
-  mdiEarth,
   mdiDatabaseExport,
+  mdiDatabaseImport,
+  mdiEarth,
   mdiFormatListChecks,
   mdiHistory,
-  mdiDatabaseImport,
   mdiMinus,
   mdiPlus,
   mdiRadioboxBlank,
@@ -39,17 +39,17 @@ withDefaults(
 );
 
 const icons = {
+  arrowLeft: mdiArrowLeftBoldOutline,
   bluesky: siBluesky.path,
-  calendarWeekOutline: mdiCalendarWeekOutline,
+  calendarWeek: mdiCalendarWeekOutline,
   chart: mdiChartBar,
   chartLine: mdiChartLine,
-  check: mdiCheckCircle,
+  check: mdiCheck,
   checkboxBlank: mdiCheckboxBlankOutline,
   checkboxMarked: mdiCheckboxMarkedOutline,
   chevronDoubleDown: mdiChevronDoubleDown,
   chevronDoubleUp: mdiChevronDoubleUp,
   chevronDown: mdiChevronDown,
-  chevronLeftCircle: mdiChevronLeftCircle,
   close: mdiClose,
   cog: mdiCogOutline,
   contentCopy: mdiContentCopy,
@@ -64,7 +64,7 @@ const icons = {
   radioboxMarked: mdiRadioboxMarked,
   shareVariant: mdiShareVariant,
   trashCan: mdiTrashCan,
-  trophyOutline: mdiTrophyOutline,
+  trophy: mdiTrophyOutline,
 } as const;
 
 export type IconString = keyof typeof icons;

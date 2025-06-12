@@ -13,10 +13,10 @@ exports[`SettingsView > renders 1`] = `
     </div>
   </div>
   <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="suggestions-count-slider">Suggestions on the front page</label><input data-v-5e0b544f="" id="suggestions-count-slider" type="range" min="0" max="20" step="5"><!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label --><output data-v-5e0b544f="" for="suggestions-count-slider">10</output></div>
-  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="disable-animations-button">Remove charts' animations</label>
-    <!----><button data-test-id="disable-animations-button" id="disable-animations-button" role="switch" type="button" tabindex="0" aria-checked="false" data-headlessui-state="">
-      <div data-v-5e0b544f="" class="disable-animations__toggler"><svg data-v-5e0b544f="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" class="transition-all"></path>
+  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="show-animations-button">Show charts' animations</label>
+    <!----><button data-test-id="show-animations-button" id="show-animations-button" role="switch" type="button" tabindex="0" aria-checked="true" data-headlessui-state="checked">
+      <div data-v-5e0b544f="" class="show-animations__toggler"><svg data-v-5e0b544f="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" class="transition-all"></path>
         </svg></div>
     </button>
   </div>
