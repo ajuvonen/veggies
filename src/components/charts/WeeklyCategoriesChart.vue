@@ -9,8 +9,8 @@ import {reverse} from 'remeda';
 import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
+import {useChartAnimations} from '@/hooks/chartAnimations';
 import {useActivityStore} from '@/stores/activityStore';
-import {useAppStateStore} from '@/stores/appStateStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
@@ -22,7 +22,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabel
 const {t} = useI18n();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
-const {settings} = storeToRefs(useAppStateStore());
+const {showChartAnimations} = useChartAnimations();
 
 const {formatWeekString} = useDateTime();
 
@@ -49,7 +49,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'bar'>(true, true, true, settings.value.showAnimations, {
+  getChartOptions<'bar'>(true, true, true, showChartAnimations.value, {
     layout: {
       padding: {
         right: 25,

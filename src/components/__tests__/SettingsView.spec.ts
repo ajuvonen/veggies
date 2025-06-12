@@ -57,12 +57,12 @@ describe('SettingsView', () => {
 
   it('toggles animations', async () => {
     const wrapper = mounter();
-    expect(appStateStore.settings.showAnimations).toBe(true);
+    expect(appStateStore.settings.showChartAnimations).toBe(true);
     const toggle = wrapper.findByTestId('show-animations-button');
     expect(toggle.attributes('disabled')).toBe(undefined);
     expect(toggle.attributes('data-headlessui-state')).toBe('checked');
     await toggle.trigger('click');
-    expect(appStateStore.settings.showAnimations).toBe(false);
+    expect(appStateStore.settings.showChartAnimations).toBe(false);
     expect(toggle.attributes('data-headlessui-state')).not.toBe('checked');
   });
 
@@ -70,7 +70,7 @@ describe('SettingsView', () => {
     mocks.usePreferredReducedMotion.mockImplementation(() => computed(() => 'reduce'));
     const wrapper = mounter();
     const toggle = wrapper.findByTestId('show-animations-button');
-    expect(appStateStore.settings.showAnimations).toBe(true);
+    expect(appStateStore.settings.showChartAnimations).toBe(true);
     expect(toggle.attributes('disabled')).not.toBe(undefined);
     expect(toggle.attributes('data-headlessui-state')).not.toBe('checked');
   });

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {computed, ref} from 'vue';
+import {ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
-import {usePreferredReducedMotion} from '@vueuse/core';
 import {Switch} from '@headlessui/vue';
+import {useChartAnimations} from '@/hooks/chartAnimations';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
@@ -14,21 +14,14 @@ import BuildTime from '@/components/BuildTime.vue';
 
 const router = useRouter();
 
-const reducedMotion = usePreferredReducedMotion();
-
 const {$reset: activityReset} = useActivityStore();
 const appStateStore = useAppStateStore();
 const {settings} = storeToRefs(appStateStore);
 const {$reset: appStateReset} = appStateStore;
 
-const resetDialogOpen = ref(false);
+const {showChartAnimations, reduceMotion} = useChartAnimations();
 
-const showChartAnimations = computed({
-  get: () => settings.value.showAnimations && reducedMotion.value !== 'reduce',
-  set: (value: boolean) => {
-    settings.value.showAnimations = value;
-  },
-});
+const resetDialogOpen = ref(false);
 
 const reset = () => {
   activityReset();
@@ -57,14 +50,14 @@ const reset = () => {
       <output for="suggestions-count-slider">{{ settings.suggestionCount }}</output>
     </ContentElement>
     <ContentElement
-      :title="$t('settings.showAnimations')"
+      :title="$t('settings.showChartAnimations')"
       :labelAttrs="{for: 'show-animations-button'}"
       labelTag="label"
     >
       <Switch
         id="show-animations-button"
         v-model="showChartAnimations"
-        :disabled="reducedMotion === 'reduce'"
+        :disabled="reduceMotion"
         data-test-id="show-animations-button"
       >
         <div class="show-animations__toggler">

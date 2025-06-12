@@ -1295,7 +1295,7 @@
       "text": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
       "title": "Are you sure you want to reset?"
     },
-    "showAnimations": "Show charts' animations",
+    "showChartAnimations": "Show charts' animations",
     "suggestionCount": "Suggestions on the front page",
     "title": "Settings"
   },
