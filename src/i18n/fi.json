@@ -1304,9 +1304,9 @@
     "title": "Asetukset"
   },
   "stats": {
-    "0": "Muokkaa viikkoja",
+    "0": "Kokonaistilastot",
     "1": "Viikkotilastot",
-    "2": "Kokonaistilastot",
+    "2": "Muokkaa viikkoja",
     "3": "Kasvislista",
     "4": "Saavutukset",
     "chosenStats": "Valitut tilastot",

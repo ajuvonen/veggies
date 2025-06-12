@@ -45,7 +45,7 @@ provide(KEYS.challenge, readonly(selectedChallenge));
 const getDropdownStyles = inject(KEYS.dropdownStyles);
 </script>
 <template>
-  <div class="week-editor">
+  <div class="week-editor" data-test-id="week-editor">
     <Listbox v-model="selectedWeekStart" class="relative z-30" as="div" v-slot="{open}">
       <ContentElement :title="$t('stats.editWeek')" :labelTag="ListboxLabel">
         <ListboxButton
