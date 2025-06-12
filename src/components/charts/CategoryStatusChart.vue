@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue';
-import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';

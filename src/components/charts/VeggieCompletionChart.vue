@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {computed} from 'vue';
-import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, Tooltip, RadialLinearScale, ArcElement} from 'chart.js';
 import {PolarArea} from 'vue-chartjs';
