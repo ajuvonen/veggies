@@ -52,10 +52,7 @@ describe('helpers', () => {
 
   it.skip('has facts for all veggies', async () => {
     const {tm} = await mountLocalization();
-    ALL_VEGGIES.forEach((veggie) => {
-      if (!tm(`facts.${veggie}`).length) console.log(veggie);
-      expect.soft(tm(`facts.${veggie}`).length).toBeGreaterThan(0);
-    });
+    ALL_VEGGIES.forEach((veggie) => expect.soft(tm(`facts.${veggie}`).length).toBeGreaterThan(0));
     expect(Object.keys(tm('facts')).length).toEqual(ALL_VEGGIES.length);
   });
 
