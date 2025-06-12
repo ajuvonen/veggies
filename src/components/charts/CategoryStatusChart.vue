@@ -10,7 +10,7 @@ import {countBy, entries, pipe, prop, sortBy} from 'remeda';
 import {Category, type Favorites} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
-import {useAppStateStore} from '@/stores/appStateStore';
+import {useChartAnimations} from '@/hooks/chartAnimations';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
@@ -30,7 +30,7 @@ const props = withDefaults(
 
 const {t, locale} = useI18n();
 
-const {settings} = storeToRefs(useAppStateStore());
+const {showChartAnimations} = useChartAnimations();
 
 const container = ref<HTMLDivElement | null>(null);
 const {height} = useElementSize(container);
@@ -71,7 +71,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'doughnut'>(false, false, true, settings.value.showAnimations, {
+  getChartOptions<'doughnut'>(false, false, true, showChartAnimations.value, {
     cutout: height.value < 280 ? '60%' : undefined,
     plugins: {
       tooltip: {

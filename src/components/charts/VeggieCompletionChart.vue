@@ -19,7 +19,7 @@ import {
   VEGETABLES,
 } from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
-import {useAppStateStore} from '@/stores/appStateStore';
+import {useChartAnimations} from '@/hooks/chartAnimations';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
@@ -31,7 +31,7 @@ const props = defineProps<{
 
 const {t} = useI18n();
 
-const {settings} = storeToRefs(useAppStateStore());
+const {showChartAnimations} = useChartAnimations();
 
 const veggieLengths: Record<Category, number> = {
   [Category.Fruit]: FRUITS.length,
@@ -62,7 +62,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'polarArea'>(false, false, false, settings.value.showAnimations, {
+  getChartOptions<'polarArea'>(false, false, false, showChartAnimations.value, {
     plugins: {
       tooltip: {
         callbacks: {

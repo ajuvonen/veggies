@@ -1299,7 +1299,7 @@
       "text": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
       "title": "Haluatko tyhjentää sovelluksen?"
     },
-    "showAnimations": "Näytä graafien animaatiot",
+    "showChartAnimations": "Näytä graafien animaatiot",
     "suggestionCount": "Etusivulla nätettävät ehdotukset",
     "title": "Asetukset"
   },
