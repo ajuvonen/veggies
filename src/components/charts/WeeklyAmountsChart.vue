@@ -47,7 +47,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'line'>(true, false, false, settings.value.disableAnimations, {
+  getChartOptions<'line'>(true, false, false, settings.value.showAnimations, {
     plugins: {
       annotation: {
         annotations: {

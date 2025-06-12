@@ -28,12 +28,12 @@ describe('appStateStore', () => {
   });
 
   it('resets the store', () => {
-    appStateStore.settings.disableAnimations = true;
+    appStateStore.settings.showAnimations = true;
     appStateStore.settings.locale = 'fi';
     appStateStore.settings.suggestionCount = 20;
     appStateStore.addToastMessage('hello');
     appStateStore.$reset();
-    expect(appStateStore.settings.disableAnimations).toBe(false);
+    expect(appStateStore.settings.showAnimations).toBe(false);
     expect(appStateStore.settings.locale).toBe('en');
     expect(appStateStore.settings.suggestionCount).toBe(10);
     expect(appStateStore.messages).toHaveLength(0);

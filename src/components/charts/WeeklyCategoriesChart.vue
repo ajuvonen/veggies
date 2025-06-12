@@ -49,7 +49,7 @@ const chartData = computed(() => {
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'bar'>(true, true, true, settings.value.disableAnimations, {
+  getChartOptions<'bar'>(true, true, true, settings.value.showAnimations, {
     layout: {
       padding: {
         right: 25,

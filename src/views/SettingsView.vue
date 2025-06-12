@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import {computed, ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
+import {usePreferredReducedMotion} from '@vueuse/core';
 import {Switch} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -13,12 +14,21 @@ import BuildTime from '@/components/BuildTime.vue';
 
 const router = useRouter();
 
+const reducedMotion = usePreferredReducedMotion();
+
 const {$reset: activityReset} = useActivityStore();
 const appStateStore = useAppStateStore();
 const {settings} = storeToRefs(appStateStore);
 const {$reset: appStateReset} = appStateStore;
 
 const resetDialogOpen = ref(false);
+
+const showChartAnimations = computed({
+  get: () => settings.value.showAnimations && reducedMotion.value !== 'reduce',
+  set: (value: boolean) => {
+    settings.value.showAnimations = value;
+  },
+});
 
 const reset = () => {
   activityReset();
@@ -47,17 +57,18 @@ const reset = () => {
       <output for="suggestions-count-slider">{{ settings.suggestionCount }}</output>
     </ContentElement>
     <ContentElement
-      :title="$t('settings.disableAnimations')"
-      :labelAttrs="{for: 'disable-animations-button'}"
+      :title="$t('settings.showAnimations')"
+      :labelAttrs="{for: 'show-animations-button'}"
       labelTag="label"
     >
       <Switch
-        id="disable-animations-button"
-        v-model="settings.disableAnimations"
-        data-test-id="disable-animations-button"
+        id="show-animations-button"
+        v-model="showChartAnimations"
+        :disabled="reducedMotion === 'reduce'"
+        data-test-id="show-animations-button"
       >
-        <div class="disable-animations__toggler">
-          <IconComponent :icon="settings.disableAnimations ? 'check' : 'close'" />
+        <div class="show-animations__toggler">
+          <IconComponent :icon="showChartAnimations ? 'check' : 'close'" />
         </div>
       </Switch>
     </ContentElement>
@@ -116,9 +127,13 @@ const reset = () => {
   }
 }
 
-:deep(#disable-animations-button) {
+:deep(#show-animations-button) {
   @apply relative inline-flex h-4 w-12 items-center rounded-md;
   @apply bg-[--color-tooltip];
+
+  &[disabled] {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
 
   > div {
     @apply inline-block w-6 h-6 transform rounded-md transition-transform;

@@ -27,8 +27,8 @@ export type Challenge = {
 };
 
 export type Settings = {
-  disableAnimations: boolean;
   locale: Locale;
+  showAnimations: boolean;
   suggestionCount: number;
 };
 

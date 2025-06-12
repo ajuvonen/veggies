@@ -55,14 +55,14 @@ const chartData = computed(() => {
     datasets: [
       {
         data: veggies.map(([, percentage]) => percentage),
-        backgroundColor: [...COLORS.chartColorsAlternate],
+        backgroundColor: COLORS.chartColorsAlternate,
       },
     ],
   };
 });
 
 const chartOptions = computed(() =>
-  getChartOptions<'polarArea'>(false, false, false, settings.value.disableAnimations, {
+  getChartOptions<'polarArea'>(false, false, false, settings.value.showAnimations, {
     plugins: {
       tooltip: {
         callbacks: {

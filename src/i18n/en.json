@@ -996,7 +996,7 @@
       "Rice is a staple food for more than half of the world's population.",
       "There are over 40,000 rice varieties in the world.",
       "Brown whole-grain rice is healthier than white rice.",
-      "Basmati, jasmine, arborio...choose the right type of rice for your purposes.",
+      "Basmati, jasmine, arborio, bomba...choose the right type of rice for your purposes.",
       "The cultivation of rice has likely begun in the Yangtze river valley."
     ],
     "romaine": [
@@ -1278,7 +1278,6 @@
     }
   },
   "settings": {
-    "disableAnimations": "Remove charts' animations",
     "exportImport": {
       "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.",
       "export": "Export",
@@ -1296,6 +1295,7 @@
       "text": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
       "title": "Are you sure you want to reset?"
     },
+    "showAnimations": "Show charts' animations",
     "suggestionCount": "Suggestions on the front page",
     "title": "Settings"
   },

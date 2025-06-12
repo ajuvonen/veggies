@@ -35,7 +35,7 @@ const headerTitle = computed(() => {
         class="navbar__log-link"
         data-test-id="navbar-log-link"
       >
-        <IconComponent icon="chevronLeftCircle" size="6vw" class="navbar__link-icon" />
+        <IconComponent icon="arrowLeft" size="6vw" class="navbar__link-icon" />
       </RouterLink>
       <RouterLink
         v-if="showStats"

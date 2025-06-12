@@ -1000,7 +1000,7 @@
       "Riisi on peruselintarvike yli puolelle maailman väestöstä.",
       "Maailmassa tavataan yli 40 000 riisilajiketta.",
       "Ruskea kokojyväriisi on valkoista riisiä terveellisempää.",
-      "Basmati, jasmiini, arborio...valitse riisi käyttötarkoituksen mukaan.",
+      "Basmati, jasmiini, arborio, bomba...valitse riisi käyttötarkoituksen mukaan.",
       "Riisin viljely on todennäköisesti saanut alkunsa Yangtze-joen laaksosta."
     ],
     "romaine": [
@@ -1282,7 +1282,6 @@
     }
   },
   "settings": {
-    "disableAnimations": "Poista graafien animaatiot",
     "exportImport": {
       "description": "Luo datastasi varmuuskopio tai palauta se tällä toiminnolla. Käyttökohteita ovat esimerkiksi tilanteet, jolloin haluat pyyhkiä selaimesi välimuistin, tai vaihdat puhelinta tai oletusselaintasi.",
       "export": "Vie",
@@ -1300,6 +1299,7 @@
       "text": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
       "title": "Haluatko tyhjentää sovelluksen?"
     },
+    "showAnimations": "Näytä graafien animaatiot",
     "suggestionCount": "Etusivulla nätettävät ehdotukset",
     "title": "Asetukset"
   },

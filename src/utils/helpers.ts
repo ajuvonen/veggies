@@ -40,12 +40,12 @@ export const getChartOptions = <T extends ChartType>(
   grids: boolean,
   stacked: boolean,
   withIcons: boolean,
-  disableAnimations: boolean,
+  showAnimations: boolean,
   overrides: Partial<ChartOptions<T>> = {},
 ) =>
   mergeDeep(
     {
-      animation: disableAnimations ? false : undefined,
+      animation: !showAnimations ? false : undefined,
       responsive: true,
       maintainAspectRatio: !grids,
       normalized: true,
@@ -112,7 +112,7 @@ export const getChartOptions = <T extends ChartType>(
               }),
         },
         tooltip: {
-          animation: !disableAnimations,
+          animation: showAnimations,
           padding: 8,
           titleFont: {
             size: 14,

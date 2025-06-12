@@ -14,8 +14,8 @@ export const useAppStateStore = defineStore('appState', () => {
   const settings = useStorage<Settings>(
     'veggies-settings',
     {
-      disableAnimations: false,
       locale: DEFAULT_LOCALE,
+      showAnimations: true,
       suggestionCount: 10,
     },
     localStorage,
@@ -44,8 +44,8 @@ export const useAppStateStore = defineStore('appState', () => {
   const $reset = () => {
     messages.value = [];
     settings.value = {
-      disableAnimations: false,
       locale: DEFAULT_LOCALE,
+      showAnimations: false,
       suggestionCount: 10,
     };
   };

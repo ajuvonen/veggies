@@ -1,10 +1,22 @@
-import {describe, it, expect, beforeEach, vi} from 'vitest';
+import {computed, nextTick} from 'vue';
+import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useActivityStore} from '@/stores/activityStore';
 import SettingsView from '@/views/SettingsView.vue';
 import DialogStub from './DialogStub.vue';
-import {nextTick} from 'vue';
+
+const mocks = vi.hoisted(() => ({
+  usePreferredReducedMotion: vi.fn(() => computed(() => 'no-preference')),
+}));
+
+vi.mock('@vueuse/core', async () => {
+  const actual = await vi.importActual('@vueuse/core');
+  return {
+    ...actual,
+    usePreferredReducedMotion: mocks.usePreferredReducedMotion,
+  };
+});
 
 const mounter = () =>
   mount(SettingsView, {
@@ -28,6 +40,10 @@ describe('SettingsView', () => {
     appStateStore = useAppStateStore();
   });
 
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('renders', () => {
     const wrapper = mount(SettingsView, {
       global: {
@@ -41,9 +57,22 @@ describe('SettingsView', () => {
 
   it('toggles animations', async () => {
     const wrapper = mounter();
-    expect(appStateStore.settings.disableAnimations).toBe(false);
-    await wrapper.findByTestId('disable-animations-button').trigger('click');
-    expect(appStateStore.settings.disableAnimations).toBe(true);
+    expect(appStateStore.settings.showAnimations).toBe(true);
+    const toggle = wrapper.findByTestId('show-animations-button');
+    expect(toggle.attributes('disabled')).toBe(undefined);
+    expect(toggle.attributes('data-headlessui-state')).toBe('checked');
+    await toggle.trigger('click');
+    expect(appStateStore.settings.showAnimations).toBe(false);
+    expect(toggle.attributes('data-headlessui-state')).not.toBe('checked');
+  });
+
+  it('prevents animation toggle if all animations are disabled', () => {
+    mocks.usePreferredReducedMotion.mockImplementation(() => computed(() => 'reduce'));
+    const wrapper = mounter();
+    const toggle = wrapper.findByTestId('show-animations-button');
+    expect(appStateStore.settings.showAnimations).toBe(true);
+    expect(toggle.attributes('disabled')).not.toBe(undefined);
+    expect(toggle.attributes('data-headlessui-state')).not.toBe('checked');
   });
 
   it('resets the app', async () => {
