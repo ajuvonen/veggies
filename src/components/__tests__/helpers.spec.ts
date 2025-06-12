@@ -15,34 +15,48 @@ import {
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/utils/types';
 
+const mountLocalization = () =>
+  new Promise<
+    Composer<
+      {
+        [x: string]: LocaleMessage<VueMessageType>;
+      },
+      {
+        [x: string]: DateTimeFormat;
+      },
+      {
+        [x: string]: NumberFormat;
+      },
+      string,
+      string,
+      string
+    >
+  >((resolve) => {
+    mount({
+      shallow: true,
+      template: '<div />',
+      setup() {
+        resolve(useI18n());
+      },
+    });
+  });
+
 describe('helpers', () => {
   it('has translation for all veggies', async () => {
-    const {t, tm} = await new Promise<
-      Composer<
-        {
-          [x: string]: LocaleMessage<VueMessageType>;
-        },
-        {
-          [x: string]: DateTimeFormat;
-        },
-        {
-          [x: string]: NumberFormat;
-        },
-        string,
-        string,
-        string
-      >
-    >((resolve) => {
-      mount({
-        shallow: true,
-        template: '<div />',
-        setup() {
-          resolve(useI18n());
-        },
-      });
-    });
-    ALL_VEGGIES.forEach((veggie) => expect(t(`veggies.${veggie}`)).not.toBe(`veggies.${veggie}`));
+    const {t, tm} = await mountLocalization();
+    ALL_VEGGIES.forEach((veggie) =>
+      expect.soft(t(`veggies.${veggie}`)).not.toBe(`veggies.${veggie}`),
+    );
     expect(Object.keys(tm('veggies')).length).toEqual(ALL_VEGGIES.length);
+  });
+
+  it.skip('has facts for all veggies', async () => {
+    const {tm} = await mountLocalization();
+    ALL_VEGGIES.forEach((veggie) => {
+      if (!tm(`facts.${veggie}`).length) console.log(veggie);
+      expect.soft(tm(`facts.${veggie}`).length).toBeGreaterThan(0);
+    });
+    expect(Object.keys(tm('facts')).length).toEqual(ALL_VEGGIES.length);
   });
 
   it('returns correct veggie categories', () => {
@@ -52,6 +66,7 @@ describe('helpers', () => {
     expect(getCategoryForVeggie('cucumber')).toBe(Category.Vegetable);
     expect(getCategoryForVeggie('fava bean')).toBe(Category.Bean);
     expect(getCategoryForVeggie('rye')).toBe(Category.Grain);
+    expect(getCategoryForVeggie('shiitake')).toBe(Category.Mushroom);
     expect(getCategoryForVeggie('split pea')).toBe(undefined);
   });
 
@@ -112,10 +127,10 @@ describe('helpers', () => {
   });
 
   it('disables animations', () => {
-    let result = getChartOptions<'bar'>(true, true, true, true);
+    let result = getChartOptions<'bar'>(true, true, true, false);
     expect(result.animation).toBe(false);
     expect(result.plugins?.tooltip?.animation).toBe(false);
-    result = getChartOptions<'bar'>(true, true, true, false);
+    result = getChartOptions<'bar'>(true, true, true, true);
     expect(result.animation).toBe(undefined);
     expect(result.plugins?.tooltip?.animation).toBe(true);
   });
