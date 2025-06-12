@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`WeekEditor > renders 1`] = `
-"<div data-v-81c33b70="" class="week-editor">
+"<div data-v-81c33b70="" class="week-editor" data-test-id="week-editor">
   <div class="relative z-30" data-headlessui-state="">
     <div data-v-81c33b70="" class="flex-container flex-col"><label id="headlessui-listbox-label-v-0" data-headlessui-state="" class="label-like">Edit Week</label><button data-v-81c33b70="" id="headlessui-listbox-button-v-1" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="week-editor__dropdown-button" data-test-id="week-editor-dropdown-button"><time data-v-81c33b70="" datetime="2024W01" class="truncate">Week 1/2025 (12/30-1/5)</time><svg data-v-81c33b70="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>

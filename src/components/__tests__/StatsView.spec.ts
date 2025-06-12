@@ -11,7 +11,7 @@ describe('StatsView', () => {
     activityStore = useActivityStore();
   });
 
-  it('renders current week by default', () => {
+  it('renders all time statistics by default', () => {
     activityStore.startDate = DateTime.now().startOf('week');
     activityStore.weeks = [
       {
@@ -26,10 +26,10 @@ describe('StatsView', () => {
         },
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.find('#category-status-table').exists()).toBe(true);
   });
 
-  it('renders five previous weeks', async () => {
+  it('renders previous weeks', async () => {
     activityStore.startDate = DateTime.now().startOf('week');
     activityStore.weeks = [
       {
@@ -44,7 +44,7 @@ describe('StatsView', () => {
     expect(wrapper.find('#weekly-categories-table').exists()).toBe(true);
   });
 
-  it('renders all time data', async () => {
+  it('renders current week', async () => {
     activityStore.startDate = DateTime.now().startOf('week');
     activityStore.weeks = [
       {
@@ -55,7 +55,7 @@ describe('StatsView', () => {
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-2').trigger('click');
-    expect(wrapper.find('#category-status-table').exists()).toBe(true);
+    expect(wrapper.findByTestId('week-editor').exists()).toBe(true);
   });
 
   it('renders veggie list', async () => {

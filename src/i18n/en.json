@@ -1300,9 +1300,9 @@
     "title": "Settings"
   },
   "stats": {
-    "0": "Edit weeks",
+    "0": "All time statistics",
     "1": "Weekly statistics",
-    "2": "All time statistics",
+    "2": "Edit weeks",
     "3": "Veggie list",
     "4": "Achievements",
     "chosenStats": "Chosen Statistics",

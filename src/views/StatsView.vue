@@ -19,9 +19,9 @@ const {allVeggies, uniqueVeggies, favorites, achievements} = storeToRefs(useActi
 const selectedStat = ref(0);
 
 const icons: IconString[] = [
-  'calendarWeek',
-  'chartLine',
   'history',
+  'chartLine',
+  'calendarWeek',
   'formatListChecks',
   'trophy',
 ] as const;
@@ -44,15 +44,15 @@ const hideTooltips = useThrottleFn(hideAll);
       </Tab>
     </TabList>
     <TabPanels class="flex grow min-h-0">
-      <TabPanel :as="WeekEditor" class="stats__tab" @scroll="hideTooltips" />
-      <TabPanel class="stats__tab">
-        <WeeklyAmountsChart />
-        <WeeklyCategoriesChart />
-      </TabPanel>
       <TabPanel class="stats__tab">
         <AllTimeStatus />
         <CategoryStatusChart totals :favorites="favorites" :veggies="allVeggies" />
       </TabPanel>
+      <TabPanel class="stats__tab">
+        <WeeklyAmountsChart />
+        <WeeklyCategoriesChart />
+      </TabPanel>
+      <TabPanel :as="WeekEditor" class="stats__tab" @scroll="hideTooltips" />
       <TabPanel
         :as="VeggieList"
         :uniqueVeggies="uniqueVeggies"
