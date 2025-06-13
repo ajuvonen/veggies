@@ -30,7 +30,7 @@ export const COLORS = {
     '#72ddf7',
     '#bae6fd',
   ],
-  offWhite: '#f8fafc',
+  offWhite: '#f9fafb',
   darkBlue: '#0c4a6e',
 } as const;
 
