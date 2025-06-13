@@ -19,8 +19,8 @@ const {removeToastMessage} = appStateStore;
 </template>
 <style scoped>
 .toast-container {
-  @apply absolute top-0 right-0 left-0 m-0 w-full z-30;
-  @apply flex-container flex-col;
+  @apply fixed inset-0 h-[100dvh] m-0 w-full z-30 pointer-events-none;
+  @apply flex-container flex-col-reverse;
 }
 
 .toasts-move,
