@@ -3,6 +3,7 @@ import {ref, watchEffect} from 'vue';
 import {useElementHover, useTimeout, useSwipe, usePointer} from '@vueuse/core';
 import {getRandomEmojis} from '@/utils/helpers';
 
+const isCIMode = import.meta.env.MODE === 'ci';
 defineProps<{
   text: string;
 }>();
@@ -12,7 +13,7 @@ const emit = defineEmits(['close']);
 const removing = ref(false);
 const offsetX = ref(0);
 const toastMessage = ref<HTMLDivElement | null>(null);
-const toastTimeout = import.meta.env.MODE === 'ci' ? 100 : 5500;
+const toastTimeout = isCIMode ? 100 : 5500;
 const {start, stop} = useTimeout(toastTimeout, {
   callback: () => emit('close'),
   controls: true,
@@ -41,7 +42,7 @@ const {lengthX, isSwiping} = useSwipe(toastMessage, {
 const isHovered = useElementHover(toastMessage);
 
 watchEffect(() => {
-  if (isHovered.value || isSwiping.value || removing.value) {
+  if (!isCIMode && (isHovered.value || isSwiping.value || removing.value)) {
     stop();
   } else {
     start();
