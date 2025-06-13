@@ -75,7 +75,7 @@ const emoji = getRandomEmojis()[0];
 </template>
 <style scoped>
 .toast-message {
-  @apply w-full shadow-md p-4 cursor-pointer;
+  @apply w-full shadow-md p-4 cursor-pointer pointer-events-auto;
   @apply bg-[--color-highlight];
 
   &--remove {
