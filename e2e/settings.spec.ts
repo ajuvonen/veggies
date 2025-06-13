@@ -33,8 +33,8 @@ test('q&a works', async ({page}) => {
   await page.getByTestId('qa-button-contact').click();
   await expect(page.getByTestId('qa-panel-appPurpose')).toBeVisible();
   await expect(page.getByTestId('qa-panel-contact')).toBeVisible();
-  await page.getByTestId('qa-button-appPurpose').click();
   await page.getByTestId('qa-button-contact').click();
+  await page.getByTestId('qa-button-appPurpose').click();
   await expect(page.getByTestId('qa-panel-appPurpose')).toBeHidden();
   await expect(page.getByTestId('qa-panel-contact')).toBeHidden();
 });
