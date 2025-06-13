@@ -15,6 +15,7 @@ import {KEYS} from '@/utils/constants';
 import {AchievementLevel, type Achievements} from '@/utils/types';
 import {useScreen} from '@/hooks/screen';
 import {useDateTime} from '@/hooks/dateTime';
+import {useAchievementCompletion} from '@/hooks/achievementCompletion';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
@@ -34,6 +35,8 @@ const veggies = computed({
   get: () => veggiesForWeek.value(selectedWeekStart.value),
   set: (veggies) => setVeggiesForWeek(veggies, selectedWeekStart.value),
 });
+
+const {weeklyCompletion} = useAchievementCompletion(veggies);
 
 const {formatWeekString} = useDateTime();
 
@@ -97,6 +100,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
         :achievement="achievement as keyof Achievements"
         :level="level || AchievementLevel.Gold"
         :active="level >= AchievementLevel.Gold"
+        :degree="weeklyCompletion[achievement as keyof Achievements]"
         noLabel
       />
     </ul>

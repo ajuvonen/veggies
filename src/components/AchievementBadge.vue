@@ -9,10 +9,12 @@ withDefaults(
     active: boolean;
     as?: keyof HTMLElementTagNameMap;
     noLabel?: boolean;
+    degree?: number;
   }>(),
   {
     as: 'li',
     noLabel: false,
+    degree: 0,
   },
 );
 
@@ -192,6 +194,11 @@ const badgeProps: BadgeProps = {
         {{ badgeProps[achievement][level]!.emoji }}
       </div>
     </div>
+    <div
+      v-if="!active"
+      class="badge__overlay"
+      :style="`mask-image: conic-gradient(transparent 0deg ${degree}deg, black ${degree}deg 360deg)`"
+    ></div>
     <div v-if="!noLabel" aria-hidden="true" class="badge__text">
       {{ $t(`achievements.${achievement}.badgeText`, badgeProps[achievement][level]!.textProps) }}
     </div>
@@ -209,14 +216,15 @@ const badgeProps: BadgeProps = {
 .badge__background {
   @apply relative w-full h-full rounded-full border-4 overflow-hidden text-[17cqmin] sm:text-[14cqmin];
   @apply flex items-center justify-center;
-  [aria-disabled='true'] > & {
-    opacity: 0.5;
-  }
   .badge__noLabel > & {
     @apply text-3xl;
   }
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 1px #334155;
+}
+
+.badge__overlay {
+  @apply absolute inset-0 rounded-full bg-black opacity-20;
 }
 
 .badge__emoji {
