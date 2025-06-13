@@ -34,7 +34,7 @@
   @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80% dark:bg-none dark:bg-gray-800;
 }
 
-:focus {
+:focus-visible {
   @apply outline outline-2 outline-offset-[3px];
   @apply outline-[--color-focus-outline];
 
