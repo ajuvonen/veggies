@@ -1,14 +1,27 @@
 <script lang="ts" setup>
+import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {useScreen} from '@/hooks/screen';
 import ToastMessage from '@/components/ToastMessage.vue';
 
 const appStateStore = useAppStateStore();
 const {messages} = storeToRefs(appStateStore);
 const {removeToastMessage} = appStateStore;
+
+const toasts = ref<HTMLElement | null>(null);
+
+const {maxHeightStyle} = useScreen(toasts, 0);
 </script>
 <template>
-  <TransitionGroup tag="div" name="toasts" class="toast-container" aria-live="polite">
+  <TransitionGroup
+    ref="toasts"
+    :style="maxHeightStyle"
+    tag="div"
+    name="toasts"
+    class="toast-container"
+    aria-live="polite"
+  >
     <ToastMessage
       v-for="message in messages"
       :key="message.id"
@@ -19,7 +32,7 @@ const {removeToastMessage} = appStateStore;
 </template>
 <style scoped>
 .toast-container {
-  @apply fixed inset-0 h-[100dvh] m-0 w-full z-30 pointer-events-none;
+  @apply absolute inset-0 m-0 w-full z-30 pointer-events-none;
   @apply flex-container flex-col-reverse;
 }
 
