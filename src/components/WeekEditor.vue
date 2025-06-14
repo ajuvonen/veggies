@@ -29,7 +29,7 @@ const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
 const selectedWeekStart = ref(first(getWeekStarts.value)!);
 
 const optionsElement = ref<InstanceType<typeof ListboxOptions> | null>(null);
-const {maxHeightStyle} = useScreen(optionsElement);
+const {maxHeight} = useScreen(optionsElement);
 
 const veggies = computed({
   get: () => veggiesForWeek.value(selectedWeekStart.value),
@@ -68,7 +68,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
       >
         <ListboxOptions
           ref="optionsElement"
-          :style="maxHeightStyle"
+          :style="`max-height: calc(${maxHeight}px - 1rem)`"
           class="dropdown-list-container"
         >
           <ListboxOption

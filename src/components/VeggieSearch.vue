@@ -23,7 +23,7 @@ const combobox = ref<HTMLDivElement | null>(null);
 const searchInput = ref<HTMLInputElement | null>(null);
 const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 
-const {maxHeightStyle} = useScreen(optionsElement);
+const {maxHeight} = useScreen(optionsElement);
 
 const allVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
@@ -133,10 +133,10 @@ onClickOutside(
           v-show="manualOpen"
           ref="optionsElement"
           id="veggie-search-options"
-          :style="maxHeightStyle"
+          :style="`max-height: calc(${maxHeight}px - 1rem)`"
           static
           as="div"
-          class="dropdown-list-options"
+          class="veggie-search__options"
           data-test-id="veggie-search-options"
         >
           <div
@@ -173,7 +173,7 @@ onClickOutside(
   @apply fill-[--color-text-alternative];
 }
 
-.dropdown-list-options {
+.veggie-search__options {
   @apply dropdown-list-container;
   scrollbar-width: thin;
   scrollbar-color: initial;
