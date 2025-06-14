@@ -11,12 +11,12 @@ const {removeToastMessage} = appStateStore;
 
 const toasts = ref<HTMLElement | null>(null);
 
-const {maxHeightStyle} = useScreen(toasts, 0);
+const {maxHeight} = useScreen(toasts);
 </script>
 <template>
   <TransitionGroup
     ref="toasts"
-    :style="maxHeightStyle"
+    :style="`max-height: ${maxHeight}px`"
     tag="div"
     name="toasts"
     class="toast-container"

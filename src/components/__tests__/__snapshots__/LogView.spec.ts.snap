@@ -6,7 +6,7 @@ exports[`LogView > renders 1`] = `
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <transition-stub data-v-487fdf11="" leaveactiveclass="ease-in duration-200" leavefromclass="opacity-100" leavetoclass="opacity-0" appear="false" persisted="true" css="true">
-    <div data-v-487fdf11="" id="veggie-search-options" role="listbox" aria-multiselectable="true" data-headlessui-state="" style="max-height: calc(768px - 0px - 1rem); display: none;" class="dropdown-list-options" data-test-id="veggie-search-options">
+    <div data-v-487fdf11="" id="veggie-search-options" role="listbox" aria-multiselectable="true" data-headlessui-state="" style="max-height: calc(768px - 1rem); display: none;" class="veggie-search__options" data-test-id="veggie-search-options">
       <!--v-if-->
       <!--v-if-->
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Fruit" data-test-id="veggie-search-group-Fruit" role="group">
@@ -817,7 +817,7 @@ exports[`LogView > renders with data 1`] = `
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <transition-stub data-v-487fdf11="" leaveactiveclass="ease-in duration-200" leavefromclass="opacity-100" leavetoclass="opacity-0" appear="false" persisted="true" css="true">
-    <div data-v-487fdf11="" id="veggie-search-options" role="listbox" aria-multiselectable="true" data-headlessui-state="" style="max-height: calc(768px - 0px - 1rem); display: none;" class="dropdown-list-options" data-test-id="veggie-search-options">
+    <div data-v-487fdf11="" id="veggie-search-options" role="listbox" aria-multiselectable="true" data-headlessui-state="" style="max-height: calc(768px - 1rem); display: none;" class="veggie-search__options" data-test-id="veggie-search-options">
       <!--v-if-->
       <ul data-v-a380d367="" data-v-487fdf11="" role="group" aria-labelledby="veggie-search-label-challenge" data-test-id="veggie-search-challenge">
         <li data-v-a380d367="" class="veggie-search__heading" role="presentation"><span data-v-a380d367="" aria-hidden="true">🎖️</span><span data-v-a380d367="" id="veggie-search-label-challenge" role="presentation">Your Weekly Challenge</span></li>
