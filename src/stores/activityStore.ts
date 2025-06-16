@@ -1,6 +1,6 @@
 import {computed, ref} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
-import {debounceFilter, useIntervalFn, useNow, useStorage} from '@vueuse/core';
+import {debounceFilter, useIntervalFn, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {
   countBy,
@@ -319,6 +319,7 @@ export const useActivityStore = defineStore('activity', () => {
     completedChallenges,
     currentChallenge,
     currentVeggies,
+    currentWeekStart,
     favorites,
     getWeekStarts,
     hotStreak,

@@ -47,6 +47,10 @@ describe('activityStore', () => {
     datesFromStorage.forEach((date) => expect(date).toEqual(DateTime.fromISO('2025-01-20')));
   });
 
+  it('returns current week start', () => {
+    expect(activityStore.currentWeekStart).toEqual(DateTime.now().startOf('week'));
+  });
+
   it('adds veggies', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('tomato');
