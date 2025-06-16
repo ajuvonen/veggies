@@ -8,6 +8,7 @@ import {ALL_VEGGIES} from '@/utils/constants';
 import {
   achievementLevelHelper,
   dateParser,
+  dateReplacer,
   getCategoryForVeggie,
   getChartOptions,
   getRandomEmojis,
@@ -75,7 +76,7 @@ describe('helpers', () => {
 
   it('parses dates from JSON', () => {
     const parsed: Challenge[] = JSON.parse(
-      '[{"startDate":"2024-09-02T00:00:00.000Z","veggie":"nectarine"},{"startDate":"2024-09-16T00:00:00.000+14:00","veggie":"kale"},{"startDate":"2024-09-23T00:00:00.000-12:00","veggie":"cucumber"}]',
+      '[{"startDate":"2024-09-02T00:00:00.000Z","veggie":"nectarine"},{"startDate":"2024-09-16T22:00:00.000+14:00","veggie":"kale"},{"startDate":"2024-09-23T11:00:00.000-12:00","veggie":"cucumber"}]',
       dateParser,
     );
     expect(parsed.length).toBe(3);
@@ -93,6 +94,16 @@ describe('helpers', () => {
   it('parses numbers as they are', () => {
     const parsed: {foo: number; bar: number} = JSON.parse('{"foo": 1, "bar": 2}', dateParser);
     expect(parsed).toEqual({foo: 1, bar: 2});
+  });
+
+  it('stringifies only date part', () => {
+    const testData = {
+      startDate: DateTime.fromISO('2024-09-02T00:00:00.000Z'),
+      veggies: ['nectarine', 'kale'],
+    };
+
+    const stringified = JSON.stringify(testData, dateReplacer);
+    expect(stringified).toBe('{"startDate":"2024-09-02","veggies":["nectarine","kale"]}');
   });
 
   it('gives unique emojis', () => {

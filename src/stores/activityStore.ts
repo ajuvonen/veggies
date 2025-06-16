@@ -1,6 +1,6 @@
-import {computed, ref, watchEffect} from 'vue';
+import {computed, ref} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
-import {debounceFilter, useNow, useStorage} from '@vueuse/core';
+import {debounceFilter, useIntervalFn, useNow, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {
   countBy,
@@ -25,6 +25,7 @@ import {
 import {
   achievementLevelHelper,
   dateParser,
+  dateReplacer,
   getCategoryForVeggie,
   getRandomVeggie,
 } from '@/utils/helpers';
@@ -44,15 +45,20 @@ import {
 
 export const useActivityStore = defineStore('activity', () => {
   const {settings} = storeToRefs(useAppStateStore());
-  const reactiveNow = useNow({interval: 2000});
   const currentDate = ref(DateTime.now());
+  useIntervalFn(() => {
+    const now = DateTime.now();
+    if (!currentDate.value.hasSame(now, 'day')) {
+      currentDate.value = now;
+    }
+  }, 2000);
 
   // State refs
   const startDate = useStorage<DateTime | null>('veggies-start-date', null, localStorage, {
     mergeDefaults: true,
     serializer: {
-      read: (v) => (v ? DateTime.fromISO(v.replace(/"/g, '').split('T')[0]) : null),
-      write: (v) => v?.toISO() ?? '',
+      read: (v) => (v ? DateTime.fromISO(v.split('T')[0]) : null),
+      write: (v) => v?.toISODate() ?? '',
     },
   });
 
@@ -61,7 +67,7 @@ export const useActivityStore = defineStore('activity', () => {
     eventFilter: debounceFilter(2000),
     serializer: {
       read: (v) => (v ? JSON.parse(v, dateParser) : null),
-      write: (v) => JSON.stringify(v),
+      write: (v) => JSON.stringify(v, dateReplacer),
     },
   });
 
@@ -69,7 +75,7 @@ export const useActivityStore = defineStore('activity', () => {
     mergeDefaults: true,
     serializer: {
       read: (v) => (v ? JSON.parse(v, dateParser) : null),
-      write: (v) => JSON.stringify(v),
+      write: (v) => JSON.stringify(v, dateReplacer),
     },
   });
 
@@ -304,14 +310,6 @@ export const useActivityStore = defineStore('activity', () => {
     weeks.value = [];
     challenges.value = [];
   };
-
-  // Watchers
-  watchEffect(() => {
-    const now = DateTime.fromJSDate(reactiveNow.value) as DateTime<true>;
-    if (!currentDate.value.hasSame(now, 'day')) {
-      currentDate.value = now;
-    }
-  });
 
   return {
     achievements,

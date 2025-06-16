@@ -145,6 +145,14 @@ export const dateParser = (key: string, value: any) => {
   return value;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const dateReplacer = (key: string, value: any) => {
+  if (key === 'startDate' && value) {
+    return value.split('T')[0];
+  }
+  return value;
+};
+
 const veggieEmojis: readonly string[] = [
   '🥝',
   '🥥',
