@@ -9,11 +9,11 @@ import {
   achievementLevelHelper,
   dateParser,
   dateReplacer,
+  importSchema,
   getCategoryForVeggie,
   getChartOptions,
   getRandomEmojis,
   getRandomVeggie,
-  stripDisallowedKeys,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/utils/types';
 
@@ -161,29 +161,87 @@ describe('helpers', () => {
     expect(achievementLevelHelper(levels, 41)).toBe(AchievementLevel.Platinum);
   });
 
-  it('removes extra properties from object', () => {
-    const partialSettings = {
-      locale: 'fi',
-      suggestionCount: 5,
-      showChartAnimations: false,
-      foo: 'bar',
+  it('validates startDates', () => {
+    const faultyData = {
+      startDate: null,
+      weeks: [{veggies: [], startDate: null}],
+      challenges: [{veggie: 'carrot', startDate: null}],
+      settings: {
+        ...DEFAULT_SETTINGS,
+      },
     };
-    const result = stripDisallowedKeys(partialSettings, DEFAULT_SETTINGS);
-    expect(result).toEqual({
-      locale: 'fi',
-      suggestionCount: 5,
-      showChartAnimations: false,
+
+    const result = importSchema.safeParse(faultyData);
+    expect(result.success).toBe(false);
+    expect(result.error?.issues).toEqual([
+      {
+        code: 'custom',
+        message: 'Invalid DateTime instance',
+        path: ['startDate'],
+      },
+      {
+        code: 'custom',
+        message: 'Invalid DateTime instance',
+        path: ['challenges', 0, 'startDate'],
+      },
+      {
+        code: 'custom',
+        message: 'Invalid DateTime instance',
+        path: ['weeks', 0, 'startDate'],
+      },
+    ]);
+  });
+
+  it('handles missing data', () => {
+    const faultyData = {
+      startDate: DateTime.now().startOf('week'),
+    };
+    const result = importSchema.safeParse(faultyData);
+    expect(result.success).toBe(true);
+    expect(result.data).toEqual({
+      startDate: DateTime.now().startOf('week'),
+      challenges: [],
+      weeks: [],
+      settings: {...DEFAULT_SETTINGS},
     });
   });
 
-  it('adds missing properties to object', () => {
-    const partialSettings = {
-      locale: 'fi',
+  it('handles extra data', () => {
+    const faultyData = {
+      startDate: DateTime.now().startOf('week'),
+      weeks: [{startDate: DateTime.now().startOf('week'), veggies: ['apple'], foo: true}],
+      challenges: [{startDate: DateTime.now().startOf('week'), veggie: 'apple', bar: true}],
+      settings: {
+        ...DEFAULT_SETTINGS,
+        baz: true,
+      },
     };
-    const result = stripDisallowedKeys(partialSettings, DEFAULT_SETTINGS);
-    expect(result).toEqual({
-      ...DEFAULT_SETTINGS,
-      locale: 'fi',
+    const result = importSchema.safeParse(faultyData);
+    expect(result.success).toBe(true);
+    expect(result.data).toEqual({
+      startDate: DateTime.now().startOf('week'),
+      challenges: [{startDate: DateTime.now().startOf('week'), veggie: 'apple'}],
+      weeks: [{startDate: DateTime.now().startOf('week'), veggies: ['apple']}],
+      settings: {...DEFAULT_SETTINGS},
+    });
+  });
+
+  it('handles wrong data', () => {
+    const faultyData = {
+      startDate: DateTime.now().startOf('week'),
+      settings: {
+        locale: 'el',
+        suggestionCount: 100,
+        showChartAnimations: 0,
+      },
+    };
+    const result = importSchema.safeParse(faultyData);
+    expect(result.success).toBe(true);
+    expect(result.data).toEqual({
+      startDate: DateTime.now().startOf('week'),
+      challenges: [],
+      weeks: [],
+      settings: {...DEFAULT_SETTINGS},
     });
   });
 });

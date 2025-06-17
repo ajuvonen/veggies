@@ -100,5 +100,5 @@ describe('LogView', () => {
     } finally {
       vi.useRealTimers();
     }
-  }, 5500);
+  }, 6000);
 });

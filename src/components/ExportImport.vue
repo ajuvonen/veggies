@@ -4,18 +4,15 @@ import {storeToRefs} from 'pinia';
 import {useRouter} from 'vue-router';
 import {useI18n} from 'vue-i18n';
 import {useFileDialog} from '@vueuse/core';
-import {map} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {dateParser, stripDisallowedKeys} from '@/utils/helpers';
-import {DEFAULT_SETTINGS} from '@/utils/constants';
-import type {Challenge, Week} from '@/utils/types';
+import {dateParser, importSchema} from '@/utils/helpers';
 
 const {t} = useI18n();
 
 const router = useRouter();
 
-const {startDate, currentWeekStart, weeks, challenges} = storeToRefs(useActivityStore());
+const {startDate, weeks, challenges} = storeToRefs(useActivityStore());
 const {settings} = storeToRefs(useAppStateStore());
 const {addToastMessage} = useAppStateStore();
 
@@ -62,16 +59,12 @@ onChange(async (files) => {
       weeks: importWeeks,
       challenges: importChallenges,
       settings: importSettings,
-    } = JSON.parse(text, dateParser);
+    } = importSchema.parse(JSON.parse(text, dateParser));
 
     startDate.value = importStartDate;
-    weeks.value = map(importWeeks, (week: Week) =>
-      stripDisallowedKeys(week, {startDate: currentWeekStart.value, veggies: []} as Week),
-    );
-    challenges.value = map(importChallenges, (week: Week) =>
-      stripDisallowedKeys(week, {startDate: currentWeekStart.value, veggie: ''} as Challenge),
-    );
-    settings.value = stripDisallowedKeys(importSettings, DEFAULT_SETTINGS);
+    weeks.value = importWeeks;
+    challenges.value = importChallenges;
+    settings.value = importSettings;
 
     await nextTick();
 

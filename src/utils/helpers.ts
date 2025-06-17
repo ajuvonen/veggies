@@ -3,6 +3,7 @@ import type {ChartOptions, ChartType, Scale} from 'chart.js';
 import type {Context} from 'chartjs-plugin-datalabels';
 import {DateTime} from 'luxon';
 import {mergeDeep, sample} from 'remeda';
+import z from 'zod/v4';
 import {
   ALL_VEGGIES,
   BEANS,
@@ -15,6 +16,7 @@ import {
   ROOTS,
   VEGETABLES,
 } from '@/utils/constants';
+import {DEFAULT_LOCALE, DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
 import {AchievementLevel, Category} from '@/utils/types';
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
@@ -153,25 +155,6 @@ export const dateReplacer = (key: string, value: any) => {
   return value;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const stripDisallowedKeys = <T extends object>(obj: Record<string, any>, schema: T): T => {
-  const forbiddenKeys = ['__proto__', 'constructor', 'prototype'];
-  const allowedKeys = Object.keys(schema).filter(
-    (key) => !forbiddenKeys.includes(key),
-  ) as (keyof T)[];
-  const result: Partial<T> = {};
-
-  for (const key of allowedKeys) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      result[key] = obj[key as string];
-    } else {
-      result[key] = schema[key];
-    }
-  }
-
-  return result as T;
-};
-
 const veggieEmojis: readonly string[] = [
   '🥝',
   '🥥',
@@ -215,3 +198,30 @@ export const getRandomEmojis = (amount: number = 1) => sample(veggieEmojis, amou
 
 export const achievementLevelHelper = (levels: [number, AchievementLevel][], value: number) =>
   levels.find(([threshold]) => value >= threshold)?.[1] ?? AchievementLevel.NoAchievement;
+
+const luxonDateTimeSchema = z.custom<DateTime<true>>(
+  (val) => val instanceof DateTime && val.isValid,
+  'Invalid DateTime instance',
+);
+
+export const importSchema = z.object({
+  startDate: luxonDateTimeSchema,
+  challenges: z.array(z.object({startDate: luxonDateTimeSchema, veggie: z.string()})).default([]),
+  weeks: z
+    .array(z.object({startDate: luxonDateTimeSchema, veggies: z.array(z.string())}))
+    .default([]),
+  settings: z
+    .object({
+      locale: z.enum(LOCALES).catch(DEFAULT_LOCALE).default(DEFAULT_LOCALE),
+      showChartAnimations: z
+        .boolean()
+        .catch(DEFAULT_SETTINGS.showChartAnimations)
+        .default(DEFAULT_SETTINGS.showChartAnimations),
+      suggestionCount: z
+        .number()
+        .refine((val) => [0, 5, 10, 15, 20].includes(val))
+        .catch(DEFAULT_SETTINGS.suggestionCount)
+        .default(DEFAULT_SETTINGS.suggestionCount),
+    })
+    .default({...DEFAULT_SETTINGS}),
+});
