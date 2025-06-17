@@ -4,7 +4,7 @@ import {DateTime} from 'luxon';
 import {useI18n, type Composer, type VueMessageType} from 'vue-i18n';
 import type {DateTimeFormat, LocaleMessage, NumberFormat} from '@intlify/core-base';
 import {unique} from 'remeda';
-import {ALL_VEGGIES} from '@/utils/constants';
+import {ALL_VEGGIES, DEFAULT_SETTINGS} from '@/utils/constants';
 import {
   achievementLevelHelper,
   dateParser,
@@ -13,6 +13,7 @@ import {
   getChartOptions,
   getRandomEmojis,
   getRandomVeggie,
+  stripDisallowedKeys,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/utils/types';
 
@@ -158,5 +159,31 @@ describe('helpers', () => {
     expect(achievementLevelHelper(levels, 30)).toBe(AchievementLevel.Gold);
     expect(achievementLevelHelper(levels, 40)).toBe(AchievementLevel.Platinum);
     expect(achievementLevelHelper(levels, 41)).toBe(AchievementLevel.Platinum);
+  });
+
+  it('removes extra properties from object', () => {
+    const partialSettings = {
+      locale: 'fi',
+      suggestionCount: 5,
+      showChartAnimations: false,
+      foo: 'bar',
+    };
+    const result = stripDisallowedKeys(partialSettings, DEFAULT_SETTINGS);
+    expect(result).toEqual({
+      locale: 'fi',
+      suggestionCount: 5,
+      showChartAnimations: false,
+    });
+  });
+
+  it('adds missing properties to object', () => {
+    const partialSettings = {
+      locale: 'fi',
+    };
+    const result = stripDisallowedKeys(partialSettings, DEFAULT_SETTINGS);
+    expect(result).toEqual({
+      ...DEFAULT_SETTINGS,
+      locale: 'fi',
+    });
   });
 });

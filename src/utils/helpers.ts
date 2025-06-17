@@ -153,6 +153,25 @@ export const dateReplacer = (key: string, value: any) => {
   return value;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const stripDisallowedKeys = <T extends object>(obj: Record<string, any>, schema: T): T => {
+  const forbiddenKeys = ['__proto__', 'constructor', 'prototype'];
+  const allowedKeys = Object.keys(schema).filter(
+    (key) => !forbiddenKeys.includes(key),
+  ) as (keyof T)[];
+  const result: Partial<T> = {};
+
+  for (const key of allowedKeys) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      result[key] = obj[key as string];
+    } else {
+      result[key] = schema[key];
+    }
+  }
+
+  return result as T;
+};
+
 const veggieEmojis: readonly string[] = [
   '🥝',
   '🥥',
