@@ -10,6 +10,12 @@ export const BUILD_TIME = __VITE_BUILD_TIME__;
 
 export const DEFAULT_LOCALE: Locale = 'en';
 
+export const DEFAULT_SETTINGS = {
+  locale: DEFAULT_LOCALE,
+  showChartAnimations: true,
+  suggestionCount: 10,
+};
+
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
   dropdownStyles: Symbol() as InjectionKey<
