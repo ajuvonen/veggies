@@ -446,6 +446,12 @@
       "A 30-gram portion of chia seeds provides about 11 grams of fiber and is rich in omega-3 fatty acids.",
       "Chia seeds were a vital food source for the ancient Aztecs and Mayans."
     ],
+    "chickpea": [
+      "Chickpeas are in the top-3 most consumed legumes globally.",
+      "The common star in hummus, falafel, and chana masala is chickpea.",
+      "About 70% of the world's chickpeas are grown and consumed in India.",
+      "Chickpea water, or aquafaba, can replace egg whites in vegan baking."
+    ],
     "chili pepper": [
       "Chilis are known for their capsaicin content, which gives them their characteristic heat.",
       "Chili originated in Mexico and has become a fundamental part of cuisines worldwide.",
@@ -506,6 +512,11 @@
       "Cucumbers are about 96% water.",
       "It grows from a flower and contains seeds - so botanically cucumber is a fruit."
     ],
+    "daikon": [
+      "Daikon is a winter radish, native to East Asia.",
+      "Frost-tolerant and fast-growing, daikon can grow over 50 cm long.",
+      "In Korea, daikon radish juice is a hangover remedy."
+    ],
     "dandelion greens": [
       "A 30-gram portion of dandelion greens provides about 25% of the daily vitamin A requirement along with fiber.",
       "Despite being considered a weed, dandelion greens are nutritious."
@@ -514,6 +525,11 @@
       "One date provides about 20 calories and is a good source of natural sugars.",
       "Dates have been cultivated in the Middle East for thousands of years.",
       "Dates are very drought resistant and tolerate saline soil."
+    ],
+    "dill": [
+      "The seeds and flowers of dill are also edible.",
+      "The name \"dill\" comes from old Norse, meaning \"to soothe\".",
+      "Dill is common in European cuisine, often paired with potatoes or fish."
     ],
     "dragon fruit": [
       "Dragon fruit is native to Central America and has become popular worldwide.",
@@ -530,6 +546,11 @@
     "eggplant": [
       "Eggplants are botanically classified as fruits",
       "The heaviest eggplant measured was grown in 2021, and it weighed 3.21 kg."
+    ],
+    "endive": [
+      "Endive is from the same plant family as frisée and radicchio.",
+      "Endive has been believed to have digestion-improving qualities.",
+      "Combine endive with sweeter greens to offset its bitterness."
     ],
     "enoki": [
       "Enoki mushrooms are cultivated in the dark, which turns them white as opposed to the darker varieties found in nature.",
@@ -549,9 +570,20 @@
     "fig": [
       "Figs are one of the oldest cultivated fruits, and were considered a symbol of abundance in ancient Greece."
     ],
+    "flageolet bean": [
+      "Flageolet beans are a variety of immature kidney beans.",
+      "Flageolet beans are common in French cuisine, but rare outside Europe.",
+      "Because they keep shape even when frozen, flageolet beans are good for meal prepping."
+    ],
     "flaxseed": ["Flaxseeds are commonly used as an egg substitute in vegan baking."],
+    "frisee": [
+      "Frisée is often paired with ingredients such as bacon, cheese, or poached egg.",
+      "You can soak frisée in ice water before cooking to reduce its bitterness.",
+      "Frisée is the base ingredient for the Salad Lyonnaise."
+    ],
     "garlic": [
-      "Garlic has been used for thousands of years, both as a food flavoring and in traditional medicine."
+      "Garlic has been used for thousands of years, both as a food flavoring and in traditional medicine.",
+      "Garlic is believed to have antimicrobial and anti-inflammatory properties."
     ],
     "ginger": ["Ginger has been used for centuries in Asian cuisine and traditional medicine."],
     "gooseberry": [
@@ -567,6 +599,11 @@
       "One grapefruit provides around 100% of the daily recommended vitamin C.",
       "Grapefruits, discovered in Barbados in the 18th century, are believed to be a cross between a pomelo and an orange.",
       "Grapefruits are not recommended for consumption with certain prescription medicines."
+    ],
+    "green bean": [
+      "Green beans are the immature pods of the common bean plant.",
+      "Green beans are a good source of vitamins C and K.",
+      "Don't boil green beans for too long, if you want them to keep shape."
     ],
     "green lentil": [
       "A 30-gram portion of green lentils provides about 7 grams of protein and is high in fiber.",
@@ -685,6 +722,11 @@
       "Lingonberries are common in Scandinavian cuisine, often made into jam to accompany meat dishes.",
       "Lingonberries grow wild in the forests of Northern Europe and are known for their bright red color."
     ],
+    "little gem lettuce": [
+      "Little gem lettuce is a miniature variety of romaine lettuce.",
+      "Try grilling little gem lettuce, or using its leaves as wrapping.",
+      "Little gem lettuce is easy to grow even in urban gardens."
+    ],
     "longan": [
       "Longan is also called \"the dragon's eye\".",
       "Longan tastes like a less acidic lychee.",
@@ -700,6 +742,11 @@
       "Macadamia nuts originate from Australia, where they were called kindal kindal.",
       "Macadamia nuts can be dangerous to pets.",
       "Hawaii is the largest producer of macadamia nuts globally."
+    ],
+    "mache": [
+      "Machê is a cool weather green native to Europe and North Africa.",
+      "Machê is very nutrient-dense, containing for example vitamins A and C, as well as iron, pholate, and potassium.",
+      "Machê was virtually unknown in the U.S. until the 1980s."
     ],
     "mandarin": [
       "Mandarin is a good source of vitamin C and contains about 40 calories.",
@@ -795,6 +842,11 @@
       "One orange contains about 60 calories and provides more than 100% of the daily vitamin C requirement.",
       "Oranges are one of the most popular fruits in the world and are often consumed as juice.",
       "Oranges are believed to have originated in Southeast Asia and were spread by traders."
+    ],
+    "oyster mushroom": [
+      "Oyster mushroom gets its name from its cap, which resembles an oyster.",
+      "Oyster mushroom is one of the most cultivated edible mushrooms in the world.",
+      "Oyster mushrooms were first cultivated in Germany during WWI as emergency food."
     ],
     "papaya": [
       "Papaya is often used in salads, smoothies, and desserts, as well as in traditional medicine.",
@@ -1075,6 +1127,10 @@
       "Soybeans are used to make tofu, soy milk, and other plant-based products.",
       "Soybeans are a key ingredient in many plant-based diets due to their high protein content."
     ],
+    "spaghetti squash": [
+      "Stringy spaghetti squash is used as a low-carb pasta substitute.",
+      "Spaghetti squash is native to the Americas, where native tribes have described using it before the arrival of Europeans."
+    ],
     "spelt": [
       "Spelt is an ancient grain that's making a comeback as a healthy alternative to wheat.",
       "Spelt is not gluten free, but it contains less gluten than many other grains.",
@@ -1128,6 +1184,11 @@
       "The taste of thai basil is spicy, with a hint of licorice or anise.",
       "Thai basil comes from the tropical climate of Southeast Asia."
     ],
+    "thyme": [
+      "There are over 300 varieties of thyme, but two are mostly used in cooking.",
+      "From ancient Rome to medieval times, thyme was associated with courage in battle.",
+      "Thyme honey - honey produced by bees who have pollinated thyme - is valued for its flavor."
+    ],
     "tomatillo": [
       "Tomatillos are encased in a papery husk that needs to be removed before consumption.",
       "The most well-known use for tomatillos is in the salsa verde sauce.",
@@ -1166,13 +1227,20 @@
       "Water spinach is not related to spinach."
     ],
     "watercress": [
-      "Watercress is one of the most nutrient-dense vegetables, packed with vitamins A, C, and K."
+      "Watercress is one of the most nutrient-dense vegetables, packed with vitamins A, C, and K.",
+      "Watercress is relative to arugula, mustard greens, and radish.",
+      "Watercress was dubbed \"poor man's bread\" in 19th century Britain."
     ],
     "watermelon": [
       "The aptly named watermelon contains over 90% water.",
       "Watermelon rind is also edible and can be pickled or used in smoothies.",
       "Watermelon is grown in over 90 countries around the world.",
       "World's heaviest watermelon weighed 159 kg."
+    ],
+    "wax gourd": [
+      "Wax gourds can grow up to 80 cm long.",
+      "Wax gourds have an exceptionally long shelf life.",
+      "In Malaysia and Taiwan, wax gourds are used in making of a sweet herbal drink called winter melon tea."
     ],
     "wheat": [
       "Wheat is one of the most widely grown crops in the world.",
@@ -1499,10 +1567,11 @@
     "lettuce": "lettuce",
     "lime": "lime",
     "lingonberry": "lingonberry",
+    "little gem lettuce": "little gem lettuce",
     "longan": "longan",
     "lychee": "lychee",
     "macadamia nut": "macadamia nut",
-    "mache": "mache",
+    "mache": "machê",
     "mandarin": "mandarin",
     "mango": "mango",
     "mangosteen": "mangosteen",
@@ -1606,6 +1675,7 @@
     "water spinach": "water spinach",
     "watercress": "watercress",
     "watermelon": "watermelon",
+    "wax gourd": "wax gourd",
     "wheat": "wheat",
     "white bean": "white bean",
     "white onion": "white onion",
