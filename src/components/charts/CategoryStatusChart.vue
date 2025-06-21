@@ -52,7 +52,7 @@ const getVeggiesForCategory = (category: Category) => {
   return props.veggies
     .filter((veggie) => getCategoryForVeggie(veggie) === category)
     .map(translateAndCapitalize)
-    .sort((a, b) => collator.compare(a, b));
+    .sort(collator.compare);
 };
 
 const chartData = computed(() => {
