@@ -446,6 +446,12 @@
       "30 gramman annos chiasiemeniä sisältää noin 11 g kuitua ja runsaasti omega-3-rasvahappoja.",
       "Chiasiemenet olivat tärkeä ravinnonlähde muinaisille atsteekeille ja mayoille."
     ],
+    "chickpea": [
+      "Kikherne on yksi kolmesta eniten käytetystä palkokasvista maailmassa.",
+      "Hummuksen, falafelin ja chana masalan yhteinen tähti on kikherne.",
+      "Intia tuottaa ja kuluttaa noin 70 % maailman kikherneistä.",
+      "Kikhernevesi, tai aquafaba, voi korvata kananmunanvalkuaiset vegaanileivonnassa."
+    ],
     "chili pepper": [
       "Chilit tunnetaan kapsaisiinista, joka antaa niille niiden ominaisen tulisuuden.",
       "Chili on peräisin Meksikosta, josta se on levinnyt osaksi keittiöitä maailmanlaajuisesti.",
@@ -506,6 +512,11 @@
       "96 % kurkun painosta on vettä.",
       "Koska kurkku kasvaa kukasta ja sisältää siemeniä, se on kasvitieteellisesti hedelmä."
     ],
+    "daikon": [
+      "Daikon on Itä-Aasiasta kotoisin oleva talviretiisi.",
+      "Kylmää kestävä ja nopeakasvuinen daikon voi kasvaa yli 50 cm pitkäksi.",
+      "Etelä-Koreassa daikonista tehty mehua käytetään krapulalääkkeenä."
+    ],
     "dandelion greens": [
       "30 gramman annos voikukanlehtiä sisältää noin 25 % päivittäisestä A-vitamiinista sekä kuitua.",
       "Vaikka voikukkaa pidetään usein rikkaruohona, sen lehdet ovat ravitsevia."
@@ -514,6 +525,11 @@
       "Yksi taateli sisältää noin 20 kaloria ja se on hyvä luonnollisten sokereiden lähde.",
       "Taateleita on viljelty Lähi-idässä tuhansien vuosien ajan.",
       "Taatelit kestävät hyvin kuivuutta ja menestyvät suolaisessakin maaperässä."
+    ],
+    "dill": [
+      "Myös tillin siemenet ja kukat ovat syötäviä.",
+      "Tillin nimi tulee muinaisnorjan sanasta \"dylla\", joka tarkoittaa rauhoittamista.",
+      "Tilli on yleinen osa eurooppalaista keittiötä, jossa se yhdistyy usein perunoiden ja kalan kanssa."
     ],
     "dragon fruit": [
       "Pitaija on kotoisin Keski-Amerikasta ja se on saavuttanut maailmanlaajuisen suosion.",
@@ -530,6 +546,11 @@
     "eggplant": [
       "Munakoisot luokitellaan kasvitieteellisesti hedelmiksi.",
       "Painavin punnittu munakoiso kasvatettiin vuonna 2021, ja se painoi 3,12 kiloa."
+    ],
+    "endive": [
+      "Endiivi kuuluu samaan kasviperheeseen kuin frisee, punasikuri.",
+      "Endiivillä uskotaan olevan ruoansulatusta parantavia vaikutuksia.",
+      "Yhdistä endiiviä makeampiin kasviksiin taittaaksesi sen kitkeryyttä."
     ],
     "enoki": [
       "Enoki-sieniä viljellään pimeässä, jolloin ne jäävät valkoisiksi toisin kuin luonnossa esiintyvät lajitoverinsa.",
@@ -549,11 +570,22 @@
     "fig": [
       "Viikunat ovat yksi vanhimmista viljellyistä hedelmistä, ja niitä pidettiin runsauden symbolina antiikin Kreikassa."
     ],
+    "flageolet bean": [
+      "Flageoletpapu on keskenkasvuisen kidneypavun variantti.",
+      "Flageoletpavut ovat suosittuja ranskalaisessa keittiössä, mutta harvinaisia Euroopan ulkopuolella.",
+      "Koska flageoletpavut säilyttävät muotonsa myös pakastettaessa, ne sopivat hyvin ruokapreppaukseen."
+    ],
     "flaxseed": [
       "Pellavansiemeniä käytetään yleisesti kananmunan korvikkeena vegaanisessa leivonnassa."
     ],
+    "frisee": [
+      "Frisee yhdistetään usein pekonin, juuston ja uppomunan kaltaisiin ainesosiin.",
+      "Friseesalaattia voi pitää hetken jäävedessä kitkeryyden vähentämiseksi.",
+      "Frisee on lyoninsalaatin pääraaka-aine."
+    ],
     "garlic": [
-      "Valkosipulia on käytetty tuhansia vuosia sekä maustamiseen että perinteisessä lääketieteessä."
+      "Valkosipulia on käytetty tuhansia vuosia sekä maustamiseen että perinteisessä lääketieteessä.",
+      "Valkosipulilla uskotaan olevan antibakteerisia ja tulehdusta vähentäviä ominaisuuksia."
     ],
     "ginger": [
       "Inkivääriä on käytetty vuosisatojen ajan Aasian keittiöissä ja perinteisessä lääketieteessä."
@@ -576,6 +608,11 @@
       "Grenadillaa käytetään samoin tavoin kuin passiohedelmää, mutta se on makeampi ja vähemmän kirpeä.",
       "Grenadilla on alunperin kotoisin Etelä-Amerikasta, jossa se kasvaa vuoristoisessa ilmanalassa.",
       "Grenadillan siemenet ovat syötäviä."
+    ],
+    "green bean": [
+      "Vihreät pavut ovat tavallisen pavun keskenkasvuisia palkoja.",
+      "Vihreä papu on hyvä C- ja K-vitamiinin lähde.",
+      "Älä keitä vihreitä papuja liikaa, jos haluat niiden säilyttävän muotonsa."
     ],
     "green lentil": [
       "30 gramman annos vihreitä linssejä sisältää noin 7 g proteiinia ja runsaasti kuitua.",
@@ -689,6 +726,11 @@
       "Puolukat ovat yleisiä skandinaavisessa keittiössä, ja niistä tehdään usein hilloa liharuoan lisukkeeksi.",
       "Puolukat kasvavat villinä Pohjois-Euroopan metsissä ja ne tunnetaan kirkkaan punaisesta väristään."
     ],
+    "little gem lettuce": [
+      "Sydänsalaatti on romainen pienikokoinen lajike.",
+      "Kokeile sydänsalaattia grillattuna tai käytä sen lehtiä käärimiseen.",
+      "Sydänsalaattia on helppo kasvattaa myös kaupunkipuutarhoissa."
+    ],
     "longan": [
       "Longania kutsutaan myös \"lohikäärmeen silmäksi\".",
       "Longan on maultaan kuin vähemmän hapan litsihedelmä.",
@@ -704,6 +746,11 @@
       "Australiasta kotoisin olevan macadamiapähkinän alkuperäinen nimi oli kindal kindal.",
       "Macadamiapähkinät voivat olla lemmikeille vaaraksi.",
       "Havaiji on maailman suurin macadamiapähkinöiden tuottaja."
+    ],
+    "mache": [
+      "Vuonankaali on viileän ilmaston lehtivihreä, joka on kotoisin Euroopasta ja Pohjois-Afrikasta.",
+      "Vuonankaali on hyvin ravintotiheä, sisältäen esimerkiksi A- ja C-vitamiinia, sekä rautaa, folaattia ja kaliumia.",
+      "Vuonankaali oli käytännössä tuntematon Yhdysvalloissa 1980-luvulle asti."
     ],
     "mandarin": [
       "Mandariini on hyvä C-vitamiinin lähde ja se sisältää noin 40 kaloria.",
@@ -799,6 +846,11 @@
       "Yksi appelsiini sisältää noin 60 kaloria ja yli 100 % päivittäisestä C-vitamiinista.",
       "Appelsiinit ovat yksi maailman suosituimmista hedelmistä ja niitä kulutetaan usein mehuna.",
       "Appelsiinien uskotaan olevan peräisin Kaakkois-Aasiasta, josta kauppiaat levittivät niitä ympäri maailmaa."
+    ],
+    "oyster mushroom": [
+      "Osterivinokas on saanut nimensä lakistaan, joka muistuttaa osteria.",
+      "Osterivinokas oli yksi ensimmäisistä viljellyistä ruokasienistä.",
+      "Osterivinokkaan viljely aloitettiin Saksassa hätäravinnoksi Ensimmäisen Maailmansodan aikaan."
     ],
     "papaya": [
       "Papaijaa käytetään usein salaateissa, smoothieissa ja jälkiruoissa sekä perinteisessä lääketieteessä.",
@@ -1079,6 +1131,10 @@
       "Soijapapuja käytetään tofun, soijamaidon ja muiden kasvipohjaisten tuotteiden valmistukseen.",
       "Soijapavut ovat keskeinen ainesosa monissa kasvisruokavalioissa niiden korkean proteiinipitoisuuden vuoksi."
     ],
+    "spaghetti squash": [
+      "Nauhamainen spagettikurpitsa on hiilihydraatiton pastan korvike.",
+      "Spagettikurpitsa on alun perin Amerikoista, jossa alkuperäisasukkaat ovat kuvailleet sen käyttöä ennen eurooppalaisten saapumista."
+    ],
     "spelt": [
       "Speltti on muinainen vilja, joka on tekemässä paluuta terveellisenä vaihtoehtona vehnälle.",
       "Speltti ei ole gluteenitonta, mutta sisältää sitä monia viljoja vähemmän.",
@@ -1132,6 +1188,11 @@
       "Thaibasilikan maku on lakritsainen ja mausteinen, hieman anista muistuttava.",
       "Thaibasilika on kotoisin Kaakkois-Aasian trooppisesta ilmastosta."
     ],
+    "thyme": [
+      "Maailmassa on yli 300 timjamilajiketta, mutta lähinnä kahta käytetään ruoanlaitossa.",
+      "Muinaisessa Roomassa ja keskiajalla timjamia pidettin urhoollisuuden symbolina.",
+      "Timjamihunaja - jonka tuottaneet mehiläiset ovat pölyttäneet timjamia - on arvostettua makunsa vuoksi."
+    ],
     "tomatillo": [
       "Tomatillojen paperimainen kuori täytyy poistaa ennen käyttöä.",
       "Tomatillojen suosituin käyttökohde on salsa verde -kastike.",
@@ -1170,13 +1231,20 @@
       "Vesipinaatti ei ole sukua pinaatille"
     ],
     "watercress": [
-      "Vesikrassi on yksi ravintorikkaimmista vihanneksista, täynnä A-, C- ja K-vitamiineja."
+      "Vesikrassi on yksi ravintorikkaimmista vihanneksista, täynnä A-, C- ja K-vitamiineja.",
+      "Vesikrassi on rucolan, sareptansinapin ja retiisin sukulainen.",
+      "Vesikrassia kutsuttiin \"köyhän leiväksi\" 1800-luvun Britanniassa."
     ],
     "watermelon": [
       "Osuvasti nimetty vesimeloni sisältää yli 90 % vettä.",
       "Vesimelonin kuori on myös syötävä ja siitä voidaan tehdä esimerkiksi säilykkeitä tai käyttää smoothieissa.",
       "Vesimelonia viljellään yli 90 maassa.",
       "Maailman painavin vesimeloni painoi 159 kiloa."
+    ],
+    "wax gourd": [
+      "Vahakurpitsa voi kavaa jopa 80 cm pitkäksi.",
+      "Vahakurpitsa säilyy poikkeuksellisen pitkään.",
+      "Malesiassa ja Taiwanissa vahakurpitsaa käytetään makean, talvimeloniteeksi kutsutun yrttijuoman valmistamisessa."
     ],
     "wheat": [
       "Vehnä on yksi maailman laajimmin viljellyistä kasveista.",
@@ -1503,6 +1571,7 @@
     "lettuce": "lehtisalaatti",
     "lime": "limetti",
     "lingonberry": "puolukka",
+    "little gem lettuce": "sydänsalaatti",
     "longan": "longaani",
     "lychee": "litsi",
     "macadamia nut": "macadamiapähkinä",
@@ -1610,6 +1679,7 @@
     "water spinach": "vesipinaatti",
     "watercress": "vesikrassi",
     "watermelon": "vesimeloni",
+    "wax gourd": "vahakurpitsa",
     "wheat": "vehnä",
     "white bean": "valkoinen papu",
     "white onion": "hopeasipuli",
