@@ -211,7 +211,7 @@ exports[`WeekEditor > renders 1`] = `
         </ul>
         <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Vegetable" data-test-id="veggie-search-group-Vegetable" role="group">
           <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
-            <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥦</span><span data-v-2d6d64fa="" id="veggie-search-label-Vegetable" role="presentation">Vegetables (31)</span></div>
+            <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥦</span><span data-v-2d6d64fa="" id="veggie-search-label-Vegetable" role="presentation">Vegetables (32)</span></div>
             <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Vegetable" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
                 </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Vegetable" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -308,125 +308,131 @@ exports[`WeekEditor > renders 1`] = `
           <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wakame" id="headlessui-combobox-option-v-94" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wakame</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-zucchini" id="headlessui-combobox-option-v-95" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>zucchini</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wax gourd" id="headlessui-combobox-option-v-95" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wax gourd</span>
+            <!--v-if-->
+          </li>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-zucchini" id="headlessui-combobox-option-v-96" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>zucchini</span>
             <!--v-if-->
           </li>
         </ul>
         <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Leafy" data-test-id="veggie-search-group-Leafy" role="group">
           <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
-            <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥬</span><span data-v-2d6d64fa="" id="veggie-search-label-Leafy" role="presentation">Leafy Greens And Herbs (36)</span></div>
+            <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥬</span><span data-v-2d6d64fa="" id="veggie-search-label-Leafy" role="presentation">Leafy Greens And Herbs (37)</span></div>
             <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Leafy" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
                 </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Leafy" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
                 </svg></button></div>
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-arugula" id="headlessui-combobox-option-v-96" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>arugula</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-arugula" id="headlessui-combobox-option-v-97" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>arugula</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-basil" id="headlessui-combobox-option-v-97" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>basil</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-basil" id="headlessui-combobox-option-v-98" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>basil</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-bok choy" id="headlessui-combobox-option-v-98" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>bok choy</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-bok choy" id="headlessui-combobox-option-v-99" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>bok choy</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cabbage" id="headlessui-combobox-option-v-99" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cabbage</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cabbage" id="headlessui-combobox-option-v-100" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cabbage</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chard" id="headlessui-combobox-option-v-100" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chard</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chard" id="headlessui-combobox-option-v-101" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chard</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-choy sum" id="headlessui-combobox-option-v-101" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>choy sum</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-choy sum" id="headlessui-combobox-option-v-102" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>choy sum</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cilantro" id="headlessui-combobox-option-v-102" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cilantro</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cilantro" id="headlessui-combobox-option-v-103" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cilantro</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-collard greens" id="headlessui-combobox-option-v-103" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>collard greens</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-collard greens" id="headlessui-combobox-option-v-104" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>collard greens</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-dandelion greens" id="headlessui-combobox-option-v-104" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>dandelion greens</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-dandelion greens" id="headlessui-combobox-option-v-105" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>dandelion greens</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-dill" id="headlessui-combobox-option-v-105" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>dill</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-dill" id="headlessui-combobox-option-v-106" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>dill</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-endive" id="headlessui-combobox-option-v-106" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>endive</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-endive" id="headlessui-combobox-option-v-107" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>endive</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-frisee" id="headlessui-combobox-option-v-107" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>frisée</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-frisee" id="headlessui-combobox-option-v-108" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>frisée</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-holy basil" id="headlessui-combobox-option-v-108" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>holy basil</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-holy basil" id="headlessui-combobox-option-v-109" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>holy basil</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-iceberg lettuce" id="headlessui-combobox-option-v-109" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>iceberg lettuce</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-iceberg lettuce" id="headlessui-combobox-option-v-110" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>iceberg lettuce</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-kale" id="headlessui-combobox-option-v-110" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>kale</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-kale" id="headlessui-combobox-option-v-111" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>kale</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-lettuce" id="headlessui-combobox-option-v-111" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>lettuce</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-lettuce" id="headlessui-combobox-option-v-112" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>lettuce</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mache" id="headlessui-combobox-option-v-112" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mache</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-little gem lettuce" id="headlessui-combobox-option-v-113" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>little gem lettuce</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mint" id="headlessui-combobox-option-v-113" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mint</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mache" id="headlessui-combobox-option-v-114" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>machê</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mizuna" id="headlessui-combobox-option-v-114" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mizuna</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mint" id="headlessui-combobox-option-v-115" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mint</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mustard greens" id="headlessui-combobox-option-v-115" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mustard greens</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mizuna" id="headlessui-combobox-option-v-116" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mizuna</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-napa cabbage" id="headlessui-combobox-option-v-116" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>napa cabbage</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mustard greens" id="headlessui-combobox-option-v-117" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mustard greens</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-oak leaf lettuce" id="headlessui-combobox-option-v-117" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>oakleaf lettuce</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-napa cabbage" id="headlessui-combobox-option-v-118" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>napa cabbage</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-parsley" id="headlessui-combobox-option-v-118" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>parsley</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-oak leaf lettuce" id="headlessui-combobox-option-v-119" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>oakleaf lettuce</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pea sprouts" id="headlessui-combobox-option-v-119" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pea sprouts</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-parsley" id="headlessui-combobox-option-v-120" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>parsley</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-radicchio" id="headlessui-combobox-option-v-120" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>radicchio</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pea sprouts" id="headlessui-combobox-option-v-121" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pea sprouts</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red cabbage" id="headlessui-combobox-option-v-121" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red cabbage</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-radicchio" id="headlessui-combobox-option-v-122" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>radicchio</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red leaf lettuce" id="headlessui-combobox-option-v-122" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red leaf lettuce</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red cabbage" id="headlessui-combobox-option-v-123" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red cabbage</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-romaine" id="headlessui-combobox-option-v-123" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>romaine</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red leaf lettuce" id="headlessui-combobox-option-v-124" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red leaf lettuce</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-savoy cabbage" id="headlessui-combobox-option-v-124" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>savoy cabbage</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-romaine" id="headlessui-combobox-option-v-125" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>romaine</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sorrel" id="headlessui-combobox-option-v-125" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sorrel</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-savoy cabbage" id="headlessui-combobox-option-v-126" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>savoy cabbage</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-spinach" id="headlessui-combobox-option-v-126" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>spinach</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sorrel" id="headlessui-combobox-option-v-127" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sorrel</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sprouts" id="headlessui-combobox-option-v-127" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sprouts</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-spinach" id="headlessui-combobox-option-v-128" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>spinach</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-thai basil" id="headlessui-combobox-option-v-128" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>thai basil</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sprouts" id="headlessui-combobox-option-v-129" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sprouts</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-thyme" id="headlessui-combobox-option-v-129" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>thyme</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-thai basil" id="headlessui-combobox-option-v-130" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>thai basil</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-water spinach" id="headlessui-combobox-option-v-130" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>water spinach</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-thyme" id="headlessui-combobox-option-v-131" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>thyme</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-watercress" id="headlessui-combobox-option-v-131" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>watercress</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-water spinach" id="headlessui-combobox-option-v-132" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>water spinach</span>
+            <!--v-if-->
+          </li>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-watercress" id="headlessui-combobox-option-v-133" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>watercress</span>
             <!--v-if-->
           </li>
         </ul>
@@ -439,103 +445,103 @@ exports[`WeekEditor > renders 1`] = `
                   <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
                 </svg></button></div>
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-bamboo shoots" id="headlessui-combobox-option-v-132" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>bamboo shoots</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-bamboo shoots" id="headlessui-combobox-option-v-134" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>bamboo shoots</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-beet" id="headlessui-combobox-option-v-133" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>beet</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-beet" id="headlessui-combobox-option-v-135" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>beet</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black radish" id="headlessui-combobox-option-v-134" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black radish</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black radish" id="headlessui-combobox-option-v-136" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black radish</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black salsify" id="headlessui-combobox-option-v-135" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black salsify</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black salsify" id="headlessui-combobox-option-v-137" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black salsify</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-carrot" id="headlessui-combobox-option-v-136" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>carrot</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-carrot" id="headlessui-combobox-option-v-138" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>carrot</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-celeriac" id="headlessui-combobox-option-v-137" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>celeriac</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-celeriac" id="headlessui-combobox-option-v-139" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>celeriac</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chives" id="headlessui-combobox-option-v-138" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chives</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chives" id="headlessui-combobox-option-v-140" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chives</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-daikon" id="headlessui-combobox-option-v-139" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>daikon</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-daikon" id="headlessui-combobox-option-v-141" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>daikon</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-fennel" id="headlessui-combobox-option-v-140" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>fennel</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-fennel" id="headlessui-combobox-option-v-142" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>fennel</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-garlic" id="headlessui-combobox-option-v-141" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>garlic</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-garlic" id="headlessui-combobox-option-v-143" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>garlic</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-ginger" id="headlessui-combobox-option-v-142" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>ginger</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-ginger" id="headlessui-combobox-option-v-144" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>ginger</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-horseradish" id="headlessui-combobox-option-v-143" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>horseradish</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-horseradish" id="headlessui-combobox-option-v-145" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>horseradish</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-jerusalem artichoke" id="headlessui-combobox-option-v-144" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>jerusalem artichoke</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-jerusalem artichoke" id="headlessui-combobox-option-v-146" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>jerusalem artichoke</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-jicama" id="headlessui-combobox-option-v-145" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>jicama</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-jicama" id="headlessui-combobox-option-v-147" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>jicama</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-kohlrabi" id="headlessui-combobox-option-v-146" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>kohlrabi</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-kohlrabi" id="headlessui-combobox-option-v-148" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>kohlrabi</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-leek" id="headlessui-combobox-option-v-147" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>leek</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-leek" id="headlessui-combobox-option-v-149" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>leek</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-manioc" id="headlessui-combobox-option-v-148" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>manioc</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-manioc" id="headlessui-combobox-option-v-150" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>manioc</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-onion" id="headlessui-combobox-option-v-149" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>onion</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-onion" id="headlessui-combobox-option-v-151" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>onion</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-parsley root" id="headlessui-combobox-option-v-150" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>parsley root</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-parsley root" id="headlessui-combobox-option-v-152" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>parsley root</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-parsnip" id="headlessui-combobox-option-v-151" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>parsnip</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-parsnip" id="headlessui-combobox-option-v-153" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>parsnip</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-potato" id="headlessui-combobox-option-v-152" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>potato</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-potato" id="headlessui-combobox-option-v-154" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>potato</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-radish" id="headlessui-combobox-option-v-153" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>radish</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-radish" id="headlessui-combobox-option-v-155" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>radish</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red onion" id="headlessui-combobox-option-v-154" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red onion</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red onion" id="headlessui-combobox-option-v-156" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red onion</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-rutabaga" id="headlessui-combobox-option-v-155" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>rutabaga</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-rutabaga" id="headlessui-combobox-option-v-157" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>rutabaga</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-scallion" id="headlessui-combobox-option-v-156" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>scallion</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-scallion" id="headlessui-combobox-option-v-158" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>scallion</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shallot" id="headlessui-combobox-option-v-157" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shallot</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shallot" id="headlessui-combobox-option-v-159" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shallot</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sweet potato" id="headlessui-combobox-option-v-158" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sweet potato</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sweet potato" id="headlessui-combobox-option-v-160" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sweet potato</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-taro" id="headlessui-combobox-option-v-159" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>taro</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-taro" id="headlessui-combobox-option-v-161" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>taro</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-turnip" id="headlessui-combobox-option-v-160" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>turnip</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-turnip" id="headlessui-combobox-option-v-162" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>turnip</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wasabi" id="headlessui-combobox-option-v-161" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wasabi</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wasabi" id="headlessui-combobox-option-v-163" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wasabi</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-white onion" id="headlessui-combobox-option-v-162" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>white onion</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-white onion" id="headlessui-combobox-option-v-164" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>white onion</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yam" id="headlessui-combobox-option-v-163" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yam</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yam" id="headlessui-combobox-option-v-165" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yam</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yellow beet" id="headlessui-combobox-option-v-164" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yellow beet</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yellow beet" id="headlessui-combobox-option-v-166" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yellow beet</span>
             <!--v-if-->
           </li>
         </ul>
@@ -548,82 +554,82 @@ exports[`WeekEditor > renders 1`] = `
                   <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
                 </svg></button></div>
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black bean" id="headlessui-combobox-option-v-165" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black bean" id="headlessui-combobox-option-v-167" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black lentil" id="headlessui-combobox-option-v-166" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black lentil</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black lentil" id="headlessui-combobox-option-v-168" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black lentil</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black-eyed pea" id="headlessui-combobox-option-v-167" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black-eyed pea</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black-eyed pea" id="headlessui-combobox-option-v-169" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black-eyed pea</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-brown lentil" id="headlessui-combobox-option-v-168" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>brown lentil</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-brown lentil" id="headlessui-combobox-option-v-170" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>brown lentil</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-butter bean" id="headlessui-combobox-option-v-169" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>butter bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-butter bean" id="headlessui-combobox-option-v-171" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>butter bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cannellini bean" id="headlessui-combobox-option-v-170" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cannellini bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cannellini bean" id="headlessui-combobox-option-v-172" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cannellini bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chickpea" id="headlessui-combobox-option-v-171" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chickpea</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chickpea" id="headlessui-combobox-option-v-173" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chickpea</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cranberry bean" id="headlessui-combobox-option-v-172" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cranberry bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cranberry bean" id="headlessui-combobox-option-v-174" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cranberry bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-edamame" id="headlessui-combobox-option-v-173" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>edamame</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-edamame" id="headlessui-combobox-option-v-175" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>edamame</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-fava bean" id="headlessui-combobox-option-v-174" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>fava bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-fava bean" id="headlessui-combobox-option-v-176" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>fava bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-flageolet bean" id="headlessui-combobox-option-v-175" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>flageolet bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-flageolet bean" id="headlessui-combobox-option-v-177" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>flageolet bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pea" id="headlessui-combobox-option-v-176" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>garden pea</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pea" id="headlessui-combobox-option-v-178" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>garden pea</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-green bean" id="headlessui-combobox-option-v-177" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>green bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-green bean" id="headlessui-combobox-option-v-179" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>green bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-green lentil" id="headlessui-combobox-option-v-178" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>green lentil</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-green lentil" id="headlessui-combobox-option-v-180" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>green lentil</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-kidney bean" id="headlessui-combobox-option-v-179" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>kidney bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-kidney bean" id="headlessui-combobox-option-v-181" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>kidney bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mung bean" id="headlessui-combobox-option-v-180" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mung bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-mung bean" id="headlessui-combobox-option-v-182" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>mung bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pinto bean" id="headlessui-combobox-option-v-181" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pinto bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pinto bean" id="headlessui-combobox-option-v-183" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pinto bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red bean" id="headlessui-combobox-option-v-182" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red bean" id="headlessui-combobox-option-v-184" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red lentil" id="headlessui-combobox-option-v-183" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red lentil</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-red lentil" id="headlessui-combobox-option-v-185" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>red lentil</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-scarlet runner bean" id="headlessui-combobox-option-v-184" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>scarlet runner bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-scarlet runner bean" id="headlessui-combobox-option-v-186" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>scarlet runner bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-snow pea" id="headlessui-combobox-option-v-185" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>snow pea</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-snow pea" id="headlessui-combobox-option-v-187" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>snow pea</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-soybean" id="headlessui-combobox-option-v-186" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>soybean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-soybean" id="headlessui-combobox-option-v-188" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>soybean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sugar snap pea" id="headlessui-combobox-option-v-187" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sugar snap pea</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sugar snap pea" id="headlessui-combobox-option-v-189" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sugar snap pea</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-white bean" id="headlessui-combobox-option-v-188" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>white bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-white bean" id="headlessui-combobox-option-v-190" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>white bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yardlong bean" id="headlessui-combobox-option-v-189" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yardlong bean</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yardlong bean" id="headlessui-combobox-option-v-191" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yardlong bean</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yellow lentil" id="headlessui-combobox-option-v-190" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yellow lentil</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yellow lentil" id="headlessui-combobox-option-v-192" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yellow lentil</span>
             <!--v-if-->
           </li>
         </ul>
@@ -636,115 +642,115 @@ exports[`WeekEditor > renders 1`] = `
                   <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
                 </svg></button></div>
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-almond" id="headlessui-combobox-option-v-191" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>almond</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-almond" id="headlessui-combobox-option-v-193" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>almond</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-amaranth" id="headlessui-combobox-option-v-192" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>amaranth</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-amaranth" id="headlessui-combobox-option-v-194" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>amaranth</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-barley" id="headlessui-combobox-option-v-193" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>barley</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-barley" id="headlessui-combobox-option-v-195" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>barley</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-brazil nut" id="headlessui-combobox-option-v-194" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>brazil nut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-brazil nut" id="headlessui-combobox-option-v-196" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>brazil nut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-buckwheat" id="headlessui-combobox-option-v-195" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>buckwheat</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-buckwheat" id="headlessui-combobox-option-v-197" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>buckwheat</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-bulgur" id="headlessui-combobox-option-v-196" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>bulgur</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-bulgur" id="headlessui-combobox-option-v-198" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>bulgur</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cashew nut" id="headlessui-combobox-option-v-197" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cashew nut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-cashew nut" id="headlessui-combobox-option-v-199" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>cashew nut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chestnut" id="headlessui-combobox-option-v-198" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chestnut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chestnut" id="headlessui-combobox-option-v-200" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chestnut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chia seed" id="headlessui-combobox-option-v-199" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chia seed</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chia seed" id="headlessui-combobox-option-v-201" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chia seed</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-couscous" id="headlessui-combobox-option-v-200" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>couscous</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-couscous" id="headlessui-combobox-option-v-202" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>couscous</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-farro" id="headlessui-combobox-option-v-201" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>farro</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-farro" id="headlessui-combobox-option-v-203" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>farro</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-flaxseed" id="headlessui-combobox-option-v-202" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>flaxseed</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-flaxseed" id="headlessui-combobox-option-v-204" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>flaxseed</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-hazelnut" id="headlessui-combobox-option-v-203" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>hazelnut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-hazelnut" id="headlessui-combobox-option-v-205" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>hazelnut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-hemp seed" id="headlessui-combobox-option-v-204" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>hemp seed</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-hemp seed" id="headlessui-combobox-option-v-206" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>hemp seed</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-kamut" id="headlessui-combobox-option-v-205" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>kamut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-kamut" id="headlessui-combobox-option-v-207" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>kamut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-macadamia nut" id="headlessui-combobox-option-v-206" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>macadamia nut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-macadamia nut" id="headlessui-combobox-option-v-208" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>macadamia nut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-millet" id="headlessui-combobox-option-v-207" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>millet</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-millet" id="headlessui-combobox-option-v-209" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>millet</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-oat" id="headlessui-combobox-option-v-208" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>oat</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-oat" id="headlessui-combobox-option-v-210" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>oat</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-peanut" id="headlessui-combobox-option-v-209" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>peanut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-peanut" id="headlessui-combobox-option-v-211" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>peanut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pecan nut" id="headlessui-combobox-option-v-210" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pecan nut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pecan nut" id="headlessui-combobox-option-v-212" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pecan nut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pine nut" id="headlessui-combobox-option-v-211" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pine nut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pine nut" id="headlessui-combobox-option-v-213" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pine nut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pistachio nut" id="headlessui-combobox-option-v-212" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pistachio nut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pistachio nut" id="headlessui-combobox-option-v-214" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pistachio nut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-poppy seed" id="headlessui-combobox-option-v-213" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>poppy seed</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-poppy seed" id="headlessui-combobox-option-v-215" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>poppy seed</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pumpkin seed" id="headlessui-combobox-option-v-214" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pumpkin seed</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-pumpkin seed" id="headlessui-combobox-option-v-216" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>pumpkin seed</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-quinoa" id="headlessui-combobox-option-v-215" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>quinoa</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-quinoa" id="headlessui-combobox-option-v-217" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>quinoa</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-rice" id="headlessui-combobox-option-v-216" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>rice</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-rice" id="headlessui-combobox-option-v-218" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>rice</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-rye" id="headlessui-combobox-option-v-217" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>rye</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-rye" id="headlessui-combobox-option-v-219" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>rye</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-safflower seed" id="headlessui-combobox-option-v-218" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>safflower seed</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-safflower seed" id="headlessui-combobox-option-v-220" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>safflower seed</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sesame seed" id="headlessui-combobox-option-v-219" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sesame seed</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sesame seed" id="headlessui-combobox-option-v-221" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sesame seed</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sorghum" id="headlessui-combobox-option-v-220" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sorghum</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sorghum" id="headlessui-combobox-option-v-222" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sorghum</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-spelt" id="headlessui-combobox-option-v-221" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>spelt</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-spelt" id="headlessui-combobox-option-v-223" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>spelt</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sunflower seed" id="headlessui-combobox-option-v-222" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sunflower seed</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-sunflower seed" id="headlessui-combobox-option-v-224" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>sunflower seed</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-teff" id="headlessui-combobox-option-v-223" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>teff</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-teff" id="headlessui-combobox-option-v-225" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>teff</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-triticale" id="headlessui-combobox-option-v-224" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>triticale</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-triticale" id="headlessui-combobox-option-v-226" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>triticale</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-walnut" id="headlessui-combobox-option-v-225" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>walnut</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-walnut" id="headlessui-combobox-option-v-227" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>walnut</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wheat" id="headlessui-combobox-option-v-226" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wheat</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wheat" id="headlessui-combobox-option-v-228" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wheat</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wild rice" id="headlessui-combobox-option-v-227" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wild rice</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wild rice" id="headlessui-combobox-option-v-229" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wild rice</span>
             <!--v-if-->
           </li>
         </ul>
@@ -757,52 +763,52 @@ exports[`WeekEditor > renders 1`] = `
                   <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
                 </svg></button></div>
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black trumpet mushroom" id="headlessui-combobox-option-v-228" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black trumpet mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-black trumpet mushroom" id="headlessui-combobox-option-v-230" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>black trumpet mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-champignon" id="headlessui-combobox-option-v-229" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>champignon</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-champignon" id="headlessui-combobox-option-v-231" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>champignon</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chanterelle" id="headlessui-combobox-option-v-230" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chanterelle</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-chanterelle" id="headlessui-combobox-option-v-232" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>chanterelle</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-enoki" id="headlessui-combobox-option-v-231" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>enoki</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-enoki" id="headlessui-combobox-option-v-233" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>enoki</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-hedgehog mushroom" id="headlessui-combobox-option-v-232" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>hedgehog mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-hedgehog mushroom" id="headlessui-combobox-option-v-234" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>hedgehog mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-king oyster mushroom" id="headlessui-combobox-option-v-233" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>king oyster mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-king oyster mushroom" id="headlessui-combobox-option-v-235" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>king oyster mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-matsutake" id="headlessui-combobox-option-v-234" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>matsutake</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-matsutake" id="headlessui-combobox-option-v-236" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>matsutake</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-morel" id="headlessui-combobox-option-v-235" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>morel</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-morel" id="headlessui-combobox-option-v-237" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>morel</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-oyster mushroom" id="headlessui-combobox-option-v-236" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>oyster mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-oyster mushroom" id="headlessui-combobox-option-v-238" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>oyster mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-porcini" id="headlessui-combobox-option-v-237" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>porcini</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-porcini" id="headlessui-combobox-option-v-239" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>porcini</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-portobello" id="headlessui-combobox-option-v-238" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>portobello</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-portobello" id="headlessui-combobox-option-v-240" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>portobello</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shiitake" id="headlessui-combobox-option-v-239" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shiitake</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shiitake" id="headlessui-combobox-option-v-241" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shiitake</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shimeji" id="headlessui-combobox-option-v-240" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shimeji</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shimeji" id="headlessui-combobox-option-v-242" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shimeji</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wild mushroom" id="headlessui-combobox-option-v-241" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wild mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wild mushroom" id="headlessui-combobox-option-v-243" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wild mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wood ear mushroom" id="headlessui-combobox-option-v-242" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wood ear mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wood ear mushroom" id="headlessui-combobox-option-v-244" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wood ear mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yellowfoot mushroom" id="headlessui-combobox-option-v-243" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yellowfoot mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yellowfoot mushroom" id="headlessui-combobox-option-v-245" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yellowfoot mushroom</span>
             <!--v-if-->
           </li>
         </ul>
