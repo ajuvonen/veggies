@@ -131,6 +131,7 @@ export const LEAFIES: readonly string[] = [
   'iceberg lettuce',
   'kale',
   'lettuce',
+  'little gem lettuce',
   'mache',
   'mint',
   'mizuna',
@@ -220,6 +221,7 @@ export const VEGETABLES: readonly string[] = [
   'tomatillo',
   'tomato',
   'wakame',
+  'wax gourd',
   'zucchini',
 ];
 
