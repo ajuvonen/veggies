@@ -33,7 +33,7 @@ const hideTooltips = useThrottleFn(hideAll);
     <TabList class="grid grid-cols-5 gap-2">
       <Tab v-for="(_, index) in [...Array(5)]" :key="index" v-slot="{selected}" as="template">
         <ButtonComponent
-          v-tippy="$t(`stats.${index}`)"
+          v-tippy="{content: $t(`stats.${index}`), placement: 'bottom', offset: [0, -8]}"
           :aria-label="$t(`stats.${index}`)"
           :class="{'!bg-[--color-highlight-dark]': selected}"
           :data-test-id="`stats-tab-${index}`"
