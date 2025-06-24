@@ -28,11 +28,13 @@ describe('appStateStore', () => {
   });
 
   it('resets the store', () => {
-    appStateStore.settings.showChartAnimations = false;
+    appStateStore.settings.allergens = ['peanut'];
     appStateStore.settings.locale = 'fi';
+    appStateStore.settings.showChartAnimations = false;
     appStateStore.settings.suggestionCount = 20;
     appStateStore.addToastMessage('hello');
     appStateStore.$reset();
+    expect(appStateStore.settings.allergens).toHaveLength(0);
     expect(appStateStore.settings.showChartAnimations).toBe(true);
     expect(appStateStore.settings.locale).toBe('en');
     expect(appStateStore.settings.suggestionCount).toBe(10);

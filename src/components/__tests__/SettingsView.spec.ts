@@ -75,6 +75,13 @@ describe('SettingsView', () => {
     expect(toggle.attributes('data-headlessui-state')).not.toBe('checked');
   });
 
+  it('shows allergens', () => {
+    appStateStore.settings.allergens = ['peanut', 'cashew nut'];
+    const wrapper = mounter();
+    expect(wrapper.findByTestId('tag-peanut').exists()).toBe(true);
+    expect(wrapper.findByTestId('tag-cashew nut').exists()).toBe(true);
+  });
+
   it('resets the app', async () => {
     const wrapper = mounter();
     await wrapper.findByTestId('reset-button').trigger('click');

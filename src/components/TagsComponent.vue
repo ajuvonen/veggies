@@ -42,14 +42,7 @@ const toggle = async (veggie: string, index: number) => {
 };
 </script>
 <template>
-  <ul
-    ref="listElement"
-    :class="{'tags__container--empty': !veggies.length}"
-    :aria-label="ariaLabel"
-    tabindex="-1"
-    tag="ul"
-    class="tags__container"
-  >
+  <ul ref="listElement" :aria-label="ariaLabel" tabindex="-1" tag="ul" class="tags__container">
     <TransitionGroup name="tags">
       <li
         v-for="({veggie, translation}, index) in translatedVeggies"
@@ -78,10 +71,6 @@ const toggle = async (veggie: string, index: number) => {
 .tags__container {
   @apply relative has-scroll;
   @apply flex-container flex-wrap justify-center content-start;
-
-  &--empty {
-    @apply pointer-events-none;
-  }
 }
 
 /* Transition classes */

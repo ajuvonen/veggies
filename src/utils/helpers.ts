@@ -5,7 +5,6 @@ import {DateTime} from 'luxon';
 import {mergeDeep, sample} from 'remeda';
 import z from 'zod/v4';
 import {
-  ALL_VEGGIES,
   BEANS,
   CATEGORY_EMOJI,
   COLORS,
@@ -137,7 +136,8 @@ export const getChartOptions = <T extends ChartType>(
     overrides,
   ) as ChartOptions<T>;
 
-export const getRandomVeggie = () => ALL_VEGGIES[Math.floor(Math.random() * ALL_VEGGIES.length)];
+export const getRandomVeggie = (availableVeggies: readonly string[] = []) =>
+  availableVeggies[Math.floor(Math.random() * availableVeggies.length)];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const dateParser = (key: string, value: any) => {
@@ -212,6 +212,7 @@ export const importSchema = z.object({
     .default([]),
   settings: z
     .object({
+      allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
       locale: z.enum(LOCALES).catch(DEFAULT_LOCALE).default(DEFAULT_LOCALE),
       showChartAnimations: z
         .boolean()

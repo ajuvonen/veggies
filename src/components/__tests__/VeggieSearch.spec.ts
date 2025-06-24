@@ -109,4 +109,15 @@ describe('VeggieSearch', () => {
     await wrapper.findByTestId('veggie-search-toggle-button').trigger('click');
     expect(wrapper.find('#veggie-search-label-challenge').exists()).toBe(true);
   });
+
+  it('shows placeholder', async () => {
+    const wrapper = mounter();
+    expect(wrapper.findByTestId('veggie-search-input').attributes('placeholder')).toBe(
+      'Add Weekly Veggies',
+    );
+    await wrapper.setProps({placeholder: 'Add things'});
+    expect(wrapper.findByTestId('veggie-search-input').attributes('placeholder')).toBe(
+      'Add things',
+    );
+  });
 });

@@ -6,19 +6,10 @@ import {PolarArea} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy} from 'remeda';
 import {Category} from '@/utils/types';
-import {
-  BEANS,
-  CATEGORY_EMOJI,
-  COLORS,
-  FRUITS,
-  GRAINS,
-  LEAFIES,
-  MUSHROOMS,
-  ROOTS,
-  VEGETABLES,
-} from '@/utils/constants';
+import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import {useChartAnimations} from '@/hooks/chartAnimations';
+import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
@@ -30,23 +21,33 @@ const props = defineProps<{
 
 const {t} = useI18n();
 
+const {
+  availableFruits,
+  availableVegetables,
+  availableLeafies,
+  availableRoots,
+  availableBeans,
+  availableGrains,
+  availableMushrooms,
+} = useAvailableVeggies();
+
 const {showChartAnimations} = useChartAnimations();
 
-const veggieLengths: Record<Category, number> = {
-  [Category.Fruit]: FRUITS.length,
-  [Category.Vegetable]: VEGETABLES.length,
-  [Category.Leafy]: LEAFIES.length,
-  [Category.Root]: ROOTS.length,
-  [Category.Bean]: BEANS.length,
-  [Category.Grain]: GRAINS.length,
-  [Category.Mushroom]: MUSHROOMS.length,
-};
+const veggieLengths = computed<Record<Category, number>>(() => ({
+  [Category.Fruit]: availableFruits.value.length,
+  [Category.Vegetable]: availableVegetables.value.length,
+  [Category.Leafy]: availableLeafies.value.length,
+  [Category.Root]: availableRoots.value.length,
+  [Category.Bean]: availableBeans.value.length,
+  [Category.Grain]: availableGrains.value.length,
+  [Category.Mushroom]: availableMushrooms.value.length,
+}));
 
 const chartData = computed(() => {
   const groupedVeggies = countBy(props.veggies, getCategoryForVeggie);
   const veggies: [Category, number][] = Object.values(Category).map((category) => [
     category,
-    Math.round(((groupedVeggies[category] || 0) / veggieLengths[category]) * 100),
+    Math.round(((groupedVeggies[category] || 0) / veggieLengths.value[category]) * 100),
   ]);
 
   return {
