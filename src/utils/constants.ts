@@ -11,6 +11,7 @@ export const BUILD_TIME = __VITE_BUILD_TIME__;
 export const DEFAULT_LOCALE: Locale = 'en';
 
 export const DEFAULT_SETTINGS = {
+  allergens: [] as string[],
   locale: DEFAULT_LOCALE,
   showChartAnimations: true,
   suggestionCount: 10,

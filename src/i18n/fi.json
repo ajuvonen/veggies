@@ -1350,6 +1350,8 @@
     }
   },
   "settings": {
+    "allergens": "Allergeenit",
+    "allergensInfo": "Allergeeneiksi merkittyjä kasviksia ei näytetä sovelluksessa.",
     "exportImport": {
       "description": "Luo datastasi varmuuskopio tai palauta se tällä toiminnolla. Käyttökohteita ovat esimerkiksi tilanteet, jolloin haluat pyyhkiä selaimesi välimuistin, tai vaihdat puhelinta tai oletusselaintasi.",
       "export": "Vie",
@@ -1367,6 +1369,8 @@
       "text": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
       "title": "Haluatko tyhjentää sovelluksen?"
     },
+    "selectAllergens": "Valitse allergeenit",
+    "selectedAllergens": "Valitut allergeenit",
     "showChartAnimations": "Näytä graafien animaatiot",
     "suggestionCount": "Etusivulla nätettävät ehdotukset",
     "title": "Asetukset"

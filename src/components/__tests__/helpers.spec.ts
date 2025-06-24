@@ -70,7 +70,7 @@ describe('helpers', () => {
   });
 
   it('returns random veggie', () => {
-    const randomVeggies = [...Array(100)].map(() => getRandomVeggie());
+    const randomVeggies = [...Array(100)].map(() => getRandomVeggie(ALL_VEGGIES));
     randomVeggies.forEach((veggie) => expect(ALL_VEGGIES).toContain(veggie));
     expect(new Set(randomVeggies).size).toBeGreaterThan(70);
   });

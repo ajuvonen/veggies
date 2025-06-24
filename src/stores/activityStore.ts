@@ -42,9 +42,11 @@ import {
   ROOTS,
   VEGETABLES,
 } from '@/utils/constants';
+import {useAvailableVeggies} from '@/hooks/availableVeggies';
 
 export const useActivityStore = defineStore('activity', () => {
   const {settings} = storeToRefs(useAppStateStore());
+  const {availableVeggies} = useAvailableVeggies();
   const currentDate = ref(DateTime.now());
   useIntervalFn(() => {
     const now = DateTime.now();
@@ -115,8 +117,8 @@ export const useActivityStore = defineStore('activity', () => {
 
   const completedChallenges = computed(
     () =>
-      challenges.value.filter(({startDate, veggie}) =>
-        veggiesForWeek.value(startDate).includes(veggie),
+      challenges.value.filter(
+        ({startDate, veggie}) => veggie && veggiesForWeek.value(startDate).includes(veggie),
       ).length,
   );
 
@@ -273,7 +275,7 @@ export const useActivityStore = defineStore('activity', () => {
         ...challenges.value,
         {
           startDate: weekStart,
-          veggie: getRandomVeggie(),
+          veggie: getRandomVeggie(availableVeggies.value),
         },
       ];
     } else if (!targetWeek.veggies.includes(targetVeggie)) {
@@ -297,7 +299,7 @@ export const useActivityStore = defineStore('activity', () => {
         ...challenges.value,
         {
           startDate: weekStart,
-          veggie: getRandomVeggie(),
+          veggie: getRandomVeggie(availableVeggies.value),
         },
       ];
     } else {

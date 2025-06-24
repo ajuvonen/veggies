@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import {useI18n} from 'vue-i18n';
 import {useMemoize} from '@vueuse/core';
-import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
+import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue';
 
 defineProps<{
@@ -12,14 +12,18 @@ defineProps<{
 
 const {t, locale} = useI18n();
 
-const allVeggies = useMemoize(() => {
+const {availableVeggies} = useAvailableVeggies();
+
+const translatedVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
-  return ALL_VEGGIES.map<TranslatedListing>((veggie) => ({
-    veggie,
-    category: getCategoryForVeggie(veggie) as Category,
-    translation: t(`veggies.${veggie}`),
-    synonyms: [],
-  })).sort((a, b) => collator.compare(a.translation, b.translation));
+  return availableVeggies.value
+    .map<TranslatedListing>((veggie) => ({
+      veggie,
+      category: getCategoryForVeggie(veggie) as Category,
+      translation: t(`veggies.${veggie}`),
+      synonyms: [],
+    }))
+    .sort((a, b) => collator.compare(a.translation, b.translation));
 });
 </script>
 
@@ -30,7 +34,7 @@ const allVeggies = useMemoize(() => {
       <ContentElement :title="$t(`categories.${category}`)">
         <ul class="columns-2 md:columns-3">
           <li
-            v-for="{veggie, translation} in allVeggies().filter(
+            v-for="{veggie, translation} in translatedVeggies().filter(
               (item) => item.category === category,
             )"
             :key="veggie"

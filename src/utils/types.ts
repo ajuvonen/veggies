@@ -23,10 +23,11 @@ export type Week = {
 
 export type Challenge = {
   readonly startDate: DateTime;
-  veggie: string;
+  veggie: string | undefined;
 };
 
 export type Settings = {
+  allergens: string[];
   locale: Locale;
   showChartAnimations: boolean;
   suggestionCount: number;

@@ -14,6 +14,27 @@ test('locale settings work', async ({page}) => {
   );
 });
 
+test('allergens work', async ({page}) => {
+  await page.goto('/');
+  await page.getByTestId('home-start-button').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
+  await expect(page.getByTestId('veggie-search-option-apple')).toBeVisible();
+  await page.getByTestId('veggie-search-option-apricot').click();
+  await page.getByTestId('navbar-stats-link').click();
+  await page.getByTestId('stats-tab-3').click();
+  await expect(page.getByTestId('veggie-list-status-apple')).toBeVisible();
+  await page.getByTestId('navbar-settings-link').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
+  await page.getByTestId('veggie-search-option-apple').click();
+  await expect(page.getByTestId('tag-apple')).toBeVisible();
+  await page.getByTestId('navbar-log-link').click();
+  await page.getByTestId('veggie-search-toggle-button').click();
+  await expect(page.getByTestId('veggie-search-option-apple')).toBeHidden();
+  await page.getByTestId('navbar-stats-link').click();
+  await page.getByTestId('stats-tab-3').click();
+  await expect(page.getByTestId('veggie-list-status-apple')).toBeHidden();
+});
+
 test('reset works', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();

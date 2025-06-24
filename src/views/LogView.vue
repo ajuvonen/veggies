@@ -6,12 +6,13 @@ import {difference, first} from 'remeda';
 import confetti from 'canvas-confetti';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {ALL_VEGGIES, KEYS} from '@/utils/constants';
+import {KEYS} from '@/utils/constants';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import BlueskyLink from '@/components/BlueskyLink.vue';
+import {useAvailableVeggies} from '@/hooks/availableVeggies';
 
 const {t, tm} = useI18n();
 
@@ -20,6 +21,8 @@ const {allVeggies, uniqueVeggies, suggestions, currentVeggies, currentChallenge}
   storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
 const {addToastMessage} = useAppStateStore();
+
+const {availableVeggies} = useAvailableVeggies();
 
 const showConfetti = () =>
   confetti({
@@ -48,7 +51,11 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
     } else if (Math.random() <= 0.5) {
       const facts = [
         ...Object.values<string>(tm(`facts.${addedVeggie}`)),
-        t('toasts.uniqueVeggies', [uniqueVeggies.value.length, ALL_VEGGIES.length, cheer]),
+        t('toasts.uniqueVeggies', [
+          uniqueVeggies.value.length,
+          availableVeggies.value.length,
+          cheer,
+        ]),
         t('toasts.totalVeggies', [allVeggies.value.length, cheer]),
       ];
 

@@ -11,6 +11,8 @@ import ModalDialog from '@/components/ModalDialog.vue';
 import QAComponent from '@/components/QAComponent.vue';
 import ExportImport from '@/components/ExportImport.vue';
 import BuildTime from '@/components/BuildTime.vue';
+import VeggieSearch from '@/components/VeggieSearch.vue';
+import TagsComponent from '@/components/TagsComponent.vue';
 
 const router = useRouter();
 
@@ -27,6 +29,10 @@ const reset = () => {
   activityReset();
   appStateReset();
   router.push({name: 'home'});
+};
+
+const removeAllergen = (veggie: string) => {
+  settings.value.allergens = settings.value.allergens.filter((allergen) => allergen !== veggie);
 };
 </script>
 
@@ -64,6 +70,23 @@ const reset = () => {
           <IconComponent :icon="showChartAnimations ? 'check' : 'close'" />
         </div>
       </Switch>
+    </ContentElement>
+    <ContentElement
+      :title="$t('settings.allergens')"
+      :labelAttrs="{for: 'veggie-search-input'}"
+      labelTag="label"
+    >
+      <VeggieSearch v-model="settings.allergens" :placeholder="$t('settings.selectAllergens')" />
+      <TagsComponent
+        :veggies="settings.allergens"
+        :variant="['tag', 'remove']"
+        :toggleFn="(veggie) => removeAllergen(veggie)"
+        :class="{hidden: !settings.allergens.length}"
+        :ariaLabel="$t('settings.selectedAllergens')"
+        ariaTagKey="general.clickToRemove"
+        icon="minus"
+      />
+      <p>{{ $t('settings.allergensInfo') }}</p>
     </ContentElement>
     <QAComponent />
     <ExportImport />

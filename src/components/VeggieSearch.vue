@@ -3,10 +3,10 @@ import {ref} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
 import {useMemoize, onClickOutside} from '@vueuse/core';
-import {ALL_VEGGIES} from '@/utils/constants';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useScreen} from '@/hooks/screen';
+import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import VeggieSearchChallenge from '@/components/VeggieSearchChallenge.vue';
 
@@ -14,7 +14,18 @@ const model = defineModel<string[]>({
   required: true,
 });
 
+withDefaults(
+  defineProps<{
+    placeholder?: string;
+  }>(),
+  {
+    placeholder: '',
+  },
+);
+
 const {t, tm, locale} = useI18n();
+
+const {availableVeggies} = useAvailableVeggies();
 
 const query = ref('');
 const manualOpen = ref(false);
@@ -25,20 +36,22 @@ const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 
 const {maxHeight} = useScreen(optionsElement);
 
-const allVeggies = useMemoize(() => {
+const translatedVeggies = useMemoize(() => {
   const collator = new Intl.Collator(locale.value);
-  return ALL_VEGGIES.map<TranslatedListing>((veggie) => ({
-    veggie,
-    category: getCategoryForVeggie(veggie) as Category,
-    translation: t(`veggies.${veggie}`),
-    synonyms: Object.values<string>(tm(`synonyms.${veggie}`)),
-  })).sort((a, b) => collator.compare(a.translation, b.translation));
+  return availableVeggies.value
+    .map<TranslatedListing>((veggie) => ({
+      veggie,
+      category: getCategoryForVeggie(veggie) as Category,
+      translation: t(`veggies.${veggie}`),
+      synonyms: Object.values<string>(tm(`synonyms.${veggie}`)),
+    }))
+    .sort((a, b) => collator.compare(a.translation, b.translation));
 });
 
 const filteredVeggies = useMemoize(
   (category?: Category) => {
     const cleanedQuery = query.value.toLowerCase().replace(/\s+/g, '');
-    return allVeggies().filter(
+    return translatedVeggies().filter(
       (veggie) =>
         (!category || veggie.category === category) &&
         (!cleanedQuery ||
@@ -81,12 +94,12 @@ onClickOutside(
 <template>
   <div ref="combobox" class="relative z-20">
     <Combobox v-model="model" nullable multiple>
-      <ComboboxInput as="template">
+      <ComboboxInput as="template" id="veggie-search-input">
         <input
           ref="searchInput"
-          :aria-label="$t('veggieSearch.search')"
+          :aria-label="placeholder || $t('veggieSearch.search')"
           :aria-expanded="manualOpen"
-          :placeholder="$t('veggieSearch.search')"
+          :placeholder="placeholder || $t('veggieSearch.search')"
           :value="query"
           class="veggie-search__input"
           inputmode="search"
@@ -109,7 +122,7 @@ onClickOutside(
         v-if="query"
         variant="text"
         icon="close"
-        class="veggie-search__button right-14 outline-override"
+        class="veggie-search__button right-12 outline-override"
         data-test-id="veggie-search-clear-button"
         @click="clearQuery"
       />
@@ -118,7 +131,7 @@ onClickOutside(
         :aria-expanded="manualOpen"
         variant="text"
         icon="chevronDown"
-        class="veggie-search__button right-4 outline-override"
+        class="veggie-search__button right-2 outline-override"
         data-test-id="veggie-search-toggle-button"
         aria-haspopup="listbox"
         aria-controls="veggie-search-options"
@@ -164,12 +177,12 @@ onClickOutside(
 </template>
 <style scoped>
 .veggie-search__input {
-  @apply w-full h-full py-2 pl-4 pr-24 text-lg rounded-full;
+  @apply w-full h-full py-2 pl-4 pr-24 rounded-full;
   @apply text-[--color-text-alternative] bg-[--color-bg-alternative] placeholder-gray-500;
 }
 
 .veggie-search__button {
-  @apply absolute inset-y-2 px-1;
+  @apply absolute top-1/2 -translate-y-1/2 p-2 -outline-offset-4;
   @apply fill-[--color-text-alternative];
 }
 

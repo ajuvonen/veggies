@@ -1346,6 +1346,8 @@
     }
   },
   "settings": {
+    "allergens": "Allergens",
+    "allergensInfo": "Veggies marked as allergens won't show up in the app.",
     "exportImport": {
       "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.",
       "export": "Export",
@@ -1363,6 +1365,8 @@
       "text": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
       "title": "Are you sure you want to reset?"
     },
+    "selectAllergens": "Select allergens",
+    "selectedAllergens": "Selected allergens",
     "showChartAnimations": "Show charts' animations",
     "suggestionCount": "Suggestions on the front page",
     "title": "Settings"
