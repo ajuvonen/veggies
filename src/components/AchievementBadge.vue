@@ -134,6 +134,12 @@ const badgeProps: BadgeProps = {
       emoji: '🥜',
     },
   },
+  lemons: {
+    [AchievementLevel.Gold]: {
+      textProps: [5],
+      emoji: '🍋',
+    },
+  },
   hotStreak: {
     [AchievementLevel.Bronze]: {
       textProps: [5],

@@ -33,6 +33,7 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import {
   BEANS,
   BOTANICAL_BERRIES,
+  CITRUSES,
   FRUITS,
   GRAINS,
   LEAFIES,
@@ -175,6 +176,10 @@ export const useActivityStore = defineStore('activity', () => {
     goNuts: achievementLevelHelper(
       [[5, AchievementLevel.Gold]],
       intersection(NUTS, veggies).length,
+    ),
+    lemons: achievementLevelHelper(
+      [[5, AchievementLevel.Gold]],
+      intersection(CITRUSES, veggies).length,
     ),
     thirtyVeggies: achievementLevelHelper(
       [

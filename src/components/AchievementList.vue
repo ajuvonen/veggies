@@ -38,6 +38,11 @@ defineProps<{
           achievement="goNuts"
         />
         <AchievementBadge
+          :active="achievements.lemons === AchievementLevel.Gold"
+          :level="AchievementLevel.Gold"
+          achievement="lemons"
+        />
+        <AchievementBadge
           :active="achievements.allOnRed === AchievementLevel.Gold"
           :level="AchievementLevel.Gold"
           achievement="allOnRed"
