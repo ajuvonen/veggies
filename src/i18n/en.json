@@ -362,6 +362,11 @@
       "In Europe, cabbage is often fermented to make sauerkraut, a popular accompaniment to meats.",
       "Would you believe the heaviest cabbage grown weighed almost 63 kg?"
     ],
+    "calamansi": [
+      "Calamansi is easy to confuse with kumquat, but they're not the same.",
+      "Calamansi is considered a symbol of good fortune in the Philippines.",
+      "Calamansi is often used in sauces and marinades."
+    ],
     "cannellini bean": [
       "Cannellini beans are also called white kidney beans.",
       "Cooked cannellini beans remain intact when refrigerated, which makes them a good everyday dish.",
@@ -569,6 +574,11 @@
     ],
     "fig": [
       "Figs are one of the oldest cultivated fruits, and were considered a symbol of abundance in ancient Greece."
+    ],
+    "finger lime": [
+      "Finger lime grows natively in the rainforests of East-Australia.",
+      "The zesty pearls of finger lime, or \"lime caviar\", are eaten as-is.",
+      "Finger lime has only been commercially available for the past couple of decades."
     ],
     "flageolet bean": [
       "Flageolet beans are a variety of immature kidney beans.",
@@ -1393,6 +1403,7 @@
     "bok choy": ["pak choi"],
     "butter bean": ["lima bean"],
     "cabbage": [""],
+    "calamansi": ["philippine lime"],
     "cantaloupe": [""],
     "celeriac": ["celery root"],
     "champignon": ["button", "cremini"],
@@ -1407,6 +1418,7 @@
     "dragon fruit": ["pitahaya"],
     "eggplant": ["aubergine"],
     "fava bean": ["broad bean"],
+    "finger lime": ["lime caviar"],
     "frisee": ["curly endive"],
     "grape": [""],
     "green bean": ["string bean"],
@@ -1422,8 +1434,8 @@
     "plum": ["prune"],
     "porcini": ["king bolete"],
     "radicchio": ["leaf chicory"],
-    "redcurrant": [""],
     "red bean": ["adzuki bean"],
+    "redcurrant": [""],
     "romaine": [""],
     "rutabaga": ["swede"],
     "scallion": ["green onion", "spring onion"],
@@ -1489,6 +1501,7 @@
     "butter bean": "butter bean",
     "butternut squash": "butternut squash",
     "cabbage": "cabbage",
+    "calamansi": "calamansi",
     "cannellini bean": "cannellini bean",
     "cantaloupe": "cantaloupe",
     "cape gooseberry": "cape gooseberry",
@@ -1535,6 +1548,7 @@
     "fava bean": "fava bean",
     "fennel": "fennel",
     "fig": "fig",
+    "finger lime": "finger lime",
     "flageolet bean": "flageolet bean",
     "flaxseed": "flaxseed",
     "frisee": "frisée",
