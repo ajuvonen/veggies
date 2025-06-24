@@ -362,6 +362,11 @@
       "Usko tai älä, mutta pain vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
       "Euroopassa kaalia fermentavin koskaan kasvatettu kaali painoi melkein 63 kiloa."
     ],
+    "calamansi": [
+      "Calamansi on helppo sekoittaa kumkvattiin, mutta ne eivät ole sama asia.",
+      "Calamansia pidetään hyvän onnen symbolina Filippiineillä.",
+      "Calamansia käytetään usein kastikkeissa ja marinadeissa."
+    ],
     "cannellini bean": [
       "Cannellinipapuja kutsutaan myös valkoisiksi kidneypavuiksi.",
       "Kypsennetyt cannellinipavut kestävät hyvin pakastamista, mikä tekee niistä hyvän arkiruoan.",
@@ -569,6 +574,11 @@
     ],
     "fig": [
       "Viikunat ovat yksi vanhimmista viljellyistä hedelmistä, ja niitä pidettiin runsauden symbolina antiikin Kreikassa."
+    ],
+    "finger lime": [
+      "Sormilimetti kasvaa luonnonvaraisena Itä-Australian sademetsissä.",
+      "Sormilimetin kirpakat, limekaviaariksi kutsutut helmet syödään sellaisenaan.",
+      "Sormilimetti on kaupallistunut vasta viimeisten parin vuosikymmenen aikana."
     ],
     "flageolet bean": [
       "Flageoletpapu on keskenkasvuisen kidneypavun variantti.",
@@ -1397,6 +1407,7 @@
     "bok choy": [""],
     "butter bean": ["limanpapu"],
     "cabbage": ["valkokaali"],
+    "calamansi": [""],
     "cantaloupe": ["cantaloupe"],
     "celeriac": [""],
     "champignon": [""],
@@ -1411,6 +1422,7 @@
     "dragon fruit": ["lohikäärmehedelmä", "pitahaya"],
     "eggplant": [""],
     "fava bean": [""],
+    "finger lime": ["limekaviaari", "finger lime"],
     "frisee": [""],
     "grape": ["rusina"],
     "green bean": ["haricot"],
@@ -1426,8 +1438,8 @@
     "plum": [""],
     "porcini": [""],
     "radicchio": ["punasalaatti"],
-    "redcurrant": ["punaviinimarja"],
     "red bean": ["adsukipapu"],
+    "redcurrant": ["punaviinimarja"],
     "romaine": ["romaine"],
     "rutabaga": [""],
     "scallion": [""],
@@ -1493,6 +1505,7 @@
     "butter bean": "voipapu",
     "butternut squash": "myskikurpitsa",
     "cabbage": "keräkaali",
+    "calamansi": "kääpiösitrus",
     "cannellini bean": "cannellinipapu",
     "cantaloupe": "verkkomeloni",
     "cape gooseberry": "ananaskirsikka",
@@ -1539,6 +1552,7 @@
     "fava bean": "härkäpapu",
     "fennel": "fenkoli",
     "fig": "viikuna",
+    "finger lime": "sormilimetti",
     "flageolet bean": "flageoletpapu",
     "flaxseed": "pellavansiemen",
     "frisee": "frisee",
