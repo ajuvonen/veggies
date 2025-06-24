@@ -326,6 +326,21 @@ export const ALL_VEGGIES: readonly string[] = [
   ...MUSHROOMS,
 ];
 
+export const CITRUSES: readonly string[] = [
+  'blood grapefruit',
+  'blood orange',
+  'calamansi',
+  'clementine',
+  'finger lime',
+  'grapefruit',
+  'kumquat',
+  'lemon',
+  'lime',
+  'mandarin',
+  'orange',
+  'pomelo',
+];
+
 export const RED_VEGGIES: readonly string[] = [
   'apple',
   'beet',

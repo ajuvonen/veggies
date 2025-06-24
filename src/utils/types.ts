@@ -66,6 +66,7 @@ export type Achievements = {
   experimenterVegetable: AchievementLevel;
   goNuts: AchievementLevel;
   hotStreak: AchievementLevel;
+  lemons: AchievementLevel;
   thirtyVeggies: AchievementLevel;
   thousandsOdd: AchievementLevel;
   thousandsEven: AchievementLevel;

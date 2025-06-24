@@ -29,6 +29,7 @@ describe('achievementCompletion', () => {
       allOnRed: 108,
       botanicalBerries: 72,
       goNuts: 72,
+      lemons: 72,
       thirtyVeggies: 72,
     });
   });
@@ -40,6 +41,7 @@ describe('achievementCompletion', () => {
       allOnRed: 0,
       botanicalBerries: 0,
       goNuts: 72,
+      lemons: 0,
       thirtyVeggies: 12,
     });
     veggies.value = ['brazil nut', 'pistachio nut'];
@@ -47,6 +49,7 @@ describe('achievementCompletion', () => {
       allOnRed: 0,
       botanicalBerries: 0,
       goNuts: 144,
+      lemons: 0,
       thirtyVeggies: 24,
     });
   });

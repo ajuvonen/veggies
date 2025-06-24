@@ -5,6 +5,7 @@ import {
   ALL_VEGGIES,
   BEANS,
   BOTANICAL_BERRIES,
+  CITRUSES,
   FRUITS,
   GRAINS,
   LEAFIES,
@@ -47,6 +48,7 @@ describe('achievements', () => {
       experimenterRoot: AchievementLevel.NoAchievement,
       experimenterVegetable: AchievementLevel.NoAchievement,
       goNuts: AchievementLevel.NoAchievement,
+      lemons: AchievementLevel.NoAchievement,
       hotStreak: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.NoAchievement,
       thousandsOdd: AchievementLevel.NoAchievement,
@@ -172,6 +174,13 @@ describe('achievements', () => {
     expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.NoAchievement);
     activityStore.weeks = createWeeks(1, take(NUTS, 5));
     expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.Gold);
+  });
+
+  it('advances lemons', async () => {
+    activityStore.weeks = createWeeks(1, take(CITRUSES, 4));
+    expect(activityStore.achievements.lemons).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(CITRUSES, 5));
+    expect(activityStore.achievements.lemons).toEqual(AchievementLevel.Gold);
   });
 
   it('advances all on red', async () => {

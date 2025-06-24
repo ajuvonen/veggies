@@ -570,6 +570,7 @@ describe('activityStore', () => {
       experimenterVegetable: AchievementLevel.NoAchievement,
       goNuts: AchievementLevel.NoAchievement,
       hotStreak: AchievementLevel.NoAchievement,
+      lemons: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.NoAchievement,
       thousandsOdd: AchievementLevel.NoAchievement,
       thousandsEven: AchievementLevel.NoAchievement,

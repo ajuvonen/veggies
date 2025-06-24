@@ -18,6 +18,7 @@ const getAchievements = (achievements: Partial<Achievements> = {}) => ({
   experimenterVegetable: AchievementLevel.NoAchievement,
   goNuts: AchievementLevel.NoAchievement,
   hotStreak: AchievementLevel.NoAchievement,
+  lemons: AchievementLevel.NoAchievement,
   thirtyVeggies: AchievementLevel.NoAchievement,
   thousandsOdd: AchievementLevel.NoAchievement,
   thousandsEven: AchievementLevel.NoAchievement,
@@ -32,7 +33,7 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(23);
+    expect(wrapper.findAll('.badge[aria-disabled="true"]').length).toBe(24);
   });
 
   it('renders with some badges enabled', async () => {
@@ -50,6 +51,7 @@ describe('AchievementList', () => {
           experimenterRoot: AchievementLevel.Gold,
           experimenterVegetable: AchievementLevel.Gold,
           goNuts: AchievementLevel.Gold,
+          lemons: AchievementLevel.Gold,
           thirtyVeggies: AchievementLevel.Platinum,
           thousandsOdd: AchievementLevel.Platinum,
         }),
