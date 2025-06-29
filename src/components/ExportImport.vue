@@ -6,7 +6,7 @@ import {useI18n} from 'vue-i18n';
 import {useFileDialog} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {dateParser, importSchema} from '@/utils/helpers';
+import {dateParser, getImportSchema} from '@/utils/helpers';
 
 const {t} = useI18n();
 
@@ -50,10 +50,10 @@ const exportData = () => {
 onChange(async (files) => {
   if (!files || files.length === 0) return;
 
-  const [file] = files;
-  const text = await file.text();
-
   try {
+    const [file] = files;
+    const text = await file.text();
+    const importSchema = await getImportSchema();
     const {
       startDate: importStartDate,
       weeks: importWeeks,

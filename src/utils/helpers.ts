@@ -3,7 +3,6 @@ import type {ChartOptions, ChartType, Scale} from 'chart.js';
 import type {Context} from 'chartjs-plugin-datalabels';
 import {DateTime} from 'luxon';
 import {mergeDeep, sample} from 'remeda';
-import z from 'zod/v4';
 import {
   BEANS,
   CATEGORY_EMOJI,
@@ -199,30 +198,32 @@ export const getRandomEmojis = (amount: number = 1) => sample(veggieEmojis, amou
 export const achievementLevelHelper = (levels: [number, AchievementLevel][], value: number) =>
   levels.find(([threshold]) => value >= threshold)?.[1] ?? AchievementLevel.NoAchievement;
 
-const luxonDateTimeSchema = z.custom<DateTime<true>>(
-  (val) => val instanceof DateTime && val.isValid,
-  'Invalid DateTime instance',
-);
-
-export const importSchema = z.object({
-  startDate: luxonDateTimeSchema,
-  challenges: z.array(z.object({startDate: luxonDateTimeSchema, veggie: z.string()})).default([]),
-  weeks: z
-    .array(z.object({startDate: luxonDateTimeSchema, veggies: z.array(z.string())}))
-    .default([]),
-  settings: z
-    .object({
-      allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
-      locale: z.enum(LOCALES).catch(DEFAULT_LOCALE).default(DEFAULT_LOCALE),
-      showChartAnimations: z
-        .boolean()
-        .catch(DEFAULT_SETTINGS.showChartAnimations)
-        .default(DEFAULT_SETTINGS.showChartAnimations),
-      suggestionCount: z
-        .number()
-        .refine((val) => [0, 5, 10, 15, 20].includes(val))
-        .catch(DEFAULT_SETTINGS.suggestionCount)
-        .default(DEFAULT_SETTINGS.suggestionCount),
-    })
-    .default({...DEFAULT_SETTINGS}),
-});
+export const getImportSchema = async () => {
+  const z = await import('zod/v4');
+  const luxonDateTimeSchema = z.custom<DateTime<true>>(
+    (val) => val instanceof DateTime && val.isValid,
+    'Invalid DateTime instance',
+  );
+  return z.object({
+    startDate: luxonDateTimeSchema,
+    challenges: z.array(z.object({startDate: luxonDateTimeSchema, veggie: z.string()})).default([]),
+    weeks: z
+      .array(z.object({startDate: luxonDateTimeSchema, veggies: z.array(z.string())}))
+      .default([]),
+    settings: z
+      .object({
+        allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
+        locale: z.enum(LOCALES).catch(DEFAULT_LOCALE).default(DEFAULT_LOCALE),
+        showChartAnimations: z
+          .boolean()
+          .catch(DEFAULT_SETTINGS.showChartAnimations)
+          .default(DEFAULT_SETTINGS.showChartAnimations),
+        suggestionCount: z
+          .number()
+          .refine((val) => [0, 5, 10, 15, 20].includes(val))
+          .catch(DEFAULT_SETTINGS.suggestionCount)
+          .default(DEFAULT_SETTINGS.suggestionCount),
+      })
+      .default({...DEFAULT_SETTINGS}),
+  });
+};

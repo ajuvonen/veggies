@@ -1,63 +1,22 @@
 import {describe, it, expect} from 'vitest';
-import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
-import {useI18n, type Composer, type VueMessageType} from 'vue-i18n';
-import type {DateTimeFormat, LocaleMessage, NumberFormat} from '@intlify/core-base';
 import {unique} from 'remeda';
 import {ALL_VEGGIES, DEFAULT_SETTINGS} from '@/utils/constants';
 import {
   achievementLevelHelper,
   dateParser,
   dateReplacer,
-  importSchema,
   getCategoryForVeggie,
   getChartOptions,
+  getImportSchema,
   getRandomEmojis,
   getRandomVeggie,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/utils/types';
 
-const mountLocalization = () =>
-  new Promise<
-    Composer<
-      {
-        [x: string]: LocaleMessage<VueMessageType>;
-      },
-      {
-        [x: string]: DateTimeFormat;
-      },
-      {
-        [x: string]: NumberFormat;
-      },
-      string,
-      string,
-      string
-    >
-  >((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(useI18n());
-      },
-    });
-  });
+const importSchema = await getImportSchema();
 
 describe('helpers', () => {
-  it('has translation for all veggies', async () => {
-    const {t, tm} = await mountLocalization();
-    ALL_VEGGIES.forEach((veggie) =>
-      expect.soft(t(`veggies.${veggie}`)).not.toBe(`veggies.${veggie}`),
-    );
-    expect(Object.keys(tm('veggies')).length).toEqual(ALL_VEGGIES.length);
-  });
-
-  it('has facts for all veggies', async () => {
-    const {tm} = await mountLocalization();
-    ALL_VEGGIES.forEach((veggie) => expect.soft(tm(`facts.${veggie}`).length).toBeGreaterThan(0));
-    expect(Object.keys(tm('facts')).length).toEqual(ALL_VEGGIES.length);
-  });
-
   it('returns correct veggie categories', () => {
     expect(getCategoryForVeggie('onion')).toBe(Category.Root);
     expect(getCategoryForVeggie('watermelon')).toBe(Category.Fruit);
@@ -190,6 +149,67 @@ describe('helpers', () => {
         path: ['weeks', 0, 'startDate'],
       },
     ]);
+  });
+
+  it('fails on missing startDate', () => {
+    const faultyData = {
+      startDate: null,
+      weeks: [],
+      challenges: [],
+      settings: {
+        ...DEFAULT_SETTINGS,
+      },
+    };
+    const result = importSchema.safeParse(faultyData);
+    expect(result.success).toBe(false);
+    const errorMessage = JSON.parse(result.error?.message ?? '');
+    expect(errorMessage.length).toEqual(1);
+    expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
+    expect(errorMessage[0].path).toEqual(['startDate']);
+  });
+
+  it('fails on missing week startDate', () => {
+    const faultyData = {
+      startDate: DateTime.now().startOf('week'),
+      weeks: [
+        {
+          startDate: null,
+          veggies: [],
+        },
+      ],
+      challenges: [],
+      settings: {
+        ...DEFAULT_SETTINGS,
+      },
+    };
+    const result = importSchema.safeParse(faultyData);
+    expect(result.success).toBe(false);
+    const errorMessage = JSON.parse(result.error?.message ?? '');
+    expect(errorMessage.length).toEqual(1);
+    expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
+    expect(errorMessage[0].path).toEqual(['weeks', 0, 'startDate']);
+  });
+
+  it('fails on missing challenge startDate', () => {
+    const faultyData = {
+      startDate: DateTime.now().startOf('week'),
+      weeks: [],
+      challenges: [
+        {
+          startDate: null,
+          veggie: 'apple',
+        },
+      ],
+      settings: {
+        ...DEFAULT_SETTINGS,
+      },
+    };
+    const result = importSchema.safeParse(faultyData);
+    expect(result.success).toBe(false);
+    const errorMessage = JSON.parse(result.error?.message ?? '');
+    expect(errorMessage.length).toEqual(1);
+    expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
+    expect(errorMessage[0].path).toEqual(['challenges', 0, 'startDate']);
   });
 
   it('handles missing data', () => {

@@ -15,14 +15,14 @@ export const DEFAULT_SETTINGS = {
   locale: DEFAULT_LOCALE,
   showChartAnimations: true,
   suggestionCount: 10,
-};
+} as const;
 
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
   dropdownStyles: Symbol() as InjectionKey<
     UseMemoizeReturn<string, [active: boolean, selected: boolean]>
   >,
-};
+} as const;
 
 export const LOCALES: readonly Locale[] = ['en', 'fi'] as const;
 
