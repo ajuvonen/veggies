@@ -244,7 +244,7 @@ const badgeProps: BadgeProps = {
 
 .badge__text {
   @apply absolute bottom-[3cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase;
-  @apply bg-[--color-tooltip] text-[--color-text];
+  @apply bg-[--color-ui-dark] text-[--color-text];
 }
 
 .badge__background--Bronze {

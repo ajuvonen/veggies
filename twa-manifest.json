@@ -5,11 +5,11 @@
   "launcherName": "Eat Your Veggies",
   "display": "standalone",
   "themeColor": "#0284C7",
-  "themeColorDark": "#0369A1",
+  "themeColorDark": "#082F49",
   "navigationColor": "#075985",
-  "navigationColorDark": "#1F2937",
+  "navigationColorDark": "#082F49",
   "navigationDividerColor": "#075985",
-  "navigationDividerColorDark": "#1F2937",
+  "navigationDividerColorDark": "#082F49",
   "backgroundColor": "#0EA5E9",
   "enableNotifications": true,
   "startUrl": "/",
@@ -20,8 +20,8 @@
     "path": "C:\\Sources\\Personal\\play-store-veggies\\android.keystore",
     "alias": "android"
   },
-  "appVersionName": "4",
-  "appVersionCode": 4,
+  "appVersionName": "5",
+  "appVersionCode": 5,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://eatyourveggies.app/manifest.webmanifest",
@@ -43,5 +43,5 @@
   ],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "4"
+  "appVersion": "5"
 }

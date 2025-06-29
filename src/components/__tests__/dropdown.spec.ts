@@ -35,10 +35,10 @@ describe('dropdown', () => {
     mocks.usePointer.mockImplementation(() => ({pointerType: ref('mouse')}));
     const {getDropdownStyles} = await withSetup();
     expect(getDropdownStyles(true, true)).toBe(
-      'text-[--color-text] fill-[--color-text] bg-[--color-highlight]',
+      'text-[--color-text] fill-[--color-text] bg-[--color-primary]',
     );
     expect(getDropdownStyles(true, false)).toBe(
-      'text-[--color-text] fill-[--color-text] bg-[--color-highlight]',
+      'text-[--color-text] fill-[--color-text] bg-[--color-primary]',
     );
     expect(getDropdownStyles(false, true)).toBe(
       'text-[--color-text-alternative] fill-[--color-text-alternative] bg-sky-200 dark:bg-sky-300',

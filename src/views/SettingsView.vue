@@ -130,22 +130,22 @@ const removeAllergen = (veggie: string) => {
 </template>
 <style scoped>
 #suggestions-count-slider {
-  @apply appearance-none h-4 rounded-md;
-  @apply bg-[--color-tooltip];
+  @apply appearance-none h-4 rounded-md outline-offset-4;
+  @apply bg-[--color-ui-dark];
 
   &::-webkit-slider-thumb {
     @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
-    @apply bg-[--color-highlight] hover:bg-sky-600;
+    @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
   }
   &::-moz-range-thumb {
     @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
-    @apply bg-[--color-highlight] hover:bg-sky-600;
+    @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
   }
 }
 
 :deep(#show-animations-button) {
-  @apply relative inline-flex h-4 w-12 items-center rounded-md;
-  @apply bg-[--color-tooltip];
+  @apply relative inline-flex h-4 w-12 items-center rounded-md outline-offset-4;
+  @apply bg-[--color-ui-dark];
 
   &[disabled] {
     @apply opacity-50 cursor-not-allowed pointer-events-none;
@@ -154,11 +154,12 @@ const removeAllergen = (veggie: string) => {
   > div {
     @apply inline-block w-6 h-6 transform rounded-md transition-transform;
     @apply flex items-center justify-center;
-    @apply bg-[--color-bg-alternative] fill-[--color-text-alternative] hover:!bg-sky-600 hover:fill-[--color-text];
+    @apply bg-[--color-bg-alternative] fill-[--color-text-alternative] active:bg-[--color-primary-active] hover:bg-[--color-primary-hover] hover:fill-[--color-text];
   }
 
   &[data-headlessui-state='checked'] > div {
-    @apply translate-x-6 bg-[--color-highlight] fill-[--color-text];
+    @apply translate-x-6;
+    @apply bg-[--color-primary] fill-[--color-text] active:bg-[--color-primary-active] hover:bg-[--color-primary-hover];
   }
 }
 </style>
