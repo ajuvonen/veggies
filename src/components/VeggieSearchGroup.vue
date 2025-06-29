@@ -59,6 +59,6 @@ defineProps<{
 .veggie-search__heading {
   @apply flex-container justify-between;
   @apply select-none p-2 pr-4;
-  @apply bg-[--color-tooltip];
+  @apply bg-[--color-ui-dark];
 }
 </style>

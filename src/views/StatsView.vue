@@ -35,7 +35,7 @@ const hideTooltips = useThrottleFn(hideAll);
         <ButtonComponent
           v-tippy="{content: $t(`stats.${index}`), placement: 'bottom', offset: [0, -8]}"
           :aria-label="$t(`stats.${index}`)"
-          :class="{'!bg-[--color-highlight-dark]': selected}"
+          :class="{'!bg-[--color-primary-active]': selected}"
           :data-test-id="`stats-tab-${index}`"
           class="justify-center"
         >

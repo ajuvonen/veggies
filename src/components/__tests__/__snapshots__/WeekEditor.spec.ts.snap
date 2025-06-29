@@ -1,14 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`WeekEditor > renders 1`] = `
-"<div data-v-81c33b70="" class="week-editor" data-test-id="week-editor">
+"<div class="week-editor" data-test-id="week-editor">
   <div class="relative z-30" data-headlessui-state="">
-    <div data-v-81c33b70="" class="flex-container flex-col"><label id="headlessui-listbox-label-v-0" data-headlessui-state="" class="label-like">Edit Week</label><button data-v-81c33b70="" id="headlessui-listbox-button-v-1" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" class="week-editor__dropdown-button" data-test-id="week-editor-dropdown-button"><time data-v-81c33b70="" datetime="2024W01" class="truncate">Week 1/2025 (12/30-1/5)</time><svg data-v-81c33b70="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    <div class="flex-container flex-col"><label id="headlessui-listbox-label-v-0" data-headlessui-state="" class="label-like">Edit Week</label><button data-v-24e38f3d="" class="button-like button--primary justify-between" id="headlessui-listbox-button-v-1" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" data-test-id="week-editor-dropdown-button">
+        <!--v-if--><time datetime="2024W01" class="truncate">Week 1/2025 (12/30-1/5)</time><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-        </svg></button></div>
+        </svg>
+      </button></div>
     <!---->
   </div>
-  <div data-v-487fdf11="" data-v-81c33b70="" class="relative z-20"><input data-v-487fdf11="" aria-label="Add Weekly Veggies" aria-expanded="false" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="" id="veggie-search-input" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="">
+  <div data-v-487fdf11="" class="relative z-20"><input data-v-487fdf11="" aria-label="Add Weekly Veggies" aria-expanded="false" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="" id="veggie-search-input" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="">
     <!--v-if--><button data-v-24e38f3d="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-expanded="false" data-test-id="veggie-search-toggle-button" aria-haspopup="listbox" aria-controls="veggie-search-options"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg></button>
@@ -821,36 +823,36 @@ exports[`WeekEditor > renders 1`] = `
       </div>
     </transition-stub>
   </div>
-  <ul data-v-81c33b70="" class="flex-container justify-evenly" aria-label="Weekly Achievements">
-    <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="10 red veggies this week." data-test-id="badge-allOnRed-3" class="badge__allOnRed badge__noLabel badge" role="img">
+  <ul class="flex-container justify-evenly" aria-label="Weekly Achievements">
+    <li data-v-06381b3c="" aria-disabled="true" aria-label="10 red veggies this week." data-test-id="badge-allOnRed-3" class="badge__allOnRed badge__noLabel badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">♥️</div>
       </div>
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 36deg, black 36deg 360deg);"></div>
       <!--v-if-->
     </li>
-    <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="15 botanical berries this week." data-test-id="badge-botanicalBerries-3" class="badge__botanicalBerries badge__noLabel badge" role="img">
+    <li data-v-06381b3c="" aria-disabled="true" aria-label="15 botanical berries this week." data-test-id="badge-botanicalBerries-3" class="badge__botanicalBerries badge__noLabel badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🍅</div>
       </div>
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 48deg, black 48deg 360deg);"></div>
       <!--v-if-->
     </li>
-    <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="5 varieties of nuts this week." data-test-id="badge-goNuts-3" class="badge__goNuts badge__noLabel badge" role="img">
+    <li data-v-06381b3c="" aria-disabled="true" aria-label="5 varieties of nuts this week." data-test-id="badge-goNuts-3" class="badge__goNuts badge__noLabel badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🥜</div>
       </div>
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <!--v-if-->
     </li>
-    <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="5 different citrus fruits this week." data-test-id="badge-lemons-3" class="badge__lemons badge__noLabel badge" role="img">
+    <li data-v-06381b3c="" aria-disabled="true" aria-label="5 different citrus fruits this week." data-test-id="badge-lemons-3" class="badge__lemons badge__noLabel badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🍋</div>
       </div>
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <!--v-if-->
     </li>
-    <li data-v-06381b3c="" data-v-81c33b70="" aria-disabled="true" aria-label="30 unique veggies this week" data-test-id="badge-thirtyVeggies-3" class="badge__thirtyVeggies badge__noLabel badge" role="img">
+    <li data-v-06381b3c="" aria-disabled="true" aria-label="30 unique veggies this week" data-test-id="badge-thirtyVeggies-3" class="badge__thirtyVeggies badge__noLabel badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🎉</div>
       </div>
@@ -858,7 +860,7 @@ exports[`WeekEditor > renders 1`] = `
       <!--v-if-->
     </li>
   </ul>
-  <ul data-v-cd627eac="" data-v-81c33b70="" aria-label="Veggies for Week" tabindex="-1" tag="ul" class="tags__container">
+  <ul data-v-cd627eac="" aria-label="Veggies for Week" tabindex="-1" tag="ul" class="tags__container">
     <transition-group-stub data-v-cd627eac="" name="tags" appear="false" persisted="false" css="true">
       <li data-v-cd627eac="" data-test-id="tag-cucumber" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button-like button--tag button--remove" aria-label="Remove cucumber">
           <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">

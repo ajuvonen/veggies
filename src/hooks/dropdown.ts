@@ -13,7 +13,7 @@ export function useDropdown() {
           : 'text-[--color-text-alternative] fill-[--color-text-alternative]';
       let bgClass = `bg-[--color-bg-alternative]`;
       if (active && hasMouse.value) {
-        bgClass = 'bg-[--color-highlight]';
+        bgClass = 'bg-[--color-primary]';
       } else if (selected) {
         bgClass = 'bg-sky-200 dark:bg-sky-300';
       }

@@ -32,11 +32,11 @@ const getVariants = computed(() => {
 <style scoped>
 .button--primary,
 .button--tag {
-  @apply bg-[--color-highlight] hover:bg-sky-600;
+  @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
 }
 
 .button--secondary {
-  @apply bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:bg-sky-600 hover:text-[--color-text] hover:fill-[--color-text];
+  @apply bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] hover:text-[--color-text] hover:fill-[--color-text];
 }
 
 .button--text {
@@ -49,10 +49,10 @@ const getVariants = computed(() => {
 }
 
 .button--danger {
-  @apply bg-red-500 dark:bg-red-700 hover:bg-red-600;
+  @apply bg-red-500 dark:bg-red-700 hover:bg-red-600 active:bg-red-800;
 }
 
 .button--remove {
-  @apply bg-green-500 dark:bg-green-700 hover:bg-red-600;
+  @apply bg-green-500 dark:bg-green-700 hover:bg-red-600 active:bg-red-800;
 }
 </style>

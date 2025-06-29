@@ -19,6 +19,7 @@ import {useAchievementCompletion} from '@/hooks/achievementCompletion';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
+import ButtonComponent from '@/components/ButtonComponent.vue';
 
 defineEmits(['scroll']);
 
@@ -52,7 +53,8 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
     <Listbox v-model="selectedWeekStart" class="relative z-30" as="div" v-slot="{open}">
       <ContentElement :title="$t('stats.editWeek')" :labelTag="ListboxLabel">
         <ListboxButton
-          class="week-editor__dropdown-button"
+          :as="ButtonComponent"
+          class="justify-between"
           data-test-id="week-editor-dropdown-button"
         >
           <time :datetime="selectedWeekStart.toFormat(`yyyy'W'WW`)" class="truncate">{{
@@ -115,10 +117,3 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
     />
   </div>
 </template>
-<style scoped>
-.week-editor__dropdown-button {
-  @apply button-like;
-  @apply justify-between;
-  @apply bg-[--color-highlight] hover:bg-sky-600;
-}
-</style>

@@ -27,6 +27,6 @@ const challenge = inject(KEYS.challenge, undefined);
 .veggie-search__heading {
   @apply flex-container justify-start;
   @apply select-none p-2;
-  @apply bg-[--color-tooltip];
+  @apply bg-[--color-ui-dark];
 }
 </style>

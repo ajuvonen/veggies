@@ -10,16 +10,17 @@ const {settings} = storeToRefs(useAppStateStore());
     <ContentElement :title="$t('settings.locale')" :labelTag="RadioGroupLabel">
       <RadioGroupOption
         v-for="locale in $i18n.availableLocales"
+        as="template"
         :key="locale"
         :value="locale"
-        :data-test-id="`locale-button-${locale}`"
         v-slot="{checked}"
-        class="button-like bg-[--color-highlight] hover:bg-sky-600"
       >
-        <IconComponent :icon="checked ? 'radioboxMarked' : 'radioboxBlank'" />
-        <RadioGroupLabel as="span">
-          {{ $t(`locales.${locale}`) }}
-        </RadioGroupLabel>
+        <ButtonComponent
+          :icon="checked ? 'radioboxMarked' : 'radioboxBlank'"
+          :data-test-id="`locale-button-${locale}`"
+        >
+          <RadioGroupLabel as="span"> {{ $t(`locales.${locale}`) }}</RadioGroupLabel>
+        </ButtonComponent>
       </RadioGroupOption>
     </ContentElement>
   </RadioGroup>
