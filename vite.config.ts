@@ -58,21 +58,6 @@ export default defineConfig({
       },
     }),
   ],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          chartJS: [
-            'chart.js',
-            'chartjs-plugin-annotation',
-            'chartjs-plugin-datalabels',
-            'vue-chartjs',
-            '@/components/ChartScreenReaderTable.vue',
-          ],
-        },
-      },
-    },
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

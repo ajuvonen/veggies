@@ -10,12 +10,13 @@ import {usePreferredDark} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {AchievementLevel, type Achievements} from '@/utils/types';
+import {LOCALES} from '@/utils/constants';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 import ModalDialog from '@/components/ModalDialog.vue';
 import NavBar from '@/components/NavBar.vue';
 import ToastContainer from '@/components/ToastContainer.vue';
 
-const {t, locale} = useI18n();
+const {t, locale, setLocaleMessage} = useI18n();
 
 const route = useRoute();
 
@@ -42,9 +43,13 @@ const {updateServiceWorker} = useRegisterSW({
   },
 });
 
-watchEffect(() => {
-  locale.value = settings.value.locale;
-  document.documentElement.setAttribute('lang', settings.value.locale);
+watchEffect(async () => {
+  if (LOCALES.includes(settings.value.locale)) {
+    const {default: messages} = await import(`./i18n/${settings.value.locale}.json`);
+    setLocaleMessage(settings.value.locale, messages);
+    locale.value = settings.value.locale;
+    document.documentElement.setAttribute('lang', settings.value.locale);
+  }
 });
 
 watchEffect(() => {

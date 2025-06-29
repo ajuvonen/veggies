@@ -2,6 +2,7 @@
 import {storeToRefs} from 'pinia';
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {LOCALES} from '@/utils/constants';
 
 const {settings} = storeToRefs(useAppStateStore());
 </script>
@@ -9,7 +10,7 @@ const {settings} = storeToRefs(useAppStateStore());
   <RadioGroup v-model="settings.locale">
     <ContentElement :title="$t('settings.locale')" :labelTag="RadioGroupLabel">
       <RadioGroupOption
-        v-for="locale in $i18n.availableLocales"
+        v-for="locale in LOCALES"
         as="template"
         :key="locale"
         :value="locale"

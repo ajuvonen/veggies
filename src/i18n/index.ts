@@ -1,17 +1,16 @@
 import {createI18n} from 'vue-i18n';
-import en from './en.json';
-import fi from './fi.json';
-import type {Locale} from '@/utils/types';
-import {DEFAULT_LOCALE} from '@/utils/constants';
+import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
 
-type MessageSchema = typeof en;
-
-export default createI18n<[MessageSchema], Locale>({
-  locale: DEFAULT_LOCALE,
-  fallbackLocale: DEFAULT_LOCALE,
-  legacy: false,
-  messages: {
-    en,
-    fi,
-  },
-});
+export default function (defaultMessages?: typeof import('./en.json')) {
+  return createI18n({
+    availableLocales: LOCALES,
+    fallbackLocale: DEFAULT_LOCALE,
+    legacy: false,
+    locale: DEFAULT_LOCALE,
+    messages: defaultMessages
+      ? {
+          [DEFAULT_LOCALE]: defaultMessages,
+        }
+      : undefined,
+  });
+}
