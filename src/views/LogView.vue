@@ -7,12 +7,12 @@ import confetti from 'canvas-confetti';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {KEYS} from '@/utils/constants';
+import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
-import BlueskyLink from '@/components/BlueskyLink.vue';
-import {useAvailableVeggies} from '@/hooks/availableVeggies';
+import Footer from '@/components/Footer.vue';
 
 const {t, tm} = useI18n();
 
@@ -83,5 +83,5 @@ provide(KEYS.challenge, readonly(currentChallenge));
     ariaTagKey="general.clickToAdd"
     icon="plus"
   />
-  <BlueskyLink />
+  <Footer />
 </template>

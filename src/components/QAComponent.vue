@@ -2,16 +2,16 @@
 import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue';
 import IconComponent from '@/components/IconComponent.vue';
 import ButtonComponent from '@/components/ButtonComponent.vue';
-import {BLUESKY_URL} from '@/utils/constants';
+import {BLUESKY_URL, PLAY_STORE_URL} from '@/utils/constants';
 
 const questionKeysAndLinks = {
   appPurpose: '',
+  howToInstall: PLAY_STORE_URL,
   studyDetails: 'https://doi.org/10.1128/msystems.00031-18',
   whatCounts: '',
   categories: '',
   isItFree: '',
   isMyDataSafe: '',
-  howToInstall: '',
   contact: BLUESKY_URL,
 } as const;
 </script>
@@ -39,7 +39,7 @@ const questionKeysAndLinks = {
         leave-to-class="h-0 opacity-0"
       >
         <DisclosurePanel class="p-2" :data-test-id="`qa-panel-${key}`">
-          <i18n-t :keypath="`qa.${key}.text`" tag="div" scope="global">
+          <i18n-t :keypath="`qa.${key}.text`" tag="div" scope="global" class="whitespace-pre-line">
             <a v-if="url" :href="url" class="text-link" target="_blank" noreferrer noopener>{{
               $t(`qa.${key}.linkText`)
             }}</a>

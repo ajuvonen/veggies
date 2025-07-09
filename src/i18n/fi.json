@@ -1322,6 +1322,7 @@
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
     "follow": "Seuraa Blueskyssä",
+    "playStore": "Google Play",
     "start": "Aloita"
   },
   "home": {
@@ -1352,8 +1353,9 @@
       "text": "Profiilimme {0} sisältää päivitystiedotteita sekä kasvisfaktoja. Voit ottaa yhteyttä tätä kautta. Kiitos mielenkiinnosta projektia kohtaan!"
     },
     "howToInstall": {
+      "linkText": "Google Playsta",
       "title": "Miten sovellus asennetaan?",
-      "text": "Voit asentaa sovelluksen Google Chromen kaltaisella selaimella, joka tukee Progressive Web Apps -teknologiaa (PWA). Valitse \"Lisää aloitusnäyttöön\" selaimesi valikosta tai klikkaa asennuskuvaketta selaimen osoiterivillä. Safarin mobiiliversiossa, valitse \"Jaa\" ja sen jälkeen \"Lisää aloitusnäyttöön\". Laitteelle asentaminen mahdollistaa käytön ilman verkkoyhteyttä, mutta suorittaa sovelluksen edelleen selaimessa."
+      "text": "Android-käyttäjät voivat asentaa sovelluksen {0}.\n\nMuut voivat asentaa sovelluksen selaimella, joka tukee Progressive Web Apps -teknologiaa (PWA). Valitse \"Lisää aloitusnäyttöön\" selaimesi valikosta tai klikkaa asennuskuvaketta selaimen osoiterivillä. Safarin mobiiliversiossa, valitse \"Jaa\" ja sen jälkeen \"Lisää aloitusnäyttöön\". Laitteelle asentaminen mahdollistaa käytön ilman verkkoyhteyttä, mutta suorittaa sovelluksen edelleen selaimessa."
     },
     "isItFree": {
       "title": "Maksaako sovelluksen käyttö?",

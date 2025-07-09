@@ -26,7 +26,7 @@ import {
   mdiTrashCan,
   mdiTrophyOutline,
 } from '@mdi/js';
-import {siBluesky} from 'simple-icons';
+import {siBluesky, siGoogleplay} from 'simple-icons';
 
 withDefaults(
   defineProps<{
@@ -59,6 +59,7 @@ const icons = {
   formatListChecks: mdiFormatListChecks,
   history: mdiHistory,
   minus: mdiMinus,
+  googlePlay: siGoogleplay.path,
   plus: mdiPlus,
   radioboxBlank: mdiRadioboxBlank,
   radioboxMarked: mdiRadioboxMarked,

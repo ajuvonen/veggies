@@ -21,6 +21,7 @@ const icons: IconString[] = [
   'databaseImport',
   'earth',
   'formatListChecks',
+  'googlePlay',
   'history',
   'minus',
   'plus',
