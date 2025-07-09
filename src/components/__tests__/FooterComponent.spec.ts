@@ -1,4 +1,4 @@
-import {describe, it, expect} from 'vitest';
+import {describe, it, expect, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {BLUESKY_URL, PLAY_STORE_URL} from '@/utils/constants';
 import FooterComponent from '@/components/FooterComponent.vue';
@@ -17,6 +17,9 @@ describe('FooterComponent', () => {
         'Mozilla/5.0 (Linux; Android 14; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36',
       configurable: true,
     });
+    vi.stubGlobal('matchMedia', () => ({
+      matches: false,
+    }));
     const wrapper = mount(FooterComponent);
     try {
       expect(wrapper.html()).toMatchSnapshot();
@@ -35,14 +38,18 @@ describe('FooterComponent', () => {
     const originalNavigator = navigator.userAgent;
     Object.defineProperty(navigator, 'userAgent', {
       value:
-        'Mozilla/5.0 (Linux; Android 14; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36 **wv**',
+        'Mozilla/5.0 (Linux; Android 14; SAMSUNG SM-G973U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/14.2 Chrome/87.0.4280.141 Mobile Safari/537.36',
       configurable: true,
     });
+    vi.stubGlobal('matchMedia', (query: string) => ({
+      matches: query === '(display-mode: standalone)',
+    }));
     const wrapper = mount(FooterComponent);
     try {
       expect(wrapper.findByTestId('bluesky-link').exists()).toBe(true);
       expect(wrapper.findByTestId('play-store-link').exists()).toBe(false);
     } finally {
+      vi.unstubAllGlobals();
       Object.defineProperty(navigator, 'userAgent', {
         value: originalNavigator,
         configurable: true,
