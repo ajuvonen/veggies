@@ -12,7 +12,7 @@ import VeggieSearch from '@/components/VeggieSearch.vue';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
-import Footer from '@/components/Footer.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 const {t, tm} = useI18n();
 
@@ -83,5 +83,5 @@ provide(KEYS.challenge, readonly(currentChallenge));
     ariaTagKey="general.clickToAdd"
     icon="plus"
   />
-  <Footer />
+  <FooterComponent />
 </template>
