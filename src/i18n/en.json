@@ -1322,6 +1322,7 @@
     "clickToRemove": "Remove {0}",
     "close": "Close",
     "follow": "Follow on Bluesky",
+    "playStore": "Google Play",
     "start": "Start"
   },
   "home": {
@@ -1352,8 +1353,9 @@
       "text": "Our {0} profile features app updates and veggie facts, and you can contact us there. Thank you for your interest towards the project!"
     },
     "howToInstall": {
+      "linkText": "Google Play",
       "title": "How to install?",
-      "text": "You can install the app from a browser such as Google Chrome that supports Progressive Web Apps (PWAs). Select \"add to start screen\" from your browser's menu or click the install icon on the location bar. On mobile Safari, click \"Share\" and then \"Add to home screen\". Installing on device allows offline use, but keeps the app within your browser's sandbox."
+      "text": "Android users can install our app from {0}.\n\nOthers can install the app from a browser that supports Progressive Web Apps (PWAs). Select \"Add to start screen\" from your browser's menu or click the install icon on the location bar. On mobile Safari, click \"Share\" and then \"Add to home screen\". Installing on device allows offline use, but keeps the app within your browser's sandbox."
     },
     "isItFree": {
       "title": "Is the app monetized?",

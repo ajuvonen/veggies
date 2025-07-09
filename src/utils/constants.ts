@@ -6,6 +6,9 @@ export const APP_URL = 'https://eatyourveggies.app';
 
 export const BLUESKY_URL = 'https://bsky.app/profile/eatyourveggies.app';
 
+export const PLAY_STORE_URL =
+  'https://play.google.com/store/apps/details?id=app.eatyourveggies.twa';
+
 export const BUILD_TIME = __VITE_BUILD_TIME__;
 
 export const DEFAULT_LOCALE: Locale = 'en';

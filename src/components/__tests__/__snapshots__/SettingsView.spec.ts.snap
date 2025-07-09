@@ -844,43 +844,43 @@ exports[`SettingsView > renders 1`] = `
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-253" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-studyDetails">
+    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-253" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-howToInstall">
+      <!--v-if-->How to install? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+      </svg>
+    </button>
+    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
+      <!---->
+    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-255" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-studyDetails">
       <!--v-if-->What's the science? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg>
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-255" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-whatCounts">
+    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-257" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-whatCounts">
       <!--v-if-->What counts as a portion? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg>
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-257" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-categories">
+    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-259" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-categories">
       <!--v-if-->But strawberry is a... <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg>
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-259" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isItFree">
+    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-261" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isItFree">
       <!--v-if-->Is the app monetized? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg>
     </button>
     <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
       <!---->
-    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-261" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isMyDataSafe">
+    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-263" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isMyDataSafe">
       <!--v-if-->Is my data safe? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
-      </svg>
-    </button>
-    <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
-      <!---->
-    </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-263" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-howToInstall">
-      <!--v-if-->How to install? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg>
     </button>
