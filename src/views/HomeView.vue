@@ -9,7 +9,7 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
 import type {Locale} from '@/utils/types';
 import ModalDialog from '@/components/ModalDialog.vue';
-import Footer from '@/components/Footer.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 const router = useRouter();
 const preferredLanguages = usePreferredLanguages();
@@ -50,7 +50,7 @@ onMounted(() => {
         >{{ $t('home.info') }}</ButtonComponent
       >
     </div>
-    <Footer />
+    <FooterComponent />
     <ModalDialog v-model="dialogOpen" :title="$t('home.infoTitle')">
       <template #content>
         <p>{{ $t('home.infoP1') }}</p>
