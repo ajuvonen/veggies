@@ -3,7 +3,9 @@ import {computed} from 'vue';
 import {BLUESKY_URL, PLAY_STORE_URL} from '@/utils/constants';
 
 const showPlayStoreLink = computed(
-  () => navigator.userAgent.includes('Android') && !navigator.userAgent.includes('wv'),
+  () =>
+    navigator.userAgent.includes('Android') &&
+    !window.matchMedia('(display-mode: standalone)').matches,
 );
 </script>
 <template>
