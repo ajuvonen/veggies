@@ -1,18 +1,18 @@
 {
   "achievements": {
     "allOnRed": {
-      "ariaLabel": "{0} red veggies this week.",
+      "ariaLabel": "{0} red veggies this week {1}",
       "badgeText": "All on red",
       "3": "Put it all on red! You have added ten different red veggies this week!"
     },
     "botanicalBerries": {
-      "ariaLabel": "{0} botanical berries this week.",
+      "ariaLabel": "{0} botanical berries this week {1}",
       "badgeText": "\"Berries\"",
       "3": "Everything is a berry, if you squint hard enough. You have added 15 botanical berries this week!"
     },
     "challengeAccepted": {
       "title": "Challenge Accepted",
-      "ariaLabel": "{0} completed weekly challenges",
+      "ariaLabel": "{0} completed weekly challenges {1}",
       "badgeText": "{0} challenges",
       "1": "You have completed five weekly challenges!",
       "2": "You have completed ten weekly challenges!",
@@ -20,7 +20,7 @@
     },
     "committed": {
       "title": "The Committed",
-      "ariaLabel": "{0} months of active use",
+      "ariaLabel": "{0} months of active use {1}",
       "badgeText": "{0} months",
       "1": "You have used the app for three months! How does it feel?",
       "2": "You have used the app for six months! You're doing great!",
@@ -28,7 +28,7 @@
     },
     "completionist": {
       "title": "The Completionist",
-      "ariaLabel": "{0} unique veggies",
+      "ariaLabel": "{0} unique veggies {1}",
       "badgeText": "{0} veggies",
       "1": "You have added a total of 40 unique veggies!",
       "2": "You have added a respectable amount of 80 unique veggies!",
@@ -36,68 +36,69 @@
     },
     "experimenterBean": {
       "title": "The Experimenter",
-      "ariaLabel": "{0} unique beans and legumes",
+      "ariaLabel": "{0} unique beans and legumes {1}",
       "badgeText": "Beans",
       "3": "You have enjoyed 15 unique beans and legumes!"
     },
     "experimenterFruit": {
       "title": "The Experimenter",
-      "ariaLabel": "{0} unique fruits and berries",
+      "ariaLabel": "{0} unique fruits and berries {1}",
       "badgeText": "Fruits",
       "3": "You have enjoyed 15 unique fruits and berries!"
     },
     "experimenterGrain": {
       "title": "The Experimenter",
-      "ariaLabel": "{0} unique grains, nuts and seeds",
+      "ariaLabel": "{0} unique grains, nuts and seeds {1}",
       "badgeText": "Grains",
       "3": "You have enjoyed 15 unique grains, nuts and seeds!"
     },
     "experimenterLeafy": {
       "title": "The Experimenter",
-      "ariaLabel": "{0} unique leafy greens",
+      "ariaLabel": "{0} unique leafy greens {1}",
       "badgeText": "Leafy Greens",
       "3": "You have enjoyed 15 unique leafy greens and herbs!"
     },
     "experimenterMushroom": {
       "title": "The Experimenter",
-      "ariaLabel": "{0} unique mushrooms",
+      "ariaLabel": "{0} unique mushrooms {1}",
       "badgeText": "Mushrooms",
       "3": "You have enjoyed 10 unique mushrooms!"
     },
     "experimenterRoot": {
       "title": "The Experimenter",
-      "ariaLabel": "{0} unique roots and bulbs",
+      "ariaLabel": "{0} unique roots and bulbs {1}",
       "badgeText": "Roots",
       "3": "You have enjoyed 15 unique roots and bulbs!"
     },
     "experimenterVegetable": {
       "title": "The Experimenter",
-      "ariaLabel": "{0} unique vegetables",
+      "ariaLabel": "{0} unique vegetables {1}",
       "badgeText": "Vegetables",
       "3": "You have enjoyed 15 unique vegetables!"
     },
     "goNuts": {
-      "ariaLabel": "{0} varieties of nuts this week.",
+      "ariaLabel": "{0} varieties of nuts this week {1}",
       "badgeText": "Go nuts",
       "3": "You have added 5 nuts this week!"
     },
     "hotStreak": {
       "title": "Hot Streak",
-      "ariaLabel": "{0} week streak of over 30 veggies",
+      "ariaLabel": "{0} week streak of over 30 veggies {1}",
       "badgeText": "{0} Weeks",
       "1": "You're heating up! A hot streak of five weeks with over 30 unique veggies each week!",
       "2": "You're on fire! A hot streak of ten weeks with over 30 unique veggies each week!",
       "3": "Scorchio! A hot streak of twenty weeks with over 30 unique veggies each week!"
     },
+    "locked": "(locked)",
     "lemons": {
-      "ariaLabel": "{0} different citrus fruits this week.",
+      "ariaLabel": "{0} different citrus fruits this week {1}",
       "badgeText": "Lemons",
       "3": "When life gives you lemons you'll surely avoid scurvy. Five different citrus fruits this week!"
     },
     "newAchievements": "You gained new achievements!",
     "thirtyVeggies": {
       "title": "This week's toil",
-      "ariaLabel": "{0} unique veggies this week",
+      "ariaLabel": "{0} unique veggies this week {1}",
       "badgeText": "{0} Weekly",
       "3": "You reached this week's goal - but why stop here!",
       "4": "Overdrive! 40 unique veggies this week unlocks this secret achievement!"

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AchievementBadge > renders active 1`] = `
-"<li data-v-06381b3c="" aria-disabled="false" aria-label="150 unique veggies" data-test-id="badge-completionist-3" class="badge__completionist badge" role="img">
+"<li data-v-06381b3c="" aria-label="150 unique veggies " data-test-id="badge-completionist-3" class="badge--completionist badge" role="img">
   <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
     <div data-v-06381b3c="" class="badge__emoji">🦅</div>
   </div>
@@ -11,7 +11,7 @@ exports[`AchievementBadge > renders active 1`] = `
 `;
 
 exports[`AchievementBadge > renders inactive 1`] = `
-"<li data-v-06381b3c="" aria-disabled="true" aria-label="10 week streak of over 30 veggies" data-test-id="badge-hotStreak-2" class="badge__hotStreak badge" role="img">
+"<li data-v-06381b3c="" aria-label="10 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-2" class="badge--hotStreak badge--locked badge" role="img">
   <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
     <div data-v-06381b3c="" class="badge__emoji">🔥</div>
   </div>
