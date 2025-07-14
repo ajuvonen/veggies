@@ -28,7 +28,7 @@ const {t, tm, locale} = useI18n();
 const {availableVeggies} = useAvailableVeggies();
 
 const query = ref('');
-const manualOpen = ref(false);
+const menuOpen = ref(false);
 const groups = ref<InstanceType<typeof VeggieSearchGroup>[]>([]);
 const combobox = ref<HTMLDivElement | null>(null);
 const searchInput = ref<HTMLInputElement | null>(null);
@@ -84,7 +84,7 @@ const clearQuery = () => {
 onClickOutside(
   combobox,
   () => {
-    manualOpen.value = false;
+    menuOpen.value = false;
   },
   {
     ignore: ['.toast-message', '#achievements-dialog'],
@@ -98,7 +98,7 @@ onClickOutside(
         <input
           ref="searchInput"
           :aria-label="placeholder || $t('veggieSearch.search')"
-          :aria-expanded="manualOpen"
+          :aria-expanded="menuOpen"
           :placeholder="placeholder || $t('veggieSearch.search')"
           :value="query"
           class="veggie-search__input"
@@ -114,8 +114,8 @@ onClickOutside(
               query = target.value;
             }
           "
-          @focus="manualOpen = true"
-          @keydown.tab="manualOpen = false"
+          @focus="menuOpen = true"
+          @keydown.tab="menuOpen = false"
         />
       </ComboboxInput>
       <ButtonComponent
@@ -127,15 +127,15 @@ onClickOutside(
         @click="clearQuery"
       />
       <ButtonComponent
-        :class="{'rotate-180 transform': manualOpen}"
-        :aria-expanded="manualOpen"
+        :class="{'rotate-180 transform': menuOpen}"
+        :aria-expanded="menuOpen"
         variant="text"
         icon="chevronDown"
         class="veggie-search__button right-2 outline-override"
         data-test-id="veggie-search-toggle-button"
         aria-haspopup="listbox"
         aria-controls="veggie-search-options"
-        @click="manualOpen = !manualOpen"
+        @click="menuOpen = !menuOpen"
       />
       <Transition
         leaveActiveClass="ease-in duration-200"
@@ -143,7 +143,7 @@ onClickOutside(
         leaveToClass="opacity-0"
       >
         <ComboboxOptions
-          v-show="manualOpen"
+          v-show="menuOpen"
           ref="optionsElement"
           id="veggie-search-options"
           :style="`max-height: calc(${maxHeight}px - 1rem)`"
