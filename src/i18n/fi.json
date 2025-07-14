@@ -1,18 +1,18 @@
 {
   "achievements": {
     "allOnRed": {
-      "ariaLabel": "{0} punaista kasvista tällä viikolla.",
+      "ariaLabel": "{0} punaista kasvista tällä viikolla {1}",
       "badgeText": "Punoitus",
       "3": "Näetkö punaista? Olet lisännyt kymmenen punaista kasvista tällä viikolla!"
     },
     "botanicalBerries": {
-      "ariaLabel": "{0} kasvitieteellistä marjaa tällä viikolla.",
+      "ariaLabel": "{0} kasvitieteellistä marjaa tällä viikolla {1}",
       "badgeText": "\"Marjat\"",
       "3": "Mikä vain voi olla marja, kun tarpeeksi viisastellaan. Olet lisännyt 15 kasvitieteellistä marjaa tällä viikolla!"
     },
     "challengeAccepted": {
       "title": "Haaste vastaanotettu",
-      "ariaLabel": "{0} suoritettua viikkohaastetta",
+      "ariaLabel": "{0} suoritettua viikkohaastetta {1}",
       "badgeText": "{0} haastetta",
       "1": "Olet suorittanut viisi viikkohastetta!",
       "2": "Olet suorittanut kymmenen viikkohastetta!",
@@ -20,7 +20,7 @@
     },
     "committed": {
       "title": "Sitoutunut",
-      "ariaLabel": "{0} kuukauden aktiivinen käyttö",
+      "ariaLabel": "{0} kuukauden aktiivinen käyttö {1}",
       "badgeText": "{0} kuukautta",
       "1": "Olet käyttänyt sovellusta aktiivisesti kolme kuukautta! Miltä tuntuu?",
       "2": "Olet käyttänyt sovellusta aktiivisesti kuusi kuukautta! Hyvää työtä!",
@@ -28,7 +28,7 @@
     },
     "completionist": {
       "title": "Keräilijä",
-      "ariaLabel": "{0} erilaista kasvista",
+      "ariaLabel": "{0} erilaista kasvista {1}",
       "badgeText": "{0} kasvista",
       "1": "Olet lisännyt yhteensä 40 erilaista kasvista!",
       "2": "Olet lisännyt kunnioitettavat 80 erilaista kasvista!",
@@ -36,68 +36,69 @@
     },
     "experimenterBean": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista papua ja palkokasvia",
+      "ariaLabel": "{0} erilaista papua ja palkokasvia {1}",
       "badgeText": "Pavut",
       "3": "Olet kokeillut 15:tä erilaista papua ja palkokasvia!"
     },
     "experimenterFruit": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista hedelmää ja marjaa",
+      "ariaLabel": "{0} erilaista hedelmää ja marjaa {1}",
       "badgeText": "Hedelmät",
       "3": "Olet kokeillut 15:tä erilaista hedelmää ja marjaa!"
     },
     "experimenterGrain": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista viljaa, pähkinää ja siementä",
+      "ariaLabel": "{0} erilaista viljaa, pähkinää ja siementä {1}",
       "badgeText": "Viljat",
       "3": "Olet kokeillut 15:tä erilaista viljaa, pähkinää ja siementä!"
     },
     "experimenterLeafy": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista lehtivihreää",
+      "ariaLabel": "{0} erilaista lehtivihreää {1}",
       "badgeText": "Vihreät",
       "3": "Olet kokeillut 15:tä erilaista lehtivihreää ja yrttiä!"
     },
     "experimenterMushroom": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista sientä",
+      "ariaLabel": "{0} erilaista sientä {1}",
       "badgeText": "Sienet",
       "3": "Olet kokeillut kymmentä erilaista sientä!"
     },
     "experimenterRoot": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista juuresta",
+      "ariaLabel": "{0} erilaista juuresta {1}",
       "badgeText": "Juurekset",
       "3": "Olet kokeillut 15:tä erilaista juuresta!"
     },
     "experimenterVegetable": {
       "title": "Kokeilija",
-      "ariaLabel": "{0} erilaista vihannesta",
+      "ariaLabel": "{0} erilaista vihannesta {1}",
       "badgeText": "Vihannekset",
       "3": "Olet kokeillut 15:tä erilaista vihannesta!"
     },
     "goNuts": {
-      "ariaLabel": "{0} erilaista pähkinää tällä viikolla.",
+      "ariaLabel": "{0} erilaista pähkinää tällä viikolla {1}",
       "badgeText": "Pähkinöinä",
       "3": "Olet lisännyt viisi erilaista pähkinää tällä viikolla!"
     },
     "hotStreak": {
       "title": "Putki päällä",
-      "ariaLabel": "{0} viikon putki yli 30 kasvista viikossa",
+      "ariaLabel": "{0} viikon putki yli 30 kasvista viikossa {1}",
       "badgeText": "{0} Viikkoa",
       "1": "Alkaa polttaa! Viiden viikon putki yli 30 erilaista kasvista joka viikko!",
       "2": "Olet liekeissä! Kymmenen viikon putki yli 30 erilaista kasvista joka viikko!",
       "3": "Scorchio! 20:n viikon putki yli 30 erilaista kasvista joka viikko!"
     },
     "lemons": {
-      "ariaLabel": "{0} erilaista sitrushedelmää tällä viikolla.",
+      "ariaLabel": "{0} erilaista sitrushedelmää tällä viikolla {1}",
       "badgeText": "Sitrukset",
       "3": "Ei ole tarvetta olla hapan kuin sitruuna. Olet nimittäin syönyt viisi erilaista sitrushedelmää tällä viikolla!"
     },
+    "locked": "(lukittu)",
     "newAchievements": "Uusia saavutuksia avattu!",
     "thirtyVeggies": {
       "title": "Tämän viikon aherrus",
-      "ariaLabel": "{0} erilaista kasvista tällä viikolla",
+      "ariaLabel": "{0} erilaista kasvista tällä viikolla {1}",
       "badgeText": "{0} viikossa",
       "3": "Tämän viikon tavoite on saavutettu - mutta älä lopeta tähän!",
       "4": "Ylikierroksilla! 40 erilaista kasvista tällä viikolla avaa tämän salaisen palkinnon!"

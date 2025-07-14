@@ -80,8 +80,5 @@ test('shows achievements', async ({page}) => {
   await page.getByTestId('dialog-close-button').click();
   await page.getByTestId('navbar-stats-link').click();
   await page.getByTestId('stats-tab-4').click();
-  await expect(page.getByTestId('badge-experimenterFruit-3')).toHaveAttribute(
-    'aria-disabled',
-    'false',
-  );
+  await expect(page.getByTestId('badge-experimenterFruit-3')).not.toHaveClass('badge--locked');
 });

@@ -180,14 +180,21 @@ const badgeProps: BadgeProps = {
 </script>
 <template>
   <Component
-    v-tippy="$t(`achievements.${achievement}.ariaLabel`, badgeProps[achievement][level]!.textProps)"
+    v-tippy="
+      $t(`achievements.${achievement}.ariaLabel`, [
+        ...badgeProps[achievement][level]!.textProps,
+        !active ? $t('achievements.locked') : undefined,
+      ])
+    "
     :is="as"
-    :aria-disabled="!active"
     :aria-label="
-      $t(`achievements.${achievement}.ariaLabel`, badgeProps[achievement][level]!.textProps)
+      $t(`achievements.${achievement}.ariaLabel`, [
+        ...badgeProps[achievement][level]!.textProps,
+        !active ? $t('achievements.locked') : undefined,
+      ])
     "
     :data-test-id="`badge-${achievement}-${level}`"
-    :class="[`badge__${achievement}`, {badge__noLabel: noLabel}]"
+    :class="[`badge--${achievement}`, {'badge--noLabel': noLabel, 'badge--locked': !active}]"
     class="badge"
     role="img"
   >
@@ -214,7 +221,7 @@ const badgeProps: BadgeProps = {
 .badge {
   @apply relative select-none aspect-square self-center max-w-40;
   filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3));
-  &:not(.badge__noLabel) {
+  &:not(.badge--noLabel) {
     flex: 0 0 calc(33% - 5px);
   }
 }
@@ -222,7 +229,7 @@ const badgeProps: BadgeProps = {
 .badge__background {
   @apply relative w-full h-full rounded-full border-4 overflow-hidden text-[17cqmin] sm:text-[14cqmin];
   @apply flex items-center justify-center;
-  .badge__noLabel > & {
+  .badge--noLabel > & {
     @apply text-3xl;
   }
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
@@ -237,13 +244,13 @@ const badgeProps: BadgeProps = {
   mix-blend-mode: luminosity;
 
   .badge__background--Platinum > &,
-  .badge__allOnRed & {
+  .badge--allOnRed & {
     mix-blend-mode: normal;
   }
 }
 
 .badge__text {
-  @apply absolute bottom-[3cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase;
+  @apply absolute bottom-[2cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase;
   @apply bg-[--color-ui-dark] text-[--color-text];
 }
 
