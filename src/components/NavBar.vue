@@ -71,7 +71,7 @@ const headerTitle = computed(() => {
 .navbar__header {
   font-family: 'Bungee Shade', system-ui;
   font-size: 5.8vw;
-  @apply uppercase sm:text-4xl rounded-md;
+  @apply uppercase sm:text-4xl rounded-md select-none;
 }
 
 .navbar__link-icon {
