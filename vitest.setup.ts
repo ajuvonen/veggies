@@ -50,6 +50,10 @@ vi.mock('vue-chartjs', () => ({
   },
 }));
 
+vi.mock('canvas-confetti', () => ({
+  default: () => false,
+}));
+
 // Reset handlers after each test
 beforeEach(() => {
   // Clear local storage so state is fresh for each test
