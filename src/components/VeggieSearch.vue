@@ -87,7 +87,7 @@ onClickOutside(
     menuOpen.value = false;
   },
   {
-    ignore: ['.toast-message', '#achievements-dialog'],
+    ignore: ['.toast-message', '#achievement-dialog'],
   },
 );
 </script>
