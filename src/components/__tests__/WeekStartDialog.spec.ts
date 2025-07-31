@@ -1,5 +1,5 @@
 import {computed} from 'vue';
-import {describe, it, expect, beforeEach, vi} from 'vitest';
+import {describe, it, expect, beforeEach} from 'vitest';
 import {flushPromises, mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';

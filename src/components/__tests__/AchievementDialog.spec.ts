@@ -54,7 +54,7 @@ describe('AchievementDialog', () => {
 
     expect(wrapper.find('#achievement-dialog').exists()).toBe(false);
 
-    // @ts-expect-error
+    // @ts-expect-error - Getters are writable in tests
     activityStore.achievements = getAchievements({
       allOnRed: AchievementLevel.Gold,
     });
@@ -64,7 +64,7 @@ describe('AchievementDialog', () => {
   });
 
   it('does not show dialog if levels go down', async () => {
-    // @ts-expect-error
+    // @ts-expect-error - Getters are writable in tests
     activityStore.achievements = getAchievements({
       allOnRed: AchievementLevel.Gold,
       thirtyVeggies: AchievementLevel.Platinum,
@@ -74,7 +74,7 @@ describe('AchievementDialog', () => {
 
     expect(wrapper.find('#achievement-dialog').exists()).toBe(false);
 
-    // @ts-expect-error
+    // @ts-expect-error - Getters are writable in tests
     activityStore.achievements = getAchievements({
       allOnRed: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.Gold,
