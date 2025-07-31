@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {useMemoize} from '@vueuse/core';
 import {Category, type TranslatedListing} from '@/utils/types';
@@ -11,20 +12,20 @@ defineProps<{
 }>();
 
 const {t, locale} = useI18n();
+const collator = computed(() => new Intl.Collator(locale.value));
 
 const {availableVeggies} = useAvailableVeggies();
 
-const translatedVeggies = useMemoize(() => {
-  const collator = new Intl.Collator(locale.value);
-  return availableVeggies.value
+const translatedVeggies = useMemoize(() =>
+  availableVeggies.value
     .map<TranslatedListing>((veggie) => ({
       veggie,
       category: getCategoryForVeggie(veggie) as Category,
       translation: t(`veggies.${veggie}`),
       synonyms: [],
     }))
-    .sort((a, b) => collator.compare(a.translation, b.translation));
-});
+    .sort((a, b) => collator.value.compare(a.translation, b.translation)),
+);
 </script>
 
 <template>

@@ -19,19 +19,19 @@ const props = withDefaults(
 );
 
 const {t, locale} = useI18n();
+const collator = computed(() => new Intl.Collator(locale.value));
 
 const tags = ref<Record<string, ComponentPublicInstance | null>>({});
 const listElement = ref<typeof HTMLUListElement | null>(null);
 
-const translatedVeggies = computed(() => {
-  const collator = new Intl.Collator(locale.value);
-  return props.veggies
+const translatedVeggies = computed(() =>
+  props.veggies
     .map((veggie) => ({
       veggie,
       translation: t(`veggies.${veggie}`),
     }))
-    .sort((a, b) => collator.compare(a.translation, b.translation));
-});
+    .sort((a, b) => collator.value.compare(a.translation, b.translation)),
+);
 
 const toggle = async (veggie: string, index: number) => {
   const targetVeggie = translatedVeggies.value[index + 1] || translatedVeggies.value[index - 1];

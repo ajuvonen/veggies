@@ -158,6 +158,7 @@
     "bottomLabelTotal": "Lisäystä",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "Tällä Viikolla",
+    "topLabelPreviousWeek": "Viime Viikolla",
     "topLabelTotal": "Yhteensä",
     "veggiesOfTheWeek": "Viikon kasvikset",
     "veggiesTotal": "Kaikki toiminnot yhteensä"
@@ -1742,5 +1743,9 @@
     "log": "Viikkoseuranta",
     "settings": "Asetukset",
     "stats": "Tilastot"
+  },
+  "weekStartDialog": {
+    "title": "Viikko {0} paketissa!",
+    "noVeggies": "Et kirjannut kasviksia viime viikolla. Aika uudelle alulle?"
   }
 }

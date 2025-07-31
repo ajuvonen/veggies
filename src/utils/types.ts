@@ -71,3 +71,17 @@ export type Achievements = {
   thousandsOdd: AchievementLevel;
   thousandsEven: AchievementLevel;
 };
+
+export type WeekData = {
+  atMostVeggies: number;
+  challenge: string | undefined;
+  hotStreak: number;
+  veggies: string[];
+  weekNumber: string;
+};
+
+export type SummaryItem = {
+  emoji: string;
+  translationKey: string;
+  translationParameters: (string | number)[];
+};

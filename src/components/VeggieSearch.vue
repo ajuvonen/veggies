@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import {ref, computed} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
 import {useMemoize, onClickOutside} from '@vueuse/core';
@@ -24,6 +24,7 @@ withDefaults(
 );
 
 const {t, tm, locale} = useI18n();
+const collator = computed(() => new Intl.Collator(locale.value));
 
 const {availableVeggies} = useAvailableVeggies();
 
@@ -36,17 +37,16 @@ const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
 
 const {maxHeight} = useScreen(optionsElement);
 
-const translatedVeggies = useMemoize(() => {
-  const collator = new Intl.Collator(locale.value);
-  return availableVeggies.value
+const translatedVeggies = useMemoize(() =>
+  availableVeggies.value
     .map<TranslatedListing>((veggie) => ({
       veggie,
       category: getCategoryForVeggie(veggie) as Category,
       translation: t(`veggies.${veggie}`),
       synonyms: Object.values<string>(tm(`synonyms.${veggie}`)),
     }))
-    .sort((a, b) => collator.compare(a.translation, b.translation));
-});
+    .sort((a, b) => collator.value.compare(a.translation, b.translation)),
+);
 
 const filteredVeggies = useMemoize(
   (category?: Category) => {
