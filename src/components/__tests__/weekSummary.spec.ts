@@ -1,69 +1,206 @@
+import {ref, computed, type ComputedRef} from 'vue';
 import {describe, it, expect} from 'vitest';
-import {ref, computed} from 'vue';
+import {mount} from '@vue/test-utils';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/utils/types';
 
-describe('useWeekSummary', () => {
-  it('returns no veggies message when veggies array is empty', () => {
-    const weekData = computed(() => ({
-      atMostVeggies: 25,
-      challenge: 'apple',
-      hotStreak: 5,
-      veggies: [],
-      weekNumber: '30',
-    }));
-
-    const {summaryMessages} = useWeekSummary(weekData);
-
-    expect(summaryMessages.value).toEqual([
-      {
-        emoji: '🍽️',
-        translationKey: 'weekStartDialog.noVeggies',
-        translationParameters: [],
+const withSetup = (weekData: ComputedRef<WeekData>) =>
+  new Promise<ReturnType<typeof useWeekSummary>>((resolve) => {
+    mount({
+      shallow: true,
+      template: '<div />',
+      setup() {
+        resolve(useWeekSummary(weekData));
       },
-    ]);
+    });
   });
 
-  it('returns empty array when veggies are present (until more logic is added)', () => {
-    const weekData = computed(() => ({
-      atMostVeggies: 25,
-      challenge: 'apple',
-      hotStreak: 5,
-      veggies: ['apple', 'banana', 'carrot'],
-      weekNumber: '30',
-    }));
+const createWeekData = (overrides: Partial<WeekData> = {}): ComputedRef<WeekData> =>
+  computed(() => ({
+    atMostVeggies: 10,
+    challenge: undefined,
+    hotStreak: 1,
+    veggies: [],
+    weekNumber: '1',
+    ...overrides,
+  }));
 
-    const {summaryMessages} = useWeekSummary(weekData);
+describe('useWeekSummary', () => {
+  it('returns no veggies message when veggies array is empty', async () => {
+    const weekData = createWeekData({veggies: []});
+    const {summaryMessages} = await withSetup(weekData);
 
-    expect(summaryMessages.value).toEqual([]);
+    expect(summaryMessages.value).toContainEqual({
+      emoji: '🍽️',
+      translationKey: 'weekStartDialog.noVeggies',
+      translationParameters: [],
+    });
   });
 
-  it('reactively updates when week data changes', () => {
-    const weekData = ref<WeekData>({
-      atMostVeggies: 25,
-      challenge: 'apple',
-      hotStreak: 5,
+  it('returns record achievement message when veggies count equals atMostVeggies', async () => {
+    const weekData = createWeekData({
+      atMostVeggies: 3,
+      veggies: ['apple', 'spinach', 'tomato'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        emoji: '📈',
+        translationKey: 'weekStartDialog.recordAchieved',
+        translationParameters: [3],
+      }),
+    );
+  });
+
+  it('returns hot streak message when hot streak is longer than 2 weeks', async () => {
+    const weekData = createWeekData({
+      hotStreak: 2,
+      veggies: ['apple'], // Just need some veggies to avoid no-veggies message
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        emoji: '🔥',
+        translationKey: 'weekStartDialog.hotStreak',
+        translationParameters: [2],
+      }),
+    );
+  });
+
+  it('does not return hot streak message when hot streak is 2 or less', async () => {
+    const weekData = createWeekData({
+      hotStreak: 1,
       veggies: ['apple'],
-      weekNumber: '30',
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    const hotStreakMessage = summaryMessages.value.find(
+      ({translationKey}) => translationKey === 'weekStartDialog.hotStreak',
+    );
+    expect(hotStreakMessage).toBeUndefined();
+  });
+
+  it('returns favorite category message when one category has multiple veggies', async () => {
+    const weekData = createWeekData({
+      veggies: ['apple', 'banana', 'grape', 'spinach'], // 3 fruits, 1 leafy
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        emoji: '⭐',
+        translationKey: 'weekStartDialog.favoriteCategory',
+        translationParameters: ['fruits and berries', 3],
+      }),
+    );
+  });
+
+  it('returns missing category messages for categories not represented', async () => {
+    const weekData = createWeekData({
+      veggies: ['apple', 'spinach'], // Only Fruit and Leafy categories
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    const missingCategoryMessages = summaryMessages.value.filter(
+      ({translationKey}) => translationKey === 'weekStartDialog.missingCategory',
+    );
+
+    const missingCategories = missingCategoryMessages.map(
+      ({translationParameters}) => translationParameters[0],
+    );
+    expect(missingCategories).toEqual(
+      expect.arrayContaining([
+        'vegetables',
+        'roots and bulbs',
+        'beans and legumes',
+        'grains, nuts, and seeds',
+        'mushrooms',
+      ]),
+    );
+  });
+
+  it('returns no missing category messages when all categories are present', async () => {
+    const weekData = createWeekData({
+      veggies: ['apple', 'spinach', 'tomato', 'carrot', 'chickpea', 'rice', 'shiitake'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    const missingCategoryMessages = summaryMessages.value.filter(
+      ({translationKey}) => translationKey === 'weekStartDialog.missingCategory',
+    );
+    expect(missingCategoryMessages).toHaveLength(0);
+  });
+
+  it('combines multiple message types when conditions are met', async () => {
+    const weekData = createWeekData({
+      atMostVeggies: 2,
+      hotStreak: 4,
+      veggies: ['apple', 'spinach'], // Record + hot streak + missing categories
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    // Should contain record achievement
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        translationKey: 'weekStartDialog.recordAchieved',
+        translationParameters: [2],
+      }),
+    );
+
+    // Should contain hot streak
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        translationKey: 'weekStartDialog.hotStreak',
+        translationParameters: [4],
+      }),
+    );
+
+    // Should contain missing categories
+    const missingCategoryMessages = summaryMessages.value.filter(
+      ({translationKey}) => translationKey === 'weekStartDialog.missingCategory',
+    );
+    expect(missingCategoryMessages.length).toBeGreaterThan(0);
+  });
+
+  it('reactively updates when week data changes', async () => {
+    const weekData = ref<WeekData>({
+      atMostVeggies: 10,
+      challenge: undefined,
+      hotStreak: 1,
+      veggies: ['apple'],
+      weekNumber: '1',
     });
     const weekDataComputed = computed(() => weekData.value);
-    const {summaryMessages} = useWeekSummary(weekDataComputed);
+    const {summaryMessages} = await withSetup(weekDataComputed);
 
-    expect(summaryMessages.value).toEqual([]);
+    // Initial state: should have missing categories
+    expect(
+      summaryMessages.value.some((msg) => msg.translationKey === 'weekStartDialog.missingCategory'),
+    ).toBe(true);
 
+    // Change to empty veggies
     weekData.value = {
-      atMostVeggies: 25,
-      challenge: 'banana',
-      hotStreak: 6,
+      ...weekData.value,
       veggies: [],
-      weekNumber: '31',
     };
-    expect(summaryMessages.value).toEqual([
-      {
-        emoji: '🍽️',
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
         translationKey: 'weekStartDialog.noVeggies',
-        translationParameters: [],
-      },
-    ]);
+      }),
+    );
+
+    // Change to record achievement
+    weekData.value = {
+      ...weekData.value,
+      atMostVeggies: 1,
+      veggies: ['apple'],
+    };
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        translationKey: 'weekStartDialog.recordAchieved',
+      }),
+    );
   });
 });
