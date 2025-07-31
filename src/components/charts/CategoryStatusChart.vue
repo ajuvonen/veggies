@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue';
-import {useI18n} from 'vue-i18n';
 import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
@@ -10,6 +9,7 @@ import {Category, type Favorites} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
 import {useChartAnimations} from '@/hooks/chartAnimations';
+import {useI18nWithCollator} from '@/hooks/i18n';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
@@ -30,8 +30,7 @@ const props = withDefaults(
   },
 );
 
-const {t, locale} = useI18n();
-const collator = computed(() => new Intl.Collator(locale.value));
+const {t, collator} = useI18nWithCollator();
 
 const {showChartAnimations} = useChartAnimations();
 

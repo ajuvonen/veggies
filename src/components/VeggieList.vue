@@ -1,18 +1,16 @@
 <script lang="ts" setup>
-import {computed} from 'vue';
-import {useI18n} from 'vue-i18n';
 import {useMemoize} from '@vueuse/core';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
+import {useI18nWithCollator} from '@/hooks/i18n';
 import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue';
 
 defineProps<{
   uniqueVeggies: string[];
 }>();
 
-const {t, locale} = useI18n();
-const collator = computed(() => new Intl.Collator(locale.value));
+const {t, collator} = useI18nWithCollator();
 
 const {availableVeggies} = useAvailableVeggies();
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed, ref, nextTick, type ComponentPublicInstance} from 'vue';
-import {useI18n} from 'vue-i18n';
+import {useI18nWithCollator} from '@/hooks/i18n';
 import type {IconString} from '@/components/IconComponent.vue';
 import ButtonComponent, {type ButtonVariant} from '@/components/ButtonComponent.vue';
 
@@ -18,8 +18,7 @@ const props = withDefaults(
   },
 );
 
-const {t, locale} = useI18n();
-const collator = computed(() => new Intl.Collator(locale.value));
+const {t, collator} = useI18nWithCollator();
 
 const tags = ref<Record<string, ComponentPublicInstance | null>>({});
 const listElement = ref<typeof HTMLUListElement | null>(null);

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {ref, computed} from 'vue';
-import {useI18n} from 'vue-i18n';
+import {ref} from 'vue';
 import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
 import {useMemoize, onClickOutside} from '@vueuse/core';
 import {Category, type TranslatedListing} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useScreen} from '@/hooks/screen';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
+import {useI18nWithCollator} from '@/hooks/i18n';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
 import VeggieSearchChallenge from '@/components/VeggieSearchChallenge.vue';
 
@@ -23,8 +23,7 @@ withDefaults(
   },
 );
 
-const {t, tm, locale} = useI18n();
-const collator = computed(() => new Intl.Collator(locale.value));
+const {t, tm, collator} = useI18nWithCollator();
 
 const {availableVeggies} = useAvailableVeggies();
 
