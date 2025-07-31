@@ -18,16 +18,20 @@ ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 const props = withDefaults(
   defineProps<{
     veggies: string[];
-    totals?: boolean;
     favorites?: Favorites;
+    topLabelKey?: string;
+    bottomLabelKey?: string;
+    alternateColorScheme?: boolean;
   }>(),
   {
-    totals: false,
-    favorites: () => ({}) as Favorites,
+    topLabelKey: 'categoryStatus.topLabel',
+    bottomLabelKey: 'categoryStatus.bottomLabel',
+    alternateColorScheme: false,
   },
 );
 
 const {t, locale} = useI18n();
+const collator = computed(() => new Intl.Collator(locale.value));
 
 const {showChartAnimations} = useChartAnimations();
 
@@ -41,20 +45,6 @@ const translateAndCapitalize = (veggie: string) => {
   return translation.charAt(0).toUpperCase() + translation.slice(1);
 };
 
-const getFavorites = (category: Category) =>
-  props.favorites[category].map(([veggie, amount], index) => {
-    const translation = translateAndCapitalize(veggie);
-    return `${medalEmojis[index]} ${translation} (${amount})`;
-  });
-
-const getVeggiesForCategory = (category: Category) => {
-  const collator = new Intl.Collator(locale.value);
-  return props.veggies
-    .filter((veggie) => getCategoryForVeggie(veggie) === category)
-    .map(translateAndCapitalize)
-    .sort(collator.compare);
-};
-
 const chartData = computed(() => {
   const veggies = pipe(props.veggies, countBy(getCategoryForVeggie), entries(), sortBy(prop(1)));
 
@@ -63,7 +53,9 @@ const chartData = computed(() => {
     datasets: [
       {
         data: veggies.map(prop(1)),
-        backgroundColor: props.totals ? COLORS.chartColorsAlternate : COLORS.chartColors,
+        backgroundColor: props.alternateColorScheme
+          ? COLORS.chartColorsAlternate
+          : COLORS.chartColors,
       },
     ],
   };
@@ -77,9 +69,15 @@ const chartOptions = computed(() =>
         callbacks: {
           title: ([{label}]) => t(`categories.${label}`),
           footer: ([{label}]) =>
-            props.totals
-              ? getFavorites(label as Category)
-              : getVeggiesForCategory(label as Category),
+            props.favorites
+              ? props.favorites[label as Category].map(([veggie, amount], index) => {
+                  const translation = translateAndCapitalize(veggie);
+                  return `${medalEmojis[index]} ${translation} (${amount})`;
+                })
+              : props.veggies
+                  .filter((veggie) => getCategoryForVeggie(veggie) === label)
+                  .map(translateAndCapitalize)
+                  .sort(collator.value.compare),
         },
       },
       datalabels: {
@@ -93,7 +91,7 @@ const chartOptions = computed(() =>
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="container" :class="{'shrink-0': !totals}" class="category-status-chart__background">
+  <div ref="container" :class="{'shrink-0': !favorites}" class="category-status-chart__background">
     <Doughnut
       :data="chartData"
       :options="chartOptions"
@@ -109,15 +107,13 @@ defineExpose({chartData});
       class="category-status-chart__center-label"
       data-test-id="category-status-chart-center-label"
     >
-      <span>{{ $t(totals ? 'categoryStatus.topLabelTotal' : 'categoryStatus.topLabel') }}</span>
-      <span :class="totals ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
-      <span>{{
-        $t(totals ? 'categoryStatus.bottomLabelTotal' : 'categoryStatus.bottomLabel')
-      }}</span>
+      <span>{{ $t(topLabelKey) }}</span>
+      <span :class="favorites ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
+      <span>{{ $t(bottomLabelKey) }}</span>
     </i18n-t>
     <ChartScreenReaderTable
       id="category-status-table"
-      :title="totals ? $t('categoryStatus.veggiesTotal') : $t('categoryStatus.veggiesOfTheWeek')"
+      :title="favorites ? $t('categoryStatus.veggiesTotal') : $t('categoryStatus.veggiesOfTheWeek')"
       :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
       :data="[chartData.datasets[0].data]"
     />
@@ -129,7 +125,7 @@ defineExpose({chartData});
 }
 
 .category-status-chart__background {
-  @apply relative overflow-hidden h-[calc(100vmin-2rem)] max-h-[400px];
+  @apply relative overflow-hidden max-h-[400px];
   @apply flex justify-center;
 }
 

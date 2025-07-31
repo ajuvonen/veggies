@@ -46,7 +46,14 @@ const hideTooltips = useThrottleFn(hideAll);
     <TabPanels class="flex grow min-h-0">
       <TabPanel class="stats__tab">
         <AllTimeStatus />
-        <CategoryStatusChart totals :favorites="favorites" :veggies="allVeggies" />
+        <CategoryStatusChart
+          :favorites="favorites"
+          :veggies="allVeggies"
+          alternateColorScheme
+          topLabelKey="categoryStatus.topLabelTotal"
+          bottomLabelKey="categoryStatus.bottomLabelTotal"
+        />
+        />
       </TabPanel>
       <TabPanel class="stats__tab">
         <WeeklyAmountsChart />

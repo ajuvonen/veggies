@@ -85,7 +85,7 @@ describe('AchievementDialog', () => {
   });
 
   it('renders all new achievements', async () => {
-    // @ts-expect-error
+    // @ts-expect-error Getters are writable in tests
     activityStore.achievements = getAchievements({
       allOnRed: AchievementLevel.Gold,
       thirtyVeggies: AchievementLevel.Gold,
@@ -95,7 +95,7 @@ describe('AchievementDialog', () => {
 
     expect(wrapper.find('#achievement-dialog').exists()).toBe(false);
 
-    // @ts-expect-error
+    // @ts-expect-error Getters are writable in tests
     activityStore.achievements = getAchievements({
       allOnRed: AchievementLevel.NoAchievement,
       experimenterBean: AchievementLevel.Gold,
@@ -108,6 +108,5 @@ describe('AchievementDialog', () => {
     expect(wrapper.find('.badge--experimenterBean').exists()).toBe(true);
     expect(wrapper.find('.badge--goNuts').exists()).toBe(true);
     expect(wrapper.find('.badge--thirtyVeggies').exists()).toBe(true);
-    console.log(wrapper.html());
   });
 });

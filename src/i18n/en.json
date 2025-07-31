@@ -158,6 +158,7 @@
     "bottomLabelTotal": "Actions",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "This Week",
+    "topLabelPreviousWeek": "Last Week",
     "topLabelTotal": "In Total",
     "veggiesOfTheWeek": "Veggies of the Week",
     "veggiesTotal": "All Actions in Total"
@@ -1742,5 +1743,9 @@
     "log": "Track Weekly Progress",
     "settings": "Settings",
     "stats": "Statistics"
+  },
+  "weekStartDialog": {
+    "title": "All done for week {0}!",
+    "noVeggies": "No veggies logged last week. Time for a fresh start?"
   }
 }
