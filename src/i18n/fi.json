@@ -1745,7 +1745,11 @@
     "stats": "Tilastot"
   },
   "weekStartDialog": {
-    "title": "Viikko {0} paketissa!",
-    "noVeggies": "Et kirjannut kasviksia viime viikolla. Aika uudelle alulle?"
+    "favoriteCategory": "Suosikkikategoriasi viime viikolla oli {0}, josta söit {1} eri kasvista!",
+    "hotStreak": "Olet syönyt yli 30 kasvista {0} viikon ajan. Jatka samaan malliin!",
+    "missingCategory": "Et syönyt mitään kategoriasta {0}. Haluatko kokeilla tällä viikolla?",
+    "noVeggies": "Et kirjannut kasviksia viime viikolla. Aika uudelle alulle?",
+    "recordAchieved": "Uusi ennätys! Söit {0} erilaista kasvista viime viikolla!",
+    "title": "Viikko {0} paketissa!"
   }
 }

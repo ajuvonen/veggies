@@ -56,7 +56,9 @@ watch(currentWeekStart, () => {
           :key="translationKey"
           class="flex-container"
         >
-          <span aria-hidden="true" class="flex items-center text-5xl">{{ emoji }}</span>
+          <span aria-hidden="true" class="flex items-center text-5xl pointer-events-none">{{
+            emoji
+          }}</span>
           <span class="flex items-center">{{ $t(translationKey, translationParameters) }}</span>
         </div>
       </div>

@@ -1745,7 +1745,11 @@
     "stats": "Statistics"
   },
   "weekStartDialog": {
-    "title": "All done for week {0}!",
-    "noVeggies": "No veggies logged last week. Time for a fresh start?"
+    "favoriteCategory": "Your favorite category last week was {0} with {1} different veggies!",
+    "hotStreak": "You've eaten more than 30 veggies for {0} weeks. Keep it up!",
+    "missingCategory": "You didn't eat any {0}. Care to try some this week?",
+    "noVeggies": "No veggies logged last week. Time for a fresh start?",
+    "recordAchieved": "New personal record! You ate {0} different veggies last week!",
+    "title": "All done for week {0}!"
   }
 }
