@@ -76,6 +76,7 @@ export type WeekData = {
   atMostVeggies: number;
   challenge: string | undefined;
   hotStreak: number;
+  mean: number;
   veggies: string[];
   weekNumber: string;
 };

@@ -20,6 +20,7 @@ const createWeekData = (overrides: Partial<WeekData> = {}): ComputedRef<WeekData
     atMostVeggies: 10,
     challenge: undefined,
     hotStreak: 1,
+    mean: 12,
     veggies: [],
     weekNumber: '1',
     ...overrides,
@@ -46,7 +47,7 @@ describe('useWeekSummary', () => {
 
     expect(summaryMessages.value).toContainEqual(
       expect.objectContaining({
-        emoji: '📈',
+        emoji: '👑',
         translationKey: 'weekStartDialog.recordAchieved',
         translationParameters: [3],
       }),
@@ -164,11 +165,28 @@ describe('useWeekSummary', () => {
     expect(missingCategoryMessages.length).toBeGreaterThan(0);
   });
 
+  it('returns mean message when there are veggies', async () => {
+    const weekData = createWeekData({
+      mean: 15,
+      veggies: ['apple', 'spinach', 'tomato'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        emoji: '📊',
+        translationKey: 'weekStartDialog.mean',
+        translationParameters: [15],
+      }),
+    );
+  });
+
   it('reactively updates when week data changes', async () => {
     const weekData = ref<WeekData>({
       atMostVeggies: 10,
       challenge: undefined,
       hotStreak: 1,
+      mean: 5,
       veggies: ['apple'],
       weekNumber: '1',
     });
