@@ -1746,6 +1746,8 @@
   },
   "weekStartDialog": {
     "allCategories": "Mahtavaa! Söit kasviksia kaikista kategorioista viime viikolla!",
+    "challengeCompleted": "Tehtävä suoritettu! Viikkohaasteesi oli {0} ja onnistuit siinä!",
+    "challengeMissed": "Et saanut viikkohaastettasi ({0}) suoritettua. Ehkä ensi kerralla?",
     "favoriteCategory": "Suosikkikategoriasi viime viikolla oli {0}, josta söit {1} eri kasvista!",
     "goodStart": "Hyvä alku! Söit {0} erilaista kasvista viime viikolla.",
     "hotStreak": "Olet syönyt yli 30 kasvista {0} viikon ajan. Jatka samaan malliin!",

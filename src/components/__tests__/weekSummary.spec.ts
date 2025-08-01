@@ -181,7 +181,54 @@ describe('useWeekSummary', () => {
     );
   });
 
-  it('reactively updates when week data changes', async () => {
+  it('returns challenge completed message when challenge veggie is in the week', async () => {
+    const weekData = createWeekData({
+      challenge: 'apple',
+      veggies: ['apple', 'spinach', 'tomato'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        emoji: '🎖️',
+        translationKey: 'weekStartDialog.challengeCompleted',
+        translationParameters: ['apple'],
+      }),
+    );
+  });
+
+  it('returns challenge missed message when challenge veggie is not in the week', async () => {
+    const weekData = createWeekData({
+      challenge: 'apple',
+      veggies: ['spinach', 'tomato'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        emoji: '😶‍🌫️',
+        translationKey: 'weekStartDialog.challengeMissed',
+        translationParameters: ['apple'],
+      }),
+    );
+  });
+
+  it('does not return challenge message when challenge is undefined', async () => {
+    const weekData = createWeekData({
+      challenge: undefined,
+      veggies: ['apple', 'spinach', 'tomato'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    const challengeMessages = summaryMessages.value.filter(
+      ({translationKey}) =>
+        translationKey === 'weekStartDialog.challengeCompleted' ||
+        translationKey === 'weekStartDialog.challengeMissed',
+    );
+    expect(challengeMessages).toHaveLength(0);
+  });
+
+  it('returns reactive messages when week data changes', async () => {
     const weekData = ref<WeekData>({
       atMostVeggies: 10,
       challenge: undefined,

@@ -1746,6 +1746,8 @@
   },
   "weekStartDialog": {
     "allCategories": "Amazing! You tried veggies from all categories last week!",
+    "challengeCompleted": "Mission accomplished! You tried {0} for your weekly challenge!",
+    "challengeMissed": "You didn't try {0} this week. Maybe next time?",
     "favoriteCategory": "Your favorite category last week was {0} with {1} different veggies!",
     "goodStart": "Good start! You tried {0} different veggies last week.",
     "hotStreak": "You've eaten more than 30 veggies for {0} weeks. Keep it up!",
