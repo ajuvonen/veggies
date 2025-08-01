@@ -58,6 +58,22 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
       });
     }
 
+    if (weekData.value.challenge) {
+      if (weekData.value.veggies.includes(weekData.value.challenge)) {
+        messages.push({
+          emoji: '🎖️',
+          translationKey: 'weekStartDialog.challengeCompleted',
+          translationParameters: [t(`veggies.${weekData.value.challenge}`).toLowerCase()],
+        });
+      } else {
+        messages.push({
+          emoji: '😶‍🌫️',
+          translationKey: 'weekStartDialog.challengeMissed',
+          translationParameters: [t(`veggies.${weekData.value.challenge}`).toLowerCase()],
+        });
+      }
+    }
+
     const categoryCounts = countBy(weekData.value.veggies, (veggie) =>
       getCategoryForVeggie(veggie),
     );
