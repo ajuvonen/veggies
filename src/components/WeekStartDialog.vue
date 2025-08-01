@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import {ref, watch, computed} from 'vue';
 import {storeToRefs} from 'pinia';
-import {sample, shuffle} from 'remeda';
+import {mean, sample, shuffle} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/utils/types';
 import ModalDialog from '@/components/ModalDialog.vue';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 
-const {currentWeekStart, veggiesForWeek, challenges, hotStreak, atMostVeggies} =
+const {currentWeekStart, veggiesForWeek, challenges, hotStreak, atMostVeggies, weeks} =
   storeToRefs(useActivityStore());
 
 const dialogOpen = ref(false);
@@ -20,10 +20,16 @@ const previousWeekData = computed<WeekData>(() => {
     startDate.equals(previousWeekStart),
   )?.veggie;
 
+  const pastVeggies = Array.from(
+    {length: Math.min(5, weeks.value.length)},
+    (_, weekIndex) => veggiesForWeek.value(currentWeekStart.value.minus({weeks: weekIndex})).length,
+  );
+
   return {
     atMostVeggies: atMostVeggies.value,
     challenge: previousWeekChallenge,
     hotStreak: hotStreak.value,
+    mean: Math.round(mean(pastVeggies) as number),
     veggies: veggiesForWeek.value(previousWeekStart),
     weekNumber: previousWeekStart.toFormat('W'),
   };
@@ -32,9 +38,13 @@ const previousWeekData = computed<WeekData>(() => {
 const {summaryMessages} = useWeekSummary(previousWeekData);
 const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
 
-watch(currentWeekStart, () => {
-  dialogOpen.value = true;
-});
+watch(
+  currentWeekStart,
+  () => {
+    dialogOpen.value = true;
+  },
+  {immediate: true},
+);
 </script>
 
 <template>

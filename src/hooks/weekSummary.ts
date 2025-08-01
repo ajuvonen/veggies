@@ -11,6 +11,7 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
 
   // All possible messages based on the week data
   const summaryMessages = computed<SummaryItem[]>(() => {
+    const messages: SummaryItem[] = [];
     if (!weekData.value.veggies.length) {
       return [
         {
@@ -19,14 +20,30 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
           translationParameters: [],
         },
       ];
+    } else if (weekData.value.veggies.length < 15) {
+      messages.push({
+        emoji: '🌱',
+        translationKey: 'weekStartDialog.goodStart',
+        translationParameters: [weekData.value.veggies.length],
+      });
+    } else if (weekData.value.veggies.length < 30) {
+      messages.push({
+        emoji: '🥗',
+        translationKey: 'weekStartDialog.makingProgress',
+        translationParameters: [weekData.value.veggies.length],
+      });
     }
 
-    const messages: SummaryItem[] = [];
+    messages.push({
+      emoji: '📊',
+      translationKey: 'weekStartDialog.mean',
+      translationParameters: [weekData.value.mean],
+    });
 
     // Congratulate if user reached their record amount of veggies
     if (weekData.value.veggies.length === weekData.value.atMostVeggies) {
       messages.push({
-        emoji: '📈',
+        emoji: '👑',
         translationKey: 'weekStartDialog.recordAchieved',
         translationParameters: [weekData.value.atMostVeggies],
       });
@@ -46,27 +63,35 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
     );
 
     // Add message for favorite category if there are veggies
-    if (Object.keys(categoryCounts).length > 0) {
-      const [favoriteCategory, favoriteCount] = Object.entries(categoryCounts).reduce(
-        (max, [category, count]) => (count > max[1] ? [category, count] : max),
-      ) as [Category, number];
+    const [favoriteCategory, favoriteCount] = Object.entries(categoryCounts).reduce(
+      (max, [category, count]) => (count > max[1] ? [category, count] : max),
+    ) as [Category, number];
 
+    messages.push({
+      emoji: '⭐',
+      translationKey: 'weekStartDialog.favoriteCategory',
+      translationParameters: [t(`categories.${favoriteCategory}`).toLowerCase(), favoriteCount],
+    });
+
+    const missingCategories = Object.values(Category).filter(
+      (category) => !categoryCounts[category],
+    );
+
+    if (!missingCategories.length) {
       messages.push({
-        emoji: '⭐',
-        translationKey: 'weekStartDialog.favoriteCategory',
-        translationParameters: [t(`categories.${favoriteCategory}`).toLowerCase(), favoriteCount],
+        emoji: '🌈',
+        translationKey: 'weekStartDialog.allCategories',
+        translationParameters: [],
       });
     }
 
-    Object.values(Category)
-      .filter((category) => !categoryCounts[category])
-      .forEach((category) => {
-        messages.push({
-          emoji: CATEGORY_EMOJI[category],
-          translationKey: 'weekStartDialog.missingCategory',
-          translationParameters: [t(`categories.${category}`).toLowerCase()],
-        });
+    missingCategories.forEach((category) => {
+      messages.push({
+        emoji: CATEGORY_EMOJI[category],
+        translationKey: 'weekStartDialog.missingCategory',
+        translationParameters: [t(`categories.${category}`).toLowerCase()],
       });
+    });
 
     return messages;
   });
