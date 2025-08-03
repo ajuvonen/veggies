@@ -14,10 +14,10 @@ const {currentWeekStart, veggiesForWeek, challenges, hotStreak, atMostVeggies, w
 const dialogOpen = ref(false);
 
 // Computed for previous week data
-const previousWeekData = computed<WeekData>(() => {
-  const previousWeekStart = currentWeekStart.value.minus({weeks: 1});
-  const previousWeekChallenge = challenges.value.find(({startDate}) =>
-    startDate.equals(previousWeekStart),
+const lastWeekData = computed<WeekData>(() => {
+  const lastWeekStart = currentWeekStart.value.minus({weeks: 1});
+  const lastWeekChallenge = challenges.value.find(({startDate}) =>
+    startDate.equals(lastWeekStart),
   )?.veggie;
 
   const pastVeggies = Array.from(
@@ -27,39 +27,37 @@ const previousWeekData = computed<WeekData>(() => {
 
   return {
     atMostVeggies: atMostVeggies.value,
-    challenge: previousWeekChallenge,
+    challenge: lastWeekChallenge,
+    firstWeek: weeks.value.length === 1,
     hotStreak: hotStreak.value,
     mean: Math.round(mean(pastVeggies) as number),
-    veggies: veggiesForWeek.value(previousWeekStart),
-    weekNumber: previousWeekStart.toFormat('W'),
+    previousWeekCount: veggiesForWeek.value(currentWeekStart.value.minus({weeks: 2})).length,
+    veggies: veggiesForWeek.value(lastWeekStart),
+    weekNumber: lastWeekStart.toFormat('W'),
   };
 });
 
-const {summaryMessages} = useWeekSummary(previousWeekData);
+const {summaryMessages} = useWeekSummary(lastWeekData);
 const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
 
-watch(
-  currentWeekStart,
-  () => {
-    dialogOpen.value = true;
-  },
-  {immediate: true},
-);
+watch(currentWeekStart, () => {
+  dialogOpen.value = true;
+});
 </script>
 
 <template>
   <ModalDialog
     id="week-start-dialog"
     v-model="dialogOpen"
-    :title="$t('weekStartDialog.title', [previousWeekData.weekNumber])"
+    :title="$t('weekStartDialog.title', [lastWeekData.weekNumber])"
   >
     <template #content>
       <div class="flex-container gap-4 flex-col">
         <CategoryStatusChart
-          v-if="previousWeekData.veggies.length"
-          :veggies="previousWeekData.veggies"
+          v-if="lastWeekData.veggies.length"
+          :veggies="lastWeekData.veggies"
           alternateColorScheme
-          topLabelKey="categoryStatus.topLabelPreviousWeek"
+          topLabelKey="categoryStatus.topLabelLastWeek"
         />
         <div
           v-for="{emoji, translationKey, translationParameters} in summary"

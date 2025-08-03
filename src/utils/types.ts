@@ -75,8 +75,10 @@ export type Achievements = {
 export type WeekData = {
   atMostVeggies: number;
   challenge: string | undefined;
+  firstWeek: boolean;
   hotStreak: number;
   mean: number;
+  previousWeekCount: number;
   veggies: string[];
   weekNumber: string;
 };

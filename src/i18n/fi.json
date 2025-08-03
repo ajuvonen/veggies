@@ -158,7 +158,7 @@
     "bottomLabelTotal": "Lisäystä",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "Tällä Viikolla",
-    "topLabelPreviousWeek": "Viime Viikolla",
+    "topLabelLastWeek": "Viime Viikolla",
     "topLabelTotal": "Yhteensä",
     "veggiesOfTheWeek": "Viikon kasvikset",
     "veggiesTotal": "Kaikki toiminnot yhteensä"
@@ -1749,13 +1749,16 @@
     "challengeCompleted": "Tehtävä suoritettu! Viikkohaasteesi oli {0} ja onnistuit siinä!",
     "challengeMissed": "Et saanut viikkohaastettasi ({0}) suoritettua. Ehkä ensi kerralla?",
     "favoriteCategory": "Suosikkikategoriasi viime viikolla oli {0}, josta söit {1} eri kasvista!",
+    "fellShort": "Söit {0} kasvista toissaviikolla. Onnistut varmasti tällä viikolla paremmin!",
     "goodStart": "Hyvä alku! Söit {0} erilaista kasvista viime viikolla.",
     "hotStreak": "Olet syönyt yli 30 kasvista {0} viikon ajan. Jatka samaan malliin!",
+    "lowCategoryCount": "Eikö maistu? Kokeilit vain {0} kasvista kategoriasta {1} viime viikolla.",
     "makingProgress": "Edistystä! Kokeilit {0} erilaista kasvista viime viikolla.",
     "mean": "Keskiarvosi viimeisen viiden viikon ajalta on {0}. Pystytkö ylittämään sen tällä viikolla?",
     "missingCategory": "Et syönyt mitään kategoriasta {0}. Haluatko kokeilla tällä viikolla?",
     "noVeggies": "Et kirjannut kasviksia viime viikolla. Aika uudelle alulle? Jos vain unohdit kirjata kasviksesi, voit muokata viikkoa tilastonäkymän kautta.",
     "recordAchieved": "Uusi ennätys! Söit {0} erilaista kasvista viime viikolla!",
+    "surpassedPreviousWeek": "Edistystä! Ohitit toissaviikon tuloksen, joka oli {0} kasvista!",
     "title": "Viikko {0} paketissa!"
   }
 }
