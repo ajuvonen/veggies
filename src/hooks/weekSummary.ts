@@ -9,108 +9,115 @@ import {CATEGORY_EMOJI} from '@/utils/constants';
 export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
   const {t} = useI18n();
 
-  // All possible messages based on the week data
-  const summaryMessages = computed<SummaryItem[]>(() => {
+  const createProgressMessages = (data: WeekData): SummaryItem[] => {
     const messages: SummaryItem[] = [];
-    if (!weekData.value.veggies.length) {
-      return [
-        {
-          emoji: '🍽️',
-          translationKey: 'weekStartDialog.noVeggies',
-          translationParameters: [],
-        },
-      ];
-    } else if (weekData.value.veggies.length < 15) {
+    const veggieCount = data.veggies.length;
+
+    if (veggieCount < 15) {
       messages.push({
         emoji: '🌱',
         translationKey: 'weekStartDialog.goodStart',
-        translationParameters: [weekData.value.veggies.length],
+        translationParameters: [veggieCount],
       });
-    } else if (weekData.value.veggies.length < 30) {
+    } else if (veggieCount < 30) {
       messages.push({
         emoji: '🥗',
         translationKey: 'weekStartDialog.makingProgress',
-        translationParameters: [weekData.value.veggies.length],
+        translationParameters: [veggieCount],
       });
     }
 
-    if (
-      !weekData.value.firstWeek &&
-      weekData.value.previousWeekCount < weekData.value.veggies.length
-    ) {
+    return messages;
+  };
+
+  const createComparisonMessages = (data: WeekData): SummaryItem[] => {
+    const messages: SummaryItem[] = [];
+
+    if (!data.firstWeek && data.previousWeekCount < data.veggies.length) {
       messages.push({
         emoji: '📈',
         translationKey: 'weekStartDialog.surpassedPreviousWeek',
-        translationParameters: [weekData.value.previousWeekCount],
+        translationParameters: [data.previousWeekCount],
       });
-    } else if (weekData.value.previousWeekCount - weekData.value.veggies.length > 3) {
+    } else if (data.previousWeekCount - data.veggies.length > 3) {
       messages.push({
         emoji: '📉',
         translationKey: 'weekStartDialog.fellShort',
-        translationParameters: [weekData.value.previousWeekCount],
+        translationParameters: [data.previousWeekCount],
       });
     }
+
+    return messages;
+  };
+
+  const createStatisticsMessages = (data: WeekData): SummaryItem[] => {
+    const messages: SummaryItem[] = [];
 
     messages.push({
       emoji: '📊',
       translationKey: 'weekStartDialog.mean',
-      translationParameters: [weekData.value.mean],
+      translationParameters: [data.mean],
     });
 
-    // Congratulate if user reached their record amount of veggies
-    if (weekData.value.veggies.length === weekData.value.atMostVeggies) {
+    if (data.veggies.length === data.atMostVeggies) {
       messages.push({
         emoji: '👑',
         translationKey: 'weekStartDialog.recordAchieved',
-        translationParameters: [weekData.value.atMostVeggies],
+        translationParameters: [data.atMostVeggies],
       });
     }
 
-    // Congratulate on hot streak if it's at least 2 weeks
-    if (weekData.value.hotStreak >= 2) {
+    if (data.hotStreak >= 2) {
       messages.push({
         emoji: '🔥',
         translationKey: 'weekStartDialog.hotStreak',
-        translationParameters: [weekData.value.hotStreak],
+        translationParameters: [data.hotStreak],
       });
     }
 
-    if (weekData.value.challenge) {
-      if (weekData.value.veggies.includes(weekData.value.challenge)) {
-        messages.push({
-          emoji: '🎖️',
-          translationKey: 'weekStartDialog.challengeCompleted',
-          translationParameters: [t(`veggies.${weekData.value.challenge}`).toLowerCase()],
-        });
-      } else {
-        messages.push({
-          emoji: '😶‍🌫️',
-          translationKey: 'weekStartDialog.challengeMissed',
-          translationParameters: [t(`veggies.${weekData.value.challenge}`).toLowerCase()],
-        });
-      }
+    return messages;
+  };
+
+  const createChallengeMessages = (data: WeekData): SummaryItem[] => {
+    const messages: SummaryItem[] = [];
+
+    if (data.challenge) {
+      const challengeCompleted = data.veggies.includes(data.challenge);
+      messages.push({
+        emoji: challengeCompleted ? '🎖️' : '😶‍🌫️',
+        translationKey: challengeCompleted
+          ? 'weekStartDialog.challengeCompleted'
+          : 'weekStartDialog.challengeMissed',
+        translationParameters: [t(`veggies.${data.challenge}`).toLowerCase()],
+      });
     }
 
-    const categoryCounts = countBy(weekData.value.veggies, (veggie) =>
-      getCategoryForVeggie(veggie),
-    );
+    return messages;
+  };
 
-    // Add message for favorite category if there are veggies
+  const createCategoryMessages = (data: WeekData): SummaryItem[] => {
+    const messages: SummaryItem[] = [];
+    const categoryCounts = countBy(data.veggies, getCategoryForVeggie);
+
+    // Favorite category
     const [favoriteCategory, favoriteCount] = Object.entries(categoryCounts).reduce(
       (max, [category, count]) => (count > max[1] ? [category, count] : max),
     ) as [Category, number];
 
-    messages.push({
-      emoji: '⭐',
-      translationKey: 'weekStartDialog.favoriteCategory',
-      translationParameters: [t(`categories.${favoriteCategory}`).toLowerCase(), favoriteCount],
-    });
+    if (favoriteCount >= 4) {
+      messages.push({
+        emoji: '⭐',
+        translationKey: 'weekStartDialog.favoriteCategory',
+        translationParameters: [t(`categories.${favoriteCategory}`).toLowerCase(), favoriteCount],
+      });
+    }
 
+    // All categories achievement
     const missingCategories = Object.values(Category).filter(
       (category) => !categoryCounts[category],
     );
 
-    if (!missingCategories.length) {
+    if (missingCategories.length === 0) {
       messages.push({
         emoji: '🌈',
         translationKey: 'weekStartDialog.allCategories',
@@ -118,7 +125,7 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
       });
     }
 
-    // Add messages for categories with low counts (1-3 veggies)
+    // Low category counts
     Object.entries(categoryCounts).forEach(([category, count]) => {
       if (count < 4) {
         messages.push({
@@ -129,6 +136,7 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
       }
     });
 
+    // Missing categories
     missingCategories.forEach((category) => {
       messages.push({
         emoji: CATEGORY_EMOJI[category],
@@ -138,6 +146,26 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
     });
 
     return messages;
+  };
+
+  const summaryMessages = computed<SummaryItem[]>(() => {
+    if (!weekData.value.veggies.length) {
+      return [
+        {
+          emoji: '🍽️',
+          translationKey: 'weekStartDialog.noVeggies',
+          translationParameters: [],
+        },
+      ];
+    }
+
+    return [
+      ...createProgressMessages(weekData.value),
+      ...createComparisonMessages(weekData.value),
+      ...createStatisticsMessages(weekData.value),
+      ...createChallengeMessages(weekData.value),
+      ...createCategoryMessages(weekData.value),
+    ];
   });
 
   return {
