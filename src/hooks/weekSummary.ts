@@ -34,6 +34,23 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
       });
     }
 
+    if (
+      !weekData.value.firstWeek &&
+      weekData.value.previousWeekCount < weekData.value.veggies.length
+    ) {
+      messages.push({
+        emoji: '📈',
+        translationKey: 'weekStartDialog.surpassedPreviousWeek',
+        translationParameters: [weekData.value.previousWeekCount],
+      });
+    } else if (weekData.value.previousWeekCount - weekData.value.veggies.length > 3) {
+      messages.push({
+        emoji: '📉',
+        translationKey: 'weekStartDialog.fellShort',
+        translationParameters: [weekData.value.previousWeekCount],
+      });
+    }
+
     messages.push({
       emoji: '📊',
       translationKey: 'weekStartDialog.mean',
@@ -100,6 +117,17 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
         translationParameters: [],
       });
     }
+
+    // Add messages for categories with low counts (1-3 veggies)
+    Object.entries(categoryCounts).forEach(([category, count]) => {
+      if (count < 4) {
+        messages.push({
+          emoji: '🤔',
+          translationKey: 'weekStartDialog.lowCategoryCount',
+          translationParameters: [count, t(`categories.${category}`).toLowerCase()],
+        });
+      }
+    });
 
     missingCategories.forEach((category) => {
       messages.push({

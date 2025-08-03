@@ -19,8 +19,10 @@ const createWeekData = (overrides: Partial<WeekData> = {}): ComputedRef<WeekData
   computed(() => ({
     atMostVeggies: 10,
     challenge: undefined,
+    firstWeek: false,
     hotStreak: 1,
     mean: 12,
+    previousWeekCount: 0,
     veggies: [],
     weekNumber: '1',
     ...overrides,
@@ -228,12 +230,140 @@ describe('useWeekSummary', () => {
     expect(challengeMessages).toHaveLength(0);
   });
 
+  it('returns surpassed previous week message when current count is higher', async () => {
+    const weekData = createWeekData({
+      firstWeek: false,
+      previousWeekCount: 5,
+      veggies: ['apple', 'spinach', 'tomato', 'carrot', 'broccoli', 'peas'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        emoji: '📈',
+        translationKey: 'weekStartDialog.surpassedPreviousWeek',
+        translationParameters: [5],
+      }),
+    );
+  });
+
+  it('returns fell short message when current count is more than 3 less than previous', async () => {
+    const weekData = createWeekData({
+      firstWeek: false,
+      previousWeekCount: 10,
+      veggies: ['apple', 'spinach', 'tomato'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    expect(summaryMessages.value).toContainEqual(
+      expect.objectContaining({
+        emoji: '📉',
+        translationKey: 'weekStartDialog.fellShort',
+        translationParameters: [10],
+      }),
+    );
+  });
+
+  it('does not return fell short message when difference is 3 or less', async () => {
+    const weekData = createWeekData({
+      firstWeek: false,
+      previousWeekCount: 8,
+      veggies: ['apple', 'spinach', 'tomato', 'carrot', 'broccoli'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    const fellShortMessages = summaryMessages.value.filter(
+      ({translationKey}) => translationKey === 'weekStartDialog.fellShort',
+    );
+    expect(fellShortMessages).toHaveLength(0);
+  });
+
+  it('does not return comparison messages for first week', async () => {
+    const weekData = createWeekData({
+      firstWeek: true,
+      previousWeekCount: 0,
+      veggies: ['apple', 'spinach', 'tomato', 'carrot', 'broccoli', 'peas'],
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    const comparisonMessages = summaryMessages.value.filter(
+      ({translationKey}) =>
+        translationKey === 'weekStartDialog.surpassedPreviousWeek' ||
+        translationKey === 'weekStartDialog.fellShort',
+    );
+    expect(comparisonMessages).toHaveLength(0);
+  });
+
+  it('returns low category count messages for categories with 1-3 veggies', async () => {
+    const weekData = createWeekData({
+      veggies: ['apple', 'banana', 'spinach', 'kale', 'quinoa'], // 2 fruits, 2 leafy, 1 grain
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    const lowCategoryMessages = summaryMessages.value.filter(
+      ({translationKey}) => translationKey === 'weekStartDialog.lowCategoryCount',
+    );
+
+    // Should have messages for all three categories
+    expect(lowCategoryMessages).toHaveLength(3);
+
+    // Verify the complete message structure for fruits and berries (2 veggies)
+    expect(lowCategoryMessages).toContainEqual({
+      emoji: '🤔',
+      translationKey: 'weekStartDialog.lowCategoryCount',
+      translationParameters: [2, 'fruits and berries'],
+    });
+
+    // Verify the complete message structure for leafy greens and herbs (2 veggies)
+    expect(lowCategoryMessages).toContainEqual({
+      emoji: '🤔',
+      translationKey: 'weekStartDialog.lowCategoryCount',
+      translationParameters: [2, 'leafy greens and herbs'],
+    });
+
+    // Verify the complete message structure for grains, nuts, and seeds (1 veggie)
+    expect(lowCategoryMessages).toContainEqual({
+      emoji: '🤔',
+      translationKey: 'weekStartDialog.lowCategoryCount',
+      translationParameters: [1, 'grains, nuts, and seeds'],
+    });
+  });
+
+  it('does not return low category count messages for categories with 4+ veggies', async () => {
+    const weekData = createWeekData({
+      veggies: ['apple', 'banana', 'grape', 'orange', 'spinach'], // 4 fruits, 1 leafy
+    });
+    const {summaryMessages} = await withSetup(weekData);
+
+    const lowCategoryMessages = summaryMessages.value.filter(
+      ({translationKey}) => translationKey === 'weekStartDialog.lowCategoryCount',
+    );
+
+    // Should only have message for leafy category (1 veggie), not fruits (4 veggies)
+    expect(lowCategoryMessages).toHaveLength(1);
+
+    // Verify the complete message structure for the leafy category only
+    expect(lowCategoryMessages[0]).toEqual({
+      emoji: '🤔',
+      translationKey: 'weekStartDialog.lowCategoryCount',
+      translationParameters: [1, 'leafy greens and herbs'],
+    });
+
+    // Verify that no message exists for fruits category (which has 4 veggies)
+    const fruitMessages = lowCategoryMessages.filter(
+      (msg) => msg.translationParameters[1] === 'fruits and berries',
+    );
+    expect(fruitMessages).toHaveLength(0);
+  });
+
   it('returns reactive messages when week data changes', async () => {
     const weekData = ref<WeekData>({
       atMostVeggies: 10,
       challenge: undefined,
+      firstWeek: false,
       hotStreak: 1,
       mean: 5,
+      previousWeekCount: 0,
       veggies: ['apple'],
       weekNumber: '1',
     });

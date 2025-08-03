@@ -158,7 +158,7 @@
     "bottomLabelTotal": "Actions",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "This Week",
-    "topLabelPreviousWeek": "Last Week",
+    "topLabelLastWeek": "Last Week",
     "topLabelTotal": "In Total",
     "veggiesOfTheWeek": "Veggies of the Week",
     "veggiesTotal": "All Actions in Total"
@@ -1749,13 +1749,16 @@
     "challengeCompleted": "Mission accomplished! You tried {0} for your weekly challenge!",
     "challengeMissed": "You didn't try {0} this week. Maybe next time?",
     "favoriteCategory": "Your favorite category last week was {0} with {1} different veggies!",
+    "fellShort": "You tried {0} veggies the week before. You can do better this week!",
     "goodStart": "Good start! You tried {0} different veggies last week.",
     "hotStreak": "You've eaten more than 30 veggies for {0} weeks. Keep it up!",
+    "lowCategoryCount": "Not feeling it? You only tried {0} veggie from {1} last week.",
     "makingProgress": "Making progress! You tried {0} different veggies last week.",
     "mean": "Your average over the past five weeks is {0}. Can you beat it this week?",
     "missingCategory": "You didn't eat any {0}. Care to try some this week?",
     "noVeggies": "No veggies logged last week. Time for a fresh start? If you simply forgot to track your veggies, you can edit the week in the statistics view.",
     "recordAchieved": "New personal record! You ate {0} different veggies last week!",
+    "surpassedPreviousWeek": "Improvement! You beat your previous week's count of {0}!",
     "title": "All done for week {0}!"
   }
 }
