@@ -53,7 +53,6 @@ const hideTooltips = useThrottleFn(hideAll);
           topLabelKey="categoryStatus.topLabelTotal"
           bottomLabelKey="categoryStatus.bottomLabelTotal"
         />
-        />
       </TabPanel>
       <TabPanel class="stats__tab">
         <WeeklyAmountsChart />
