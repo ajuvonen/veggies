@@ -1,4 +1,5 @@
 import type {InjectionKey, Ref} from 'vue';
+import type {DateTime} from 'luxon';
 import type {UseMemoizeReturn} from '@vueuse/core';
 import {Category, type Locale} from './types';
 
@@ -18,6 +19,7 @@ export const DEFAULT_SETTINGS = {
   locale: DEFAULT_LOCALE,
   showChartAnimations: true,
   suggestionCount: 10,
+  summaryViewedDate: null as DateTime | null,
 } as const;
 
 export const KEYS = {
