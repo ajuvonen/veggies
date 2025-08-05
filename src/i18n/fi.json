@@ -1325,7 +1325,9 @@
     "close": "Sulje",
     "follow": "Seuraa Blueskyssä",
     "playStore": "Google Play",
-    "start": "Aloita"
+    "start": "Aloita",
+    "veggie": "0 kasvista | yhden kasviksen | {n} erilaista kasvista",
+    "veggieNominative": "0 kasvista | yksi kasvis | {n} erilaista kasvista"
   },
   "home": {
     "changeLocale": "Vaihda kieleksi {0}",
@@ -1748,17 +1750,17 @@
     "allCategories": "Mahtavaa! Söit kasviksia kaikista kategorioista viime viikolla!",
     "challengeCompleted": "Tehtävä suoritettu! Viikkohaasteesi oli {0} ja onnistuit siinä!",
     "challengeMissed": "Et saanut viikkohaastettasi ({0}) suoritettua. Ehkä ensi kerralla?",
-    "favoriteCategory": "Suosikkikategoriasi viime viikolla oli {0}, josta söit {1} eri kasvista!",
-    "fellShort": "Söit {0} kasvista toissaviikolla. Onnistut varmasti tällä viikolla paremmin!",
-    "goodStart": "Hyvä alku! Söit {0} erilaista kasvista viime viikolla.",
+    "favoriteCategory": "Suosikkikategoriasi viime viikolla oli {1}, josta söit @:general.veggie{'!'}",
+    "fellShort": "Söit @:general.veggie toissaviikolla ja jäit tästä. Onnistut varmasti tällä viikolla paremmin!",
+    "goodStart": "Hyvä alku! Söit @:general.veggie viime viikolla.",
     "hotStreak": "Olet syönyt yli 30 kasvista {0} viikon ajan. Jatka samaan malliin!",
-    "lowCategoryCount": "Eikö maistu? Kokeilit vain {0} kasvista kategoriasta {1} viime viikolla.",
-    "makingProgress": "Edistystä! Kokeilit {0} erilaista kasvista viime viikolla.",
-    "mean": "Keskiarvosi viimeisen viiden viikon ajalta on {0}. Pystytkö ylittämään sen tällä viikolla?",
+    "lowCategoryCount": "Eikö maistu? Kokeilit vain @:general.veggie kategoriasta {1} viime viikolla.",
+    "makingProgress": "Edistystä! Kokeilit @:general.veggie viime viikolla.",
+    "mean": "Keskiarvosi viimeisen viiden viikon ajalta on @:general.veggieNominative{'.'} Pystytkö ylittämään sen tällä viikolla?",
     "missingCategory": "Et syönyt mitään kategoriasta {0}. Haluatko kokeilla tällä viikolla?",
     "noVeggies": "Et kirjannut kasviksia viime viikolla. Aika uudelle alulle? Jos vain unohdit kirjata kasviksesi, voit muokata viikkoa tilastonäkymän kautta.",
-    "recordAchieved": "Uusi ennätys! Söit {0} erilaista kasvista viime viikolla!",
-    "surpassedPreviousWeek": "Edistystä! Ohitit toissaviikon tuloksen, joka oli {0} kasvista!",
+    "recordAchieved": "Uusi ennätys! Söit @:general.veggies viime viikolla!",
+    "surpassedPreviousWeek": "Edistystä! Ohitit toissaviikon tuloksen, joka oli @:general.veggieNominative{'!'}",
     "title": "Viikko {0} paketissa!"
   }
 }

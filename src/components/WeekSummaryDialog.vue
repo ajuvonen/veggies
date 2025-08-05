@@ -76,7 +76,9 @@ const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
           <span aria-hidden="true" class="flex items-center text-5xl pointer-events-none">{{
             emoji
           }}</span>
-          <span class="flex items-center">{{ $t(translationKey, translationParameters) }}</span>
+          <span class="flex items-center">{{
+            $t(translationKey, translationParameters, Number(translationParameters[0]))
+          }}</span>
         </div>
       </div>
     </template>

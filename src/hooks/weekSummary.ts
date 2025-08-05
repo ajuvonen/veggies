@@ -108,7 +108,7 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
       messages.push({
         emoji: '⭐',
         translationKey: 'weekStartDialog.favoriteCategory',
-        translationParameters: [t(`categories.${favoriteCategory}`).toLowerCase(), favoriteCount],
+        translationParameters: [favoriteCount, t(`categories.${favoriteCategory}`).toLowerCase()],
       });
     }
 
