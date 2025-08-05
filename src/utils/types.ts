@@ -31,6 +31,7 @@ export type Settings = {
   locale: Locale;
   showChartAnimations: boolean;
   suggestionCount: number;
+  summaryViewedDate: DateTime | null;
 };
 
 export type Listing = {

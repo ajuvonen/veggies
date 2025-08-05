@@ -140,7 +140,7 @@ export const getRandomVeggie = (availableVeggies: readonly string[] = []) =>
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const dateParser = (key: string, value: any) => {
-  if (key === 'startDate' && value) {
+  if (key.endsWith('Date') && value) {
     return DateTime.fromISO(value.split('T')[0]);
   }
   return value;
@@ -148,7 +148,7 @@ export const dateParser = (key: string, value: any) => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const dateReplacer = (key: string, value: any) => {
-  if (key === 'startDate' && value) {
+  if (key.endsWith('Date') && value) {
     return value.split('T')[0];
   }
   return value;
@@ -223,6 +223,7 @@ export const getImportSchema = async () => {
           .refine((val) => [0, 5, 10, 15, 20].includes(val))
           .catch(DEFAULT_SETTINGS.suggestionCount)
           .default(DEFAULT_SETTINGS.suggestionCount),
+        summaryViewedDate: z.union([luxonDateTimeSchema, z.null()]).default(null),
       })
       .default({...DEFAULT_SETTINGS}),
   });
