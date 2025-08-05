@@ -11,7 +11,7 @@ import {LOCALES} from '@/utils/constants';
 import NavBar from '@/components/NavBar.vue';
 import ToastContainer from '@/components/ToastContainer.vue';
 import AchievementDialog from '@/components/AchievementDialog.vue';
-import WeekStartDialog from '@/components/WeekStartDialog.vue';
+import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 
 const {t, locale, setLocaleMessage} = useI18n();
 
@@ -74,7 +74,7 @@ watch(
     <RouterView />
   </main>
   <AchievementDialog />
-  <WeekStartDialog />
+  <WeekSummaryDialog />
 </template>
 
 <style scoped>

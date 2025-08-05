@@ -4,10 +4,10 @@ import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import DialogStub from './DialogStub.vue';
-import WeekStartDialog from '@/components/WeekStartDialog.vue';
+import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 
 const mounter = () =>
-  mount(WeekStartDialog, {
+  mount(WeekSummaryDialog, {
     global: {
       stubs: {
         Dialog: DialogStub,
@@ -19,7 +19,7 @@ const mounter = () =>
     },
   });
 
-describe('WeekStartDialog', () => {
+describe('WeekSummaryDialog', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
