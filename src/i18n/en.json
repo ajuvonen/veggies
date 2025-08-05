@@ -1325,7 +1325,9 @@
     "close": "Close",
     "follow": "Follow on Bluesky",
     "playStore": "Google Play",
-    "start": "Start"
+    "start": "Start",
+    "veggie": "0 veggies | one veggie | {n} different veggies",
+    "veggieNominative": "0 veggies | one veggie | {n} different veggies"
   },
   "home": {
     "changeLocale": "Change language to {0}",
@@ -1748,17 +1750,17 @@
     "allCategories": "Amazing! You tried veggies from all categories last week!",
     "challengeCompleted": "Mission accomplished! You tried {0} for your weekly challenge!",
     "challengeMissed": "You didn't try {0} this week. Maybe next time?",
-    "favoriteCategory": "Your favorite category last week was {0} with {1} different veggies!",
-    "fellShort": "You tried {0} veggies the week before. You can do better this week!",
-    "goodStart": "Good start! You tried {0} different veggies last week.",
+    "favoriteCategory": "Your favorite category last week was {1} with @:general.veggie{'!'}",
+    "fellShort": "You tried @:general.veggie the week before. You can do better this week!",
+    "goodStart": "Good start! You tried @:general.veggie last week.",
     "hotStreak": "You've eaten more than 30 veggies for {0} weeks. Keep it up!",
-    "lowCategoryCount": "Not feeling it? You only tried {0} veggie from {1} last week.",
-    "makingProgress": "Making progress! You tried {0} different veggies last week.",
-    "mean": "Your average over the past five weeks is {0}. Can you beat it this week?",
+    "lowCategoryCount": "Not feeling it? You only tried @:general.veggie from {1} last week.",
+    "makingProgress": "Making progress! You tried @:general.veggie last week.",
+    "mean": "Your average over the past five weeks is @:general.veggieNominative{'.'} Can you beat it this week?",
     "missingCategory": "You didn't eat any {0}. Care to try some this week?",
     "noVeggies": "No veggies logged last week. Time for a fresh start? If you simply forgot to track your veggies, you can edit the week in the statistics view.",
-    "recordAchieved": "New personal record! You ate {0} different veggies last week!",
-    "surpassedPreviousWeek": "Improvement! You beat your previous week's count of {0}!",
+    "recordAchieved": "New personal record! You ate @:general.veggie last week!",
+    "surpassedPreviousWeek": "Improvement! You beat your previous week's count of @:general.veggieNominative{'!'}",
     "title": "All done for week {0}!"
   }
 }
