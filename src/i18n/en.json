@@ -1747,9 +1747,10 @@
     "stats": "Statistics"
   },
   "weekStartDialog": {
+    "accomplishment": "Congratulations! You tried @:general.veggie last week!",
     "allCategories": "Amazing! You tried veggies from all categories last week!",
     "challengeCompleted": "Mission accomplished! You tried {0} for your weekly challenge!",
-    "challengeMissed": "You didn't try {0} this week. Maybe next time?",
+    "challengeMissed": "You didn't complete your challenge ({0}) this week. Maybe next time?",
     "favoriteCategory": "Your favorite category last week was {1} with @:general.veggie{'!'}",
     "fellShort": "You tried @:general.veggie the week before. You can do better this week!",
     "goodStart": "Good start! You tried @:general.veggie last week.",
@@ -1760,7 +1761,8 @@
     "missingCategory": "You didn't eat any {0}. Care to try some this week?",
     "noVeggies": "No veggies logged last week. Time for a fresh start? If you simply forgot to track your veggies, you can edit the week in the statistics view.",
     "recordAchieved": "New personal record! You ate @:general.veggie last week!",
-    "surpassedPreviousWeek": "Improvement! You beat your previous week's count of @:general.veggieNominative{'!'}",
+    "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
+    "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",
     "title": "All done for week {0}!"
   }
 }

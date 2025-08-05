@@ -1,8 +1,10 @@
 import {ref, computed, type ComputedRef} from 'vue';
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
+import {take} from 'remeda';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/utils/types';
+import {ALL_VEGGIES} from '@/utils/constants';
 
 const withSetup = (weekData: ComputedRef<WeekData>) =>
   new Promise<ReturnType<typeof useWeekSummary>>((resolve) => {
@@ -41,7 +43,7 @@ describe('useWeekSummary', () => {
   });
 
   describe('progress messages', () => {
-    it('returns good start message for less than 15 veggies', async () => {
+    it('returns room for improvement message for less than 10 veggies', async () => {
       const weekData = createWeekData({
         veggies: ['apple', 'spinach', 'tomato'],
       });
@@ -49,16 +51,31 @@ describe('useWeekSummary', () => {
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
-          emoji: '🌱',
-          translationKey: 'weekStartDialog.goodStart',
+          emoji: '🍂',
+          translationKey: 'weekStartDialog.roomForImprovement',
           translationParameters: [3],
         }),
       );
     });
 
-    it('returns making progress message for 15-29 veggies', async () => {
+    it('returns good start message for 10-19 veggies', async () => {
       const weekData = createWeekData({
-        veggies: Array(20).fill('apple'),
+        veggies: take(ALL_VEGGIES, 15),
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      expect(summaryMessages.value).toContainEqual(
+        expect.objectContaining({
+          emoji: '🌱',
+          translationKey: 'weekStartDialog.goodStart',
+          translationParameters: [15],
+        }),
+      );
+    });
+
+    it('returns making progress message for 20-29 veggies', async () => {
+      const weekData = createWeekData({
+        veggies: take(ALL_VEGGIES, 25),
       });
       const {summaryMessages} = await withSetup(weekData);
 
@@ -66,7 +83,37 @@ describe('useWeekSummary', () => {
         expect.objectContaining({
           emoji: '🥗',
           translationKey: 'weekStartDialog.makingProgress',
-          translationParameters: [20],
+          translationParameters: [25],
+        }),
+      );
+    });
+
+    it('returns accomplishment message for 30+ veggies when hotStreak is 1', async () => {
+      const weekData = createWeekData({
+        veggies: take(ALL_VEGGIES, 30),
+        hotStreak: 1,
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      expect(summaryMessages.value).toContainEqual(
+        expect.objectContaining({
+          emoji: '🎉',
+          translationKey: 'weekStartDialog.accomplishment',
+          translationParameters: [30],
+        }),
+      );
+    });
+
+    it('does not return accomplishment message for 30+ veggies when hotStreak is not 1', async () => {
+      const weekData = createWeekData({
+        veggies: take(ALL_VEGGIES, 35),
+        hotStreak: 2,
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      expect(summaryMessages.value).not.toContainEqual(
+        expect.objectContaining({
+          translationKey: 'weekStartDialog.accomplishment',
         }),
       );
     });
@@ -261,7 +308,7 @@ describe('useWeekSummary', () => {
         expect.objectContaining({
           emoji: '⭐',
           translationKey: 'weekStartDialog.favoriteCategory',
-          translationParameters: ['fruits and berries', 4],
+          translationParameters: [4, 'fruits and berries'],
         }),
       );
     });

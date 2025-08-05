@@ -13,7 +13,13 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
     const messages: SummaryItem[] = [];
     const veggieCount = data.veggies.length;
 
-    if (veggieCount < 15) {
+    if (veggieCount < 10) {
+      messages.push({
+        emoji: '🍂',
+        translationKey: 'weekStartDialog.roomForImprovement',
+        translationParameters: [veggieCount],
+      });
+    } else if (veggieCount < 20) {
       messages.push({
         emoji: '🌱',
         translationKey: 'weekStartDialog.goodStart',
@@ -23,6 +29,12 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
       messages.push({
         emoji: '🥗',
         translationKey: 'weekStartDialog.makingProgress',
+        translationParameters: [veggieCount],
+      });
+    } else if (veggieCount >= 30 && data.hotStreak === 1) {
+      messages.push({
+        emoji: '🎉',
+        translationKey: 'weekStartDialog.accomplishment',
         translationParameters: [veggieCount],
       });
     }
