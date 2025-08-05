@@ -1747,6 +1747,7 @@
     "stats": "Tilastot"
   },
   "weekStartDialog": {
+    "accomplishment": "Onnittelut! Söit @:general.veggie viime viikolla!",
     "allCategories": "Mahtavaa! Söit kasviksia kaikista kategorioista viime viikolla!",
     "challengeCompleted": "Tehtävä suoritettu! Viikkohaasteesi oli {0} ja onnistuit siinä!",
     "challengeMissed": "Et saanut viikkohaastettasi ({0}) suoritettua. Ehkä ensi kerralla?",
@@ -1760,7 +1761,8 @@
     "missingCategory": "Et syönyt mitään kategoriasta {0}. Haluatko kokeilla tällä viikolla?",
     "noVeggies": "Et kirjannut kasviksia viime viikolla. Aika uudelle alulle? Jos vain unohdit kirjata kasviksesi, voit muokata viikkoa tilastonäkymän kautta.",
     "recordAchieved": "Uusi ennätys! Söit @:general.veggies viime viikolla!",
-    "surpassedPreviousWeek": "Edistystä! Ohitit toissaviikon tuloksen, joka oli @:general.veggieNominative{'!'}",
+    "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
+    "surpassedPreviousWeek": "Ohitit toissaviikon tuloksen, joka oli @:general.veggieNominative{'!'}",
     "title": "Viikko {0} paketissa!"
   }
 }
