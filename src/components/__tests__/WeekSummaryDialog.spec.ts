@@ -90,8 +90,8 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('identifies first week correctly for lastWeekData', () => {
-    activityStore.weeks = [{startDate: currentWeek, veggies: ['apple']}];
-    activityStore.startDate = currentWeek;
+    activityStore.weeks = [{startDate: lastWeek, veggies: ['apple']}];
+    activityStore.startDate = lastWeek;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -113,7 +113,6 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('calculates mean correctly from past 5 weeks', () => {
-    // Add 7 weeks total to test the 5-week limit
     for (let i = 0; i < 7; i++) {
       const weekStart = currentWeek.minus({weeks: i});
       const veggieCount = (i + 1) * 2; // 2, 4, 6, 8, 10, 12 veggies
@@ -125,15 +124,14 @@ describe('WeekSummaryDialog', () => {
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
 
-    // Should use only the first 5 weeks: 2, 4, 6, 8, 10 -> mean = 6
-    expect(lastWeekData.mean).toBe(6);
+    // Should use only the last 5 weeks: 4, 6, 8, 10, 12 -> mean = 8
+    expect(lastWeekData.mean).toBe(8);
   });
 
   it('calculates mean correctly from less than 5 weeks when no more weeks exist', () => {
     activityStore.weeks = [
-      {startDate: twoWeeksAgo, veggies: ['apple', 'spinach']}, // 2 veggies
-      {startDate: lastWeek, veggies: ['apple', 'spinach', 'tomato', 'carrot']}, // 4 veggies
-      {startDate: currentWeek, veggies: ['broccoli', 'carrot', 'spinach']}, // 3 veggies
+      {startDate: twoWeeksAgo, veggies: ['apple', 'spinach']},
+      {startDate: lastWeek, veggies: ['apple', 'spinach', 'tomato', 'carrot']},
     ];
     activityStore.startDate = twoWeeksAgo;
 
@@ -183,8 +181,8 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('returns empty first-time veggies when weeks < 2', () => {
-    activityStore.weeks = [{startDate: currentWeek, veggies: ['apple', 'spinach']}];
-    activityStore.startDate = currentWeek;
+    activityStore.weeks = [{startDate: lastWeek, veggies: ['apple', 'spinach']}];
+    activityStore.startDate = lastWeek;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;

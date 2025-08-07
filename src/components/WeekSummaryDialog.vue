@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, defineAsyncComponent} from 'vue';
+import {computed, defineAsyncComponent, ref, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {mean, sample, shuffle, countBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
@@ -38,35 +38,47 @@ const dialogOpen = computed({
   },
 });
 
-// Computed for previous week data
-const lastWeekData = computed<WeekData>(() => {
-  const lastWeekStart = currentWeekStart.value.minus({weeks: 1});
-  const lastWeekChallenge = challenges.value.find(({startDate}) =>
-    startDate.equals(lastWeekStart),
-  )?.veggie;
+const lastWeekData = ref<WeekData | null>(null);
 
-  const pastVeggies = Array.from(
-    {length: Math.min(5, weeks.value.length)},
-    (_, weekIndex) => veggiesForWeek.value(currentWeekStart.value.minus({weeks: weekIndex})).length,
-  );
+watch(
+  dialogOpen,
+  (shouldShow) => {
+    if (shouldShow) {
+      const lastWeekStart = currentWeekStart.value.minus({weeks: 1});
+      const lastWeekChallenge = challenges.value.find(({startDate}) =>
+        startDate.equals(lastWeekStart),
+      )?.veggie;
 
-  const lastWeekVeggies = veggiesForWeek.value(lastWeekStart);
-  const veggieCounts = countBy(allVeggies.value, (veggie) => veggie);
-  const firstTimeVeggies =
-    weeks.value.length >= 2 ? lastWeekVeggies.filter((veggie) => veggieCounts[veggie] === 1) : [];
+      const pastVeggies = Array.from(
+        {length: Math.min(5, weeks.value.length)},
+        (_, weekIndex) =>
+          veggiesForWeek.value(currentWeekStart.value.minus({weeks: weekIndex + 1})).length,
+      );
 
-  return {
-    atMostVeggies: atMostVeggies.value,
-    challenge: lastWeekChallenge,
-    firstTimeVeggies,
-    firstWeek: weeks.value.length === 1,
-    hotStreak: hotStreak.value,
-    mean: Math.round(mean(pastVeggies) as number),
-    previousWeekCount: veggiesForWeek.value(currentWeekStart.value.minus({weeks: 2})).length,
-    veggies: lastWeekVeggies,
-    weekNumber: lastWeekStart.toFormat('W'),
-  };
-});
+      const lastWeekVeggies = veggiesForWeek.value(lastWeekStart);
+      const veggieCounts = countBy(allVeggies.value, (veggie) => veggie);
+      const firstTimeVeggies =
+        weeks.value.length >= 2
+          ? lastWeekVeggies.filter((veggie) => veggieCounts[veggie] === 1)
+          : [];
+
+      lastWeekData.value = {
+        atMostVeggies: atMostVeggies.value,
+        challenge: lastWeekChallenge,
+        firstTimeVeggies,
+        firstWeek: weeks.value.length === 1,
+        hotStreak: hotStreak.value,
+        mean: Math.round(mean(pastVeggies) as number),
+        previousWeekCount: veggiesForWeek.value(currentWeekStart.value.minus({weeks: 2})).length,
+        veggies: lastWeekVeggies,
+        weekNumber: lastWeekStart.toFormat('W'),
+      };
+    } else {
+      lastWeekData.value = null;
+    }
+  },
+  {immediate: true},
+);
 
 const {summaryMessages} = useWeekSummary(lastWeekData);
 const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
@@ -79,6 +91,7 @@ defineExpose({
 <template>
   <ModalDialog
     id="week-start-dialog"
+    v-if="lastWeekData"
     v-model="dialogOpen"
     :title="$t('weekStartDialog.title', [lastWeekData.weekNumber])"
   >
@@ -106,5 +119,3 @@ defineExpose({
     </template>
   </ModalDialog>
 </template>
-
-<style scoped></style>
