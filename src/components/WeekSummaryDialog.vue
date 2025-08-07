@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed} from 'vue';
+import {computed, defineAsyncComponent} from 'vue';
 import {storeToRefs} from 'pinia';
 import {mean, sample, shuffle} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
@@ -7,7 +7,10 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/utils/types';
 import ModalDialog from '@/components/ModalDialog.vue';
-import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
+
+const CategoryStatusChart = defineAsyncComponent(
+  () => import('@/components/charts/CategoryStatusChart.vue'),
+);
 
 const {currentWeekStart, startDate, veggiesForWeek, challenges, hotStreak, atMostVeggies, weeks} =
   storeToRefs(useActivityStore());
