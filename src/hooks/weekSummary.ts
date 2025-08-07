@@ -104,6 +104,15 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
       });
     }
 
+    // Create individual message for each first-time veggie
+    data.firstTimeVeggies.forEach((veggie) => {
+      messages.push({
+        emoji: '🆕',
+        translationKey: 'weekStartDialog.firstTimeVeggie',
+        translationParameters: [t(`veggies.${veggie}`).toLowerCase()],
+      });
+    });
+
     return messages;
   };
 

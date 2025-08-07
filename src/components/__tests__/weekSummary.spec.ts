@@ -21,6 +21,7 @@ const createWeekData = (overrides: Partial<WeekData> = {}): ComputedRef<WeekData
   computed(() => ({
     atMostVeggies: 10,
     challenge: undefined,
+    firstTimeVeggies: [],
     firstWeek: false,
     hotStreak: 1,
     mean: 12,
@@ -295,6 +296,43 @@ describe('useWeekSummary', () => {
       );
       expect(challengeMessages).toHaveLength(0);
     });
+
+    it('returns individual messages for each first-time veggie', async () => {
+      const weekData = createWeekData({
+        firstTimeVeggies: ['apple', 'spinach'],
+        veggies: ['apple', 'spinach', 'tomato'],
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      expect(summaryMessages.value).toContainEqual(
+        expect.objectContaining({
+          emoji: '🆕',
+          translationKey: 'weekStartDialog.firstTimeVeggie',
+          translationParameters: ['apple'],
+        }),
+      );
+
+      expect(summaryMessages.value).toContainEqual(
+        expect.objectContaining({
+          emoji: '🆕',
+          translationKey: 'weekStartDialog.firstTimeVeggie',
+          translationParameters: ['spinach'],
+        }),
+      );
+    });
+
+    it('does not return first-time veggie messages when no first-time veggies', async () => {
+      const weekData = createWeekData({
+        firstTimeVeggies: [],
+        veggies: ['apple', 'spinach', 'tomato'],
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      const firstTimeMessages = summaryMessages.value.filter(
+        ({translationKey}) => translationKey === 'weekStartDialog.firstTimeVeggie',
+      );
+      expect(firstTimeMessages).toHaveLength(0);
+    });
   });
 
   describe('category messages', () => {
@@ -459,6 +497,7 @@ describe('useWeekSummary', () => {
       const weekData = ref<WeekData>({
         atMostVeggies: 10,
         challenge: undefined,
+        firstTimeVeggies: [],
         firstWeek: false,
         hotStreak: 1,
         mean: 5,
