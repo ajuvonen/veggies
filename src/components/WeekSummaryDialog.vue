@@ -70,6 +70,10 @@ const lastWeekData = computed<WeekData>(() => {
 
 const {summaryMessages} = useWeekSummary(lastWeekData);
 const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
+
+defineExpose({
+  lastWeekData,
+});
 </script>
 
 <template>
