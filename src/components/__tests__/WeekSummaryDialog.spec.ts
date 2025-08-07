@@ -113,19 +113,34 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('calculates mean correctly from past 5 weeks', () => {
-    for (let i = 0; i < 6; i++) {
+    // Add 7 weeks total to test the 5-week limit
+    for (let i = 0; i < 7; i++) {
       const weekStart = currentWeek.minus({weeks: i});
       const veggieCount = (i + 1) * 2; // 2, 4, 6, 8, 10, 12 veggies
       const veggies = take(ALL_VEGGIES, veggieCount);
       activityStore.weeks.push({startDate: weekStart, veggies});
     }
-    activityStore.startDate = currentWeek.minus({weeks: 5});
+    activityStore.startDate = currentWeek.minus({weeks: 6});
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
 
     // Should use only the first 5 weeks: 2, 4, 6, 8, 10 -> mean = 6
     expect(lastWeekData.mean).toBe(6);
+  });
+
+  it('calculates mean correctly from less than 5 weeks when no more weeks exist', () => {
+    activityStore.weeks = [
+      {startDate: twoWeeksAgo, veggies: ['apple', 'spinach']}, // 2 veggies
+      {startDate: lastWeek, veggies: ['apple', 'spinach', 'tomato', 'carrot']}, // 4 veggies
+      {startDate: currentWeek, veggies: ['broccoli', 'carrot', 'spinach']}, // 3 veggies
+    ];
+    activityStore.startDate = twoWeeksAgo;
+
+    const wrapper = mounter();
+    const lastWeekData = wrapper.vm.lastWeekData as WeekData;
+
+    expect(lastWeekData.mean).toBe(3);
   });
 
   it('finds weekly challenge correctly', () => {
