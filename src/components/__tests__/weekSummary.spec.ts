@@ -212,11 +212,53 @@ describe('useWeekSummary', () => {
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
-          emoji: '👑',
+          emoji: '🥇',
           translationKey: 'weekStartDialog.recordAchieved',
           translationParameters: [3],
         }),
       );
+    });
+
+    it('returns close to record message when 2 veggies away from record', async () => {
+      const weekData = createWeekData({
+        atMostVeggies: 10,
+        veggies: take(ALL_VEGGIES, 8),
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      expect(summaryMessages.value).toContainEqual(
+        expect.objectContaining({
+          emoji: '🥈',
+          translationKey: 'weekStartDialog.closeToRecord',
+          translationParameters: [2, 10],
+        }),
+      );
+    });
+
+    it('does not return close to record message when 3 or more veggies away', async () => {
+      const weekData = createWeekData({
+        atMostVeggies: 10,
+        veggies: ['apple', 'spinach', 'tomato'],
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      const closeToRecordMessages = summaryMessages.value.filter(
+        ({translationKey}) => translationKey === 'weekStartDialog.closeToRecord',
+      );
+      expect(closeToRecordMessages).toHaveLength(0);
+    });
+
+    it('does not return close to record message when at record', async () => {
+      const weekData = createWeekData({
+        atMostVeggies: 3,
+        veggies: ['apple', 'spinach', 'tomato'],
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      const closeToRecordMessages = summaryMessages.value.filter(
+        ({translationKey}) => translationKey === 'weekStartDialog.closeToRecord',
+      );
+      expect(closeToRecordMessages).toHaveLength(0);
     });
 
     it('returns hot streak message when hot streak is longer than 2 weeks', async () => {
@@ -473,6 +515,7 @@ describe('useWeekSummary', () => {
       // Should contain record achievement
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
+          emoji: '🥇',
           translationKey: 'weekStartDialog.recordAchieved',
           translationParameters: [2],
         }),
@@ -534,6 +577,7 @@ describe('useWeekSummary', () => {
       };
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
+          emoji: '🥇',
           translationKey: 'weekStartDialog.recordAchieved',
         }),
       );

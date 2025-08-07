@@ -73,9 +73,15 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
 
     if (data.veggies.length === data.atMostVeggies) {
       messages.push({
-        emoji: '👑',
+        emoji: '🥇',
         translationKey: 'weekStartDialog.recordAchieved',
         translationParameters: [data.atMostVeggies],
+      });
+    } else if (data.atMostVeggies - data.veggies.length < 3) {
+      messages.push({
+        emoji: '🥈',
+        translationKey: 'weekStartDialog.closeToRecord',
+        translationParameters: [data.atMostVeggies - data.veggies.length, data.atMostVeggies],
       });
     }
 
