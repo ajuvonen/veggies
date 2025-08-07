@@ -1,4 +1,4 @@
-import {ref, computed, type ComputedRef} from 'vue';
+import {ref, type Ref} from 'vue';
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {take} from 'remeda';
@@ -6,7 +6,7 @@ import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/utils/types';
 import {ALL_VEGGIES} from '@/utils/constants';
 
-const withSetup = (weekData: ComputedRef<WeekData>) =>
+const withSetup = (weekData: Ref<WeekData>) =>
   new Promise<ReturnType<typeof useWeekSummary>>((resolve) => {
     mount({
       shallow: true,
@@ -17,8 +17,8 @@ const withSetup = (weekData: ComputedRef<WeekData>) =>
     });
   });
 
-const createWeekData = (overrides: Partial<WeekData> = {}): ComputedRef<WeekData> =>
-  computed(() => ({
+const createWeekData = (overrides: Partial<WeekData> = {}): Ref<WeekData> =>
+  ref({
     atMostVeggies: 10,
     challenge: undefined,
     firstTimeVeggies: [],
@@ -29,7 +29,7 @@ const createWeekData = (overrides: Partial<WeekData> = {}): ComputedRef<WeekData
     veggies: [],
     weekNumber: '1',
     ...overrides,
-  }));
+  });
 
 describe('useWeekSummary', () => {
   it('returns no veggies message when veggies array is empty', async () => {
@@ -548,8 +548,8 @@ describe('useWeekSummary', () => {
         veggies: ['apple'],
         weekNumber: '1',
       });
-      const weekDataComputed = computed(() => weekData.value);
-      const {summaryMessages} = await withSetup(weekDataComputed);
+
+      const {summaryMessages} = await withSetup(weekData);
 
       // Initial state: should have missing categories
       expect(

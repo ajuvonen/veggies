@@ -1,4 +1,4 @@
-import {computed, type ComputedRef} from 'vue';
+import {computed, type Ref} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {countBy} from 'remeda';
 import type {WeekData, SummaryItem} from '@/utils/types';
@@ -6,7 +6,7 @@ import {Category} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 
-export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
+export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
   const {t} = useI18n();
 
   const createProgressMessages = (data: WeekData): SummaryItem[] => {
@@ -176,7 +176,9 @@ export const useWeekSummary = (weekData: ComputedRef<WeekData>) => {
   };
 
   const summaryMessages = computed<SummaryItem[]>(() => {
-    if (!weekData.value.veggies.length) {
+    if (!weekData.value) {
+      return [];
+    } else if (!weekData.value.veggies.length) {
       return [
         {
           emoji: '🍽️',
