@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed, defineAsyncComponent} from 'vue';
 import {storeToRefs} from 'pinia';
-import {mean, sample, shuffle} from 'remeda';
+import {mean, sample, shuffle, countBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useWeekSummary} from '@/hooks/weekSummary';
@@ -12,8 +12,16 @@ const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
 );
 
-const {currentWeekStart, startDate, veggiesForWeek, challenges, hotStreak, atMostVeggies, weeks} =
-  storeToRefs(useActivityStore());
+const {
+  currentWeekStart,
+  startDate,
+  veggiesForWeek,
+  challenges,
+  hotStreak,
+  atMostVeggies,
+  weeks,
+  allVeggies,
+} = storeToRefs(useActivityStore());
 
 const {settings} = storeToRefs(useAppStateStore());
 
@@ -42,14 +50,20 @@ const lastWeekData = computed<WeekData>(() => {
     (_, weekIndex) => veggiesForWeek.value(currentWeekStart.value.minus({weeks: weekIndex})).length,
   );
 
+  const lastWeekVeggies = veggiesForWeek.value(lastWeekStart);
+  const veggieCounts = countBy(allVeggies.value, (veggie) => veggie);
+  const firstTimeVeggies =
+    weeks.value.length >= 2 ? lastWeekVeggies.filter((veggie) => veggieCounts[veggie] === 1) : [];
+
   return {
     atMostVeggies: atMostVeggies.value,
     challenge: lastWeekChallenge,
+    firstTimeVeggies,
     firstWeek: weeks.value.length === 1,
     hotStreak: hotStreak.value,
     mean: Math.round(mean(pastVeggies) as number),
     previousWeekCount: veggiesForWeek.value(currentWeekStart.value.minus({weeks: 2})).length,
-    veggies: veggiesForWeek.value(lastWeekStart),
+    veggies: lastWeekVeggies,
     weekNumber: lastWeekStart.toFormat('W'),
   };
 });
@@ -74,6 +88,7 @@ const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
         />
         <div
           v-for="{emoji, translationKey, translationParameters} in summary"
+          :key="`${translationKey}-${JSON.stringify(translationParameters)}`"
           class="flex-container"
         >
           <span aria-hidden="true" class="flex items-center text-5xl pointer-events-none">{{
