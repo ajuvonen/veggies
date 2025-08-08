@@ -53,7 +53,7 @@ defineProps<{
 }
 
 .modal-dialog {
-  @apply w-full max-w-xl max-h-full rounded-md p-4 shadow-xl;
+  @apply w-full max-w-xl max-h-full rounded-md p-4;
   @apply flex flex-col gap-4;
   @apply bg-[--color-bg-alternative];
 }
