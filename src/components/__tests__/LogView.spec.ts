@@ -17,6 +17,17 @@ vi.mock('@vueuse/core', async () => {
   };
 });
 
+const mounter = (options = {}) => {
+  return mount(LogView, {
+    global: {
+      stubs: {
+        Dialog: true,
+      },
+    },
+    ...options,
+  });
+};
+
 describe('LogView', () => {
   const thisWeek = DateTime.now().startOf('week');
   const lastWeek = thisWeek.minus({weeks: 1});
@@ -31,10 +42,11 @@ describe('LogView', () => {
   });
 
   it('renders', () => {
-    const wrapper = mount(LogView, {
+    const wrapper = mounter({
       global: {
         stubs: {
           FrontPageAnimation: true,
+          Dialog: true,
         },
       },
     });
@@ -42,13 +54,13 @@ describe('LogView', () => {
   });
 
   it('renders with animation', () => {
-    const wrapper = mount(LogView);
+    const wrapper = mounter();
     expect(wrapper).toBeTruthy();
   });
 
   it('renders without animation when reduced motion is preferred', () => {
     mocks.usePreferredReducedMotion.mockReturnValue(computed(() => 'reduce'));
-    const wrapper = mount(LogView);
+    const wrapper = mounter();
     expect(wrapper.find('.front-page-animation').exists()).toBe(false);
   });
 
@@ -74,7 +86,7 @@ describe('LogView', () => {
         veggie: 'morel',
       },
     ];
-    const wrapper = mount(LogView);
+    const wrapper = mounter();
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -86,7 +98,7 @@ describe('LogView', () => {
         startDate: thisWeek,
       },
     ];
-    const wrapper = mount(LogView);
+    const wrapper = mounter();
     try {
       expect(wrapper.find('.front-page-animation').exists()).toBe(false);
 
