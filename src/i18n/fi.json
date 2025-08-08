@@ -1761,7 +1761,7 @@
     "makingProgress": "Edistystä! Kokeilit @:general.veggie viime viikolla.",
     "mean": "Keskiarvosi viimeisen viiden viikon ajalta on @:general.veggieNominative{'.'} Pystytkö ylittämään sen tällä viikolla?",
     "missingCategory": "Et syönyt mitään kategoriasta {0}. Haluatko kokeilla tällä viikolla?",
-    "noVeggies": "Et kirjannut kasviksia viime viikolla. Aika uudelle alulle? Jos vain unohdit kirjata kasviksesi, voit muokata viikkoa tilastonäkymän kautta.",
+    "noVeggies": "Et kirjannut kasviksia viime viikolla. Jos vain unohdit kirjata kasviksesi, voit muokata viikkoa tilastonäkymän kautta.",
     "recordAchieved": "Uusi ennätys! Söit @:general.veggie viime viikolla!",
     "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
     "surpassedPreviousWeek": "Ohitit toissaviikon tuloksen, joka oli @:general.veggieNominative{'!'}",

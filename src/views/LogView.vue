@@ -1,18 +1,21 @@
 <script setup lang="ts">
-import {provide, readonly, watch} from 'vue';
+import {defineAsyncComponent, provide, readonly, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {difference, first} from 'remeda';
-import confetti from 'canvas-confetti';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {KEYS} from '@/utils/constants';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import VeggieSearch from '@/components/VeggieSearch.vue';
-import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
 import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
+
+const CategoryStatusChart = defineAsyncComponent(
+  () => import('@/components/charts/CategoryStatusChart.vue'),
+);
 
 const {t, tm} = useI18n();
 
@@ -24,13 +27,15 @@ const {addToastMessage} = useAppStateStore();
 
 const {availableVeggies} = useAvailableVeggies();
 
-const showConfetti = () =>
+const showConfetti = async () => {
+  const {default: confetti} = await import('canvas-confetti');
   confetti({
     disableForReducedMotion: true,
     particleCount: 150,
     spread: 70,
     origin: {x: 0.5, y: 0.7},
   });
+};
 
 watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
   const addedVeggie = first(difference(newCurrentVeggies, oldCurrentVeggies));
@@ -84,4 +89,5 @@ provide(KEYS.challenge, readonly(currentChallenge));
     icon="plus"
   />
   <FooterComponent />
+  <WeekSummaryDialog />
 </template>
