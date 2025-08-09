@@ -22,7 +22,7 @@ defineProps<{
       <div class="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
       <div class="modal-dialog__container">
-        <DialogPanel data-test-id="dialog" class="modal-dialog shadow-lg">
+        <DialogPanel data-test-id="dialog" class="modal-dialog">
           <div class="modal-dialog__header outline-override">
             <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
             <ButtonComponent
@@ -53,7 +53,7 @@ defineProps<{
 }
 
 .modal-dialog {
-  @apply w-full max-w-xl max-h-full rounded-md p-4;
+  @apply w-full max-w-xl max-h-full rounded-md p-4 shadow-xl;
   @apply flex flex-col gap-4;
   @apply bg-[--color-bg-alternative];
 }
