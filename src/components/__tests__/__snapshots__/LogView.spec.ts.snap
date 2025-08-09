@@ -1645,24 +1645,6 @@ exports[`LogView > renders with data 1`] = `
     </div>
   </transition-stub>
 </div>
-<div data-v-38bd5fcc="" class="shrink-0 category-status-chart__background">
-  <div data-v-38bd5fcc="" data="[object Object]" options="[object Object]" aria-labelledby="category-status-chart-center-label" aria-describedby="category-status-table" data-test-id="category-status-chart"></div>
-  <div data-v-38bd5fcc="" id="category-status-chart-center-label" class="category-status-chart__center-label" data-test-id="category-status-chart-center-label"><span data-v-38bd5fcc="">This Week</span> <span data-v-38bd5fcc="" class="text-6xl">1</span> <span data-v-38bd5fcc="">Veggies</span></div>
-  <table data-v-38bd5fcc="" class="sr-only" id="category-status-table">
-    <caption>Veggies of the Week</caption>
-    <thead>
-      <tr>
-        <!--v-if-->
-        <th>Grains, Nuts, And Seeds</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 <ul data-v-cd627eac="" aria-label="Suggestions" tabindex="-1" tag="ul" class="tags__container">
   <transition-group-stub data-v-cd627eac="" name="tags" appear="false" persisted="false" css="true">
     <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button-like button--tag button--primary" aria-label="Add rice">
