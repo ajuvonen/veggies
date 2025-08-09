@@ -35,14 +35,12 @@ describe('dropdown', () => {
     mocks.usePointer.mockImplementation(() => ({pointerType: ref('mouse')}));
     const {getDropdownStyles} = await withSetup();
     expect(getDropdownStyles(true, true)).toBe(
-      'text-[--color-text] fill-[--color-text] bg-[--color-primary]',
+      'text-[--color-text] fill-[--color-text] bg-[--color-primary-hover]',
     );
     expect(getDropdownStyles(true, false)).toBe(
-      'text-[--color-text] fill-[--color-text] bg-[--color-primary]',
+      'text-[--color-text] fill-[--color-text] bg-[--color-primary-hover]',
     );
-    expect(getDropdownStyles(false, true)).toBe(
-      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-sky-200 dark:bg-sky-300',
-    );
+    expect(getDropdownStyles(false, true)).toBe('text-[--color-text] bg-[--color-primary-active]');
     expect(getDropdownStyles(false, false)).toBe(
       'text-[--color-text-alternative] fill-[--color-text-alternative] bg-[--color-bg-alternative]',
     );
@@ -51,15 +49,11 @@ describe('dropdown', () => {
   it('returns correct styles when touch is used', async () => {
     mocks.usePointer.mockImplementation(() => ({pointerType: ref('touch')}));
     const {getDropdownStyles} = await withSetup();
-    expect(getDropdownStyles(true, true)).toBe(
-      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-sky-200 dark:bg-sky-300',
-    );
+    expect(getDropdownStyles(true, true)).toBe('text-[--color-text] bg-[--color-primary-active]');
     expect(getDropdownStyles(true, false)).toBe(
       'text-[--color-text-alternative] fill-[--color-text-alternative] bg-[--color-bg-alternative]',
     );
-    expect(getDropdownStyles(false, true)).toBe(
-      'text-[--color-text-alternative] fill-[--color-text-alternative] bg-sky-200 dark:bg-sky-300',
-    );
+    expect(getDropdownStyles(false, true)).toBe('text-[--color-text] bg-[--color-primary-active]');
     expect(getDropdownStyles(false, false)).toBe(
       'text-[--color-text-alternative] fill-[--color-text-alternative] bg-[--color-bg-alternative]',
     );

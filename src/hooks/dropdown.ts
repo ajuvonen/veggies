@@ -7,15 +7,16 @@ export function useDropdown() {
 
   const getDropdownStyles = useMemoize(
     (active: boolean, selected: boolean) => {
-      const textClass =
+      let textClass =
         active && hasMouse.value
           ? 'text-[--color-text] fill-[--color-text]'
           : 'text-[--color-text-alternative] fill-[--color-text-alternative]';
       let bgClass = `bg-[--color-bg-alternative]`;
       if (active && hasMouse.value) {
-        bgClass = 'bg-[--color-primary]';
+        bgClass = 'bg-[--color-primary-hover]';
       } else if (selected) {
-        bgClass = 'bg-sky-200 dark:bg-sky-300';
+        bgClass = 'bg-[--color-primary-active]';
+        textClass = 'text-[--color-text]';
       }
 
       return `${textClass} ${bgClass}`;

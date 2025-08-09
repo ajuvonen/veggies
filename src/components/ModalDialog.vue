@@ -22,7 +22,7 @@ defineProps<{
       <div class="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true" />
       <!-- Full-screen container to center the panel -->
       <div class="modal-dialog__container">
-        <DialogPanel data-test-id="dialog" class="modal-dialog">
+        <DialogPanel data-test-id="dialog" class="modal-dialog shadow-lg">
           <div class="modal-dialog__header outline-override">
             <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
             <ButtonComponent
