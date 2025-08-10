@@ -230,11 +230,11 @@ describe('WeekSummaryDialog', () => {
 
     const wrapper = mounter();
 
-    const emojiContainers = wrapper.findAll('.weekSummaryDialog__emoji');
+    const badges = wrapper.findAll('.weekSummaryBadge');
     const summaryItems = wrapper.findAll('.weekSummaryDialog__message');
 
     expect(summaryItems.length).toBe(3);
-    expect(emojiContainers.length).toBe(3);
+    expect(badges.length).toBe(3);
     expect(wrapper.findByTestId('promoted-achievement').exists()).toBe(true);
   });
 });

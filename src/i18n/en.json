@@ -1767,7 +1767,7 @@
     "mean": "Your average over five weeks is @:general.veggieNominative{'.'} Can you beat it this week?",
     "missingCategory": "You didn't eat any {0}. Care to try some this week?",
     "noVeggies": "No veggies logged last week. If you simply forgot to track your veggies, you can edit the week in the statistics view.",
-    "promotedAchievement": "Try aiming for this achievement this week: {0}!",
+    "promotedAchievement": "How about aiming for the achievement {0} this week?",
     "recordAchieved": "New personal record! You ate @:general.veggie last week!",
     "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
     "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",
