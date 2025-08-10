@@ -5,8 +5,9 @@ import {mean, sample, shuffle, countBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useWeekSummary} from '@/hooks/weekSummary';
-import type {WeekData} from '@/utils/types';
+import {AchievementLevel, type Achievements, type WeekData} from '@/utils/types';
 import ModalDialog from '@/components/ModalDialog.vue';
+import AchievementBadge from '@/components/AchievementBadge.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
@@ -39,6 +40,13 @@ const dialogOpen = computed({
 });
 
 const lastWeekData = ref<WeekData | null>(null);
+const weeklyAchievements: (keyof Achievements)[] = [
+  'allOnRed',
+  'botanicalBerries',
+  'goNuts',
+  'lemons',
+  'rainbow',
+];
 
 watch(
   dialogOpen,
@@ -70,6 +78,8 @@ watch(
         hotStreak: hotStreak.value,
         mean: Math.round(mean(pastVeggies) as number),
         previousWeekCount: veggiesForWeek.value(currentWeekStart.value.minus({weeks: 2})).length,
+        promotedAchievement:
+          weeklyAchievements[Math.floor(Math.random() * weeklyAchievements.length)],
         veggies: lastWeekVeggies,
         weekNumber: lastWeekStart.toFormat('W'),
       };
@@ -93,7 +103,7 @@ defineExpose({
     id="week-start-dialog"
     v-if="lastWeekData"
     v-model="dialogOpen"
-    :title="$t('weekStartDialog.title', [lastWeekData.weekNumber])"
+    :title="$t('weekSummaryDialog.title', [lastWeekData.weekNumber])"
   >
     <template #content>
       <div class="flex-container gap-4 flex-col">
@@ -103,19 +113,43 @@ defineExpose({
           alternateColorScheme
           topLabelKey="categoryStatus.topLabelLastWeek"
         />
-        <div
-          v-for="{emoji, translationKey, translationParameters} in summary"
-          :key="`${translationKey}-${JSON.stringify(translationParameters)}`"
-          class="flex-container"
-        >
-          <span aria-hidden="true" class="flex items-center text-5xl pointer-events-none">{{
-            emoji
-          }}</span>
+        <div class="grid grid-cols-[auto_1fr] gap-2">
+          <template
+            v-for="{emoji, translationKey, translationParameters} in summary"
+            :key="`${translationKey}-${JSON.stringify(translationParameters)}`"
+          >
+            <span aria-hidden="true" class="weekSummaryDialog__emoji">{{ emoji }}</span>
+            <span class="weekSummaryDialog__message">{{
+              $t(translationKey, translationParameters, Number(translationParameters[0]))
+            }}</span>
+          </template>
+          <span class="flex items-center justify-center">
+            <AchievementBadge
+              as="div"
+              :achievement="lastWeekData.promotedAchievement"
+              :level="AchievementLevel.Gold"
+              :active="true"
+              noLabel
+              data-test-id="promoted-achievement"
+            />
+          </span>
           <span class="flex items-center">{{
-            $t(translationKey, translationParameters, Number(translationParameters[0]))
+            $t('weekSummaryDialog.promotedAchievement', [
+              $t(`achievements.${lastWeekData.promotedAchievement}.badgeText`),
+            ])
           }}</span>
         </div>
       </div>
     </template>
   </ModalDialog>
 </template>
+<style scoped>
+.weekSummaryDialog__message {
+  @apply flex items-center;
+}
+
+.weekSummaryDialog__emoji {
+  @apply text-5xl pointer-events-none;
+  @apply flex items-center justify-center;
+}
+</style>

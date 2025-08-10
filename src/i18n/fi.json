@@ -1331,8 +1331,8 @@
     "follow": "Seuraa Blueskyssä",
     "playStore": "Google Play",
     "start": "Aloita",
-    "veggie": "0 kasvista | yhden kasviksen | {n} erilaista kasvista",
-    "veggieNominative": "0 kasvista | yksi kasvis | {n} erilaista kasvista"
+    "veggie": "0 kasvista | yhden kasviksen | {n} kasvista",
+    "veggieNominative": "0 kasvista | yksi kasvis | {n} kasvista"
   },
   "home": {
     "changeLocale": "Vaihda kieleksi {0}",
@@ -1751,7 +1751,7 @@
     "settings": "Asetukset",
     "stats": "Tilastot"
   },
-  "weekStartDialog": {
+  "weekSummaryDialog": {
     "accomplishment": "Onnittelut! Söit @:general.veggie viime viikolla!",
     "allCategories": "Mahtavaa! Söit kasviksia kaikista kategorioista viime viikolla!",
     "challengeCompleted": "Tehtävä suoritettu! Viikkohaasteesi oli {0} ja onnistuit siinä!",
@@ -1764,9 +1764,10 @@
     "hotStreak": "Olet syönyt yli 30 kasvista {0} viikon ajan. Jatka samaan malliin!",
     "lowCategoryCount": "Eikö maistu? Kokeilit vain @:general.veggie kategoriasta {1} viime viikolla.",
     "makingProgress": "Edistystä! Kokeilit @:general.veggie viime viikolla.",
-    "mean": "Keskiarvosi viimeisen viiden viikon ajalta on @:general.veggieNominative{'.'} Pystytkö ylittämään sen tällä viikolla?",
+    "mean": "Keskiarvosi viiden viikon ajalta on @:general.veggieNominative{'.'} Pystytkö ylittämään sen tällä viikolla?",
     "missingCategory": "Et syönyt mitään kategoriasta {0}. Haluatko kokeilla tällä viikolla?",
     "noVeggies": "Et kirjannut kasviksia viime viikolla. Jos vain unohdit kirjata kasviksesi, voit muokata viikkoa tilastonäkymän kautta.",
+    "promotedAchievement": "Tähtää tähän saavutukseen tällä viikolla: {0}!",
     "recordAchieved": "Uusi ennätys! Söit @:general.veggie viime viikolla!",
     "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
     "surpassedPreviousWeek": "Ohitit toissaviikon tuloksen, joka oli @:general.veggieNominative{'!'}",

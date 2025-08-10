@@ -16,25 +16,25 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
     if (veggieCount < 10) {
       messages.push({
         emoji: '🍂',
-        translationKey: 'weekStartDialog.roomForImprovement',
+        translationKey: 'weekSummaryDialog.roomForImprovement',
         translationParameters: [veggieCount],
       });
     } else if (veggieCount < 20) {
       messages.push({
         emoji: '🌱',
-        translationKey: 'weekStartDialog.goodStart',
+        translationKey: 'weekSummaryDialog.goodStart',
         translationParameters: [veggieCount],
       });
     } else if (veggieCount < 30) {
       messages.push({
         emoji: '🥗',
-        translationKey: 'weekStartDialog.makingProgress',
+        translationKey: 'weekSummaryDialog.makingProgress',
         translationParameters: [veggieCount],
       });
     } else if (veggieCount >= 30 && data.hotStreak === 1) {
       messages.push({
         emoji: '🎉',
-        translationKey: 'weekStartDialog.accomplishment',
+        translationKey: 'weekSummaryDialog.accomplishment',
         translationParameters: [veggieCount],
       });
     }
@@ -48,13 +48,13 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
     if (!data.firstWeek && data.previousWeekCount < data.veggies.length) {
       messages.push({
         emoji: '📈',
-        translationKey: 'weekStartDialog.surpassedPreviousWeek',
+        translationKey: 'weekSummaryDialog.surpassedPreviousWeek',
         translationParameters: [data.previousWeekCount],
       });
     } else if (data.previousWeekCount - data.veggies.length > 3) {
       messages.push({
         emoji: '📉',
-        translationKey: 'weekStartDialog.fellShort',
+        translationKey: 'weekSummaryDialog.fellShort',
         translationParameters: [data.previousWeekCount],
       });
     }
@@ -67,20 +67,20 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
 
     messages.push({
       emoji: '📊',
-      translationKey: 'weekStartDialog.mean',
+      translationKey: 'weekSummaryDialog.mean',
       translationParameters: [data.mean],
     });
 
     if (data.veggies.length === data.atMostVeggies) {
       messages.push({
         emoji: '🥇',
-        translationKey: 'weekStartDialog.recordAchieved',
+        translationKey: 'weekSummaryDialog.recordAchieved',
         translationParameters: [data.atMostVeggies],
       });
     } else if (data.atMostVeggies - data.veggies.length < 3) {
       messages.push({
         emoji: '🥈',
-        translationKey: 'weekStartDialog.closeToRecord',
+        translationKey: 'weekSummaryDialog.closeToRecord',
         translationParameters: [data.atMostVeggies - data.veggies.length, data.atMostVeggies],
       });
     }
@@ -88,7 +88,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
     if (data.hotStreak >= 2) {
       messages.push({
         emoji: '🔥',
-        translationKey: 'weekStartDialog.hotStreak',
+        translationKey: 'weekSummaryDialog.hotStreak',
         translationParameters: [data.hotStreak],
       });
     }
@@ -104,8 +104,8 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
       messages.push({
         emoji: challengeCompleted ? '🎖️' : '😶‍🌫️',
         translationKey: challengeCompleted
-          ? 'weekStartDialog.challengeCompleted'
-          : 'weekStartDialog.challengeMissed',
+          ? 'weekSummaryDialog.challengeCompleted'
+          : 'weekSummaryDialog.challengeMissed',
         translationParameters: [t(`veggies.${data.challenge}`).toLowerCase()],
       });
     }
@@ -114,7 +114,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
     data.firstTimeVeggies.forEach((veggie) => {
       messages.push({
         emoji: '🆕',
-        translationKey: 'weekStartDialog.firstTimeVeggie',
+        translationKey: 'weekSummaryDialog.firstTimeVeggie',
         translationParameters: [t(`veggies.${veggie}`).toLowerCase()],
       });
     });
@@ -134,7 +134,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
     if (favoriteCount >= 4) {
       messages.push({
         emoji: '⭐',
-        translationKey: 'weekStartDialog.favoriteCategory',
+        translationKey: 'weekSummaryDialog.favoriteCategory',
         translationParameters: [favoriteCount, t(`categories.${favoriteCategory}`).toLowerCase()],
       });
     }
@@ -147,7 +147,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
     if (missingCategories.length === 0) {
       messages.push({
         emoji: '🌈',
-        translationKey: 'weekStartDialog.allCategories',
+        translationKey: 'weekSummaryDialog.allCategories',
         translationParameters: [],
       });
     }
@@ -157,7 +157,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
       if (count < 4) {
         messages.push({
           emoji: '🤔',
-          translationKey: 'weekStartDialog.lowCategoryCount',
+          translationKey: 'weekSummaryDialog.lowCategoryCount',
           translationParameters: [count, t(`categories.${category}`).toLowerCase()],
         });
       }
@@ -167,7 +167,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
     missingCategories.forEach((category) => {
       messages.push({
         emoji: CATEGORY_EMOJI[category],
-        translationKey: 'weekStartDialog.missingCategory',
+        translationKey: 'weekSummaryDialog.missingCategory',
         translationParameters: [t(`categories.${category}`).toLowerCase()],
       });
     });
@@ -182,7 +182,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
       return [
         {
           emoji: '🍽️',
-          translationKey: 'weekStartDialog.noVeggies',
+          translationKey: 'weekSummaryDialog.noVeggies',
           translationParameters: [],
         },
       ];
