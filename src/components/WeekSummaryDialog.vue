@@ -8,6 +8,7 @@ import {useWeekSummary} from '@/hooks/weekSummary';
 import {AchievementLevel, type Achievements, type WeekData} from '@/utils/types';
 import ModalDialog from '@/components/ModalDialog.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
+import WeekSummaryBadge from './WeekSummaryBadge.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
@@ -118,7 +119,9 @@ defineExpose({
             v-for="{emoji, translationKey, translationParameters} in summary"
             :key="`${translationKey}-${JSON.stringify(translationParameters)}`"
           >
-            <span aria-hidden="true" class="weekSummaryDialog__emoji">{{ emoji }}</span>
+            <WeekSummaryBadge aria-hidden="true" class="weekSummaryDialog__emoji">{{
+              emoji
+            }}</WeekSummaryBadge>
             <span class="weekSummaryDialog__message">{{
               $t(translationKey, translationParameters, Number(translationParameters[0]))
             }}</span>
@@ -146,10 +149,5 @@ defineExpose({
 <style scoped>
 .weekSummaryDialog__message {
   @apply flex items-center;
-}
-
-.weekSummaryDialog__emoji {
-  @apply text-5xl pointer-events-none;
-  @apply flex items-center justify-center;
 }
 </style>
