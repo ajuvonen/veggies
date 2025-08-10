@@ -53,6 +53,11 @@ defineProps<{
           achievement="botanicalBerries"
         />
         <AchievementBadge
+          :active="achievements.rainbow === AchievementLevel.Gold"
+          :level="AchievementLevel.Gold"
+          achievement="rainbow"
+        />
+        <AchievementBadge
           :active="achievements.thirtyVeggies >= AchievementLevel.Gold"
           :level="AchievementLevel.Gold"
           achievement="thirtyVeggies"

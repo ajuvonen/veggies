@@ -96,6 +96,11 @@
     },
     "locked": "(lukittu)",
     "newAchievements": "Uusia saavutuksia avattu!",
+    "rainbow": {
+      "ariaLabel": "{0} kasvista joka kategoriasta tällä viikolla {1}",
+      "badgeText": "Sateenkaari",
+      "3": "Ei syrjinnälle! Olet kokeillut vähintään kolmea kasvista joka kategoriasta tällä viikolla!"
+    },
     "thirtyVeggies": {
       "title": "Tämän viikon aherrus",
       "ariaLabel": "{0} erilaista kasvista tällä viikolla {1}",

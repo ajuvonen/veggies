@@ -95,7 +95,10 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
       </TransitionRoot>
     </Listbox>
     <VeggieSearch v-model="veggies" />
-    <ul class="flex-container justify-evenly" :aria-label="$t('stats.weeklyAchievements')">
+    <ul
+      class="flex-container flex-wrap justify-evenly"
+      :aria-label="$t('stats.weeklyAchievements')"
+    >
       <AchievementBadge
         v-for="[achievement, level] in Object.entries(weeklyAchievements(veggies))"
         :key="achievement"

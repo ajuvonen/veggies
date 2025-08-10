@@ -164,31 +164,39 @@ export const useActivityStore = defineStore('activity', () => {
     ),
   );
 
-  const weeklyAchievements = computed(() => (veggies: string[] = currentVeggies.value) => ({
-    allOnRed: achievementLevelHelper(
-      [[10, AchievementLevel.Gold]],
-      intersection(RED_VEGGIES, veggies).length,
-    ),
-    botanicalBerries: achievementLevelHelper(
-      [[15, AchievementLevel.Gold]],
-      intersection(BOTANICAL_BERRIES, veggies).length,
-    ),
-    goNuts: achievementLevelHelper(
-      [[5, AchievementLevel.Gold]],
-      intersection(NUTS, veggies).length,
-    ),
-    lemons: achievementLevelHelper(
-      [[5, AchievementLevel.Gold]],
-      intersection(CITRUSES, veggies).length,
-    ),
-    thirtyVeggies: achievementLevelHelper(
-      [
-        [40, AchievementLevel.Platinum],
-        [30, AchievementLevel.Gold],
-      ],
-      veggies.length,
-    ),
-  }));
+  const weeklyAchievements = computed(() => (veggies: string[] = currentVeggies.value) => {
+    const groupedVeggies = countBy(veggies, getCategoryForVeggie);
+    return {
+      allOnRed: achievementLevelHelper(
+        [[10, AchievementLevel.Gold]],
+        intersection(RED_VEGGIES, veggies).length,
+      ),
+      botanicalBerries: achievementLevelHelper(
+        [[15, AchievementLevel.Gold]],
+        intersection(BOTANICAL_BERRIES, veggies).length,
+      ),
+      goNuts: achievementLevelHelper(
+        [[5, AchievementLevel.Gold]],
+        intersection(NUTS, veggies).length,
+      ),
+      lemons: achievementLevelHelper(
+        [[5, AchievementLevel.Gold]],
+        intersection(CITRUSES, veggies).length,
+      ),
+      rainbow: Object.values(Category).every(
+        (category) => groupedVeggies[category] && groupedVeggies[category] >= 3,
+      )
+        ? AchievementLevel.Gold
+        : AchievementLevel.NoAchievement,
+      thirtyVeggies: achievementLevelHelper(
+        [
+          [40, AchievementLevel.Platinum],
+          [30, AchievementLevel.Gold],
+        ],
+        veggies.length,
+      ),
+    };
+  });
 
   const achievements = computed<Achievements>(() => ({
     challengeAccepted: achievementLevelHelper(

@@ -154,6 +154,12 @@ const badgeProps: BadgeProps = {
       emoji: '🌋',
     },
   },
+  rainbow: {
+    [AchievementLevel.Gold]: {
+      textProps: [3],
+      emoji: '🌈',
+    },
+  },
   thirtyVeggies: {
     [AchievementLevel.Gold]: {
       textProps: [30],
@@ -167,13 +173,13 @@ const badgeProps: BadgeProps = {
   thousandsOdd: {
     [AchievementLevel.Platinum]: {
       emoji: '🐐',
-      textProps: [0],
+      textProps: [],
     },
   },
   thousandsEven: {
     [AchievementLevel.Platinum]: {
       emoji: '🐐',
-      textProps: [0],
+      textProps: [],
     },
   },
 };

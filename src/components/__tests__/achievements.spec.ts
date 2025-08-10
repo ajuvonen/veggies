@@ -48,11 +48,12 @@ describe('achievements', () => {
       experimenterRoot: AchievementLevel.NoAchievement,
       experimenterVegetable: AchievementLevel.NoAchievement,
       goNuts: AchievementLevel.NoAchievement,
-      lemons: AchievementLevel.NoAchievement,
       hotStreak: AchievementLevel.NoAchievement,
+      lemons: AchievementLevel.NoAchievement,
+      rainbow: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.NoAchievement,
-      thousandsOdd: AchievementLevel.NoAchievement,
       thousandsEven: AchievementLevel.NoAchievement,
+      thousandsOdd: AchievementLevel.NoAchievement,
     };
     expect(activityStore.achievements).toEqual(defaultAchievements);
   });
@@ -195,6 +196,29 @@ describe('achievements', () => {
     expect(activityStore.achievements.botanicalBerries).toEqual(AchievementLevel.NoAchievement);
     activityStore.weeks = createWeeks(1, take(BOTANICAL_BERRIES, 15));
     expect(activityStore.achievements.botanicalBerries).toEqual(AchievementLevel.Gold);
+  });
+
+  it('advances rainbow', async () => {
+    activityStore.weeks = createWeeks(1, [
+      ...take(FRUITS, 3),
+      ...take(VEGETABLES, 3),
+      ...take(LEAFIES, 3),
+      ...take(ROOTS, 3),
+      ...take(GRAINS, 3),
+      ...take(BEANS, 3),
+      ...take(MUSHROOMS, 2),
+    ]);
+    expect(activityStore.achievements.rainbow).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, [
+      ...take(FRUITS, 3),
+      ...take(VEGETABLES, 3),
+      ...take(LEAFIES, 3),
+      ...take(ROOTS, 3),
+      ...take(GRAINS, 3),
+      ...take(BEANS, 3),
+      ...take(MUSHROOMS, 3),
+    ]);
+    expect(activityStore.achievements.rainbow).toEqual(AchievementLevel.Gold);
   });
 
   it('advances thousands', async () => {

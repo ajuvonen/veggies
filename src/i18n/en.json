@@ -96,6 +96,11 @@
       "3": "When life gives you lemons you'll surely avoid scurvy. Five different citrus fruits this week!"
     },
     "newAchievements": "You gained new achievements!",
+    "rainbow": {
+      "ariaLabel": "{0} veggies from each category this week {1}",
+      "badgeText": "Rainbow",
+      "3": "No discrimination! You have tried at least three veggies from each category this week!"
+    },
     "thirtyVeggies": {
       "title": "This week's toil",
       "ariaLabel": "{0} unique veggies this week {1}",

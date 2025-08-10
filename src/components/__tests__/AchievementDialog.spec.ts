@@ -23,6 +23,7 @@ const getAchievements = (achievements: Partial<Achievements> = {}) =>
     goNuts: AchievementLevel.NoAchievement,
     hotStreak: AchievementLevel.NoAchievement,
     lemons: AchievementLevel.NoAchievement,
+    rainbow: AchievementLevel.NoAchievement,
     thirtyVeggies: AchievementLevel.NoAchievement,
     thousandsOdd: AchievementLevel.NoAchievement,
     thousandsEven: AchievementLevel.NoAchievement,
