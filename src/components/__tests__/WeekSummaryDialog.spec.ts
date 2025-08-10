@@ -217,4 +217,24 @@ describe('WeekSummaryDialog', () => {
 
     expect(lastWeekData.hotStreak).toBe(2);
   });
+
+  it('displays three summary messages and a promoted achievement', () => {
+    // Setup test data to ensure we have summary content
+    const thirtyVeggies = take(ALL_VEGGIES, 30);
+    activityStore.weeks = [
+      {startDate: twoWeeksAgo, veggies: ['apple', 'carrot', 'spinach']},
+      {startDate: lastWeek, veggies: thirtyVeggies},
+    ];
+    activityStore.challenges = [{startDate: lastWeek, veggie: 'apple'}];
+    activityStore.startDate = twoWeeksAgo;
+
+    const wrapper = mounter();
+
+    const emojiContainers = wrapper.findAll('.weekSummaryDialog__emoji');
+    const summaryItems = wrapper.findAll('.weekSummaryDialog__message');
+
+    expect(summaryItems.length).toBe(3);
+    expect(emojiContainers.length).toBe(3);
+    expect(wrapper.findByTestId('promoted-achievement').exists()).toBe(true);
+  });
 });

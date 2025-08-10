@@ -26,6 +26,7 @@ const createWeekData = (overrides: Partial<WeekData> = {}): Ref<WeekData> =>
     hotStreak: 1,
     mean: 12,
     previousWeekCount: 0,
+    promotedAchievement: 'goNuts',
     veggies: [],
     weekNumber: '1',
     ...overrides,
@@ -38,7 +39,7 @@ describe('useWeekSummary', () => {
 
     expect(summaryMessages.value).toContainEqual({
       emoji: '🍽️',
-      translationKey: 'weekStartDialog.noVeggies',
+      translationKey: 'weekSummaryDialog.noVeggies',
       translationParameters: [],
     });
   });
@@ -53,7 +54,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🍂',
-          translationKey: 'weekStartDialog.roomForImprovement',
+          translationKey: 'weekSummaryDialog.roomForImprovement',
           translationParameters: [3],
         }),
       );
@@ -68,7 +69,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🌱',
-          translationKey: 'weekStartDialog.goodStart',
+          translationKey: 'weekSummaryDialog.goodStart',
           translationParameters: [15],
         }),
       );
@@ -83,7 +84,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🥗',
-          translationKey: 'weekStartDialog.makingProgress',
+          translationKey: 'weekSummaryDialog.makingProgress',
           translationParameters: [25],
         }),
       );
@@ -99,7 +100,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🎉',
-          translationKey: 'weekStartDialog.accomplishment',
+          translationKey: 'weekSummaryDialog.accomplishment',
           translationParameters: [30],
         }),
       );
@@ -114,7 +115,7 @@ describe('useWeekSummary', () => {
 
       expect(summaryMessages.value).not.toContainEqual(
         expect.objectContaining({
-          translationKey: 'weekStartDialog.accomplishment',
+          translationKey: 'weekSummaryDialog.accomplishment',
         }),
       );
     });
@@ -132,7 +133,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '📈',
-          translationKey: 'weekStartDialog.surpassedPreviousWeek',
+          translationKey: 'weekSummaryDialog.surpassedPreviousWeek',
           translationParameters: [5],
         }),
       );
@@ -149,7 +150,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '📉',
-          translationKey: 'weekStartDialog.fellShort',
+          translationKey: 'weekSummaryDialog.fellShort',
           translationParameters: [10],
         }),
       );
@@ -164,7 +165,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const fellShortMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.fellShort',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.fellShort',
       );
       expect(fellShortMessages).toHaveLength(0);
     });
@@ -179,8 +180,8 @@ describe('useWeekSummary', () => {
 
       const comparisonMessages = summaryMessages.value.filter(
         ({translationKey}) =>
-          translationKey === 'weekStartDialog.surpassedPreviousWeek' ||
-          translationKey === 'weekStartDialog.fellShort',
+          translationKey === 'weekSummaryDialog.surpassedPreviousWeek' ||
+          translationKey === 'weekSummaryDialog.fellShort',
       );
       expect(comparisonMessages).toHaveLength(0);
     });
@@ -197,7 +198,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '📊',
-          translationKey: 'weekStartDialog.mean',
+          translationKey: 'weekSummaryDialog.mean',
           translationParameters: [15],
         }),
       );
@@ -213,7 +214,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🥇',
-          translationKey: 'weekStartDialog.recordAchieved',
+          translationKey: 'weekSummaryDialog.recordAchieved',
           translationParameters: [3],
         }),
       );
@@ -229,7 +230,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🥈',
-          translationKey: 'weekStartDialog.closeToRecord',
+          translationKey: 'weekSummaryDialog.closeToRecord',
           translationParameters: [2, 10],
         }),
       );
@@ -243,7 +244,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const closeToRecordMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.closeToRecord',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.closeToRecord',
       );
       expect(closeToRecordMessages).toHaveLength(0);
     });
@@ -256,7 +257,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const closeToRecordMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.closeToRecord',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.closeToRecord',
       );
       expect(closeToRecordMessages).toHaveLength(0);
     });
@@ -271,7 +272,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🔥',
-          translationKey: 'weekStartDialog.hotStreak',
+          translationKey: 'weekSummaryDialog.hotStreak',
           translationParameters: [2],
         }),
       );
@@ -285,7 +286,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const hotStreakMessage = summaryMessages.value.find(
-        ({translationKey}) => translationKey === 'weekStartDialog.hotStreak',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.hotStreak',
       );
       expect(hotStreakMessage).toBeUndefined();
     });
@@ -302,7 +303,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🎖️',
-          translationKey: 'weekStartDialog.challengeCompleted',
+          translationKey: 'weekSummaryDialog.challengeCompleted',
           translationParameters: ['apple'],
         }),
       );
@@ -318,7 +319,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '😶‍🌫️',
-          translationKey: 'weekStartDialog.challengeMissed',
+          translationKey: 'weekSummaryDialog.challengeMissed',
           translationParameters: ['apple'],
         }),
       );
@@ -333,8 +334,8 @@ describe('useWeekSummary', () => {
 
       const challengeMessages = summaryMessages.value.filter(
         ({translationKey}) =>
-          translationKey === 'weekStartDialog.challengeCompleted' ||
-          translationKey === 'weekStartDialog.challengeMissed',
+          translationKey === 'weekSummaryDialog.challengeCompleted' ||
+          translationKey === 'weekSummaryDialog.challengeMissed',
       );
       expect(challengeMessages).toHaveLength(0);
     });
@@ -349,7 +350,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🆕',
-          translationKey: 'weekStartDialog.firstTimeVeggie',
+          translationKey: 'weekSummaryDialog.firstTimeVeggie',
           translationParameters: ['apple'],
         }),
       );
@@ -357,7 +358,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🆕',
-          translationKey: 'weekStartDialog.firstTimeVeggie',
+          translationKey: 'weekSummaryDialog.firstTimeVeggie',
           translationParameters: ['spinach'],
         }),
       );
@@ -371,7 +372,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const firstTimeMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.firstTimeVeggie',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.firstTimeVeggie',
       );
       expect(firstTimeMessages).toHaveLength(0);
     });
@@ -387,7 +388,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '⭐',
-          translationKey: 'weekStartDialog.favoriteCategory',
+          translationKey: 'weekSummaryDialog.favoriteCategory',
           translationParameters: [4, 'fruits and berries'],
         }),
       );
@@ -400,7 +401,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const favoriteCategoryMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.favoriteCategory',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.favoriteCategory',
       );
 
       expect(favoriteCategoryMessages).toHaveLength(0);
@@ -413,7 +414,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const missingCategoryMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.missingCategory',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.missingCategory',
       );
 
       const missingCategories = missingCategoryMessages.map(
@@ -437,7 +438,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const missingCategoryMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.missingCategory',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.missingCategory',
       );
       expect(missingCategoryMessages).toHaveLength(0);
     });
@@ -449,7 +450,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const lowCategoryMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.lowCategoryCount',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.lowCategoryCount',
       );
 
       // Should have messages for all three categories
@@ -458,21 +459,21 @@ describe('useWeekSummary', () => {
       // Verify the complete message structure for fruits and berries (2 veggies)
       expect(lowCategoryMessages).toContainEqual({
         emoji: '🤔',
-        translationKey: 'weekStartDialog.lowCategoryCount',
+        translationKey: 'weekSummaryDialog.lowCategoryCount',
         translationParameters: [2, 'fruits and berries'],
       });
 
       // Verify the complete message structure for leafy greens and herbs (2 veggies)
       expect(lowCategoryMessages).toContainEqual({
         emoji: '🤔',
-        translationKey: 'weekStartDialog.lowCategoryCount',
+        translationKey: 'weekSummaryDialog.lowCategoryCount',
         translationParameters: [2, 'leafy greens and herbs'],
       });
 
       // Verify the complete message structure for grains, nuts, and seeds (1 veggie)
       expect(lowCategoryMessages).toContainEqual({
         emoji: '🤔',
-        translationKey: 'weekStartDialog.lowCategoryCount',
+        translationKey: 'weekSummaryDialog.lowCategoryCount',
         translationParameters: [1, 'grains, nuts, and seeds'],
       });
     });
@@ -484,7 +485,7 @@ describe('useWeekSummary', () => {
       const {summaryMessages} = await withSetup(weekData);
 
       const lowCategoryMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.lowCategoryCount',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.lowCategoryCount',
       );
 
       expect(lowCategoryMessages).toHaveLength(1);
@@ -492,7 +493,7 @@ describe('useWeekSummary', () => {
       // Verify the complete message structure for the leafy category only
       expect(lowCategoryMessages[0]).toEqual({
         emoji: '🤔',
-        translationKey: 'weekStartDialog.lowCategoryCount',
+        translationKey: 'weekSummaryDialog.lowCategoryCount',
         translationParameters: [1, 'leafy greens and herbs'],
       });
 
@@ -516,7 +517,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🥇',
-          translationKey: 'weekStartDialog.recordAchieved',
+          translationKey: 'weekSummaryDialog.recordAchieved',
           translationParameters: [2],
         }),
       );
@@ -524,14 +525,14 @@ describe('useWeekSummary', () => {
       // Should contain hot streak
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
-          translationKey: 'weekStartDialog.hotStreak',
+          translationKey: 'weekSummaryDialog.hotStreak',
           translationParameters: [4],
         }),
       );
 
       // Should contain missing categories
       const missingCategoryMessages = summaryMessages.value.filter(
-        ({translationKey}) => translationKey === 'weekStartDialog.missingCategory',
+        ({translationKey}) => translationKey === 'weekSummaryDialog.missingCategory',
       );
       expect(missingCategoryMessages.length).toBeGreaterThan(0);
     });
@@ -545,6 +546,7 @@ describe('useWeekSummary', () => {
         hotStreak: 1,
         mean: 5,
         previousWeekCount: 0,
+        promotedAchievement: 'goNuts',
         veggies: ['apple'],
         weekNumber: '1',
       });
@@ -554,7 +556,7 @@ describe('useWeekSummary', () => {
       // Initial state: should have missing categories
       expect(
         summaryMessages.value.some(
-          (msg) => msg.translationKey === 'weekStartDialog.missingCategory',
+          (msg) => msg.translationKey === 'weekSummaryDialog.missingCategory',
         ),
       ).toBe(true);
 
@@ -565,7 +567,7 @@ describe('useWeekSummary', () => {
       };
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
-          translationKey: 'weekStartDialog.noVeggies',
+          translationKey: 'weekSummaryDialog.noVeggies',
         }),
       );
 
@@ -578,7 +580,7 @@ describe('useWeekSummary', () => {
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
           emoji: '🥇',
-          translationKey: 'weekStartDialog.recordAchieved',
+          translationKey: 'weekSummaryDialog.recordAchieved',
         }),
       );
     });

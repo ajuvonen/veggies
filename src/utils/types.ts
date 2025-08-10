@@ -82,6 +82,7 @@ export type WeekData = {
   hotStreak: number;
   mean: number;
   previousWeekCount: number;
+  promotedAchievement: keyof Achievements;
   veggies: string[];
   weekNumber: string;
 };

@@ -1664,5 +1664,5 @@ exports[`LogView > renders with data 1`] = `
     </svg> Follow on Bluesky</a>
   <!--v-if-->
 </footer>
-<dialog-stub data-v-0f2dec55="" as="div" static="true" unmount="true" open="DC8F892D-2EBD-447C-A4C8-A03058436FF4" id="week-start-dialog" role="dialog" class="relative z-20"></dialog-stub>"
+<dialog-stub data-v-0f2dec55="" data-v-63b6c596="" as="div" static="true" unmount="true" open="DC8F892D-2EBD-447C-A4C8-A03058436FF4" id="week-start-dialog" role="dialog" class="relative z-20"></dialog-stub>"
 `;
