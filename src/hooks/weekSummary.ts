@@ -154,7 +154,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
 
     // Low category counts
     Object.entries(categoryCounts).forEach(([category, count]) => {
-      if (count < 4) {
+      if (count < 3) {
         messages.push({
           emoji: '🤔',
           translationKey: 'weekSummaryDialog.lowCategoryCount',
