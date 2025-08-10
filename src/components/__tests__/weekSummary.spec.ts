@@ -443,7 +443,7 @@ describe('useWeekSummary', () => {
       expect(missingCategoryMessages).toHaveLength(0);
     });
 
-    it('returns low category count messages for categories with 1-3 veggies', async () => {
+    it('returns low category count messages for categories with 1-2 veggies', async () => {
       const weekData = createWeekData({
         veggies: ['apple', 'banana', 'spinach', 'kale', 'quinoa'], // 2 fruits, 2 leafy, 1 grain
       });
@@ -478,9 +478,9 @@ describe('useWeekSummary', () => {
       });
     });
 
-    it('does not return low category count messages for categories with 4+ veggies', async () => {
+    it('does not return low category count messages for categories with 3+ veggies', async () => {
       const weekData = createWeekData({
-        veggies: ['apple', 'banana', 'grape', 'orange', 'spinach'], // 4 fruits, 1 leafy
+        veggies: ['apple', 'banana', 'grape', 'spinach'], // 3 fruits, 1 leafy
       });
       const {summaryMessages} = await withSetup(weekData);
 
@@ -489,18 +489,11 @@ describe('useWeekSummary', () => {
       );
 
       expect(lowCategoryMessages).toHaveLength(1);
-
-      // Verify the complete message structure for the leafy category only
       expect(lowCategoryMessages[0]).toEqual({
         emoji: '🤔',
         translationKey: 'weekSummaryDialog.lowCategoryCount',
         translationParameters: [1, 'leafy greens and herbs'],
       });
-
-      const fruitMessages = lowCategoryMessages.filter(
-        (msg) => msg.translationParameters[1] === 'fruits and berries',
-      );
-      expect(fruitMessages).toHaveLength(0);
     });
   });
 
