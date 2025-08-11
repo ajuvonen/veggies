@@ -1758,7 +1758,7 @@
     "challengeMissed": "Et saanut viikkohaastettasi ({0}) suoritettua. Ehkä ensi kerralla?",
     "closeToRecord": "Vain @:general.veggieNominative ennätyksestäsi ({1})!",
     "favoriteCategory": "Suosikkikategoriasi viime viikolla oli {1}, josta söit @:general.veggie{'!'}",
-    "fellShort": "Jäit toissaviikon tuloksesta @:general.veggie{'.'} Onnistut varmasti tällä viikolla paremmin!",
+    "fellShort": "Jäit toissaviikon tuloksesta (@:general.veggie). Onnistut varmasti tällä viikolla paremmin!",
     "firstTimeVeggie": "Kokeilit ensimmäistä kertaa kasvista {0}!",
     "goodStart": "Hyvä alku! Söit @:general.veggie viime viikolla.",
     "hotStreak": "Olet syönyt yli 30 kasvista {0} viikon ajan. Jatka samaan malliin!",
