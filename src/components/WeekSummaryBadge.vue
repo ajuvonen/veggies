@@ -16,12 +16,12 @@
 }
 
 .weekSummaryBadge__background {
-  @apply relative w-full h-full rounded-full border-4 overflow-hidden text-3xl;
+  @apply relative w-full h-full rounded-full border-4 overflow-hidden text-3xl p-1;
+  @apply border-[--color-primary];
   @apply flex items-center justify-center;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 1px #334155;
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-active));
-  border-color: var(--color-primary);
 }
 
 .weekSummaryBadge__background::after {
