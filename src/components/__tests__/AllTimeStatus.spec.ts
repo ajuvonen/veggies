@@ -80,7 +80,7 @@ describe('AllTimeStatus', () => {
     ];
     const wrapper = mount(AllTimeStatus);
     expect(wrapper.findByTestId('all-time-status-atMostVeggies').text()).toBe(
-      'At Most 31 Veggies in a Week',
+      'At Most 31 Weekly Veggies',
     );
   });
 });

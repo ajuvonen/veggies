@@ -108,7 +108,7 @@ defineExpose({chartData});
     >
       <span>{{ $t(topLabelKey) }}</span>
       <span :class="favorites ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
-      <span>{{ $t(bottomLabelKey) }}</span>
+      <span>{{ $t(bottomLabelKey, veggies.length) }}</span>
     </i18n-t>
     <ChartScreenReaderTable
       id="category-status-table"
