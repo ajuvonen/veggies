@@ -1,4 +1,5 @@
 import {test, expect} from '@playwright/test';
+import {DateTime} from 'luxon';
 
 // See here how to get started:
 // https://playwright.dev/docs/intro
@@ -99,4 +100,68 @@ test('weekly achievement works', async ({page}) => {
   await expect(page.getByTestId('badge-thirtyVeggies-3')).toBeVisible();
   await page.getByTestId('dialog-close-button').click();
   await expect(page.getByTestId('dialog')).toBeHidden();
+});
+
+test('shows week summary dialog for previous week data', async ({browser}) => {
+  const previousWeekStart = DateTime.now().startOf('week').minus({weeks: 1});
+  const previousWeekStartISO = previousWeekStart.toISODate();
+
+  const browserContext = await browser.newContext({
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: 'http://localhost:5173',
+          localStorage: [
+            {
+              name: 'veggies-start-date',
+              value: previousWeekStartISO,
+            },
+            {
+              name: 'veggies-settings',
+              value: JSON.stringify({
+                allergens: [],
+                locale: 'en',
+                showChartAnimations: true,
+                suggestionCount: 10,
+                summaryViewedDate: null,
+              }),
+            },
+            {
+              name: 'veggies-weeks',
+              value: JSON.stringify([
+                {
+                  veggies: ['apple', 'carrot', 'spinach', 'banana'],
+                  startDate: previousWeekStartISO,
+                },
+              ]),
+            },
+            {
+              name: 'veggies-challenges',
+              value: JSON.stringify([
+                {
+                  startDate: previousWeekStartISO,
+                  veggie: 'apple',
+                },
+              ]),
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  const page = await browserContext.newPage();
+  await page.goto('/');
+  await expect(page.getByTestId('dialog')).toBeVisible();
+  await expect(page.getByTestId('dialog-title')).toContainText(
+    `All done for week ${previousWeekStart.toFormat('W')}!`,
+  );
+  await expect(page.getByTestId('category-status-chart-center-label')).toContainText(
+    'Last Week 4 Veggies',
+  );
+  await page.getByTestId('dialog-close-button').click();
+  await expect(page.getByTestId('dialog')).toBeHidden();
+  await expect(page.getByTestId('front-page-animation')).toBeVisible();
+  await browserContext.close();
 });
