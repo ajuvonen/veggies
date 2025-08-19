@@ -27,7 +27,7 @@ import {
   dateParser,
   dateReplacer,
   getCategoryForVeggie,
-  getRandomVeggie,
+  getRandomItem,
 } from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {
@@ -288,7 +288,7 @@ export const useActivityStore = defineStore('activity', () => {
         ...challenges.value,
         {
           startDate: weekStart,
-          veggie: getRandomVeggie(availableVeggies.value),
+          veggie: getRandomItem(availableVeggies.value),
         },
       ];
     } else if (!targetWeek.veggies.includes(targetVeggie)) {
@@ -312,7 +312,7 @@ export const useActivityStore = defineStore('activity', () => {
         ...challenges.value,
         {
           startDate: weekStart,
-          veggie: getRandomVeggie(availableVeggies.value),
+          veggie: getRandomItem(availableVeggies.value),
         },
       ];
     } else {
