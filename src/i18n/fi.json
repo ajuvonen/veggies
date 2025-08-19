@@ -122,12 +122,12 @@
   },
   "allTimeStatus": {
     "atMostVeggies": {
-      "bottomLabel": "Kasvista viikossa",
+      "bottomLabel": "Kasvista viikossa|Kasvis viikossa|Kasvista viikossa",
       "shareText": "Viikossa kokeilemieni erilaisten kasvisten enimmäismäärä on nyt {0}! Kokeile ilmaiseksi: {1}",
       "topLabel": "Enimmillään"
     },
     "completedChallenges": {
-      "bottomLabel": "Viikkohaastetta",
+      "bottomLabel": "Viikkohaastetta|Viikkohaaste|Viikkohaastetta",
       "shareText": "Olen suorittanut {0} Eat Your Veggies -viikkohaastetta! Kokeile ilmaiseksi: {1}",
       "topLabel": "Suoritettu"
     },
@@ -139,12 +139,12 @@
     },
     "share": "Jaa saavutus",
     "totalWeeks": {
-      "bottomLabel": "Viikkoa",
+      "bottomLabel": "Viikkoa|Viikko|Viikkoa",
       "shareText": "Olen käyttänyt Eat Your Veggies -sovellusta {0} viikkoa! Kokeile ilmaiseksi: {1}",
       "topLabel": "Yhteensä"
     },
     "uniqueVeggies": {
-      "bottomLabel": "Erilaista kasvista",
+      "bottomLabel": "Erilaista kasvista|Erilainen kasvis|Erilaista kasvista",
       "shareText": "Olen syönyt yhteensä {0} erilaista kasvista! Kokeile ilmaiseksi: {1}",
       "topLabel": "Yhteensä"
     }
@@ -159,8 +159,8 @@
     "Vegetable": "Vihannekset"
   },
   "categoryStatus": {
-    "bottomLabel": "Kasvista",
-    "bottomLabelTotal": "Lisäystä",
+    "bottomLabel": "Kasvista|Kasvis|Kasvista",
+    "bottomLabelTotal": "Lisäystä|Lisäys|Lisäystä",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "Tällä Viikolla",
     "topLabelLastWeek": "Viime Viikolla",
