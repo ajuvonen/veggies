@@ -7,7 +7,7 @@ test('shows all time stats', async ({page}) => {
   await page.getByText('Apricot').click();
   await page.getByTestId('veggie-search-challenge').locator('.dropdown-list-option').click();
   await page.getByTestId('navbar-stats-link').click();
-  await expect(page.getByTestId('all-time-status-totalWeeks')).toHaveText('In Total 1 Weeks');
+  await expect(page.getByTestId('all-time-status-totalWeeks')).toHaveText('In Total 1 Week');
   await expect(page.getByTestId('all-time-status-over30Veggies')).toHaveText(
     'Over 30 Veggies in 0 Weeks',
   );
@@ -15,10 +15,10 @@ test('shows all time stats', async ({page}) => {
     'In Total 2 Unique Veggies',
   );
   await expect(page.getByTestId('all-time-status-atMostVeggies')).toHaveText(
-    'At Most 2 Veggies in a Week',
+    'At Most 2 Weekly Veggies',
   );
   await expect(page.getByTestId('all-time-status-completedChallenges')).toHaveText(
-    'Completed 1 Weekly Challenges',
+    'Completed 1 Weekly Challenge',
   );
 });
 
@@ -53,7 +53,7 @@ test("shows current week's veggies", async ({page}) => {
   await expect(page.getByTestId('tag-apricot')).toBeHidden();
   await page.getByTestId('navbar-log-link').click();
   await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
-    'This Week 1 Veggies',
+    'This Week 1 Veggie',
   );
 });
 
