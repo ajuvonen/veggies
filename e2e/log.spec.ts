@@ -11,7 +11,7 @@ test('logs veggies', async ({page}) => {
   await page.getByTestId('veggie-search-option-apple').click();
   await expect(page.getByText(/^First veggie added!/)).toBeVisible();
   await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
-    'This Week 1 Veggies',
+    'This Week 1 Veggie',
   );
   await page.getByTestId('veggie-search-option-apricot').click();
   await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
