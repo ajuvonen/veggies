@@ -135,8 +135,8 @@ export const getChartOptions = <T extends ChartType>(
     overrides,
   ) as ChartOptions<T>;
 
-export const getRandomVeggie = (availableVeggies: readonly string[] = []) =>
-  availableVeggies[Math.floor(Math.random() * availableVeggies.length)];
+export const getRandomItem = <T>(availableItems: readonly T[] = []): T | undefined =>
+  availableItems[Math.floor(Math.random() * availableItems.length)];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const dateParser = (key: string, value: any) => {

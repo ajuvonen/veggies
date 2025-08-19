@@ -10,7 +10,7 @@ import {
   getChartOptions,
   getImportSchema,
   getRandomEmojis,
-  getRandomVeggie,
+  getRandomItem,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/utils/types';
 
@@ -28,10 +28,14 @@ describe('helpers', () => {
     expect(getCategoryForVeggie('split pea')).toBe(undefined);
   });
 
-  it('returns random veggie', () => {
-    const randomVeggies = [...Array(100)].map(() => getRandomVeggie(ALL_VEGGIES));
+  it('returns random item', () => {
+    const randomVeggies = [...Array(100)].map(() => getRandomItem(ALL_VEGGIES));
     randomVeggies.forEach((veggie) => expect(ALL_VEGGIES).toContain(veggie));
     expect(new Set(randomVeggies).size).toBeGreaterThan(70);
+  });
+
+  it('returns undefined for empty arrays', () => {
+    expect(getRandomItem([])).toBeUndefined();
   });
 
   it('parses dates from JSON', () => {

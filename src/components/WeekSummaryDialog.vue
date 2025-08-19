@@ -6,9 +6,10 @@ import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import {AchievementLevel, type Achievements, type WeekData} from '@/utils/types';
+import {getRandomItem} from '@/utils/helpers';
 import ModalDialog from '@/components/ModalDialog.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
-import WeekSummaryBadge from './WeekSummaryBadge.vue';
+import WeekSummaryBadge from '@/components/WeekSummaryBadge.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
@@ -79,8 +80,7 @@ watch(
         hotStreak: hotStreak.value,
         mean: Math.round(mean(pastVeggies) as number),
         previousWeekCount: veggiesForWeek.value(currentWeekStart.value.minus({weeks: 2})).length,
-        promotedAchievement:
-          weeklyAchievements[Math.floor(Math.random() * weeklyAchievements.length)],
+        promotedAchievement: getRandomItem(weeklyAchievements)!,
         veggies: lastWeekVeggies,
         weekNumber: lastWeekStart.toFormat('W'),
       };
