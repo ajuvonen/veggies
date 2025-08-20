@@ -72,7 +72,7 @@ const chartOptions = computed(() =>
       },
       datalabels: {
         display: true,
-        color: COLORS.offWhite,
+        color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
         formatter: (value) => `${value} %`,
         anchor: 'end',
         align: 'end',
