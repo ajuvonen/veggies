@@ -622,6 +622,12 @@
       "Ginger is technically not a root vegetable, but an underground plant stalk.",
       "Ancient sailors would chew ginger to ward off seasickness."
     ],
+    "goji berry": [
+      "Goji berries are native to China, Tibet, and Mongolia.",
+      "Just like carrots, goji berries derive their vivid red color from carotenoids.",
+      "Goji berries are rich in vitamins C and A, as well as iron and zinc.",
+      "Many of the health effects of goji berries are exaggerated or otherwise incorrect."
+    ],
     "gooseberry": [
       "A 30-gram portion of gooseberries provides about 30% of the daily vitamin C requirement.",
       "Gooseberries come in multiple colors, with the green ones typically being tart and the red ones sweeter."
@@ -1450,6 +1456,7 @@
     "fava bean": ["broad bean"],
     "finger lime": ["lime caviar"],
     "frisee": ["curly endive"],
+    "goji berry": ["wolfberry"],
     "grape": [""],
     "green bean": ["string bean"],
     "holy basil": ["tulsi"],
@@ -1584,6 +1591,7 @@
     "frisee": "frisée",
     "garlic": "garlic",
     "ginger": "ginger",
+    "goji berry": "goji berry",
     "gooseberry": "gooseberry",
     "grape": "grape",
     "grapefruit": "grapefruit",
