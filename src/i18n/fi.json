@@ -622,6 +622,12 @@
       "Inkivääri ei tarkalleen ottaen ole juures, vaan maanalainen kasvin varsiosa.",
       "Muinaiset merimiehet pureskelivat inkivääriä merisairauden selättämiseksi."
     ],
+    "goji berry": [
+      "Gojimarjoja kasvaa luonnossa Kiinan, Tiibetin ja Mongolian alueilla.",
+      "Kuten porkkanoiden, myös gojimarjojen kirkas punainen väri on peräisin karotenoideista.",
+      "Gojimarjat sisältävät paljon C- ja A-vitamiineja, sekä rautaa ja sinkkiä.",
+      "Monet gojimarjojen terveysvaikutuksista ovat liioiteltuja tai muuten virheellisiä."
+    ],
     "gooseberry": [
       "30 gramman annos karviaisia sisältää noin 30 % päivittäisestä C-vitamiinista.",
       "Karviaisia on monia värejä; vihreät ovat tyypillisesti happamia ja punaiset makeampia."
@@ -1450,6 +1456,7 @@
     "fava bean": [""],
     "finger lime": ["limekaviaari", "finger lime"],
     "frisee": [""],
+    "goji berry": [""],
     "grape": ["rusina"],
     "green bean": ["haricot"],
     "holy basil": [""],
@@ -1584,6 +1591,7 @@
     "frisee": "frisee",
     "garlic": "valkosipuli",
     "ginger": "inkivääri",
+    "goji berry": "gojimarja",
     "gooseberry": "karviainen",
     "grape": "viinirypäle",
     "grapefruit": "greippi",
