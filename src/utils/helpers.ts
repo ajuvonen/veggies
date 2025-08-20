@@ -6,7 +6,6 @@ import {mergeDeep, sample} from 'remeda';
 import {
   BEANS,
   CATEGORY_EMOJI,
-  COLORS,
   FRUITS,
   GRAINS,
   LEAFIES,
@@ -58,7 +57,7 @@ export const getChartOptions = <T extends ChartType>(
               beginAtZero: true,
               ticks: {
                 precision: 0,
-                color: COLORS.offWhite,
+                color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
               },
               stacked,
             },
@@ -67,7 +66,7 @@ export const getChartOptions = <T extends ChartType>(
               beginAtZero: true,
               ticks: {
                 precision: 0,
-                color: COLORS.offWhite,
+                color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
               },
               stacked,
               afterBuildTicks: (axis: Scale) => {
@@ -80,7 +79,7 @@ export const getChartOptions = <T extends ChartType>(
               beginAtZero: true,
               ticks: {
                 precision: 0,
-                color: COLORS.offWhite,
+                color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
               },
               stacked,
             },
@@ -126,9 +125,11 @@ export const getChartOptions = <T extends ChartType>(
             weight: 'normal',
           },
           displayColors: false,
-          backgroundColor: COLORS.darkBlue,
-          bodyColor: COLORS.offWhite,
-          titleColor: COLORS.offWhite,
+          backgroundColor: getComputedStyle(document.documentElement).getPropertyValue(
+            '--color-ui-dark',
+          ),
+          bodyColor: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
+          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
         },
       },
     },
