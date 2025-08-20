@@ -59,13 +59,7 @@ defineProps<{
         />
         <AchievementBadge
           :active="achievements.thirtyVeggies >= AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="thirtyVeggies"
-        />
-        <AchievementBadge
-          v-if="achievements.thirtyVeggies === AchievementLevel.Platinum"
-          :active="true"
-          :level="AchievementLevel.Platinum"
+          :level="achievements.thirtyVeggies || AchievementLevel.Gold"
           achievement="thirtyVeggies"
         />
       </ul>
