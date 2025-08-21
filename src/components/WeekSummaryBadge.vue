@@ -16,7 +16,7 @@
 }
 
 .weekSummaryBadge__background {
-  @apply relative w-full h-full rounded-full border-4 overflow-hidden text-3xl p-1;
+  @apply relative w-full h-full rounded-full border-4 overflow-hidden text-3xl p-[0.125rem];
   @apply border-[--color-primary];
   @apply flex items-center justify-center;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
