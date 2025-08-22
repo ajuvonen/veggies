@@ -7,10 +7,10 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy, entries, pipe, prop, sortBy} from 'remeda';
 import {Category, type Favorites} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
-import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
-import {useChartAnimations} from '@/hooks/chartAnimations';
+import {getCategoryForVeggie} from '@/utils/helpers';
 import {useI18nWithCollator} from '@/hooks/i18n';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
+import {useChartOptions} from '@/hooks/chartOptions';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
@@ -31,8 +31,6 @@ const props = withDefaults(
 );
 
 const {t, collator} = useI18nWithCollator();
-
-const {showChartAnimations} = useChartAnimations();
 
 const container = ref<HTMLDivElement | null>(null);
 const {height} = useElementSize(container);
@@ -60,8 +58,11 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() =>
-  getChartOptions<'doughnut'>(false, false, true, showChartAnimations.value, {
+const {chartOptions} = useChartOptions<'doughnut'>(
+  false,
+  false,
+  true,
+  computed(() => ({
     cutout: height.value < 280 ? '60%' : undefined,
     plugins: {
       tooltip: {
@@ -84,7 +85,7 @@ const chartOptions = computed(() =>
           CATEGORY_EMOJI[context.chart.data.labels![context.dataIndex] as Category],
       },
     },
-  }),
+  })),
 );
 
 defineExpose({chartData});
