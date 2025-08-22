@@ -80,6 +80,6 @@ test('shows achievements', async ({page}) => {
   await page.getByTestId('dialog-close-button').click();
   await page.getByTestId('navbar-stats-link').click();
   await page.getByTestId('stats-tab-4').click();
-  await expect(page.getByTestId('badge-experimenterFruit-3')).not.toHaveClass('badge--locked');
-  await expect(page.getByTestId('badge-experimenterRoot-3')).toHaveClass('badge--locked');
+  await expect(page.getByTestId('badge-experimenterFruit-3')).not.toContainClass('badge--locked');
+  await expect(page.getByTestId('badge-experimenterRoot-3')).toContainClass('badge--locked');
 });
