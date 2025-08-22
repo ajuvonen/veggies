@@ -1,18 +1,7 @@
 import {useMemoize} from '@vueuse/core';
-import type {ChartOptions, ChartType, Scale} from 'chart.js';
-import type {Context} from 'chartjs-plugin-datalabels';
 import {DateTime} from 'luxon';
-import {mergeDeep, sample} from 'remeda';
-import {
-  BEANS,
-  CATEGORY_EMOJI,
-  FRUITS,
-  GRAINS,
-  LEAFIES,
-  MUSHROOMS,
-  ROOTS,
-  VEGETABLES,
-} from '@/utils/constants';
+import {sample} from 'remeda';
+import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
 import {DEFAULT_LOCALE, DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
 import {AchievementLevel, Category} from '@/utils/types';
 
@@ -34,107 +23,6 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
   }
   return undefined;
 });
-
-export const getChartOptions = <T extends ChartType>(
-  grids: boolean,
-  stacked: boolean,
-  withIcons: boolean,
-  showChartAnimations: boolean,
-  overrides: Partial<ChartOptions<T>> = {},
-) =>
-  mergeDeep(
-    {
-      animation: !showChartAnimations ? false : undefined,
-      responsive: true,
-      maintainAspectRatio: !grids,
-      normalized: true,
-      layout: {
-        padding: 0,
-      },
-      scales: grids
-        ? {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                precision: 0,
-                color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
-              },
-              stacked,
-            },
-            y1: {
-              position: 'right',
-              beginAtZero: true,
-              ticks: {
-                precision: 0,
-                color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
-              },
-              stacked,
-              afterBuildTicks: (axis: Scale) => {
-                axis.ticks = [...axis.chart.scales.y.ticks];
-                axis.min = axis.chart.scales.y.min;
-                axis.max = axis.chart.scales.y.max;
-              },
-            },
-            x: {
-              beginAtZero: true,
-              ticks: {
-                precision: 0,
-                color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
-              },
-              stacked,
-            },
-          }
-        : undefined,
-      plugins: {
-        title: {
-          display: false,
-        },
-        legend: {
-          display: false,
-        },
-        datalabels: {
-          ...(withIcons
-            ? {
-                anchor: 'center',
-                align: 'center',
-                font: {
-                  size: 25,
-                },
-                textShadowColor: '#fff',
-                textShadowBlur: 5,
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                formatter: (value: any, {dataset: {label}}: Context) =>
-                  value ? CATEGORY_EMOJI[label as Category] : '',
-              }
-            : {
-                display: false,
-              }),
-        },
-        tooltip: {
-          animation: showChartAnimations,
-          padding: 8,
-          titleFont: {
-            size: 14,
-            weight: 'normal',
-          },
-          bodyFont: {
-            size: 14,
-          },
-          footerFont: {
-            size: 14,
-            weight: 'normal',
-          },
-          displayColors: false,
-          backgroundColor: getComputedStyle(document.documentElement).getPropertyValue(
-            '--color-ui-dark',
-          ),
-          bodyColor: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
-          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
-        },
-      },
-    },
-    overrides,
-  ) as ChartOptions<T>;
 
 export const getRandomItem = <T>(availableItems: readonly T[] = []): T | undefined =>
   availableItems[Math.floor(Math.random() * availableItems.length)];

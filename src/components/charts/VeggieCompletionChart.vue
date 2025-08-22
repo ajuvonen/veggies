@@ -7,10 +7,10 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy} from 'remeda';
 import {Category} from '@/utils/types';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
-import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
-import {useChartAnimations} from '@/hooks/chartAnimations';
+import {getCategoryForVeggie} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
+import {useChartOptions} from '@/hooks/chartOptions';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(Tooltip, RadialLinearScale, ArcElement, ChartDataLabels);
@@ -30,8 +30,6 @@ const {
   availableGrains,
   availableMushrooms,
 } = useAvailableVeggies();
-
-const {showChartAnimations} = useChartAnimations();
 
 const veggieLengths = computed<Record<Category, number>>(() => ({
   [Category.Fruit]: availableFruits.value.length,
@@ -61,43 +59,41 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() =>
-  getChartOptions<'polarArea'>(false, false, false, showChartAnimations.value, {
-    plugins: {
-      tooltip: {
-        callbacks: {
-          title: ([{label}]) => t(`categories.${label}`),
-          label: ({formattedValue}) => t('veggieList.chartLabel', [formattedValue]),
-        },
+const {chartOptions} = useChartOptions<'polarArea'>(false, false, false, {
+  plugins: {
+    tooltip: {
+      callbacks: {
+        title: ([{label}]) => t(`categories.${label}`),
+        label: ({formattedValue}) => t('veggieList.chartLabel', [formattedValue]),
       },
-      datalabels: {
+    },
+    datalabels: {
+      display: true,
+      color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
+      formatter: (value) => `${value} %`,
+      anchor: 'end',
+      align: 'end',
+    },
+  },
+  scales: {
+    r: {
+      beginAtZero: true,
+      max: Math.max(...chartData.value.datasets[0].data) + 20,
+      ticks: {
+        count: 5,
+        display: false,
+      },
+      pointLabels: {
         display: true,
-        color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
-        formatter: (value) => `${value} %`,
-        anchor: 'end',
-        align: 'end',
+        centerPointLabels: true,
+        font: {
+          size: 25,
+        },
+        callback: (value) => CATEGORY_EMOJI[value as Category],
       },
     },
-    scales: {
-      r: {
-        beginAtZero: true,
-        max: Math.max(...chartData.value.datasets[0].data) + 20,
-        ticks: {
-          count: 5,
-          display: false,
-        },
-        pointLabels: {
-          display: true,
-          centerPointLabels: true,
-          font: {
-            size: 25,
-          },
-          callback: (value) => CATEGORY_EMOJI[value as Category],
-        },
-      },
-    },
-  }),
-);
+  },
+});
 
 defineExpose({chartData});
 </script>
