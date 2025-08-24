@@ -32,12 +32,6 @@ type BadgeProps = Record<
 >;
 
 const badgeProps: BadgeProps = {
-  allOnRed: {
-    [AchievementLevel.Gold]: {
-      textProps: [10],
-      emoji: '♥️',
-    },
-  },
   botanicalBerries: {
     [AchievementLevel.Gold]: {
       textProps: [15],
@@ -233,7 +227,7 @@ const badgeProps: BadgeProps = {
 }
 
 .badge__background {
-  @apply relative w-full h-full rounded-full border-4 overflow-hidden text-[17cqmin] sm:text-[14cqmin];
+  @apply relative w-full h-full rounded-full border-4 overflow-hidden text-[17cqmin] sm:text-[12cqmin];
   @apply flex items-center justify-center;
   .badge--noLabel > & {
     @apply text-3xl p-[0.125rem];
@@ -243,14 +237,13 @@ const badgeProps: BadgeProps = {
 }
 
 .badge__overlay {
-  @apply absolute inset-0 rounded-full bg-black opacity-20;
+  @apply absolute inset-0 rounded-full bg-black opacity-40;
 }
 
 .badge__emoji {
   mix-blend-mode: luminosity;
 
-  .badge__background--Platinum > &,
-  .badge--allOnRed & {
+  .badge__background--Platinum > & {
     mix-blend-mode: normal;
   }
 }

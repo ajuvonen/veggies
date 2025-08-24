@@ -345,30 +345,6 @@ export const CITRUSES: readonly string[] = [
   'pomelo',
 ];
 
-export const RED_VEGGIES: readonly string[] = [
-  'apple',
-  'beet',
-  'bell pepper',
-  'blood grapefruit',
-  'blood orange',
-  'cherry tomato',
-  'cherry',
-  'chili pepper',
-  'cranberry',
-  'lingonberry',
-  'pointed pepper',
-  'pomegranate',
-  'radish',
-  'raspberry',
-  'red bean',
-  'red cabbage',
-  'red onion',
-  'redcurrant',
-  'strawberry',
-  'tomato',
-  'watermelon',
-];
-
 export const NUTS: readonly string[] = [
   'almond',
   'brazil nut',
