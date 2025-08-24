@@ -29,6 +29,7 @@ describe('achievementCompletion', () => {
       botanicalBerries: 72,
       goNuts: 72,
       lemons: 72,
+      rainbow: 51,
       thirtyVeggies: 72,
     });
   });
@@ -40,14 +41,16 @@ describe('achievementCompletion', () => {
       botanicalBerries: 0,
       goNuts: 72,
       lemons: 0,
+      rainbow: 0,
       thirtyVeggies: 12,
     });
-    veggies.value = ['brazil nut', 'pistachio nut'];
+    veggies.value = ['brazil nut', 'pistachio nut', 'peanut'];
     expect(weeklyCompletion.value).toEqual({
       botanicalBerries: 0,
-      goNuts: 144,
+      goNuts: 216,
       lemons: 0,
-      thirtyVeggies: 24,
+      rainbow: 51,
+      thirtyVeggies: 36,
     });
   });
 });
