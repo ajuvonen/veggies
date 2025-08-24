@@ -26,7 +26,7 @@ describe('achievementCompletion', () => {
     ]);
     const {weeklyCompletion} = await withSetup(veggies);
     expect(weeklyCompletion.value).toEqual({
-      botanicalBerries: 72,
+      botanicalBerries: 120,
       goNuts: 72,
       lemons: 72,
       rainbow: 51,
