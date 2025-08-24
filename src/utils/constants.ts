@@ -361,8 +361,10 @@ export const NUTS: readonly string[] = [
 ];
 
 export const BOTANICAL_BERRIES: readonly string[] = [
+  'avocado',
   'banana',
   'bell pepper',
+  'blackcurrant',
   'blood grapefruit',
   'blood orange',
   'blueberry',
@@ -373,6 +375,7 @@ export const BOTANICAL_BERRIES: readonly string[] = [
   'clementine',
   'cranberry',
   'cucumber',
+  'dragon fruit',
   'eggplant',
   'goji berry',
   'grape',
@@ -392,6 +395,7 @@ export const BOTANICAL_BERRIES: readonly string[] = [
   'pointed pepper',
   'pomelo',
   'pumpkin',
+  'redcurrant',
   'tomatillo',
   'tomato',
   'watermelon',
