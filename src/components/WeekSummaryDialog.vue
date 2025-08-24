@@ -43,7 +43,6 @@ const dialogOpen = computed({
 
 const lastWeekData = ref<WeekData | null>(null);
 const weeklyAchievements: (keyof Achievements)[] = [
-  'allOnRed',
   'botanicalBerries',
   'goNuts',
   'lemons',

@@ -26,7 +26,6 @@ describe('achievementCompletion', () => {
     ]);
     const {weeklyCompletion} = await withSetup(veggies);
     expect(weeklyCompletion.value).toEqual({
-      allOnRed: 108,
       botanicalBerries: 72,
       goNuts: 72,
       lemons: 72,
@@ -38,7 +37,6 @@ describe('achievementCompletion', () => {
     const veggies = ref(['brazil nut']);
     const {weeklyCompletion} = await withSetup(veggies);
     expect(weeklyCompletion.value).toEqual({
-      allOnRed: 0,
       botanicalBerries: 0,
       goNuts: 72,
       lemons: 0,
@@ -46,7 +44,6 @@ describe('achievementCompletion', () => {
     });
     veggies.value = ['brazil nut', 'pistachio nut'];
     expect(weeklyCompletion.value).toEqual({
-      allOnRed: 0,
       botanicalBerries: 0,
       goNuts: 144,
       lemons: 0,
