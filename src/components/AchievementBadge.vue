@@ -246,6 +246,10 @@ const badgeProps: BadgeProps = {
   .badge__background--Platinum > & {
     mix-blend-mode: normal;
   }
+
+  .badge--thousandsEven & {
+    transform: scaleX(-1);
+  }
 }
 
 .badge__text {
