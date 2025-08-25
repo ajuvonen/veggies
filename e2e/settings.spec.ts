@@ -1,4 +1,7 @@
 import {test, expect} from '@playwright/test';
+import {DateTime} from 'luxon';
+import {readFileSync} from 'fs';
+import {fileURLToPath} from 'node:url';
 
 test('locale settings work', async ({page}) => {
   await page.goto('/');
@@ -58,4 +61,76 @@ test('q&a works', async ({page}) => {
   await page.getByTestId('qa-button-appPurpose').click();
   await expect(page.getByTestId('qa-panel-appPurpose')).toBeHidden();
   await expect(page.getByTestId('qa-panel-contact')).toBeHidden();
+});
+
+test('export works', async ({browser}) => {
+  const thisWeekISO = DateTime.now().startOf('week').toISODate();
+  const expectedData = JSON.parse(
+    readFileSync(fileURLToPath(new URL('./fixtures/EatYourVeggies.json', import.meta.url)), 'utf8'),
+  );
+  expectedData.settings.summaryViewedDate = thisWeekISO;
+  const browserContext = await browser.newContext({
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: 'http://localhost:5173',
+          localStorage: [
+            {
+              name: 'veggies-start-date',
+              value: '2025-08-04',
+            },
+            {
+              name: 'veggies-settings',
+              value: JSON.stringify({
+                allergens: ['peanut'],
+                locale: 'en',
+                showChartAnimations: true,
+                suggestionCount: 10,
+                summaryViewedDate: thisWeekISO,
+              }),
+            },
+            {
+              name: 'veggies-weeks',
+              value: JSON.stringify([
+                {
+                  veggies: ['apple', 'carrot', 'spinach', 'banana'],
+                  startDate: '2025-08-04',
+                },
+                {
+                  veggies: ['arugula', 'black bean', 'chanterelle', 'iceberg lettuce'],
+                  startDate: '2025-08-11',
+                },
+              ]),
+            },
+            {
+              name: 'veggies-challenges',
+              value: JSON.stringify([
+                {
+                  startDate: '2025-08-04',
+                  veggie: 'apple',
+                },
+                {
+                  startDate: '2025-08-11',
+                  veggie: 'lychee',
+                },
+              ]),
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  const page = await browserContext.newPage();
+  await page.goto('/');
+  await page.getByTestId('navbar-settings-link').click();
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByTestId('export-button').click();
+  const download = await downloadPromise;
+
+  const downloadPath = await download.path();
+  const exportedData = JSON.parse(readFileSync(downloadPath, 'utf8'));
+  expect(exportedData).toEqual(expectedData);
+  await browserContext.close();
 });

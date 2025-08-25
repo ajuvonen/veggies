@@ -8,7 +8,7 @@ describe('StatContainer', () => {
       totalWeeks: 'In Total 0 Weeks',
       over30Veggies: 'Over 30 Veggies in 0 Weeks',
       uniqueVeggies: 'In Total 0 Unique Veggies',
-      atMostVeggies: 'At Most 0 Veggies in a Week',
+      atMostVeggies: 'At Most 0 Weekly Veggies',
       completedChallenges: 'Completed 0 Weekly Challenges',
     };
     Object.entries(keys).forEach(([key, value]) => {
@@ -19,6 +19,52 @@ describe('StatContainer', () => {
         },
         data: () => ({
           statAmount: 0,
+          statKey: key,
+        }),
+      });
+      expect(wrapper.text()).toBe(value);
+    });
+  });
+
+  it('renders pluralized keys 1', () => {
+    const keys = {
+      totalWeeks: 'In Total 1 Week',
+      over30Veggies: 'Over 30 Veggies in 1 Week',
+      uniqueVeggies: 'In Total 1 Unique Veggie',
+      atMostVeggies: 'At Most 1 Weekly Veggie',
+      completedChallenges: 'Completed 1 Weekly Challenge',
+    };
+    Object.entries(keys).forEach(([key, value]) => {
+      const wrapper = mount({
+        template: '<div><StatContainer :statAmount="statAmount" :statKey="statKey" /></div>',
+        components: {
+          StatContainer,
+        },
+        data: () => ({
+          statAmount: 1,
+          statKey: key,
+        }),
+      });
+      expect(wrapper.text()).toBe(value);
+    });
+  });
+
+  it('renders pluralized keys 2', () => {
+    const keys = {
+      totalWeeks: 'In Total 2 Weeks',
+      over30Veggies: 'Over 30 Veggies in 2 Weeks',
+      uniqueVeggies: 'In Total 2 Unique Veggies',
+      atMostVeggies: 'At Most 2 Weekly Veggies',
+      completedChallenges: 'Completed 2 Weekly Challenges',
+    };
+    Object.entries(keys).forEach(([key, value]) => {
+      const wrapper = mount({
+        template: '<div><StatContainer :statAmount="statAmount" :statKey="statKey" /></div>',
+        components: {
+          StatContainer,
+        },
+        data: () => ({
+          statAmount: 2,
           statKey: key,
         }),
       });

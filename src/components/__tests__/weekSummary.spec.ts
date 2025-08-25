@@ -441,6 +441,11 @@ describe('useWeekSummary', () => {
         ({translationKey}) => translationKey === 'weekSummaryDialog.missingCategory',
       );
       expect(missingCategoryMessages).toHaveLength(0);
+      expect(summaryMessages.value).toContainEqual({
+        emoji: '🤹',
+        translationKey: 'weekSummaryDialog.allCategories',
+        translationParameters: [],
+      });
     });
 
     it('returns low category count messages for categories with 1-2 veggies', async () => {

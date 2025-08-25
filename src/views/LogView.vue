@@ -6,6 +6,7 @@ import {difference, first} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {KEYS} from '@/utils/constants';
+import {getRandomItem} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
@@ -41,7 +42,7 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
   const addedVeggie = first(difference(newCurrentVeggies, oldCurrentVeggies));
   if (addedVeggie) {
     const cheers: string[] = tm('cheers');
-    const cheer = cheers[Math.floor(Math.random() * cheers.length)];
+    const cheer = getRandomItem(cheers);
     if (allVeggies.value.length === 1) {
       addToastMessage(t('toasts.firstVeggie', [cheer]));
       showConfetti();
@@ -69,7 +70,7 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
         facts.push(t('toasts.occurrences', [occurrences, cheer]));
       }
 
-      addToastMessage(facts[Math.floor(Math.random() * facts.length)]);
+      addToastMessage(getRandomItem(facts)!);
     }
   }
 });

@@ -24,7 +24,9 @@ defineProps<{
       <div class="modal-dialog__container">
         <DialogPanel data-test-id="dialog" class="modal-dialog">
           <div class="modal-dialog__header outline-override">
-            <DialogTitle as="h2" class="modal-dialog__title">{{ title }}</DialogTitle>
+            <DialogTitle as="h2" class="modal-dialog__title" data-test-id="dialog-title">{{
+              title
+            }}</DialogTitle>
             <ButtonComponent
               v-if="!$slots.buttons"
               :aria-label="$t('general.close')"

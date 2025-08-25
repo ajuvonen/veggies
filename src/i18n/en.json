@@ -1,10 +1,5 @@
 {
   "achievements": {
-    "allOnRed": {
-      "ariaLabel": "{0} red veggies this week {1}",
-      "badgeText": "All on red",
-      "3": "Put it all on red! You have added ten different red veggies this week!"
-    },
     "botanicalBerries": {
       "ariaLabel": "{0} botanical berries this week {1}",
       "badgeText": "\"Berries\"",
@@ -122,31 +117,31 @@
   },
   "allTimeStatus": {
     "atMostVeggies": {
-      "bottomLabel": "Veggies in a Week",
+      "bottomLabel": "Weekly Veggies|Weekly Veggie|Weekly Veggies",
       "shareText": "I've tried as many as {0} different vegetables in one week! Try for free: {1}",
       "topLabel": "At Most"
     },
     "completedChallenges": {
-      "bottomLabel": "Weekly Challenges",
+      "bottomLabel": "Weekly Challenges|Weekly Challenge|Weekly Challenges",
       "shareText": "I've completed {0} weekly Eat Your Veggies -challenges! Try for free: {1}",
       "topLabel": "Completed"
     },
     "copy": "Copy achievement to clipboard",
     "over30Veggies": {
-      "bottomLabel": "Weeks",
+      "bottomLabel": "Weeks|Week|Weeks",
       "shareText": "I've managed to eat over 30 veggies in a week {0} times! Try for free: {1}",
       "topLabel": "Over 30 Veggies in"
     },
     "share": "Share achievement",
     "totalWeeks": {
-      "bottomLabel": "Weeks",
+      "bottomLabel": "Weeks|Week|Weeks",
       "shareText": "I've used Eat Your Veggies now for {0} weeks! Try for free: {1}",
       "topLabel": "In Total"
     },
     "uniqueVeggies": {
-      "topLabel": "In Total",
+      "bottomLabel": "Unique Veggies|Unique Veggie|Unique Veggies",
       "shareText": "So far, I've tried {0} unique veggies! Try for free: {1}",
-      "bottomLabel": "Unique Veggies"
+      "topLabel": "In Total"
     }
   },
   "categories": {
@@ -159,8 +154,8 @@
     "Vegetable": "Vegetables"
   },
   "categoryStatus": {
-    "bottomLabel": "Veggies",
-    "bottomLabelTotal": "Actions",
+    "bottomLabel": "Veggies|Veggie|Veggies",
+    "bottomLabelTotal": "Actions|Action|Actions",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "This Week",
     "topLabelLastWeek": "Last Week",
@@ -621,6 +616,12 @@
       "Ginger has been used for centuries in Asian cuisine and traditional medicine.",
       "Ginger is technically not a root vegetable, but an underground plant stalk.",
       "Ancient sailors would chew ginger to ward off seasickness."
+    ],
+    "goji berry": [
+      "Goji berries are native to China, Tibet, and Mongolia.",
+      "Just like carrots, goji berries derive their vivid red color from carotenoids.",
+      "Goji berries are rich in vitamins C and A, as well as iron and zinc.",
+      "Many of the health effects of goji berries are exaggerated or otherwise incorrect."
     ],
     "gooseberry": [
       "A 30-gram portion of gooseberries provides about 30% of the daily vitamin C requirement.",
@@ -1450,6 +1451,7 @@
     "fava bean": ["broad bean"],
     "finger lime": ["lime caviar"],
     "frisee": ["curly endive"],
+    "goji berry": ["wolfberry"],
     "grape": [""],
     "green bean": ["string bean"],
     "holy basil": ["tulsi"],
@@ -1584,6 +1586,7 @@
     "frisee": "frisée",
     "garlic": "garlic",
     "ginger": "ginger",
+    "goji berry": "goji berry",
     "gooseberry": "gooseberry",
     "grape": "grape",
     "grapefruit": "grapefruit",
@@ -1767,7 +1770,7 @@
     "mean": "Your average over five weeks is @:general.veggieNominative{'.'} Can you beat it this week?",
     "missingCategory": "You didn't eat any {0}. Care to try some this week?",
     "noVeggies": "No veggies logged last week. If you simply forgot to track your veggies, you can edit the week in the statistics view.",
-    "promotedAchievement": "How about aiming for the achievement {0} this week?",
+    "promotedAchievement": "How about aiming for the achievement \"{0}\" this week?",
     "recordAchieved": "New personal record! You ate @:general.veggie last week!",
     "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
     "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",

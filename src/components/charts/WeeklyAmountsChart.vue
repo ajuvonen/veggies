@@ -15,17 +15,15 @@ import {mean, reverse} from 'remeda';
 import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
-import {useChartAnimations} from '@/hooks/chartAnimations';
 import {useActivityStore} from '@/stores/activityStore';
-import {getChartOptions} from '@/utils/helpers';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
+import {useChartOptions} from '@/hooks/chartOptions';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
-const {showChartAnimations} = useChartAnimations();
 
 const chartContainer = ref<HTMLDivElement | null>(null);
 const {xAlign, yAlign} = useChartContainer(chartContainer);
@@ -46,45 +44,43 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() =>
-  getChartOptions<'line'>(true, false, false, showChartAnimations.value, {
-    plugins: {
-      annotation: {
-        annotations: {
-          mean: {
-            type: 'line',
-            borderColor: COLORS.chartColorsAlternate[2],
-            borderDash: [2, 6],
-            borderDashOffset: 0,
-            borderWidth: 3,
-            scaleID: 'y',
-            value: (ctx) => mean(ctx.chart.data.datasets[0].data.slice(1) as number[]) ?? 0,
-          },
-        },
-      },
-      tooltip: {
-        yAlign,
-        xAlign,
-        callbacks: {
-          title: (data) => {
-            const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
-            return formatWeekString(weekStart);
-          },
+const {chartOptions} = useChartOptions<'line'>(true, false, false, {
+  plugins: {
+    annotation: {
+      annotations: {
+        mean: {
+          type: 'line',
+          borderColor: COLORS.chartColorsAlternate[2],
+          borderDash: [2, 6],
+          borderDashOffset: 0,
+          borderWidth: 3,
+          scaleID: 'y',
+          value: (ctx) => mean(ctx.chart.data.datasets[0].data.slice(1) as number[]) ?? 0,
         },
       },
     },
-    layout: {
-      padding: {
-        right: 25,
+    tooltip: {
+      yAlign,
+      xAlign,
+      callbacks: {
+        title: (data) => {
+          const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
+          return formatWeekString(weekStart);
+        },
       },
     },
-    elements: {
-      point: {
-        hitRadius: 15,
-      },
+  },
+  layout: {
+    padding: {
+      right: 25,
     },
-  }),
-);
+  },
+  elements: {
+    point: {
+      hitRadius: 15,
+    },
+  },
+});
 
 defineExpose({chartData});
 </script>

@@ -9,12 +9,12 @@ import {reverse} from 'remeda';
 import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
-import {useChartAnimations} from '@/hooks/chartAnimations';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import {Category} from '@/utils/types';
-import {getCategoryForVeggie, getChartOptions} from '@/utils/helpers';
+import {getCategoryForVeggie} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
+import {useChartOptions} from '@/hooks/chartOptions';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
@@ -22,7 +22,6 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabel
 const {t} = useI18n();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
-const {showChartAnimations} = useChartAnimations();
 
 const {formatWeekString} = useDateTime();
 
@@ -48,30 +47,28 @@ const chartData = computed(() => {
   };
 });
 
-const chartOptions = computed(() =>
-  getChartOptions<'bar'>(true, true, true, showChartAnimations.value, {
-    layout: {
-      padding: {
-        right: 25,
-      },
+const {chartOptions} = useChartOptions<'bar'>(true, true, true, {
+  layout: {
+    padding: {
+      right: 25,
     },
-    plugins: {
-      tooltip: {
-        xAlign,
-        yAlign,
-        callbacks: {
-          title: (data) => {
-            const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
-            return formatWeekString(weekStart);
-          },
-          label: ({dataset, formattedValue}) => {
-            return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
-          },
+  },
+  plugins: {
+    tooltip: {
+      xAlign,
+      yAlign,
+      callbacks: {
+        title: (data) => {
+          const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
+          return formatWeekString(weekStart);
+        },
+        label: ({dataset, formattedValue}) => {
+          return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
         },
       },
     },
-  }),
-);
+  },
+});
 
 onMounted(() => {
   if (chartContainer.value) {

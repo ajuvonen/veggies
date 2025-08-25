@@ -8,7 +8,6 @@ import AchievementDialog from '@/components/AchievementDialog.vue';
 
 const getAchievements = (achievements: Partial<Achievements> = {}) =>
   computed(() => ({
-    allOnRed: AchievementLevel.NoAchievement,
     botanicalBerries: AchievementLevel.NoAchievement,
     challengeAccepted: AchievementLevel.NoAchievement,
     committed: AchievementLevel.NoAchievement,
@@ -57,7 +56,7 @@ describe('AchievementDialog', () => {
 
     // @ts-expect-error - Getters are writable in tests
     activityStore.achievements = getAchievements({
-      allOnRed: AchievementLevel.Gold,
+      thirtyVeggies: AchievementLevel.Gold,
     });
 
     await flushPromises();
@@ -67,7 +66,7 @@ describe('AchievementDialog', () => {
   it('does not show dialog if levels go down', async () => {
     // @ts-expect-error - Getters are writable in tests
     activityStore.achievements = getAchievements({
-      allOnRed: AchievementLevel.Gold,
+      goNuts: AchievementLevel.Gold,
       thirtyVeggies: AchievementLevel.Platinum,
     });
 
@@ -77,7 +76,7 @@ describe('AchievementDialog', () => {
 
     // @ts-expect-error - Getters are writable in tests
     activityStore.achievements = getAchievements({
-      allOnRed: AchievementLevel.NoAchievement,
+      goNuts: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.Gold,
     });
 
@@ -88,7 +87,7 @@ describe('AchievementDialog', () => {
   it('renders all new achievements', async () => {
     // @ts-expect-error Getters are writable in tests
     activityStore.achievements = getAchievements({
-      allOnRed: AchievementLevel.Gold,
+      lemons: AchievementLevel.Gold,
       thirtyVeggies: AchievementLevel.Gold,
     });
 
@@ -98,8 +97,8 @@ describe('AchievementDialog', () => {
 
     // @ts-expect-error Getters are writable in tests
     activityStore.achievements = getAchievements({
-      allOnRed: AchievementLevel.NoAchievement,
       experimenterBean: AchievementLevel.Gold,
+      lemons: AchievementLevel.NoAchievement,
       goNuts: AchievementLevel.Gold,
       thirtyVeggies: AchievementLevel.Platinum,
     });
@@ -109,5 +108,6 @@ describe('AchievementDialog', () => {
     expect(wrapper.find('.badge--experimenterBean').exists()).toBe(true);
     expect(wrapper.find('.badge--goNuts').exists()).toBe(true);
     expect(wrapper.find('.badge--thirtyVeggies').exists()).toBe(true);
+    expect(wrapper.find('.badge--lemons').exists()).toBe(false);
   });
 });

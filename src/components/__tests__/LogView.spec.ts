@@ -61,7 +61,7 @@ describe('LogView', () => {
   it('renders without animation when reduced motion is preferred', () => {
     mocks.usePreferredReducedMotion.mockReturnValue(computed(() => 'reduce'));
     const wrapper = mounter();
-    expect(wrapper.find('.front-page-animation').exists()).toBe(false);
+    expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
   });
 
   it('renders with data', () => {
@@ -100,15 +100,15 @@ describe('LogView', () => {
     ];
     const wrapper = mounter();
     try {
-      expect(wrapper.find('.front-page-animation').exists()).toBe(false);
+      expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
 
       vi.setSystemTime(thisWeek.plus({days: 1}).toJSDate());
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      expect(wrapper.find('.front-page-animation').exists()).toBe(false);
+      expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
 
       vi.setSystemTime(thisWeek.plus({weeks: 1}).toJSDate());
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      expect(wrapper.find('.front-page-animation').exists()).toBe(true);
+      expect(wrapper.findByTestId('front-page-animation').exists()).toBe(true);
     } finally {
       vi.useRealTimers();
     }

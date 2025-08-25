@@ -6,7 +6,7 @@
   --color-bg-alternative: #f9fafb;
   --color-text: #f9fafb;
   --color-text-alternative: #1f2937;
-  --color-link-hover: #e2e8f0;
+  --color-link-hover: #e5e7eb;
   --color-focus-outline: #f9fafb;
   --color-primary: #0ea5e9;
   --color-primary-hover: #0284c7;
@@ -17,7 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg-alternative: #d1d5db;
+    --color-bg-alternative: #e5e7eb;
     --color-text: #e5e7eb;
     --color-text-alternative: #1f2937;
     --color-link-hover: #f9fafb;

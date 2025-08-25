@@ -13,7 +13,11 @@ let emojis = getRandomEmojis(4);
 </script>
 <template>
   <div class="front-page-animation__container" aria-hidden="true">
-    <div v-if="reducedMotion !== 'reduce'" class="front-page-animation">
+    <div
+      v-if="reducedMotion !== 'reduce'"
+      class="front-page-animation"
+      data-test-id="front-page-animation"
+    >
       <template v-for="index in 2" :key="index">
         <div v-for="emoji in emojis" :key="emoji" class="front-page-animation__icon-container">
           <span class="front-page-animation__icon">{{ emoji }}</span>

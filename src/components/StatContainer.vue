@@ -25,7 +25,7 @@ const shareOrCopy = async () =>
   <i18n-t scope="global" keypath="categoryStatus.centerLabel">
     <span class="select-none">{{ $t(`allTimeStatus.${statKey}.topLabel`) }}</span>
     <span class="text-5xl select-none">{{ statAmount }}</span>
-    <span class="select-none">{{ $t(`allTimeStatus.${statKey}.bottomLabel`) }}</span>
+    <span class="select-none">{{ $t(`allTimeStatus.${statKey}.bottomLabel`, statAmount) }}</span>
   </i18n-t>
   <ButtonComponent
     v-tippy="shareSupported ? t('allTimeStatus.share') : t('allTimeStatus.copy')"

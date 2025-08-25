@@ -146,7 +146,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
 
     if (missingCategories.length === 0) {
       messages.push({
-        emoji: '🌈',
+        emoji: '🤹',
         translationKey: 'weekSummaryDialog.allCategories',
         translationParameters: [],
       });

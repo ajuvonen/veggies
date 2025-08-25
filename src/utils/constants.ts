@@ -42,8 +42,6 @@ export const COLORS = {
     '#72ddf7',
     '#bae6fd',
   ],
-  offWhite: '#f9fafb',
-  darkBlue: '#0c4a6e',
 } as const;
 
 export const CATEGORY_EMOJI = {
@@ -82,6 +80,7 @@ export const FRUITS: readonly string[] = [
   'durian',
   'fig',
   'finger lime',
+  'goji berry',
   'gooseberry',
   'grape',
   'grapefruit',
@@ -346,30 +345,6 @@ export const CITRUSES: readonly string[] = [
   'pomelo',
 ];
 
-export const RED_VEGGIES: readonly string[] = [
-  'apple',
-  'beet',
-  'bell pepper',
-  'blood grapefruit',
-  'blood orange',
-  'cherry tomato',
-  'cherry',
-  'chili pepper',
-  'cranberry',
-  'lingonberry',
-  'pointed pepper',
-  'pomegranate',
-  'radish',
-  'raspberry',
-  'red bean',
-  'red cabbage',
-  'red onion',
-  'redcurrant',
-  'strawberry',
-  'tomato',
-  'watermelon',
-];
-
 export const NUTS: readonly string[] = [
   'almond',
   'brazil nut',
@@ -386,8 +361,10 @@ export const NUTS: readonly string[] = [
 ];
 
 export const BOTANICAL_BERRIES: readonly string[] = [
+  'avocado',
   'banana',
   'bell pepper',
+  'blackcurrant',
   'blood grapefruit',
   'blood orange',
   'blueberry',
@@ -398,7 +375,9 @@ export const BOTANICAL_BERRIES: readonly string[] = [
   'clementine',
   'cranberry',
   'cucumber',
+  'dragon fruit',
   'eggplant',
+  'goji berry',
   'grape',
   'grapefruit',
   'guava',
@@ -416,6 +395,7 @@ export const BOTANICAL_BERRIES: readonly string[] = [
   'pointed pepper',
   'pomelo',
   'pumpkin',
+  'redcurrant',
   'tomatillo',
   'tomato',
   'watermelon',

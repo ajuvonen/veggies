@@ -7,10 +7,9 @@ import {
   dateParser,
   dateReplacer,
   getCategoryForVeggie,
-  getChartOptions,
   getImportSchema,
   getRandomEmojis,
-  getRandomVeggie,
+  getRandomItem,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/utils/types';
 
@@ -28,10 +27,14 @@ describe('helpers', () => {
     expect(getCategoryForVeggie('split pea')).toBe(undefined);
   });
 
-  it('returns random veggie', () => {
-    const randomVeggies = [...Array(100)].map(() => getRandomVeggie(ALL_VEGGIES));
+  it('returns random item', () => {
+    const randomVeggies = [...Array(100)].map(() => getRandomItem(ALL_VEGGIES));
     randomVeggies.forEach((veggie) => expect(ALL_VEGGIES).toContain(veggie));
     expect(new Set(randomVeggies).size).toBeGreaterThan(70);
+  });
+
+  it('returns undefined for empty arrays', () => {
+    expect(getRandomItem([])).toBeUndefined();
   });
 
   it('parses dates from JSON', () => {
@@ -69,38 +72,6 @@ describe('helpers', () => {
   it('gives unique emojis', () => {
     const emojis = getRandomEmojis(15);
     expect(unique(emojis)).toHaveLength(15);
-  });
-
-  it('combines chart configs', () => {
-    const overrides = {
-      responsive: false,
-      layout: {
-        padding: 10,
-      },
-      plugins: {
-        legend: {
-          display: true,
-        },
-      },
-    };
-
-    const result = getChartOptions<'bar'>(true, true, true, false, overrides);
-    expect(result.responsive).toBe(false);
-    expect(result.layout?.padding).toBe(10);
-    expect(result.plugins?.legend?.display).toBe(true);
-    // Defaults
-    expect(result.maintainAspectRatio).toBe(false);
-    expect(result.scales?.x?.stacked).toBe(true);
-    expect(result.plugins?.datalabels?.anchor).toBe('center');
-  });
-
-  it('disables animations', () => {
-    let result = getChartOptions<'bar'>(true, true, true, false);
-    expect(result.animation).toBe(false);
-    expect(result.plugins?.tooltip?.animation).toBe(false);
-    result = getChartOptions<'bar'>(true, true, true, true);
-    expect(result.animation).toBe(undefined);
-    expect(result.plugins?.tooltip?.animation).toBe(true);
   });
 
   it('returns correct achievement levels', () => {

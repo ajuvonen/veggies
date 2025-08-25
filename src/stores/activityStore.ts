@@ -27,7 +27,7 @@ import {
   dateParser,
   dateReplacer,
   getCategoryForVeggie,
-  getRandomVeggie,
+  getRandomItem,
 } from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {
@@ -39,7 +39,6 @@ import {
   LEAFIES,
   MUSHROOMS,
   NUTS,
-  RED_VEGGIES,
   ROOTS,
   VEGETABLES,
 } from '@/utils/constants';
@@ -167,10 +166,6 @@ export const useActivityStore = defineStore('activity', () => {
   const weeklyAchievements = computed(() => (veggies: string[] = currentVeggies.value) => {
     const groupedVeggies = countBy(veggies, getCategoryForVeggie);
     return {
-      allOnRed: achievementLevelHelper(
-        [[10, AchievementLevel.Gold]],
-        intersection(RED_VEGGIES, veggies).length,
-      ),
       botanicalBerries: achievementLevelHelper(
         [[15, AchievementLevel.Gold]],
         intersection(BOTANICAL_BERRIES, veggies).length,
@@ -288,7 +283,7 @@ export const useActivityStore = defineStore('activity', () => {
         ...challenges.value,
         {
           startDate: weekStart,
-          veggie: getRandomVeggie(availableVeggies.value),
+          veggie: getRandomItem(availableVeggies.value),
         },
       ];
     } else if (!targetWeek.veggies.includes(targetVeggie)) {
@@ -312,7 +307,7 @@ export const useActivityStore = defineStore('activity', () => {
         ...challenges.value,
         {
           startDate: weekStart,
-          veggie: getRandomVeggie(availableVeggies.value),
+          veggie: getRandomItem(availableVeggies.value),
         },
       ];
     } else {

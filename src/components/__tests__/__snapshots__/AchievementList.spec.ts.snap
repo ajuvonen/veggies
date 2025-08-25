@@ -20,13 +20,6 @@ exports[`AchievementList > renders 1`] = `
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Lemons</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="10 red veggies this week (locked)" data-test-id="badge-allOnRed-3" class="badge--allOnRed badge--locked badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">♥️</div>
-        </div>
-        <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">All on red</div>
-      </li>
       <li data-v-06381b3c="" data-v-1c120264="" aria-label="15 botanical berries this week (locked)" data-test-id="badge-botanicalBerries-3" class="badge--botanicalBerries badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🍅</div>
@@ -48,7 +41,6 @@ exports[`AchievementList > renders 1`] = `
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 Weekly</div>
       </li>
-      <!--v-if-->
     </ul>
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
@@ -244,13 +236,6 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
         <!--v-if-->
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Lemons</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="10 red veggies this week " data-test-id="badge-allOnRed-3" class="badge--allOnRed badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">♥️</div>
-        </div>
-        <!--v-if-->
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">All on red</div>
-      </li>
       <li data-v-06381b3c="" data-v-1c120264="" aria-label="15 botanical berries this week " data-test-id="badge-botanicalBerries-3" class="badge--botanicalBerries badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🍅</div>
@@ -264,13 +249,6 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Rainbow</div>
-      </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="30 unique veggies this week " data-test-id="badge-thirtyVeggies-3" class="badge--thirtyVeggies badge" role="img">
-        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
-          <div data-v-06381b3c="" class="badge__emoji">🎉</div>
-        </div>
-        <!--v-if-->
-        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">30 Weekly</div>
       </li>
       <li data-v-06381b3c="" data-v-1c120264="" aria-label="40 unique veggies this week " data-test-id="badge-thirtyVeggies-4" class="badge--thirtyVeggies badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Platinum" aria-hidden="true">
