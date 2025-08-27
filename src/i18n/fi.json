@@ -91,6 +91,11 @@
     },
     "locked": "(lukittu)",
     "newAchievements": "Uusia saavutuksia avattu!",
+    "overachiever": {
+      "ariaLabel": "{0} kasvista ja viikkohaaste suoritettu {1}",
+      "badgeText": "Ylisuorittaja",
+      "3": "Tuplavoitto! Yli 30 kasvista JA viikkohaaste suoritettu!"
+    },
     "rainbow": {
       "ariaLabel": "{0} kasvista joka kategoriasta tällä viikolla {1}",
       "badgeText": "Sateenkaari",

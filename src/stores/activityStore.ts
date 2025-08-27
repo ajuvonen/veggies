@@ -163,35 +163,47 @@ export const useActivityStore = defineStore('activity', () => {
     ),
   );
 
-  const weeklyAchievements = computed(() => (veggies: string[] = currentVeggies.value) => {
-    const groupedVeggies = countBy(veggies, getCategoryForVeggie);
-    return {
-      botanicalBerries: achievementLevelHelper(
-        [[15, AchievementLevel.Gold]],
-        intersection(BOTANICAL_BERRIES, veggies).length,
-      ),
-      goNuts: achievementLevelHelper(
-        [[5, AchievementLevel.Gold]],
-        intersection(NUTS, veggies).length,
-      ),
-      lemons: achievementLevelHelper(
-        [[5, AchievementLevel.Gold]],
-        intersection(CITRUSES, veggies).length,
-      ),
-      rainbow: Object.values(Category).every(
-        (category) => groupedVeggies[category] && groupedVeggies[category] >= 3,
-      )
-        ? AchievementLevel.Gold
-        : AchievementLevel.NoAchievement,
-      thirtyVeggies: achievementLevelHelper(
-        [
-          [40, AchievementLevel.Platinum],
-          [30, AchievementLevel.Gold],
-        ],
-        veggies.length,
-      ),
-    };
-  });
+  const weeklyAchievements = computed(
+    () =>
+      (veggies: string[] = currentVeggies.value, weekStart: DateTime = currentWeekStart.value) => {
+        const groupedVeggies = countBy(veggies, getCategoryForVeggie);
+        const challenge = challenges.value.find(({startDate}) =>
+          startDate.equals(weekStart),
+        )?.veggie;
+        const challengeCompleted = challenge && veggies.includes(challenge);
+
+        return {
+          botanicalBerries: achievementLevelHelper(
+            [[15, AchievementLevel.Gold]],
+            intersection(BOTANICAL_BERRIES, veggies).length,
+          ),
+          goNuts: achievementLevelHelper(
+            [[5, AchievementLevel.Gold]],
+            intersection(NUTS, veggies).length,
+          ),
+          lemons: achievementLevelHelper(
+            [[5, AchievementLevel.Gold]],
+            intersection(CITRUSES, veggies).length,
+          ),
+          overachiever:
+            veggies.length >= 30 && challengeCompleted
+              ? AchievementLevel.Gold
+              : AchievementLevel.NoAchievement,
+          rainbow: Object.values(Category).every(
+            (category) => groupedVeggies[category] && groupedVeggies[category] >= 3,
+          )
+            ? AchievementLevel.Gold
+            : AchievementLevel.NoAchievement,
+          thirtyVeggies: achievementLevelHelper(
+            [
+              [40, AchievementLevel.Platinum],
+              [30, AchievementLevel.Gold],
+            ],
+            veggies.length,
+          ),
+        };
+      },
+  );
 
   const achievements = computed<Achievements>(() => ({
     challengeAccepted: achievementLevelHelper(

@@ -570,6 +570,7 @@ describe('activityStore', () => {
       goNuts: AchievementLevel.NoAchievement,
       hotStreak: AchievementLevel.NoAchievement,
       lemons: AchievementLevel.NoAchievement,
+      overachiever: AchievementLevel.NoAchievement,
       rainbow: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.NoAchievement,
       thousandsOdd: AchievementLevel.NoAchievement,

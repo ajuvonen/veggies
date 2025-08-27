@@ -91,6 +91,11 @@
       "3": "When life gives you lemons you'll surely avoid scurvy. Five different citrus fruits this week!"
     },
     "newAchievements": "You gained new achievements!",
+    "overachiever": {
+      "ariaLabel": "{0} veggies and weekly challenge completed {1}",
+      "badgeText": "Overachiever",
+      "3": "Double victory! Over 30 veggies AND weekly challenge completed!"
+    },
     "rainbow": {
       "ariaLabel": "{0} veggies from each category this week {1}",
       "badgeText": "Rainbow",

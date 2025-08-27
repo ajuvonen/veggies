@@ -27,6 +27,13 @@ exports[`AchievementList > renders 1`] = `
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">"Berries"</div>
       </li>
+      <li data-v-06381b3c="" data-v-1c120264="" aria-label="30 veggies and weekly challenge completed (locked)" data-test-id="badge-overachiever-3" class="badge--overachiever badge--locked badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">💪</div>
+        </div>
+        <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Overachiever</div>
+      </li>
       <li data-v-06381b3c="" data-v-1c120264="" aria-label="3 veggies from each category this week (locked)" data-test-id="badge-rainbow-3" class="badge--rainbow badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🌈</div>
@@ -242,6 +249,13 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
         </div>
         <!--v-if-->
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">"Berries"</div>
+      </li>
+      <li data-v-06381b3c="" data-v-1c120264="" aria-label="30 veggies and weekly challenge completed (locked)" data-test-id="badge-overachiever-3" class="badge--overachiever badge--locked badge" role="img">
+        <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+          <div data-v-06381b3c="" class="badge__emoji">💪</div>
+        </div>
+        <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
+        <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Overachiever</div>
       </li>
       <li data-v-06381b3c="" data-v-1c120264="" aria-label="3 veggies from each category this week (locked)" data-test-id="badge-rainbow-3" class="badge--rainbow badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
