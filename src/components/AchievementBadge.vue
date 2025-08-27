@@ -134,6 +134,12 @@ const badgeProps: BadgeProps = {
       emoji: '🍋',
     },
   },
+  overachiever: {
+    [AchievementLevel.Gold]: {
+      textProps: [30],
+      emoji: '💪',
+    },
+  },
   hotStreak: {
     [AchievementLevel.Bronze]: {
       textProps: [5],

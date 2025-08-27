@@ -848,6 +848,13 @@ exports[`WeekEditor > renders 1`] = `
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <!--v-if-->
     </li>
+    <li data-v-06381b3c="" aria-label="30 veggies and weekly challenge completed (locked)" data-test-id="badge-overachiever-3" class="badge--overachiever badge--noLabel badge--locked badge" role="img">
+      <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+        <div data-v-06381b3c="" class="badge__emoji">💪</div>
+      </div>
+      <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 12deg, black 12deg 360deg);"></div>
+      <!--v-if-->
+    </li>
     <li data-v-06381b3c="" aria-label="3 veggies from each category this week (locked)" data-test-id="badge-rainbow-3" class="badge--rainbow badge--noLabel badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🌈</div>

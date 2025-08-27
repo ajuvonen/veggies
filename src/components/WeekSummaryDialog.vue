@@ -46,6 +46,7 @@ const weeklyAchievements: (keyof Achievements)[] = [
   'botanicalBerries',
   'goNuts',
   'lemons',
+  'overachiever',
   'rainbow',
 ];
 

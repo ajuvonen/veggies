@@ -37,13 +37,13 @@ const veggies = computed({
   set: (veggies) => setVeggiesForWeek(veggies, selectedWeekStart.value),
 });
 
-const {weeklyCompletion} = useAchievementCompletion(veggies);
-
 const {formatWeekString} = useDateTime();
 
 const selectedChallenge = computed(
   () => challenges.value.find(({startDate}) => startDate.equals(selectedWeekStart.value))?.veggie,
 );
+
+const {weeklyCompletion} = useAchievementCompletion(veggies, selectedChallenge);
 
 provide(KEYS.challenge, readonly(selectedChallenge));
 const getDropdownStyles = inject(KEYS.dropdownStyles);
@@ -100,7 +100,9 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
       :aria-label="$t('stats.weeklyAchievements')"
     >
       <AchievementBadge
-        v-for="[achievement, level] in Object.entries(weeklyAchievements(veggies))"
+        v-for="[achievement, level] in Object.entries(
+          weeklyAchievements(veggies, selectedWeekStart),
+        )"
         :key="achievement"
         :achievement="achievement as keyof Achievements"
         :level="level || AchievementLevel.Gold"
