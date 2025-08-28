@@ -11,6 +11,7 @@ import {
   LEAFIES,
   MUSHROOMS,
   NUTS,
+  RED_VEGGIES,
   ROOTS,
   VEGETABLES,
 } from '@/utils/constants';
@@ -34,6 +35,7 @@ describe('achievements', () => {
 
   it('sets initial status', async () => {
     const defaultAchievements: Achievements = {
+      allOnRed: AchievementLevel.NoAchievement,
       botanicalBerries: AchievementLevel.NoAchievement,
       challengeAccepted: AchievementLevel.NoAchievement,
       committed: AchievementLevel.NoAchievement,
@@ -181,6 +183,13 @@ describe('achievements', () => {
     expect(activityStore.achievements.lemons).toEqual(AchievementLevel.NoAchievement);
     activityStore.weeks = createWeeks(1, take(CITRUSES, 5));
     expect(activityStore.achievements.lemons).toEqual(AchievementLevel.Gold);
+  });
+
+  it('advances all on red', async () => {
+    activityStore.weeks = createWeeks(1, take(RED_VEGGIES, 9));
+    expect(activityStore.achievements.allOnRed).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(RED_VEGGIES, 10));
+    expect(activityStore.achievements.allOnRed).toEqual(AchievementLevel.Gold);
   });
 
   it('advances botanical berries', async () => {

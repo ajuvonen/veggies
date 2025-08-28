@@ -53,6 +53,7 @@ export enum AchievementLevel {
 }
 
 export type Achievements = {
+  allOnRed: AchievementLevel;
   botanicalBerries: AchievementLevel;
   challengeAccepted: AchievementLevel;
   committed: AchievementLevel;

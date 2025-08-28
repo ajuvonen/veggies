@@ -1,5 +1,10 @@
 {
   "achievements": {
+    "allOnRed": {
+      "ariaLabel": "{0} red veggies this week {1}",
+      "badgeText": "All on red",
+      "3": "Put it all on red! You have added ten different red veggies this week!"
+    },
     "botanicalBerries": {
       "ariaLabel": "{0} botanical berries this week {1}",
       "badgeText": "\"Berries\"",

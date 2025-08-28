@@ -32,6 +32,12 @@ type BadgeProps = Record<
 >;
 
 const badgeProps: BadgeProps = {
+  allOnRed: {
+    [AchievementLevel.Gold]: {
+      textProps: [10],
+      emoji: '♥️',
+    },
+  },
   botanicalBerries: {
     [AchievementLevel.Gold]: {
       textProps: [15],
@@ -249,7 +255,8 @@ const badgeProps: BadgeProps = {
 .badge__emoji {
   mix-blend-mode: luminosity;
 
-  .badge__background--Platinum > & {
+  .badge__background--Platinum > &,
+  .badge--allOnRed & {
     mix-blend-mode: normal;
   }
 

@@ -827,6 +827,13 @@ exports[`WeekEditor > renders 1`] = `
     </transition-stub>
   </div>
   <ul class="flex-container flex-wrap justify-evenly" aria-label="Weekly Achievements">
+    <li data-v-06381b3c="" aria-label="10 red veggies this week (locked)" data-test-id="badge-allOnRed-3" class="badge--allOnRed badge--noLabel badge--locked badge" role="img">
+      <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+        <div data-v-06381b3c="" class="badge__emoji">♥️</div>
+      </div>
+      <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 36deg, black 36deg 360deg);"></div>
+      <!--v-if-->
+    </li>
     <li data-v-06381b3c="" aria-label="15 botanical berries this week (locked)" data-test-id="badge-botanicalBerries-3" class="badge--botanicalBerries badge--noLabel badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🍅</div>
