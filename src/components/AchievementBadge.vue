@@ -292,7 +292,7 @@ const badgeProps: BadgeProps = {
 
 .badge__background::after {
   content: '';
-  @apply absolute top-0 left-0 w-full h-full rounded-full;
+  @apply absolute inset-0 rounded-full;
   background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent);
   mask-image: radial-gradient(circle, white 30%, transparent 60%);
   mask-size: 150%;
