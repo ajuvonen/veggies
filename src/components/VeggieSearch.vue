@@ -67,11 +67,13 @@ const jumpToCategory = (index: number) => {
   if (optionsElement.value) {
     const parsedIndex =
       index < 0 ? groups.value.length - 1 : index > groups.value.length - 1 ? 0 : index;
-    const targetGroup = groups.value[parsedIndex].$el;
-    optionsElement.value.$el.scrollTo({
-      top: targetGroup.offsetTop,
-      behavior: 'smooth',
-    });
+    const targetGroup = groups.value[parsedIndex]?.$el as HTMLElement | undefined;
+    if (targetGroup) {
+      optionsElement.value.$el.scrollTo({
+        top: targetGroup.offsetTop,
+        behavior: 'smooth',
+      });
+    }
   }
 };
 
