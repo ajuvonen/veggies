@@ -63,7 +63,7 @@ const {chartOptions} = useChartOptions<'polarArea'>(false, false, false, {
   plugins: {
     tooltip: {
       callbacks: {
-        title: ([{label}]) => t(`categories.${label}`),
+        title: ([tooltip]) => t(`categories.${tooltip!.label}`),
         label: ({formattedValue}) => t('veggieList.chartLabel', [formattedValue]),
       },
     },
@@ -78,7 +78,7 @@ const {chartOptions} = useChartOptions<'polarArea'>(false, false, false, {
   scales: {
     r: {
       beginAtZero: true,
-      max: Math.max(...chartData.value.datasets[0].data) + 20,
+      max: Math.max(...chartData.value.datasets[0]!.data) + 20,
       ticks: {
         count: 5,
         display: false,
@@ -110,7 +110,7 @@ defineExpose({chartData});
         id="veggie-completion-table"
         :title="$t('veggieList.chartTitle')"
         :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
-        :data="[chartData.datasets[0].data.map((value) => `${value} %`)]"
+        :data="[chartData.datasets[0]!.data.map((value) => `${value} %`)]"
       />
     </div>
   </ContentElement>

@@ -43,9 +43,9 @@ export function useChartOptions<T extends ChartType>(
                 },
                 stacked,
                 afterBuildTicks: (axis: Scale) => {
-                  axis.ticks = [...axis.chart.scales.y.ticks];
-                  axis.min = axis.chart.scales.y.min;
-                  axis.max = axis.chart.scales.y.max;
+                  axis.ticks = [...axis.chart.scales.y!.ticks];
+                  axis.min = axis.chart.scales.y!.min;
+                  axis.max = axis.chart.scales.y!.max;
                 },
               },
               x: {

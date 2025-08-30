@@ -58,8 +58,8 @@ const {chartOptions} = useChartOptions<'bar'>(true, true, true, {
       xAlign,
       yAlign,
       callbacks: {
-        title: (data) => {
-          const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
+        title: ([tooltip]) => {
+          const weekStart = DateTime.fromFormat(tooltip!.label, 'W/kkkk');
           return formatWeekString(weekStart);
         },
         label: ({dataset, formattedValue}) => {

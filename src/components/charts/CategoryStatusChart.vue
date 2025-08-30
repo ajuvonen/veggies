@@ -67,15 +67,15 @@ const {chartOptions} = useChartOptions<'doughnut'>(
     plugins: {
       tooltip: {
         callbacks: {
-          title: ([{label}]) => t(`categories.${label}`),
-          footer: ([{label}]) =>
+          title: ([tooltip]) => t(`categories.${tooltip!.label}`),
+          footer: ([tooltip]) =>
             props.favorites
-              ? props.favorites[label as Category].map(([veggie, amount], index) => {
+              ? props.favorites[tooltip!.label as Category].map(([veggie, amount], index) => {
                   const translation = translateAndCapitalize(veggie);
                   return `${medalEmojis[index]} ${translation} (${amount})`;
                 })
               : props.veggies
-                  .filter((veggie) => getCategoryForVeggie(veggie) === label)
+                  .filter((veggie) => getCategoryForVeggie(veggie) === tooltip!.label)
                   .map(translateAndCapitalize)
                   .sort(collator.value.compare),
         },
@@ -115,7 +115,7 @@ defineExpose({chartData});
       id="category-status-table"
       :title="favorites ? $t('categoryStatus.veggiesTotal') : $t('categoryStatus.veggiesOfTheWeek')"
       :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
-      :data="[chartData.datasets[0].data]"
+      :data="[chartData.datasets[0]!.data]"
     />
   </div>
 </template>

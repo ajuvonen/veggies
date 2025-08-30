@@ -60,7 +60,7 @@ export const useActivityStore = defineStore('activity', () => {
   const startDate = useStorage<DateTime | null>('veggies-start-date', null, localStorage, {
     mergeDefaults: true,
     serializer: {
-      read: (v) => (v ? DateTime.fromISO(v.split('T')[0]) : null),
+      read: (v) => (v ? DateTime.fromISO(v.split('T')[0] as string) : null),
       write: (v) => v?.toISODate() ?? '',
     },
   });

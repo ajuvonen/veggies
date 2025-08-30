@@ -55,7 +55,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
           borderDashOffset: 0,
           borderWidth: 3,
           scaleID: 'y',
-          value: (ctx) => mean(ctx.chart.data.datasets[0].data.slice(1) as number[]) ?? 0,
+          value: (ctx) => mean(ctx.chart.data.datasets[0]!.data.slice(1) as number[]) ?? 0,
         },
       },
     },
@@ -63,8 +63,8 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
       yAlign,
       xAlign,
       callbacks: {
-        title: (data) => {
-          const weekStart = DateTime.fromFormat(data[0].label, 'W/kkkk');
+        title: ([tooltip]) => {
+          const weekStart = DateTime.fromFormat(tooltip!.label, 'W/kkkk');
           return formatWeekString(weekStart);
         },
       },

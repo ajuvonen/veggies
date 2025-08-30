@@ -52,7 +52,7 @@ onChange(async (files) => {
 
   try {
     const [file] = files;
-    const text = await file.text();
+    const text = (await file?.text()) || '';
     const importSchema = await getImportSchema();
     const {
       startDate: importStartDate,
