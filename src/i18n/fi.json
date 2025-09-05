@@ -311,11 +311,13 @@
     "blood grapefruit": [
       "Greippiä suositellaan vältettävän tiettyjen lääkekuurien aikana.",
       "Nimestään huolimatta verigreippi ei ole sukua veriappelsiinille.",
-      "Verigreippi on joitakin muita greippilajikkeita makeampi."
+      "Verigreippi on joitakin muita greippilajikkeita makeampi.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "blood orange": [
       "Yksi veriappelsiini sisältää noin 78 % päivittäisestä C-vitamiinista.",
-      "Veriappelsiinit saavat punaisen värinsä antosyaaneista, jotka ovat harvinaisia sitrushedelmissä."
+      "Veriappelsiinit saavat punaisen värinsä antosyaaneista, jotka ovat harvinaisia sitrushedelmissä.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "blueberry": [
       "Mustikat sisältävät muun muassa kuitua, C- ja K-vitamiinia, sekä mangaania.",
@@ -382,7 +384,8 @@
     "calamansi": [
       "Calamansi on helppo sekoittaa kumkvattiin, mutta ne eivät ole sama asia.",
       "Calamansia pidetään hyvän onnen symbolina Filippiineillä.",
-      "Calamansia käytetään usein kastikkeissa ja marinadeissa."
+      "Calamansia käytetään usein kastikkeissa ja marinadeissa.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "cannellini bean": [
       "Cannellinipapuja kutsutaan myös valkoisiksi kidneypavuiksi.",
@@ -404,7 +407,8 @@
     "carrot": [
       "Yksi porkkana sisältää yli 100 % päivän A-vitamiinista.",
       "Porkkanat olivat joko violetteja tai valkoisia, kunnes hollantilaiset maanviljelijät kehittivät oranssin lajikkeen 1600-luvulla.",
-      "Painavin koskaan punnittu porkkana painoi yli kymmenen kiloa."
+      "Painavin koskaan punnittu porkkana painoi yli kymmenen kiloa.",
+      "Toisin kuin yleisesti luullaan, porkkana ei ole hyväksi kaneille liiallisen sokeripitoisuutensa vuoksi."
     ],
     "cashew nut": [
       "30 gramman annos cashewpähkinöitä sisältää noin 5 g proteiinia ja 13 g terveellisiä rasvoja.",
@@ -458,7 +462,8 @@
     ],
     "cherry": [
       "Kirsikat tunnetaan antioksidanttisista ominaisuuksistaan, ja niitä on viljelty antiikin ajoista lähtien.",
-      "Kirsikat ovat luumujen, ja toisaalta myös persikoiden ja nektariinien, sukulaishedelmiä."
+      "Kirsikat ovat luumujen, ja toisaalta myös persikoiden ja nektariinien, sukulaishedelmiä.",
+      "Kirsikan kivessä ja kannassa on ainesosia, jotka ovat haitallisia lemmikeille."
     ],
     "chestnut": [
       "Useimpiin pähkinöihin verrattuna kastanjat ovat vähärasvaisempia ja sisältävät enemmän hiilihydraatteja.",
@@ -482,7 +487,8 @@
     "chives": [
       "Myös ruohosipulin kukat ovat syötäviä.",
       "Ruohosipuli on monivuotinen kasvi, joka tuottaa joka vuosi uuden sadon.",
-      "Lisää ruohosipuli vasta ruoanlaiton loppuvaiheessa säilyttääksesi sen maun."
+      "Lisää ruohosipuli vasta ruoanlaiton loppuvaiheessa säilyttääksesi sen maun.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "choy sum": [
       "Sellerikaalin keltaiset kukat ovat myös syötäviä.",
@@ -495,7 +501,8 @@
     ],
     "clementine": [
       "Klementiini sisältää noin 60 % päivittäisestä C-vitamiinista, joten se on immuunijärjestelmää tukeva välipala.",
-      "Klementiinit ovat mandariinin ja pomeranssin hybridi."
+      "Klementiinit ovat mandariinin ja pomeranssin hybridi.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "cloudberry": [
       "30 gramman annos hilloja sisältää yli 50 % päivittäisestä C-vitamiinista.",
@@ -586,7 +593,8 @@
     "fava bean": [
       "Härkäpapuja on viljelty tuhansia vuosia ja niitä käytetään Välimeren keittiössä.",
       "Osalla ihmisistä on geneettinen poikkeavuus, jonka vuoksi he eivät saa syödä härkäpapuja.",
-      "Härkäpavut auttoivat Italiaa selviämään Toisesta Maailmansodasta huonojen satokausien aikana."
+      "Härkäpavut auttoivat Italiaa selviämään Toisesta Maailmansodasta huonojen satokausien aikana.",
+      "Härkäpavut ovat haitallisia kaneille."
     ],
     "fennel": [
       "Sekä fenkolin mukulaa että siemeniä käytetään ruoanlaitossa, siemeniä useimmiten mausteena.",
@@ -601,7 +609,8 @@
     "finger lime": [
       "Sormilimetti kasvaa luonnonvaraisena Itä-Australian sademetsissä.",
       "Sormilimetin kirpakat, limekaviaariksi kutsutut helmet syödään sellaisenaan.",
-      "Sormilimetti on kaupallistunut vasta viimeisten parin vuosikymmenen aikana."
+      "Sormilimetti on kaupallistunut vasta viimeisten parin vuosikymmenen aikana.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "flageolet bean": [
       "Flageoletpapu on keskenkasvuisen kidneypavun variantti.",
@@ -620,7 +629,8 @@
     ],
     "garlic": [
       "Valkosipulia on käytetty tuhansia vuosia sekä maustamiseen että perinteisessä lääketieteessä.",
-      "Valkosipulilla uskotaan olevan antibakteerisia ja tulehdusta vähentäviä ominaisuuksia."
+      "Valkosipulilla uskotaan olevan antibakteerisia ja tulehdusta vähentäviä ominaisuuksia.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "ginger": [
       "Inkivääriä on käytetty vuosisatojen ajan Aasian keittiöissä ja perinteisessä lääketieteessä.",
@@ -640,12 +650,14 @@
     "grape": [
       "Rypäleitä on viljelty yli 8 000 vuotta, ja niitä käytetään myös viinin, rusinoiden ja mehujen valmistukseen.",
       "Rypäleitä esiintyy monissa eri väreissä, joilla jokaisella on ainutlaatuinen maku ja rakenne.",
-      "Rypäleitä kasvatetaan kuudella seitsemästä maailman mantereesta."
+      "Rypäleitä kasvatetaan kuudella seitsemästä maailman mantereesta.",
+      "Rypäleet ovat haitallisia lemmikkieläimille, erityisesti koirille."
     ],
     "grapefruit": [
       "Yksi greippi sisältää noin 100 % päivittäisestä C-vitamiinista.",
       "Greipit löydettiin Barbadokselta 1700-luvulla ja niiden uskotaan olevan pomelon ja appelsiinin hybridi.",
-      "Greippiä suositellaan vältettävän tiettyjen lääkekuurien aikana."
+      "Greippiä suositellaan vältettävän tiettyjen lääkekuurien aikana.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "grenadilla": [
       "Grenadillaa käytetään samoin tavoin kuin passiohedelmää, mutta se on makeampi ja vähemmän kirpeä.",
@@ -697,7 +709,8 @@
     ],
     "iceberg lettuce": [
       "Jäävuorisalaatti on yksi suosituimmista salaattivihanneksista Yhdysvalloissa.",
-      "Vaikka se on ravintoaineiltaan vähäinen, jäävuorisalaatti on erittäin nesteyttävä vesipitoisuutensa vuoksi."
+      "Vaikka se on ravintoaineiltaan vähäinen, jäävuorisalaatti on erittäin nesteyttävä vesipitoisuutensa vuoksi.",
+      "Jäävuorisalaatti on suurina määrinä haitallista kaneille."
     ],
     "jackfruit": [
       "Jakkihedelmä on painavin puussa kasvava hedelmä, painaen jopa 40 kilogrammaa.",
@@ -728,7 +741,8 @@
     "kidney bean": [
       "Raa'at kidneypavut ovat myrkyllisiä ja ne aiheuttavat vatsavaivoja.",
       "Kidneypavut parantavat maaperän laatua muiden papujen tavoin.",
-      "Kidneypapuja käytetään usein mausteisten patojen, kuten chili con carnen, valmistuksessa."
+      "Kidneypapuja käytetään usein mausteisten patojen, kuten chili con carnen, valmistuksessa.",
+      "Kidneypavut ovat haitallisia kaneille."
     ],
     "king oyster mushroom": [
       "Putkivinokas, englanniksi \"king oyster mushroom\", on nimestään huolimatta eri sieni kuin osterivinokas.",
@@ -746,16 +760,19 @@
     ],
     "kumquat": [
       "Kumkvatti on suupalan kokoinen hedelmä, joka voidaan syödä makeine kuorineen.",
-      "Kumkvatit ovat ainutlaatuisia sitrushedelmiä, sillä niiden kuori on makea, mutta hedelmäliha hapan."
+      "Kumkvatit ovat ainutlaatuisia sitrushedelmiä, sillä niiden kuori on makea, mutta hedelmäliha hapan.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "leek": [
       "Painavin kasvatettu purjosipuli painoi 9,75 kiloa.",
       "Purjo on Walesin kansallinen symboli.",
-      "Kokeile grillattua purjoa muiden grilliruokien kumppanina."
+      "Kokeile grillattua purjoa muiden grilliruokien kumppanina.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "lemon": [
       "Yksi sitruuna sisältää noin 50 % päivittäisestä C-vitamiinista.",
-      "Sitruunoiden uskotaan olevan peräisin Aasiasta, ja merimiehet käyttivät niitä keripukin estämiseen."
+      "Sitruunoiden uskotaan olevan peräisin Aasiasta, ja merimiehet käyttivät niitä keripukin estämiseen.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "lettuce": [
       "Salaatti on yksi vanhimmista viljellyistä kasveista, ja sitä on kasvatettu yli 4 000 vuotta.",
@@ -763,7 +780,8 @@
     ],
     "lime": [
       "Yksi limetti sisältää noin 30 % päivittäisestä C-vitamiinista.",
-      "Limetin mehua käytettiin historiallisesti merimiesten keskuudessa keripukin estämiseen."
+      "Limetin mehua käytettiin historiallisesti merimiesten keskuudessa keripukin estämiseen.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "lingonberry": [
       "Puolukat ovat yleisiä skandinaavisessa keittiössä, ja niistä tehdään usein hilloa liharuoan lisukkeeksi.",
@@ -797,7 +815,8 @@
     ],
     "mandarin": [
       "Mandariini on hyvä C-vitamiinin lähde ja se sisältää noin 40 kaloria.",
-      "Mandariinit ovat suosittu, helposti kuorittava välipala."
+      "Mandariinit ovat suosittu, helposti kuorittava välipala.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "mango": [
       "Yhdestä mangosta saa 100 % päivittäisestä C-vitamiinista ja se sisältää noin 200 kaloria.",
@@ -888,7 +907,8 @@
     "orange": [
       "Yksi appelsiini sisältää noin 60 kaloria ja yli 100 % päivittäisestä C-vitamiinista.",
       "Appelsiinit ovat yksi maailman suosituimmista hedelmistä ja niitä kulutetaan usein mehuna.",
-      "Appelsiinien uskotaan olevan peräisin Kaakkois-Aasiasta, josta kauppiaat levittivät niitä ympäri maailmaa."
+      "Appelsiinien uskotaan olevan peräisin Kaakkois-Aasiasta, josta kauppiaat levittivät niitä ympäri maailmaa.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "oyster mushroom": [
       "Osterivinokas on saanut nimensä lakistaan, joka muistuttaa osteria.",
@@ -929,7 +949,8 @@
     ],
     "peach": [
       "Persikat ovat kotoisin Kiinasta, mutta niitä viljellään nykyisin monilla lauhkean ilmaston alueilla.",
-      "Kiina tuottaa yli puolet maailman persikoista."
+      "Kiina tuottaa yli puolet maailman persikoista.",
+      "Persikan kivien syöttäminen eläimille on vaarallista, sillä ne sisältävät syanidin kaltaisia yhdisteitä."
     ],
     "peanut": [
       "Maapähkinät ovat runsas terveellisten rasvojen ja proteiinin lähde, sisältäen runsaasti energiaa.",
@@ -978,7 +999,8 @@
     ],
     "plum": [
       "Luumuissa, erityisesti niiden kuoressa, on runsaasti C-vitamiinia ja antioksidantteja.",
-      "Luumu on sukua kirsikoille ja manteleille, ja niitä voidaan syödä tuoreina tai kuivattuina."
+      "Luumu on sukua kirsikoille ja manteleille, ja niitä voidaan syödä tuoreina tai kuivattuina.",
+      "Luumun kivet sisältävät yhdisteitä jotka ovat haitallisia eläimille."
     ],
     "pointed pepper": [
       "Suippopaprika sisältää jopa 200 % päivittäisestä C-vitamiinin tarpeesta.",
@@ -990,7 +1012,8 @@
     ],
     "pomelo": [
       "Pomelo on suurin sitrushedelmä ja läheistä sukua greipille.",
-      "Pomelot tunnetaan paksuista kuoristaan ja ne voivat painaa jopa 2 kilogrammaa."
+      "Pomelot tunnetaan paksuista kuoristaan ja ne voivat painaa jopa 2 kilogrammaa.",
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "poppy seed": [
       "Turkki, Tsekki ja Espanja ovat unikonsiementen suurimmat tuottajat.",
@@ -1011,7 +1034,8 @@
       "Preussin kuningas Frederick kutsui tarinan mukaan perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta.",
       "Maailmanlaajuisesti viljellään noin 5 000:ta erilaista perunalajiketta.",
       "Painavin punnittu peruna painoi lähes viisi kiloa.",
-      "Keitä, muussaa, nakkaa pataan. Peruna on monikäyttöinen juures."
+      "Keitä, muussaa, nakkaa pataan. Peruna on monikäyttöinen juures.",
+      "Peruna, etenkin raaka sellainen, voi aiheuttaa lemmikille vakavia myrkytysoireita."
     ],
     "prickly pear": [
       "Kaktusviikunoita voidaan istuttaa hedelmiensä lisäksi aavikoitumisen estämiseksi.",
@@ -1079,7 +1103,8 @@
     "red onion": [
       "Punasipulit muuttuvat pinkeiksi kypsentäessä, ja niitä käytetään usein etikkasäilykkeisiin.",
       "Punasipulit ovat joitakin muita sipulilajikkeita miedompia.",
-      "Punasipulien kylmentäminen jääkaapissa ennen leikkaamista voi säästää kyyneliä."
+      "Punasipulien kylmentäminen jääkaapissa ennen leikkaamista voi säästää kyyneliä.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "redcurrant": [
       "Punaherukat ovat vähäkalorisia, mutta niissä on paljon C-vitamiinia, kuitua ja antioksidantteja.",
@@ -1089,7 +1114,8 @@
     "rhubarb": [
       "Raparperia käytetään jälkiruoissa, mutta se on itse asiassa vihannes.",
       "Raparperin kanssa tulisi nauttia runsaasti kalsiumia sisältäviä ruokia, kuten maitotuotteita.",
-      "Vaikka raparperin varret ovat syötäviä, sen lehdet ovat myrkyllisiä."
+      "Vaikka raparperin varret ovat syötäviä, sen lehdet ovat myrkyllisiä.",
+      "Raparperi on haitallista monille lemmikeille."
     ],
     "rice": [
       "Riisi on peruselintarvike yli puolelle maailman väestöstä.",
@@ -1125,7 +1151,8 @@
       "Kevätsipulit kerätään ennen niiden kasvamista täysikasvuisiksi. Joidenkin lajikkeiden kasvu pysähtyy itsestään.",
       "Kevätsipuli sopii muita sipuleita paremmin herkkävatsaisille.",
       "Kevätsipulin valkoinen osa sopii kypsennettäväksi, vihreät osat koristeeksi.",
-      "Kevätsipulin uudelleenistutus ja kasvatus onnistuu myös kotikonstein."
+      "Kevätsipulin uudelleenistutus ja kasvatus onnistuu myös kotikonstein.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "scarlet runner bean": [
       "Ruusupavun varret voivat kasvaa yli kolmimetrisiksi.",
@@ -1144,7 +1171,8 @@
     "shallot": [
       "Salottisipulin miedompi maku tekee siitä hyvän valinnan esimerkiksi kastikkeisiin.",
       "Salottisipuli on saanut nimensä Lähi-Idän alueella sijainneesta kaupungista, josta kreikkalaiset uskoivat sen olevan peräisin.",
-      "Salottisipulin maku on miedompi yhdistelmä valkosipulia ja sipulia."
+      "Salottisipulin maku on miedompi yhdistelmä valkosipulia ja sipulia.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "shiitake": [
       "Siitakesieniä arvostetaan niiden lihaisan koostumuksen ja umamisen maun vuoksi.",
@@ -1243,7 +1271,8 @@
     ],
     "tomato": [
       "Vaikka tomaatti usein luokitellaan vihannekseksi, se on kasvitieteellisesti hedelmä.",
-      "Maailmassa tavataan yli 10 000 tomaattilajiketta."
+      "Maailmassa tavataan yli 10 000 tomaattilajiketta.",
+      "Tomaatin lehdet tuoksuvat ihanalle, mutta ne sisältävät joillekin eläimille haitallisia yhdisteitä."
     ],
     "triticale": [
       "Ruisvehnä on hybridi, joka on luotu risteyttämällä vehnä ja ruis tuottamaan molempien ominaisuuksia.",
@@ -1295,7 +1324,8 @@
     ],
     "white bean": ["Valkoiset pavut sisältävät runsaasti kuitua ja proteiinia."],
     "white onion": [
-      "Hopeasipulilla on kelta- tai punasipulia miedompi maku, mikä tekee siitä ihanteellisen raakoihin ruokiin."
+      "Hopeasipulilla on kelta- tai punasipulia miedompi maku, mikä tekee siitä ihanteellisen raakoihin ruokiin.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "wild mushroom": [
       "Vaihtelevien arvioiden mukaan maailmassa on noin 2 000 syötävää sienilajiketta.",
