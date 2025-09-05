@@ -18,7 +18,7 @@ const {allVeggies, uniqueVeggies, favorites, achievements} = storeToRefs(useActi
 
 const selectedStat = ref(0);
 
-const icons: IconString[] = [
+const tabIcons: IconString[] = [
   'history',
   'chartLine',
   'calendarWeek',
@@ -31,7 +31,12 @@ const hideTooltips = useThrottleFn(hideAll);
 <template>
   <TabGroup :selectedIndex="selectedStat" @change="(index) => (selectedStat = index)">
     <TabList class="grid grid-cols-5 gap-2">
-      <Tab v-for="(_, index) in [...Array(5)]" :key="index" v-slot="{selected}" as="template">
+      <Tab
+        v-for="(iconString, index) in tabIcons"
+        :key="iconString"
+        v-slot="{selected}"
+        as="template"
+      >
         <ButtonComponent
           v-tippy="{content: $t(`stats.${index}`), placement: 'bottom', offset: [0, -8]}"
           :aria-label="$t(`stats.${index}`)"
@@ -39,7 +44,7 @@ const hideTooltips = useThrottleFn(hideAll);
           :data-test-id="`stats-tab-${index}`"
           class="justify-center"
         >
-          <IconComponent :icon="icons[index]" />
+          <IconComponent :icon="iconString" />
         </ButtonComponent>
       </Tab>
     </TabList>
