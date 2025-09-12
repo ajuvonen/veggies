@@ -14,7 +14,7 @@ import {
   RED_VEGGIES,
   ROOTS,
   VEGETABLES,
-} from '@/utils/constants';
+} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import {DateTime} from 'luxon';
 

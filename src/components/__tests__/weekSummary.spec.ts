@@ -4,7 +4,7 @@ import {mount} from '@vue/test-utils';
 import {take} from 'remeda';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/utils/types';
-import {ALL_VEGGIES} from '@/utils/constants';
+import {ALL_VEGGIES} from '@/utils/veggieDetails';
 
 const withSetup = (weekData: Ref<WeekData>) =>
   new Promise<ReturnType<typeof useWeekSummary>>((resolve) => {

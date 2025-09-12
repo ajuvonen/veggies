@@ -7,7 +7,7 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import type {WeekData} from '@/utils/types';
 import DialogStub from './DialogStub.vue';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
-import {ALL_VEGGIES} from '@/utils/constants';
+import {ALL_VEGGIES} from '@/utils/veggieDetails';
 
 const currentWeek = DateTime.now().startOf('week');
 const lastWeek = currentWeek.minus({weeks: 1});

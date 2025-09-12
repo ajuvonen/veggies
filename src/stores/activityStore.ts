@@ -42,7 +42,7 @@ import {
   RED_VEGGIES,
   ROOTS,
   VEGETABLES,
-} from '@/utils/constants';
+} from '@/utils/veggieDetails';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 
 export const useActivityStore = defineStore('activity', () => {

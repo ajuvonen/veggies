@@ -4,7 +4,7 @@ import {DateTime} from 'luxon';
 import {createPinia, setActivePinia} from 'pinia';
 import {take} from 'remeda';
 import {AchievementLevel, Category, type Week} from '@/utils/types';
-import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
+import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 
