@@ -502,6 +502,70 @@ describe('useWeekSummary', () => {
     });
   });
 
+  describe('nutrient messages', () => {
+    it('returns message when 0 veggies from a nutrient group are consumed', async () => {
+      const weekData = createWeekData({
+        veggies: ['apple'],
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      const vitaminAMessage = summaryMessages.value.find(
+        ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.A',
+      );
+      expect(vitaminAMessage).toBeDefined();
+      expect(vitaminAMessage!.emoji).toBe('💊');
+    });
+
+    it('returns message when 1 veggie from a nutrient group is consumed', async () => {
+      const weekData = createWeekData({
+        veggies: ['spinach'],
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      const ironMessage = summaryMessages.value.find(
+        ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.iron',
+      );
+      expect(ironMessage).toBeDefined();
+      expect(ironMessage!.emoji).toBe('💊');
+    });
+
+    it('does not return message when 2 veggies from a nutrient group are consumed', async () => {
+      const weekData = createWeekData({
+        veggies: ['broccoli', 'spinach'],
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      const vitaminCMessage = summaryMessages.value.find(
+        ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.C',
+      );
+      expect(vitaminCMessage).toBeUndefined();
+    });
+
+    it('returns specific nutrient messages when multiple nutrients are unsatisfied', async () => {
+      const weekData = createWeekData({
+        veggies: ['spinach', 'broccoli'],
+      });
+      const {summaryMessages} = await withSetup(weekData);
+
+      const nutrientMessages = summaryMessages.value.filter(({translationKey}) =>
+        translationKey.startsWith('weekSummaryDialog.nutrientMessages.'),
+      );
+      expect(nutrientMessages.length).toBe(11);
+
+      // Should NOT have calcium message
+      const calciumMessage = summaryMessages.value.find(
+        ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.calcium',
+      );
+      expect(calciumMessage).toBeUndefined();
+
+      // Should NOT have vitamin C message
+      const vitaminCMessage = summaryMessages.value.find(
+        ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.C',
+      );
+      expect(vitaminCMessage).toBeUndefined();
+    });
+  });
+
   describe('integration tests', () => {
     it('combines multiple message types when conditions are met', async () => {
       const weekData = createWeekData({
