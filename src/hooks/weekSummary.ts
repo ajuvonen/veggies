@@ -1,13 +1,34 @@
 import {computed, type Ref} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {countBy} from 'remeda';
+import {countBy, sample} from 'remeda';
 import type {WeekData, SummaryItem} from '@/utils/types';
 import {Category} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
+import {NUTRIENTS} from '@/utils/veggieDetails';
 
 export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
   const {t} = useI18n();
+
+  const createNutrientMessages = (data: WeekData): SummaryItem[] => {
+    const messages: SummaryItem[] = [];
+
+    Object.entries(NUTRIENTS).forEach(([nutrient, nutrientVeggies]) => {
+      const foundVeggies = nutrientVeggies.filter((veggie) => data.veggies.includes(veggie));
+      if (foundVeggies.length < 2) {
+        const suggestions = sample(nutrientVeggies, 3)
+          .map((veggie) => t(`veggies.${veggie}`).toLowerCase())
+          .join(', ');
+        messages.push({
+          emoji: '💊',
+          translationKey: `weekSummaryDialog.nutrientMessages.${nutrient}`,
+          translationParameters: [suggestions],
+        });
+      }
+    });
+
+    return messages;
+  };
 
   const createProgressMessages = (data: WeekData): SummaryItem[] => {
     const messages: SummaryItem[] = [];
@@ -194,6 +215,7 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
       ...createStatisticsMessages(weekData.value),
       ...createChallengeMessages(weekData.value),
       ...createCategoryMessages(weekData.value),
+      ...createNutrientMessages(weekData.value),
     ];
   });
 

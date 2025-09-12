@@ -12,6 +12,7 @@ import {
   getRandomItem,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/utils/types';
+import {NUTRIENTS} from '@/utils/veggieDetails';
 
 const importSchema = await getImportSchema();
 
@@ -233,6 +234,13 @@ describe('helpers', () => {
       challenges: [],
       weeks: [],
       settings: {...DEFAULT_SETTINGS},
+    });
+  });
+
+  it.each(Object.keys(NUTRIENTS))('existing veggies in nutrient %s', (nutrient) => {
+    const veggies = NUTRIENTS[nutrient as keyof typeof NUTRIENTS];
+    veggies.forEach((veggie) => {
+      expect.soft(ALL_VEGGIES).toContain(veggie);
     });
   });
 });

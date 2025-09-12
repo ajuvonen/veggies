@@ -377,9 +377,9 @@
       "Myskikurpitsaa sopii hyvin mausteisiinkin ruokiin."
     ],
     "cabbage": [
-      "Kaalia on viljelty yli 4 000oidaan usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa.",
-      "Usko tai älä, mutta pain vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
-      "Euroopassa kaalia fermentavin koskaan kasvatettu kaali painoi melkein 63 kiloa."
+      "Kaalia on viljelty yli 4 000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
+      "Kaalia käytetään usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa.",
+      "Usko tai älä, mutta painavin koskaan kasvatettu kaali painoi melkein 63 kiloa."
     ],
     "calamansi": [
       "Calamansi on helppo sekoittaa kumkvattiin, mutta ne eivät ole sama asia.",
@@ -1815,6 +1815,25 @@
     "recordAchieved": "Uusi ennätys! Söit @:general.veggie viime viikolla!",
     "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
     "surpassedPreviousWeek": "Ohitit toissaviikon tuloksen, joka oli @:general.veggieNominative{'!'}",
-    "title": "Viikko {0} paketissa!"
+    "title": "Viikko {0} paketissa!",
+    "nutrientMessages": {
+      "A": "Saatko A-vitamiinia? Se on tärkeää näölle ja vastustuskyvylle. Syö esimerkiksi: {0}. Varo liiallista saantia.",
+      "B1": "Saatko B1-vitamiinia? Se tukee hermoston toimintaa. Syö esimerkiksi: {0}.",
+      "B2": "Saatko B2-vitamiinia? Riboflaviini auttaa energiantuotannossa. Syö esimerkiksi: {0}.",
+      "B3": "Saatko B3-vitamiinia? Niasiini edistää aineenvaihduntaa ja ihon terveyttä. Syö esimerkiksi: {0}.",
+      "B5": "Saatko B5-vitamiinia? Sitä tarvitaan hormonituotannossa. Syö esimerkiksi: {0}.",
+      "B6": "Saatko B6-vitamiinia? Se auttaa punasolujen muodostuksessa ja säätelee mielialaa. Syö esimerkiksi: {0}.",
+      "B7": "Saatko B7-vitamiinia? Se edistää ihon, kynsien ja hiusten terveyttä. Syö esimerkiksi: {0}.",
+      "B9": "Saatko B9-vitamiinia? Folaatti on erityisen tärkeää raskauden aikana. Syö esimerkiksi: {0}.",
+      "C": "Saatko C-vitamiinia? Se tukee vastustuskykyä ja kollageenin muodostusta. Syö esimerkiksi: {0}.",
+      "E": "Saatko E-vitamiinia? Se suojaa soluja ja edistää ihon terveyttä. Syö esimerkiksi: {0}.",
+      "K": "Saatko K-vitamiinia? Se auttaa veren hyytymisessä. Syö esimerkiksi: {0}.",
+      "calcium": "Saatko kalsiumia? Se on välttämätöntä vahvoille luille. Syö esimerkiksi: {0}, tai käytä kalsiumilla täydennettyjä kasvipohjaisia maitotuotteita.",
+      "fiber": "Saatko kuitua? Se edistää ruoansulatusta ja tasaa verensokeria. Syö esimerkiksi: {0}.",
+      "iron": "Saatko rautaa? Riittävä annostus vähentää väsymystä ja parantaa hapenkuljetusta. Syö esimerkiksi: {0}.",
+      "magnesium": "Saatko magnesiumia? Tämä sydänystävällinen kivennäisaine tukee lihasten toimintaa. Syö esimerkiksi: {0}.",
+      "potassium": "Saatko kaliumia? Se auttaa säätelemään verenpainetta. Syö esimerkiksi: {0}.",
+      "zinc": "Saatko sinkkiä? Se tukee vastustuskykyä ja haavojen paranemista. Syö esimerkiksi: {0}."
+    }
   }
 }

@@ -1814,6 +1814,25 @@
     "recordAchieved": "New personal record! You ate @:general.veggie last week!",
     "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
     "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",
-    "title": "All done for week {0}!"
+    "title": "All done for week {0}!",
+    "nutrientMessages": {
+      "A": "Getting vitamin A? It is important for your vision and immune system. Eat for example {0}. Beware of excessive intake.",
+      "B1": "Getting vitamin B1? It supports nerve function. Eat for example {0}.",
+      "B2": "Getting vitamin B2? Riboflavin helps in energy production. Eat for example {0}.",
+      "B3": "Getting vitamin B3? Niacin boosts your metabolism and skin health. Eat for example {0}.",
+      "B5": "Getting vitamin B5? It is needed in hormone production. Eat for example {0}.",
+      "B6": "Getting vitamin B6? It helps in red blood cell formation and regulates moods. Eat for example {0}.",
+      "B7": "Getting vitamin B7? For healthy skin, nails, and hair, eat for example {0}.",
+      "B9": "Getting vitamin B9? Folate is essential during pregnancy. Eat for example {0}.",
+      "C": "Getting vitamin C? It supports immune function and collagen production. Eat for example {0}.",
+      "E": "Getting vitamin E? It helps protect your cells and improves skin health. Eat for example {0}.",
+      "K": "Getting vitamin K? It helps reduce blood clotting. Eat for example {0}.",
+      "calcium": "Getting calcium? It is essential for strong bones. Eat for example {0}, or plant-based dairy products with added calcium.",
+      "fiber": "Getting fiber? It improves digestion and blood sugar regulation. Eat for example {0}.",
+      "iron": "Getting iron? Adequate supply reduces fatigue and improves oxygen transport. Eat for example {0}.",
+      "magnesium": "Getting magnesium? This heart-friendly nutrient improves muscle function. Eat for example {0}.",
+      "potassium": "Getting potassium? It helps regulate blood pressure. Eat for example {0}.",
+      "zinc": "Getting zinc? It boosts your immune system and wound healing. Eat for example {0}."
+    }
   }
 }
