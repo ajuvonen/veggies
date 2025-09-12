@@ -3,7 +3,8 @@ import {mount} from '@vue/test-utils';
 import {useI18n, type Composer, type VueMessageType} from 'vue-i18n';
 import type {DateTimeFormat, LocaleMessage, NumberFormat} from '@intlify/core-base';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {ALL_VEGGIES, DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
+import {ALL_VEGGIES} from '@/utils/veggieDetails';
+import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
 import LocaleChanger from '@/components/LocaleChanger.vue';
 
 const mountLocalization = () =>

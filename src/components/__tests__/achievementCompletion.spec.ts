@@ -2,7 +2,7 @@ import {ref, type MaybeRefOrGetter} from 'vue';
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
-import {ALL_VEGGIES} from '@/utils/constants';
+import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {take} from 'remeda';
 
 const withSetup = (

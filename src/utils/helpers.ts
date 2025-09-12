@@ -1,7 +1,7 @@
 import {useMemoize} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {sample} from 'remeda';
-import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
+import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {DEFAULT_LOCALE, DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
 import {AchievementLevel, Category} from '@/utils/types';
 

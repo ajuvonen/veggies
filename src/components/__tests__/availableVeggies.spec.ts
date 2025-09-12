@@ -10,7 +10,7 @@ import {
   MUSHROOMS,
   ROOTS,
   VEGETABLES,
-} from '@/utils/constants';
+} from '@/utils/veggieDetails';
 import {useAppStateStore} from '@/stores/appStateStore';
 
 const withSetup = () =>

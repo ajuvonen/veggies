@@ -1,7 +1,8 @@
 import {describe, it, expect} from 'vitest';
 import {DateTime} from 'luxon';
 import {unique} from 'remeda';
-import {ALL_VEGGIES, DEFAULT_SETTINGS} from '@/utils/constants';
+import {ALL_VEGGIES, NUTRIENTS} from '@/utils/veggieDetails';
+import {DEFAULT_SETTINGS} from '@/utils/constants';
 import {
   achievementLevelHelper,
   dateParser,
@@ -12,7 +13,6 @@ import {
   getRandomItem,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/utils/types';
-import {NUTRIENTS} from '@/utils/veggieDetails';
 
 const importSchema = await getImportSchema();
 

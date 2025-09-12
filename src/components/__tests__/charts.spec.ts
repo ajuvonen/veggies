@@ -2,7 +2,7 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {take} from 'remeda';
-import {BEANS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/constants';
+import {BEANS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';

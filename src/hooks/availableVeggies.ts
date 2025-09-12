@@ -10,7 +10,7 @@ import {
   BEANS,
   GRAINS,
   MUSHROOMS,
-} from '@/utils/constants';
+} from '@/utils/veggieDetails';
 import {computed} from 'vue';
 
 export function useAvailableVeggies() {
