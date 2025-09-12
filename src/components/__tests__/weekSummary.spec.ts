@@ -1,10 +1,11 @@
 import {ref, type Ref} from 'vue';
-import {describe, it, expect} from 'vitest';
+import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {take} from 'remeda';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/utils/types';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
+import {useAppStateStore} from '@/stores/appStateStore';
 
 const withSetup = (weekData: Ref<WeekData>) =>
   new Promise<ReturnType<typeof useWeekSummary>>((resolve) => {
@@ -563,6 +564,33 @@ describe('useWeekSummary', () => {
         ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.C',
       );
       expect(vitaminCMessage).toBeUndefined();
+    });
+
+    it('excludes allergens from nutrient suggestions', async () => {
+      const appStateStore = useAppStateStore();
+
+      // Set allergens to all B7 sources except 'sweet potato'
+      appStateStore.settings.allergens = [
+        'almond',
+        'champignon',
+        'peanut',
+        'portobello',
+        'shiitake',
+        'soybean',
+      ];
+
+      const weekData = createWeekData({
+        veggies: ['apple', 'cucumber'],
+      });
+
+      const {summaryMessages} = await withSetup(weekData);
+
+      const b7Message = summaryMessages.value.find(
+        ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.B7',
+      );
+
+      expect(b7Message).toBeDefined();
+      expect(b7Message!.translationParameters).toEqual(['sweet potato, sunflower seed']);
     });
   });
 
