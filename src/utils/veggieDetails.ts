@@ -515,7 +515,7 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'pinto bean',
     'red bean',
     'red lentil',
-    'romaine lettuce',
+    'romaine',
     'scarlet runner bean',
     'soybean',
     'spinach',
