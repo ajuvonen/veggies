@@ -544,7 +544,7 @@ describe('useWeekSummary', () => {
 
     it('returns specific nutrient messages when multiple nutrients are unsatisfied', async () => {
       const weekData = createWeekData({
-        veggies: ['spinach', 'broccoli'],
+        veggies: ['spinach', 'broccoli', 'guava', 'amaranth'],
       });
       const {summaryMessages} = await withSetup(weekData);
 
@@ -569,14 +569,13 @@ describe('useWeekSummary', () => {
     it('excludes allergens from nutrient suggestions', async () => {
       const appStateStore = useAppStateStore();
 
-      // Set allergens to all B7 sources except 'sweet potato'
+      // Set allergens to all B7 sources except soybean and sunflower seed
       appStateStore.settings.allergens = [
         'almond',
         'champignon',
         'peanut',
         'portobello',
         'shiitake',
-        'soybean',
       ];
 
       const weekData = createWeekData({
@@ -590,7 +589,7 @@ describe('useWeekSummary', () => {
       );
 
       expect(b7Message).toBeDefined();
-      expect(b7Message!.translationParameters).toEqual(['sweet potato, sunflower seed']);
+      expect(b7Message!.translationParameters).toEqual(['soybean, sunflower seed']);
     });
   });
 
