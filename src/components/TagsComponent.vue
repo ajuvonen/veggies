@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, ref, nextTick, type ComponentPublicInstance, useTemplateRef} from 'vue';
+import {computed, nextTick, useTemplateRef} from 'vue';
 import {useI18nWithCollator} from '@/hooks/i18n';
 import type {IconString} from '@/components/IconComponent.vue';
 import ButtonComponent, {type ButtonVariant} from '@/components/ButtonComponent.vue';
@@ -20,7 +20,6 @@ const props = withDefaults(
 
 const {t, collator} = useI18nWithCollator();
 
-const tags = ref<Record<string, ComponentPublicInstance | null>>({});
 const listElement = useTemplateRef('listElement');
 
 const translatedVeggies = computed(() =>
@@ -33,11 +32,12 @@ const translatedVeggies = computed(() =>
 );
 
 const toggle = async (veggie: string, index: number) => {
-  const targetVeggie = translatedVeggies.value[index + 1] || translatedVeggies.value[index - 1];
-  const focusElement = targetVeggie ? tags.value[targetVeggie.veggie]?.$el : listElement.value;
   props.toggleFn(veggie);
   await nextTick();
-  focusElement.focus();
+  const focusTarget = translatedVeggies.value[index] || translatedVeggies.value[index - 1];
+  const focusElement =
+    document.getElementById(`tag-button-${focusTarget?.veggie}`) || listElement.value;
+  focusElement?.focus();
 };
 </script>
 <template>
@@ -50,13 +50,9 @@ const toggle = async (veggie: string, index: number) => {
         class="z-10"
       >
         <ButtonComponent
-          :ref="
-            (el) => {
-              tags[veggie] = el as ComponentPublicInstance;
-            }
-          "
-          :aria-label="$t(ariaTagKey, [translation])"
+          :id="`tag-button-${veggie}`"
           :variant="variant"
+          :aria-label="$t(ariaTagKey, [translation])"
           @click="toggle(veggie, index)"
         >
           <IconComponent :icon="icon" />
