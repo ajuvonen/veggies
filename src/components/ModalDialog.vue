@@ -1,10 +1,19 @@
 <script setup lang="ts">
+import {ref, watch} from 'vue';
 import {Dialog, DialogPanel, DialogTitle, TransitionRoot} from '@headlessui/vue';
 
 const model = defineModel<boolean>({required: true});
 defineProps<{
   title: string;
 }>();
+
+const previouslyActiveElement = ref<HTMLElement | null>(null);
+
+watch(model, (value) => {
+  if (value) {
+    previouslyActiveElement.value = document.activeElement as HTMLElement;
+  }
+});
 </script>
 <template>
   <TransitionRoot
@@ -16,6 +25,7 @@ defineProps<{
     leave="duration-200 ease-in"
     leave-from="opacity-100"
     leave-to="opacity-0"
+    @after-leave="$nextTick(() => previouslyActiveElement?.focus())"
   >
     <Dialog static class="relative z-20" @close="model = false">
       <!-- The backdrop, rendered as a fixed sibling to the panel container -->
