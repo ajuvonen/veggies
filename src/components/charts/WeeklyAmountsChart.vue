@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, ref} from 'vue';
+import {computed, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {
   Chart as ChartJS,
@@ -25,7 +25,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
-const chartContainer = ref<HTMLDivElement | null>(null);
+const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const {formatWeekString} = useDateTime();

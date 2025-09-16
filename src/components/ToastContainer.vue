@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {ref} from 'vue';
+import {useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useScreen} from '@/hooks/screen';
@@ -9,7 +9,7 @@ const appStateStore = useAppStateStore();
 const {messages} = storeToRefs(appStateStore);
 const {removeToastMessage} = appStateStore;
 
-const toasts = ref<HTMLElement | null>(null);
+const toasts = useTemplateRef('toasts');
 
 const {maxHeight} = useScreen(toasts);
 </script>

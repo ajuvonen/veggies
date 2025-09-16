@@ -1,7 +1,7 @@
-import {onMounted, type Ref} from 'vue';
+import {onMounted, type TemplateRef} from 'vue';
 import {useElementBounding, useMouse} from '@vueuse/core';
 
-export function useChartContainer(chartContainer: Ref<HTMLDivElement | null>) {
+export function useChartContainer(chartContainer: TemplateRef<HTMLDivElement>) {
   const {x: mouseX, y: mouseY} = useMouse();
   const {top, bottom} = useElementBounding(chartContainer);
 

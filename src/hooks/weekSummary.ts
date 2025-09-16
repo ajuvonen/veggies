@@ -1,4 +1,4 @@
-import {computed, type Ref} from 'vue';
+import {computed, toValue, type MaybeRefOrGetter} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {countBy, intersection, sample} from 'remeda';
 import type {WeekData, SummaryItem} from '@/utils/types';
@@ -8,7 +8,7 @@ import {CATEGORY_EMOJI} from '@/utils/constants';
 import {NUTRIENTS} from '@/utils/veggieDetails';
 import {useAvailableVeggies} from './availableVeggies';
 
-export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
+export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
   const {t} = useI18n();
 
   const {availableVeggies} = useAvailableVeggies();
@@ -200,9 +200,10 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
   };
 
   const summaryMessages = computed<SummaryItem[]>(() => {
-    if (!weekData.value) {
+    const valueForData = toValue(weekData);
+    if (!valueForData) {
       return [];
-    } else if (!weekData.value.veggies.length) {
+    } else if (!valueForData.veggies.length) {
       return [
         {
           emoji: '🍽️',
@@ -213,12 +214,12 @@ export const useWeekSummary = (weekData: Ref<WeekData | null>) => {
     }
 
     return [
-      ...createProgressMessages(weekData.value),
-      ...createComparisonMessages(weekData.value),
-      ...createStatisticsMessages(weekData.value),
-      ...createChallengeMessages(weekData.value),
-      ...createCategoryMessages(weekData.value),
-      ...createNutrientMessages(weekData.value),
+      ...createProgressMessages(valueForData),
+      ...createComparisonMessages(valueForData),
+      ...createStatisticsMessages(valueForData),
+      ...createChallengeMessages(valueForData),
+      ...createCategoryMessages(valueForData),
+      ...createNutrientMessages(valueForData),
     ];
   });
 
