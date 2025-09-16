@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref} from 'vue';
+import {computed, useTemplateRef} from 'vue';
 import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
@@ -33,7 +33,7 @@ const props = withDefaults(
 
 const {t, collator} = useI18nWithCollator();
 
-const container = ref<HTMLDivElement | null>(null);
+const container = useTemplateRef('container');
 const {height} = useElementSize(container);
 
 const medalEmojis = ['🥇', '🥈', '🥉', '🍀', '🖐️', '🕕'];

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, watchEffect} from 'vue';
+import {ref, useTemplateRef, watchEffect} from 'vue';
 import {useElementHover, useTimeout, useSwipe, usePointer} from '@vueuse/core';
 import {getRandomEmojis} from '@/utils/helpers';
 
@@ -12,7 +12,7 @@ const emit = defineEmits(['close']);
 
 const removing = ref(false);
 const offsetX = ref(0);
-const toastMessage = ref<HTMLDivElement | null>(null);
+const toastMessage = useTemplateRef('toastMessage');
 const toastTimeout = isCIMode ? 100 : 5500;
 const {start, stop} = useTimeout(toastTimeout, {
   callback: () => emit('close'),

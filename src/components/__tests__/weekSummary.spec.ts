@@ -1,4 +1,4 @@
-import {ref, type Ref} from 'vue';
+import {ref, type MaybeRefOrGetter} from 'vue';
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {take} from 'remeda';
@@ -7,7 +7,7 @@ import type {WeekData} from '@/utils/types';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {useAppStateStore} from '@/stores/appStateStore';
 
-const withSetup = (weekData: Ref<WeekData>) =>
+const withSetup = (weekData: MaybeRefOrGetter<WeekData>) =>
   new Promise<ReturnType<typeof useWeekSummary>>((resolve) => {
     mount({
       shallow: true,
@@ -18,20 +18,19 @@ const withSetup = (weekData: Ref<WeekData>) =>
     });
   });
 
-const createWeekData = (overrides: Partial<WeekData> = {}): Ref<WeekData> =>
-  ref({
-    atMostVeggies: 10,
-    challenge: undefined,
-    firstTimeVeggies: [],
-    firstWeek: false,
-    hotStreak: 1,
-    mean: 12,
-    previousWeekCount: 0,
-    promotedAchievement: 'goNuts',
-    veggies: [],
-    weekNumber: '1',
-    ...overrides,
-  });
+const createWeekData = (overrides: Partial<WeekData> = {}): WeekData => ({
+  atMostVeggies: 10,
+  challenge: undefined,
+  firstTimeVeggies: [],
+  firstWeek: false,
+  hotStreak: 1,
+  mean: 12,
+  previousWeekCount: 0,
+  promotedAchievement: 'goNuts',
+  veggies: [],
+  weekNumber: '1',
+  ...overrides,
+});
 
 describe('useWeekSummary', () => {
   it('returns no veggies message when veggies array is empty', async () => {

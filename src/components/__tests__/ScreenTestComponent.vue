@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import {ref} from 'vue';
+import {useTemplateRef} from 'vue';
 import {useScreen} from '@/hooks/screen';
 
-const elem = ref<HTMLDivElement | null>(null);
+const elem = useTemplateRef('elem');
 const {maxHeight, visualHeight} = useScreen(elem);
 
 defineExpose({visualHeight, maxHeight});

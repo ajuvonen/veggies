@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, onMounted, ref} from 'vue';
+import {computed, onMounted, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
@@ -25,7 +25,7 @@ const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
 const {formatWeekString} = useDateTime();
 
-const chartContainer = ref<HTMLDivElement | null>(null);
+const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {

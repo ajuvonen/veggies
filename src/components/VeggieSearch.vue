@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import {ref, useTemplateRef} from 'vue';
 import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
 import {useMemoize, onClickOutside} from '@vueuse/core';
 import {Category, type TranslatedListing} from '@/utils/types';
@@ -29,10 +29,10 @@ const {availableVeggies} = useAvailableVeggies();
 
 const query = ref('');
 const menuOpen = ref(false);
-const groups = ref<InstanceType<typeof VeggieSearchGroup>[]>([]);
-const combobox = ref<HTMLDivElement | null>(null);
-const searchInput = ref<HTMLInputElement | null>(null);
-const optionsElement = ref<InstanceType<typeof ComboboxOptions> | null>(null);
+const groups = useTemplateRef('groups');
+const combobox = useTemplateRef('combobox');
+const searchInput = useTemplateRef('searchInput');
+const optionsElement = useTemplateRef('optionsElement');
 
 const {maxHeight} = useScreen(optionsElement);
 
@@ -64,7 +64,7 @@ const filteredVeggies = useMemoize(
 );
 
 const jumpToCategory = (index: number) => {
-  if (optionsElement.value) {
+  if (optionsElement.value && groups.value) {
     const parsedIndex =
       index < 0 ? groups.value.length - 1 : index > groups.value.length - 1 ? 0 : index;
     const targetGroup = groups.value[parsedIndex]?.$el as HTMLElement | undefined;

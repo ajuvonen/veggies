@@ -1,7 +1,7 @@
-import {computed, type ComponentPublicInstance, type Ref} from 'vue';
+import {computed, type ComponentPublicInstance, type TemplateRef} from 'vue';
 import {useElementBounding, useWindowSize} from '@vueuse/core';
 
-export function useScreen(element: Ref<HTMLElement | ComponentPublicInstance | null>) {
+export function useScreen(element: TemplateRef<HTMLElement | ComponentPublicInstance>) {
   const {height: visualHeight} = useWindowSize({type: 'visual'});
 
   const {top} = useElementBounding(element);
