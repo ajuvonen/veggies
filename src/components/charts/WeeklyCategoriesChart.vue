@@ -6,7 +6,6 @@ import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {reverse} from 'remeda';
-import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
@@ -23,7 +22,7 @@ const {t} = useI18n();
 
 const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 
-const {formatWeekString} = useDateTime();
+const {formatWeekString, formatWeekNumber} = useDateTime();
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
@@ -42,7 +41,7 @@ const chartData = computed(() => {
   }));
 
   return {
-    labels: weekStarts.map((weekStart) => weekStart.toFormat('W/kkkk')),
+    labels: weekStarts.map(formatWeekNumber),
     datasets: datasets.filter(({data}) => data.some((value) => value)),
   };
 });
@@ -59,8 +58,9 @@ const {chartOptions} = useChartOptions<'bar'>(true, true, true, {
       yAlign,
       callbacks: {
         title: ([tooltip]) => {
-          const weekStart = DateTime.fromFormat(tooltip!.label, 'W/kkkk');
-          return formatWeekString(weekStart);
+          const reversedIndex = getWeekStarts.value.length - 1 - tooltip!.dataIndex!;
+          const weekStart = getWeekStarts.value[reversedIndex];
+          return formatWeekString(weekStart!);
         },
         label: ({dataset, formattedValue}) => {
           return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
