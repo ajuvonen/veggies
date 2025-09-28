@@ -2,7 +2,7 @@ import {useMemoize} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {sample} from 'remeda';
 import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
-import {DEFAULT_LOCALE, DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
+import {DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
 import {AchievementLevel, Category} from '@/utils/types';
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
@@ -102,7 +102,7 @@ export const getImportSchema = async () => {
     settings: z
       .object({
         allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
-        locale: z.enum(LOCALES).catch(DEFAULT_LOCALE).default(DEFAULT_LOCALE),
+        locale: z.enum(LOCALES).catch(DEFAULT_SETTINGS.locale).default(DEFAULT_SETTINGS.locale),
         showChartAnimations: z
           .boolean()
           .catch(DEFAULT_SETTINGS.showChartAnimations)
