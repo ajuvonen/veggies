@@ -1,20 +1,25 @@
+import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import type {DateTime} from 'luxon';
+import {useAppStateStore} from '@/stores/appStateStore';
 
 export function useDateTime() {
-  const {t, locale} = useI18n();
+  const {t} = useI18n();
+  const {settings} = storeToRefs(useAppStateStore());
 
-  const formatWeekString = (weekStart: DateTime) =>
-    t('stats.selectedWeek', [
-      weekStart.toFormat('W/kkkk'),
-      weekStart.setLocale(locale.value).toLocaleString({month: 'numeric', day: 'numeric'}),
-      weekStart
-        .setLocale(locale.value)
-        .endOf('week')
-        .toLocaleString({month: 'numeric', day: 'numeric'}),
+  const formatWeekNumber = (weekStart: DateTime) => weekStart.toFormat('W/kkkk');
+
+  const formatWeekString = (weekStart: DateTime) => {
+    const locale = settings.value.locale === 'en' ? 'en-GB' : settings.value.locale;
+    return t('stats.selectedWeek', [
+      formatWeekNumber(weekStart),
+      weekStart.setLocale(locale).toLocaleString({month: 'numeric', day: 'numeric'}),
+      weekStart.setLocale(locale).endOf('week').toLocaleString({month: 'numeric', day: 'numeric'}),
     ]);
+  };
 
   return {
+    formatWeekNumber,
     formatWeekString,
   };
 }

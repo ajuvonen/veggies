@@ -12,7 +12,6 @@ import {
 import {Line} from 'vue-chartjs';
 import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean, reverse} from 'remeda';
-import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
@@ -28,12 +27,12 @@ const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
-const {formatWeekString} = useDateTime();
+const {formatWeekString, formatWeekNumber} = useDateTime();
 
 const chartData = computed(() => {
   const weekStarts = reverse(getWeekStarts.value);
   return {
-    labels: weekStarts.map((weekStart) => weekStart.toFormat('W/kkkk')),
+    labels: weekStarts.map(formatWeekNumber),
     datasets: [
       {
         data: weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length),
@@ -64,8 +63,9 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
       xAlign,
       callbacks: {
         title: ([tooltip]) => {
-          const weekStart = DateTime.fromFormat(tooltip!.label, 'W/kkkk');
-          return formatWeekString(weekStart);
+          const reversedIndex = getWeekStarts.value.length - 1 - tooltip!.dataIndex!;
+          const weekStart = getWeekStarts.value[reversedIndex];
+          return formatWeekString(weekStart!);
         },
       },
     },
