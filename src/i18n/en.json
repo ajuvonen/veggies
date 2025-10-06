@@ -1355,6 +1355,11 @@
       "Yellowfoot mushrooms can be foraged even after the first snow has fallen.",
       "Yellowfoot mushrooms make delicious soup, risotto, or sauces."
     ],
+    "yuzu": [
+      "Yuzu is originally native to China, but it is widely used in Japanese cuisine.",
+      "Yuzu is a hybrid of mandarin and Chinese citrus.",
+      "Yuzu is an important ingredient in Japanese ponzu sauce."
+    ],
     "zucchini": [
       "Zucchini can be spiralized into noodles, offering a low-carb alternative to pasta.",
       "Squashes come from the Americas, but the name \"zucchini\" comes from Italy.",
@@ -1778,6 +1783,7 @@
     "yellow beet": "yellow beet",
     "yellow lentil": "yellow lentil",
     "yellowfoot mushroom": "yellowfoot mushroom",
+    "yuzu": "yuzu",
     "zucchini": "zucchini"
   },
   "veggieSearch": {
