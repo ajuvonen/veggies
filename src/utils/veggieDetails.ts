@@ -63,6 +63,7 @@ export const FRUITS: readonly string[] = [
   'starfruit',
   'strawberry',
   'watermelon',
+  'yuzu',
 ];
 
 export const LEAFIES: readonly string[] = [
@@ -287,6 +288,7 @@ export const CITRUSES: readonly string[] = [
   'mandarin',
   'orange',
   'pomelo',
+  'yuzu',
 ];
 
 export const RED_VEGGIES: readonly string[] = [
@@ -368,6 +370,7 @@ export const BOTANICAL_BERRIES: readonly string[] = [
   'tomatillo',
   'tomato',
   'watermelon',
+  'yuzu',
   'zucchini',
 ];
 

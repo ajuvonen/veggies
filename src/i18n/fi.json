@@ -1356,6 +1356,11 @@
       "Suppilovahveroita voidaan poimia vielä ensilumen pudottuakin.",
       "Suppilovahveroista voi tehdä herkullista keittoa, risottoa tai kastikkeita."
     ],
+    "yuzu": [
+      "Yuzu on alun perin kotoisin Kiinasta, mutta sitä käytetään laajalta japanilaisessa keittiössä.",
+      "Yuzu on mandariinin ja kiinalaisen sitrushedelmän risteytys.",
+      "Yuzu on tärkeä ainesosa japanilaisessa ponzu-kastikkeessa."
+    ],
     "zucchini": [
       "Kesäkurpitsaa voidaan viipaloida nuudeleiksi, jolloin se tarjoaa vähähiilihydraattisen vaihtoehdon pastalle.",
       "Kurpitsat ovat kotoisin Amerikasta, mutta kesäkurpitsan kansainvälinen nimi \"zucchini\" tulee Italiasta.",
@@ -1779,6 +1784,7 @@
     "yellow beet": "keltajuuri",
     "yellow lentil": "keltainen linssi",
     "yellowfoot mushroom": "suppilovahvero",
+    "yuzu": "yuzu",
     "zucchini": "kesäkurpitsa"
   },
   "veggieSearch": {
