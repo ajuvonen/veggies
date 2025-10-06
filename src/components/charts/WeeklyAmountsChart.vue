@@ -11,7 +11,7 @@ import {
 } from 'chart.js';
 import {Line} from 'vue-chartjs';
 import ChartAnnotation from 'chartjs-plugin-annotation';
-import {mean, reverse} from 'remeda';
+import {mean} from 'remeda';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
@@ -30,7 +30,7 @@ const {xAlign, yAlign} = useChartContainer(chartContainer);
 const {formatWeekString, formatWeekNumber} = useDateTime();
 
 const chartData = computed(() => {
-  const weekStarts = reverse(getWeekStarts.value);
+  const weekStarts = getWeekStarts.value.slice().reverse();
   return {
     labels: weekStarts.map(formatWeekNumber),
     datasets: [

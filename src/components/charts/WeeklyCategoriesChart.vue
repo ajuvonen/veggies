@@ -5,7 +5,6 @@ import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import {reverse} from 'remeda';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
@@ -28,7 +27,7 @@ const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {
-  const weekStarts = reverse(getWeekStarts.value);
+  const weekStarts = getWeekStarts.value.slice().reverse();
   const datasets = Object.values(Category).map((category, index) => ({
     label: category,
     data: weekStarts.map(

@@ -3,7 +3,6 @@ import {onMounted, ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
 import {DateTime} from 'luxon';
-import {usePreferredLanguages} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
@@ -12,7 +11,6 @@ import ModalDialog from '@/components/ModalDialog.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 
 const router = useRouter();
-const preferredLanguages = usePreferredLanguages();
 
 const {startDate} = storeToRefs(useActivityStore());
 const {settings} = storeToRefs(useAppStateStore());
@@ -26,7 +24,7 @@ const start = () => {
 
 onMounted(() => {
   const startupLocale =
-    preferredLanguages.value
+    navigator.languages
       .map((language) => language.split('-')[0] as string)
       .find((language: string): language is Locale => LOCALES.includes(language as Locale)) ||
     DEFAULT_LOCALE;
