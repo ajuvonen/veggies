@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import {computed, inject, provide, readonly, ref, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
-import {first} from 'remeda';
 import {
   Listbox,
   ListboxButton,
@@ -27,7 +26,7 @@ const activityStore = useActivityStore();
 const {getWeekStarts, veggiesForWeek, challenges, weeklyAchievements} = storeToRefs(activityStore);
 const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
 
-const selectedWeekStart = ref(first(getWeekStarts.value)!);
+const selectedWeekStart = ref(getWeekStarts.value[0]!);
 
 const optionsElement = useTemplateRef('optionsElement');
 const {maxHeight} = useScreen(optionsElement);

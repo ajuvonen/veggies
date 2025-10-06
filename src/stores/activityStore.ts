@@ -1,6 +1,6 @@
 import {computed, ref} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
-import {debounceFilter, useIntervalFn, useStorage} from '@vueuse/core';
+import {debounceFilter, useStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {
   countBy,
@@ -49,7 +49,7 @@ export const useActivityStore = defineStore('activity', () => {
   const {settings} = storeToRefs(useAppStateStore());
   const {availableVeggies} = useAvailableVeggies();
   const currentDate = ref(DateTime.now());
-  useIntervalFn(() => {
+  setInterval(() => {
     const now = DateTime.now();
     if (!currentDate.value.hasSame(now, 'day')) {
       currentDate.value = now;

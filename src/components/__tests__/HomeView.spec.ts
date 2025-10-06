@@ -1,24 +1,8 @@
-import {ref} from 'vue';
 import {describe, it, expect, vi, afterEach, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import HomeView from '@/views/HomeView.vue';
 import DialogStub from './DialogStub.vue';
 import {useAppStateStore} from '@/stores/appStateStore';
-
-const mocks = vi.hoisted(() => {
-  vi.resetModules();
-  return {
-    usePreferredLanguages: vi.fn(() => ref(['en'])),
-  };
-});
-
-vi.mock('@vueuse/core', async () => {
-  const actual = await vi.importActual('@vueuse/core');
-  return {
-    ...actual,
-    usePreferredLanguages: mocks.usePreferredLanguages,
-  };
-});
 
 describe('HomeView', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
@@ -37,24 +21,25 @@ describe('HomeView', () => {
   });
 
   it('renders in English if specific dialect preferred', () => {
-    mocks.usePreferredLanguages.mockReturnValue(ref(['en-UK', 'fi']));
+    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['en-UK', 'fi']);
     mount(HomeView);
     expect(appStateStore.settings.locale).toBe('en');
   });
 
   it('renders in Finnish if preferred', async () => {
-    mocks.usePreferredLanguages.mockReturnValue(ref(['fi', 'en']));
+    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['fi', 'en']);
     mount(HomeView);
     expect(appStateStore.settings.locale).toBe('fi');
   });
 
   it('renders in English if no languages match locales preferred', () => {
-    mocks.usePreferredLanguages.mockReturnValue(ref(['sv-SE', 'no']));
+    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['sv-SE', 'no']);
     mount(HomeView);
     expect(appStateStore.settings.locale).toBe('en');
   });
 
   it('shows dialog', async () => {
+    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['en']);
     const wrapper = mount(HomeView, {
       global: {
         stubs: {

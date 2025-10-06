@@ -2,7 +2,7 @@
 import {defineAsyncComponent, provide, readonly, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
-import {difference, first} from 'remeda';
+import {difference} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {KEYS} from '@/utils/constants';
@@ -39,7 +39,7 @@ const showConfetti = async () => {
 };
 
 watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
-  const addedVeggie = first(difference(newCurrentVeggies, oldCurrentVeggies));
+  const addedVeggie = difference(newCurrentVeggies, oldCurrentVeggies)[0];
   if (addedVeggie) {
     const cheers: string[] = tm('cheers');
     const cheer = getRandomItem(cheers);
