@@ -408,7 +408,8 @@
       "One carrot provides over 100% of the daily vitamin A requirement.",
       "Carrots were purple or white until Dutch farmers bred the orange variety in the 17th century.",
       "The heaviest carrot ever measured weighed over ten kilos.",
-      "Contrary to popular belief, carrots are not good for rabbits due to their high sugar content."
+      "Contrary to popular belief, carrots are not good for rabbits due to their high sugar content.",
+      "Japanese manpukuji carrots can grow well over one meter long."
     ],
     "cashew nut": [
       "A 30-gram portion of cashew nuts provides about 5 grams of protein and 13 grams of healthy fats.",
@@ -418,7 +419,8 @@
     "cauliflower": [
       "Cauliflower has gained popularity as a low-carb substitute for rice and pizza crusts.",
       "Cauliflower belongs to the same family as broccoli, cabbage, and Brussels sprouts.",
-      "A UK vegetable grower has managed to grow a cauliflower weighing 27.5 kg."
+      "A UK vegetable farmer has managed to grow a cauliflower weighing 27.5 kg.",
+      "Cauliflower can be used to make vegan \"buffalo wings.\""
     ],
     "celeriac": [
       "Celeriac has been cultivated since ancient times, particularly in the Mediterranean region.",
@@ -980,11 +982,12 @@
     "pineapple": [
       "Pineapple contains bromelain, an enzyme that helps break down proteins.",
       "The pineapple plant can produce only one fruit at a time.",
-      "World's leading pineapple producer is Costa Rica."
+      "World's leading pineapple producer is Costa Rica.",
+      "Pineapple was once so expensive in Europe, it was rented out as a prestigious centerpiece for parties."
     ],
     "pinto bean": [
       "Pinto beans are named for their speckled appearance when raw but turn brown when cooked.",
-      "\"Pinto\" means \"painted\" in Spanish, a referencet to the beans' appearance.",
+      "\"Pinto\" means \"painted\" in Spanish, a reference to the beans' appearance.",
       "Pinto beans provide a high yield and are drought-resistant."
     ],
     "pistachio nut": [
@@ -1211,10 +1214,11 @@
       "Wheat can be substituted with spelt in many recipes, but pay attention to the amount of water."
     ],
     "spinach": [
-      "Spinach provides vitamins A and K, as well as iron.",
+      "Spinach provides vitamins A and K.",
       "Popeye's recommendation in 1930s boosted the sale of spinach by 33% overnight.",
       "Spinach may help lower blood pressure.",
-      "Catherine de Medici of Florence was rumored to like spinach so much, many spinach dishes are still called \"à la Florentine\"."
+      "Catherine de Medici of Florence was rumored to like spinach so much, many spinach dishes are still called \"à la Florentine\".",
+      "The high levels of oxalates in spinach can inhibit calcium and iron absorption."
     ],
     "sprouts": [
       "Sprouts are young plants harvested just after they begin to grow, often eaten raw.",
@@ -1321,7 +1325,10 @@
       "Wheat is one of the most widely grown crops in the world.",
       "Whole wheat is a healthier option compared to refined wheat as it retains the bran and germ."
     ],
-    "white bean": ["White beans are rich in fiber and protein."],
+    "white bean": [
+      "White beans are rich in fiber and protein.",
+      "There are many varieties of white beans and they can be used interchangeably."
+    ],
     "white onion": [
       "White onions have a milder flavor compared to yellow or red onions, making them ideal for raw dishes.",
       "Onions are harmful to many animals."
@@ -1331,7 +1338,9 @@
       "Some wild mushrooms require pretreatment to remove toxins."
     ],
     "wild rice": [
-      "Wild rice is not technically rice but the seed of aquatic grass native to North America."
+      "Wild rice is not technically rice but the seed of aquatic grass native to North America.",
+      "Traditionally wild rice was harvested by hand using canoes.",
+      "Wild rice was a culinary staple for many Indigenous peoples of North America."
     ],
     "wood ear mushroom": [
       "Wood ear mushroom is used in Asian cuisine, for example in soups.",
@@ -1341,7 +1350,10 @@
       "Yams are often confused with sweet potatoes, but they are botanically different.",
       "Yams are rich in fiber, vitamin C, and potassium."
     ],
-    "yardlong bean": ["Yardlong beans can grow up to a meter in length."],
+    "yardlong bean": [
+      "Yardlong beans can grow up to a meter in length.",
+      "Yardlong bean grows quickly; pods can form in just 60 days."
+    ],
     "yellow beet": [
       "Yellow beets are sweeter and milder than their red counterparts.",
       "Unlike beetroots, yellow beets don't create a mess in the kitchen."

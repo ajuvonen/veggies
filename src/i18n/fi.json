@@ -408,7 +408,8 @@
       "Yksi porkkana sisältää yli 100 % päivän A-vitamiinista.",
       "Porkkanat olivat joko violetteja tai valkoisia, kunnes hollantilaiset maanviljelijät kehittivät oranssin lajikkeen 1600-luvulla.",
       "Painavin koskaan punnittu porkkana painoi yli kymmenen kiloa.",
-      "Toisin kuin yleisesti luullaan, porkkana ei ole hyväksi kaneille liiallisen sokeripitoisuutensa vuoksi."
+      "Toisin kuin yleisesti luullaan, porkkana ei ole hyväksi kaneille liiallisen sokeripitoisuutensa vuoksi.",
+      "Japanilaiset manpukuji-porkkanat voivat kasvaa jopa metrin pituisiksi."
     ],
     "cashew nut": [
       "30 gramman annos cashewpähkinöitä sisältää noin 5 g proteiinia ja 13 g terveellisiä rasvoja.",
@@ -418,7 +419,8 @@
     "cauliflower": [
       "Kukkakaali on saanut suosiota vähähiilihydraattisena riisin ja pizzapohjan korvikkeena.",
       "Kukkakaali kuuluu samaan perheeseen parsakaalin, kaalin ja ruusukaalin kanssa.",
-      "Brittiläinen vihannesten kasvattaja on onnistunut kasvattamaan 27,5 kiloa painaneen kukkakaalin."
+      "Brittiläinen vihannesten kasvattaja on onnistunut kasvattamaan 27,5 kiloa painaneen kukkakaalin.",
+      "Kukkakaalia voidaan käyttää vegaanisten \"wingsien\" valmistukseen."
     ],
     "celeriac": [
       "Juuriselleriä on viljelty antiikin ajoista lähtien, erityisesti Välimeren alueella.",
@@ -981,7 +983,8 @@
     "pineapple": [
       "Ananas sisältää bromelaiinia, entsyymiä, joka auttaa hajottamaan proteiineja.",
       "Ananaskasvi voi tuottaa vain yhden hedelmän kerrallaan.",
-      "Maailman johtava ananasten tuottaja on Costa Rica."
+      "Maailman johtava ananasten tuottaja on Costa Rica.",
+      "Ananas oli aikoinaan niin kallista Euroopassa, että niitä vuokrattiin arvokkaiksi koristeiksi juhliin."
     ],
     "pinto bean": [
       "Pintopavut on nimetty niiden pilkullisen ulkonäön mukaan, mutta ne muuttuvat ruskeiksi kypsennettyinä.",
@@ -1212,10 +1215,11 @@
       "Monessa reseptissä vehnäjauhoja voi korvata speltillä, mutta nesteen määrää pitää tarkkailla."
     ],
     "spinach": [
-      "Pinaatti sisältää A- ja K-vitamiineja sekä rautaa.",
+      "Pinaatti sisältää A- ja K-vitamiineja.",
       "Kippari-Kallen suosituksesta pinaatin myynti nousi 1930-luvulla 33 % yhdessä päivässä.",
       "Pinaatilla saattaa olla verenpainetta laskevia vaikutuksia.",
-      "Firenzen Catherine de Medici piti pinaatista tarinan mukaan niin paljon, että monen pinaattiannoksen nimi on edelleen \"à la Florentine\"."
+      "Firenzen Catherine de Medici piti pinaatista tarinan mukaan niin paljon, että monen pinaattiannoksen nimi on edelleen \"à la Florentine\".",
+      "Pinaatin korkea oksalaattipitoisuus voi haitata kalsiumin ja raudan imeytymistä."
     ],
     "sprouts": [
       "Idut ovat nuoria kasveja, jotka korjataan heti kasvun alettua, ja syödään usein raakana.",
@@ -1322,7 +1326,10 @@
       "Vehnä on yksi maailman laajimmin viljellyistä kasveista.",
       "Täysjyvävehnä on jalostettua vehnää terveellisempi vaihtoehto, sillä se sisältää leseen ja alkion."
     ],
-    "white bean": ["Valkoiset pavut sisältävät runsaasti kuitua ja proteiinia."],
+    "white bean": [
+      "Valkoiset pavut sisältävät runsaasti kuitua ja proteiinia.",
+      "Valkoisia papuja on useita eri lajikkeita ja niitä voidaan käyttää ristiin."
+    ],
     "white onion": [
       "Hopeasipulilla on kelta- tai punasipulia miedompi maku, mikä tekee siitä ihanteellisen raakoihin ruokiin.",
       "Sipulit ovat haitallisia monille eläimille."
@@ -1332,7 +1339,9 @@
       "Jotkin sienet pitää esikäsitellä ennen syömistä niissä esiintyvien myrkkyjen poistamiseksi."
     ],
     "wild rice": [
-      "Villiriisi ei ole riisilajike, vaan Pohjois-Amerikasta peräisin olevan vesiruohon siemen."
+      "Villiriisi ei ole riisilajike, vaan Pohjois-Amerikasta peräisin olevan vesiruohon siemen.",
+      "Perinteisesti villiriisiä kerättiin kanooteilla vesistöistä.",
+      "Villiriisi oli tärkeä ravinnonlähde Pohjois-Amerikan alkuperäiskansoille."
     ],
     "wood ear mushroom": [
       "Juudaksenkorvaa käytetään aasialaisessa ruoassa esimerkiksi keittojen ainesosana.",
@@ -1342,7 +1351,10 @@
       "Jamssi sekoitetaan usein bataatteihin, mutta ne ovat eri lajeja.",
       "Jamssi sisältää runsaasti kuitua, C-vitamiinia ja kaliumia."
     ],
-    "yardlong bean": ["Parsapapu voi kasvaa jopa metrin pituiseksi."],
+    "yardlong bean": [
+      "Parsapapu voi kasvaa jopa metrin pituiseksi.",
+      "Nopeasti kasvavan parsapavun palot voivat muodostua jo 60 päivässä."
+    ],
     "yellow beet": [
       "Keltajuuret ovat makeampia ja miedompia kuin punajuuret.",
       "Toisin kuin punajuuret, keltajuuret eivät sotke koko keittiötä."
