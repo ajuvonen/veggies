@@ -20,15 +20,17 @@ PWA functionalities require a PWA-compatible browser.
 # Install browsers for the first run
 npx playwright install
 
-# When testing e2e, build the project first
+# When testing e2e, build and run the project first
 npm run build
+npm run preview
 
+# In a separate window:
 # Runs the end-to-end tests
 npm run test:e2e
 # Runs the tests only on Chromium
 npm run test:e2e -- --project=chromium
 # Runs the tests of a specific file
-npm run test:e2e -- e2e/example.spec.ts
+npm run test:e2e example.spec.ts
 # Runs the tests in debug mode
 npm run test:e2e -- --debug
 ```
@@ -37,5 +39,8 @@ npm run test:e2e -- --debug
 
 ```sh
 npm install
+
 npm test:unit
+# Runs the tests of a specific file
+npm run test:unit example.spec.ts
 ```
