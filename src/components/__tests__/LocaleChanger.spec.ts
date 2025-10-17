@@ -82,7 +82,9 @@ describe('LocaleChanger', () => {
 
   it('has facts for all veggies', async () => {
     const {tm} = await mountLocalization();
-    ALL_VEGGIES.forEach((veggie) => expect.soft(tm(`facts.${veggie}`).length).toBeGreaterThan(1));
+    ALL_VEGGIES.forEach((veggie) =>
+      expect.soft(tm(`facts.${veggie}`).length || 0).toBeGreaterThan(1),
+    );
     expect(Object.keys(tm('facts')).length).toEqual(ALL_VEGGIES.length);
   });
 
