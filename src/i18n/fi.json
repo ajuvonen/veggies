@@ -776,6 +776,16 @@
       "Sitruunoiden uskotaan olevan peräisin Aasiasta, ja merimiehet käyttivät niitä keripukin estämiseen.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
+    "lemongrass": [
+      "Sitruunaruohon ulkokuori on puumainen ja kova, sitä ei yleensä syödä.",
+      "Aromaterapiassa sitruunaruoholla uskotaan olevan energisoiva vaikutus.",
+      "Sitruunaruoholla voidaan lisätä sitruunaista makua cocktaileihin, siirappeihin ja jälkiruokiin."
+    ],
+    "lemon balm": [
+      "Sitruunamelissa sopii hyvin yhteen kanan, kalan ja kevyiden kastikkeiden kanssa.",
+      "Aromaterapiassa sitruunamelissalla uskotaan olevan rauhoittava ja unta parantava vaikutus.",
+      "Liian pitkä haudutus voi saada sitruunamelissan maun katoamaan."
+    ],
     "lettuce": [
       "Salaatti on yksi vanhimmista viljellyistä kasveista, ja sitä on kasvatettu yli 4 000 vuotta.",
       "Muinaiset salaattilajikkeet olivat kitkerämpiä. Jalostustyö on johtanut miedompien lajikkeiden kehittämiseen."
@@ -836,8 +846,8 @@
       "Maniokista valmistetut tapiokahelmet ja -vanukas ovat suosittuja välipaloja."
     ],
     "matsutake": [
-      "Matsutake on arvostettu sieni Japanissa, ja harvinaisuutensa vuoksi se voi olla erittäin kallis.",
-      "Matsutaken kaupallinen viljely on vaikeaa, joten sientä tuodaan tavallisesti ulkomailta."
+      "Tuoksuvalmuska on arvostettu sieni Japanissa, ja harvinaisuutensa vuoksi se voi olla erittäin kallis.",
+      "Tuoksuvalmuskan kaupallinen viljely on vaikeaa, joten sientä tuodaan tavallisesti ulkomailta."
     ],
     "millet": [
       "30 gramman annos hirssiä sisältää noin 11 g proteiinia. Hirssi on myös gluteeniton.",
@@ -911,6 +921,11 @@
       "Appelsiinit ovat yksi maailman suosituimmista hedelmistä ja niitä kulutetaan usein mehuna.",
       "Appelsiinien uskotaan olevan peräisin Kaakkois-Aasiasta, josta kauppiaat levittivät niitä ympäri maailmaa.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
+    ],
+    "oregano": [
+      "Oreganon nimi tulee muinaiskreikan \"vuoren iloa\" tarkoittavista sanoista.",
+      "Oreganolla maustettu oliiviöljy on suosittu mauste Välimeren alueella.",
+      "Murskaa tuoretta oreganoa ennen sen lisäämistä ruokaan vapauttaaksesi sen maut."
     ],
     "oyster mushroom": [
       "Osterivinokas on saanut nimensä lakistaan, joka muistuttaa osteria.",
@@ -1132,6 +1147,11 @@
       "Roomansalaatti kestää tukevien lehtiensä vuoksi paremmin runsaita kastikkeita.",
       "Roomansalaatti on saanut nimensä todennäköisesti tultuaan Eurooppaan paavin puutarhojen avustuksella."
     ],
+    "rosemary": [
+      "Rosmariinia käytetään aromaterapiassa stressin lievitykseen.",
+      "Rosmariini on ollut historiallisesti muistin ja uskollisuuden symboli.",
+      "Rosmariini on suosittu grillattujen ja haudutettujen ruokien kumppani."
+    ],
     "rutabaga": [
       "Lanttu sekoitetaan joskus nauriiseen, mutta lanttu on suurempi ja siinä on kellertävä malto.",
       "Lanttu on todennäköisesti Skandinaviassa syntynyt perunan ja turnipsin risteytys.",
@@ -1144,6 +1164,12 @@
     "safflower seed": [
       "Saflorinsiemeniä käytetään runsaasti tyydyttymättömiä rasvoja sisältävän öljyn valmistukseen.",
       "Saflorinsiemeniä käytetään usein linnunruokana, mutta ne ovat myös ihmisten suosima välipala."
+    ],
+    "sage": [
+      "Salvia on monivuotinen mintunsukuinen yrtti.",
+      "Yli 900 salvialajiketta tunnetaan, eri käyttötarkoituksiin on kehitetty omat lajikkeensa.",
+      "Salvian on perinnetietona uskottu sisältävän parantavia tai puhdistavia ominaisuuksia.",
+      "Salvia-voipasta on italialainen klassikkoannos."
     ],
     "savoy cabbage": [
       "Savoijinkaali kestää kylmää ja tuholaisia paremmin kuin monet muut lehtivihreät.",
@@ -1186,6 +1212,11 @@
       "Shimeji-sienen tyypilliset alalajit ovat valkoinen bunapi-shimeji ja ruskea buna-shimeji.",
       "Kypsentämättömien shimeji-sienten maku on kitkerä, mutta kypsänä ne ovat umamisia.",
       "Shimeji-sienet sopivat hyvin yhteen esimerkiksi valkosipulin, soijan ja merenelävien kanssa."
+    ],
+    "shiso": [
+      "Shisosta tunnetaan kaksi päätyyppiä, vihreä ja punainen. Kummallakin on oma makuprofiilinsa.",
+      "Shison lehdet tuotiin Japaniin Kiinasta yli 2 000 vuotta sitten.",
+      "Shiso-infuusiota voidaan käyttää trendikkäissä cocktaileissa."
     ],
     "snow pea": [
       "Sokeriherneet eroavat taittoherneistä litteän kuorensa vuoksi.",
@@ -1253,6 +1284,11 @@
     "taro": [
       "30 gramman annos taroa sisältää noin 10 % päivittäisestä kuidun tarpeesta.",
       "Taron lehdet ovat syötäviä kypsennettyinä ja tarjoavat hyvän A-vitamiinin lähteen."
+    ],
+    "tarragon": [
+      "Rakuuna kuuluu ranskalaisen keittiön \"fines herbes\"-sekoitukseen.",
+      "Välttääksesi rakuunan muuttumista kitkeräksi, lisää se ruokiin vasta kypsennyksen lopussa.",
+      "Rakuunan on uskottu tuleen Eurooppaan mongolivalloittajien mukana."
     ],
     "teff": [
       "Teff on Etiopiasta kotoisin oleva muinainen vilja, jota käytetään perinteisen leivän, injeran, valmistukseen.",
@@ -1672,7 +1708,9 @@
     "kohlrabi": "kyssäkaali",
     "kumquat": "kumkvatti",
     "leek": "purjo",
+    "lemon balm": "sitruunamelissa",
     "lemon": "sitruuna",
+    "lemongrass": "sitruunaruoho",
     "lettuce": "lehtisalaatti",
     "lime": "limetti",
     "lingonberry": "puolukka",
@@ -1701,6 +1739,7 @@
     "olive": "oliivi",
     "onion": "sipuli",
     "orange": "appelsiini",
+    "oregano": "oregano",
     "oyster mushroom": "osterivinokas",
     "papaya": "papaija",
     "parsley root": "juuripersilja",
@@ -1746,9 +1785,11 @@
     "rhubarb": "raparperi",
     "rice": "riisi",
     "romaine": "roomansalaatti",
+    "rosemary": "rosmariini",
     "rutabaga": "lanttu",
     "rye": "ruis",
     "safflower seed": "saflorinsiemen",
+    "sage": "salvia",
     "savoy cabbage": "savoijinkaali",
     "scallion": "kevätsipuli",
     "scarlet runner bean": "ruusupapu",
@@ -1757,6 +1798,7 @@
     "shallot": "salottisipuli",
     "shiitake": "siitake",
     "shimeji": "shimeji",
+    "shiso": "shiso",
     "snow pea": "sokeriherne",
     "sorghum": "durra",
     "sorrel": "suolaheinä",
@@ -1771,6 +1813,7 @@
     "sunflower seed": "auringonkukansiemen",
     "sweet potato": "bataatti",
     "taro": "taro",
+    "tarragon": "rakuuna",
     "teff": "teff",
     "thai basil": "thaibasilika",
     "thyme": "timjami",

@@ -775,6 +775,16 @@
       "Lemons are believed to have originated in Asia and were used by sailors to prevent scurvy.",
       "Citruses are harmful to cats and dogs."
     ],
+    "lemongrass": [
+      "The outer shell of lemongrass is tough and fibrous, so it's usually not eaten.",
+      "In aromatherapy, lemongrass is believed to have energizing properties.",
+      "Lemongrass can be added to cocktails, syrups, and desserts for a citrusy flavor."
+    ],
+    "lemon balm": [
+      "Lemon balm pairs well with chicken, fish, and light sauces.",
+      "Lemon balm is used in traditional medicine to reduce stress and improve sleep.",
+      "Cooking lemon balm too long can make it lose its flavor."
+    ],
     "lettuce": [
       "Lettuce is one of the oldest cultivated plants, with records of it being grown over 4,000 years ago.",
       "Ancient lettuce varieties were bitter. Cultivation has led to development of milder varieties."
@@ -910,6 +920,11 @@
       "Oranges are one of the most popular fruits in the world and are often consumed as juice.",
       "Oranges are believed to have originated in Southeast Asia and were spread by traders.",
       "Citruses are harmful to cats and dogs."
+    ],
+    "oregano": [
+      "The name oregano comes from ancient Greek words meaning \"mountain joy.\"",
+      "Olive oil infused with oregano is a popular condiment in Mediterranean cuisine.",
+      "Crush oregano leaves before adding them to dishes to release their flavor."
     ],
     "oyster mushroom": [
       "Oyster mushroom gets its name from its cap, which resembles an oyster.",
@@ -1131,6 +1146,11 @@
       "Because of its hefty leaves, romaine can handle a lot of dressing.",
       "Romaine was probably named due to arriving to Europe via the papal gardens."
     ],
+    "rosemary": [
+      "Rosemary is used in aromatherapy as a stress reliever.",
+      "Historically, rosemary has been the symbol of remembrance and loyalty.",
+      "Rosemary is a popular companion for grilled and roasted dishes."
+    ],
     "rutabaga": [
       "Rutabagas are sometimes confused with turnips, but they are larger and have a yellowish flesh.",
       "Rutabaga is a cross between turnip and potato, originating probably in Scandinavia.",
@@ -1143,6 +1163,12 @@
     "safflower seed": [
       "Safflower seeds are often used to make oil that's high in unsaturated fats.",
       "Safflower seeds are commonly used in bird feed but are also enjoyed as a snack by humans."
+    ],
+    "sage": [
+      "Sage is a perennial of the mint family.",
+      "Over 900 varieties of sage exist, and different types are used for different purposes.",
+      "Sage has been believed to have medicinal or purifying properties in folklore.",
+      "Pasta with sage and butter is a classic Italian dish."
     ],
     "savoy cabbage": [
       "Savoy cabbage is more cold- and pest-resistant than many other leafy greens.",
@@ -1185,6 +1211,11 @@
       "The common varieties of shimeji mushrooms include the white bunapi-shimeji and the brown buna-shimeji.",
       "Uncooked shimeji mushrooms have a bitter taste, but they develop umami flavor when cooked.",
       "Shimeji mushrooms pair well for example with soy sauce, garlic, and seafood."
+    ],
+    "shiso": [
+      "The two main varieties of shiso are green and red, each with slightly different flavors.",
+      "Shiso leaves were introduced to Japan from China over 2,000 years ago.",
+      "Shiso infusion can be used in trendy cocktails."
     ],
     "snow pea": [
       "Snow peas differ from sugar snaps in that their shell is flat.",
@@ -1252,6 +1283,11 @@
     "taro": [
       "A 30-gram portion of taro contains about 10% of your daily fiber intake.",
       "Taro leaves are also edible when cooked and provide a good source of vitamin A."
+    ],
+    "tarragon": [
+      "Tarragon belongs in the \"fines herbes\" blend of French cooking.",
+      "To avoid turning it bitter, you should add tarragon in the final stages of cooking.",
+      "Tarragon is thought to have been brought to Europe by invading Mongols."
     ],
     "teff": [
       "Teff is an ancient grain native to Ethiopia and is used to make the traditional bread, injera.",
@@ -1671,7 +1707,9 @@
     "kohlrabi": "kohlrabi",
     "kumquat": "kumquat",
     "leek": "leek",
+    "lemon balm": "lemon balm",
     "lemon": "lemon",
+    "lemongrass": "lemongrass",
     "lettuce": "lettuce",
     "lime": "lime",
     "lingonberry": "lingonberry",
@@ -1700,6 +1738,7 @@
     "olive": "olive",
     "onion": "onion",
     "orange": "orange",
+    "oregano": "oregano",
     "oyster mushroom": "oyster mushroom",
     "papaya": "papaya",
     "parsley root": "parsley root",
@@ -1745,9 +1784,11 @@
     "rhubarb": "rhubarb",
     "rice": "rice",
     "romaine": "romaine",
+    "rosemary": "rosemary",
     "rutabaga": "rutabaga",
     "rye": "rye",
     "safflower seed": "safflower seed",
+    "sage": "sage",
     "savoy cabbage": "savoy cabbage",
     "scallion": "scallion",
     "scarlet runner bean": "scarlet runner bean",
@@ -1756,6 +1797,7 @@
     "shallot": "shallot",
     "shiitake": "shiitake",
     "shimeji": "shimeji",
+    "shiso": "shiso",
     "snow pea": "snow pea",
     "sorghum": "sorghum",
     "sorrel": "sorrel",
@@ -1770,6 +1812,7 @@
     "sunflower seed": "sunflower seed",
     "sweet potato": "sweet potato",
     "taro": "taro",
+    "tarragon": "tarragon",
     "teff": "teff",
     "thai basil": "thai basil",
     "thyme": "thyme",
