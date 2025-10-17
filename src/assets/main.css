@@ -80,6 +80,8 @@
 
   .dropdown-list-container {
     @apply absolute mt-2 w-full overflow-x-hidden rounded-md shadow-lg;
+    scrollbar-width: thin;
+    scrollbar-color: initial;
   }
 
   .dropdown-list-option {

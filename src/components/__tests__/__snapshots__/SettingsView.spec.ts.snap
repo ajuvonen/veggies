@@ -23,7 +23,7 @@ exports[`SettingsView > renders 1`] = `
           <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
         </svg></button>
       <transition-stub data-v-487fdf11="" leaveactiveclass="ease-in duration-200" leavefromclass="opacity-100" leavetoclass="opacity-0" appear="false" persisted="true" css="true">
-        <div data-v-487fdf11="" id="veggie-search-options" role="listbox" aria-multiselectable="true" data-headlessui-state="" style="max-height: calc(768px - 1rem); display: none;" class="veggie-search__options" data-test-id="veggie-search-options">
+        <div data-v-487fdf11="" id="veggie-search-options" role="listbox" aria-multiselectable="true" data-headlessui-state="" style="max-height: calc(768px - 1rem); display: none;" class="dropdown-list-container" data-test-id="veggie-search-options">
           <!--v-if-->
           <!--v-if-->
           <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Fruit" data-test-id="veggie-search-group-Fruit" role="group">

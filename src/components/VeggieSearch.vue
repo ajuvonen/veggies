@@ -150,7 +150,7 @@ onClickOutside(
           :style="`max-height: calc(${maxHeight}px - 1rem)`"
           static
           as="div"
-          class="veggie-search__options"
+          class="dropdown-list-container"
           data-test-id="veggie-search-options"
         >
           <div
@@ -185,12 +185,6 @@ onClickOutside(
 .veggie-search__button {
   @apply absolute top-1/2 -translate-y-1/2 p-2 -outline-offset-4;
   @apply fill-[--color-text-alternative];
-}
-
-.veggie-search__options {
-  @apply dropdown-list-container;
-  scrollbar-width: thin;
-  scrollbar-color: initial;
 }
 
 .veggie-search__no-results {
