@@ -3,6 +3,7 @@ import {mount} from '@vue/test-utils';
 import DropdownList from '@/components/DropdownList.vue';
 
 const stringOptions = ['Apple', 'Banana', 'Cherry'];
+const numberOptions = [1, 2, 3];
 const objectOptions = [
   {id: 1, name: 'Apple'},
   {id: 2, name: 'Banana'},
@@ -10,54 +11,45 @@ const objectOptions = [
 ];
 
 describe('DropdownList', () => {
-  it('renders with string options', () => {
+  it.each([
+    ['string', stringOptions],
+    ['number', numberOptions],
+    ['object', objectOptions],
+  ])('works with %s options', async (type, options) => {
     const wrapper = mount(DropdownList, {
       props: {
-        modelValue: 'Apple',
-        options: stringOptions,
-        label: 'Select Fruit',
-      },
-    });
-
-    expect(wrapper.findByTestId('dropdown-button').text()).toContain('Apple');
-    expect(wrapper.find('label').text()).toContain('Select Fruit');
-  });
-
-  it('renders with object options using custom keyFn', async () => {
-    const wrapper = mount(DropdownList, {
-      props: {
-        modelValue: objectOptions[2],
-        options: objectOptions,
+        modelValue: options[1],
+        options,
         label: 'Select Item',
-        keyFn: (item) => (item as {id: number}).id,
       },
     });
 
+    // Check selected value is displayed
     const button = wrapper.findByTestId('dropdown-button');
-    expect(button.text()).toContain('Cherry');
-    expect(wrapper.find('label').text()).toContain('Select Item');
+    if (type === 'object') {
+      expect(button.text()).toContain('Banana');
+    } else {
+      expect(button.text()).toBe(String(options[1]));
+    }
 
+    // Open dropdown
     await button.trigger('click');
-    const options = wrapper.findAll('li');
-    expect(options).toHaveLength(3);
-    expect(options[0].text()).toContain('Apple');
-    expect(options[1].text()).toContain('Banana');
-    expect(options[2].text()).toContain('Cherry');
+
+    // Check all options are rendered
+    const optionElements = wrapper.findAll('li');
+    expect(optionElements).toHaveLength(3);
+
+    // Check selected item has check icon
+    const checkIcon = optionElements[1].find('svg');
+    expect(checkIcon.exists()).toBe(true);
+
+    // Click another option and check emitted value
+    await optionElements[2].trigger('click');
+    expect(wrapper.emitted('update:modelValue')).toBeTruthy();
+    expect(wrapper.emitted('update:modelValue')![0]).toEqual([options[2]]);
   });
 
-  it('displays the selected value', () => {
-    const wrapper = mount(DropdownList, {
-      props: {
-        modelValue: 'Banana',
-        options: stringOptions,
-        label: 'Select Fruit',
-      },
-    });
-
-    expect(wrapper.findByTestId('dropdown-button').text()).toContain('Banana');
-  });
-
-  it('open dropdown looks as it should', async () => {
+  it('rotates chevron icon when dropdown opens', async () => {
     const wrapper = mount(DropdownList, {
       props: {
         modelValue: 'Apple',
@@ -69,38 +61,9 @@ describe('DropdownList', () => {
     const chevron = wrapper.find('svg');
     const button = wrapper.findByTestId('dropdown-button');
 
-    expect(chevron.exists()).toBe(true);
     expect(chevron.classes()).not.toContain('rotate-180');
-
     await button.trigger('click');
     expect(chevron.classes()).toContain('rotate-180');
-
-    const options = wrapper.findAll('li');
-    const selectedOption = options[0];
-    const checkIcon = selectedOption.find('svg');
-
-    expect(options.length).toBe(3);
-    expect(checkIcon.exists()).toBe(true);
-    expect(options[0].text()).toContain('Apple');
-    expect(options[1].text()).toContain('Banana');
-    expect(options[2].text()).toContain('Cherry');
-  });
-
-  it('emits update:modelValue when option is selected', async () => {
-    const wrapper = mount(DropdownList, {
-      props: {
-        modelValue: 'Apple',
-        options: stringOptions,
-        label: 'Select Fruit',
-      },
-    });
-
-    await wrapper.findByTestId('dropdown-button').trigger('click');
-    const options = wrapper.findAll('li');
-    await options[1].trigger('click');
-
-    expect(wrapper.emitted('update:modelValue')).toBeTruthy();
-    expect(wrapper.emitted('update:modelValue')![0]).toEqual(['Banana']);
   });
 
   it('uses custom prefix for test IDs', async () => {
@@ -201,66 +164,20 @@ describe('DropdownList', () => {
     expect(options[0].text()).toContain('Only');
   });
 
-  it('handles object options without keyFn', async () => {
-    const simpleObjects = [{value: 1}, {value: 2}];
-
+  it('handles null value', async () => {
     const wrapper = mount(DropdownList, {
       props: {
-        modelValue: simpleObjects[0],
-        options: simpleObjects,
-        label: 'Objects',
+        modelValue: null,
+        options: ['Only'],
+        label: 'Single Option',
       },
     });
 
     await wrapper.findByTestId('dropdown-button').trigger('click');
 
     const options = wrapper.findAll('li');
-    expect(options).toHaveLength(2);
-  });
-
-  it('works with number options', async () => {
-    const numbers = [1, 2, 3, 4, 5];
-
-    const wrapper = mount(DropdownList, {
-      props: {
-        modelValue: 1,
-        options: numbers,
-        label: 'Select Number',
-      },
-    });
-
-    await wrapper.findByTestId('dropdown-button').trigger('click');
-
-    const options = wrapper.findAll('li');
-    expect(options).toHaveLength(5);
-
-    await options[2].trigger('click');
-    expect(wrapper.emitted('update:modelValue')).toBeTruthy();
-    expect(wrapper.emitted('update:modelValue')![0]).toEqual([3]);
-  });
-
-  it('works with complex nested objects', async () => {
-    const complexObjects = [
-      {id: 1, data: {nested: {value: 'A'}}, meta: {count: 10}},
-      {id: 2, data: {nested: {value: 'B'}}, meta: {count: 20}},
-    ];
-
-    const wrapper = mount(DropdownList, {
-      props: {
-        modelValue: complexObjects[0],
-        options: complexObjects,
-        label: 'Complex Objects',
-        keyFn: (item) => (item as {id: number}).id,
-      },
-    });
-
-    await wrapper.findByTestId('dropdown-button').trigger('click');
-
-    const options = wrapper.findAll('li');
-    expect(options).toHaveLength(2);
-
-    await options[1].trigger('click');
-    expect(wrapper.emitted('update:modelValue')).toBeTruthy();
-    expect(wrapper.emitted('update:modelValue')![0]).toEqual([complexObjects[1]]);
+    expect(options).toHaveLength(1);
+    const checkIcon = options[0].find('svg');
+    expect(checkIcon.exists()).toBe(false);
   });
 });

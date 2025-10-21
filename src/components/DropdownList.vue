@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T extends string | number | object">
+<script setup lang="ts" generic="T extends string | number | object | null">
 import {inject, useTemplateRef} from 'vue';
 import {
   Listbox,
@@ -22,7 +22,7 @@ withDefaults(
     prefix?: string;
   }>(),
   {
-    keyFn: (item: T) => item.toString(),
+    keyFn: (item: T) => String(item),
     prefix: 'dropdown',
   },
 );
