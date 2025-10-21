@@ -20,7 +20,7 @@ const {settings} = storeToRefs(useAppStateStore());
           :icon="checked ? 'radioboxMarked' : 'radioboxBlank'"
           :data-test-id="`locale-button-${locale}`"
         >
-          <RadioGroupLabel as="span"> {{ $t(`locales.${locale}`) }}</RadioGroupLabel>
+          <RadioGroupLabel as="span">{{ $t(`locales.${locale}`) }}</RadioGroupLabel>
         </ButtonComponent>
       </RadioGroupOption>
     </ContentElement>
