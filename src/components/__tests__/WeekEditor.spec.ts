@@ -29,8 +29,8 @@ describe('WeekEditor', () => {
     activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
     const wrapper = mount(WeekEditor);
     expect(wrapper.findAll('tags__container li').length).toBe(0);
-    await wrapper.findByTestId('week-editor-dropdown-button').trigger('click');
-    expect(wrapper.findByTestId('week-editor-dropdown-button').exists()).toBe(true);
+    await wrapper.findByTestId('week-editor-button').trigger('click');
+    expect(wrapper.findByTestId('week-editor-button').exists()).toBe(true);
     expect(wrapper.findByTestId('week-editor-option-0').exists()).toBe(true);
     expect(wrapper.findByTestId('week-editor-option-1').exists()).toBe(true);
     expect(wrapper.findByTestId('week-editor-option-2').exists()).toBe(true);
