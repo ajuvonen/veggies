@@ -1,7 +1,7 @@
 import {describe, it, expect, vi, beforeEach} from 'vitest';
 import {ref, nextTick, type Ref} from 'vue';
-import {mount} from '@vue/test-utils';
 import {useChartContainer} from '@/hooks/chartContainer';
+import {withSetup} from './testHelpers';
 
 // Mock VueUse composables
 const mockMouseX = ref(500);
@@ -27,17 +27,6 @@ Object.defineProperty(window, 'innerWidth', {
   value: 1000,
 });
 
-const withSetup = (chartContainer: Ref<HTMLDivElement | null>) =>
-  new Promise<ReturnType<typeof useChartContainer>>((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(useChartContainer(chartContainer));
-      },
-    });
-  });
-
 describe('useChartContainer', () => {
   let chartContainer: Ref<HTMLDivElement | null>;
   let mockDiv: HTMLDivElement;
@@ -60,7 +49,7 @@ describe('useChartContainer', () => {
   });
 
   it('scrolls container to the right when element exists', async () => {
-    await withSetup(chartContainer);
+    withSetup(useChartContainer, chartContainer);
 
     // Wait for onMounted to execute
     await nextTick();
@@ -71,23 +60,20 @@ describe('useChartContainer', () => {
   it('does not throw error when container is null', async () => {
     chartContainer.value = null;
 
-    await expect(withSetup(chartContainer)).resolves.toBeDefined();
-
-    await nextTick();
-    // No error should occur
+    expect(withSetup(useChartContainer, chartContainer)).toBeDefined();
   });
 
-  it('returns "top" when mouse is above element center', async () => {
+  it('returns "top" when mouse is above element center', () => {
     // Element center is at (100 + 400) / 2 = 250
     mockMouseY.value = 200; // Above center
 
-    const {yAlign} = await withSetup(chartContainer);
+    const {yAlign} = withSetup(useChartContainer, chartContainer);
 
     expect(yAlign()).toBe('top');
   });
 
-  it('returns "bottom" when mouse is below or at element center', async () => {
-    const {yAlign} = await withSetup(chartContainer);
+  it('returns "bottom" when mouse is below or at element center', () => {
+    const {yAlign} = withSetup(useChartContainer, chartContainer);
 
     // Test below center
     mockMouseY.value = 300; // Below center
@@ -98,8 +84,8 @@ describe('useChartContainer', () => {
     expect(yAlign()).toBe('bottom');
   });
 
-  it('reacts to changes in element bounds', async () => {
-    const {yAlign} = await withSetup(chartContainer);
+  it('reacts to changes in element bounds', () => {
+    const {yAlign} = withSetup(useChartContainer, chartContainer);
 
     mockMouseY.value = 200;
     mockTop.value = 50;
@@ -109,24 +95,24 @@ describe('useChartContainer', () => {
     expect(yAlign()).toBe('bottom'); // Mouse at center now
   });
 
-  it('returns "left" when mouse is in left zone', async () => {
+  it('returns "left" when mouse is in left zone', () => {
     mockMouseX.value = 400; // Less than 500 - 50 = 450
 
-    const {xAlign} = await withSetup(chartContainer);
+    const {xAlign} = withSetup(useChartContainer, chartContainer);
 
     expect(xAlign()).toBe('left');
   });
 
-  it('returns "right" when mouse is in right zone', async () => {
+  it('returns "right" when mouse is in right zone', () => {
     mockMouseX.value = 600; // Greater than 500 + 50 = 550
 
-    const {xAlign} = await withSetup(chartContainer);
+    const {xAlign} = withSetup(useChartContainer, chartContainer);
 
     expect(xAlign()).toBe('right');
   });
 
-  it('returns "center" for center zone and boundaries', async () => {
-    const {xAlign} = await withSetup(chartContainer);
+  it('returns "center" for center zone and boundaries', () => {
+    const {xAlign} = withSetup(useChartContainer, chartContainer);
 
     // Test center zone
     mockMouseX.value = 500; // Between 450 and 550
@@ -141,8 +127,8 @@ describe('useChartContainer', () => {
     expect(xAlign()).toBe('center');
   });
 
-  it('adapts to different window widths', async () => {
-    const {xAlign} = await withSetup(chartContainer);
+  it('adapts to different window widths', () => {
+    const {xAlign} = withSetup(useChartContainer, chartContainer);
 
     // Test with smaller window
     window.innerWidth = 800; // Center at 400
@@ -156,13 +142,13 @@ describe('useChartContainer', () => {
     expect(xAlign()).toBe('right');
   });
 
-  it('uses element bounds from useElementBounding', async () => {
+  it('uses element bounds from useElementBounding', () => {
     // Change bounds first, before creating the composable
     mockTop.value = 200;
     mockBottom.value = 600;
     mockMouseY.value = 450; // Below new center of 400
 
-    const {yAlign} = await withSetup(chartContainer);
+    const {yAlign} = withSetup(useChartContainer, chartContainer);
 
     // Center is (200 + 600) / 2 = 400
     // mouseY = 450, which is > 400, so should be 'bottom'

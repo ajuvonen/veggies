@@ -1,5 +1,4 @@
 import {describe, it, expect, beforeEach} from 'vitest';
-import {mount} from '@vue/test-utils';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {
   ALL_VEGGIES,
@@ -12,17 +11,7 @@ import {
   VEGETABLES,
 } from '@/utils/veggieDetails';
 import {useAppStateStore} from '@/stores/appStateStore';
-
-const withSetup = () =>
-  new Promise<ReturnType<typeof useAvailableVeggies>>((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(useAvailableVeggies());
-      },
-    });
-  });
+import {withSetup} from './testHelpers';
 
 describe('availableVeggies', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
@@ -31,7 +20,7 @@ describe('availableVeggies', () => {
     appStateStore = useAppStateStore();
   });
 
-  it('returns available veggies', async () => {
+  it('returns available veggies', () => {
     appStateStore.settings.allergens = [
       'green bean',
       'apple',
@@ -50,7 +39,7 @@ describe('availableVeggies', () => {
       availableMushrooms,
       availableRoots,
       availableVegetables,
-    } = await withSetup();
+    } = withSetup(useAvailableVeggies);
     expect(availableVeggies.value.length).toBe(ALL_VEGGIES.length - 7);
     expect(availableBeans.value.length).toBe(BEANS.length - 1);
     expect(availableFruits.value.length).toBe(FRUITS.length - 1);
@@ -61,7 +50,7 @@ describe('availableVeggies', () => {
     expect(availableVegetables.value.length).toBe(VEGETABLES.length - 1);
   });
 
-  it('returns all veggies if no allergens', async () => {
+  it('returns all veggies if no allergens', () => {
     const {
       availableVeggies,
       availableBeans,
@@ -71,7 +60,7 @@ describe('availableVeggies', () => {
       availableMushrooms,
       availableRoots,
       availableVegetables,
-    } = await withSetup();
+    } = withSetup(useAvailableVeggies);
     expect(availableVeggies.value.length).toBe(ALL_VEGGIES.length);
     expect(availableBeans.value.length).toBe(BEANS.length);
     expect(availableFruits.value.length).toBe(FRUITS.length);
@@ -82,7 +71,7 @@ describe('availableVeggies', () => {
     expect(availableVegetables.value.length).toBe(VEGETABLES.length);
   });
 
-  it('returns empty if no available veggies', async () => {
+  it('returns empty if no available veggies', () => {
     appStateStore.settings.allergens = [...ALL_VEGGIES];
     const {
       availableVeggies,
@@ -93,7 +82,7 @@ describe('availableVeggies', () => {
       availableMushrooms,
       availableRoots,
       availableVegetables,
-    } = await withSetup();
+    } = withSetup(useAvailableVeggies);
     expect(availableVeggies.value.length).toBe(0);
     expect(availableBeans.value.length).toBe(0);
     expect(availableFruits.value.length).toBe(0);

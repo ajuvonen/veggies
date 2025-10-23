@@ -1,7 +1,7 @@
 import {ref} from 'vue';
 import {it, describe, expect, vi, afterEach} from 'vitest';
-import {mount} from '@vue/test-utils';
 import {useDropdown} from '@/hooks/dropdown';
+import {withSetup} from './testHelpers';
 
 const mocks = vi.hoisted(() => ({
   usePointer: vi.fn(),
@@ -15,25 +15,14 @@ vi.mock('@vueuse/core', async () => {
   };
 });
 
-const withSetup = () =>
-  new Promise<ReturnType<typeof useDropdown>>((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(useDropdown());
-      },
-    });
-  });
-
 describe('dropdown', () => {
   afterEach(() => {
     vi.restoreAllMocks();
   });
 
-  it('returns correct styles', async () => {
+  it('returns correct styles', () => {
     mocks.usePointer.mockImplementation(() => ({pointerType: ref('mouse')}));
-    const {getDropdownStyles} = await withSetup();
+    const {getDropdownStyles} = withSetup(useDropdown);
     expect(getDropdownStyles(true, true)).toBe(
       'text-[--color-text] fill-[--color-text] bg-[--color-primary-hover]',
     );
@@ -46,9 +35,9 @@ describe('dropdown', () => {
     );
   });
 
-  it('returns correct styles when touch is used', async () => {
+  it('returns correct styles when touch is used', () => {
     mocks.usePointer.mockImplementation(() => ({pointerType: ref('touch')}));
-    const {getDropdownStyles} = await withSetup();
+    const {getDropdownStyles} = withSetup(useDropdown);
     expect(getDropdownStyles(true, true)).toBe('text-[--color-text] bg-[--color-primary-active]');
     expect(getDropdownStyles(true, false)).toBe(
       'text-[--color-text-alternative] fill-[--color-text-alternative] bg-[--color-bg-alternative]',

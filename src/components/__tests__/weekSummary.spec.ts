@@ -1,22 +1,11 @@
-import {ref, type MaybeRefOrGetter} from 'vue';
+import {ref} from 'vue';
 import {describe, it, expect} from 'vitest';
-import {mount} from '@vue/test-utils';
 import {take} from 'remeda';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/utils/types';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {useAppStateStore} from '@/stores/appStateStore';
-
-const withSetup = (weekData: MaybeRefOrGetter<WeekData>) =>
-  new Promise<ReturnType<typeof useWeekSummary>>((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(useWeekSummary(weekData));
-      },
-    });
-  });
+import {withSetup} from './testHelpers';
 
 const createWeekData = (overrides: Partial<WeekData> = {}): WeekData => ({
   atMostVeggies: 10,
@@ -33,9 +22,9 @@ const createWeekData = (overrides: Partial<WeekData> = {}): WeekData => ({
 });
 
 describe('useWeekSummary', () => {
-  it('returns no veggies message when veggies array is empty', async () => {
+  it('returns no veggies message when veggies array is empty', () => {
     const weekData = createWeekData({veggies: []});
-    const {summaryMessages} = await withSetup(weekData);
+    const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
     expect(summaryMessages.value).toContainEqual({
       emoji: '🍽️',
@@ -45,11 +34,11 @@ describe('useWeekSummary', () => {
   });
 
   describe('progress messages', () => {
-    it('returns room for improvement message for less than 10 veggies', async () => {
+    it('returns room for improvement message for less than 10 veggies', () => {
       const weekData = createWeekData({
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -60,11 +49,11 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('returns good start message for 10-19 veggies', async () => {
+    it('returns good start message for 10-19 veggies', () => {
       const weekData = createWeekData({
         veggies: take(ALL_VEGGIES, 15),
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -75,11 +64,11 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('returns making progress message for 20-29 veggies', async () => {
+    it('returns making progress message for 20-29 veggies', () => {
       const weekData = createWeekData({
         veggies: take(ALL_VEGGIES, 25),
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -90,12 +79,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('returns accomplishment message for 30+ veggies when hotStreak is 1', async () => {
+    it('returns accomplishment message for 30+ veggies when hotStreak is 1', () => {
       const weekData = createWeekData({
         veggies: take(ALL_VEGGIES, 30),
         hotStreak: 1,
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -106,12 +95,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('does not return accomplishment message for 30+ veggies when hotStreak is not 1', async () => {
+    it('does not return accomplishment message for 30+ veggies when hotStreak is not 1', () => {
       const weekData = createWeekData({
         veggies: take(ALL_VEGGIES, 35),
         hotStreak: 2,
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).not.toContainEqual(
         expect.objectContaining({
@@ -122,13 +111,13 @@ describe('useWeekSummary', () => {
   });
 
   describe('comparison messages', () => {
-    it('returns surpassed previous week message when current count is higher', async () => {
+    it('returns surpassed previous week message when current count is higher', () => {
       const weekData = createWeekData({
         firstWeek: false,
         previousWeekCount: 5,
         veggies: ['apple', 'spinach', 'tomato', 'carrot', 'broccoli', 'peas'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -139,13 +128,13 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('returns fell short message when current count is more than 3 less than previous', async () => {
+    it('returns fell short message when current count is more than 3 less than previous', () => {
       const weekData = createWeekData({
         firstWeek: false,
         previousWeekCount: 10,
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -156,13 +145,13 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('does not return fell short message when difference is 3 or less', async () => {
+    it('does not return fell short message when difference is 3 or less', () => {
       const weekData = createWeekData({
         firstWeek: false,
         previousWeekCount: 8,
         veggies: ['apple', 'spinach', 'tomato', 'carrot', 'broccoli'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const fellShortMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.fellShort',
@@ -170,13 +159,13 @@ describe('useWeekSummary', () => {
       expect(fellShortMessages).toHaveLength(0);
     });
 
-    it('does not return comparison messages for first week', async () => {
+    it('does not return comparison messages for first week', () => {
       const weekData = createWeekData({
         firstWeek: true,
         previousWeekCount: 0,
         veggies: ['apple', 'spinach', 'tomato', 'carrot', 'broccoli', 'peas'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const comparisonMessages = summaryMessages.value.filter(
         ({translationKey}) =>
@@ -188,12 +177,12 @@ describe('useWeekSummary', () => {
   });
 
   describe('statistics messages', () => {
-    it('returns mean message when there are veggies', async () => {
+    it('returns mean message when there are veggies', () => {
       const weekData = createWeekData({
         mean: 15,
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -204,12 +193,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('returns record achievement message when veggies count equals atMostVeggies', async () => {
+    it('returns record achievement message when veggies count equals atMostVeggies', () => {
       const weekData = createWeekData({
         atMostVeggies: 3,
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -220,12 +209,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('returns close to record message when 2 veggies away from record', async () => {
+    it('returns close to record message when 2 veggies away from record', () => {
       const weekData = createWeekData({
         atMostVeggies: 10,
         veggies: take(ALL_VEGGIES, 8),
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -236,12 +225,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('does not return close to record message when 3 or more veggies away', async () => {
+    it('does not return close to record message when 3 or more veggies away', () => {
       const weekData = createWeekData({
         atMostVeggies: 10,
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const closeToRecordMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.closeToRecord',
@@ -249,12 +238,12 @@ describe('useWeekSummary', () => {
       expect(closeToRecordMessages).toHaveLength(0);
     });
 
-    it('does not return close to record message when at record', async () => {
+    it('does not return close to record message when at record', () => {
       const weekData = createWeekData({
         atMostVeggies: 3,
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const closeToRecordMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.closeToRecord',
@@ -262,12 +251,12 @@ describe('useWeekSummary', () => {
       expect(closeToRecordMessages).toHaveLength(0);
     });
 
-    it('returns hot streak message when hot streak is longer than 2 weeks', async () => {
+    it('returns hot streak message when hot streak is longer than 2 weeks', () => {
       const weekData = createWeekData({
         hotStreak: 2,
         veggies: ['apple'], // Just need some veggies to avoid no-veggies message
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -278,12 +267,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('does not return hot streak message when hot streak is 2 or less', async () => {
+    it('does not return hot streak message when hot streak is 2 or less', () => {
       const weekData = createWeekData({
         hotStreak: 1,
         veggies: ['apple'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const hotStreakMessage = summaryMessages.value.find(
         ({translationKey}) => translationKey === 'weekSummaryDialog.hotStreak',
@@ -293,12 +282,12 @@ describe('useWeekSummary', () => {
   });
 
   describe('challenge messages', () => {
-    it('returns challenge completed message when challenge veggie is in the week', async () => {
+    it('returns challenge completed message when challenge veggie is in the week', () => {
       const weekData = createWeekData({
         challenge: 'apple',
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -309,12 +298,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('returns challenge missed message when challenge veggie is not in the week', async () => {
+    it('returns challenge missed message when challenge veggie is not in the week', () => {
       const weekData = createWeekData({
         challenge: 'apple',
         veggies: ['spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -325,12 +314,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('does not return challenge message when challenge is undefined', async () => {
+    it('does not return challenge message when challenge is undefined', () => {
       const weekData = createWeekData({
         challenge: undefined,
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const challengeMessages = summaryMessages.value.filter(
         ({translationKey}) =>
@@ -340,12 +329,12 @@ describe('useWeekSummary', () => {
       expect(challengeMessages).toHaveLength(0);
     });
 
-    it('returns individual messages for each first-time veggie', async () => {
+    it('returns individual messages for each first-time veggie', () => {
       const weekData = createWeekData({
         firstTimeVeggies: ['apple', 'spinach'],
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -364,12 +353,12 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('does not return first-time veggie messages when no first-time veggies', async () => {
+    it('does not return first-time veggie messages when no first-time veggies', () => {
       const weekData = createWeekData({
         firstTimeVeggies: [],
         veggies: ['apple', 'spinach', 'tomato'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const firstTimeMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.firstTimeVeggie',
@@ -379,11 +368,11 @@ describe('useWeekSummary', () => {
   });
 
   describe('category messages', () => {
-    it('returns favorite category message when one category has multiple veggies', async () => {
+    it('returns favorite category message when one category has multiple veggies', () => {
       const weekData = createWeekData({
         veggies: ['apple', 'banana', 'grape', 'kiwi', 'spinach'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       expect(summaryMessages.value).toContainEqual(
         expect.objectContaining({
@@ -394,11 +383,11 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('does not return favorite category message when highest count is 3 or less', async () => {
+    it('does not return favorite category message when highest count is 3 or less', () => {
       const weekData = createWeekData({
         veggies: ['apple', 'banana', 'grape', 'spinach'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const favoriteCategoryMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.favoriteCategory',
@@ -407,11 +396,11 @@ describe('useWeekSummary', () => {
       expect(favoriteCategoryMessages).toHaveLength(0);
     });
 
-    it('returns missing category messages for categories not represented', async () => {
+    it('returns missing category messages for categories not represented', () => {
       const weekData = createWeekData({
         veggies: ['apple', 'spinach'], // Only Fruit and Leafy categories
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const missingCategoryMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.missingCategory',
@@ -431,11 +420,11 @@ describe('useWeekSummary', () => {
       );
     });
 
-    it('returns no missing category messages when all categories are present', async () => {
+    it('returns no missing category messages when all categories are present', () => {
       const weekData = createWeekData({
         veggies: ['apple', 'spinach', 'tomato', 'carrot', 'chickpea', 'rice', 'shiitake'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const missingCategoryMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.missingCategory',
@@ -448,11 +437,11 @@ describe('useWeekSummary', () => {
       });
     });
 
-    it('returns low category count messages for categories with 1-2 veggies', async () => {
+    it('returns low category count messages for categories with 1-2 veggies', () => {
       const weekData = createWeekData({
         veggies: ['apple', 'banana', 'spinach', 'kale', 'quinoa'], // 2 fruits, 2 leafy, 1 grain
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const lowCategoryMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.lowCategoryCount',
@@ -483,11 +472,11 @@ describe('useWeekSummary', () => {
       });
     });
 
-    it('does not return low category count messages for categories with 3+ veggies', async () => {
+    it('does not return low category count messages for categories with 3+ veggies', () => {
       const weekData = createWeekData({
         veggies: ['apple', 'banana', 'grape', 'spinach'], // 3 fruits, 1 leafy
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const lowCategoryMessages = summaryMessages.value.filter(
         ({translationKey}) => translationKey === 'weekSummaryDialog.lowCategoryCount',
@@ -503,11 +492,11 @@ describe('useWeekSummary', () => {
   });
 
   describe('nutrient messages', () => {
-    it('returns message when 0 veggies from a nutrient group are consumed', async () => {
+    it('returns message when 0 veggies from a nutrient group are consumed', () => {
       const weekData = createWeekData({
         veggies: ['apple'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const vitaminAMessage = summaryMessages.value.find(
         ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.A',
@@ -516,11 +505,11 @@ describe('useWeekSummary', () => {
       expect(vitaminAMessage!.emoji).toBe('💊');
     });
 
-    it('returns message when 1 veggie from a nutrient group is consumed', async () => {
+    it('returns message when 1 veggie from a nutrient group is consumed', () => {
       const weekData = createWeekData({
         veggies: ['spinach'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const ironMessage = summaryMessages.value.find(
         ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.iron',
@@ -529,11 +518,11 @@ describe('useWeekSummary', () => {
       expect(ironMessage!.emoji).toBe('💊');
     });
 
-    it('does not return message when 2 veggies from a nutrient group are consumed', async () => {
+    it('does not return message when 2 veggies from a nutrient group are consumed', () => {
       const weekData = createWeekData({
         veggies: ['broccoli', 'spinach'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const vitaminCMessage = summaryMessages.value.find(
         ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.C',
@@ -541,11 +530,11 @@ describe('useWeekSummary', () => {
       expect(vitaminCMessage).toBeUndefined();
     });
 
-    it('returns specific nutrient messages when multiple nutrients are unsatisfied', async () => {
+    it('returns specific nutrient messages when multiple nutrients are unsatisfied', () => {
       const weekData = createWeekData({
         veggies: ['spinach', 'broccoli', 'guava', 'amaranth'],
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const nutrientMessages = summaryMessages.value.filter(({translationKey}) =>
         translationKey.startsWith('weekSummaryDialog.nutrientMessages.'),
@@ -565,7 +554,7 @@ describe('useWeekSummary', () => {
       expect(vitaminCMessage).toBeUndefined();
     });
 
-    it('excludes allergens from nutrient suggestions', async () => {
+    it('excludes allergens from nutrient suggestions', () => {
       const appStateStore = useAppStateStore();
 
       // Set allergens to all B7 sources except soybean and sunflower seed
@@ -581,7 +570,7 @@ describe('useWeekSummary', () => {
         veggies: ['apple', 'cucumber'],
       });
 
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       const b7Message = summaryMessages.value.find(
         ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.B7',
@@ -593,13 +582,13 @@ describe('useWeekSummary', () => {
   });
 
   describe('integration tests', () => {
-    it('combines multiple message types when conditions are met', async () => {
+    it('combines multiple message types when conditions are met', () => {
       const weekData = createWeekData({
         atMostVeggies: 2,
         hotStreak: 4,
         veggies: ['apple', 'spinach'], // Record + hot streak + missing categories
       });
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       // Should contain record achievement
       expect(summaryMessages.value).toContainEqual(
@@ -625,7 +614,7 @@ describe('useWeekSummary', () => {
       expect(missingCategoryMessages.length).toBeGreaterThan(0);
     });
 
-    it('returns reactive messages when week data changes', async () => {
+    it('returns reactive messages when week data changes', () => {
       const weekData = ref<WeekData>({
         atMostVeggies: 10,
         challenge: undefined,
@@ -639,7 +628,7 @@ describe('useWeekSummary', () => {
         weekNumber: '1',
       });
 
-      const {summaryMessages} = await withSetup(weekData);
+      const {summaryMessages} = withSetup(useWeekSummary, weekData);
 
       // Initial state: should have missing categories
       expect(

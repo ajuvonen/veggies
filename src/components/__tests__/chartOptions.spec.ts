@@ -1,8 +1,7 @@
 import {ref} from 'vue';
 import {describe, it, expect, vi, beforeEach} from 'vitest';
-import {mount} from '@vue/test-utils';
-import type {ChartOptions, ChartType} from 'chart.js';
 import {useChartOptions} from '@/hooks/chartOptions';
+import {withSetup} from './testHelpers';
 
 const mockedPreferredReducedMotion = ref('no-preference');
 
@@ -18,29 +17,13 @@ vi.mock('@vueuse/core', async () => {
   };
 });
 
-const withSetup = <T extends ChartType>(
-  showGrid: boolean,
-  stacked: boolean,
-  showCategoryEmoji: boolean,
-  overrides: Partial<ChartOptions<T>> = {},
-) =>
-  new Promise<ReturnType<typeof useChartOptions<T>>>((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(useChartOptions<T>(showGrid, stacked, showCategoryEmoji, overrides));
-      },
-    });
-  });
-
 describe('chartOptions', () => {
   beforeEach(() => {
     mockedPreferredReducedMotion.value = 'no-preference';
   });
 
-  it('disables animations', async () => {
-    const {chartOptions} = await withSetup<'bar'>(true, true, true);
+  it('disables animations', () => {
+    const {chartOptions} = withSetup(useChartOptions<'bar'>, true, true, true, {});
 
     expect(chartOptions.value.animation).toBe(undefined);
     expect(chartOptions.value.plugins?.tooltip?.animation).toBe(true);
@@ -49,8 +32,8 @@ describe('chartOptions', () => {
     expect(chartOptions.value.plugins?.tooltip?.animation).toBe(false);
   });
 
-  it('shows scales when showGrid is true', async () => {
-    const {chartOptions} = await withSetup<'bar'>(true, false, false);
+  it('shows scales when showGrid is true', () => {
+    const {chartOptions} = withSetup(useChartOptions<'bar'>, true, false, false, {});
 
     expect(chartOptions.value.scales).toBeDefined();
     expect(chartOptions.value.scales?.x).toBeDefined();
@@ -59,52 +42,52 @@ describe('chartOptions', () => {
     expect(chartOptions.value.maintainAspectRatio).toBe(false);
   });
 
-  it('hides scales when showGrid is false', async () => {
-    const {chartOptions} = await withSetup<'doughnut'>(false, false, false);
+  it('hides scales when showGrid is false', () => {
+    const {chartOptions} = withSetup(useChartOptions<'doughnut'>, false, false, false, {});
 
     expect(chartOptions.value.scales).toBeUndefined();
     expect(chartOptions.value.maintainAspectRatio).toBe(true);
   });
 
-  it('enables stacking when stacked is true', async () => {
-    const {chartOptions} = await withSetup<'bar'>(true, true, false);
+  it('enables stacking when stacked is true', () => {
+    const {chartOptions} = withSetup(useChartOptions<'bar'>, true, true, false, {});
 
     expect(chartOptions.value.scales?.x?.stacked).toBe(true);
     expect(chartOptions.value.scales?.y?.stacked).toBe(true);
     expect(chartOptions.value.scales?.y1?.stacked).toBe(true);
   });
 
-  it('disables stacking when stacked is false', async () => {
-    const {chartOptions} = await withSetup<'bar'>(true, false, false);
+  it('disables stacking when stacked is false', () => {
+    const {chartOptions} = withSetup(useChartOptions<'bar'>, true, false, false, {});
 
     expect(chartOptions.value.scales?.x?.stacked).toBe(false);
     expect(chartOptions.value.scales?.y?.stacked).toBe(false);
     expect(chartOptions.value.scales?.y1?.stacked).toBe(false);
   });
 
-  it('shows datalabels when showCategoryEmoji is true', async () => {
-    const {chartOptions} = await withSetup<'doughnut'>(false, false, true);
+  it('shows datalabels when showCategoryEmoji is true', () => {
+    const {chartOptions} = withSetup(useChartOptions<'doughnut'>, false, false, true, {});
     expect(chartOptions.value.plugins?.datalabels?.display).toBeUndefined();
     expect(chartOptions.value.plugins?.datalabels?.formatter).toBeDefined();
   });
 
-  it('hides datalabels when showCategoryEmoji is false', async () => {
-    const {chartOptions} = await withSetup<'bar'>(true, false, false);
+  it('hides datalabels when showCategoryEmoji is false', () => {
+    const {chartOptions} = withSetup(useChartOptions<'bar'>, true, false, false, {});
     expect(chartOptions.value.plugins?.datalabels?.display).toBe(false);
     expect(chartOptions.value.plugins?.datalabels?.anchor).toBeUndefined();
     expect(chartOptions.value.plugins?.datalabels?.align).toBeUndefined();
   });
 
-  it('handles showGrid=false, stacked=true, showCategoryEmoji=true', async () => {
-    const {chartOptions} = await withSetup<'doughnut'>(false, true, true);
+  it('handles showGrid=false, stacked=true, showCategoryEmoji=true', () => {
+    const {chartOptions} = withSetup(useChartOptions<'doughnut'>, false, true, true, {});
     expect(chartOptions.value.scales).toBeUndefined();
     expect(chartOptions.value.maintainAspectRatio).toBe(true);
     expect(chartOptions.value.plugins?.datalabels?.display).toBeUndefined();
     expect(chartOptions.value.plugins?.datalabels?.anchor).toBe('center');
   });
 
-  it('handles showGrid=true, stacked=false, showCategoryEmoji=false', async () => {
-    const {chartOptions} = await withSetup<'bar'>(true, false, false);
+  it('handles showGrid=true, stacked=false, showCategoryEmoji=false', () => {
+    const {chartOptions} = withSetup(useChartOptions<'bar'>, true, false, false, {});
     expect(chartOptions.value.scales).toBeDefined();
     expect(chartOptions.value.scales?.x?.stacked).toBe(false);
     expect(chartOptions.value.scales?.y?.stacked).toBe(false);
@@ -112,8 +95,8 @@ describe('chartOptions', () => {
     expect(chartOptions.value.plugins?.datalabels?.display).toBe(false);
   });
 
-  it('sets correct default values', async () => {
-    const {chartOptions} = await withSetup<'bar'>(true, false, false);
+  it('sets correct default values', () => {
+    const {chartOptions} = withSetup(useChartOptions<'bar'>, true, false, false, {});
     expect(chartOptions.value.responsive).toBe(true);
     expect(chartOptions.value.normalized).toBe(true);
     expect(chartOptions.value.layout?.padding).toBe(0);
@@ -123,7 +106,7 @@ describe('chartOptions', () => {
     expect(chartOptions.value.plugins?.tooltip?.displayColors).toBe(false);
   });
 
-  it('merges overrides deeply', async () => {
+  it('merges overrides deeply', () => {
     const overrides = {
       responsive: false,
       scales: {
@@ -146,7 +129,7 @@ describe('chartOptions', () => {
       },
     };
 
-    const {chartOptions} = await withSetup<'bar'>(true, false, false, overrides);
+    const {chartOptions} = withSetup(useChartOptions<'bar'>, true, false, false, overrides);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const scales = chartOptions.value.scales as any;
 
