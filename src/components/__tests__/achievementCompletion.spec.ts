@@ -1,26 +1,12 @@
-import {ref, type MaybeRefOrGetter} from 'vue';
+import {ref} from 'vue';
 import {describe, it, expect} from 'vitest';
-import {mount} from '@vue/test-utils';
+import {take} from 'remeda';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
-import {take} from 'remeda';
-
-const withSetup = (
-  veggies: MaybeRefOrGetter<string[]>,
-  challenge?: MaybeRefOrGetter<string | undefined>,
-) =>
-  new Promise<ReturnType<typeof useAchievementCompletion>>((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(useAchievementCompletion(veggies, challenge));
-      },
-    });
-  });
+import {withSetup} from './testHelpers';
 
 describe('achievementCompletion', () => {
-  it('Calculates multipliers correctly', async () => {
+  it('Calculates multipliers correctly', () => {
     const veggies = [
       'brazil nut',
       'banana',
@@ -30,7 +16,7 @@ describe('achievementCompletion', () => {
       'bell pepper',
     ];
     const challenge = 'brazil nut'; // Challenge completed
-    const {weeklyCompletion} = await withSetup(veggies, challenge);
+    const {weeklyCompletion} = withSetup(useAchievementCompletion, veggies, challenge);
     expect(weeklyCompletion.value).toEqual({
       allOnRed: 108,
       botanicalBerries: 120,
@@ -42,10 +28,10 @@ describe('achievementCompletion', () => {
     });
   });
 
-  it('Multipliers are reactive', async () => {
+  it('Multipliers are reactive', () => {
     const veggies = ref(['brazil nut']);
     const challenge = ref('brazil nut');
-    const {weeklyCompletion} = await withSetup(veggies, challenge);
+    const {weeklyCompletion} = withSetup(useAchievementCompletion, veggies, challenge);
     expect(weeklyCompletion.value).toEqual({
       allOnRed: 0,
       botanicalBerries: 0,
@@ -67,12 +53,12 @@ describe('achievementCompletion', () => {
     });
   });
 
-  it('Calculates overachiever progress correctly', async () => {
+  it('Calculates overachiever progress correctly', () => {
     const veggies = ref(take(ALL_VEGGIES, 35));
     const challenge = ref<string | undefined>(undefined);
 
     // Without challenge - should be capped at 50%
-    const {weeklyCompletion} = await withSetup(veggies, challenge);
+    const {weeklyCompletion} = withSetup(useAchievementCompletion, veggies, challenge);
     expect(weeklyCompletion.value.overachiever).toBe(180);
 
     // With challenge not in veggies - should be capped at 50%
