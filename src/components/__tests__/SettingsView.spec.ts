@@ -102,10 +102,15 @@ describe('SettingsView', () => {
     const wrapper = mounter();
     const link = document.createElement('a');
     link.click = vi.fn();
-    vi.stubGlobal('URL', {
-      createObjectURL: vi.fn(() => 'https://eatyourveggies.app/'),
-      revokeObjectURL: vi.fn(),
-    });
+    class MockURL {
+      constructor(url: string) {
+        return url;
+      }
+      static createObjectURL = vi.fn(() => 'https://eatyourveggies.app/');
+      static revokeObjectURL = vi.fn();
+    }
+
+    vi.stubGlobal('URL', MockURL);
     const createElementSpy = vi.spyOn(document, 'createElement').mockImplementation(() => link);
 
     wrapper.findByTestId('export-button').trigger('click');
