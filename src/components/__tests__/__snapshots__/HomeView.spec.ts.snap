@@ -2,7 +2,7 @@
 
 exports[`HomeView > renders 1`] = `
 "<div data-v-b4e148ca="" class="home__container">
-  <h1 data-v-b4e148ca="" class="home__title">Eat Your Veggies</h1>
+  <h1 data-v-b4e148ca="" class="home__title" lang="en">Eat Your Veggies</h1>
   <p data-v-b4e148ca="" class="sm:text-center">Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app.</p>
   <div data-v-b4e148ca="" class="flex-container justify-center"><button data-v-24e38f3d="" data-v-b4e148ca="" class="button-like button--primary" data-test-id="home-start-button">
       <!--v-if-->Start
