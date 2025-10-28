@@ -33,7 +33,7 @@ onMounted(() => {
 </script>
 <template>
   <div class="home__container">
-    <h1 class="home__title">{{ $t('general.appTitle') }}</h1>
+    <h1 class="home__title" lang="en">{{ $t('general.appTitle') }}</h1>
     <p class="sm:text-center">
       {{ $t('home.callout') }}
     </p>
