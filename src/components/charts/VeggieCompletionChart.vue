@@ -104,8 +104,9 @@ defineExpose({chartData});
       <PolarArea
         :data="chartData"
         :options="chartOptions"
-        data-test-id="veggie-completion-chart"
+        :aria-label="$t('veggieList.chartTitle')"
         aria-describedby="veggie-completion-table"
+        data-test-id="veggie-completion-chart"
       />
       <ChartScreenReaderTable
         id="veggie-completion-table"

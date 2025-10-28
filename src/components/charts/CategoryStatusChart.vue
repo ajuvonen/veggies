@@ -89,6 +89,10 @@ const {chartOptions} = useChartOptions<'doughnut'>(
   })),
 );
 
+const chartTitle = computed(() =>
+  props.favorites ? t('categoryStatus.veggiesTotal') : t('categoryStatus.veggiesOfTheWeek'),
+);
+
 defineExpose({chartData});
 </script>
 <template>
@@ -96,7 +100,7 @@ defineExpose({chartData});
     <Doughnut
       :data="chartData"
       :options="chartOptions"
-      aria-labelledby="category-status-chart-center-label"
+      :aria-label="chartTitle"
       aria-describedby="category-status-table"
       data-test-id="category-status-chart"
     />
@@ -114,7 +118,7 @@ defineExpose({chartData});
     </i18n-t>
     <ChartScreenReaderTable
       id="category-status-table"
-      :title="favorites ? $t('categoryStatus.veggiesTotal') : $t('categoryStatus.veggiesOfTheWeek')"
+      :title="chartTitle"
       :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
       :data="[chartData.datasets[0]!.data]"
     />
