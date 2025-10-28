@@ -97,13 +97,6 @@ defineExpose({chartData});
 </script>
 <template>
   <div ref="container" :class="{'shrink-0': !favorites}" class="category-status-chart__background">
-    <Doughnut
-      :data="chartData"
-      :options="chartOptions"
-      :aria-label="chartTitle"
-      aria-describedby="category-status-table"
-      data-test-id="category-status-chart"
-    />
     <i18n-t
       id="category-status-chart-center-label"
       scope="global"
@@ -116,11 +109,18 @@ defineExpose({chartData});
       <span :class="favorites ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
       <span>{{ $t(bottomLabelKey, veggies.length) }}</span>
     </i18n-t>
+    <Doughnut
+      :data="chartData"
+      :options="chartOptions"
+      :aria-label="chartTitle"
+      :aria-description="$t('general.seeTableBelow')"
+      data-test-id="category-status-chart"
+    />
     <ChartScreenReaderTable
-      id="category-status-table"
       :title="chartTitle"
       :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
       :data="[chartData.datasets[0]!.data]"
+      data-test-id="category-status-table"
     />
   </div>
 </template>

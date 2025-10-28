@@ -1416,13 +1416,17 @@
   },
   "general": {
     "appTitle": "Eat Your Veggies",
-    "appTitleAppend": "Eat Your Veggies - {0}",
+    "appTitleAppend": "{0} - Eat Your Veggies",
     "cancel": "Cancel",
+    "clear": "Clear",
     "clickToAdd": "Add {0}",
     "clickToRemove": "Remove {0}",
     "close": "Close",
+    "closeList": "Close list",
     "follow": "Follow on Bluesky",
+    "openList": "Open list",
     "playStore": "Google Play",
+    "seeTableBelow": "See table below for details.",
     "start": "Start",
     "veggie": "0 veggies | one veggie | {n} veggies",
     "veggieNominative": "0 veggies | one veggie | {n} veggies"

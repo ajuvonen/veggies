@@ -11,7 +11,7 @@ exports[`WeekEditor > renders 1`] = `
     <!---->
   </div>
   <div data-v-487fdf11="" class="relative z-20"><input data-v-487fdf11="" aria-label="Add Weekly Veggies" aria-expanded="false" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="" id="veggie-search-input" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="">
-    <!--v-if--><button data-v-24e38f3d="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-label="Open list" aria-expanded="false" data-test-id="veggie-search-toggle-button" aria-haspopup="listbox" aria-controls="veggie-search-options"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    <!--v-if--><button data-v-24e38f3d="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-label="Open list" aria-expanded="false" aria-haspopup="listbox" aria-controls="veggie-search-options" data-test-id="veggie-search-toggle-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg></button>
     <transition-stub data-v-487fdf11="" leaveactiveclass="ease-in duration-200" leavefromclass="opacity-100" leavetoclass="opacity-0" appear="false" persisted="true" css="true">

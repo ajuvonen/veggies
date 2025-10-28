@@ -7,7 +7,6 @@ describe('ChartScreenReaderTable', () => {
     const wrapper = mount(ChartScreenReaderTable, {
       props: {
         title: 'Amount of veggies',
-        id: 'my-chart',
         columnHeaders: ['Grains', 'Vegetables', 'Roots & Bulbs'],
         data: [[1, 2, 3]],
       },
@@ -20,7 +19,6 @@ describe('ChartScreenReaderTable', () => {
     const wrapper = mount(ChartScreenReaderTable, {
       props: {
         title: 'Amount of veggies',
-        id: 'my-chart',
         columnHeaders: ['Fruits', 'Grains', 'Leafy Greens'],
         rowHeaders: ['Week 1', 'Week 2', 'Week 3'],
         data: [
@@ -37,7 +35,6 @@ describe('ChartScreenReaderTable', () => {
     const wrapper = mount(ChartScreenReaderTable, {
       props: {
         title: 'Spotty data',
-        id: 'my-chart',
         columnHeaders: ['1', '2', '3'],
         data: [['A', 'B']],
       },
@@ -50,7 +47,6 @@ describe('ChartScreenReaderTable', () => {
     const wrapper = mount(ChartScreenReaderTable, {
       props: {
         title: 'Spotty data',
-        id: 'my-chart',
         columnHeaders: ['1', '2', '3'],
         rowHeaders: ['A', 'B', 'C', 'D'],
         data: [['1A', '2B'], ['1A', '2B', '3C'], []],

@@ -87,24 +87,24 @@ defineExpose({chartData});
 <template>
   <ContentElement
     :title="$t('stats.weeklyAmounts')"
-    :labelAttrs="{'aria-hidden': true}"
+    :labelAttrs="{for: 'weekly-amounts-chart'}"
     class="flex-1 overflow-hidden"
   >
     <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
       <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
         <Line
+          id="weekly-amounts-chart"
           :options="chartOptions"
           :data="chartData"
-          :aria-label="$t('stats.weeklyAmounts')"
-          aria-describedby="weekly-amounts-table"
+          :aria-description="$t('general.seeTableBelow')"
           data-test-id="weekly-amounts-chart"
         />
       </div>
       <ChartScreenReaderTable
-        id="weekly-amounts-table"
         :title="$t('stats.weeklyAmounts')"
         :columnHeaders="chartData.labels"
         :data="chartData.datasets.map(({data}) => data)"
+        data-test-id="weekly-amounts-table"
       />
     </div>
   </ContentElement>

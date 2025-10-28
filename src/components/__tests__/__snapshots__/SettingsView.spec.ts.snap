@@ -19,7 +19,7 @@ exports[`SettingsView > renders 1`] = `
   </div>
   <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="veggie-search-input">Allergens</label>
     <div data-v-487fdf11="" data-v-5e0b544f="" class="relative z-20"><input data-v-487fdf11="" aria-label="Select allergens" aria-expanded="false" placeholder="Select allergens" class="veggie-search__input" inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="" id="veggie-search-input" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="">
-      <!--v-if--><button data-v-24e38f3d="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-expanded="false" data-test-id="veggie-search-toggle-button" aria-haspopup="listbox" aria-controls="veggie-search-options"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+      <!--v-if--><button data-v-24e38f3d="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-label="Open list" aria-expanded="false" aria-haspopup="listbox" aria-controls="veggie-search-options" data-test-id="veggie-search-toggle-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
         </svg></button>
       <transition-stub data-v-487fdf11="" leaveactiveclass="ease-in duration-200" leavefromclass="opacity-100" leavetoclass="opacity-0" appear="false" persisted="true" css="true">
@@ -924,10 +924,10 @@ exports[`SettingsView > renders 1`] = `
   </div>
   <div data-v-5e0b544f="" class="flex-container flex-col">
     <h2 class="label-like">Export or import app data</h2>
-    <p>Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.</p>
-    <div class="flex-container justify-end"><button data-v-24e38f3d="" class="button-like button--secondary" data-test-id="export-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    <p id="export-description">Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.</p>
+    <div class="flex-container justify-end"><button data-v-24e38f3d="" class="button-like button--secondary" aria-describedby="export-description" data-test-id="export-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C12.5,11 13,10.97 13.5,10.92V9.5H16.39L15.39,8.5L18.9,5C17.5,3.8 14.94,3 12,3M18.92,7.08L17.5,8.5L20,11H15V13H20L17.5,15.5L18.92,16.92L23.84,12M4,9V12C4,14.21 7.58,16 12,16C13.17,16 14.26,15.85 15.25,15.63L16.38,14.5H13.5V12.92C13,12.97 12.5,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C14.94,21 17.5,20.2 18.9,19L17,17.1C15.61,17.66 13.9,18 12,18C7.58,18 4,16.21 4,14Z" class="transition-all"></path>
-        </svg>Export</button><button data-v-24e38f3d="" class="button-like button--secondary" data-test-id="import-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        </svg>Export</button><button data-v-24e38f3d="" class="button-like button--secondary" aria-describedby="export-description" data-test-id="import-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12,3C8.59,3 5.69,4.07 4.54,5.57L9.79,10.82C10.5,10.93 11.22,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M3.92,7.08L2.5,8.5L5,11H0V13H5L2.5,15.5L3.92,16.92L8.84,12M20,9C20,11.21 16.42,13 12,13C11.34,13 10.7,12.95 10.09,12.87L7.62,15.34C8.88,15.75 10.38,16 12,16C16.42,16 20,14.21 20,12M20,14C20,16.21 16.42,18 12,18C9.72,18 7.67,17.5 6.21,16.75L4.53,18.43C5.68,19.93 8.59,21 12,21C16.42,21 20,19.21 20,17" class="transition-all"></path>
         </svg>Import</button></div>
   </div>

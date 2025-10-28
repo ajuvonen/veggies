@@ -78,11 +78,12 @@ onChange(async (files) => {
 </script>
 <template>
   <ContentElement :title="$t('settings.exportImport.label')">
-    <p>{{ $t('settings.exportImport.description') }}</p>
+    <p id="export-description">{{ $t('settings.exportImport.description') }}</p>
     <div class="flex-container justify-end">
       <ButtonComponent
         icon="databaseExport"
         variant="secondary"
+        aria-describedby="export-description"
         data-test-id="export-button"
         @click="exportData"
         >{{ $t('settings.exportImport.export') }}</ButtonComponent
@@ -90,6 +91,7 @@ onChange(async (files) => {
       <ButtonComponent
         icon="databaseImport"
         variant="secondary"
+        aria-describedby="export-description"
         data-test-id="import-button"
         @click="open"
         >{{ $t('settings.exportImport.import') }}</ButtonComponent

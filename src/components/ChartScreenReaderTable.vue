@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 defineProps<{
-  id: string;
   title: string;
   columnHeaders: (number | string)[];
   data: (number | string)[][];
@@ -8,7 +7,7 @@ defineProps<{
 }>();
 </script>
 <template>
-  <table class="sr-only" :id="id">
+  <table class="sr-only">
     <caption>
       {{
         title

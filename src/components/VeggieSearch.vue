@@ -28,7 +28,7 @@ const {t, tm, collator} = useI18nWithCollator();
 const {availableVeggies} = useAvailableVeggies();
 
 const query = ref('');
-const menuOpen = ref(false);
+const listOpen = ref(false);
 const groups = useTemplateRef('groups');
 const combobox = useTemplateRef('combobox');
 const searchInput = useTemplateRef('searchInput');
@@ -85,7 +85,7 @@ const clearQuery = () => {
 onClickOutside(
   combobox,
   () => {
-    menuOpen.value = false;
+    listOpen.value = false;
   },
   {
     ignore: ['.toast-message', '#achievement-dialog'],
@@ -99,7 +99,7 @@ onClickOutside(
         <input
           ref="searchInput"
           :aria-label="placeholder || $t('veggieSearch.search')"
-          :aria-expanded="menuOpen"
+          :aria-expanded="listOpen"
           :placeholder="placeholder || $t('veggieSearch.search')"
           :value="query"
           class="veggie-search__input"
@@ -115,12 +115,13 @@ onClickOutside(
               query = target.value;
             }
           "
-          @focus="menuOpen = true"
-          @keydown.tab="menuOpen = false"
+          @focus="listOpen = true"
+          @keydown.tab="listOpen = false"
         />
       </ComboboxInput>
       <ButtonComponent
         v-if="query"
+        :aria-label="$t('general.clear')"
         variant="text"
         icon="close"
         class="veggie-search__button right-12 outline-override"
@@ -128,15 +129,16 @@ onClickOutside(
         @click="clearQuery"
       />
       <ButtonComponent
-        :class="{'rotate-180 transform': menuOpen}"
-        :aria-expanded="menuOpen"
+        :class="{'rotate-180 transform': listOpen}"
+        :aria-label="listOpen ? $t('general.closeList') : $t('general.openList')"
+        :aria-expanded="listOpen"
         variant="text"
         icon="chevronDown"
         class="veggie-search__button right-2 outline-override"
-        data-test-id="veggie-search-toggle-button"
         aria-haspopup="listbox"
         aria-controls="veggie-search-options"
-        @click="menuOpen = !menuOpen"
+        data-test-id="veggie-search-toggle-button"
+        @click="listOpen = !listOpen"
       />
       <Transition
         leaveActiveClass="ease-in duration-200"
@@ -144,7 +146,7 @@ onClickOutside(
         leaveToClass="opacity-0"
       >
         <ComboboxOptions
-          v-show="menuOpen"
+          v-show="listOpen"
           ref="optionsElement"
           id="veggie-search-options"
           :style="`max-height: calc(${maxHeight}px - 1rem)`"
