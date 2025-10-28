@@ -99,20 +99,24 @@ const {chartOptions} = useChartOptions<'polarArea'>(false, false, false, {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement :title="$t('veggieList.chartTitle')" :labelAttrs="{'aria-hidden': true}">
+  <ContentElement
+    :title="$t('veggieList.chartTitle')"
+    :labelAttrs="{for: 'veggie-completion-chart'}"
+    labelTag="label"
+  >
     <div class="veggie-completion-chart__background">
       <PolarArea
+        id="veggie-completion-chart"
         :data="chartData"
         :options="chartOptions"
-        :aria-label="$t('veggieList.chartTitle')"
-        aria-describedby="veggie-completion-table"
+        :aria-description="$t('general.seeTableBelow')"
         data-test-id="veggie-completion-chart"
       />
       <ChartScreenReaderTable
-        id="veggie-completion-table"
         :title="$t('veggieList.chartTitle')"
         :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
         :data="[chartData.datasets[0]!.data.map((value) => `${value} %`)]"
+        data-test-id="veggie-completion-table"
       />
     </div>
   </ContentElement>

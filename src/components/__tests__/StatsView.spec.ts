@@ -26,7 +26,7 @@ describe('StatsView', () => {
         },
       },
     });
-    expect(wrapper.find('#category-status-table').exists()).toBe(true);
+    expect(wrapper.findByTestId('category-status-table').exists()).toBe(true);
   });
 
   it('renders previous weeks', async () => {
@@ -40,8 +40,10 @@ describe('StatsView', () => {
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-1').trigger('click');
-    expect(wrapper.find('#weekly-amounts-table').exists()).toBe(true);
-    expect(wrapper.find('#weekly-categories-table').exists()).toBe(true);
+    expect(wrapper.findByTestId('weekly-amounts-chart').exists()).toBe(true);
+    expect(wrapper.findByTestId('weekly-categories-chart').exists()).toBe(true);
+    expect(wrapper.findByTestId('weekly-amounts-table').exists()).toBe(true);
+    expect(wrapper.findByTestId('weekly-categories-table').exists()).toBe(true);
   });
 
   it('renders current week', async () => {
@@ -69,6 +71,8 @@ describe('StatsView', () => {
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-3').trigger('click');
+    expect(wrapper.findByTestId('veggie-completion-chart').exists()).toBe(true);
+    expect(wrapper.findByTestId('veggie-completion-table').exists()).toBe(true);
     expect(wrapper.findByTestId('veggie-list').exists()).toBe(true);
   });
 

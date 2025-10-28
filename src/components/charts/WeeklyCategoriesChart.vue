@@ -80,25 +80,25 @@ defineExpose({chartData});
 <template>
   <ContentElement
     :title="$t('stats.weeklyCategories')"
-    :labelAttrs="{'aria-hidden': true}"
+    :labelAttrs="{for: 'weekly-categories-chart'}"
     class="flex-1 overflow-hidden"
   >
     <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
       <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
         <Bar
+          id="weekly-categories-chart"
           :options="chartOptions"
           :data="chartData"
-          :aria-label="$t('stats.weeklyCategories')"
-          aria-describedby="weekly-categories-table"
+          :aria-description="$t('general.seeTableBelow')"
           data-test-id="weekly-categories-chart"
         />
       </div>
       <ChartScreenReaderTable
-        id="weekly-categories-table"
         :title="$t('stats.weeklyCategories')"
         :columnHeaders="chartData.labels"
         :rowHeaders="chartData.datasets.map(({label}) => t(`categories.${label}`))"
         :data="chartData.datasets.map(({data}) => data)"
+        data-test-id="weekly-categories-table"
       />
     </div>
   </ContentElement>

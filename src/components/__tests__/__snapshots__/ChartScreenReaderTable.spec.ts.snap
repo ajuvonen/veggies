@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ChartScreenReaderTable > draws a complete table with missing data 1`] = `
-"<table class="sr-only" id="my-chart">
+"<table class="sr-only">
   <caption>Spotty data</caption>
   <thead>
     <tr>
@@ -22,7 +22,7 @@ exports[`ChartScreenReaderTable > draws a complete table with missing data 1`] =
 `;
 
 exports[`ChartScreenReaderTable > draws a complete table with row headers and missing data 1`] = `
-"<table class="sr-only" id="my-chart">
+"<table class="sr-only">
   <caption>Spotty data</caption>
   <thead>
     <tr>
@@ -62,7 +62,7 @@ exports[`ChartScreenReaderTable > draws a complete table with row headers and mi
 `;
 
 exports[`ChartScreenReaderTable > mounts 1`] = `
-"<table class="sr-only" id="my-chart">
+"<table class="sr-only">
   <caption>Amount of veggies</caption>
   <thead>
     <tr>
@@ -83,7 +83,7 @@ exports[`ChartScreenReaderTable > mounts 1`] = `
 `;
 
 exports[`ChartScreenReaderTable > mounts with row headers 1`] = `
-"<table class="sr-only" id="my-chart">
+"<table class="sr-only">
   <caption>Amount of veggies</caption>
   <thead>
     <tr>
