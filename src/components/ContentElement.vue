@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type {Component} from 'vue';
+import type {Component, HTMLAttributes} from 'vue';
 
 withDefaults(
   defineProps<{
     title: string;
-    labelAttrs?: Record<string, string | number | boolean>;
+    labelAttrs?: HTMLAttributes;
     labelTag?: Component | keyof HTMLElementTagNameMap;
   }>(),
   {
