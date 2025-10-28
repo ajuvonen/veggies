@@ -88,8 +88,9 @@ defineExpose({chartData});
         <Bar
           :options="chartOptions"
           :data="chartData"
-          data-test-id="weekly-categories-chart"
+          :aria-label="$t('stats.weeklyCategories')"
           aria-describedby="weekly-categories-table"
+          data-test-id="weekly-categories-chart"
         />
       </div>
       <ChartScreenReaderTable

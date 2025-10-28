@@ -95,8 +95,9 @@ defineExpose({chartData});
         <Line
           :options="chartOptions"
           :data="chartData"
-          data-test-id="weekly-amounts-chart"
+          :aria-label="$t('stats.weeklyAmounts')"
           aria-describedby="weekly-amounts-table"
+          data-test-id="weekly-amounts-chart"
         />
       </div>
       <ChartScreenReaderTable
