@@ -31,8 +31,8 @@ test('shows weekly statistics', async ({page}) => {
   await page.getByTestId('stats-tab-1').click();
   await expect(page.getByTestId('weekly-amounts-chart')).toBeVisible();
   await expect(page.getByTestId('weekly-categories-chart')).toBeVisible();
-  await expect(page.locator('#weekly-amounts-table')).toBeAttached();
-  await expect(page.locator('#weekly-categories-table')).toBeAttached();
+  await expect(page.getByTestId('weekly-amounts-table')).toBeAttached();
+  await expect(page.getByTestId('weekly-categories-table')).toBeAttached();
 });
 
 test("shows current week's veggies", async ({page}) => {

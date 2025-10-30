@@ -5,14 +5,14 @@ import {test, expect} from '@playwright/test';
 test('visits the app root url', async ({page}) => {
   await page.goto('/');
   await expect(page.locator('h1')).toHaveText('Eat Your Veggies');
-  await expect(page).toHaveTitle('Eat Your Veggies - Home');
+  await expect(page).toHaveTitle('Home - Eat Your Veggies');
   await expect(page.getByTestId('home-locale-button-fi')).toBeVisible();
 });
 
 test('home page actions work', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-locale-button-fi').click();
-  await expect(page).toHaveTitle('Eat Your Veggies - Etusivu');
+  await expect(page).toHaveTitle('Etusivu - Eat Your Veggies');
   await expect(page.getByTestId('home-locale-button-en')).toBeVisible();
   await page.getByTestId('home-info-button').click();
   await expect(page.getByTestId('dialog')).toBeVisible();
