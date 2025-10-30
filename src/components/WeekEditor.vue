@@ -44,12 +44,12 @@ provide(KEYS.challenge, readonly(selectedChallenge));
       prefix="week-editor"
     >
       <template #selected="{item: date}">
-        <time :datetime="date.toFormat(`yyyy'-W'WW`)" class="truncate">
+        <time :datetime="date.toFormat(`yyyy-'W'WW`)" class="truncate">
           {{ formatWeekString(date) }}
         </time>
       </template>
       <template #option="{item: date}">
-        <time :datetime="date.toFormat(`yyyy'-W'WW`)" class="truncate">
+        <time :datetime="date.toFormat(`yyyy-'W'WW`)" class="truncate">
           {{ formatWeekString(date) }}
         </time>
       </template>
