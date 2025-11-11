@@ -268,6 +268,13 @@
       "Punaiset paprikat ovat vain kypsiä vihreitä paprikoita, mikä tekee niistä makeampia.",
       "Toisin kuin chili, paprika ei sisällä lainkaan kapsaisiinia. Se ei siis ole tulinen."
     ],
+    "bilberry": [
+      "Mustikat sisältävät muun muassa kuitua, C- ja K-vitamiinia, sekä mangaania.",
+      "Tutkimusten mukaan mustikka voi vaikuttaa positiivisesti aivojen toimintaan.",
+      "Maailmasta löytyy yli 30 erilaista mustikkalajiketta.",
+      "Villit mustikat sisältävät pensasmustikoita enemmän antioksidantteja.",
+      "Mustikat ovat pohjoisamerikan pensasmustikoiden eurooppalaisia sukulaisia."
+    ],
     "bitter melon": [
       "Joissain Aasian kulttuureissa karvaskurkun uskottiin karkottavan pahoja henkiä maullaan.",
       "Karvaskurkkua on käytetty perinteisessä lääketieteessä vuosisatojen ajan.",
@@ -322,7 +329,9 @@
     "blueberry": [
       "Mustikat sisältävät muun muassa kuitua, C- ja K-vitamiinia, sekä mangaania.",
       "Tutkimusten mukaan mustikka voi vaikuttaa positiivisesti aivojen toimintaan.",
-      "Maailmasta löytyy yli 30 erilaista mustikkalajiketta."
+      "Maailmasta löytyy yli 30 erilaista mustikkalajiketta.",
+      "Toisin kuin tavallisia mustikoita, pensasmustikoita viljellään laajalti.",
+      "Pensasmustikat ovat eurooppalaisten mustikoiden sukulaisia Pohjois-Amerikasta."
     ],
     "bok choy": [
       "Paksoista voidaan syödä sekä rapeat varret, että pehmeämmät lehdet.",
@@ -1527,7 +1536,6 @@
     "arugula": [""],
     "asian pear": ["nashi"],
     "blackcurrant": ["mustaviinimarja"],
-    "blueberry": ["pensasmustikka"],
     "bok choy": [""],
     "butter bean": ["limanpapu"],
     "cabbage": ["valkokaali"],
@@ -1608,6 +1616,7 @@
     "basil": "basilika",
     "beet": "punajuuri",
     "bell pepper": "paprika",
+    "bilberry": "mustikka",
     "bitter melon": "karvaskurkku",
     "black bean": "mustapapu",
     "black lentil": "musta linssi",
@@ -1619,7 +1628,7 @@
     "blackcurrant": "mustaherukka",
     "blood grapefruit": "verigreippi",
     "blood orange": "veriappelsiini",
-    "blueberry": "mustikka",
+    "blueberry": "pensasmustikka",
     "bok choy": "paksoi",
     "boysenberry": "boysenmarja",
     "brazil nut": "parapähkinä",

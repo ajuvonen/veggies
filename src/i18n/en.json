@@ -268,6 +268,13 @@
       "Red bell peppers are simply ripened green peppers, which is why they are sweeter.",
       "Unlike chili, bell pepper contains no capsaicin. It's therefore not spicy."
     ],
+    "bilberry": [
+      "Blueberries contain for example fiber, vitamins C and K, and manganese.",
+      "According to studies, blueberries can improve cognitive function.",
+      "There are over 30 different blueberry varieties in the world.",
+      "Bilberries contain more antioxidants than blueberries.",
+      "Bilberries are the European cousin of the North American blueberry."
+    ],
     "bitter melon": [
       "Bitter melon was believed to ward off evil spirits with its bitterness in some Asian cultures.",
       "Bitter melon has been used in traditional medicine for centuries.",
@@ -322,7 +329,9 @@
     "blueberry": [
       "Blueberries contain for example fiber, vitamins C and K, and manganese.",
       "According to studies, blueberries can improve cognitive function.",
-      "There are over 30 different blueberry varieties in the world."
+      "There are over 30 different blueberry varieties in the world.",
+      "Unlike bilberries, blueberries are widely cultivated.",
+      "Blueberries are the North American cousin of the European bilberry."
     ],
     "bok choy": [
       "Both the crispy stalks and tender leaves of bok choy are edible.",
@@ -1526,7 +1535,6 @@
     "arugula": ["rocket"],
     "asian pear": ["chinese pear", "nashi"],
     "blackcurrant": [""],
-    "blueberry": ["bilberry"],
     "bok choy": ["pak choi"],
     "butter bean": ["lima bean"],
     "cabbage": [""],
@@ -1607,6 +1615,7 @@
     "basil": "basil",
     "beet": "beet",
     "bell pepper": "bell pepper",
+    "bilberry": "bilberry",
     "bitter melon": "bitter melon",
     "black bean": "black bean",
     "black lentil": "black lentil",
