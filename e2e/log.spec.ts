@@ -32,7 +32,7 @@ test('filters veggies', async ({page}) => {
   await expect(page.getByTestId('veggie-search-option-cherry')).toBeVisible();
   await expect(page.getByTestId('veggie-search-option-cherry tomato')).toBeVisible();
   await page.getByTestId('veggie-search-input').fill('bil');
-  await expect(page.getByTestId('veggie-search-option-blueberry')).toBeVisible();
+  await expect(page.getByTestId('veggie-search-option-bilberry')).toBeVisible();
 });
 
 test('filters veggies in Finnish', async ({page}) => {

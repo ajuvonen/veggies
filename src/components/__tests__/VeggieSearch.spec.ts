@@ -50,9 +50,9 @@ describe('VeggieSearch', () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');
     await input.trigger('focus');
-    await input.setValue('bilberry');
+    await input.setValue('rocket');
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
-    expect(wrapper.find('.dropdown-list-option').text()).toContain('blueberry');
+    expect(wrapper.find('.dropdown-list-option').text()).toContain('arugula');
     await input.setValue('au');
     expect(wrapper.findByTestId('veggie-search-options').isVisible()).toBe(true);
     expect(wrapper.findByText('.dropdown-list-option', 'cauliflower').exists()).toBe(true);

@@ -24,6 +24,8 @@ const translatedVeggies = useMemoize(() =>
     }))
     .sort((a, b) => collator.value.compare(a.translation, b.translation)),
 );
+
+const specialCases = ['cloudberry', 'raspberry'];
 </script>
 
 <template>
@@ -36,6 +38,18 @@ const translatedVeggies = useMemoize(() =>
             v-for="{veggie, translation} in translatedVeggies().filter(
               (item) => item.category === category,
             )"
+            v-tippy="
+              specialCases.includes(veggie)
+                ? {
+                    content: '❤️',
+                    aria: {
+                      content: null,
+                      expanded: false,
+                    },
+                    placement: 'top',
+                  }
+                : undefined
+            "
             :key="veggie"
             class="veggie-list__veggie"
           >
