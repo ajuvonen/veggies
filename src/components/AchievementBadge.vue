@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import {computed} from 'vue';
+import {useI18n} from 'vue-i18n';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {AchievementLevel, type Achievements} from '@/utils/types';
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     achievement: keyof Achievements;
     level: AchievementLevel;
@@ -30,6 +32,8 @@ type BadgeProps = Record<
     >
   >
 >;
+
+const {t} = useI18n();
 
 const badgeProps: BadgeProps = {
   allOnRed: {
@@ -195,20 +199,34 @@ const badgeProps: BadgeProps = {
     },
   },
 };
+
+const labelSuffix = computed(() => {
+  if (props.active) {
+    return undefined;
+  }
+
+  return props.degree
+    ? t('achievements.partial', [Math.round((props.degree / 360) * 100)])
+    : t('achievements.locked');
+});
 </script>
 <template>
   <Component
-    v-tippy="
-      $t(`achievements.${achievement}.ariaLabel`, [
+    v-tippy="{
+      content: $t(`achievements.${achievement}.ariaLabel`, [
         ...badgeProps[achievement][level]!.textProps,
-        !active ? $t('achievements.locked') : undefined,
-      ])
-    "
+        labelSuffix,
+      ]),
+      aria: {
+        content: null,
+        expanded: false,
+      },
+    }"
     :is="as"
     :aria-label="
       $t(`achievements.${achievement}.ariaLabel`, [
         ...badgeProps[achievement][level]!.textProps,
-        !active ? $t('achievements.locked') : undefined,
+        labelSuffix,
       ])
     "
     :data-test-id="`badge-${achievement}-${level}`"

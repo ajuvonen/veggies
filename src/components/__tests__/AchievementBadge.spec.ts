@@ -14,6 +14,7 @@ describe('AchievementBadge', () => {
     });
 
     expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.find('.badge').attributes('aria-label')).not.toContain('(');
   });
 
   it('renders inactive', () => {
@@ -26,6 +27,7 @@ describe('AchievementBadge', () => {
     });
 
     expect(wrapper.html()).toMatchSnapshot();
+    expect(wrapper.find('.badge').attributes('aria-label')).toContain('(locked)');
   });
 
   it('does not render gradient when achievement is active', () => {
@@ -40,7 +42,7 @@ describe('AchievementBadge', () => {
     expect(wrapper.find('.badge__overlay').exists()).toBe(false);
   });
 
-  it('renders gradient', async () => {
+  it('renders partially active', async () => {
     const wrapper = mount(AchievementBadge, {
       props: {
         achievement: 'thirtyVeggies',
@@ -50,10 +52,13 @@ describe('AchievementBadge', () => {
       },
     });
 
+    const image = wrapper.find('.badge');
+    expect(image.attributes('aria-label')).toContain('(50% done)');
     expect(wrapper.find('.badge__overlay').attributes('style')).toBe(
       'mask-image: conic-gradient(transparent 0deg 180deg, black 180deg 360deg);',
     );
     await wrapper.setProps({degree: 120});
+    expect(image.attributes('aria-label')).toContain('(33% done)');
     expect(wrapper.find('.badge__overlay').attributes('style')).toBe(
       'mask-image: conic-gradient(transparent 0deg 120deg, black 120deg 360deg);',
     );
