@@ -66,22 +66,22 @@ exports[`AchievementList > renders 1`] = `
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">The Completionist</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="40 unique veggies (locked)" data-test-id="badge-completionist-1" class="badge--completionist badge--locked badge" role="img">
+    <ul class="achievement-list__badge-container">
+      <li data-v-06381b3c="" aria-label="40 unique veggies (locked)" data-test-id="badge-completionist-1" class="badge--completionist badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🐣</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 veggies</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="80 unique veggies (locked)" data-test-id="badge-completionist-2" class="badge--completionist badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="80 unique veggies (locked)" data-test-id="badge-completionist-2" class="badge--completionist badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🐧</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="150 unique veggies (locked)" data-test-id="badge-completionist-3" class="badge--completionist badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="150 unique veggies (locked)" data-test-id="badge-completionist-3" class="badge--completionist badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🦅</div>
         </div>
@@ -92,22 +92,22 @@ exports[`AchievementList > renders 1`] = `
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">Challenge Accepted</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-1" class="badge--challengeAccepted badge--locked badge" role="img">
+    <ul class="achievement-list__badge-container">
+      <li data-v-06381b3c="" aria-label="5 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-1" class="badge--challengeAccepted badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🚁</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="10 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-2" class="badge--challengeAccepted badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="10 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-2" class="badge--challengeAccepted badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">✈️</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 challenges</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="20 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-3" class="badge--challengeAccepted badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="20 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-3" class="badge--challengeAccepted badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🚀</div>
         </div>
@@ -118,22 +118,22 @@ exports[`AchievementList > renders 1`] = `
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">The Committed</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="3 months of active use (locked)" data-test-id="badge-committed-1" class="badge--committed badge--locked badge" role="img">
+    <ul class="achievement-list__badge-container">
+      <li data-v-06381b3c="" aria-label="3 months of active use (locked)" data-test-id="badge-committed-1" class="badge--committed badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🌱</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">3 months</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="6 months of active use (locked)" data-test-id="badge-committed-2" class="badge--committed badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="6 months of active use (locked)" data-test-id="badge-committed-2" class="badge--committed badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🪴</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">6 months</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="12 months of active use (locked)" data-test-id="badge-committed-3" class="badge--committed badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="12 months of active use (locked)" data-test-id="badge-committed-3" class="badge--committed badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🎄</div>
         </div>
@@ -144,22 +144,22 @@ exports[`AchievementList > renders 1`] = `
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">Hot Streak</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-1" class="badge--hotStreak badge--locked badge" role="img">
+    <ul class="achievement-list__badge-container">
+      <li data-v-06381b3c="" aria-label="5 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-1" class="badge--hotStreak badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🌶️</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 Weeks</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="10 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-2" class="badge--hotStreak badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="10 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-2" class="badge--hotStreak badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🔥</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="20 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-3" class="badge--hotStreak badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="20 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-3" class="badge--hotStreak badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🌋</div>
         </div>
@@ -303,22 +303,22 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">The Completionist</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="40 unique veggies " data-test-id="badge-completionist-1" class="badge--completionist badge" role="img">
+    <ul class="achievement-list__badge-container">
+      <li data-v-06381b3c="" aria-label="40 unique veggies " data-test-id="badge-completionist-1" class="badge--completionist badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🐣</div>
         </div>
         <!--v-if-->
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">40 veggies</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="80 unique veggies " data-test-id="badge-completionist-2" class="badge--completionist badge" role="img">
+      <li data-v-06381b3c="" aria-label="80 unique veggies " data-test-id="badge-completionist-2" class="badge--completionist badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🐧</div>
         </div>
         <!--v-if-->
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">80 veggies</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="150 unique veggies (locked)" data-test-id="badge-completionist-3" class="badge--completionist badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="150 unique veggies (locked)" data-test-id="badge-completionist-3" class="badge--completionist badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🦅</div>
         </div>
@@ -329,22 +329,22 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">Challenge Accepted</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-1" class="badge--challengeAccepted badge--locked badge" role="img">
+    <ul class="achievement-list__badge-container">
+      <li data-v-06381b3c="" aria-label="5 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-1" class="badge--challengeAccepted badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🚁</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="10 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-2" class="badge--challengeAccepted badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="10 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-2" class="badge--challengeAccepted badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">✈️</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 challenges</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="20 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-3" class="badge--challengeAccepted badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="20 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-3" class="badge--challengeAccepted badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🚀</div>
         </div>
@@ -355,22 +355,22 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">The Committed</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="3 months of active use (locked)" data-test-id="badge-committed-1" class="badge--committed badge--locked badge" role="img">
+    <ul class="achievement-list__badge-container">
+      <li data-v-06381b3c="" aria-label="3 months of active use (locked)" data-test-id="badge-committed-1" class="badge--committed badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🌱</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">3 months</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="6 months of active use (locked)" data-test-id="badge-committed-2" class="badge--committed badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="6 months of active use (locked)" data-test-id="badge-committed-2" class="badge--committed badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🪴</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">6 months</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="12 months of active use (locked)" data-test-id="badge-committed-3" class="badge--committed badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="12 months of active use (locked)" data-test-id="badge-committed-3" class="badge--committed badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🎄</div>
         </div>
@@ -381,22 +381,22 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
   </div>
   <div data-v-1c120264="" class="flex-container flex-col">
     <h2 class="label-like">Hot Streak</h2>
-    <ul data-v-1c120264="" class="achievement-list__badge-container">
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-1" class="badge--hotStreak badge--locked badge" role="img">
+    <ul class="achievement-list__badge-container">
+      <li data-v-06381b3c="" aria-label="5 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-1" class="badge--hotStreak badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🌶️</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 Weeks</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="10 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-2" class="badge--hotStreak badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="10 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-2" class="badge--hotStreak badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Silver" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🔥</div>
         </div>
         <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
         <div data-v-06381b3c="" aria-hidden="true" class="badge__text">10 Weeks</div>
       </li>
-      <li data-v-06381b3c="" data-v-1c120264="" aria-label="20 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-3" class="badge--hotStreak badge--locked badge" role="img">
+      <li data-v-06381b3c="" aria-label="20 week streak of over 30 veggies (locked)" data-test-id="badge-hotStreak-3" class="badge--hotStreak badge--locked badge" role="img">
         <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
           <div data-v-06381b3c="" class="badge__emoji">🌋</div>
         </div>

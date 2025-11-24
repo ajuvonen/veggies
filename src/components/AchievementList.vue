@@ -1,10 +1,28 @@
 <script setup lang="ts">
 import {AchievementLevel, Category, type Achievements} from '@/utils/types';
 import AchievementBadge from '@/components/AchievementBadge.vue';
+import AchievementListSection from '@/components/AchievementListSection.vue';
 
 defineProps<{
   achievements: Achievements;
 }>();
+
+const weeklyAchievements: (keyof Achievements)[] = [
+  'goNuts',
+  'lemons',
+  'tearnado',
+  'allOnRed',
+  'botanicalBerries',
+  'overachiever',
+  'rainbow',
+];
+
+const standardAchievements: (keyof Achievements)[] = [
+  'completionist',
+  'challengeAccepted',
+  'committed',
+  'hotStreak',
+];
 </script>
 <template>
   <div class="has-scroll m-0 p-0" data-test-id="achievement-list">
@@ -33,39 +51,11 @@ defineProps<{
     <ContentElement :title="$t('achievements.thirtyVeggies.title')">
       <ul class="achievement-list__badge-container">
         <AchievementBadge
-          :active="achievements.goNuts === AchievementLevel.Gold"
+          v-for="achievement in weeklyAchievements"
+          :key="achievement"
+          :active="achievements[achievement] === AchievementLevel.Gold"
           :level="AchievementLevel.Gold"
-          achievement="goNuts"
-        />
-        <AchievementBadge
-          :active="achievements.lemons === AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="lemons"
-        />
-        <AchievementBadge
-          :active="achievements.tearnado === AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="tearnado"
-        />
-        <AchievementBadge
-          :active="achievements.allOnRed === AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="allOnRed"
-        />
-        <AchievementBadge
-          :active="achievements.botanicalBerries === AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="botanicalBerries"
-        />
-        <AchievementBadge
-          :active="achievements.overachiever === AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="overachiever"
-        />
-        <AchievementBadge
-          :active="achievements.rainbow === AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="rainbow"
+          :achievement="achievement"
         />
         <AchievementBadge
           :active="achievements.thirtyVeggies >= AchievementLevel.Gold"
@@ -74,82 +64,12 @@ defineProps<{
         />
       </ul>
     </ContentElement>
-    <ContentElement :title="$t('achievements.completionist.title')">
-      <ul class="achievement-list__badge-container">
-        <AchievementBadge
-          :active="achievements.completionist >= AchievementLevel.Bronze"
-          :level="AchievementLevel.Bronze"
-          achievement="completionist"
-        />
-        <AchievementBadge
-          :active="achievements.completionist >= AchievementLevel.Silver"
-          :level="AchievementLevel.Silver"
-          achievement="completionist"
-        />
-        <AchievementBadge
-          :active="achievements.completionist >= AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="completionist"
-        />
-      </ul>
-    </ContentElement>
-    <ContentElement :title="$t('achievements.challengeAccepted.title')">
-      <ul class="achievement-list__badge-container">
-        <AchievementBadge
-          :active="achievements.challengeAccepted >= AchievementLevel.Bronze"
-          :level="AchievementLevel.Bronze"
-          achievement="challengeAccepted"
-        />
-        <AchievementBadge
-          :active="achievements.challengeAccepted >= AchievementLevel.Silver"
-          :level="AchievementLevel.Silver"
-          achievement="challengeAccepted"
-        />
-        <AchievementBadge
-          :active="achievements.challengeAccepted >= AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="challengeAccepted"
-        />
-      </ul>
-    </ContentElement>
-    <ContentElement :title="$t('achievements.committed.title')">
-      <ul class="achievement-list__badge-container">
-        <AchievementBadge
-          :active="achievements.committed >= AchievementLevel.Bronze"
-          :level="AchievementLevel.Bronze"
-          achievement="committed"
-        />
-        <AchievementBadge
-          :active="achievements.committed >= AchievementLevel.Silver"
-          :level="AchievementLevel.Silver"
-          achievement="committed"
-        />
-        <AchievementBadge
-          :active="achievements.committed >= AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="committed"
-        />
-      </ul>
-    </ContentElement>
-    <ContentElement :title="$t('achievements.hotStreak.title')">
-      <ul class="achievement-list__badge-container">
-        <AchievementBadge
-          :active="achievements.hotStreak >= AchievementLevel.Bronze"
-          :level="AchievementLevel.Bronze"
-          achievement="hotStreak"
-        />
-        <AchievementBadge
-          :active="achievements.hotStreak >= AchievementLevel.Silver"
-          :level="AchievementLevel.Silver"
-          achievement="hotStreak"
-        />
-        <AchievementBadge
-          :active="achievements.hotStreak >= AchievementLevel.Gold"
-          :level="AchievementLevel.Gold"
-          achievement="hotStreak"
-        />
-      </ul>
-    </ContentElement>
+    <AchievementListSection
+      v-for="achievement in standardAchievements"
+      :key="achievement"
+      :achievement="achievement"
+      :achievementLevel="achievements[achievement]"
+    />
     <ContentElement :title="$t('achievements.experimenterFruit.title')">
       <ul class="achievement-list__badge-container">
         <AchievementBadge
@@ -164,7 +84,7 @@ defineProps<{
   </div>
 </template>
 <style scoped>
-.achievement-list__badge-container {
+:deep(.achievement-list__badge-container) {
   @apply px-2;
   @apply flex-container justify-evenly flex-wrap;
 }
