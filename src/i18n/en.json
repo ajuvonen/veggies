@@ -101,6 +101,7 @@
       "badgeText": "Overachiever",
       "3": "Double victory! Over 30 veggies AND weekly challenge completed!"
     },
+    "partial": "({0}% done)",
     "rainbow": {
       "ariaLabel": "{0} veggies from each category this week {1}",
       "badgeText": "Rainbow",
