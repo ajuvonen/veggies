@@ -70,6 +70,7 @@ export type Achievements = {
   lemons: AchievementLevel;
   overachiever: AchievementLevel;
   rainbow: AchievementLevel;
+  tearnado: AchievementLevel;
   thirtyVeggies: AchievementLevel;
   thousandsOdd: AchievementLevel;
   thousandsEven: AchievementLevel;

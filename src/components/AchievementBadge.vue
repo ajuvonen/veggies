@@ -166,6 +166,12 @@ const badgeProps: BadgeProps = {
       emoji: '🌈',
     },
   },
+  tearnado: {
+    [AchievementLevel.Gold]: {
+      textProps: [5],
+      emoji: '🧅',
+    },
+  },
   thirtyVeggies: {
     [AchievementLevel.Gold]: {
       textProps: [30],

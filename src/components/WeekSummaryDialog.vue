@@ -49,6 +49,7 @@ const weeklyAchievements: (keyof Achievements)[] = [
   'lemons',
   'overachiever',
   'rainbow',
+  'tearnado',
 ];
 
 watch(

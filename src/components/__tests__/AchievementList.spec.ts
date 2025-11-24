@@ -21,6 +21,7 @@ const getAchievements = (achievements: Partial<Achievements> = {}) => ({
   lemons: AchievementLevel.NoAchievement,
   overachiever: AchievementLevel.NoAchievement,
   rainbow: AchievementLevel.NoAchievement,
+  tearnado: AchievementLevel.NoAchievement,
   thirtyVeggies: AchievementLevel.NoAchievement,
   thousandsOdd: AchievementLevel.NoAchievement,
   thousandsEven: AchievementLevel.NoAchievement,
@@ -35,7 +36,7 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge--locked').length).toBe(26);
+    expect(wrapper.findAll('.badge--locked').length).toBe(27);
   });
 
   it('renders with some badges enabled', async () => {
@@ -60,7 +61,7 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge--locked').length).toBe(12);
+    expect(wrapper.findAll('.badge--locked').length).toBe(13);
   });
 
   it('renders the thousands achievement correctly', async () => {
