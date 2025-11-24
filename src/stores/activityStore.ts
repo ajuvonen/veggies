@@ -39,6 +39,7 @@ import {
   LEAFIES,
   MUSHROOMS,
   NUTS,
+  ONIONS,
   RED_VEGGIES,
   ROOTS,
   VEGETABLES,
@@ -199,6 +200,10 @@ export const useActivityStore = defineStore('activity', () => {
           )
             ? AchievementLevel.Gold
             : AchievementLevel.NoAchievement,
+          tearnado: achievementLevelHelper(
+            [[5, AchievementLevel.Gold]],
+            intersection(ONIONS, veggies).length,
+          ),
           thirtyVeggies: achievementLevelHelper(
             [
               [40, AchievementLevel.Platinum],

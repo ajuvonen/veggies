@@ -62,7 +62,7 @@
       "title": "The Experimenter",
       "ariaLabel": "{0} unique mushrooms {1}",
       "badgeText": "Mushrooms",
-      "3": "You have enjoyed 10 unique mushrooms!"
+      "3": "You have enjoyed ten unique mushrooms!"
     },
     "experimenterRoot": {
       "title": "The Experimenter",
@@ -79,7 +79,7 @@
     "goNuts": {
       "ariaLabel": "{0} varieties of nuts this week {1}",
       "badgeText": "Go nuts",
-      "3": "You have added 5 nuts this week!"
+      "3": "You have added five unique nuts this week!"
     },
     "hotStreak": {
       "title": "Hot Streak",
@@ -105,6 +105,11 @@
       "ariaLabel": "{0} veggies from each category this week {1}",
       "badgeText": "Rainbow",
       "3": "No discrimination! You have tried at least three veggies from each category this week!"
+    },
+    "tearnado": {
+      "ariaLabel": "{0} onion family veggies this week {1}",
+      "badgeText": "Tearnado",
+      "3": "You have added five types of onions this week!"
     },
     "thirtyVeggies": {
       "title": "This week's toil",

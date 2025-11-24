@@ -11,6 +11,7 @@ import {
   LEAFIES,
   MUSHROOMS,
   NUTS,
+  ONIONS,
   RED_VEGGIES,
   ROOTS,
   VEGETABLES,
@@ -52,6 +53,7 @@ describe('achievements', () => {
       lemons: AchievementLevel.NoAchievement,
       overachiever: AchievementLevel.NoAchievement,
       rainbow: AchievementLevel.NoAchievement,
+      tearnado: AchievementLevel.NoAchievement,
       thirtyVeggies: AchievementLevel.NoAchievement,
       thousandsEven: AchievementLevel.NoAchievement,
       thousandsOdd: AchievementLevel.NoAchievement,
@@ -183,6 +185,13 @@ describe('achievements', () => {
     expect(activityStore.achievements.lemons).toEqual(AchievementLevel.NoAchievement);
     activityStore.weeks = createWeeks(1, take(CITRUSES, 5));
     expect(activityStore.achievements.lemons).toEqual(AchievementLevel.Gold);
+  });
+
+  it('advances tearnado', async () => {
+    activityStore.weeks = createWeeks(1, take(ONIONS, 4));
+    expect(activityStore.achievements.tearnado).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(ONIONS, 5));
+    expect(activityStore.achievements.tearnado).toEqual(AchievementLevel.Gold);
   });
 
   it('advances all on red', async () => {

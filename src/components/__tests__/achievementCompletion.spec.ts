@@ -24,6 +24,7 @@ describe('achievementCompletion', () => {
       lemons: 72,
       overachiever: 72,
       rainbow: 51,
+      tearnado: 0,
       thirtyVeggies: 72,
     });
   });
@@ -39,6 +40,7 @@ describe('achievementCompletion', () => {
       lemons: 0,
       overachiever: 12,
       rainbow: 0,
+      tearnado: 0,
       thirtyVeggies: 12,
     });
     veggies.value = ['brazil nut', 'pistachio nut', 'peanut'];
@@ -49,6 +51,7 @@ describe('achievementCompletion', () => {
       lemons: 0,
       overachiever: 36,
       rainbow: 51,
+      tearnado: 0,
       thirtyVeggies: 36,
     });
   });

@@ -383,6 +383,17 @@ export const BOTANICAL_BERRIES: readonly string[] = [
   'zucchini',
 ];
 
+export const ONIONS: readonly string[] = [
+  'chives',
+  'garlic',
+  'leek',
+  'onion',
+  'red onion',
+  'scallion',
+  'shallot',
+  'white onion',
+];
+
 export const NUTRIENTS: Record<string, readonly string[]> = {
   A: [
     'apricot',
