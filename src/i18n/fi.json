@@ -1463,7 +1463,7 @@
   },
   "qa": {
     "appPurpose": {
-      "title": "Mitä sovelluksella tehdään",
+      "title": "Mitä sovelluksella tehdään?",
       "text": "Eat Your Veggies on ilmainen sovellus kasviperäisten ruoka-aineiden seuraamiseen ruokavaliossasi. Voit etsiä viikon aikana syömiäsi kasviperäisiä aineksia ja lisätä niitä sovelluksessa. Jokainen kasvis lasketaan vain kerran viikkoa kohden."
     },
     "categories": {
