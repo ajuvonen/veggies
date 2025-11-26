@@ -853,7 +853,7 @@ exports[`WeekEditor > renders 1`] = `
       </div>
     </transition-stub>
   </div>
-  <ul class="flex-container flex-wrap justify-evenly" aria-label="Weekly Achievements">
+  <ul class="flex-container flex-wrap justify-center" aria-label="Weekly Achievements">
     <li data-v-06381b3c="" aria-label="10 red veggies this week (10% done)" data-test-id="badge-allOnRed-3" class="badge--allOnRed badge--noLabel badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">♥️</div>

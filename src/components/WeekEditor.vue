@@ -56,7 +56,7 @@ provide(KEYS.challenge, readonly(selectedChallenge));
     </DropdownList>
     <VeggieSearch v-model="veggies" />
     <ul
-      class="flex-container flex-wrap justify-evenly"
+      class="flex-container flex-wrap justify-center"
       :aria-label="$t('stats.weeklyAchievements')"
     >
       <AchievementBadge
