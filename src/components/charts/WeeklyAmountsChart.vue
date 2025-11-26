@@ -14,10 +14,10 @@ import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean} from 'remeda';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
+import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
-import {useChartOptions} from '@/hooks/chartOptions';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
@@ -54,7 +54,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
           borderDashOffset: 0,
           borderWidth: 3,
           scaleID: 'y',
-          value: (ctx) => mean(ctx.chart.data.datasets[0]!.data.slice(1) as number[]) ?? 0,
+          value: (ctx) => mean(ctx.chart.data.datasets[0]!.data as number[]) ?? 0,
         },
       },
     },
