@@ -109,7 +109,7 @@ defineExpose({
     :title="$t('weekSummaryDialog.title', [lastWeekData.weekNumber])"
   >
     <template #content>
-      <div class="flex-container gap-4 flex-col">
+      <div class="flex gap-4 flex-col">
         <CategoryStatusChart
           v-if="lastWeekData.veggies.length"
           :veggies="lastWeekData.veggies"

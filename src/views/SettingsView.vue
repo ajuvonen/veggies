@@ -37,7 +37,7 @@ const removeAllergen = (veggie: string) => {
 </script>
 
 <template>
-  <div class="flex-container flex-col gap-4 has-scroll">
+  <div class="flex flex-col gap-4 has-scroll">
     <LocaleChanger />
     <ContentElement
       :title="$t('settings.suggestionCount')"

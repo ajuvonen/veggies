@@ -47,7 +47,7 @@ watch(achievements, async (newValue, oldValue) => {
 </template>
 <style scoped>
 .achievement-container {
-  @apply flex-container gap-4 flex-col;
+  @apply flex flex-col gap-4;
   @apply text-sm;
 }
 </style>

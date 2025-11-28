@@ -31,7 +31,7 @@ const specialCases = ['cloudberry', 'raspberry'];
 <template>
   <div class="has-scroll m-0 p-0" data-test-id="veggie-list">
     <VeggieCompletionChart :veggies="uniqueVeggies" />
-    <ul v-for="category in Category" :key="category" class="flex-container gap-4 flex-col">
+    <ul v-for="category in Category" :key="category" class="flex gap-4 flex-col">
       <ContentElement :title="$t(`categories.${category}`)">
         <ul class="columns-2 md:columns-3">
           <li

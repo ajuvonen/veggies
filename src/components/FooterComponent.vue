@@ -38,6 +38,6 @@ const showPlayStoreLink = computed(
 <style scoped>
 footer {
   @apply uppercase text-xs;
-  @apply flex-container gap-4 justify-center;
+  @apply flex gap-4 justify-center;
 }
 </style>

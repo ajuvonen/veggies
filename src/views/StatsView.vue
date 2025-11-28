@@ -82,6 +82,6 @@ const hideTooltips = useThrottleFn(hideAll);
 <style scoped>
 .stats__tab {
   @apply w-full;
-  @apply flex-container flex-col gap-4;
+  @apply flex flex-col gap-4;
 }
 </style>
