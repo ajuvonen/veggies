@@ -33,7 +33,7 @@ exports[`VeggieList > renders 1`] = `
       </table>
     </div>
   </div>
-  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
+  <ul data-v-5aea2802="" class="flex gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Fruits And Berries</h2>
       <ul data-v-5aea2802="" class="columns-2 md:columns-3">
@@ -238,7 +238,7 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
+  <ul data-v-5aea2802="" class="flex gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Vegetables</h2>
       <ul data-v-5aea2802="" class="columns-2 md:columns-3">
@@ -341,7 +341,7 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
+  <ul data-v-5aea2802="" class="flex gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Leafy Greens And Herbs</h2>
       <ul data-v-5aea2802="" class="columns-2 md:columns-3">
@@ -480,7 +480,7 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
+  <ul data-v-5aea2802="" class="flex gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Roots And Bulbs</h2>
       <ul data-v-5aea2802="" class="columns-2 md:columns-3">
@@ -586,7 +586,7 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
+  <ul data-v-5aea2802="" class="flex gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Beans And Legumes</h2>
       <ul data-v-5aea2802="" class="columns-2 md:columns-3">
@@ -671,7 +671,7 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
+  <ul data-v-5aea2802="" class="flex gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Grains, Nuts, And Seeds</h2>
       <ul data-v-5aea2802="" class="columns-2 md:columns-3">
@@ -789,7 +789,7 @@ exports[`VeggieList > renders 1`] = `
       </ul>
     </div>
   </ul>
-  <ul data-v-5aea2802="" class="flex-container gap-4 flex-col">
+  <ul data-v-5aea2802="" class="flex gap-4 flex-col">
     <div data-v-5aea2802="" class="flex-container flex-col">
       <h2 class="label-like">Mushrooms</h2>
       <ul data-v-5aea2802="" class="columns-2 md:columns-3">
