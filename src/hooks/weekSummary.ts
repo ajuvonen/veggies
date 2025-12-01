@@ -6,7 +6,7 @@ import {Category} from '@/utils/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {NUTRIENTS} from '@/utils/veggieDetails';
-import {useAvailableVeggies} from './availableVeggies';
+import {useAvailableVeggies} from '@/hooks/availableVeggies';
 
 export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
   const {t} = useI18n();
