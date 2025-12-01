@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type {Category, TranslatedListing} from '@/utils/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
-import VeggieSearchOption from './VeggieSearchOption.vue';
+import VeggieSearchOption from '@/components/VeggieSearchOption.vue';
 
 defineEmits(['previous', 'next']);
 defineProps<{
