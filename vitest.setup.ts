@@ -35,21 +35,6 @@ const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
 
 config.plugins.VueWrapper.install(dataTestIdPlugin);
 
-vi.mock('vue-chartjs', () => ({
-  Doughnut: {
-    template: '<div />',
-  },
-  PolarArea: {
-    template: '<div />',
-  },
-  Line: {
-    template: '<div />',
-  },
-  Bar: {
-    template: '<div />',
-  },
-}));
-
 vi.mock('canvas-confetti', () => ({
   default: () => false,
 }));

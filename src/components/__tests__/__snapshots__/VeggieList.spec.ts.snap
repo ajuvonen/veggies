@@ -3,8 +3,9 @@
 exports[`VeggieList > renders 1`] = `
 "<div data-v-5aea2802="" class="has-scroll m-0 p-0" data-test-id="veggie-list">
   <div data-v-9c01a269="" data-v-5aea2802="" class="flex-container flex-col"><label class="label-like" for="veggie-completion-chart">Unique Veggies</label>
-    <div data-v-9c01a269="" class="veggie-completion-chart__background">
-      <div data-v-9c01a269="" id="veggie-completion-chart" data="[object Object]" options="[object Object]" aria-description="See table below for details." data-test-id="veggie-completion-chart"></div>
+    <div data-v-9c01a269="" class="veggie-completion-chart__background"><canvas data-v-9c01a269="" role="img" id="veggie-completion-chart" aria-description="See table below for details." data-test-id="veggie-completion-chart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0">
+        <p></p>
+      </canvas>
       <table data-v-9c01a269="" class="sr-only" data-test-id="veggie-completion-table">
         <caption>Unique Veggies</caption>
         <thead>
