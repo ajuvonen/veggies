@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {AchievementLevel, Category, type Achievements} from '@/utils/types';
+import {AchievementLevel, Category, type Achievements} from '@/types';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 import AchievementListSection from '@/components/AchievementListSection.vue';
 

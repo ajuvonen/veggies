@@ -1,8 +1,8 @@
 import {computed, toValue, type MaybeRefOrGetter} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {countBy, intersection, sample} from 'remeda';
-import type {WeekData, SummaryItem} from '@/utils/types';
-import {Category} from '@/utils/types';
+import type {WeekData, SummaryItem} from '@/types';
+import {Category} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {NUTRIENTS} from '@/utils/veggieDetails';

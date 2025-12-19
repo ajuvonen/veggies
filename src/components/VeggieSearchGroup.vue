@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {Category, TranslatedListing} from '@/utils/types';
+import type {Category, TranslatedListing} from '@/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import VeggieSearchOption from '@/components/VeggieSearchOption.vue';
 

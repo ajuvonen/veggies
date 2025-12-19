@@ -12,7 +12,7 @@ import {
   getRandomEmojis,
   getRandomItem,
 } from '@/utils/helpers';
-import {AchievementLevel, Category, type Challenge} from '@/utils/types';
+import {AchievementLevel, Category, type Challenge} from '@/types';
 
 const importSchema = await getImportSchema();
 

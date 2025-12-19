@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {AchievementLevel, type Achievements} from '@/utils/types';
+import {AchievementLevel, type Achievements} from '@/types';
 import AchievementList from '@/components/AchievementList.vue';
 
 const getAchievements = (achievements: Partial<Achievements> = {}) => ({

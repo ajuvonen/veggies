@@ -5,7 +5,7 @@ import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy, entries, pipe, prop, sortBy} from 'remeda';
-import {Category, type Favorites} from '@/utils/types';
+import {Category, type Favorites} from '@/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';

@@ -5,7 +5,7 @@ import {mean, sample, shuffle, countBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useWeekSummary} from '@/hooks/weekSummary';
-import {AchievementLevel, type Achievements, type WeekData} from '@/utils/types';
+import {AchievementLevel, type Achievements, type WeekData} from '@/types';
 import {getRandomItem} from '@/utils/helpers';
 import ModalDialog from '@/components/ModalDialog.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';

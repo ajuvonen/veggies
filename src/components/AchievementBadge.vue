@@ -2,7 +2,7 @@
 import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {CATEGORY_EMOJI} from '@/utils/constants';
-import {AchievementLevel, type Achievements} from '@/utils/types';
+import {AchievementLevel, type Achievements} from '@/types';
 
 const props = withDefaults(
   defineProps<{

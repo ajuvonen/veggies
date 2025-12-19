@@ -2,7 +2,7 @@ import {computed, toValue, type MaybeRefOrGetter} from 'vue';
 import {countBy, intersection} from 'remeda';
 import {BOTANICAL_BERRIES, CITRUSES, NUTS, ONIONS, RED_VEGGIES} from '@/utils/veggieDetails';
 import {getCategoryForVeggie} from '@/utils/helpers';
-import {Category, type Achievements} from '@/utils/types';
+import {Category, type Achievements} from '@/types';
 
 export function useAchievementCompletion(
   veggies: MaybeRefOrGetter<string[]>,

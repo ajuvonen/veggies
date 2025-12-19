@@ -1,6 +1,6 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {take} from 'remeda';
-import {AchievementLevel, type Achievements, type Week} from '@/utils/types';
+import {AchievementLevel, type Achievements, type Week} from '@/types';
 import {
   ALL_VEGGIES,
   BEANS,

@@ -2,7 +2,7 @@
 import {ref, useTemplateRef} from 'vue';
 import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
 import {useMemoize, onClickOutside} from '@vueuse/core';
-import {Category, type TranslatedListing} from '@/utils/types';
+import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useScreen} from '@/hooks/screen';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';

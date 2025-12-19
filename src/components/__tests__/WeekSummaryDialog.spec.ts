@@ -4,7 +4,7 @@ import {DateTime} from 'luxon';
 import {take} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
-import type {WeekData} from '@/utils/types';
+import type {WeekData} from '@/types';
 import DialogStub from './DialogStub.vue';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';

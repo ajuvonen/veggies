@@ -21,7 +21,7 @@ import {
   type Week,
   type Achievements,
   AchievementLevel,
-} from '@/utils/types';
+} from '@/types';
 import {
   achievementLevelHelper,
   dateParser,

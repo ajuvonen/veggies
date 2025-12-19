@@ -3,7 +3,7 @@ import {computed, provide, readonly, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
-import {AchievementLevel, type Achievements} from '@/utils/types';
+import {AchievementLevel, type Achievements} from '@/types';
 import {useDateTime} from '@/hooks/dateTime';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
 import TagsComponent from '@/components/TagsComponent.vue';

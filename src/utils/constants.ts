@@ -1,7 +1,7 @@
 import type {InjectionKey, Ref} from 'vue';
 import type {DateTime} from 'luxon';
 import type {UseMemoizeReturn} from '@vueuse/core';
-import {Category, type Locale} from '@/utils/types';
+import {Category, type Locale} from '@/types';
 
 export const APP_URL = 'https://eatyourveggies.app';
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {useMemoize} from '@vueuse/core';
-import {Category, type TranslatedListing} from '@/utils/types';
+import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useI18nWithCollator} from '@/hooks/i18n';

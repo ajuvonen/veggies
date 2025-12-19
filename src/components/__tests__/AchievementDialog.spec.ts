@@ -2,7 +2,7 @@ import {computed} from 'vue';
 import {describe, it, expect, beforeEach} from 'vitest';
 import {flushPromises, mount} from '@vue/test-utils';
 import {useActivityStore} from '@/stores/activityStore';
-import {AchievementLevel, type Achievements} from '@/utils/types';
+import {AchievementLevel, type Achievements} from '@/types';
 import DialogStub from './DialogStub.vue';
 import AchievementDialog from '@/components/AchievementDialog.vue';
 
