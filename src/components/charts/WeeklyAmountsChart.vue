@@ -72,7 +72,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
   },
   layout: {
     padding: {
-      right: 25,
+      right: 5,
     },
   },
   elements: {
