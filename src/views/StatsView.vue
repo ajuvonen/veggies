@@ -6,8 +6,7 @@ import {hideAll} from 'vue-tippy';
 import {useThrottleFn} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import type {IconString} from '@/components/IconComponent.vue';
-import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
-import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
+import WeeklyCharts from '@/components/WeeklyCharts.vue';
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import AchievementList from '@/components/AchievementList.vue';
@@ -59,10 +58,7 @@ const hideTooltips = useThrottleFn(hideAll);
           bottomLabelKey="categoryStatus.bottomLabelTotal"
         />
       </TabPanel>
-      <TabPanel class="stats__tab">
-        <WeeklyAmountsChart />
-        <WeeklyCategoriesChart />
-      </TabPanel>
+      <TabPanel :as="WeeklyCharts" class="stats__tab" />
       <TabPanel :as="WeekEditor" class="stats__tab" @scroll="hideTooltips" />
       <TabPanel
         :as="VeggieList"

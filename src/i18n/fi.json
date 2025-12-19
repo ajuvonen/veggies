@@ -1531,13 +1531,14 @@
     "2": "Muokkaa viikkoja",
     "3": "Kasvislista",
     "4": "Saavutukset",
-    "chosenStats": "Valitut tilastot",
     "editWeek": "Muokkaa viikkoa",
+    "selectStatistic": "Valitse tilasto",
     "selectedWeek": "Viikko {0} ({1}-{2})",
     "veggiesForWeek": "Viikon kasvikset",
     "weeklyAchievements": "Viikon saavutukset",
     "weeklyAmounts": "Lukumäärät viikoittain",
-    "weeklyCategories": "Ryhmät viikoittain"
+    "weeklyCategories": "Ryhmät viikoittain",
+    "weeklyHeatmap": "Lämpökartta viikoittain"
   },
   "synonyms": {
     "arugula": [""],
