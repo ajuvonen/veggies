@@ -2,8 +2,6 @@
 import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue';
-import {hideAll} from 'vue-tippy';
-import {useThrottleFn} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import type {IconString} from '@/components/IconComponent.vue';
 import WeeklyCharts from '@/components/WeeklyCharts.vue';
@@ -24,8 +22,6 @@ const tabIcons: IconString[] = [
   'formatListChecks',
   'trophy',
 ] as const;
-
-const hideTooltips = useThrottleFn(hideAll);
 </script>
 <template>
   <TabGroup :selectedIndex="selectedStat" @change="(index) => (selectedStat = index)">
@@ -59,19 +55,9 @@ const hideTooltips = useThrottleFn(hideAll);
         />
       </TabPanel>
       <TabPanel :as="WeeklyCharts" class="stats__tab" />
-      <TabPanel :as="WeekEditor" class="stats__tab" @scroll="hideTooltips" />
-      <TabPanel
-        :as="VeggieList"
-        :uniqueVeggies="uniqueVeggies"
-        class="stats__tab"
-        @scroll="hideTooltips"
-      />
-      <TabPanel
-        :as="AchievementList"
-        :achievements="achievements"
-        class="stats__tab"
-        @scroll="hideTooltips"
-      />
+      <TabPanel :as="WeekEditor" class="stats__tab" />
+      <TabPanel :as="VeggieList" :uniqueVeggies="uniqueVeggies" class="stats__tab" />
+      <TabPanel :as="AchievementList" :achievements="achievements" class="stats__tab" />
     </TabPanels>
   </TabGroup>
 </template>
