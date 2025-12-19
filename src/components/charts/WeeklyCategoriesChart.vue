@@ -48,7 +48,7 @@ const chartData = computed(() => {
 const {chartOptions} = useChartOptions<'bar'>(true, true, true, {
   layout: {
     padding: {
-      right: 25,
+      right: 5,
     },
   },
   plugins: {
