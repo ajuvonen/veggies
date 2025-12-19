@@ -1530,13 +1530,14 @@
     "2": "Edit weeks",
     "3": "Veggie list",
     "4": "Achievements",
-    "chosenStats": "Chosen Statistics",
     "editWeek": "Edit Week",
+    "selectStatistic": "Select Statistic",
     "selectedWeek": "Week {0} ({1}-{2})",
     "veggiesForWeek": "Veggies for Week",
     "weeklyAmounts": "Weekly Amounts",
     "weeklyAchievements": "Weekly Achievements",
-    "weeklyCategories": "Weekly Categories"
+    "weeklyCategories": "Weekly Categories",
+    "weeklyHeatmap": "Weekly Heatmap"
   },
   "synonyms": {
     "arugula": ["rocket"],

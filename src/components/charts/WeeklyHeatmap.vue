@@ -1,0 +1,131 @@
+<script lang="ts" setup>
+import {computed, onMounted, useTemplateRef} from 'vue';
+import {storeToRefs} from 'pinia';
+import {useI18n} from 'vue-i18n';
+import {Chart as ChartJS, Tooltip, type ScaleOptions, type ScriptableContext} from 'chart.js';
+import type {MatrixDataPoint} from 'chartjs-chart-matrix';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {useDateTime} from '@/hooks/dateTime';
+import {useChartContainer} from '@/hooks/chartContainer';
+import {useChartOptions} from '@/hooks/chartOptions';
+import {useActivityStore} from '@/stores/activityStore';
+import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
+import {Category} from '@/utils/types';
+import {getCategoryForVeggie} from '@/utils/helpers';
+import {HeatmapChart} from '@/components/charts/HeatmapChart';
+
+ChartJS.defaults.font.family = 'Nunito';
+ChartJS.register(Tooltip, ChartDataLabels);
+
+const {t} = useI18n();
+
+const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
+
+const {formatWeekString, formatWeekNumber} = useDateTime();
+
+const chartContainer = useTemplateRef('chartContainer');
+const {xAlign, yAlign} = useChartContainer(chartContainer);
+
+const chartData = computed(() => {
+  const weekStarts = getWeekStarts.value.slice().reverse();
+  const datasets = [
+    {
+      data: Object.values(weekStarts).flatMap((weekStart) => {
+        const veggies = veggiesForWeek.value(weekStart);
+        return Object.values(Category).map(
+          (category) =>
+            ({
+              x: formatWeekNumber(weekStart),
+              y: CATEGORY_EMOJI[category],
+              v: veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length,
+              d: formatWeekString(weekStart),
+            }) as unknown as MatrixDataPoint,
+        );
+      }),
+      backgroundColor: ({dataset, dataIndex}: ScriptableContext<'matrix'>) => {
+        const value = dataset.data[dataIndex]?.v ?? 0;
+        // Scale from 0 (opacity 10) to 6+ (opacity FF)
+        const opacityDecimal = Math.min(16 + Math.round((value * 239) / 6), 255);
+        const opacityHex = opacityDecimal.toString(16).toUpperCase().padStart(2, '0');
+        return COLORS.chartColorsAlternate[2] + opacityHex;
+      },
+      width: ({chart}: ScriptableContext<'matrix'>) =>
+        (chart.chartArea || {}).width / weekStarts.length - 1,
+      height: ({chart}: ScriptableContext<'matrix'>) =>
+        (chart.chartArea || {}).height / Object.values(Category).length - 1,
+    },
+  ];
+
+  return {
+    datasets,
+    labels: weekStarts.map((weekStart) => formatWeekNumber(weekStart)),
+  };
+});
+
+const yScale: ScaleOptions = {
+  type: 'category',
+  labels: Object.values(Category).map((category) => CATEGORY_EMOJI[category]),
+  offset: true,
+  ticks: {
+    font: {
+      size: 25,
+    },
+  },
+  grid: {
+    display: false,
+  },
+};
+
+const {chartOptions} = useChartOptions<'matrix'>(true, false, false, {
+  normalized: false,
+  scales: {
+    x: {
+      type: 'category',
+      labels: chartData.value.labels,
+      grid: {
+        display: false,
+      },
+    },
+    y: yScale,
+    y1: yScale,
+  },
+  plugins: {
+    tooltip: {
+      xAlign,
+      yAlign,
+      callbacks: {
+        title: ([tooltip]) => tooltip?.dataset.data[tooltip.dataIndex!]?.d ?? '',
+        label: ({dataset, dataIndex}) =>
+          `${dataset.data[dataIndex]?.y}: ${dataset.data[dataIndex]?.v}`,
+      },
+    },
+  },
+});
+
+onMounted(() => {
+  if (chartContainer.value) {
+    chartContainer.value.scrollLeft = chartContainer.value.scrollWidth;
+  }
+});
+
+defineExpose({chartData});
+</script>
+<template>
+  <ContentElement
+    :title="$t('stats.weeklyHeatmap')"
+    :labelAttrs="{for: 'weekly-heatmap'}"
+    class="flex-1 overflow-hidden"
+    aria-hidden="true"
+  >
+    <div ref="chartContainer" class="has-scroll m-0 p-0">
+      <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
+        <HeatmapChart
+          id="weekly-heatmap"
+          :options="chartOptions"
+          :data="chartData"
+          data-test-id="weekly-heatmap"
+        />
+      </div>
+    </div>
+  </ContentElement>
+</template>
