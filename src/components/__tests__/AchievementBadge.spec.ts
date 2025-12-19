@@ -1,7 +1,7 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
 import AchievementBadge from '@/components/AchievementBadge.vue';
-import {AchievementLevel} from '@/utils/types';
+import {AchievementLevel} from '@/types';
 
 describe('AchievementBadge', () => {
   it('renders active', () => {

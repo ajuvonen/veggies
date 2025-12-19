@@ -1,7 +1,7 @@
 import {ref} from 'vue';
 import {defineStore} from 'pinia';
 import {useStorage} from '@vueuse/core';
-import type {Settings} from '@/utils/types';
+import type {Settings} from '@/types';
 import {DEFAULT_SETTINGS} from '@/utils/constants';
 import {dateParser, dateReplacer} from '@/utils/helpers';
 

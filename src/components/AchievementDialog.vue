@@ -2,7 +2,7 @@
 import {ref, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {omitBy} from 'remeda';
-import {AchievementLevel, type Achievements} from '@/utils/types';
+import {AchievementLevel, type Achievements} from '@/types';
 import {useActivityStore} from '@/stores/activityStore';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 import ModalDialog from '@/components/ModalDialog.vue';

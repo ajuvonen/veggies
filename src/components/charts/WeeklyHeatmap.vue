@@ -10,7 +10,7 @@ import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
-import {Category} from '@/utils/types';
+import {Category} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {HeatmapChart} from '@/components/charts/HeatmapChart';
 

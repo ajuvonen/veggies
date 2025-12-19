@@ -4,7 +4,7 @@ import type {ChartOptions, ChartType, Scale} from 'chart.js';
 import {useChartAnimations} from '@/hooks/chartAnimations';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import type {Context} from 'chartjs-plugin-datalabels';
-import type {Category} from '@/utils/types';
+import type {Category} from '@/types';
 
 export function useChartOptions<T extends ChartType>(
   showGrid: boolean,

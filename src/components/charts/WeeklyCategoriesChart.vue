@@ -9,7 +9,7 @@ import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
-import {Category} from '@/utils/types';
+import {Category} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 import {useChartOptions} from '@/hooks/chartOptions';

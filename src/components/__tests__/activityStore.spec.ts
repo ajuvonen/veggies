@@ -3,7 +3,7 @@ import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {createPinia, setActivePinia} from 'pinia';
 import {take} from 'remeda';
-import {AchievementLevel, Category, type Week} from '@/utils/types';
+import {AchievementLevel, Category, type Week} from '@/types';
 import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {AchievementLevel, type Achievements} from '@/utils/types';
+import {AchievementLevel, type Achievements} from '@/types';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 
 defineProps<{
