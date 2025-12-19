@@ -11,8 +11,6 @@ import VeggieSearch from '@/components/VeggieSearch.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 import DropdownList from '@/components/DropdownList.vue';
 
-defineEmits(['scroll']);
-
 const activityStore = useActivityStore();
 const {getWeekStarts, veggiesForWeek, challenges, weeklyAchievements} = storeToRefs(activityStore);
 const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
@@ -78,7 +76,6 @@ provide(KEYS.challenge, readonly(selectedChallenge));
       :ariaLabel="$t('stats.veggiesForWeek')"
       ariaTagKey="general.clickToRemove"
       icon="minus"
-      @scroll="$emit('scroll')"
     />
   </div>
 </template>
