@@ -3,7 +3,7 @@ import {computed, defineAsyncComponent, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
-import LoadingSpinner from '@/components/LoadingSpinner.vue';
+import AsyncLoader from '@/components/AsyncLoader.vue';
 
 const WeeklyAmountsChart = defineAsyncComponent(
   () => import('@/components/charts/WeeklyAmountsChart.vue'),
@@ -45,13 +45,14 @@ const statisticOptions = [
         </RadioGroupOption>
       </ContentElement>
     </RadioGroup>
-    <Suspense>
+    <AsyncLoader>
       <WeeklyAmountsChart v-if="selectedStatistic === 0" :weekStarts="weekStarts" />
-      <WeeklyCategoriesChart v-else-if="selectedStatistic === 1" :weekStarts="weekStarts" />
-      <WeeklyHeatmap v-else-if="selectedStatistic === 2" :weekStarts="weekStarts" />
-      <template #fallback>
-        <LoadingSpinner />
-      </template>
-    </Suspense>
+    </AsyncLoader>
+    <AsyncLoader>
+      <WeeklyCategoriesChart v-if="selectedStatistic === 1" :weekStarts="weekStarts" />
+    </AsyncLoader>
+    <AsyncLoader>
+      <WeeklyHeatmap v-if="selectedStatistic === 2" :weekStarts="weekStarts" />
+    </AsyncLoader>
   </div>
 </template>

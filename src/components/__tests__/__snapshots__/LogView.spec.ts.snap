@@ -857,7 +857,7 @@ exports[`LogView > renders 1`] = `
 `;
 
 exports[`LogView > renders with data 1`] = `
-"<div data-v-487fdf11="" class="relative z-20"><input data-v-487fdf11="" aria-label="Add Weekly Veggies" aria-expanded="false" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="" id="veggie-search-input" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="">
+"<div data-v-487fdf11="" class="relative z-20"><input data-v-487fdf11="" aria-label="Add Weekly Veggies" aria-expanded="false" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="" id="veggie-search-input" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-controls="veggie-search-options" aria-activedescendant="headlessui-combobox-option-v-238">
   <!--v-if--><button data-v-24e38f3d="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-label="Open list" aria-expanded="false" aria-haspopup="listbox" aria-controls="veggie-search-options" data-test-id="veggie-search-toggle-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
@@ -1637,7 +1637,7 @@ exports[`LogView > renders with data 1`] = `
         <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-walnut" id="headlessui-combobox-option-v-237" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>walnut</span>
           <!--v-if-->
         </li>
-        <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wheat" id="headlessui-combobox-option-v-238" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="selected"><span>wheat</span><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wheat" id="headlessui-combobox-option-v-238" role="option" tabindex="-1" aria-selected="true" data-headlessui-state="active selected"><span>wheat</span><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" class="transition-all"></path>
           </svg></li>
         <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wild rice" id="headlessui-combobox-option-v-239" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wild rice</span>
@@ -1704,6 +1704,25 @@ exports[`LogView > renders with data 1`] = `
       </ul>
     </div>
   </transition-stub>
+</div>
+<div data-v-38bd5fcc="" class="shrink-0 category-status-chart__background">
+  <div data-v-38bd5fcc="" id="category-status-chart-center-label" class="category-status-chart__center-label" data-test-id="category-status-chart-center-label"><span data-v-38bd5fcc="">This Week</span> <span data-v-38bd5fcc="" class="text-6xl">1</span> <span data-v-38bd5fcc="">Veggie</span></div><canvas data-v-38bd5fcc="" role="img" aria-label="Veggies of the Week" aria-description="See table below for details." data-test-id="category-status-chart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0">
+    <p></p>
+  </canvas>
+  <table data-v-38bd5fcc="" class="sr-only" data-test-id="category-status-table">
+    <caption>Veggies of the Week</caption>
+    <thead>
+      <tr>
+        <!--v-if-->
+        <th>Grains, Nuts, And Seeds</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <ul data-v-cd627eac="" aria-label="Suggestions" tabindex="-1" tag="ul" class="tags__container">
   <transition-group-stub data-v-cd627eac="" name="tags" appear="false" persisted="false" css="true">

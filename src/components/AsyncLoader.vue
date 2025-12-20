@@ -2,9 +2,14 @@
 import {getRandomEmojis} from '@/utils/helpers';
 </script>
 <template>
-  <div class="flex justify-center items-center h-full">
-    <div class="spinner">{{ getRandomEmojis()[0] }}</div>
-  </div>
+  <Suspense>
+    <slot />
+    <template #fallback>
+      <div class="flex justify-center items-center h-full">
+        <div class="spinner">{{ getRandomEmojis()[0] }}</div>
+      </div>
+    </template>
+  </Suspense>
 </template>
 <style scoped>
 .spinner {

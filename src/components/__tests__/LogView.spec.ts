@@ -53,18 +53,20 @@ describe('LogView', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders with animation', () => {
+  it('renders with animation', async () => {
     const wrapper = mounter();
-    expect(wrapper).toBeTruthy();
+    await vi.dynamicImportSettled();
+    expect(wrapper.findByTestId('front-page-animation').exists()).toBe(true);
   });
 
-  it('renders without animation when reduced motion is preferred', () => {
+  it('renders without animation when reduced motion is preferred', async () => {
     mocks.usePreferredReducedMotion.mockReturnValue(computed(() => 'reduce'));
     const wrapper = mounter();
+    await vi.dynamicImportSettled();
     expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
   });
 
-  it('renders with data', () => {
+  it('renders with data', async () => {
     activityStore.startDate = lastWeek;
     activityStore.weeks = [
       {
@@ -87,6 +89,7 @@ describe('LogView', () => {
       },
     ];
     const wrapper = mounter();
+    await vi.dynamicImportSettled();
     expect(wrapper.html()).toMatchSnapshot();
   });
 

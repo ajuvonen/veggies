@@ -10,12 +10,16 @@ import {getRandomItem} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
-import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
+import AsyncLoader from '@/components/AsyncLoader.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
+);
+
+const FrontPageAnimation = defineAsyncComponent(
+  () => import('@/components/FrontPageAnimation.vue'),
 );
 
 const {t, tm} = useI18n();
@@ -79,8 +83,12 @@ provide(KEYS.challenge, readonly(currentChallenge));
 </script>
 <template>
   <VeggieSearch v-model="currentVeggies" />
-  <CategoryStatusChart v-if="currentVeggies.length" :veggies="currentVeggies" />
-  <FrontPageAnimation v-else />
+  <AsyncLoader>
+    <CategoryStatusChart v-if="currentVeggies.length" :veggies="currentVeggies" />
+  </AsyncLoader>
+  <AsyncLoader>
+    <FrontPageAnimation v-if="!currentVeggies.length" />
+  </AsyncLoader>
   <TagsComponent
     :veggies="suggestions"
     :variant="['tag', 'primary']"
