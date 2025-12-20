@@ -56,7 +56,18 @@ describe('charts', () => {
       },
     ];
 
-    const wrapper = mount(WeeklyCategoriesChart);
+    const wrapper = mount(WeeklyCategoriesChart, {
+      props: {
+        weekStarts: [
+          fiveWeeksAgo,
+          fiveWeeksAgo.plus({weeks: 1}),
+          fiveWeeksAgo.plus({weeks: 2}),
+          twoWeeksAgo,
+          lastWeek,
+          thisWeek,
+        ],
+      },
+    });
 
     // Leafies & mushrooms are dropped out
     const {labels, datasets} = wrapper.vm.chartData;
@@ -104,7 +115,18 @@ describe('charts', () => {
       },
     ];
 
-    const wrapper = mount(WeeklyAmountsChart);
+    const wrapper = mount(WeeklyAmountsChart, {
+      props: {
+        weekStarts: [
+          fiveWeeksAgo,
+          fiveWeeksAgo.plus({weeks: 1}),
+          fiveWeeksAgo.plus({weeks: 2}),
+          twoWeeksAgo,
+          lastWeek,
+          thisWeek,
+        ],
+      },
+    });
 
     const {labels, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual([

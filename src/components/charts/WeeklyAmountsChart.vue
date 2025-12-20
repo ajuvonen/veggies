@@ -12,6 +12,7 @@ import {
 import {Line} from 'vue-chartjs';
 import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean} from 'remeda';
+import type {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
@@ -22,7 +23,11 @@ import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
 
-const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
+const props = defineProps<{
+  weekStarts: DateTime[];
+}>();
+
+const {veggiesForWeek} = storeToRefs(useActivityStore());
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
@@ -30,12 +35,11 @@ const {xAlign, yAlign} = useChartContainer(chartContainer);
 const {formatWeekString, formatWeekNumber} = useDateTime();
 
 const chartData = computed(() => {
-  const weekStarts = getWeekStarts.value.slice().reverse();
   return {
-    labels: weekStarts.map(formatWeekNumber),
+    labels: props.weekStarts.map(formatWeekNumber),
     datasets: [
       {
-        data: weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length),
+        data: props.weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length),
         borderColor: COLORS.chartColorsAlternate[2],
         backgroundColor: COLORS.chartColorsAlternate[2],
       },
@@ -63,8 +67,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
       xAlign,
       callbacks: {
         title: ([tooltip]) => {
-          const reversedIndex = getWeekStarts.value.length - 1 - tooltip!.dataIndex!;
-          const weekStart = getWeekStarts.value[reversedIndex];
+          const weekStart = props.weekStarts[tooltip!.dataIndex!];
           return formatWeekString(weekStart!);
         },
       },
@@ -88,10 +91,10 @@ defineExpose({chartData});
   <ContentElement
     :title="$t('stats.weeklyAmounts')"
     :labelAttrs="{for: 'weekly-amounts-chart'}"
-    class="flex-1 overflow-hidden"
+    class="flex-1"
   >
     <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
-      <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
+      <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
         <Line
           id="weekly-amounts-chart"
           :options="chartOptions"

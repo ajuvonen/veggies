@@ -5,6 +5,7 @@ import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
 import {Bar} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import type {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useActivityStore} from '@/stores/activityStore';
@@ -17,9 +18,13 @@ import {useChartOptions} from '@/hooks/chartOptions';
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
 
+const props = defineProps<{
+  weekStarts: DateTime[];
+}>();
+
 const {t} = useI18n();
 
-const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
+const {veggiesForWeek} = storeToRefs(useActivityStore());
 
 const {formatWeekString, formatWeekNumber} = useDateTime();
 
@@ -27,10 +32,9 @@ const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {
-  const weekStarts = getWeekStarts.value.slice().reverse();
   const datasets = Object.values(Category).map((category, index) => ({
     label: category,
-    data: weekStarts.map(
+    data: props.weekStarts.map(
       (weekStart) =>
         veggiesForWeek
           .value(weekStart)
@@ -40,7 +44,7 @@ const chartData = computed(() => {
   }));
 
   return {
-    labels: weekStarts.map(formatWeekNumber),
+    labels: props.weekStarts.map(formatWeekNumber),
     datasets: datasets.filter(({data}) => data.some((value) => value)),
   };
 });
@@ -57,8 +61,7 @@ const {chartOptions} = useChartOptions<'bar'>(true, true, true, {
       yAlign,
       callbacks: {
         title: ([tooltip]) => {
-          const reversedIndex = getWeekStarts.value.length - 1 - tooltip!.dataIndex!;
-          const weekStart = getWeekStarts.value[reversedIndex];
+          const weekStart = props.weekStarts[tooltip!.dataIndex!];
           return formatWeekString(weekStart!);
         },
         label: ({dataset, formattedValue}) => {
@@ -81,10 +84,10 @@ defineExpose({chartData});
   <ContentElement
     :title="$t('stats.weeklyCategories')"
     :labelAttrs="{for: 'weekly-categories-chart'}"
-    class="flex-1 overflow-hidden"
+    class="flex-1"
   >
     <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
-      <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
+      <div :style="{width: `max(100%, ${props.weekStarts.length * 60}px)`}" class="relative h-full">
         <Bar
           id="weekly-categories-chart"
           :options="chartOptions"
