@@ -1,11 +1,17 @@
 <script lang="ts" setup>
-import {computed, ref} from 'vue';
+import {computed, defineAsyncComponent, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
-import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
-import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
-import WeeklyHeatmap from '@/components/charts/WeeklyHeatmap.vue';
+import LoadingSpinner from '@/components/LoadingSpinner.vue';
+
+const WeeklyAmountsChart = defineAsyncComponent(
+  () => import('@/components/charts/WeeklyAmountsChart.vue'),
+);
+const WeeklyCategoriesChart = defineAsyncComponent(
+  () => import('@/components/charts/WeeklyCategoriesChart.vue'),
+);
+const WeeklyHeatmap = defineAsyncComponent(() => import('@/components/charts/WeeklyHeatmap.vue'));
 
 const {getWeekStarts} = storeToRefs(useActivityStore());
 
@@ -39,8 +45,13 @@ const statisticOptions = [
         </RadioGroupOption>
       </ContentElement>
     </RadioGroup>
-    <WeeklyAmountsChart v-if="selectedStatistic === 0" :weekStarts="weekStarts" />
-    <WeeklyCategoriesChart v-if="selectedStatistic === 1" :weekStarts="weekStarts" />
-    <WeeklyHeatmap v-if="selectedStatistic === 2" :weekStarts="weekStarts" />
+    <Suspense>
+      <WeeklyAmountsChart v-if="selectedStatistic === 0" :weekStarts="weekStarts" />
+      <WeeklyCategoriesChart v-else-if="selectedStatistic === 1" :weekStarts="weekStarts" />
+      <WeeklyHeatmap v-else-if="selectedStatistic === 2" :weekStarts="weekStarts" />
+      <template #fallback>
+        <LoadingSpinner />
+      </template>
+    </Suspense>
   </div>
 </template>
