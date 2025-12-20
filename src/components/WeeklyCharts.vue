@@ -1,11 +1,17 @@
 <script lang="ts" setup>
-import {ref} from 'vue';
+import {computed, ref} from 'vue';
+import {storeToRefs} from 'pinia';
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
+import {useActivityStore} from '@/stores/activityStore';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import WeeklyHeatmap from '@/components/charts/WeeklyHeatmap.vue';
 
+const {getWeekStarts} = storeToRefs(useActivityStore());
+
 const selectedStatistic = ref(0);
+
+const weekStarts = computed(() => getWeekStarts.value.slice().reverse());
 
 const statisticOptions = [
   {value: 0, label: 'stats.weeklyAmounts'},
@@ -33,8 +39,8 @@ const statisticOptions = [
         </RadioGroupOption>
       </ContentElement>
     </RadioGroup>
-    <WeeklyAmountsChart v-if="selectedStatistic === 0" />
-    <WeeklyCategoriesChart v-if="selectedStatistic === 1" />
-    <WeeklyHeatmap v-if="selectedStatistic === 2" />
+    <WeeklyAmountsChart v-if="selectedStatistic === 0" :weekStarts="weekStarts" />
+    <WeeklyCategoriesChart v-if="selectedStatistic === 1" :weekStarts="weekStarts" />
+    <WeeklyHeatmap v-if="selectedStatistic === 2" :weekStarts="weekStarts" />
   </div>
 </template>

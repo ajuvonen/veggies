@@ -5,6 +5,7 @@ import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, Tooltip, type ScaleOptions, type ScriptableContext} from 'chart.js';
 import type {MatrixDataPoint} from 'chartjs-chart-matrix';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import type {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
@@ -17,9 +18,13 @@ import {HeatmapChart} from '@/components/charts/HeatmapChart';
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(Tooltip, ChartDataLabels);
 
+const props = defineProps<{
+  weekStarts: DateTime[];
+}>();
+
 const {t} = useI18n();
 
-const {veggiesForWeek, getWeekStarts} = storeToRefs(useActivityStore());
+const {veggiesForWeek} = storeToRefs(useActivityStore());
 
 const {formatWeekString, formatWeekNumber} = useDateTime();
 
@@ -27,10 +32,9 @@ const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {
-  const weekStarts = getWeekStarts.value.slice().reverse();
   const datasets = [
     {
-      data: Object.values(weekStarts).flatMap((weekStart) => {
+      data: Object.values(props.weekStarts).flatMap((weekStart) => {
         const veggies = veggiesForWeek.value(weekStart);
         return Object.values(Category).map(
           (category) =>
@@ -50,7 +54,7 @@ const chartData = computed(() => {
         return COLORS.chartColorsAlternate[2] + opacityHex;
       },
       width: ({chart}: ScriptableContext<'matrix'>) =>
-        (chart.chartArea || {}).width / weekStarts.length - 1,
+        (chart.chartArea || {}).width / props.weekStarts.length - 1,
       height: ({chart}: ScriptableContext<'matrix'>) =>
         (chart.chartArea || {}).height / Object.values(Category).length - 1,
     },
@@ -58,7 +62,7 @@ const chartData = computed(() => {
 
   return {
     datasets,
-    labels: weekStarts.map((weekStart) => formatWeekNumber(weekStart)),
+    labels: props.weekStarts.map(formatWeekNumber),
   };
 });
 
@@ -114,11 +118,11 @@ defineExpose({chartData});
   <ContentElement
     :title="$t('stats.weeklyHeatmap')"
     :labelAttrs="{for: 'weekly-heatmap'}"
-    class="flex-1 overflow-hidden"
+    class="flex-1"
     aria-hidden="true"
   >
     <div ref="chartContainer" class="has-scroll m-0 p-0">
-      <div :style="{width: `max(100%, ${getWeekStarts.length * 60}px)`}" class="relative h-full">
+      <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
         <HeatmapChart
           id="weekly-heatmap"
           :options="chartOptions"
