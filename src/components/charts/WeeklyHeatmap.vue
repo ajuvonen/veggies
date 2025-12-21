@@ -4,7 +4,6 @@ import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, Tooltip, type ScaleOptions, type ScriptableContext} from 'chart.js';
 import type {MatrixDataPoint} from 'chartjs-chart-matrix';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import type {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
@@ -14,9 +13,11 @@ import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
 import {Category} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {HeatmapChart} from '@/components/charts/HeatmapChart';
+import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
+import {groupByProp} from 'remeda';
 
 ChartJS.defaults.font.family = 'Nunito';
-ChartJS.register(Tooltip, ChartDataLabels);
+ChartJS.register(Tooltip);
 
 const props = defineProps<{
   weekStarts: DateTime[];
@@ -42,7 +43,8 @@ const chartData = computed(() => {
               x: formatWeekNumber(weekStart),
               y: CATEGORY_EMOJI[category],
               v: veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length,
-              d: formatWeekString(weekStart),
+              weekString: formatWeekString(weekStart),
+              category,
             }) as unknown as MatrixDataPoint,
         );
       }),
@@ -62,7 +64,13 @@ const chartData = computed(() => {
 
   return {
     datasets,
-    labels: props.weekStarts.map(formatWeekNumber),
+    accessibleData: {
+      columnHeaders: props.weekStarts.map(formatWeekNumber),
+      rowHeaders: Object.values(Category).map((category) => t(`categories.${category}`)),
+      data: Object.values(groupByProp(datasets[0]!.data, 'category')).map((items) =>
+        items.map(({v}) => `${Math.round((v / 6) * 100)}%`),
+      ),
+    },
   };
 });
 
@@ -85,7 +93,7 @@ const {chartOptions} = useChartOptions<'matrix'>(true, false, false, {
   scales: {
     x: {
       type: 'category',
-      labels: chartData.value.labels,
+      labels: chartData.value.accessibleData.columnHeaders,
       grid: {
         display: false,
       },
@@ -98,9 +106,9 @@ const {chartOptions} = useChartOptions<'matrix'>(true, false, false, {
       xAlign,
       yAlign,
       callbacks: {
-        title: ([tooltip]) => tooltip?.dataset.data[tooltip.dataIndex!]?.d ?? '',
+        title: ([tooltip]) => tooltip?.dataset.data[tooltip.dataIndex!]?.weekString ?? '',
         label: ({dataset, dataIndex}) =>
-          `${dataset.data[dataIndex]?.y}: ${dataset.data[dataIndex]?.v}`,
+          `${t(`categories.${dataset.data[dataIndex]?.category}`)}: ${dataset.data[dataIndex]?.v}`,
       },
     },
   },
@@ -130,6 +138,13 @@ defineExpose({chartData});
           data-test-id="weekly-heatmap"
         />
       </div>
+      <ChartScreenReaderTable
+        :title="$t('stats.weeklyAmounts')"
+        :columnHeaders="chartData.accessibleData.columnHeaders"
+        :rowHeaders="chartData.accessibleData.rowHeaders"
+        :data="chartData.accessibleData.data"
+        data-test-id="weekly-amounts-table"
+      />
     </div>
   </ContentElement>
 </template>

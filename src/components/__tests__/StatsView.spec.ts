@@ -50,6 +50,7 @@ describe('StatsView', () => {
     await wrapper.findByTestId('statistic-selector-2').trigger('click');
     await vi.dynamicImportSettled();
     expect(wrapper.findByTestId('weekly-heatmap').exists()).toBe(true);
+    expect(wrapper.findByTestId('weekly-heatmap-table').exists()).toBe(true);
   });
 
   it('renders current week', async () => {

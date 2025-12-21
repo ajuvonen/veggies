@@ -36,6 +36,7 @@ test('shows weekly statistics', async ({page}) => {
   await expect(page.getByTestId('weekly-categories-table')).toBeAttached();
   await page.getByTestId('statistic-selector-2').click();
   await expect(page.getByTestId('weekly-heatmap')).toBeVisible();
+  await expect(page.getByTestId('weekly-heatmap-table')).toBeAttached();
 });
 
 test("shows current week's veggies", async ({page}) => {

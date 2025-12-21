@@ -5,6 +5,7 @@ declare module 'chartjs-chart-matrix' {
     x: number | string;
     y: number | string;
     v: number;
-    d: string;
+    weekString: string;
+    category: string;
   }
 }
