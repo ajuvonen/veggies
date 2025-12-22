@@ -94,27 +94,22 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement
-    :title="$t('stats.weeklyAmounts')"
-    :labelAttrs="{for: 'weekly-amounts-chart'}"
-    class="flex-1"
-  >
-    <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
-      <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
-        <Line
-          id="weekly-amounts-chart"
-          :options="chartOptions"
-          :data="chartData"
-          :aria-description="$t('general.seeTableBelow')"
-          data-test-id="weekly-amounts-chart"
-        />
-      </div>
-      <ChartScreenReaderTable
-        :title="$t('stats.weeklyAmounts')"
-        :columnHeaders="labels"
-        :data="chartData.accessibleData.data"
-        data-test-id="weekly-amounts-table"
+  <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
+    <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
+      <Line
+        id="weekly-amounts-chart"
+        :options="chartOptions"
+        :data="chartData"
+        :aria-label="$t('stats.weeklyAmounts')"
+        :aria-description="$t('general.seeTableBelow')"
+        data-test-id="weekly-amounts-chart"
       />
     </div>
-  </ContentElement>
+    <ChartScreenReaderTable
+      :title="$t('stats.weeklyAmounts')"
+      :columnHeaders="labels"
+      :data="chartData.accessibleData.data"
+      data-test-id="weekly-amounts-table"
+    />
+  </div>
 </template>

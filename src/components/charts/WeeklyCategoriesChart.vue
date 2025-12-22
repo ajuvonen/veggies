@@ -86,28 +86,23 @@ onMounted(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement
-    :title="$t('stats.weeklyCategories')"
-    :labelAttrs="{for: 'weekly-categories-chart'}"
-    class="flex-1"
-  >
-    <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
-      <div :style="{width: `max(100%, ${props.weekStarts.length * 60}px)`}" class="relative h-full">
-        <Bar
-          id="weekly-categories-chart"
-          :options="chartOptions"
-          :data="chartData"
-          :aria-description="$t('general.seeTableBelow')"
-          data-test-id="weekly-categories-chart"
-        />
-      </div>
-      <ChartScreenReaderTable
-        :title="$t('stats.weeklyCategories')"
-        :columnHeaders="labels"
-        :rowHeaders="chartData.accessibleData.rowHeaders"
-        :data="chartData.accessibleData.data"
-        data-test-id="weekly-categories-table"
+  <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
+    <div :style="{width: `max(100%, ${props.weekStarts.length * 60}px)`}" class="relative h-full">
+      <Bar
+        id="weekly-categories-chart"
+        :options="chartOptions"
+        :data="chartData"
+        :aria-label="$t('stats.weeklyCategories')"
+        :aria-description="$t('general.seeTableBelow')"
+        data-test-id="weekly-categories-chart"
       />
     </div>
-  </ContentElement>
+    <ChartScreenReaderTable
+      :title="$t('stats.weeklyCategories')"
+      :columnHeaders="labels"
+      :rowHeaders="chartData.accessibleData.rowHeaders"
+      :data="chartData.accessibleData.data"
+      data-test-id="weekly-categories-table"
+    />
+  </div>
 </template>
