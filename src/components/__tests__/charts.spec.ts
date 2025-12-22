@@ -8,12 +8,23 @@ import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue';
+import WeeklyHeatmap from '@/components/charts/WeeklyHeatmap.vue';
 
 describe('charts', () => {
   const thisWeek = DateTime.now().startOf('week');
   const lastWeek = thisWeek.minus({weeks: 1});
   const twoWeeksAgo = thisWeek.minus({weeks: 2});
   const fiveWeeksAgo = thisWeek.minus({weeks: 5});
+
+  const weekStartProps = [
+    fiveWeeksAgo,
+    fiveWeeksAgo.plus({weeks: 1}),
+    fiveWeeksAgo.plus({weeks: 2}),
+    twoWeeksAgo,
+    lastWeek,
+    thisWeek,
+  ];
+  const labelProps = weekStartProps.map((weekStart) => weekStart.toFormat('W/kkkk'));
   let activityStore: ReturnType<typeof useActivityStore>;
 
   beforeEach(() => {
@@ -29,9 +40,16 @@ describe('charts', () => {
     });
     const {
       labels,
+      accessibleData,
       datasets: [{data}],
     } = wrapper.vm.chartData;
     expect(labels).toEqual(['Leafy', 'Vegetable', 'Root']);
+    expect(accessibleData.columnHeaders).toEqual([
+      'Leafy Greens And Herbs',
+      'Vegetables',
+      'Roots And Bulbs',
+    ]);
+    expect(accessibleData.data).toEqual([1, 2, 3]);
     expect(data).toEqual([1, 2, 3]);
   });
 
@@ -58,19 +76,12 @@ describe('charts', () => {
 
     const wrapper = mount(WeeklyCategoriesChart, {
       props: {
-        weekStarts: [
-          fiveWeeksAgo,
-          fiveWeeksAgo.plus({weeks: 1}),
-          fiveWeeksAgo.plus({weeks: 2}),
-          twoWeeksAgo,
-          lastWeek,
-          thisWeek,
-        ],
+        weekStarts: weekStartProps,
+        labels: labelProps,
       },
     });
 
-    // Leafies & mushrooms are dropped out
-    const {labels, datasets} = wrapper.vm.chartData;
+    const {labels, accessibleData, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual([
       thisWeek.minus({weeks: 5}).toFormat('W/kkkk'),
       thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
@@ -79,7 +90,25 @@ describe('charts', () => {
       thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
       thisWeek.toFormat('W/kkkk'),
     ]);
-    expect(datasets).toHaveLength(6);
+    expect(accessibleData.data).toEqual([
+      [0, 0, 0, 0, 0, 2],
+      [0, 0, 0, 0, 0, 1],
+      [1, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 1, 1],
+      [0, 0, 0, 0, 1, 0],
+      [0, 0, 0, 2, 0, 0],
+      [0, 0, 0, 0, 0, 0],
+    ]);
+    expect(accessibleData.rowHeaders).toEqual([
+      'Fruits And Berries',
+      'Vegetables',
+      'Leafy Greens And Herbs',
+      'Roots And Bulbs',
+      'Beans And Legumes',
+      'Grains, Nuts, And Seeds',
+      'Mushrooms',
+    ]);
+    expect(datasets).toHaveLength(7);
     expect(datasets[0].label).toBe('Fruit');
     expect(datasets[0].data).toEqual([0, 0, 0, 0, 0, 2]);
     expect(datasets[1].label).toBe('Vegetable');
@@ -92,6 +121,8 @@ describe('charts', () => {
     expect(datasets[4].data).toEqual([0, 0, 0, 0, 1, 0]);
     expect(datasets[5].label).toBe('Grain');
     expect(datasets[5].data).toEqual([0, 0, 0, 2, 0, 0]);
+    expect(datasets[6].label).toBe('Mushroom');
+    expect(datasets[6].data).toEqual([0, 0, 0, 0, 0, 0]);
   });
 
   it('prepares data for WeeklyAmountsChart', () => {
@@ -117,18 +148,12 @@ describe('charts', () => {
 
     const wrapper = mount(WeeklyAmountsChart, {
       props: {
-        weekStarts: [
-          fiveWeeksAgo,
-          fiveWeeksAgo.plus({weeks: 1}),
-          fiveWeeksAgo.plus({weeks: 2}),
-          twoWeeksAgo,
-          lastWeek,
-          thisWeek,
-        ],
+        weekStarts: weekStartProps,
+        labels: labelProps,
       },
     });
 
-    const {labels, datasets} = wrapper.vm.chartData;
+    const {labels, accessibleData, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual([
       thisWeek.minus({weeks: 5}).toFormat('W/kkkk'),
       thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
@@ -137,6 +162,7 @@ describe('charts', () => {
       thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
       thisWeek.toFormat('W/kkkk'),
     ]);
+    expect(accessibleData.data).toEqual([1, 0, 0, 2, 2, 4]);
     expect(datasets).toHaveLength(1);
     expect(datasets[0].data).toEqual([1, 0, 0, 2, 2, 4]);
   });
@@ -158,9 +184,28 @@ describe('charts', () => {
     });
     const {
       labels,
+      accessibleData,
       datasets: [{data}],
     } = wrapper.vm.chartData;
     expect(labels).toEqual(['Fruit', 'Vegetable', 'Leafy', 'Root', 'Bean', 'Grain', 'Mushroom']);
+    expect(accessibleData.columnHeaders).toEqual([
+      'Fruits And Berries',
+      'Vegetables',
+      'Leafy Greens And Herbs',
+      'Roots And Bulbs',
+      'Beans And Legumes',
+      'Grains, Nuts, And Seeds',
+      'Mushrooms',
+    ]);
+    expect(accessibleData.data).toEqual([
+      `${0} %`,
+      `${getPercentage(VEGETABLES, 10)} %`,
+      `${getPercentage(LEAFIES, 20)} %`,
+      `${100} %`,
+      `${getPercentage(BEANS, 20)} %`,
+      `${getPercentage(GRAINS, 20)} %`,
+      `${100} %`,
+    ]);
     expect(data).toEqual([
       0,
       getPercentage(VEGETABLES, 10),
@@ -170,5 +215,63 @@ describe('charts', () => {
       getPercentage(GRAINS, 20),
       100,
     ]);
+  });
+
+  it('prepares data for WeeklyHeatmap', () => {
+    const week1 = DateTime.fromISO('2025-12-01');
+    const week2 = week1.plus({weeks: 1});
+    const week3 = week2.plus({weeks: 1});
+    activityStore.startDate = week1;
+    activityStore.weeks = [
+      {
+        startDate: week2,
+        veggies: [
+          'carrot',
+          'pinto bean',
+          'chickpea',
+          'black bean',
+          'red bean',
+          'cranberry bean',
+          'adzuki bean',
+          'edamame',
+        ],
+      },
+      {
+        startDate: week3,
+        veggies: ['onion', 'tomato', 'apple', 'pineapple', 'shiitake', 'portobello'],
+      },
+    ];
+
+    const heatmapWeeks = [week1, week2, week3];
+    const heatmapLabels = heatmapWeeks.map((weekStart) => weekStart.toFormat('W/kkkk'));
+
+    const wrapper = mount(WeeklyHeatmap, {
+      props: {
+        weekStarts: heatmapWeeks,
+        labels: heatmapLabels,
+      },
+    });
+
+    const {accessibleData, datasets} = wrapper.vm.chartData;
+    expect(accessibleData.rowHeaders).toEqual([
+      'Fruits And Berries',
+      'Vegetables',
+      'Leafy Greens And Herbs',
+      'Roots And Bulbs',
+      'Beans And Legumes',
+      'Grains, Nuts, And Seeds',
+      'Mushrooms',
+    ]);
+    expect(accessibleData.data).toEqual([
+      ['0 %', '0 %', '33 %'],
+      ['0 %', '0 %', '17 %'],
+      ['0 %', '0 %', '0 %'],
+      ['0 %', '17 %', '17 %'],
+      ['0 %', '100 %', '0 %'],
+      ['0 %', '0 %', '0 %'],
+      ['0 %', '0 %', '33 %'],
+    ]);
+    expect(datasets).toHaveLength(1);
+    expect(datasets[0].data).toMatchSnapshot();
   });
 });

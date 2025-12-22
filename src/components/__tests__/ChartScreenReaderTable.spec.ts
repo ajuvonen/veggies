@@ -8,7 +8,7 @@ describe('ChartScreenReaderTable', () => {
       props: {
         title: 'Amount of veggies',
         columnHeaders: ['Grains', 'Vegetables', 'Roots & Bulbs'],
-        data: [[1, 2, 3]],
+        data: [1, 2, 3],
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
@@ -36,7 +36,7 @@ describe('ChartScreenReaderTable', () => {
       props: {
         title: 'Spotty data',
         columnHeaders: ['1', '2', '3'],
-        data: [['A', 'B']],
+        data: ['A', 'B'],
       },
     });
 

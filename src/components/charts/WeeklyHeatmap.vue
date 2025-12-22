@@ -2,6 +2,7 @@
 import {computed, onMounted, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
+import {groupByProp} from 'remeda';
 import {Chart as ChartJS, Tooltip, type ScaleOptions, type ScriptableContext} from 'chart.js';
 import type {MatrixDataPoint} from 'chartjs-chart-matrix';
 import type {DateTime} from 'luxon';
@@ -14,12 +15,12 @@ import {Category} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {HeatmapChart} from '@/components/charts/HeatmapChart';
 import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
-import {groupByProp} from 'remeda';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(Tooltip);
 
 const props = defineProps<{
+  labels: string[];
   weekStarts: DateTime[];
 }>();
 
@@ -65,10 +66,9 @@ const chartData = computed(() => {
   return {
     datasets,
     accessibleData: {
-      columnHeaders: props.weekStarts.map(formatWeekNumber),
       rowHeaders: Object.values(Category).map((category) => t(`categories.${category}`)),
       data: Object.values(groupByProp(datasets[0]!.data, 'category')).map((items) =>
-        items.map(({v}) => `${Math.round((v / 6) * 100)}%`),
+        items.map(({v}) => `${Math.round((v / 6) * 100)} %`),
       ),
     },
   };
@@ -93,7 +93,7 @@ const {chartOptions} = useChartOptions<'matrix'>(true, false, false, {
   scales: {
     x: {
       type: 'category',
-      labels: chartData.value.accessibleData.columnHeaders,
+      labels: props.labels,
       grid: {
         display: false,
       },
@@ -139,11 +139,11 @@ defineExpose({chartData});
         />
       </div>
       <ChartScreenReaderTable
-        :title="$t('stats.weeklyAmounts')"
-        :columnHeaders="chartData.accessibleData.columnHeaders"
+        :title="$t('stats.weeklyHeatmap')"
+        :columnHeaders="labels"
         :rowHeaders="chartData.accessibleData.rowHeaders"
         :data="chartData.accessibleData.data"
-        data-test-id="weekly-amounts-table"
+        data-test-id="weekly-heatmap-table"
       />
     </div>
   </ContentElement>

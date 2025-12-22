@@ -19,6 +19,7 @@ ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
 
 const props = defineProps<{
+  labels: string[];
   weekStarts: DateTime[];
 }>();
 
@@ -26,7 +27,7 @@ const {t} = useI18n();
 
 const {veggiesForWeek} = storeToRefs(useActivityStore());
 
-const {formatWeekString, formatWeekNumber} = useDateTime();
+const {formatWeekString} = useDateTime();
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
@@ -44,8 +45,12 @@ const chartData = computed(() => {
   }));
 
   return {
-    labels: props.weekStarts.map(formatWeekNumber),
-    datasets: datasets.filter(({data}) => data.some((value) => value)),
+    datasets,
+    labels: props.labels,
+    accessibleData: {
+      rowHeaders: datasets.map(({label}) => t(`categories.${label}`)),
+      data: datasets.map(({data}) => data),
+    },
   };
 });
 
@@ -98,9 +103,9 @@ defineExpose({chartData});
       </div>
       <ChartScreenReaderTable
         :title="$t('stats.weeklyCategories')"
-        :columnHeaders="chartData.labels"
-        :rowHeaders="chartData.datasets.map(({label}) => t(`categories.${label}`))"
-        :data="chartData.datasets.map(({data}) => data)"
+        :columnHeaders="labels"
+        :rowHeaders="chartData.accessibleData.rowHeaders"
+        :data="chartData.accessibleData.data"
         data-test-id="weekly-categories-table"
       />
     </div>

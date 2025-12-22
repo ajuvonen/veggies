@@ -3,6 +3,7 @@ import {computed, defineAsyncComponent, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
+import {useDateTime} from '@/hooks/dateTime';
 import AsyncLoader from '@/components/AsyncLoader.vue';
 
 const WeeklyAmountsChart = defineAsyncComponent(
@@ -15,9 +16,13 @@ const WeeklyHeatmap = defineAsyncComponent(() => import('@/components/charts/Wee
 
 const {getWeekStarts} = storeToRefs(useActivityStore());
 
+const {formatWeekNumber} = useDateTime();
+
 const selectedStatistic = ref(0);
 
 const weekStarts = computed(() => getWeekStarts.value.slice().reverse());
+
+const labels = computed(() => weekStarts.value.map(formatWeekNumber));
 
 const statisticOptions = [
   {value: 0, label: 'stats.weeklyAmounts'},
@@ -46,13 +51,21 @@ const statisticOptions = [
       </ContentElement>
     </RadioGroup>
     <AsyncLoader>
-      <WeeklyAmountsChart v-if="selectedStatistic === 0" :weekStarts="weekStarts" />
+      <WeeklyAmountsChart
+        v-if="selectedStatistic === 0"
+        :labels="labels"
+        :weekStarts="weekStarts"
+      />
     </AsyncLoader>
     <AsyncLoader>
-      <WeeklyCategoriesChart v-if="selectedStatistic === 1" :weekStarts="weekStarts" />
+      <WeeklyCategoriesChart
+        v-if="selectedStatistic === 1"
+        :labels="labels"
+        :weekStarts="weekStarts"
+      />
     </AsyncLoader>
     <AsyncLoader>
-      <WeeklyHeatmap v-if="selectedStatistic === 2" :weekStarts="weekStarts" />
+      <WeeklyHeatmap v-if="selectedStatistic === 2" :labels="labels" :weekStarts="weekStarts" />
     </AsyncLoader>
   </div>
 </template>

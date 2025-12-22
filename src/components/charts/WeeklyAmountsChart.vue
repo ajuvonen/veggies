@@ -24,6 +24,7 @@ ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
 
 const props = defineProps<{
+  labels: string[];
   weekStarts: DateTime[];
 }>();
 
@@ -32,18 +33,23 @@ const {veggiesForWeek} = storeToRefs(useActivityStore());
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
-const {formatWeekString, formatWeekNumber} = useDateTime();
+const {formatWeekString} = useDateTime();
 
 const chartData = computed(() => {
+  const data = props.weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length);
+
   return {
-    labels: props.weekStarts.map(formatWeekNumber),
     datasets: [
       {
-        data: props.weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length),
+        data,
         borderColor: COLORS.chartColorsAlternate[2],
         backgroundColor: COLORS.chartColorsAlternate[2],
       },
     ],
+    labels: props.labels,
+    accessibleData: {
+      data,
+    },
   };
 });
 
@@ -105,8 +111,8 @@ defineExpose({chartData});
       </div>
       <ChartScreenReaderTable
         :title="$t('stats.weeklyAmounts')"
-        :columnHeaders="chartData.labels"
-        :data="chartData.datasets.map(({data}) => data)"
+        :columnHeaders="labels"
+        :data="chartData.accessibleData.data"
         data-test-id="weekly-amounts-table"
       />
     </div>
