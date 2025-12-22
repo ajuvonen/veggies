@@ -123,28 +123,23 @@ onMounted(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <ContentElement
-    :title="$t('stats.weeklyHeatmap')"
-    :labelAttrs="{for: 'weekly-heatmap'}"
-    class="flex-1"
-    aria-hidden="true"
-  >
-    <div ref="chartContainer" class="has-scroll m-0 p-0">
-      <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
-        <HeatmapChart
-          id="weekly-heatmap"
-          :options="chartOptions"
-          :data="chartData"
-          data-test-id="weekly-heatmap"
-        />
-      </div>
-      <ChartScreenReaderTable
-        :title="$t('stats.weeklyHeatmap')"
-        :columnHeaders="labels"
-        :rowHeaders="chartData.accessibleData.rowHeaders"
-        :data="chartData.accessibleData.data"
-        data-test-id="weekly-heatmap-table"
+  <div ref="chartContainer" class="has-scroll m-0 p-0">
+    <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
+      <HeatmapChart
+        id="weekly-heatmap"
+        :options="chartOptions"
+        :data="chartData"
+        :aria-label="$t('stats.weeklyHeatmap')"
+        :aria-description="$t('general.seeTableBelow')"
+        data-test-id="weekly-heatmap"
       />
     </div>
-  </ContentElement>
+    <ChartScreenReaderTable
+      :title="$t('stats.weeklyHeatmap')"
+      :columnHeaders="labels"
+      :rowHeaders="chartData.accessibleData.rowHeaders"
+      :data="chartData.accessibleData.data"
+      data-test-id="weekly-heatmap-table"
+    />
+  </div>
 </template>
