@@ -1534,10 +1534,10 @@
     "selectStatistic": "Select Statistic",
     "selectedWeek": "Week {0} ({1}-{2})",
     "veggiesForWeek": "Veggies for Week",
-    "weeklyAmounts": "Weekly Amounts",
+    "weeklyAmounts": "Veggie Count",
     "weeklyAchievements": "Weekly Achievements",
     "weeklyCategories": "Weekly Categories",
-    "weeklyHeatmap": "Weekly Heatmap"
+    "weeklyHeatmap": "Category Popularity"
   },
   "synonyms": {
     "arugula": ["rocket"],
