@@ -1536,9 +1536,9 @@
     "selectedWeek": "Viikko {0} ({1}-{2})",
     "veggiesForWeek": "Viikon kasvikset",
     "weeklyAchievements": "Viikon saavutukset",
-    "weeklyAmounts": "Lukumäärät viikoittain",
-    "weeklyCategories": "Ryhmät viikoittain",
-    "weeklyHeatmap": "Lämpökartta viikoittain"
+    "weeklyAmounts": "Kasvisten lukumäärä",
+    "weeklyCategories": "Viikon kasvisryhmät",
+    "weeklyHeatmap": "Kasvisryhmien suosio"
   },
   "synonyms": {
     "arugula": [""],
