@@ -57,6 +57,10 @@ const chartData = computed(() => {
         backgroundColor: COLORS.chartColorsAlternate,
       },
     ],
+    accessibleData: {
+      data: veggies.map(([, percentage]) => `${percentage} %`),
+      columnHeaders: veggies.map(([category]) => t(`categories.${category}`)),
+    },
   };
 });
 
@@ -114,8 +118,8 @@ defineExpose({chartData});
       />
       <ChartScreenReaderTable
         :title="$t('veggieList.chartTitle')"
-        :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
-        :data="[chartData.datasets[0]!.data.map((value) => `${value} %`)]"
+        :columnHeaders="chartData.accessibleData.columnHeaders"
+        :data="chartData.accessibleData.data"
         data-test-id="veggie-completion-table"
       />
     </div>

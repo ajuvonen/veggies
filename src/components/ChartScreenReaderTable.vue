@@ -1,10 +1,17 @@
 <script lang="ts" setup>
-defineProps<{
-  title: string;
-  columnHeaders: (number | string)[];
-  data: (number | string)[][];
-  rowHeaders?: (number | string)[];
-}>();
+type NumberOrString = number | string;
+
+withDefaults(
+  defineProps<{
+    title: string;
+    columnHeaders: NumberOrString[];
+    data: NumberOrString[] | NumberOrString[][];
+    rowHeaders?: NumberOrString[];
+  }>(),
+  {
+    rowHeaders: () => [],
+  },
+);
 </script>
 <template>
   <table class="sr-only">
@@ -15,21 +22,23 @@ defineProps<{
     </caption>
     <thead>
       <tr>
-        <td v-if="rowHeaders"></td>
+        <td v-if="rowHeaders.length"></td>
         <th v-for="header in columnHeaders" :key="header">{{ header }}</th>
       </tr>
     </thead>
     <tbody>
-      <template v-if="rowHeaders">
+      <template v-if="rowHeaders.length">
         <tr v-for="(header, headerIndex) in rowHeaders" :key="headerIndex">
           <th>{{ header }}</th>
           <td v-for="(_, dataIndex) in columnHeaders" :key="dataIndex">
-            {{ data[headerIndex]?.[dataIndex] ?? '' }}
+            {{ (data as NumberOrString[][])[headerIndex]?.[dataIndex] ?? '' }}
           </td>
         </tr>
       </template>
       <tr v-else>
-        <td v-for="(_, index) in columnHeaders" :key="index">{{ data[0]?.[index] ?? '' }}</td>
+        <td v-for="(_, index) in columnHeaders" :key="index">
+          {{ (data as NumberOrString[])[index] }}
+        </td>
       </tr>
     </tbody>
   </table>

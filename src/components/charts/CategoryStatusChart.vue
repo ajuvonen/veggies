@@ -45,17 +45,21 @@ const translateAndCapitalize = (veggie: string) => {
 
 const chartData = computed(() => {
   const veggies = pipe(props.veggies, countBy(getCategoryForVeggie), entries(), sortBy(prop(1)));
-
+  const data = veggies.map(prop(1));
   return {
     labels: veggies.map(prop(0)),
     datasets: [
       {
-        data: veggies.map(prop(1)),
+        data,
         backgroundColor: props.alternateColorScheme
           ? COLORS.chartColorsAlternate
           : COLORS.chartColors,
       },
     ],
+    accessibleData: {
+      data,
+      columnHeaders: veggies.map(([category]) => t(`categories.${category}`)),
+    },
   };
 });
 
@@ -118,8 +122,8 @@ defineExpose({chartData});
     />
     <ChartScreenReaderTable
       :title="chartTitle"
-      :columnHeaders="chartData.labels.map((category) => t(`categories.${category}`))"
-      :data="[chartData.datasets[0]!.data]"
+      :columnHeaders="chartData.accessibleData.columnHeaders"
+      :data="chartData.accessibleData.data"
       data-test-id="category-status-table"
     />
   </div>
