@@ -502,7 +502,7 @@ describe('useWeekSummary', () => {
         ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.A',
       );
       expect(vitaminAMessage).toBeDefined();
-      expect(vitaminAMessage!.emoji).toBe('💊');
+      expect(vitaminAMessage!.emoji).toBe('🧑‍⚕️');
     });
 
     it('returns message when 1 veggie from a nutrient group is consumed', () => {
@@ -515,7 +515,7 @@ describe('useWeekSummary', () => {
         ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.iron',
       );
       expect(ironMessage).toBeDefined();
-      expect(ironMessage!.emoji).toBe('💊');
+      expect(ironMessage!.emoji).toBe('🧑‍⚕️');
     });
 
     it('does not return message when 2 veggies from a nutrient group are consumed', () => {
