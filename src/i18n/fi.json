@@ -841,6 +841,11 @@
       "Vuonankaali on hyvin ravintotiheä, sisältäen esimerkiksi A- ja C-vitamiinia, sekä rautaa, folaattia ja kaliumia.",
       "Vuonankaali oli käytännössä tuntematon Yhdysvalloissa 1980-luvulle asti."
     ],
+    "maitake": [
+      "Maitake-sientä tavataan luonnossa Japanissa, Kiinassa ja Pohjois-Amerikassa.",
+      "Maitake sopii hyvin soijakastikkeen ja valkosipulin kanssa.",
+      "Yksittäinen japanilainen maitake voi painaa yli 45 kilogrammaa."
+    ],
     "mandarin": [
       "Mandariini on hyvä C-vitamiinin lähde ja se sisältää noin 40 kaloria.",
       "Mandariinit ovat suosittu, helposti kuorittava välipala.",
@@ -1741,6 +1746,7 @@
     "lychee": "litsi",
     "macadamia nut": "macadamiapähkinä",
     "mache": "vuonankaali",
+    "maitake": "maitake",
     "mandarin": "mandariini",
     "mango": "mango",
     "mangosteen": "mangostani",
