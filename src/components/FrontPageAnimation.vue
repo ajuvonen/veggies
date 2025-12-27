@@ -9,7 +9,7 @@ let emojis = getRandomEmojis(4);
 // Halloween
 // emojis = ['🎃', '👻', '🧟', '👽'];
 // Christmas
-emojis = ['🎅', '☃️', '🤶', '🎄'];
+// emojis = ['🎅', '☃️', '🤶', '🎄'];
 </script>
 <template>
   <div class="front-page-animation__container" aria-hidden="true">
