@@ -192,6 +192,7 @@ export const MUSHROOMS: readonly string[] = [
   'enoki',
   'hedgehog mushroom',
   'king oyster mushroom',
+  'maitake',
   'matsutake',
   'morel',
   'oyster mushroom',

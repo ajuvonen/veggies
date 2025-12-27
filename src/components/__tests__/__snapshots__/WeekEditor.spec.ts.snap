@@ -794,7 +794,7 @@ exports[`WeekEditor > renders 1`] = `
         </ul>
         <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Mushroom" data-test-id="veggie-search-group-Mushroom" role="group">
           <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
-            <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🍄‍🟫</span><span data-v-2d6d64fa="" id="veggie-search-label-Mushroom" role="presentation">Mushrooms (16)</span></div>
+            <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🍄‍🟫</span><span data-v-2d6d64fa="" id="veggie-search-label-Mushroom" role="presentation">Mushrooms (17)</span></div>
             <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Mushroom" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
                 </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Mushroom" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -819,34 +819,37 @@ exports[`WeekEditor > renders 1`] = `
           <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-king oyster mushroom" id="headlessui-combobox-option-v-246" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>king oyster mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-matsutake" id="headlessui-combobox-option-v-247" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>matsutake</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-maitake" id="headlessui-combobox-option-v-247" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>maitake</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-morel" id="headlessui-combobox-option-v-248" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>morel</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-matsutake" id="headlessui-combobox-option-v-248" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>matsutake</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-oyster mushroom" id="headlessui-combobox-option-v-249" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>oyster mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-morel" id="headlessui-combobox-option-v-249" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>morel</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-porcini" id="headlessui-combobox-option-v-250" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>porcini</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-oyster mushroom" id="headlessui-combobox-option-v-250" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>oyster mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-portobello" id="headlessui-combobox-option-v-251" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>portobello</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-porcini" id="headlessui-combobox-option-v-251" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>porcini</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shiitake" id="headlessui-combobox-option-v-252" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shiitake</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-portobello" id="headlessui-combobox-option-v-252" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>portobello</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shimeji" id="headlessui-combobox-option-v-253" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shimeji</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shiitake" id="headlessui-combobox-option-v-253" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shiitake</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wild mushroom" id="headlessui-combobox-option-v-254" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wild mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-shimeji" id="headlessui-combobox-option-v-254" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>shimeji</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wood ear mushroom" id="headlessui-combobox-option-v-255" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wood ear mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wild mushroom" id="headlessui-combobox-option-v-255" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wild mushroom</span>
             <!--v-if-->
           </li>
-          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yellowfoot mushroom" id="headlessui-combobox-option-v-256" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yellowfoot mushroom</span>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-wood ear mushroom" id="headlessui-combobox-option-v-256" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>wood ear mushroom</span>
+            <!--v-if-->
+          </li>
+          <li data-v-2d6d64fa="" class="dropdown-list-option" data-test-id="veggie-search-option-yellowfoot mushroom" id="headlessui-combobox-option-v-257" role="option" tabindex="-1" aria-selected="false" data-headlessui-state=""><span>yellowfoot mushroom</span>
             <!--v-if-->
           </li>
         </ul>

@@ -840,6 +840,11 @@
       "Machê is very nutrient-dense, containing for example vitamins A and C, as well as iron, pholate, and potassium.",
       "Machê was virtually unknown in the U.S. until the 1980s."
     ],
+    "maitake": [
+      "Maitake is native to Japan, China, and North America.",
+      "Maitake pairs well with soy sauce and garlic.",
+      "A single Japanese maitake can weigh over 45 kilograms."
+    ],
     "mandarin": [
       "Mandarin is a good source of vitamin C and contains about 40 calories.",
       "Mandarins are a popular, easy-to-peel snack.",
@@ -1740,6 +1745,7 @@
     "lychee": "lychee",
     "macadamia nut": "macadamia nut",
     "mache": "machê",
+    "maitake": "maitake",
     "mandarin": "mandarin",
     "mango": "mango",
     "mangosteen": "mangosteen",
