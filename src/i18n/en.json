@@ -207,7 +207,8 @@
       "A medium apple provides about 14% of the daily recommended vitamin C.",
       "There are over 7,500 apple varieties grown around the world.",
       "Apples have about 25% air in them, which is why they float in water.",
-      "China produces the most apples in the world."
+      "China produces the most apples in the world.",
+      "Apple is the third most produced fruit in the world."
     ],
     "apricot": [
       "Apricots have a high symbolical value in Armenian culture, and they have been called \"Armenian apples\".",
@@ -238,7 +239,8 @@
       "One avocado contains about 22 grams of healthy fats.",
       "Avocados are sometimes called 'alligator pears' due to their appearance.",
       "One avocado provides more potassium than what's found in a banana.",
-      "The pits and other plant parts of avocados are harmful to animals."
+      "The pits and other plant parts of avocados are harmful to animals.",
+      "Mexico is the largest producer of avocados in the world."
     ],
     "bamboo shoots": [
       "Bamboo is used to build scaffolding in Hong Kong.",
@@ -250,7 +252,8 @@
       "One banana provides around 12% of the daily potassium requirement.",
       "Bananas are one of the best sources of vitamin B6, supporting cognitive health.",
       "Bananas can help improve mood as they contain tryptophan, which the body converts to serotonin.",
-      "India is the world's largest producer of bananas."
+      "India is the world's largest producer of bananas.",
+      "Banana is the most produced fruit in the world."
     ],
     "barley": [
       "Barley has been cultivated for over 10,000 years, being one of the first grains farmed by humans.",
@@ -338,7 +341,8 @@
       "According to studies, blueberries can improve cognitive function.",
       "There are over 30 different blueberry varieties in the world.",
       "Unlike bilberries, blueberries are widely cultivated.",
-      "Blueberries are the North American cousin of the European bilberry."
+      "Blueberries are the North American cousin of the European bilberry.",
+      "The global production of blueberries has sextupled since the year 2000."
     ],
     "bok choy": [
       "Both the crispy stalks and tender leaves of bok choy are edible.",
@@ -430,7 +434,8 @@
     "cashew nut": [
       "A 30-gram portion of cashew nuts provides about 5 grams of protein and 13 grams of healthy fats.",
       "Cashew nuts grow on the end of the cashew apple, which is less commonly eaten.",
-      "Cashew nuts are also used in plant-based dairy alternatives."
+      "Cashew nuts are also used in plant-based dairy alternatives.",
+      "Brazil is the largest producer of cashew nuts in the world."
     ],
     "cauliflower": [
       "Cauliflower has gained popularity as a low-carb substitute for rice and pizza crusts.",
@@ -556,7 +561,8 @@
     "cucumber": [
       "Cucumber crops are believed to have originated in South Asia over 3,000 years ago.",
       "Cucumbers are about 96% water.",
-      "It grows from a flower and contains seeds - so botanically cucumber is a fruit."
+      "It grows from a flower and contains seeds - so botanically cucumber is a fruit.",
+      "Almost 95 million tonnes of cucumbers are produced globally each year."
     ],
     "daikon": [
       "Daikon is a winter radish, native to East Asia.",
@@ -767,9 +773,10 @@
       "You can find king oyster mushrooms from Asian grocery stores."
     ],
     "kiwi": [
-      "One kiwi provides more than the daily recommended vitamin C.",
-      "Kiwi was originally known as 'Chinese gooseberry', but its name was changed for marketing in New Zealand.",
-      "The fuzzy skin of the kiwi is edible, though many prefer not to eat it."
+      "One kiwi fruit provides more than the daily recommended vitamin C.",
+      "Kiwi fruit was originally known as 'Chinese gooseberry', but its name was changed for marketing in New Zealand.",
+      "The fuzzy skin of the kiwi fruit is edible, though many prefer not to eat it.",
+      "China is the biggest producer of kiwi fruit."
     ],
     "kohlrabi": [
       "Kohlrabi didn't arrive to the US until the 1800's.",
@@ -954,7 +961,8 @@
     ],
     "papaya": [
       "Papaya is often used in salads, smoothies, and desserts, as well as in traditional medicine.",
-      "India produces the most papayas in the world."
+      "India produces the most papayas in the world.",
+      "The Dominican Republic produces over 115 kilograms of papaya per person annually."
     ],
     "parsley root": [
       "Parsley root can be used the same ways other root vegetables can.",
@@ -1073,7 +1081,8 @@
       "There are about 5,000 cultivated varieties of potato in the world.",
       "The largest potato measured weighed almost five kilos.",
       "Boil 'em, mash 'em, stick 'em in a stew. Potato is a versatile veggie.",
-      "Potato, especially raw, can cause severe poisoning in pets."
+      "Potato, especially raw, can cause severe poisoning in pets.",
+      "Potatoes are the most produced vegetable in the world."
     ],
     "pumpkin seed": [
       "A 30-gram portion of pumpkin seeds provides about 7 grams of protein and is rich in magnesium.",
@@ -1160,7 +1169,9 @@
       "There are over 40,000 rice varieties in the world.",
       "Brown whole-grain rice is healthier than white rice.",
       "Basmati, jasmine, arborio, bomba...choose the right type of rice for your purposes.",
-      "The cultivation of rice has likely begun in the Yangtze river valley."
+      "The cultivation of rice has likely begun in the Yangtze river valley.",
+      "Belarus consumes the least rice per capita in the world.",
+      "China and India are the biggest producers of Rice, but per capita the biggest producer is Guyana."
     ],
     "romaine": [
       "Romaine lettuce is the base ingredient for caesar-salad.",
@@ -1332,7 +1343,8 @@
     "tomato": [
       "Though often considered a vegetable, tomatoes are botanically classified as fruits.",
       "There are over 10,000 varieties of tomato in the world.",
-      "Although they smell wonderful, tomato leaves contain compounds that are harmful to some animals."
+      "Although they smell wonderful, tomato leaves contain compounds that are harmful to some animals.",
+      "Tomato is the third most produced vegetable in the world."
     ],
     "triticale": [
       "Triticale is a hybrid grain created by crossing wheat and rye, combining traits of both.",
@@ -1371,7 +1383,8 @@
       "The aptly named watermelon contains over 90% water.",
       "Watermelon rind is also edible and can be pickled or used in smoothies.",
       "Watermelon is grown in over 90 countries around the world.",
-      "World's heaviest watermelon weighed 159 kg."
+      "World's heaviest watermelon weighed 159 kg.",
+      "Watermelon is the second most produced fruit in the world."
     ],
     "wax gourd": [
       "Wax gourds can grow up to 80 cm long.",
@@ -1905,23 +1918,23 @@
     "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",
     "title": "All done for week {0}!",
     "nutrientMessages": {
-      "A": "Enough vitamin A? It is important for your vision and immune system. Eat for example {0}. Beware of excessive intake.",
-      "B1": "Enough vitamin B1? It supports nerve function. Eat for example {0}.",
-      "B2": "Enough vitamin B2? Riboflavin helps in energy production. Eat for example {0}.",
-      "B3": "Enough vitamin B3? Niacin boosts your metabolism and skin health. Eat for example {0}.",
-      "B5": "Enough vitamin B5? It is needed in hormone production. Eat for example {0}.",
-      "B6": "Enough vitamin B6? It helps in red blood cell formation and regulates moods. Eat for example {0}.",
-      "B7": "Enough vitamin B7? For healthy skin, nails, and hair, eat for example {0}.",
-      "B9": "Enough vitamin B9? Folate is essential during pregnancy. Eat for example {0}.",
-      "C": "Enough vitamin C? It supports immune function and collagen production. Eat for example {0}.",
-      "E": "Enough vitamin E? It helps protect your cells and improves skin health. Eat for example {0}.",
-      "K": "Enough vitamin K? It helps reduce blood clotting. Eat for example {0}.",
-      "calcium": "Enough calcium? It is essential for strong bones. Eat for example {0}, or plant-based dairy products with added calcium.",
-      "fiber": "Enough fiber? It improves digestion and blood sugar regulation. Eat for example {0}.",
-      "iron": "Enough iron? Adequate supply reduces fatigue and improves oxygen transport. Eat for example {0}.",
-      "magnesium": "Enough magnesium? This heart-friendly nutrient improves muscle function. Eat for example {0}.",
-      "potassium": "Enough potassium? It helps regulate blood pressure. Eat for example {0}.",
-      "zinc": "Enough zinc? It boosts your immune system and wound healing. Eat for example {0}."
+      "A": "Vitamin A is important for your vision and immune system. Eat for example {0}. Beware of excessive intake.",
+      "B1": "Vitamin B1 supports nerve function. Eat for example {0}.",
+      "B2": "Vitamin B2 (riboflavin) helps in energy production. Eat for example {0}.",
+      "B3": "Vitamin B3 (niacin) boosts your metabolism and skin health. Eat for example {0}.",
+      "B5": "Vitamin B5 is needed in hormone production. Eat for example {0}.",
+      "B6": "Vitamin B6 helps in red blood cell formation and regulates moods. Eat for example {0}.",
+      "B7": "Vitamin B7 is important for healthy skin, nails, and hair. Eat for example {0}.",
+      "B9": "Vitamin B9 (folate) is essential during pregnancy. Eat for example {0}.",
+      "C": "Vitamin C supports immune function and collagen production. Eat for example {0}.",
+      "E": "Vitamin E helps protect your cells and improves skin health. Eat for example {0}.",
+      "K": "Vitamin K helps reduce blood clotting. Eat for example {0}.",
+      "calcium": "Calcium is essential for strong bones. Eat for example {0}, or plant-based dairy products with added calcium.",
+      "fiber": "Fiber improves digestion and blood sugar regulation. Eat for example {0}.",
+      "iron": "Iron reduces fatigue and improves oxygen transport. Eat for example {0}.",
+      "magnesium": "Magnesium is heart-friendly and improves muscle function. Eat for example {0}.",
+      "potassium": "Potassium helps regulate blood pressure. Eat for example {0}.",
+      "zinc": "Zinc boosts your immune system and wound healing. Eat for example {0}."
     }
   }
 }

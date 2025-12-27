@@ -23,7 +23,7 @@ export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
           .map((veggie) => t(`veggies.${veggie}`).toLowerCase())
           .join(', ');
         messages.push({
-          emoji: '💊',
+          emoji: '🧑‍⚕️',
           translationKey: `weekSummaryDialog.nutrientMessages.${nutrient}`,
           translationParameters: [suggestions],
         });
