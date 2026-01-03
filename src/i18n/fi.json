@@ -142,13 +142,11 @@
       "shareText": "Olen suorittanut {0} Eat Your Veggies -viikkohaastetta! Kokeile ilmaiseksi: {1}",
       "topLabel": "Suoritettu"
     },
-    "copy": "Kopioi saavutus leikepöydälle",
     "over30Veggies": {
       "topLabel": "Yli 30 kasvista",
       "shareText": "Olen onnistunut syömään yli 30 kasvista viikossa {0} kertaa! Kokeile ilmaiseksi: {1}",
       "bottomLabel": "Viikolla"
     },
-    "share": "Jaa saavutus",
     "totalWeeks": {
       "bottomLabel": "Viikkoa|Viikko|Viikkoa",
       "shareText": "Olen käyttänyt Eat Your Veggies -sovellusta {0} viikkoa! Kokeile ilmaiseksi: {1}",
@@ -1458,10 +1456,12 @@
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
     "closeList": "Sulje lista",
+    "copy": "Kopioi leikepöydälle",
     "follow": "Seuraa Blueskyssä",
     "openList": "Avaa lista",
     "playStore": "Google Play",
     "seeTableBelow": "Lisätietoja alla olevassa taulukossa.",
+    "share": "Jakaminen",
     "start": "Aloita",
     "veggie": "0 kasvista | yhden kasviksen | {n} kasvista",
     "veggieNominative": "0 kasvista | yksi kasvis | {n} kasvista"
@@ -1913,11 +1913,6 @@
     "mean": "Keskiarvosi viiden viikon ajalta on @:general.veggieNominative{'.'} Pystytkö ylittämään sen tällä viikolla?",
     "missingCategory": "Et syönyt mitään kategoriasta {0}. Haluatko kokeilla tällä viikolla?",
     "noVeggies": "Et kirjannut kasviksia viime viikolla. Jos vain unohdit kirjata kasviksesi, voit muokata viikkoa tilastonäkymän kautta.",
-    "promotedAchievement": "Kokeile tähdätä tällä viikolla saavutukseen \"{0}\".",
-    "recordAchieved": "Uusi ennätys! Söit @:general.veggie viime viikolla!",
-    "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
-    "surpassedPreviousWeek": "Ohitit edellisen viikon tuloksen (@:general.veggieNominative)!",
-    "title": "Viikko {0} paketissa!",
     "nutrientMessages": {
       "A": "A-vitamiini on tärkeää näölle ja vastustuskyvylle. Syö esimerkiksi: {0}. Varo liiallista saantia.",
       "B1": "B1-vitamiini tukee hermoston toimintaa. Syö esimerkiksi: {0}.",
@@ -1936,6 +1931,12 @@
       "magnesium": "Magnesium on sydänystävällinen kivennäisaine, joka tukee lihasten toimintaa. Syö esimerkiksi: {0}.",
       "potassium": "Kalium auttaa säätelemään verenpainetta. Syö esimerkiksi: {0}.",
       "zinc": "Sinkki tukee vastustuskykyä ja haavojen paranemista. Syö esimerkiksi: {0}."
-    }
+    },
+    "promotedAchievement": "Kokeile tähdätä tällä viikolla saavutukseen \"{0}\".",
+    "recordAchieved": "Uusi ennätys! Söit @:general.veggie viime viikolla!",
+    "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
+    "shareText": "Kokeilin {0} erilaista kasvista viime viikolla\n{1}\n{2}",
+    "surpassedPreviousWeek": "Ohitit edellisen viikon tuloksen (@:general.veggieNominative)!",
+    "title": "Viikko {0} paketissa!"
   }
 }
