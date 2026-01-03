@@ -27,8 +27,10 @@ describe('DropdownList', () => {
     // Check selected value is displayed
     const button = wrapper.findByTestId('dropdown-button');
     if (type === 'object') {
+      // eslint-disable-next-line vitest/no-conditional-expect
       expect(button.text()).toContain('Banana');
     } else {
+      // eslint-disable-next-line vitest/no-conditional-expect
       expect(button.text()).toBe(String(options[1]));
     }
 
