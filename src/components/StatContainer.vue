@@ -1,25 +1,12 @@
 <script setup lang="ts">
-import {useI18n} from 'vue-i18n';
-import {APP_URL} from '@/utils/constants';
+import {useShare} from '@/hooks/share';
 
-const props = defineProps<{
+defineProps<{
   statAmount: number;
   statKey: string;
 }>();
 
-const {t} = useI18n();
-
-const shareSupported = !!navigator.share;
-
-const shareOrCopy = async () =>
-  shareSupported
-    ? await navigator.share({
-        text: t(`allTimeStatus.${props.statKey}.shareText`, [props.statAmount]).trim(),
-        url: APP_URL,
-      })
-    : navigator.clipboard.writeText(
-        t(`allTimeStatus.${props.statKey}.shareText`, [props.statAmount, APP_URL]),
-      );
+const {shareSupported, shareOrCopy} = useShare();
 </script>
 <template>
   <i18n-t scope="global" keypath="categoryStatus.centerLabel">
@@ -28,8 +15,9 @@ const shareOrCopy = async () =>
     <span class="select-none">{{ $t(`allTimeStatus.${statKey}.bottomLabel`, statAmount) }}</span>
   </i18n-t>
   <ButtonComponent
-    v-tippy="shareSupported ? t('allTimeStatus.share') : t('allTimeStatus.copy')"
-    :aria-label="shareSupported ? t('allTimeStatus.share') : t('allTimeStatus.copy')"
+    v-tippy="shareSupported ? $t('general.share') : $t('general.copy')"
+    :icon="shareSupported ? 'shareVariant' : 'contentCopy'"
+    :aria-label="shareSupported ? $t('general.share') : $t('general.copy')"
     :data-test-id="
       shareSupported
         ? `stat-container-share-button-${statKey}`
@@ -37,8 +25,6 @@ const shareOrCopy = async () =>
     "
     variant="text"
     class="absolute left-[calc(50%+3rem)]"
-    @click="shareOrCopy"
-  >
-    <IconComponent :icon="shareSupported ? 'shareVariant' : 'contentCopy'" />
-  </ButtonComponent>
+    @click="shareOrCopy(`allTimeStatus.${statKey}.shareText`, [statAmount])"
+  />
 </template>

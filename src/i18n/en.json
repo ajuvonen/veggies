@@ -142,13 +142,11 @@
       "shareText": "I've completed {0} weekly Eat Your Veggies -challenges! Try for free: {1}",
       "topLabel": "Completed"
     },
-    "copy": "Copy achievement to clipboard",
     "over30Veggies": {
       "bottomLabel": "Weeks|Week|Weeks",
       "shareText": "I've managed to eat over 30 veggies in a week {0} times! Try for free: {1}",
       "topLabel": "Over 30 Veggies in"
     },
-    "share": "Share achievement",
     "totalWeeks": {
       "bottomLabel": "Weeks|Week|Weeks",
       "shareText": "I've used Eat Your Veggies now for {0} weeks! Try for free: {1}",
@@ -1457,10 +1455,12 @@
     "clickToRemove": "Remove {0}",
     "close": "Close",
     "closeList": "Close list",
+    "copy": "Copy to clipboard",
     "follow": "Follow on Bluesky",
     "openList": "Open list",
     "playStore": "Google Play",
     "seeTableBelow": "See table below for details.",
+    "share": "Share",
     "start": "Start",
     "veggie": "0 veggies | one veggie | {n} veggies",
     "veggieNominative": "0 veggies | one veggie | {n} veggies"
@@ -1912,11 +1912,6 @@
     "mean": "Your average over five weeks is @:general.veggieNominative{'.'} Can you beat it this week?",
     "missingCategory": "You didn't eat any {0}. Care to try some this week?",
     "noVeggies": "No veggies logged last week. If you simply forgot to track your veggies, you can edit the week in the statistics view.",
-    "promotedAchievement": "Try aiming for the achievement \"{0}\" this week.",
-    "recordAchieved": "New personal record! You ate @:general.veggie last week!",
-    "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
-    "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",
-    "title": "All done for week {0}!",
     "nutrientMessages": {
       "A": "Vitamin A is important for your vision and immune system. Eat for example {0}. Beware of excessive intake.",
       "B1": "Vitamin B1 supports nerve function. Eat for example {0}.",
@@ -1935,6 +1930,12 @@
       "magnesium": "Magnesium is heart-friendly and improves muscle function. Eat for example {0}.",
       "potassium": "Potassium helps regulate blood pressure. Eat for example {0}.",
       "zinc": "Zinc boosts your immune system and wound healing. Eat for example {0}."
-    }
+    },
+    "promotedAchievement": "Try aiming for the achievement \"{0}\" this week.",
+    "recordAchieved": "New personal record! You ate @:general.veggie last week!",
+    "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
+    "shareText": "I tried {0} different veggies last week\n{1}\n{2}",
+    "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",
+    "title": "All done for week {0}!"
   }
 }
