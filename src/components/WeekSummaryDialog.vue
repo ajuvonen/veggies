@@ -5,8 +5,10 @@ import {mean, sample, shuffle, countBy} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useWeekSummary} from '@/hooks/weekSummary';
-import {AchievementLevel, type Achievements, type WeekData} from '@/types';
-import {getRandomItem} from '@/utils/helpers';
+import {useShare} from '@/hooks/share';
+import {AchievementLevel, Category, type Achievements, type WeekData} from '@/types';
+import {getCategoryForVeggie, getRandomItem} from '@/utils/helpers';
+import {CATEGORY_EMOJI} from '@/utils/constants';
 import ModalDialog from '@/components/ModalDialog.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 import WeekSummaryBadge from '@/components/WeekSummaryBadge.vue';
@@ -27,6 +29,8 @@ const {
 } = storeToRefs(useActivityStore());
 
 const {settings} = storeToRefs(useAppStateStore());
+
+const {shareSupported, shareOrCopy} = useShare();
 
 const dialogOpen = computed({
   get: () =>
@@ -96,6 +100,21 @@ watch(
 const {summaryMessages} = useWeekSummary(lastWeekData);
 const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
 
+const shareWeeklyData = () => {
+  const categoryList: string[] = [];
+  Object.keys(Category).forEach((category) => {
+    const veggiesInCategory = lastWeekData.value!.veggies.filter(
+      (veggie) => getCategoryForVeggie(veggie) === category,
+    );
+    if (veggiesInCategory.length) {
+      categoryList.push(`${CATEGORY_EMOJI[category as Category]}: ${veggiesInCategory.length}`);
+    }
+  });
+
+  const shareProps = [lastWeekData.value!.veggies.length, categoryList.join('\n')];
+  shareOrCopy('weekSummaryDialog.shareText', shareProps);
+};
+
 defineExpose({
   lastWeekData,
 });
@@ -143,6 +162,27 @@ defineExpose({
           }}</span>
         </div>
       </div>
+    </template>
+    <template #buttons>
+      <ButtonComponent
+        v-if="lastWeekData.veggies.length"
+        :icon="shareSupported ? 'shareVariant' : 'contentCopy'"
+        :aria-label="shareSupported ? $t('general.share') : $t('general.copy')"
+        variant="secondary"
+        :data-test-id="
+          shareSupported ? 'week-summary-dialog-share-button' : 'week-summary-dialog-copy-button'
+        "
+        @click="shareWeeklyData"
+      >
+        {{ shareSupported ? $t('general.share') : $t('general.copy') }}
+      </ButtonComponent>
+      <ButtonComponent
+        icon="close"
+        data-test-id="week-summary-dialog-close-button"
+        @click="dialogOpen = false"
+      >
+        {{ $t('general.close') }}
+      </ButtonComponent>
     </template>
   </ModalDialog>
 </template>

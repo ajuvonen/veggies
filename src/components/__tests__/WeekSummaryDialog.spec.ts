@@ -1,4 +1,4 @@
-import {describe, it, expect, beforeEach} from 'vitest';
+import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {take} from 'remeda';
@@ -236,5 +236,85 @@ describe('WeekSummaryDialog', () => {
     expect(summaryItems.length).toBe(3);
     expect(badges.length).toBe(3);
     expect(wrapper.findByTestId('promoted-achievement').exists()).toBe(true);
+  });
+
+  it('does not show share/copy button when no veggies were eaten', () => {
+    activityStore.weeks = [{startDate: lastWeek, veggies: []}];
+    activityStore.startDate = lastWeek;
+
+    const wrapper = mounter();
+
+    expect(wrapper.findByTestId('week-summary-dialog-share-button').exists()).toBe(false);
+    expect(wrapper.findByTestId('week-summary-dialog-copy-button').exists()).toBe(false);
+  });
+
+  it('closes dialog on close button click', async () => {
+    activityStore.startDate = lastWeek;
+    const wrapper = mounter();
+
+    expect(wrapper.find('#week-start-dialog').exists()).toBe(true);
+
+    await wrapper.findByTestId('week-summary-dialog-close-button').trigger('click');
+
+    expect(wrapper.find('#week-start-dialog').exists()).toBe(false);
+    expect(wrapper.vm.lastWeekData).toBeNull();
+  });
+
+  it('copies to clipboard', async () => {
+    const clipboard = navigator.clipboard;
+    Object.assign(navigator, {
+      clipboard: {
+        writeText: vi.fn(),
+      },
+    });
+
+    activityStore.weeks = [
+      {startDate: lastWeek, veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli']},
+    ];
+    activityStore.startDate = lastWeek;
+
+    const wrapper = mounter();
+
+    await wrapper.findByTestId('week-summary-dialog-copy-button').trigger('click');
+
+    const expectedText = `I tried 5 different veggies last week
+🍎: 1
+🥦: 2
+🥬: 1
+🥕: 1
+https://eatyourveggies.app`;
+
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(expectedText);
+
+    Object.assign(navigator, {clipboard});
+  });
+
+  it('shares', async () => {
+    const share = navigator.share;
+    Object.assign(navigator, {
+      share: vi.fn(),
+    });
+
+    activityStore.weeks = [
+      {startDate: lastWeek, veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli']},
+    ];
+    activityStore.startDate = lastWeek;
+
+    const wrapper = mounter();
+
+    await wrapper.findByTestId('week-summary-dialog-share-button').trigger('click');
+
+    const expectedText = `I tried 5 different veggies last week
+🍎: 1
+🥦: 2
+🥬: 1
+🥕: 1`;
+
+    expect(navigator.share).toHaveBeenCalledWith({
+      text: expectedText,
+      url: 'https://eatyourveggies.app',
+    });
+
+    Object.assign(navigator, {share});
   });
 });
