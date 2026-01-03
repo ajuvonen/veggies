@@ -86,7 +86,7 @@ watch(model, (value) => {
 
 .modal-dialog__title,
 .modal-dialog__content {
-  @apply text-[--color-text-alternative];
+  @apply text-[--color-text-alternative] fill-[--color-text-alternative];
 }
 
 .modal-dialog__buttons {
