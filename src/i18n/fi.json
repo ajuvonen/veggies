@@ -364,6 +364,11 @@
       "Broccolini on lehtineen ja varsineen kokonaan syötävä.",
       "Broccolini sopii hyvin yhteen sitruunan, valkosipulin, soijakastikkeen tai seesamiöljyn kanssa."
     ],
+    "brown bean": [
+      "Ruskeilla pavuilla tarkoitetaan yleensä skandinaavista phaseus vulgaris -alalajiketta.",
+      "Toisin kuin pintopavut, jotka muuttuvat kypsennettäessä ruskeiksi, ruskeat pavut ovat jo raakoina yksivärisiä.",
+      "Ruskeat pavut sisältävät paljon rautaa, folaattia, magnesiumia ja kaliumia."
+    ],
     "brown lentil": [
       "Ruskeita linssejä on käytetty jo antiikin Kreikassa ja Egyptissä.",
       "Ruskeita linssejä käytetään keitoissa ja pataruoissa, koska ne säilyttävät muotonsa kypsennyksen aikana."
@@ -829,6 +834,11 @@
       "Longania kutsutaan myös \"lohikäärmeen silmäksi\".",
       "Longan on maultaan kuin vähemmän hapan litsihedelmä.",
       "Perinteisessä lääketieteessä longanilla uskotaan olevan rauhoittava vaikutus."
+    ],
+    "lotus root": [
+      "Lootusjuuri on lootuskasvin syötävä maanalainen osa, jota käytetään yleisesti aasialaisessa keittiössä.",
+      "Viipaloitua lootusjuurta käytetään monissa ruokalajeissa, kuten wokeissa, keitoissa ja tempurana.",
+      "Lootusjuuren viipaleiden reiät ovat ilmakanavia, jotka auttavat kasvia selviytymään veden alla."
     ],
     "lychee": [
       "Litsi on kotoisin Kiinasta, ja sitä on viljelty yli 2 000 vuotta.",
@@ -1660,6 +1670,7 @@
     "brazil nut": "parapähkinä",
     "broccoli": "parsakaali",
     "broccolini": "broccolini",
+    "brown bean": "ruskea papu",
     "brown lentil": "ruskea linssi",
     "brussels sprouts": "ruusukaali",
     "buckwheat": "tattari",
@@ -1756,6 +1767,7 @@
     "lingonberry": "puolukka",
     "little gem lettuce": "sydänsalaatti",
     "longan": "longaani",
+    "lotus root": "lootusjuuri",
     "lychee": "litsi",
     "macadamia nut": "macadamiapähkinä",
     "mache": "vuonankaali",
