@@ -37,19 +37,19 @@ describe('WeekSummaryDialog', () => {
 
   it('does not show dialog when no startDate is set', async () => {
     const wrapper = mounter();
-    expect(wrapper.find('#week-start-dialog').exists()).toBe(false);
+    expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(false);
   });
 
   it('does not show dialog when in the first week (startDate equals currentWeekStart)', async () => {
     activityStore.startDate = currentWeek;
     const wrapper = mounter();
-    expect(wrapper.find('#week-start-dialog').exists()).toBe(false);
+    expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(false);
   });
 
   it('shows dialog when not in first week and summaryViewedDate is null', async () => {
     activityStore.startDate = lastWeek;
     const wrapper = mounter();
-    expect(wrapper.find('#week-start-dialog').exists()).toBe(true);
+    expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(true);
   });
 
   it('shows dialog when not in first week and summaryViewedDate is from previous week', async () => {
@@ -59,7 +59,7 @@ describe('WeekSummaryDialog', () => {
     appStateStore.settings.summaryViewedDate = twoWeeksAgo;
 
     const wrapper = mounter();
-    expect(wrapper.find('#week-start-dialog').exists()).toBe(true);
+    expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(true);
   });
 
   it('does not show dialog when summaryViewedDate is current week', async () => {
@@ -69,7 +69,7 @@ describe('WeekSummaryDialog', () => {
     appStateStore.settings.summaryViewedDate = currentWeek;
 
     const wrapper = mounter();
-    expect(wrapper.find('#week-start-dialog').exists()).toBe(false);
+    expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(false);
   });
 
   it('calculates basic week data properties correctly', () => {
@@ -252,11 +252,11 @@ describe('WeekSummaryDialog', () => {
     activityStore.startDate = lastWeek;
     const wrapper = mounter();
 
-    expect(wrapper.find('#week-start-dialog').exists()).toBe(true);
+    expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(true);
 
     await wrapper.findByTestId('week-summary-dialog-close-button').trigger('click');
 
-    expect(wrapper.find('#week-start-dialog').exists()).toBe(false);
+    expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(false);
     expect(wrapper.vm.lastWeekData).toBeNull();
   });
 
