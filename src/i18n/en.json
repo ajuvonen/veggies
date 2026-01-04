@@ -364,6 +364,11 @@
       "Broccolini's entire plant is tender and edible, including the thin stems and leaves.",
       "Broccolini pairs beautifully with lemon, garlic, soy sauce, or sesame oil."
     ],
+    "brown bean": [
+      "Brown beans usually refer to the Scandinavian phaseus vulgaris subspecies.",
+      "Unlike pinto beans, which turn brown when cooked, brown beans are already a solid color when raw.",
+      "Brown beans are rich in iron, folate, magnesium, and potassium."
+    ],
     "brown lentil": [
       "Brown lentils have been used since ancient Greece and Egypt.",
       "Brown lentils are used in soups and stews due to their ability to hold their shape during cooking."
@@ -828,6 +833,11 @@
       "Longan is also called \"the dragon's eye\".",
       "Longan tastes like a less acidic lychee.",
       "In traditional medicine, longan is thought to have a calming effect."
+    ],
+    "lotus root": [
+      "Lotus root is the edible underground part of the lotus plant, commonly used in Asian cuisine.",
+      "Sliced lotus root has many culinary uses, including stir-fries, soups, and tempura.",
+      "The holes in lotus root slices are air channels that help the plant survive underwater."
     ],
     "lychee": [
       "Lychee is native to China and has been cultivated for over 2,000 years.",
@@ -1659,6 +1669,7 @@
     "brazil nut": "brazil nut",
     "broccoli": "broccoli",
     "broccolini": "broccolini",
+    "brown bean": "brown bean",
     "brown lentil": "brown lentil",
     "brussels sprouts": "brussels sprouts",
     "buckwheat": "buckwheat",
@@ -1755,6 +1766,7 @@
     "lingonberry": "lingonberry",
     "little gem lettuce": "little gem lettuce",
     "longan": "longan",
+    "lotus root": "lotus root",
     "lychee": "lychee",
     "macadamia nut": "macadamia nut",
     "mache": "machê",
