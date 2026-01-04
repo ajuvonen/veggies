@@ -160,7 +160,7 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
   await expect(page.getByTestId('category-status-chart-center-label')).toContainText(
     'Last Week 4 Veggies',
   );
-  await page.getByTestId('dialog-close-button').click();
+  await page.getByTestId('week-summary-dialog-close-button').click();
   await expect(page.getByTestId('dialog')).toBeHidden();
   await expect(page.getByTestId('front-page-animation')).toBeVisible();
   await browserContext.close();
