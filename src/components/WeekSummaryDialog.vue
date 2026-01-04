@@ -122,10 +122,10 @@ defineExpose({
 
 <template>
   <ModalDialog
-    id="week-start-dialog"
     v-if="lastWeekData"
     v-model="dialogOpen"
     :title="$t('weekSummaryDialog.title', [lastWeekData.weekNumber])"
+    data-test-id="week-summary-dialog"
   >
     <template #content>
       <div class="flex gap-4 flex-col">
