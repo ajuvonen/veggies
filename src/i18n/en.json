@@ -134,27 +134,27 @@
   "allTimeStatus": {
     "atMostVeggies": {
       "bottomLabel": "Weekly Veggies|Weekly Veggie|Weekly Veggies",
-      "shareText": "I've tried as many as {0} different vegetables in one week! Try for free: {1}",
+      "shareText": "I've eaten as many as {0} different vegetables in one week! Try it out:\n{1}",
       "topLabel": "At Most"
     },
     "completedChallenges": {
       "bottomLabel": "Weekly Challenges|Weekly Challenge|Weekly Challenges",
-      "shareText": "I've completed {0} weekly Eat Your Veggies -challenges! Try for free: {1}",
+      "shareText": "I've completed {0} weekly Eat Your Veggies -challenges! Try it out:\n{1}",
       "topLabel": "Completed"
     },
     "over30Veggies": {
       "bottomLabel": "Weeks|Week|Weeks",
-      "shareText": "I've managed to eat over 30 veggies in a week {0} times! Try for free: {1}",
+      "shareText": "I've eaten over 30 veggies in a week {0} times! Try it out:\n{1}",
       "topLabel": "Over 30 Veggies in"
     },
     "totalWeeks": {
       "bottomLabel": "Weeks|Week|Weeks",
-      "shareText": "I've used Eat Your Veggies now for {0} weeks! Try for free: {1}",
+      "shareText": "I've used Eat Your Veggies for {0} weeks! Try it out:\n{1}",
       "topLabel": "In Total"
     },
     "uniqueVeggies": {
       "bottomLabel": "Unique Veggies|Unique Veggie|Unique Veggies",
-      "shareText": "So far, I've tried {0} unique veggies! Try for free: {1}",
+      "shareText": "I've eaten {0} unique veggies so far! Try it out:\n{1}",
       "topLabel": "In Total"
     }
   },
@@ -1946,7 +1946,7 @@
     "promotedAchievement": "Try aiming for the achievement \"{0}\" this week.",
     "recordAchieved": "New personal record! You ate @:general.veggie last week!",
     "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
-    "shareText": "I tried {0} different veggies last week\n{1}\n{2}",
+    "shareText": "I ate {0} different veggies last week\n{1}\nTry it out:\n{2}",
     "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",
     "title": "All done for week {0}!"
   }

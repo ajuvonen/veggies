@@ -3,7 +3,7 @@ import {useShare} from '@/hooks/share';
 import {APP_URL} from '@/utils/constants';
 import {withSetup} from './testHelpers';
 
-describe('useShare', () => {
+describe('share', () => {
   let originalShare: typeof navigator.share | undefined;
   let originalClipboard: typeof navigator.clipboard;
 
@@ -56,7 +56,7 @@ describe('useShare', () => {
       const callArgs = mockShare.mock.calls[0][0];
       expect(callArgs).toHaveProperty('text');
       expect(callArgs).toHaveProperty('url', APP_URL);
-      expect(callArgs.text).toContain("I've used Eat Your Veggies now for 5 weeks");
+      expect(callArgs.text).toContain("I've used Eat Your Veggies for 5 weeks! Try it out:\n");
       expect(callArgs.text).not.toContain(APP_URL);
     });
 
@@ -77,8 +77,7 @@ describe('useShare', () => {
       // Verify clipboard.writeText was called
       expect(mockWriteText).toHaveBeenCalledTimes(1);
       const text = mockWriteText.mock.calls[0][0];
-      expect(text).toContain("I've used Eat Your Veggies now for 5 weeks");
-      expect(text).toContain(APP_URL);
+      expect(text).toBe(`I've used Eat Your Veggies for 5 weeks! Try it out:\n${APP_URL}`);
     });
   });
 });

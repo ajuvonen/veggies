@@ -277,11 +277,12 @@ describe('WeekSummaryDialog', () => {
 
     await wrapper.findByTestId('week-summary-dialog-copy-button').trigger('click');
 
-    const expectedText = `I tried 5 different veggies last week
+    const expectedText = `I ate 5 different veggies last week
 🍎: 1
 🥦: 2
 🥬: 1
 🥕: 1
+Try it out:
 https://eatyourveggies.app`;
 
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(expectedText);
@@ -304,11 +305,12 @@ https://eatyourveggies.app`;
 
     await wrapper.findByTestId('week-summary-dialog-share-button').trigger('click');
 
-    const expectedText = `I tried 5 different veggies last week
+    const expectedText = `I ate 5 different veggies last week
 🍎: 1
 🥦: 2
 🥬: 1
-🥕: 1`;
+🥕: 1
+Try it out:\n`;
 
     expect(navigator.share).toHaveBeenCalledWith({
       text: expectedText,
