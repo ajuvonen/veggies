@@ -134,27 +134,27 @@
   "allTimeStatus": {
     "atMostVeggies": {
       "bottomLabel": "Kasvista viikossa|Kasvis viikossa|Kasvista viikossa",
-      "shareText": "Viikossa kokeilemieni erilaisten kasvisten enimmäismäärä on nyt {0}! Kokeile ilmaiseksi: {1}",
+      "shareText": "Viikossa syömieni erilaisten kasvisten enimmäismäärä on nyt {0}! Kokeile itse:\n{1}",
       "topLabel": "Enimmillään"
     },
     "completedChallenges": {
       "bottomLabel": "Viikkohaastetta|Viikkohaaste|Viikkohaastetta",
-      "shareText": "Olen suorittanut {0} Eat Your Veggies -viikkohaastetta! Kokeile ilmaiseksi: {1}",
+      "shareText": "Olen suorittanut {0} Eat Your Veggies -viikkohaastetta! Kokeile itse:\n{1}",
       "topLabel": "Suoritettu"
     },
     "over30Veggies": {
       "topLabel": "Yli 30 kasvista",
-      "shareText": "Olen onnistunut syömään yli 30 kasvista viikossa {0} kertaa! Kokeile ilmaiseksi: {1}",
+      "shareText": "Olen syönyt yli 30 kasvista viikossa {0} kertaa! Kokeile itse:\n{1}",
       "bottomLabel": "Viikolla"
     },
     "totalWeeks": {
       "bottomLabel": "Viikkoa|Viikko|Viikkoa",
-      "shareText": "Olen käyttänyt Eat Your Veggies -sovellusta {0} viikkoa! Kokeile ilmaiseksi: {1}",
+      "shareText": "Olen käyttänyt Eat Your Veggies -sovellusta {0} viikkoa! Kokeile itse:\n{1}",
       "topLabel": "Yhteensä"
     },
     "uniqueVeggies": {
       "bottomLabel": "Erilaista kasvista|Erilainen kasvis|Erilaista kasvista",
-      "shareText": "Olen syönyt yhteensä {0} erilaista kasvista! Kokeile ilmaiseksi: {1}",
+      "shareText": "Olen syönyt yhteensä {0} uniikkia kasvista! Kokeile itse:\n{1}",
       "topLabel": "Yhteensä"
     }
   },
@@ -1947,7 +1947,7 @@
     "promotedAchievement": "Kokeile tähdätä tällä viikolla saavutukseen \"{0}\".",
     "recordAchieved": "Uusi ennätys! Söit @:general.veggie viime viikolla!",
     "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
-    "shareText": "Kokeilin {0} erilaista kasvista viime viikolla\n{1}\n{2}",
+    "shareText": "Söin {0} erilaista kasvista viime viikolla:\n{1}\nKokeile itse:\n{2}",
     "surpassedPreviousWeek": "Ohitit edellisen viikon tuloksen (@:general.veggieNominative)!",
     "title": "Viikko {0} paketissa!"
   }

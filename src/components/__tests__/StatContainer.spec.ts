@@ -89,7 +89,7 @@ describe('StatContainer', () => {
 
     await wrapper.findByTestId('stat-container-copy-button-totalWeeks').trigger('click');
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
-      "I've used Eat Your Veggies now for 0 weeks! Try for free: https://eatyourveggies.app",
+      "I've used Eat Your Veggies for 0 weeks! Try it out:\nhttps://eatyourveggies.app",
     );
     Object.assign(navigator, {clipboard});
   });
@@ -110,7 +110,7 @@ describe('StatContainer', () => {
     await wrapper.findByTestId('stat-container-share-button-totalWeeks').trigger('click');
     expect(navigator.share).toHaveBeenCalledWith({
       url: 'https://eatyourveggies.app',
-      text: "I've used Eat Your Veggies now for 0 weeks! Try for free:",
+      text: "I've used Eat Your Veggies for 0 weeks! Try it out:\n",
     });
     Object.assign(navigator, {share});
   });
