@@ -4,7 +4,7 @@ import {mount} from '@vue/test-utils';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useActivityStore} from '@/stores/activityStore';
 import SettingsView from '@/views/SettingsView.vue';
-import DialogStub from './DialogStub.vue';
+import DialogStub from '@/test-utils/DialogStub.vue';
 
 const mocks = vi.hoisted(() => ({
   usePreferredReducedMotion: vi.fn(() => computed(() => 'no-preference')),

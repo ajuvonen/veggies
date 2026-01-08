@@ -1,7 +1,7 @@
 import {describe, it, expect} from 'vitest';
 import {mount, type ComponentMountingOptions} from '@vue/test-utils';
 import ModalDialog from '@/components/ModalDialog.vue';
-import DialogStub from './DialogStub.vue';
+import DialogStub from '@/test-utils/DialogStub.vue';
 
 const mounter = (options?: Partial<ComponentMountingOptions<typeof ModalDialog>>) =>
   mount(ModalDialog, {
