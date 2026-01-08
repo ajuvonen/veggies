@@ -56,7 +56,7 @@ describe('share', () => {
       const callArgs = mockShare.mock.calls[0][0];
       expect(callArgs).toHaveProperty('text');
       expect(callArgs).toHaveProperty('url', APP_URL);
-      expect(callArgs.text).toContain("I've used Eat Your Veggies for 5 weeks! Try it out:\n");
+      expect(callArgs.text).toContain("I've used Eat Your Veggies for 5 weeks! Try it out:");
       expect(callArgs.text).not.toContain(APP_URL);
     });
 

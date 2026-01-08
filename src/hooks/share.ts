@@ -9,7 +9,7 @@ export function useShare() {
   const shareOrCopy = async (shareKey: string, shareProps: (string | number)[]) =>
     shareSupported
       ? await navigator.share({
-          text: t(shareKey, shareProps),
+          text: t(shareKey, shareProps).trim(),
           url: APP_URL,
         })
       : navigator.clipboard.writeText(t(shareKey, [...shareProps, APP_URL]));
