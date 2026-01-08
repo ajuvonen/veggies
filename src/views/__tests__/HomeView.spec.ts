@@ -1,8 +1,8 @@
 import {describe, it, expect, vi, afterEach, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import HomeView from '@/views/HomeView.vue';
-import DialogStub from './DialogStub.vue';
 import {useAppStateStore} from '@/stores/appStateStore';
+import HomeView from '@/views/HomeView.vue';
+import DialogStub from '@/test-utils/DialogStub.vue';
 
 describe('HomeView', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;

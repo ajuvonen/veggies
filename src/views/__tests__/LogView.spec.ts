@@ -2,8 +2,8 @@ import {computed} from 'vue';
 import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
-import LogView from '@/views/LogView.vue';
 import {useActivityStore} from '@/stores/activityStore';
+import LogView from '@/views/LogView.vue';
 
 const mocks = vi.hoisted(() => ({
   usePreferredReducedMotion: vi.fn(() => computed(() => 'no-preference')),

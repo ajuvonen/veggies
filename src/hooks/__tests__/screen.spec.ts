@@ -1,6 +1,6 @@
 import {describe, it, expect, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
-import ScreenTestComponent from './ScreenTestComponent.vue';
+import ScreenTestComponent from '@/test-utils/ScreenTestComponent.vue';
 
 describe('screen', () => {
   it('detects window resizes', async () => {
