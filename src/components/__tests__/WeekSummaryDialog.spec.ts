@@ -310,7 +310,7 @@ https://eatyourveggies.app`;
 🥦: 2
 🥬: 1
 🥕: 1
-Try it out:\n`;
+Try it out:`;
 
     expect(navigator.share).toHaveBeenCalledWith({
       text: expectedText,
