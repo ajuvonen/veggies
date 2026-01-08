@@ -1,13 +1,13 @@
 import {beforeEach, vi} from 'vitest';
 import {config, mount} from '@vue/test-utils';
 import {createTestingPinia} from '@pinia/testing';
-import createI18n from './src/i18n';
-import en from './src/i18n/en.json';
-import {KEYS} from './src/utils/constants';
-import router from './src/router';
-import ButtonComponent from './src/components/ButtonComponent.vue';
-import IconComponent from './src/components/IconComponent.vue';
-import ContentElement from './src/components/ContentElement.vue';
+import createI18n from '@/i18n';
+import en from '@/i18n/en.json';
+import {KEYS} from '@/utils/constants';
+import router from '@/router';
+import ButtonComponent from '@/components/ButtonComponent.vue';
+import IconComponent from '@/components/IconComponent.vue';
+import ContentElement from '@/components/ContentElement.vue';
 
 config.global.plugins = [createI18n(en), router];
 
