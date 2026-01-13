@@ -70,6 +70,7 @@ export default defineConfig({
       use: {
         ...devices['iPhone 15'],
       },
+      timeout: 15 * 1000,
     },
   ],
 
