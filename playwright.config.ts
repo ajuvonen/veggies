@@ -48,21 +48,27 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'Chromium',
       use: {
         ...devices['Desktop Chrome'],
       },
     },
     {
-      name: 'firefox',
+      name: 'Firefox',
       use: {
         ...devices['Desktop Firefox'],
       },
     },
     {
-      name: 'Mobile Chrome',
+      name: 'Android',
       use: {
-        ...devices['Pixel 5'],
+        ...devices['Pixel 7'],
+      },
+    },
+    {
+      name: 'iOS',
+      use: {
+        ...devices['iPhone 15'],
       },
     },
   ],
