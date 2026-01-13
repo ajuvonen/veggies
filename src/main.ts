@@ -6,6 +6,10 @@ import router from '@/router';
 import createI18n from '@/i18n';
 import {KEYS} from '@/utils/constants';
 import {useDropdown} from '@/hooks/dropdown';
+import ButtonComponent from '@/components/ui/ButtonComponent.vue';
+import ContentElement from '@/components/ui/ContentElement.vue';
+import IconComponent from '@/components/ui/IconComponent.vue';
+import ModalDialog from '@/components/ui/ModalDialog.vue';
 
 import '@fontsource/bungee-shade/latin-400.css';
 import '@fontsource/nunito/latin-400.css';
@@ -24,8 +28,8 @@ app
     },
   })
   .provide(KEYS.dropdownStyles, getDropdownStyles)
-  .component('ButtonComponent', () => import('@/components/ui/ButtonComponent.vue'))
-  .component('ContentElement', () => import('@/components/ui/ContentElement.vue'))
-  .component('IconComponent', () => import('@/components/ui/IconComponent.vue'))
-  .component('ModalDialog', () => import('@/components/ui/ModalDialog.vue'))
+  .component('ButtonComponent', ButtonComponent)
+  .component('ContentElement', ContentElement)
+  .component('IconComponent', IconComponent)
+  .component('ModalDialog', ModalDialog)
   .mount('#app');
