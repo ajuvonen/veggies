@@ -6,9 +6,6 @@ import router from '@/router';
 import createI18n from '@/i18n';
 import {KEYS} from '@/utils/constants';
 import {useDropdown} from '@/hooks/dropdown';
-import IconComponent from '@/components/IconComponent.vue';
-import ButtonComponent from '@/components/ButtonComponent.vue';
-import ContentElement from '@/components/ContentElement.vue';
 
 import '@fontsource/bungee-shade/latin-400.css';
 import '@fontsource/nunito/latin-400.css';
@@ -27,7 +24,7 @@ app
     },
   })
   .provide(KEYS.dropdownStyles, getDropdownStyles)
-  .component('IconComponent', IconComponent)
-  .component('ButtonComponent', ButtonComponent)
-  .component('ContentElement', ContentElement)
+  .component('IconComponent', () => import('@/components/IconComponent.vue'))
+  .component('ButtonComponent', () => import('@/components/ButtonComponent.vue'))
+  .component('ContentElement', () => import('@/components/ContentElement.vue'))
   .mount('#app');
