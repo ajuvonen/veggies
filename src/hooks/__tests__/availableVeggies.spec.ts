@@ -11,7 +11,7 @@ import {
   VEGETABLES,
 } from '@/utils/veggieDetails';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {withSetup} from './testHelpers';
+import {withSetup} from '@/test-utils';
 
 describe('availableVeggies', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;

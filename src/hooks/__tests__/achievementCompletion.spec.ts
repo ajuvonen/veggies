@@ -3,7 +3,7 @@ import {describe, it, expect} from 'vitest';
 import {take} from 'remeda';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
-import {withSetup} from './testHelpers';
+import {withSetup} from '@/test-utils';
 
 describe('achievementCompletion', () => {
   it('Calculates multipliers correctly', () => {

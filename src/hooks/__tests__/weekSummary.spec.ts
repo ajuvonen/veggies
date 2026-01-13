@@ -5,7 +5,7 @@ import {useWeekSummary} from '@/hooks/weekSummary';
 import type {WeekData} from '@/types';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {withSetup} from './testHelpers';
+import {withSetup} from '@/test-utils';
 
 const createWeekData = (overrides: Partial<WeekData> = {}): WeekData => ({
   atMostVeggies: 10,

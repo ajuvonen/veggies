@@ -1,7 +1,7 @@
 import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
 import {useShare} from '@/hooks/share';
 import {APP_URL} from '@/utils/constants';
-import {withSetup} from './testHelpers';
+import {withSetup} from '@/test-utils';
 
 describe('share', () => {
   let originalShare: typeof navigator.share | undefined;
