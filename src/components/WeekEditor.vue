@@ -63,8 +63,8 @@ provide(KEYS.challenge, readonly(selectedChallenge));
         )"
         :key="achievement"
         :achievement="achievement as keyof Achievements"
-        :level="(level as number) || AchievementLevel.Gold"
-        :active="(level as number) >= AchievementLevel.Gold"
+        :level="level || AchievementLevel.Gold"
+        :active="level >= AchievementLevel.Gold"
         :degree="weeklyCompletion[achievement as keyof Achievements]"
         noLabel
       />
