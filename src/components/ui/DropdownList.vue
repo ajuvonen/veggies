@@ -10,9 +10,9 @@ import {
 } from '@headlessui/vue';
 import {useScreen} from '@/hooks/screen';
 import {KEYS} from '@/utils/constants';
-import ButtonComponent from '@/components/ButtonComponent.vue';
-import IconComponent from '@/components/IconComponent.vue';
-import ContentElement from '@/components/ContentElement.vue';
+import ButtonComponent from '@/components/ui/ButtonComponent.vue';
+import IconComponent from '@/components/ui/IconComponent.vue';
+import ContentElement from '@/components/ui/ContentElement.vue';
 
 withDefaults(
   defineProps<{

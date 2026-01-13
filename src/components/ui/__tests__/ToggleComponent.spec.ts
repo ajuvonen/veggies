@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
-import ToggleComponent from '@/components/ToggleComponent.vue';
+import ToggleComponent from '@/components/ui/ToggleComponent.vue';
 
 describe('ToggleComponent', () => {
   it('renders correctly', () => {

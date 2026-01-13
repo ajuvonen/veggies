@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
-import DropdownList from '@/components/DropdownList.vue';
+import DropdownList from '@/components/ui/DropdownList.vue';
 
 const stringOptions = ['Apple', 'Banana', 'Cherry'];
 const numberOptions = [1, 2, 3];

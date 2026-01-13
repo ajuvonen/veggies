@@ -9,7 +9,6 @@ import {useShare} from '@/hooks/share';
 import {AchievementLevel, Category, type Achievements, type WeekData} from '@/types';
 import {getCategoryForVeggie, getRandomItem} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
-import ModalDialog from '@/components/ModalDialog.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
 import WeekSummaryBadge from '@/components/WeekSummaryBadge.vue';
 

@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
-import IconComponent, {type IconString} from '@/components/IconComponent.vue';
+import IconComponent, {type IconString} from '@/components/ui/IconComponent.vue';
 
 const icons: IconString[] = [
   'arrowLeft',

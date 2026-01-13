@@ -6,13 +6,12 @@ import {useChartAnimations} from '@/hooks/chartAnimations';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import LocaleChanger from '@/components/LocaleChanger.vue';
-import ModalDialog from '@/components/ModalDialog.vue';
 import QAComponent from '@/components/QAComponent.vue';
 import ExportImport from '@/components/ExportImport.vue';
 import BuildTime from '@/components/BuildTime.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
-import ToggleComponent from '@/components/ToggleComponent.vue';
+import ToggleComponent from '@/components/ui/ToggleComponent.vue';
 
 const router = useRouter();
 

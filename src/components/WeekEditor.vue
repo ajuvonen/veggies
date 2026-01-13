@@ -9,7 +9,7 @@ import {useAchievementCompletion} from '@/hooks/achievementCompletion';
 import TagsComponent from '@/components/TagsComponent.vue';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import AchievementBadge from '@/components/AchievementBadge.vue';
-import DropdownList from '@/components/DropdownList.vue';
+import DropdownList from '@/components/ui/DropdownList.vue';
 
 const activityStore = useActivityStore();
 const {getWeekStarts, veggiesForWeek, challenges, weeklyAchievements} = storeToRefs(activityStore);

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {computed} from 'vue';
-import type {IconString} from '@/components/IconComponent.vue';
+import type {IconString} from '@/components/ui/IconComponent.vue';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'tag' | 'remove' | 'text';
 

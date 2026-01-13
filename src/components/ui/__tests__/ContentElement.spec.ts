@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
-import ContentElement from '@/components/ContentElement.vue';
+import ContentElement from '@/components/ui/ContentElement.vue';
 
 describe('ContentElement', () => {
   it('renders', () => {
