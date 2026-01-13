@@ -5,16 +5,18 @@ import createI18n from '@/i18n';
 import en from '@/i18n/en.json';
 import {KEYS} from '@/utils/constants';
 import router from '@/router';
-import ButtonComponent from '@/components/ButtonComponent.vue';
-import IconComponent from '@/components/IconComponent.vue';
-import ContentElement from '@/components/ContentElement.vue';
+import ButtonComponent from '@/components/ui/ButtonComponent.vue';
+import ContentElement from '@/components/ui/ContentElement.vue';
+import IconComponent from '@/components/ui/IconComponent.vue';
+import ModalDialog from '@/components/ui/ModalDialog.vue';
 
 config.global.plugins = [createI18n(en), router];
 
 config.global.components = {
   ButtonComponent,
-  IconComponent,
   ContentElement,
+  IconComponent,
+  ModalDialog,
 };
 
 config.global.directives = {

@@ -2,7 +2,7 @@
 
 exports[`LogView > renders 1`] = `
 "<div data-v-487fdf11="" class="relative z-20"><input data-v-487fdf11="" aria-label="Add Weekly Veggies" aria-expanded="false" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="" id="veggie-search-input" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="">
-  <!--v-if--><button data-v-24e38f3d="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-label="Open list" aria-expanded="false" aria-haspopup="listbox" aria-controls="veggie-search-options" data-test-id="veggie-search-toggle-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+  <!--v-if--><button data-v-ee781121="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-label="Open list" aria-expanded="false" aria-haspopup="listbox" aria-controls="veggie-search-options" data-test-id="veggie-search-toggle-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <transition-stub data-v-487fdf11="" leaveactiveclass="ease-in duration-200" leavefromclass="opacity-100" leavetoclass="opacity-0" appear="false" persisted="true" css="true">
@@ -12,9 +12,9 @@ exports[`LogView > renders 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Fruit" data-test-id="veggie-search-group-Fruit" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🍎</span><span data-v-2d6d64fa="" id="veggie-search-label-Fruit" role="presentation">Fruits And Berries (66)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Fruit" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Fruit" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Fruit" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Fruit" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -220,9 +220,9 @@ exports[`LogView > renders 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Vegetable" data-test-id="veggie-search-group-Vegetable" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥦</span><span data-v-2d6d64fa="" id="veggie-search-label-Vegetable" role="presentation">Vegetables (32)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Vegetable" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Vegetable" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Vegetable" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Vegetable" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -326,9 +326,9 @@ exports[`LogView > renders 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Leafy" data-test-id="veggie-search-group-Leafy" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥬</span><span data-v-2d6d64fa="" id="veggie-search-label-Leafy" role="presentation">Leafy Greens And Herbs (44)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Leafy" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Leafy" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Leafy" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Leafy" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -468,9 +468,9 @@ exports[`LogView > renders 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Root" data-test-id="veggie-search-group-Root" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥕</span><span data-v-2d6d64fa="" id="veggie-search-label-Root" role="presentation">Roots And Bulbs (34)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Root" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Root" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Root" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Root" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -580,9 +580,9 @@ exports[`LogView > renders 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Bean" data-test-id="veggie-search-group-Bean" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🫛</span><span data-v-2d6d64fa="" id="veggie-search-label-Bean" role="presentation">Beans And Legumes (27)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Bean" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Bean" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Bean" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Bean" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -671,9 +671,9 @@ exports[`LogView > renders 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Grain" data-test-id="veggie-search-group-Grain" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🌾</span><span data-v-2d6d64fa="" id="veggie-search-label-Grain" role="presentation">Grains, Nuts, And Seeds (37)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Grain" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Grain" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Grain" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Grain" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -792,9 +792,9 @@ exports[`LogView > renders 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Mushroom" data-test-id="veggie-search-group-Mushroom" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🍄‍🟫</span><span data-v-2d6d64fa="" id="veggie-search-label-Mushroom" role="presentation">Mushrooms (17)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Mushroom" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Mushroom" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Mushroom" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Mushroom" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -867,7 +867,7 @@ exports[`LogView > renders 1`] = `
 
 exports[`LogView > renders with data 1`] = `
 "<div data-v-487fdf11="" class="relative z-20"><input data-v-487fdf11="" aria-label="Add Weekly Veggies" aria-expanded="false" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="" id="veggie-search-input" aria-autocomplete="list" role="combobox" type="text" tabindex="0" data-headlessui-state="" aria-controls="veggie-search-options" aria-activedescendant="headlessui-combobox-option-v-240">
-  <!--v-if--><button data-v-24e38f3d="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-label="Open list" aria-expanded="false" aria-haspopup="listbox" aria-controls="veggie-search-options" data-test-id="veggie-search-toggle-button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+  <!--v-if--><button data-v-ee781121="" data-v-487fdf11="" class="button-like button--text veggie-search__button right-2 outline-override" aria-label="Open list" aria-expanded="false" aria-haspopup="listbox" aria-controls="veggie-search-options" data-test-id="veggie-search-toggle-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg></button>
   <transition-stub data-v-487fdf11="" leaveactiveclass="ease-in duration-200" leavefromclass="opacity-100" leavetoclass="opacity-0" appear="false" persisted="true" css="true">
@@ -882,9 +882,9 @@ exports[`LogView > renders with data 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Fruit" data-test-id="veggie-search-group-Fruit" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🍎</span><span data-v-2d6d64fa="" id="veggie-search-label-Fruit" role="presentation">Fruits And Berries (66)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Fruit" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Fruit" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Fruit" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Fruit" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -1090,9 +1090,9 @@ exports[`LogView > renders with data 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Vegetable" data-test-id="veggie-search-group-Vegetable" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥦</span><span data-v-2d6d64fa="" id="veggie-search-label-Vegetable" role="presentation">Vegetables (32)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Vegetable" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Vegetable" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Vegetable" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Vegetable" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -1196,9 +1196,9 @@ exports[`LogView > renders with data 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Leafy" data-test-id="veggie-search-group-Leafy" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥬</span><span data-v-2d6d64fa="" id="veggie-search-label-Leafy" role="presentation">Leafy Greens And Herbs (44)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Leafy" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Leafy" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Leafy" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Leafy" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -1338,9 +1338,9 @@ exports[`LogView > renders with data 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Root" data-test-id="veggie-search-group-Root" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🥕</span><span data-v-2d6d64fa="" id="veggie-search-label-Root" role="presentation">Roots And Bulbs (34)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Root" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Root" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Root" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Root" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -1450,9 +1450,9 @@ exports[`LogView > renders with data 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Bean" data-test-id="veggie-search-group-Bean" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🫛</span><span data-v-2d6d64fa="" id="veggie-search-label-Bean" role="presentation">Beans And Legumes (27)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Bean" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Bean" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Bean" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Bean" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -1541,9 +1541,9 @@ exports[`LogView > renders with data 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Grain" data-test-id="veggie-search-group-Grain" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🌾</span><span data-v-2d6d64fa="" id="veggie-search-label-Grain" role="presentation">Grains, Nuts, And Seeds (37)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Grain" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Grain" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Grain" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Grain" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -1662,9 +1662,9 @@ exports[`LogView > renders with data 1`] = `
       <ul data-v-2d6d64fa="" data-v-487fdf11="" aria-labelledby="veggie-search-label-Mushroom" data-test-id="veggie-search-group-Mushroom" role="group">
         <li data-v-2d6d64fa="" class="veggie-search__heading" role="presentation">
           <div data-v-2d6d64fa="" class="flex-container" role="presentation"><span data-v-2d6d64fa="" aria-hidden="true">🍄‍🟫</span><span data-v-2d6d64fa="" id="veggie-search-label-Mushroom" role="presentation">Mushrooms (17)</span></div>
-          <div data-v-2d6d64fa="" class="flex-container"><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Mushroom" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+          <div data-v-2d6d64fa="" class="flex-container"><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Previous Category" data-test-id="veggie-search-previous-Mushroom" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" class="transition-all"></path>
-              </svg></button><button data-v-24e38f3d="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Mushroom" role="button"><svg data-v-24e38f3d="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></button><button data-v-ee781121="" data-v-2d6d64fa="" class="button-like button--text hover:fill-[--color-link-hover]" aria-label="Next Category" data-test-id="veggie-search-next-Mushroom" role="button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" class="transition-all"></path>
               </svg></button></div>
         </li>
@@ -1744,12 +1744,12 @@ exports[`LogView > renders with data 1`] = `
 </div>
 <ul data-v-cd627eac="" aria-label="Suggestions" tabindex="-1" tag="ul" class="tags__container">
   <transition-group-stub data-v-cd627eac="" name="tags" appear="false" persisted="false" css="true">
-    <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button-like button--tag button--primary" id="tag-button-rice" aria-label="Add rice">
+    <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-ee781121="" data-v-cd627eac="" class="button-like button--tag button--primary" id="tag-button-rice" aria-label="Add rice">
         <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
         </svg> rice
       </button></li>
-    <li data-v-cd627eac="" data-test-id="tag-rye" class="z-10"><button data-v-24e38f3d="" data-v-cd627eac="" class="button-like button--tag button--primary" id="tag-button-rye" aria-label="Add rye">
+    <li data-v-cd627eac="" data-test-id="tag-rye" class="z-10"><button data-v-ee781121="" data-v-cd627eac="" class="button-like button--tag button--primary" id="tag-button-rye" aria-label="Add rye">
         <!--v-if--><svg data-v-cd627eac="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
         </svg> rye
@@ -1761,5 +1761,5 @@ exports[`LogView > renders with data 1`] = `
     </svg> Follow on Bluesky</a>
   <!--v-if-->
 </footer>
-<dialog-stub data-v-0f2dec55="" data-v-63b6c596="" as="div" static="true" unmount="true" open="DC8F892D-2EBD-447C-A4C8-A03058436FF4" role="dialog" class="relative z-20" data-test-id="week-summary-dialog"></dialog-stub>"
+<dialog-stub data-v-9ec8a7f3="" data-v-63b6c596="" as="div" static="true" unmount="true" open="DC8F892D-2EBD-447C-A4C8-A03058436FF4" role="dialog" class="relative z-20" data-test-id="week-summary-dialog"></dialog-stub>"
 `;

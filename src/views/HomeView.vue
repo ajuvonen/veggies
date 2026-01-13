@@ -7,7 +7,6 @@ import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
 import type {Locale} from '@/types';
-import ModalDialog from '@/components/ModalDialog.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 
 const router = useRouter();

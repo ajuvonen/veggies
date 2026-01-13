@@ -1,7 +1,7 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
 import VeggieSearch from '@/components/VeggieSearch.vue';
-import IconComponent from '@/components/IconComponent.vue';
+import IconComponent from '@/components/ui/IconComponent.vue';
 import {KEYS} from '@/utils/constants';
 
 const mounter = (modelValue: string[] = [], inject?: string) =>

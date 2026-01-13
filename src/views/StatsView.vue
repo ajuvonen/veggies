@@ -3,7 +3,7 @@ import {ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
-import type {IconString} from '@/components/IconComponent.vue';
+import type {IconString} from '@/components/ui/IconComponent.vue';
 import WeeklyCharts from '@/components/WeeklyCharts.vue';
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';

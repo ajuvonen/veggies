@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue';
-import IconComponent from '@/components/IconComponent.vue';
-import ButtonComponent from '@/components/ButtonComponent.vue';
+import IconComponent from '@/components/ui/IconComponent.vue';
+import ButtonComponent from '@/components/ui/ButtonComponent.vue';
 import {BLUESKY_URL, PLAY_STORE_URL} from '@/utils/constants';
 
 const questionKeysAndLinks = {

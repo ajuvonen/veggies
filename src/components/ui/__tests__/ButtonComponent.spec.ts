@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
-import ButtonComponent from '@/components/ButtonComponent.vue';
+import ButtonComponent from '@/components/ui/ButtonComponent.vue';
 
 describe('ButtonComponent', () => {
   it('renders', () => {

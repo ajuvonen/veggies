@@ -4,9 +4,9 @@ exports[`HomeView > renders 1`] = `
 "<div data-v-b4e148ca="" class="home__container">
   <h1 data-v-b4e148ca="" class="home__title" lang="en">Eat Your Veggies</h1>
   <p data-v-b4e148ca="" class="sm:text-center">Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app.</p>
-  <div data-v-b4e148ca="" class="flex-container justify-center"><button data-v-24e38f3d="" data-v-b4e148ca="" class="button-like button--primary" data-test-id="home-start-button">
+  <div data-v-b4e148ca="" class="flex-container justify-center"><button data-v-ee781121="" data-v-b4e148ca="" class="button-like button--primary" data-test-id="home-start-button">
       <!--v-if-->Start
-    </button><button data-v-24e38f3d="" data-v-b4e148ca="" class="button-like button--secondary" data-test-id="home-info-button">
+    </button><button data-v-ee781121="" data-v-b4e148ca="" class="button-like button--secondary" data-test-id="home-info-button">
       <!--v-if-->Learn more
     </button></div>
   <footer data-v-7490b180="" data-v-b4e148ca=""><a data-v-7490b180="" class="flex-container items-center" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener="" data-test-id="bluesky-link"><svg data-v-7490b180="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">

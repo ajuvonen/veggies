@@ -5,7 +5,6 @@ import {omitBy} from 'remeda';
 import {AchievementLevel, type Achievements} from '@/types';
 import {useActivityStore} from '@/stores/activityStore';
 import AchievementBadge from '@/components/AchievementBadge.vue';
-import ModalDialog from '@/components/ModalDialog.vue';
 
 const {achievements} = storeToRefs(useActivityStore());
 

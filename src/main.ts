@@ -24,7 +24,8 @@ app
     },
   })
   .provide(KEYS.dropdownStyles, getDropdownStyles)
-  .component('IconComponent', () => import('@/components/IconComponent.vue'))
-  .component('ButtonComponent', () => import('@/components/ButtonComponent.vue'))
-  .component('ContentElement', () => import('@/components/ContentElement.vue'))
+  .component('ButtonComponent', () => import('@/components/ui/ButtonComponent.vue'))
+  .component('ContentElement', () => import('@/components/ui/ContentElement.vue'))
+  .component('IconComponent', () => import('@/components/ui/IconComponent.vue'))
+  .component('ModalDialog', () => import('@/components/ui/ModalDialog.vue'))
   .mount('#app');

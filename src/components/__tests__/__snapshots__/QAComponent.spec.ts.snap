@@ -2,56 +2,56 @@
 
 exports[`QAComponent > renders 1`] = `
 "<div class="flex-container flex-col">
-  <h2 class="label-like">Common Questions</h2><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-0" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-appPurpose">
+  <h2 class="label-like">Common Questions</h2><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-0" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-appPurpose">
     <!--v-if-->What's this app for? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
   </button>
   <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
     <!---->
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-2" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-howToInstall">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-2" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-howToInstall">
     <!--v-if-->How to install? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
   </button>
   <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
     <!---->
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-4" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-studyDetails">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-4" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-studyDetails">
     <!--v-if-->What's the science? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
   </button>
   <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
     <!---->
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-6" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-whatCounts">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-6" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-whatCounts">
     <!--v-if-->What counts as a portion? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
   </button>
   <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
     <!---->
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-8" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-categories">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-8" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-categories">
     <!--v-if-->But strawberry is a... <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
   </button>
   <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
     <!---->
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-10" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isItFree">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-10" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isItFree">
     <!--v-if-->Is the app monetized? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
   </button>
   <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
     <!---->
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isMyDataSafe">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-isMyDataSafe">
     <!--v-if-->Is my data safe? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
   </button>
   <transition-stub enteractiveclass="transition duration-100 ease-out" enterfromclass="h-0 opacity-0" entertoclass="h-full opacity-100" leaveactiveclass="transition duration-75 ease-out" leavefromclass="h-full opacity-100" leavetoclass="h-0 opacity-0" appear="false" persisted="false" css="true">
     <!---->
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-14" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-contact">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-14" aria-expanded="false" data-headlessui-state="" data-test-id="qa-button-contact">
     <!--v-if-->How to get in touch? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
@@ -64,7 +64,7 @@ exports[`QAComponent > renders 1`] = `
 
 exports[`QAComponent > renders answers 1`] = `
 "<div class="flex-container flex-col">
-  <h2 class="label-like">Common Questions</h2><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-0" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-appPurpose" type="button" aria-controls="headlessui-disclosure-panel-v-1">
+  <h2 class="label-like">Common Questions</h2><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-0" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-appPurpose" type="button" aria-controls="headlessui-disclosure-panel-v-1">
     <!--v-if-->What's this app for? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
@@ -73,7 +73,7 @@ exports[`QAComponent > renders answers 1`] = `
     <div id="headlessui-disclosure-panel-v-1" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-appPurpose">
       <div class="whitespace-pre-line">Eat Your Veggies is a free app for tracking plant-based ingredients in your diet. Whenever you eat plant-based ingredients, or "veggies", you can search them in the app and add them to your weekly record. Each veggie counts only once per week.</div>
     </div>
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-2" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-howToInstall" type="button" aria-controls="headlessui-disclosure-panel-v-3">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-2" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-howToInstall" type="button" aria-controls="headlessui-disclosure-panel-v-3">
     <!--v-if-->How to install? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
@@ -84,7 +84,7 @@ exports[`QAComponent > renders answers 1`] = `
 
         Others can install the app from a browser that supports Progressive Web Apps (PWAs). Select "Add to start screen" from your browser's menu or click the install icon on the location bar. On mobile Safari, click "Share" and then "Add to home screen". Installing on device allows offline use, but keeps the app within your browser's sandbox.</div>
     </div>
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-4" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-studyDetails" type="button" aria-controls="headlessui-disclosure-panel-v-5">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-4" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-studyDetails" type="button" aria-controls="headlessui-disclosure-panel-v-5">
     <!--v-if-->What's the science? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
@@ -93,7 +93,7 @@ exports[`QAComponent > renders answers 1`] = `
     <div id="headlessui-disclosure-panel-v-5" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-studyDetails">
       <div class="whitespace-pre-line">According to a study, consuming 30 or more veggies weekly has multiple health benefits over a less versatile diet. The key, according to study, is not just the amounts you consume, but also variation. If you want to read more about the study, look up The American Gut Project from the journal of <a href="https://doi.org/10.1128/msystems.00031-18" class="text-link" target="_blank" noreferrer="" noopener="">American Society for Microbiology (ASM)</a>.</div>
     </div>
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-6" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-whatCounts" type="button" aria-controls="headlessui-disclosure-panel-v-7">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-6" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-whatCounts" type="button" aria-controls="headlessui-disclosure-panel-v-7">
     <!--v-if-->What counts as a portion? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
@@ -102,7 +102,7 @@ exports[`QAComponent > renders answers 1`] = `
     <div id="headlessui-disclosure-panel-v-7" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-whatCounts">
       <div class="whitespace-pre-line">Ultimately, how you use the app is up to your discretion. However, consider that minuscule amounts might not be of any nutritional value. It is also worth noting that very processed foods don't count towards a portion. So ketchup should not equal a tomato.</div>
     </div>
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-8" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-categories" type="button" aria-controls="headlessui-disclosure-panel-v-9">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-8" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-categories" type="button" aria-controls="headlessui-disclosure-panel-v-9">
     <!--v-if-->But strawberry is a... <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
@@ -111,7 +111,7 @@ exports[`QAComponent > renders answers 1`] = `
     <div id="headlessui-disclosure-panel-v-9" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-categories">
       <div class="whitespace-pre-line">...false fruit, I know. Also tomato is not a vegetable in biological sense, so the app takes some liberties in its categories. Still, please report any major inaccuracies you come across! You can also request missing veggies to be added. They should be such that are commercially available globally.</div>
     </div>
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-10" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-isItFree" type="button" aria-controls="headlessui-disclosure-panel-v-11">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-10" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-isItFree" type="button" aria-controls="headlessui-disclosure-panel-v-11">
     <!--v-if-->Is the app monetized? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
@@ -120,7 +120,7 @@ exports[`QAComponent > renders answers 1`] = `
     <div id="headlessui-disclosure-panel-v-11" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-isItFree">
       <div class="whitespace-pre-line">The app is free to use, and it has no advertisements. There will be a possibility to donate, but don't feel obliged.</div>
     </div>
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-isMyDataSafe" type="button" aria-controls="headlessui-disclosure-panel-v-13">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-12" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-isMyDataSafe" type="button" aria-controls="headlessui-disclosure-panel-v-13">
     <!--v-if-->Is my data safe? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
@@ -129,7 +129,7 @@ exports[`QAComponent > renders answers 1`] = `
     <div id="headlessui-disclosure-panel-v-13" data-headlessui-state="open" class="p-2" data-test-id="qa-panel-isMyDataSafe">
       <div class="whitespace-pre-line">The data is stored in your browser's local storage and is not shared with any third parties. You can at any time you wish reset the app using the button below.</div>
     </div>
-  </transition-stub><button data-v-24e38f3d="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-14" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-contact" type="button" aria-controls="headlessui-disclosure-panel-v-15">
+  </transition-stub><button data-v-ee781121="" class="button-like button--primary w-full justify-between" id="headlessui-disclosure-button-v-14" aria-expanded="true" data-headlessui-state="open" data-test-id="qa-button-contact" type="button" aria-controls="headlessui-disclosure-panel-v-15">
     <!--v-if-->How to get in touch? <svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transform" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>
