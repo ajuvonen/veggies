@@ -8,7 +8,7 @@ import AchievementBadge from '@/components/AchievementBadge.vue';
 
 const {achievements} = storeToRefs(useActivityStore());
 
-const newAchievements = ref({} as Partial<Achievements>);
+const newAchievements = ref<Partial<Achievements>>({});
 const dialogOpen = ref(false);
 
 watch(achievements, async (newValue, oldValue) => {
