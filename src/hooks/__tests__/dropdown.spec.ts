@@ -1,7 +1,7 @@
 import {ref} from 'vue';
 import {it, describe, expect, vi, afterEach} from 'vitest';
 import {useDropdown} from '@/hooks/dropdown';
-import {withSetup} from '../../hooks/__tests__/testHelpers';
+import {withSetup} from '@/test-utils';
 
 const mocks = vi.hoisted(() => ({
   usePointer: vi.fn(),

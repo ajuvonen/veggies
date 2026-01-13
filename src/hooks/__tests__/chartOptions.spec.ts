@@ -1,7 +1,7 @@
 import {ref} from 'vue';
 import {describe, it, expect, vi, beforeEach} from 'vitest';
 import {useChartOptions} from '@/hooks/chartOptions';
-import {withSetup} from './testHelpers';
+import {withSetup} from '@/test-utils';
 
 const mockedPreferredReducedMotion = ref('no-preference');
 

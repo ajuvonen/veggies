@@ -1,7 +1,7 @@
 import {describe, it, expect, vi, beforeEach} from 'vitest';
 import {ref, nextTick, type Ref} from 'vue';
 import {useChartContainer} from '@/hooks/chartContainer';
-import {withSetup} from './testHelpers';
+import {withSetup} from '@/test-utils';
 
 // Mock VueUse composables
 const mockMouseX = ref(500);

@@ -2,7 +2,7 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {withSetup} from './testHelpers';
+import {withSetup} from '@/test-utils';
 
 describe('dateTime', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;

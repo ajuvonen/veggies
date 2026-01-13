@@ -2,7 +2,7 @@ import {computed} from 'vue';
 import {vi, describe, it, expect, afterEach, beforeEach} from 'vitest';
 import {useChartAnimations} from '@/hooks/chartAnimations';
 import {useAppStateStore} from '@/stores/appStateStore';
-import {withSetup} from './testHelpers';
+import {withSetup} from '@/test-utils';
 
 const mocks = vi.hoisted(() => ({
   usePreferredReducedMotion: vi.fn(() => computed(() => 'no-preference')),
