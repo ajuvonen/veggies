@@ -48,10 +48,8 @@ const exportData = () => {
 };
 
 onChange(async (files) => {
-  if (!files || files.length === 0) return;
-
   try {
-    const [file] = files;
+    const file = files?.[0];
     const text = (await file?.text()) || '';
     const importSchema = await getImportSchema();
     const {
