@@ -2,32 +2,10 @@ import {computed} from 'vue';
 import {describe, it, expect, beforeEach} from 'vitest';
 import {flushPromises, mount} from '@vue/test-utils';
 import {useActivityStore} from '@/stores/activityStore';
-import {AchievementLevel, type Achievements} from '@/types';
+import {AchievementLevel} from '@/types';
 import DialogStub from '@/test-utils/DialogStub.vue';
+import {getAchievements} from '@/test-utils';
 import AchievementDialog from '@/components/AchievementDialog.vue';
-
-const getAchievements = (achievements: Partial<Achievements> = {}) =>
-  computed(() => ({
-    botanicalBerries: AchievementLevel.NoAchievement,
-    challengeAccepted: AchievementLevel.NoAchievement,
-    committed: AchievementLevel.NoAchievement,
-    completionist: AchievementLevel.NoAchievement,
-    experimenterBean: AchievementLevel.NoAchievement,
-    experimenterFruit: AchievementLevel.NoAchievement,
-    experimenterGrain: AchievementLevel.NoAchievement,
-    experimenterLeafy: AchievementLevel.NoAchievement,
-    experimenterMushroom: AchievementLevel.NoAchievement,
-    experimenterRoot: AchievementLevel.NoAchievement,
-    experimenterVegetable: AchievementLevel.NoAchievement,
-    goNuts: AchievementLevel.NoAchievement,
-    hotStreak: AchievementLevel.NoAchievement,
-    lemons: AchievementLevel.NoAchievement,
-    rainbow: AchievementLevel.NoAchievement,
-    thirtyVeggies: AchievementLevel.NoAchievement,
-    thousandsOdd: AchievementLevel.NoAchievement,
-    thousandsEven: AchievementLevel.NoAchievement,
-    ...achievements,
-  }));
 
 const mounter = () =>
   mount(AchievementDialog, {
@@ -55,9 +33,11 @@ describe('AchievementDialog', () => {
     expect(wrapper.find('#achievement-dialog').exists()).toBe(false);
 
     // @ts-expect-error - Getters are writable in tests
-    activityStore.achievements = getAchievements({
-      thirtyVeggies: AchievementLevel.Gold,
-    });
+    activityStore.achievements = computed(() =>
+      getAchievements({
+        thirtyVeggies: AchievementLevel.Gold,
+      }),
+    );
 
     await flushPromises();
     expect(wrapper.find('#achievement-dialog').exists()).toBe(true);
@@ -65,43 +45,49 @@ describe('AchievementDialog', () => {
 
   it('does not show dialog if levels go down', async () => {
     // @ts-expect-error - Getters are writable in tests
-    activityStore.achievements = getAchievements({
-      goNuts: AchievementLevel.Gold,
-      thirtyVeggies: AchievementLevel.Platinum,
-    });
-
+    activityStore.achievements = computed(() =>
+      getAchievements({
+        goNuts: AchievementLevel.Gold,
+        thirtyVeggies: AchievementLevel.Platinum,
+      }),
+    );
     const wrapper = mounter();
 
     expect(wrapper.find('#achievement-dialog').exists()).toBe(false);
 
     // @ts-expect-error - Getters are writable in tests
-    activityStore.achievements = getAchievements({
-      goNuts: AchievementLevel.NoAchievement,
-      thirtyVeggies: AchievementLevel.Gold,
-    });
-
+    activityStore.achievements = computed(() =>
+      getAchievements({
+        goNuts: AchievementLevel.NoAchievement,
+        thirtyVeggies: AchievementLevel.Gold,
+      }),
+    );
     await flushPromises();
     expect(wrapper.find('#achievement-dialog').exists()).toBe(false);
   });
 
   it('renders all new achievements', async () => {
     // @ts-expect-error Getters are writable in tests
-    activityStore.achievements = getAchievements({
-      lemons: AchievementLevel.Gold,
-      thirtyVeggies: AchievementLevel.Gold,
-    });
+    activityStore.achievements = computed(() =>
+      getAchievements({
+        lemons: AchievementLevel.Gold,
+        thirtyVeggies: AchievementLevel.Gold,
+      }),
+    );
 
     const wrapper = mounter();
 
     expect(wrapper.find('#achievement-dialog').exists()).toBe(false);
 
     // @ts-expect-error Getters are writable in tests
-    activityStore.achievements = getAchievements({
-      experimenterBean: AchievementLevel.Gold,
-      lemons: AchievementLevel.NoAchievement,
-      goNuts: AchievementLevel.Gold,
-      thirtyVeggies: AchievementLevel.Platinum,
-    });
+    activityStore.achievements = computed(() =>
+      getAchievements({
+        experimenterBean: AchievementLevel.Gold,
+        lemons: AchievementLevel.NoAchievement,
+        goNuts: AchievementLevel.Gold,
+        thirtyVeggies: AchievementLevel.Platinum,
+      }),
+    );
 
     await flushPromises();
     expect(wrapper.find('#achievement-dialog').exists()).toBe(true);
