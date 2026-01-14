@@ -1,32 +1,8 @@
 import {describe, it, expect} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {AchievementLevel, type Achievements} from '@/types';
+import {AchievementLevel} from '@/types';
+import {getAchievements} from '@/test-utils';
 import AchievementList from '@/components/AchievementList.vue';
-
-const getAchievements = (achievements: Partial<Achievements> = {}) => ({
-  allOnRed: AchievementLevel.NoAchievement,
-  botanicalBerries: AchievementLevel.NoAchievement,
-  challengeAccepted: AchievementLevel.NoAchievement,
-  committed: AchievementLevel.NoAchievement,
-  completionist: AchievementLevel.NoAchievement,
-  experimenterBean: AchievementLevel.NoAchievement,
-  experimenterFruit: AchievementLevel.NoAchievement,
-  experimenterGrain: AchievementLevel.NoAchievement,
-  experimenterLeafy: AchievementLevel.NoAchievement,
-  experimenterMushroom: AchievementLevel.NoAchievement,
-  experimenterRoot: AchievementLevel.NoAchievement,
-  experimenterVegetable: AchievementLevel.NoAchievement,
-  goNuts: AchievementLevel.NoAchievement,
-  hotStreak: AchievementLevel.NoAchievement,
-  lemons: AchievementLevel.NoAchievement,
-  overachiever: AchievementLevel.NoAchievement,
-  rainbow: AchievementLevel.NoAchievement,
-  tearnado: AchievementLevel.NoAchievement,
-  thirtyVeggies: AchievementLevel.NoAchievement,
-  thousandsOdd: AchievementLevel.NoAchievement,
-  thousandsEven: AchievementLevel.NoAchievement,
-  ...achievements,
-});
 
 describe('AchievementList', () => {
   it('renders', () => {
