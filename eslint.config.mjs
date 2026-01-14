@@ -11,18 +11,18 @@ export default defineConfigWithVueTs(
   includeIgnoreFile(fileURLToPath(new URL('./.gitignore', import.meta.url))),
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{ts,mts,tsx,vue}'],
+    files: ['**/*.{ts,vue}'],
   },
   pluginVueA11y.configs['flat/recommended'],
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
   {
     ...pluginVitest.configs.recommended,
-    files: ['src/**/__tests__/*'],
+    files: ['src/**/__tests__/*.spec.ts'],
   },
   {
     ...pluginPlaywright.configs['flat/recommended'],
-    files: ['e2e/**/*.spec.ts'],
+    files: ['e2e/*.spec.ts'],
   },
   skipFormatting,
 );
