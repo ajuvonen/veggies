@@ -6,6 +6,7 @@ import {
   countBy,
   difference,
   entries,
+  fromKeys,
   intersection,
   map,
   pipe,
@@ -149,12 +150,25 @@ export const useActivityStore = defineStore('activity', () => {
     ),
   );
 
+  const veggiesByCategory = computed(() =>
+    allVeggies.value.reduce(
+      (acc, veggie) => {
+        const category = getCategoryForVeggie(veggie);
+        if (category) {
+          acc[category].push(veggie);
+        }
+        return acc;
+      },
+      fromKeys(Object.values(Category), () => []) as Record<Category, string[]>,
+    ),
+  );
+
   const favorites = computed(() =>
     Object.values(Category).reduce(
       (acc, category) => ({
         ...acc,
         [category]: pipe(
-          allVeggies.value.filter((veggie) => getCategoryForVeggie(veggie) === category),
+          veggiesByCategory.value[category],
           countBy((veggie) => veggie),
           entries(),
           sortBy([prop(1), 'desc']),
@@ -359,6 +373,7 @@ export const useActivityStore = defineStore('activity', () => {
     startDate,
     suggestions,
     uniqueVeggies,
+    veggiesByCategory,
     veggiesForWeek,
     weeklyAchievements,
     weeks,
