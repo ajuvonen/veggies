@@ -98,6 +98,82 @@ describe('activityStore', () => {
     expect(allVeggies).toEqual(['eggplant', 'broccoli', 'ginger', 'apple', 'apple', 'tomato']);
   });
 
+  it('returns veggies by category', () => {
+    activityStore.startDate = lastWeek;
+    activityStore.weeks = [
+      {
+        startDate: lastWeek,
+        veggies: ['eggplant', 'broccoli', 'ginger', 'apple'],
+      },
+      {
+        startDate: thisWeek,
+        veggies: ['orange', 'tomato', 'shiitake', 'rye', 'wheat'],
+      },
+    ];
+
+    expect(activityStore.veggiesByCategory[Category.Vegetable]).toEqual([
+      'eggplant',
+      'broccoli',
+      'tomato',
+    ]);
+    expect(activityStore.veggiesByCategory[Category.Root]).toEqual(['ginger']);
+    expect(activityStore.veggiesByCategory[Category.Fruit]).toEqual(['apple', 'orange']);
+    expect(activityStore.veggiesByCategory[Category.Bean]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Grain]).toEqual(['rye', 'wheat']);
+    expect(activityStore.veggiesByCategory[Category.Leafy]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Mushroom]).toEqual(['shiitake']);
+  });
+
+  it('returns empty arrays for all categories when no veggies', () => {
+    activityStore.weeks = [];
+
+    expect(activityStore.veggiesByCategory[Category.Vegetable]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Root]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Fruit]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Bean]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Grain]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Leafy]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Mushroom]).toEqual([]);
+  });
+
+  it('veggies with no category are not added', () => {
+    activityStore.weeks = [
+      {
+        startDate: thisWeek,
+        veggies: ['magic bean'],
+      },
+    ];
+
+    expect(activityStore.veggiesByCategory[Category.Vegetable]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Root]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Fruit]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Bean]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Grain]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Leafy]).toEqual([]);
+    expect(activityStore.veggiesByCategory[Category.Mushroom]).toEqual([]);
+  });
+
+  it('handles duplicate veggies in veggiesByCategory', () => {
+    activityStore.weeks = [
+      {
+        startDate: lastWeek,
+        veggies: ['wheat', 'wheat', 'rice'],
+      },
+      {
+        startDate: thisWeek,
+        veggies: ['wheat', 'oat'],
+      },
+    ];
+
+    expect(activityStore.veggiesByCategory[Category.Grain]).toEqual([
+      'wheat',
+      'wheat',
+      'rice',
+      'wheat',
+      'oat',
+    ]);
+  });
+
   it("returns this week's veggies", () => {
     activityStore.startDate = lastWeek;
     activityStore.weeks = [
