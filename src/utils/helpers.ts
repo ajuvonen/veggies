@@ -87,6 +87,21 @@ export const getRandomEmojis = (amount: number = 1) => sample(veggieEmojis, amou
 export const achievementLevelHelper = (levels: [number, AchievementLevel][], value: number) =>
   levels.find(([threshold]) => value >= threshold)?.[1] ?? AchievementLevel.NoAchievement;
 
+/**
+ * Gets all localStorage keys that start with 'veggies-'.
+ * @returns Array of matching keys
+ */
+export const getStorageKeys = (): string[] => {
+  const keys: string[] = [];
+  Array.from({length: localStorage.length}).forEach((_, index) => {
+    const key = localStorage.key(index);
+    if (key?.startsWith('veggies-')) {
+      keys.push(key);
+    }
+  });
+  return keys;
+};
+
 export const getImportSchema = async () => {
   const z = await import('zod/v4');
   const luxonDateTimeSchema = z.custom<DateTime<true>>(
@@ -103,6 +118,7 @@ export const getImportSchema = async () => {
       .object({
         allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
         locale: z.enum(LOCALES).catch(DEFAULT_SETTINGS.locale).default(DEFAULT_SETTINGS.locale),
+        migrationVersion: z.number().catch(1).default(1),
         showChartAnimations: z
           .boolean()
           .catch(DEFAULT_SETTINGS.showChartAnimations)

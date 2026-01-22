@@ -11,6 +11,7 @@ import {
   getImportSchema,
   getRandomEmojis,
   getRandomItem,
+  getStorageKeys,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Challenge} from '@/types';
 
@@ -36,6 +37,27 @@ describe('helpers', () => {
 
   it('returns undefined for empty arrays', () => {
     expect(getRandomItem([])).toBeUndefined();
+  });
+
+  it('gets all veggies-prefixed localStorage keys', () => {
+    localStorage.setItem('veggies-settings', 'data1');
+    localStorage.setItem('veggies-weeks', 'data2');
+    localStorage.setItem('veggies-challenges', 'data3');
+    localStorage.setItem('other-data', 'should not be included');
+
+    const keys = getStorageKeys();
+
+    expect(keys).toHaveLength(3);
+    expect(keys).toContain('veggies-settings');
+    expect(keys).toContain('veggies-weeks');
+    expect(keys).toContain('veggies-challenges');
+    expect(keys).not.toContain('other-data');
+  });
+
+  it('returns empty array when localStorage is empty', () => {
+    const keys = getStorageKeys();
+
+    expect(keys).toEqual([]);
   });
 
   it('parses dates from JSON', () => {

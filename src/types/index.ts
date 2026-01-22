@@ -29,6 +29,7 @@ export type Challenge = {
 export type Settings = {
   allergens: string[];
   locale: Locale;
+  migrationVersion: number;
   showChartAnimations: boolean;
   suggestionCount: number;
   summaryViewedDate: DateTime | null;
