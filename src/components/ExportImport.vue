@@ -24,7 +24,7 @@ const {open, onChange} = useFileDialog({
 const exportData = () => {
   try {
     const data = {
-      startDate: localStorage.getItem('veggies-start-date'),
+      startDate: localStorage.getItem('veggies-startDate'),
       weeks: JSON.parse(localStorage.getItem('veggies-weeks') || ''),
       settings: JSON.parse(localStorage.getItem('veggies-settings') || ''),
     };

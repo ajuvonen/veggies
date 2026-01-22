@@ -114,7 +114,7 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
           origin: 'http://localhost:5173',
           localStorage: [
             {
-              name: 'veggies-start-date',
+              name: 'veggies-startDate',
               value: previousWeekStartISO,
             },
             {

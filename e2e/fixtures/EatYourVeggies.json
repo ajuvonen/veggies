@@ -15,7 +15,7 @@
   "settings": {
     "allergens": ["peanut"],
     "locale": "en",
-    "migrationVersion": 2,
+    "migrationVersion": 3,
     "showChartAnimations": true,
     "suggestionCount": 10,
     "summaryViewedDate": null
