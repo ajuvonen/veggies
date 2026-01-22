@@ -1,6 +1,6 @@
 import {dateParser, dateReplacer, getStorageKeys, getRandomItem} from '@/utils/helpers';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
-import type {DateTime} from 'luxon';
+import {DateTime} from 'luxon';
 import type {Week, Settings} from '@/types';
 
 type StorageData = Record<string, unknown>;
@@ -16,22 +16,22 @@ const migrations: Migration[] = [
     version: 2,
     name: 'Move challenges to weeks',
     migrate: (data) => {
-      const weeks = (data['veggies-weeks'] || []) as Week[];
-      const challenges = (data['veggies-challenges'] || []) as {
+      const weeks = (data.weeks || []) as Week[];
+      const challenges = (data.challenges || []) as {
         startDate: DateTime;
         veggie: string;
       }[];
-      const settings = data['veggies-settings'] as Settings;
+      const settings = data.settings as Settings;
 
       // Get all available veggies excluding allergens
       const availableVeggies = ALL_VEGGIES.filter((veggie) => !settings.allergens.includes(veggie));
 
       // Return data without challenges key
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const {['veggies-challenges']: _, ...rest} = data;
+      const {challenges: _, ...rest} = data;
       return {
         ...rest,
-        'veggies-weeks': weeks.map((week) => {
+        weeks: weeks.map((week) => {
           // If week already has a challenge, keep it
           if (week.challenge) {
             return week;
@@ -54,13 +54,13 @@ const migrations: Migration[] = [
     version: 3,
     name: 'Rename start-date key',
     migrate: (data) => {
-      const startDate = data['veggies-start-date'];
+      const startDate = data['start-date'];
       if (startDate !== undefined) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const {['veggies-start-date']: _, ...rest} = data;
+        const {'start-date': _, ...rest} = data;
         return {
           ...rest,
-          'veggies-startDate': startDate,
+          startDate,
         };
       }
       return data;
@@ -94,19 +94,34 @@ export function applyMigrations(
 
 /**
  * Reads all veggies-prefixed data from localStorage.
- * @returns Storage data as a plain object
+ * Strips the veggies- prefix from keys and filters out dangerous keys.
+ * @returns Storage data as a plain object with unprefixed keys
  */
 export function readStorageData(): StorageData {
   const data: StorageData = {};
   const keys = getStorageKeys();
+  const dangerousKeys = ['__proto__', 'constructor', 'prototype'];
 
   keys.forEach((key) => {
+    // Strip veggies- prefix
+    const unprefixedKey = key.replace(/^veggies-/, '');
+
+    // Filter out dangerous keys that could cause prototype pollution
+    if (dangerousKeys.includes(unprefixedKey)) {
+      return;
+    }
+
     const value = localStorage.getItem(key);
-    if (value) {
+    if (value !== null) {
       try {
-        data[key] = JSON.parse(value, dateParser);
+        data[unprefixedKey] = JSON.parse(value, dateParser);
       } catch {
-        data[key] = value;
+        // JSON.parse failed - handle plain strings and plain ISO date strings
+        if (unprefixedKey.endsWith('Date') && value) {
+          data[unprefixedKey] = DateTime.fromISO(value.split('T')[0]!);
+        } else {
+          data[unprefixedKey] = value;
+        }
       }
     }
   });
@@ -115,30 +130,41 @@ export function readStorageData(): StorageData {
 
 /**
  * Writes storage data to localStorage.
+ * Adds veggies- prefix to all keys when writing.
  * Writes new data first, then removes stale keys.
- * @param data - The storage data to write
+ * @param data - The storage data to write (with unprefixed keys)
  * @param toVersion - Migration version to update in settings
  */
 export function writeStorageData(data: StorageData, toVersion: number): void {
-  const settings = data['veggies-settings'] as Record<string, unknown>;
+  const settings = data.settings as Record<string, unknown>;
   const dataToWrite = {
     ...data,
-    'veggies-settings': {
+    settings: {
       ...settings,
       migrationVersion: toVersion,
     },
   };
 
+  const writtenKeys = new Set<string>();
+
   for (const [key, value] of Object.entries(dataToWrite)) {
-    if (key.startsWith('veggies-')) {
-      localStorage.setItem(
-        key,
-        typeof value === 'string' ? value : JSON.stringify(value, dateReplacer),
-      );
+    // Add veggies- prefix to all keys
+    const prefixedKey = `veggies-${key}`;
+
+    let serialized: string;
+    if (typeof value === 'string') {
+      serialized = value;
+    } else if (DateTime.isDateTime(value)) {
+      // Handle top-level DateTime values - store as ISO date string
+      serialized = value.toISODate()!;
+    } else {
+      serialized = JSON.stringify(value, dateReplacer);
     }
+
+    localStorage.setItem(prefixedKey, serialized);
+    writtenKeys.add(prefixedKey);
   }
 
-  const writtenKeys = new Set(Object.keys(dataToWrite).filter((key) => key.startsWith('veggies-')));
   const allKeys = getStorageKeys();
   const keysToRemove = allKeys.filter((key) => !writtenKeys.has(key));
 
