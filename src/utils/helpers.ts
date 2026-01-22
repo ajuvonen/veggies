@@ -123,10 +123,7 @@ export const getImportSchema = async () => {
       .object({
         allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
         locale: z.enum(LOCALES).catch(DEFAULT_SETTINGS.locale).default(DEFAULT_SETTINGS.locale),
-        migrationVersion: z
-          .number()
-          .catch(CURRENT_MIGRATION_VERSION)
-          .default(CURRENT_MIGRATION_VERSION),
+        migrationVersion: z.literal(CURRENT_MIGRATION_VERSION),
         showChartAnimations: z
           .boolean()
           .catch(DEFAULT_SETTINGS.showChartAnimations)

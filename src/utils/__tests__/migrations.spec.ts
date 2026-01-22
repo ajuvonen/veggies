@@ -28,13 +28,18 @@ describe('applyMigrations', () => {
     expect(result).toBe(data);
   });
 
-  it('returns unchanged data when no migrations are defined', () => {
+  it('applies no-op migration correctly', () => {
     const data = {
       settings: {...DEFAULT_SETTINGS, migrationVersion: 0},
       weeks: [],
     };
     const result = applyMigrations(data, 0, 1);
-    expect(result).toEqual(data);
+    expect(result).toEqual({
+      settings: {...DEFAULT_SETTINGS, migrationVersion: 1},
+      weeks: [],
+    });
+    // Verify it's a clone, not the same reference
+    expect(result).not.toBe(data);
   });
 });
 
@@ -242,14 +247,14 @@ describe('writeStorageData', () => {
 });
 
 describe('runMigrations', () => {
-  it('does not run when fromVersion equals toVersion', () => {
+  it('does not run when fromVersion equals toVersion', async () => {
     const initialData = {...DEFAULT_SETTINGS, migrationVersion: 2};
     localStorage.setItem('veggies-settings', JSON.stringify(initialData, dateReplacer));
 
     const getItemSpy = vi.spyOn(localStorage, 'getItem');
     const setItemSpy = vi.spyOn(localStorage, 'setItem');
 
-    runMigrations(2, 2);
+    await runMigrations(2, 2);
 
     expect(getItemSpy).not.toHaveBeenCalled();
     expect(setItemSpy).not.toHaveBeenCalled();
@@ -261,14 +266,14 @@ describe('runMigrations', () => {
     expect(stored).toEqual(initialData);
   });
 
-  it('does not run when fromVersion is greater than toVersion', () => {
+  it('does not run when fromVersion is greater than toVersion', async () => {
     const initialData = {...DEFAULT_SETTINGS, migrationVersion: 2};
     localStorage.setItem('veggies-settings', JSON.stringify(initialData, dateReplacer));
 
     const getItemSpy = vi.spyOn(localStorage, 'getItem');
     const setItemSpy = vi.spyOn(localStorage, 'setItem');
 
-    runMigrations(2, 1);
+    await runMigrations(2, 1);
 
     expect(getItemSpy).not.toHaveBeenCalled();
     expect(setItemSpy).not.toHaveBeenCalled();
@@ -278,6 +283,31 @@ describe('runMigrations', () => {
 
     const stored = JSON.parse(localStorage.getItem('veggies-settings')!, dateParser);
     expect(stored).toEqual(initialData);
+  });
+
+  it('throws validation error and restores backup when migrationVersion gets set incorrectly', async () => {
+    // Set up data with version 0 (no migration run yet)
+    const oldData = {...DEFAULT_SETTINGS, migrationVersion: 0};
+    const weeks: Week[] = [
+      {startDate: thisWeek, veggies: ['apple', 'banana'], challenge: 'orange'},
+    ];
+
+    localStorage.setItem('veggies-settings', JSON.stringify(oldData, dateReplacer));
+    localStorage.setItem('veggies-weeks', JSON.stringify(weeks, dateReplacer));
+    localStorage.setItem('veggies-startDate', thisWeek.toISODate()!);
+
+    // Attempt to run migration from 0 to 1 (no-op migration)
+    // Migration 1 will run and set migrationVersion to 1
+    // Schema validation will fail because it expects CURRENT_MIGRATION_VERSION (3)
+    await expect(runMigrations(0, 1)).rejects.toThrow();
+
+    // Verify data was restored to original state from backup
+    const restoredSettings = JSON.parse(localStorage.getItem('veggies-settings')!, dateParser);
+    expect(restoredSettings.migrationVersion).toBe(0); // Original version
+
+    // Verify backup keys were removed after restoration
+    expect(localStorage.getItem('veggies-settings-backup')).toBeNull();
+    expect(localStorage.getItem('veggies-weeks-backup')).toBeNull();
   });
 });
 

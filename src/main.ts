@@ -26,7 +26,7 @@ if (storedSettings) {
     const currentVersion = settings.migrationVersion ?? 1;
 
     if (currentVersion < CURRENT_MIGRATION_VERSION) {
-      runMigrations(currentVersion, CURRENT_MIGRATION_VERSION);
+      await runMigrations(currentVersion, CURRENT_MIGRATION_VERSION);
     }
   } catch (error) {
     console.error('Migration failed:', error);
