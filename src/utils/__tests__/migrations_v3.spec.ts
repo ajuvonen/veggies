@@ -40,7 +40,7 @@ describe('migration v3: rename start-date key', () => {
 
     const result = applyMigrations(data, 2, 3);
 
-    expect(result.settings).toEqual({...DEFAULT_SETTINGS, migrationVersion: 2});
+    expect(result.settings).toEqual({...DEFAULT_SETTINGS, migrationVersion: 3});
     expect(result.weeks).toHaveLength(1);
     expect(result.startDate).toEqual(thisWeek);
     expect(result).not.toHaveProperty('start-date');

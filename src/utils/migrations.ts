@@ -1,6 +1,13 @@
-import {dateParser, dateReplacer, getStorageKeys, getRandomItem} from '@/utils/helpers';
+import {
+  dateParser,
+  dateReplacer,
+  getStorageKeys,
+  getRandomItem,
+  getImportSchema,
+} from '@/utils/helpers';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {DateTime} from 'luxon';
+import {clone} from 'remeda';
 import type {Week, Settings} from '@/types';
 
 type StorageData = Record<string, unknown>;
@@ -12,6 +19,13 @@ type Migration = {
 };
 
 const migrations: Migration[] = [
+  {
+    version: 1,
+    name: 'No-op migration',
+    migrate: (data) => {
+      return clone(data);
+    },
+  },
   {
     version: 2,
     name: 'Move challenges to weeks',
@@ -87,8 +101,17 @@ export function applyMigrations(
     .sort((a, b) => a.version - b.version);
 
   return toRun.reduce((currentData, migration) => {
-    console.log(`Applying migration ${migration.version}: ${migration.name}`);
-    return migration.migrate(currentData);
+    const migratedData = migration.migrate(currentData);
+
+    // Update migrationVersion after each migration
+    const settings = migratedData.settings as Record<string, unknown>;
+    return {
+      ...migratedData,
+      settings: {
+        ...settings,
+        migrationVersion: migration.version,
+      },
+    };
   }, data);
 }
 
@@ -205,10 +228,11 @@ export function restoreFromBackup(): void {
 /**
  * Reads current data, applies migrations, and writes back to localStorage.
  * Creates backups before migration and restores on error.
+ * Validates migrated data against schema before writing.
  * @param fromVersion - The current migration version
  * @param toVersion - The target migration version
  */
-export function runMigrations(fromVersion: number, toVersion: number): void {
+export async function runMigrations(fromVersion: number, toVersion: number): Promise<void> {
   if (fromVersion >= toVersion) return;
 
   createBackup();
@@ -216,7 +240,12 @@ export function runMigrations(fromVersion: number, toVersion: number): void {
   try {
     const currentData = readStorageData();
     const migratedData = applyMigrations(currentData, fromVersion, toVersion);
-    writeStorageData(migratedData, toVersion);
+
+    // Validate migrated data against schema
+    const schema = await getImportSchema();
+    const validatedData = schema.parse(migratedData);
+
+    writeStorageData(validatedData, toVersion);
   } catch (error) {
     restoreFromBackup();
     throw error;

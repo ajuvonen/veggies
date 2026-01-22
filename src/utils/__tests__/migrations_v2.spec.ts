@@ -87,6 +87,7 @@ describe('migration v2', () => {
     expect(weeks[0].challenge).toBe('tomato');
     expect(weeks[1].challenge).toBe('lettuce');
     expect(weeks[2].challenge).toBe('spinach');
+    expect(result.settings).toEqual({...DEFAULT_SETTINGS, migrationVersion: 2});
     expect(result).not.toHaveProperty('challenges');
   });
 });

@@ -200,6 +200,7 @@ describe('helpers', () => {
         locale: 'el',
         suggestionCount: 100,
         showChartAnimations: 0,
+        migrationVersion: CURRENT_MIGRATION_VERSION,
       },
     };
     const result = importSchema.safeParse(faultyData);
