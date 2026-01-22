@@ -15,14 +15,7 @@ import {
   take,
   takeWhile,
 } from 'remeda';
-import {
-  Category,
-  type Favorites,
-  type Challenge,
-  type Week,
-  type Achievements,
-  AchievementLevel,
-} from '@/types';
+import {Category, type Favorites, type Week, type Achievements, AchievementLevel} from '@/types';
 import {
   achievementLevelHelper,
   dateParser,
@@ -76,14 +69,6 @@ export const useActivityStore = defineStore('activity', () => {
     },
   });
 
-  const challenges = useStorage<Challenge[]>('veggies-challenges', [], localStorage, {
-    mergeDefaults: true,
-    serializer: {
-      read: (v) => (v ? JSON.parse(v, dateParser) : null),
-      write: (v) => JSON.stringify(v, dateReplacer),
-    },
-  });
-
   // Computed getters
   const currentWeekStart = computed(() => currentDate.value.startOf('week'));
 
@@ -119,10 +104,7 @@ export const useActivityStore = defineStore('activity', () => {
   );
 
   const completedChallenges = computed(
-    () =>
-      challenges.value.filter(
-        ({startDate, veggie}) => veggie && veggiesForWeek.value(startDate).includes(veggie),
-      ).length,
+    () => weeks.value.filter(({challenge, veggies}) => veggies.includes(challenge)).length,
   );
 
   const veggiesForWeek = computed(
@@ -136,7 +118,7 @@ export const useActivityStore = defineStore('activity', () => {
   });
 
   const currentChallenge = computed(
-    () => challenges.value.find(({startDate}) => startDate.equals(currentWeekStart.value))?.veggie,
+    () => weeks.value.find(({startDate}) => startDate.equals(currentWeekStart.value))?.challenge,
   );
 
   const suggestions = computed(() =>
@@ -183,9 +165,9 @@ export const useActivityStore = defineStore('activity', () => {
     () =>
       (veggies: string[] = currentVeggies.value, weekStart: DateTime = currentWeekStart.value) => {
         const groupedVeggies = countBy(veggies, getCategoryForVeggie);
-        const challenge = challenges.value.find(({startDate}) =>
-          startDate.equals(weekStart),
-        )?.veggie;
+        const challenge = weeks.value.find(({startDate: weekStartDate}) =>
+          weekStartDate.equals(weekStart),
+        )?.challenge;
         const challengeCompleted = challenge && veggies.includes(challenge);
 
         return {
@@ -313,13 +295,7 @@ export const useActivityStore = defineStore('activity', () => {
         {
           startDate: weekStart,
           veggies: [targetVeggie],
-        },
-      ];
-      challenges.value = [
-        ...challenges.value,
-        {
-          startDate: weekStart,
-          veggie: getRandomItem(availableVeggies.value),
+          challenge: getRandomItem(availableVeggies.value)!,
         },
       ];
     } else if (!targetWeek.veggies.includes(targetVeggie)) {
@@ -337,13 +313,7 @@ export const useActivityStore = defineStore('activity', () => {
         {
           startDate: weekStart,
           veggies,
-        },
-      ];
-      challenges.value = [
-        ...challenges.value,
-        {
-          startDate: weekStart,
-          veggie: getRandomItem(availableVeggies.value),
+          challenge: getRandomItem(availableVeggies.value)!,
         },
       ];
     } else {
@@ -354,14 +324,12 @@ export const useActivityStore = defineStore('activity', () => {
   const $reset = () => {
     startDate.value = null;
     weeks.value = [];
-    challenges.value = [];
   };
 
   return {
     achievements,
     allVeggies,
     atMostVeggies,
-    challenges,
     completedChallenges,
     currentChallenge,
     currentVeggies,

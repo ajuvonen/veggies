@@ -17,6 +17,7 @@ describe('StatsView', () => {
       {
         startDate: DateTime.now().startOf('week'),
         veggies: ['apple', 'raspberry', 'chickpea'],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(StatsView, {
@@ -35,6 +36,7 @@ describe('StatsView', () => {
       {
         startDate: DateTime.now().startOf('week'),
         veggies: ['apple', 'raspberry', 'chickpea'],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(StatsView);
@@ -59,6 +61,7 @@ describe('StatsView', () => {
       {
         startDate: DateTime.now().startOf('week'),
         veggies: ['apple', 'raspberry', 'chickpea'],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(StatsView);
@@ -73,6 +76,7 @@ describe('StatsView', () => {
       {
         startDate: DateTime.now().startOf('week'),
         veggies: ['apple', 'raspberry', 'chickpea'],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(StatsView);
@@ -89,6 +93,7 @@ describe('StatsView', () => {
       {
         startDate: DateTime.now().startOf('week'),
         veggies: ['apple', 'raspberry', 'chickpea'],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(StatsView);

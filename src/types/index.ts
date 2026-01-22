@@ -19,11 +19,7 @@ export type Favorites = {
 export type Week = {
   veggies: string[];
   readonly startDate: DateTime;
-};
-
-export type Challenge = {
-  readonly startDate: DateTime;
-  veggie: string | undefined;
+  readonly challenge: string;
 };
 
 export type Settings = {

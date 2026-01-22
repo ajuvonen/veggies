@@ -3,27 +3,19 @@
   "weeks": [
     {
       "veggies": ["apple", "carrot", "spinach", "banana"],
-      "startDate": "2025-08-04"
+      "startDate": "2025-08-04",
+      "challenge": "apple"
     },
     {
       "veggies": ["arugula", "black bean", "chanterelle", "iceberg lettuce"],
-      "startDate": "2025-08-11"
-    }
-  ],
-  "challenges": [
-    {
-      "startDate": "2025-08-04",
-      "veggie": "apple"
-    },
-    {
       "startDate": "2025-08-11",
-      "veggie": "lychee"
+      "challenge": "lychee"
     }
   ],
   "settings": {
     "allergens": ["peanut"],
     "locale": "en",
-    "migrationVersion": 1,
+    "migrationVersion": 2,
     "showChartAnimations": true,
     "suggestionCount": 10,
     "summaryViewedDate": null

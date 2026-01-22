@@ -19,6 +19,7 @@ describe('WeekEditor', () => {
       {
         startDate: testDate,
         veggies: ['cucumber', 'tomato'],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(WeekEditor);

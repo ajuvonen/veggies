@@ -76,8 +76,8 @@ describe('WeekSummaryDialog', () => {
     // Clear and setup test data
     activityStore.weeks.splice(0);
     activityStore.weeks.push(
-      {startDate: lastWeek, veggies: ['apple', 'spinach', 'tomato']},
-      {startDate: currentWeek, veggies: ['carrot', 'broccoli']},
+      {startDate: lastWeek, veggies: ['apple', 'spinach', 'tomato'], challenge: 'cucumber'},
+      {startDate: currentWeek, veggies: ['carrot', 'broccoli'], challenge: 'cucumber'},
     );
     activityStore.startDate = lastWeek;
 
@@ -90,7 +90,7 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('identifies first week correctly for lastWeekData', () => {
-    activityStore.weeks = [{startDate: lastWeek, veggies: ['apple']}];
+    activityStore.weeks = [{startDate: lastWeek, veggies: ['apple'], challenge: 'cucumber'}];
     activityStore.startDate = lastWeek;
 
     const wrapper = mounter();
@@ -101,8 +101,8 @@ describe('WeekSummaryDialog', () => {
 
   it('identifies non-first week correctly for lastWeekData', () => {
     activityStore.weeks = [
-      {startDate: lastWeek, veggies: ['apple']},
-      {startDate: currentWeek, veggies: ['spinach']},
+      {startDate: lastWeek, veggies: ['apple'], challenge: 'cucumber'},
+      {startDate: currentWeek, veggies: ['spinach'], challenge: 'cucumber'},
     ];
     activityStore.startDate = lastWeek;
 
@@ -117,7 +117,7 @@ describe('WeekSummaryDialog', () => {
       const weekStart = currentWeek.minus({weeks: i});
       const veggieCount = (i + 1) * 2; // 2, 4, 6, 8, 10, 12 veggies
       const veggies = take(ALL_VEGGIES, veggieCount);
-      activityStore.weeks.push({startDate: weekStart, veggies});
+      activityStore.weeks.push({startDate: weekStart, veggies, challenge: 'cucumber'});
     }
     activityStore.startDate = currentWeek.minus({weeks: 6});
 
@@ -130,8 +130,12 @@ describe('WeekSummaryDialog', () => {
 
   it('calculates mean correctly from less than 5 weeks when no more weeks exist', () => {
     activityStore.weeks = [
-      {startDate: twoWeeksAgo, veggies: ['apple', 'spinach']},
-      {startDate: lastWeek, veggies: ['apple', 'spinach', 'tomato', 'carrot']},
+      {startDate: twoWeeksAgo, veggies: ['apple', 'spinach'], challenge: 'cucumber'},
+      {
+        startDate: lastWeek,
+        veggies: ['apple', 'spinach', 'tomato', 'carrot'],
+        challenge: 'cucumber',
+      },
     ];
     activityStore.startDate = twoWeeksAgo;
 
@@ -143,12 +147,8 @@ describe('WeekSummaryDialog', () => {
 
   it('finds weekly challenge correctly', () => {
     activityStore.weeks = [
-      {startDate: lastWeek, veggies: ['apple', 'spinach']},
-      {startDate: currentWeek, veggies: ['carrot']},
-    ];
-    activityStore.challenges = [
-      {startDate: lastWeek, veggie: 'apple'},
-      {startDate: currentWeek, veggie: 'carrot'},
+      {startDate: lastWeek, veggies: ['apple', 'spinach'], challenge: 'apple'},
+      {startDate: currentWeek, veggies: ['carrot'], challenge: 'carrot'},
     ];
     activityStore.startDate = lastWeek;
 
@@ -169,8 +169,8 @@ describe('WeekSummaryDialog', () => {
 
   it('calculates first-time veggies correctly when weeks >= 2', () => {
     activityStore.weeks = [
-      {startDate: twoWeeksAgo, veggies: ['apple', 'carrot']},
-      {startDate: lastWeek, veggies: ['apple', 'spinach', 'broccoli']},
+      {startDate: twoWeeksAgo, veggies: ['apple', 'carrot'], challenge: 'cucumber'},
+      {startDate: lastWeek, veggies: ['apple', 'spinach', 'broccoli'], challenge: 'cucumber'},
     ];
     activityStore.startDate = twoWeeksAgo;
 
@@ -181,7 +181,9 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('returns empty first-time veggies when weeks < 2', () => {
-    activityStore.weeks = [{startDate: lastWeek, veggies: ['apple', 'spinach']}];
+    activityStore.weeks = [
+      {startDate: lastWeek, veggies: ['apple', 'spinach'], challenge: 'cucumber'},
+    ];
     activityStore.startDate = lastWeek;
 
     const wrapper = mounter();
@@ -192,8 +194,8 @@ describe('WeekSummaryDialog', () => {
 
   it('calculates previous week count correctly', () => {
     activityStore.weeks = [
-      {startDate: twoWeeksAgo, veggies: ['apple', 'carrot', 'spinach']},
-      {startDate: lastWeek, veggies: ['apple', 'spinach']},
+      {startDate: twoWeeksAgo, veggies: ['apple', 'carrot', 'spinach'], challenge: 'cucumber'},
+      {startDate: lastWeek, veggies: ['apple', 'spinach'], challenge: 'cucumber'},
     ];
     activityStore.startDate = twoWeeksAgo;
 
@@ -207,8 +209,8 @@ describe('WeekSummaryDialog', () => {
     // Clear and create weeks with 30+ veggies to trigger hot streak
     const thirtyVeggies = take(ALL_VEGGIES, 30);
     activityStore.weeks = [
-      {startDate: twoWeeksAgo, veggies: thirtyVeggies},
-      {startDate: lastWeek, veggies: thirtyVeggies},
+      {startDate: twoWeeksAgo, veggies: thirtyVeggies, challenge: 'cucumber'},
+      {startDate: lastWeek, veggies: thirtyVeggies, challenge: 'cucumber'},
     ];
     activityStore.startDate = twoWeeksAgo;
 
@@ -222,10 +224,9 @@ describe('WeekSummaryDialog', () => {
     // Setup test data to ensure we have summary content
     const thirtyVeggies = take(ALL_VEGGIES, 30);
     activityStore.weeks = [
-      {startDate: twoWeeksAgo, veggies: ['apple', 'carrot', 'spinach']},
-      {startDate: lastWeek, veggies: thirtyVeggies},
+      {startDate: twoWeeksAgo, veggies: ['apple', 'carrot', 'spinach'], challenge: 'cucumber'},
+      {startDate: lastWeek, veggies: thirtyVeggies, challenge: 'apple'},
     ];
-    activityStore.challenges = [{startDate: lastWeek, veggie: 'apple'}];
     activityStore.startDate = twoWeeksAgo;
 
     const wrapper = mounter();
@@ -239,7 +240,7 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('does not show share/copy button when no veggies were eaten', () => {
-    activityStore.weeks = [{startDate: lastWeek, veggies: []}];
+    activityStore.weeks = [{startDate: lastWeek, veggies: [], challenge: 'cucumber'}];
     activityStore.startDate = lastWeek;
 
     const wrapper = mounter();
@@ -269,7 +270,11 @@ describe('WeekSummaryDialog', () => {
     });
 
     activityStore.weeks = [
-      {startDate: lastWeek, veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli']},
+      {
+        startDate: lastWeek,
+        veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli'],
+        challenge: 'cucumber',
+      },
     ];
     activityStore.startDate = lastWeek;
 
@@ -297,7 +302,11 @@ https://eatyourveggies.app`;
     });
 
     activityStore.weeks = [
-      {startDate: lastWeek, veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli']},
+      {
+        startDate: lastWeek,
+        veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli'],
+        challenge: 'cucumber',
+      },
     ];
     activityStore.startDate = lastWeek;
 
