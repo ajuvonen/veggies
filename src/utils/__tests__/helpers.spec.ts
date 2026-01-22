@@ -2,7 +2,7 @@ import {describe, it, expect} from 'vitest';
 import {DateTime} from 'luxon';
 import {unique} from 'remeda';
 import {ALL_VEGGIES, NUTRIENTS} from '@/utils/veggieDetails';
-import {DEFAULT_SETTINGS} from '@/utils/constants';
+import {CURRENT_MIGRATION_VERSION, DEFAULT_SETTINGS} from '@/utils/constants';
 import {
   achievementLevelHelper,
   dateParser,
@@ -13,8 +13,9 @@ import {
   getRandomItem,
   getStorageKeys,
 } from '@/utils/helpers';
-import {AchievementLevel, Category, type Challenge} from '@/types';
+import {AchievementLevel, Category} from '@/types';
 
+const thisWeek = DateTime.now().startOf('week');
 const importSchema = await getImportSchema();
 
 describe('helpers', () => {
@@ -61,7 +62,7 @@ describe('helpers', () => {
   });
 
   it('parses dates from JSON', () => {
-    const parsed: Challenge[] = JSON.parse(
+    const parsed: {startDate: DateTime; veggie: string}[] = JSON.parse(
       '[{"startDate":"2024-09-02T00:00:00.000Z","veggie":"nectarine"},{"startDate":"2024-09-16T22:00:00.000+14:00","veggie":"kale"},{"startDate":"2024-09-23T11:00:00.000-12:00","veggie":"cucumber"}]',
       dateParser,
     );
@@ -114,37 +115,6 @@ describe('helpers', () => {
     expect(achievementLevelHelper(levels, 41)).toBe(AchievementLevel.Platinum);
   });
 
-  it('validates startDates', () => {
-    const faultyData = {
-      startDate: null,
-      weeks: [{veggies: [], startDate: null}],
-      challenges: [{veggie: 'carrot', startDate: null}],
-      settings: {
-        ...DEFAULT_SETTINGS,
-      },
-    };
-
-    const result = importSchema.safeParse(faultyData);
-    expect(result.success).toBe(false);
-    expect(result.error?.issues).toEqual([
-      {
-        code: 'custom',
-        message: 'Invalid DateTime instance',
-        path: ['startDate'],
-      },
-      {
-        code: 'custom',
-        message: 'Invalid DateTime instance',
-        path: ['challenges', 0, 'startDate'],
-      },
-      {
-        code: 'custom',
-        message: 'Invalid DateTime instance',
-        path: ['weeks', 0, 'startDate'],
-      },
-    ]);
-  });
-
   it('fails on missing startDate', () => {
     const faultyData = {
       startDate: null,
@@ -162,16 +132,15 @@ describe('helpers', () => {
     expect(errorMessage[0].path).toEqual(['startDate']);
   });
 
-  it('fails on missing week startDate', () => {
+  it('fails on missing week data', () => {
     const faultyData = {
-      startDate: DateTime.now().startOf('week'),
+      startDate: thisWeek,
       weeks: [
         {
           startDate: null,
           veggies: [],
         },
       ],
-      challenges: [],
       settings: {
         ...DEFAULT_SETTINGS,
       },
@@ -179,42 +148,21 @@ describe('helpers', () => {
     const result = importSchema.safeParse(faultyData);
     expect(result.success).toBe(false);
     const errorMessage = JSON.parse(result.error?.message ?? '');
-    expect(errorMessage.length).toEqual(1);
+    expect(errorMessage.length).toEqual(2);
     expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
     expect(errorMessage[0].path).toEqual(['weeks', 0, 'startDate']);
-  });
-
-  it('fails on missing challenge startDate', () => {
-    const faultyData = {
-      startDate: DateTime.now().startOf('week'),
-      weeks: [],
-      challenges: [
-        {
-          startDate: null,
-          veggie: 'apple',
-        },
-      ],
-      settings: {
-        ...DEFAULT_SETTINGS,
-      },
-    };
-    const result = importSchema.safeParse(faultyData);
-    expect(result.success).toBe(false);
-    const errorMessage = JSON.parse(result.error?.message ?? '');
-    expect(errorMessage.length).toEqual(1);
-    expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
-    expect(errorMessage[0].path).toEqual(['challenges', 0, 'startDate']);
+    expect(errorMessage[1].message).toEqual('Invalid input: expected string, received undefined');
+    expect(errorMessage[1].path).toEqual(['weeks', 0, 'challenge']);
   });
 
   it('handles missing data', () => {
     const faultyData = {
-      startDate: DateTime.now().startOf('week'),
+      startDate: thisWeek,
     };
     const result = importSchema.safeParse(faultyData);
     expect(result.success).toBe(true);
     expect(result.data).toEqual({
-      startDate: DateTime.now().startOf('week'),
-      challenges: [],
+      startDate: thisWeek,
       weeks: [],
       settings: {...DEFAULT_SETTINGS},
     });
@@ -222,9 +170,15 @@ describe('helpers', () => {
 
   it('handles extra data', () => {
     const faultyData = {
-      startDate: DateTime.now().startOf('week'),
-      weeks: [{startDate: DateTime.now().startOf('week'), veggies: ['apple'], foo: true}],
-      challenges: [{startDate: DateTime.now().startOf('week'), veggie: 'apple', bar: true}],
+      startDate: thisWeek,
+      weeks: [
+        {
+          startDate: thisWeek,
+          veggies: ['apple'],
+          challenge: 'cucumber',
+          foo: true,
+        },
+      ],
       settings: {
         ...DEFAULT_SETTINGS,
         baz: true,
@@ -233,16 +187,15 @@ describe('helpers', () => {
     const result = importSchema.safeParse(faultyData);
     expect(result.success).toBe(true);
     expect(result.data).toEqual({
-      startDate: DateTime.now().startOf('week'),
-      challenges: [{startDate: DateTime.now().startOf('week'), veggie: 'apple'}],
-      weeks: [{startDate: DateTime.now().startOf('week'), veggies: ['apple']}],
+      startDate: thisWeek,
+      weeks: [{startDate: thisWeek, veggies: ['apple'], challenge: 'cucumber'}],
       settings: {...DEFAULT_SETTINGS},
     });
   });
 
   it('handles wrong data', () => {
     const faultyData = {
-      startDate: DateTime.now().startOf('week'),
+      startDate: thisWeek,
       settings: {
         locale: 'el',
         suggestionCount: 100,
@@ -252,10 +205,9 @@ describe('helpers', () => {
     const result = importSchema.safeParse(faultyData);
     expect(result.success).toBe(true);
     expect(result.data).toEqual({
-      startDate: DateTime.now().startOf('week'),
-      challenges: [],
+      startDate: thisWeek,
       weeks: [],
-      settings: {...DEFAULT_SETTINGS},
+      settings: {...DEFAULT_SETTINGS, migrationVersion: CURRENT_MIGRATION_VERSION},
     });
   });
 

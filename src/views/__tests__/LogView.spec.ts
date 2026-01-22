@@ -72,20 +72,12 @@ describe('LogView', () => {
       {
         veggies: ['rye', 'rice', 'wheat'],
         startDate: lastWeek,
+        challenge: 'radish',
       },
       {
         veggies: ['wheat'],
         startDate: thisWeek,
-      },
-    ];
-    activityStore.challenges = [
-      {
-        startDate: lastWeek,
-        veggie: 'radish',
-      },
-      {
-        startDate: thisWeek,
-        veggie: 'morel',
+        challenge: 'morel',
       },
     ];
     const wrapper = mounter();
@@ -99,6 +91,7 @@ describe('LogView', () => {
       {
         veggies: ['rye', 'rice', 'wheat'],
         startDate: thisWeek,
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mounter();

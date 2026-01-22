@@ -12,7 +12,7 @@ const {t} = useI18n();
 
 const router = useRouter();
 
-const {startDate, weeks, challenges} = storeToRefs(useActivityStore());
+const {startDate, weeks} = storeToRefs(useActivityStore());
 const {settings} = storeToRefs(useAppStateStore());
 const {addToastMessage} = useAppStateStore();
 
@@ -26,7 +26,6 @@ const exportData = () => {
     const data = {
       startDate: localStorage.getItem('veggies-start-date'),
       weeks: JSON.parse(localStorage.getItem('veggies-weeks') || ''),
-      challenges: JSON.parse(localStorage.getItem('veggies-challenges') || ''),
       settings: JSON.parse(localStorage.getItem('veggies-settings') || ''),
     };
 
@@ -55,13 +54,11 @@ onChange(async (files) => {
     const {
       startDate: importStartDate,
       weeks: importWeeks,
-      challenges: importChallenges,
       settings: importSettings,
     } = importSchema.parse(JSON.parse(text, dateParser));
 
     startDate.value = importStartDate;
     weeks.value = importWeeks;
-    challenges.value = importChallenges;
     settings.value = importSettings;
 
     await nextTick();

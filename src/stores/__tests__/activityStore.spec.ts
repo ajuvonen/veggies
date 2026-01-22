@@ -29,18 +29,16 @@ describe('activityStore', () => {
     localStorage.setItem('veggies-start-date', '2025-01-20T00:00:00.000+14:00');
     localStorage.setItem(
       'veggies-weeks',
-      JSON.stringify([{startDate: '2025-01-20T00:00:00.000+14:00', veggies: []}]),
-    );
-    localStorage.setItem(
-      'veggies-challenges',
-      JSON.stringify([{startDate: '2025-01-20T00:00:00.000-12:00', veggie: 'cucumber'}]),
+      JSON.stringify([
+        {startDate: '2025-01-20T00:00:00.000+14:00', veggies: [], challenge: 'cucumber'},
+      ]),
     );
     const datesFromStorage = await new Promise<(DateTime | null)[]>((resolve) =>
       mount({
         template: '<div />',
         setup: () => {
           const store = useActivityStore();
-          resolve([store.startDate, store.weeks[0].startDate, store.challenges[0].startDate]);
+          resolve([store.startDate, store.weeks[0].startDate]);
         },
       }),
     );
@@ -55,7 +53,6 @@ describe('activityStore', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('tomato');
     expect(activityStore.weeks).toHaveLength(1);
-    expect(activityStore.challenges).toHaveLength(1);
     expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'tomato']);
   });
 
@@ -63,7 +60,6 @@ describe('activityStore', () => {
     activityStore.toggleVeggie('cucumber');
     activityStore.toggleVeggie('cucumber');
     expect(activityStore.weeks).toHaveLength(1);
-    expect(activityStore.challenges).toHaveLength(1);
     expect(activityStore.weeks[0].veggies).toHaveLength(0);
   });
 
@@ -71,6 +67,7 @@ describe('activityStore', () => {
     const lastWeekItem: Week = {
       veggies: ['tomato'],
       startDate: lastWeek,
+      challenge: 'cucumber',
     };
     activityStore.weeks = [lastWeekItem];
     activityStore.toggleVeggie('tomato');
@@ -87,10 +84,12 @@ describe('activityStore', () => {
       {
         startDate: lastWeek,
         veggies: ['eggplant', 'broccoli', 'ginger', 'apple'],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: ['apple', 'tomato'],
+        challenge: 'cucumber',
       },
     ];
 
@@ -104,10 +103,12 @@ describe('activityStore', () => {
       {
         startDate: lastWeek,
         veggies: ['eggplant', 'broccoli', 'ginger', 'apple'],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: ['orange', 'tomato', 'shiitake', 'rye', 'wheat'],
+        challenge: 'cucumber',
       },
     ];
 
@@ -141,6 +142,7 @@ describe('activityStore', () => {
       {
         startDate: thisWeek,
         veggies: ['magic bean'],
+        challenge: 'cucumber',
       },
     ];
 
@@ -158,10 +160,12 @@ describe('activityStore', () => {
       {
         startDate: lastWeek,
         veggies: ['wheat', 'wheat', 'rice'],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: ['wheat', 'oat'],
+        challenge: 'cucumber',
       },
     ];
 
@@ -180,10 +184,12 @@ describe('activityStore', () => {
       {
         startDate: lastWeek,
         veggies: ['cucumber', 'tomato'],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: ['cucumber', 'tomato'],
+        challenge: 'cucumber',
       },
     ];
     expect(activityStore.currentVeggies).toEqual(['cucumber', 'tomato']);
@@ -195,28 +201,17 @@ describe('activityStore', () => {
       {
         startDate: twoWeeksAgo,
         veggies: ['cucumber'],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
         veggies: ['wheat', 'rye', 'strawberry'],
+        challenge: 'leek',
       },
       {
         startDate: thisWeek,
         veggies: ['rice', 'leek'],
-      },
-    ];
-    activityStore.challenges = [
-      {
-        startDate: twoWeeksAgo,
-        veggie: 'cucumber',
-      },
-      {
-        startDate: lastWeek,
-        veggie: 'leek',
-      },
-      {
-        startDate: thisWeek,
-        veggie: 'rice',
+        challenge: 'rice',
       },
     ];
 
@@ -229,10 +224,12 @@ describe('activityStore', () => {
       {
         startDate: lastWeek,
         veggies: ['cucumber', 'longan'],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: ['cucumber', 'tomato'],
+        challenge: 'cucumber',
       },
     ];
     activityStore.currentVeggies = ['banana', 'apple'];
@@ -246,6 +243,7 @@ describe('activityStore', () => {
       {
         startDate: lastWeek,
         veggies: ['cucumber', 'longan'],
+        challenge: 'cucumber',
       },
     ];
     activityStore.currentVeggies = ['banana', 'apple'];
@@ -260,10 +258,12 @@ describe('activityStore', () => {
       {
         veggies: ['apple'],
         startDate: lastWeek,
+        challenge: 'cucumber',
       },
       {
         veggies: ['cucumber', 'tomato'],
         startDate: thisWeek,
+        challenge: 'cucumber',
       },
     ];
 
@@ -274,20 +274,26 @@ describe('activityStore', () => {
 
   it("returns this week's challenge", () => {
     activityStore.startDate = lastWeek;
-
-    activityStore.challenges = [
+    activityStore.weeks = [
       {
         startDate: lastWeek,
-        veggie: 'cucumber',
+        veggies: [],
+        challenge: 'cucumber',
       },
     ];
 
     expect(activityStore.currentChallenge).toBe(undefined);
 
-    activityStore.challenges = [
+    activityStore.weeks = [
+      {
+        startDate: lastWeek,
+        veggies: [],
+        challenge: 'cucumber',
+      },
       {
         startDate: thisWeek,
-        veggie: 'tomato',
+        veggies: [],
+        challenge: 'tomato',
       },
     ];
 
@@ -300,14 +306,17 @@ describe('activityStore', () => {
       {
         startDate: threeWeeksAgo,
         veggies: ['wheat', 'apple', 'cucumber'],
+        challenge: 'cucumber',
       },
       {
         startDate: twoWeeksAgo,
         veggies: ['wheat', 'apple'],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
         veggies: ['cucumber'],
+        challenge: 'cucumber',
       },
     ];
 
@@ -320,14 +329,17 @@ describe('activityStore', () => {
       {
         veggies: ['apple'],
         startDate: twoWeeksAgo,
+        challenge: 'cucumber',
       },
       {
         veggies: ['cucumber', 'wheat'],
         startDate: lastWeek,
+        challenge: 'cucumber',
       },
       {
         veggies: ['wheat', 'apple'],
         startDate: thisWeek,
+        challenge: 'cucumber',
       },
     ];
 
@@ -352,10 +364,12 @@ describe('activityStore', () => {
       {
         veggies: [...expected, 'lettuce', 'broccoli', 'lychee'],
         startDate: twoWeeksAgo,
+        challenge: 'cucumber',
       },
       {
         veggies: [...expected, 'lettuce', 'barley'],
         startDate: lastWeek,
+        challenge: 'cucumber',
       },
     ];
 
@@ -372,10 +386,12 @@ describe('activityStore', () => {
       {
         veggies: ['tomato', 'apple', 'banana'],
         startDate: lastWeek,
+        challenge: 'cucumber',
       },
       {
         veggies: ['apple', 'tomato', 'cherry'],
         startDate: thisWeek,
+        challenge: 'cucumber',
       },
     ];
 
@@ -388,6 +404,7 @@ describe('activityStore', () => {
       {
         startDate: thisWeek,
         veggies: [...Array(29)],
+        challenge: 'cucumber',
       },
     ];
     expect(activityStore.hotStreak).toBe(0);
@@ -399,6 +416,7 @@ describe('activityStore', () => {
       {
         startDate: thisWeek,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
     ];
     expect(activityStore.hotStreak).toBe(1);
@@ -410,14 +428,17 @@ describe('activityStore', () => {
       {
         startDate: threeWeeksAgo,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
       {
         startDate: twoWeeksAgo,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
     ];
     expect(activityStore.hotStreak).toBe(1);
@@ -429,10 +450,12 @@ describe('activityStore', () => {
       {
         startDate: twoWeeksAgo,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
     ];
     expect(activityStore.hotStreak).toBe(2);
@@ -444,18 +467,22 @@ describe('activityStore', () => {
       {
         startDate: threeWeeksAgo,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
       {
         startDate: twoWeeksAgo,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
         veggies: [...Array(29)],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
     ];
     expect(activityStore.hotStreak).toBe(1);
@@ -467,14 +494,17 @@ describe('activityStore', () => {
       {
         startDate: twoWeeksAgo,
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
         veggies: [...Array(31)],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: [...Array(29)],
+        challenge: 'cucumber',
       },
     ];
 
@@ -487,14 +517,17 @@ describe('activityStore', () => {
       {
         startDate: twoWeeksAgo,
         veggies: [...Array(12)],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
         veggies: [...Array(6)],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: [],
+        challenge: 'cucumber',
       },
     ];
 
@@ -524,6 +557,7 @@ describe('activityStore', () => {
           ...take(GRAINS, 7),
           ...take(MUSHROOMS, 7),
         ],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
@@ -536,6 +570,7 @@ describe('activityStore', () => {
           ...take(GRAINS, 2),
           ...take(MUSHROOMS, 2),
         ],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
@@ -548,6 +583,7 @@ describe('activityStore', () => {
           GRAINS[0],
           MUSHROOMS[0],
         ],
+        challenge: 'cucumber',
       },
     ];
 
@@ -617,12 +653,7 @@ describe('activityStore', () => {
       {
         startDate: thisWeek,
         veggies: [...take(VEGETABLES, 15), ...take(FRUITS, 15)],
-      },
-    ];
-    activityStore.challenges = [
-      {
-        startDate: thisWeek,
-        veggie: 'longan',
+        challenge: 'cucumber',
       },
     ];
 
@@ -630,7 +661,6 @@ describe('activityStore', () => {
 
     expect(activityStore.startDate).toBe(null);
     expect(activityStore.weeks).toHaveLength(0);
-    expect(activityStore.challenges).toHaveLength(0);
     expect(activityStore.achievements).toEqual({
       allOnRed: AchievementLevel.NoAchievement,
       botanicalBerries: AchievementLevel.NoAchievement,

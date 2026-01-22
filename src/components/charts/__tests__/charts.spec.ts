@@ -59,18 +59,22 @@ describe('charts', () => {
       {
         startDate: fiveWeeksAgo,
         veggies: ['endive'],
+        challenge: 'cucumber',
       },
       {
         startDate: twoWeeksAgo,
         veggies: ['oat', 'wheat'],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
         veggies: ['carrot', 'pinto bean'],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: ['onion', 'tomato', 'apple', 'pineapple'],
+        challenge: 'cucumber',
       },
     ];
 
@@ -131,18 +135,22 @@ describe('charts', () => {
       {
         startDate: fiveWeeksAgo,
         veggies: ['endive'],
+        challenge: 'cucumber',
       },
       {
         startDate: twoWeeksAgo,
         veggies: ['oat', 'wheat'],
+        challenge: 'cucumber',
       },
       {
         startDate: lastWeek,
         veggies: ['carrot', 'pinto bean'],
+        challenge: 'cucumber',
       },
       {
         startDate: thisWeek,
         veggies: ['onion', 'tomato', 'apple', 'pineapple'],
+        challenge: 'cucumber',
       },
     ];
 
@@ -235,10 +243,12 @@ describe('charts', () => {
           'adzuki bean',
           'edamame',
         ],
+        challenge: 'cucumber',
       },
       {
         startDate: week3,
         veggies: ['onion', 'tomato', 'apple', 'pineapple', 'shiitake', 'portobello'],
+        challenge: 'cucumber',
       },
     ];
 

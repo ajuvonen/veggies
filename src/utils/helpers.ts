@@ -2,7 +2,7 @@ import {useMemoize} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {sample} from 'remeda';
 import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
-import {DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
+import {CURRENT_MIGRATION_VERSION, DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
 import {AchievementLevel, Category} from '@/types';
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
@@ -110,15 +110,23 @@ export const getImportSchema = async () => {
   );
   return z.object({
     startDate: luxonDateTimeSchema,
-    challenges: z.array(z.object({startDate: luxonDateTimeSchema, veggie: z.string()})).default([]),
     weeks: z
-      .array(z.object({startDate: luxonDateTimeSchema, veggies: z.array(z.string())}))
+      .array(
+        z.object({
+          startDate: luxonDateTimeSchema,
+          veggies: z.array(z.string()),
+          challenge: z.string(),
+        }),
+      )
       .default([]),
     settings: z
       .object({
         allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
         locale: z.enum(LOCALES).catch(DEFAULT_SETTINGS.locale).default(DEFAULT_SETTINGS.locale),
-        migrationVersion: z.number().catch(1).default(1),
+        migrationVersion: z
+          .number()
+          .catch(CURRENT_MIGRATION_VERSION)
+          .default(CURRENT_MIGRATION_VERSION),
         showChartAnimations: z
           .boolean()
           .catch(DEFAULT_SETTINGS.showChartAnimations)

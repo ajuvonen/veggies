@@ -12,7 +12,7 @@ import AchievementBadge from '@/components/AchievementBadge.vue';
 import DropdownList from '@/components/ui/DropdownList.vue';
 
 const activityStore = useActivityStore();
-const {getWeekStarts, veggiesForWeek, challenges, weeklyAchievements} = storeToRefs(activityStore);
+const {getWeekStarts, veggiesForWeek, weeks, weeklyAchievements} = storeToRefs(activityStore);
 const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
 
 const selectedWeekStart = ref(getWeekStarts.value[0]!);
@@ -25,7 +25,7 @@ const veggies = computed({
 const {formatWeekString} = useDateTime();
 
 const selectedChallenge = computed(
-  () => challenges.value.find(({startDate}) => startDate.equals(selectedWeekStart.value))?.veggie,
+  () => weeks.value.find((week) => week.startDate.equals(selectedWeekStart.value))?.challenge,
 );
 
 const {weeklyCompletion} = useAchievementCompletion(veggies, selectedChallenge);

@@ -24,6 +24,7 @@ const createWeeks = (amount: number, veggies: string[] = []): Week[] =>
     .map((_, index) => ({
       startDate: DateTime.now().startOf('week').minus({weeks: index}),
       veggies,
+      challenge: 'cucumber',
     }))
     .reverse();
 
@@ -253,18 +254,33 @@ describe('achievements', () => {
   it('advances overachiever', async () => {
     const thisWeek = DateTime.now().startOf('week');
     // Setup 30 veggies but no challenge completed
-    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 30));
-    activityStore.challenges = [{startDate: thisWeek, veggie: ALL_VEGGIES[ALL_VEGGIES.length - 1]}];
+    activityStore.weeks = [
+      {
+        startDate: thisWeek,
+        veggies: take(ALL_VEGGIES, 30),
+        challenge: ALL_VEGGIES[ALL_VEGGIES.length - 1],
+      },
+    ];
     expect(activityStore.achievements.overachiever).toEqual(AchievementLevel.NoAchievement);
 
     // Setup challenge completed but not 30 veggies
-    activityStore.weeks = createWeeks(1, ['apple']);
-    activityStore.challenges = [{startDate: thisWeek, veggie: 'apple'}];
+    activityStore.weeks = [
+      {
+        startDate: thisWeek,
+        veggies: ['apple'],
+        challenge: 'apple',
+      },
+    ];
     expect(activityStore.achievements.overachiever).toEqual(AchievementLevel.NoAchievement);
 
     // Setup both 30 veggies AND challenge completed
-    activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 30));
-    activityStore.challenges = [{startDate: thisWeek, veggie: ALL_VEGGIES[0]}];
+    activityStore.weeks = [
+      {
+        startDate: thisWeek,
+        veggies: take(ALL_VEGGIES, 30),
+        challenge: ALL_VEGGIES[0],
+      },
+    ];
     expect(activityStore.achievements.overachiever).toEqual(AchievementLevel.Gold);
   });
 });

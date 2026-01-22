@@ -28,10 +28,12 @@ describe('AllTimeStatus', () => {
       {
         startDate: DateTime.now().startOf('week').minus({weeks: 1}),
         veggies: ['apple', 'cucumber', 'potato'],
+        challenge: 'cucumber',
       },
       {
         startDate: DateTime.now().startOf('week'),
         veggies: ['apple', 'cucumber', 'rice', 'fennel'],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(AllTimeStatus);
@@ -46,14 +48,17 @@ describe('AllTimeStatus', () => {
       {
         startDate: DateTime.now().startOf('week').minus({weeks: 2}),
         veggies: [...Array(31)],
+        challenge: 'cucumber',
       },
       {
         startDate: DateTime.now().startOf('week').minus({weeks: 1}),
         veggies: [...Array(29)],
+        challenge: 'cucumber',
       },
       {
         startDate: DateTime.now().startOf('week'),
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(AllTimeStatus);
@@ -68,14 +73,17 @@ describe('AllTimeStatus', () => {
       {
         startDate: DateTime.now().startOf('week').minus({weeks: 2}),
         veggies: [...Array(31)],
+        challenge: 'cucumber',
       },
       {
         startDate: DateTime.now().startOf('week').minus({weeks: 1}),
         veggies: [...Array(29)],
+        challenge: 'cucumber',
       },
       {
         startDate: DateTime.now().startOf('week'),
         veggies: [...Array(30)],
+        challenge: 'cucumber',
       },
     ];
     const wrapper = mount(AllTimeStatus);

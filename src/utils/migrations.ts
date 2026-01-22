@@ -1,4 +1,7 @@
-import {dateParser, dateReplacer, getStorageKeys} from '@/utils/helpers';
+import {dateParser, dateReplacer, getStorageKeys, getRandomItem} from '@/utils/helpers';
+import {ALL_VEGGIES} from '@/utils/veggieDetails';
+import type {DateTime} from 'luxon';
+import type {Week, Settings} from '@/types';
 
 type StorageData = Record<string, unknown>;
 
@@ -9,21 +12,44 @@ type Migration = {
 };
 
 const migrations: Migration[] = [
-  // Example migration for version 2:
-  // {
-  //   version: 2,
-  //   name: 'add-favorite-veggies',
-  //   migrate: (data) => {
-  //     const settings = data['veggies-settings'] as any;
-  //     return {
-  //       ...data,
-  //       'veggies-settings': {
-  //         ...settings,
-  //         favoriteVeggies: [] as string[],
-  //       },
-  //     };
-  //   },
-  // },
+  {
+    version: 2,
+    name: 'Move challenges to weeks',
+    migrate: (data) => {
+      const weeks = (data['veggies-weeks'] || []) as Week[];
+      const challenges = (data['veggies-challenges'] || []) as {
+        startDate: DateTime;
+        veggie: string;
+      }[];
+      const settings = data['veggies-settings'] as Settings;
+
+      // Get all available veggies excluding allergens
+      const availableVeggies = ALL_VEGGIES.filter((veggie) => !settings.allergens.includes(veggie));
+
+      // Return data without challenges key
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const {['veggies-challenges']: _, ...rest} = data;
+      return {
+        ...rest,
+        'veggies-weeks': weeks.map((week) => {
+          // If week already has a challenge, keep it
+          if (week.challenge) {
+            return week;
+          }
+
+          // Find matching challenge by date
+          const matchingChallenge = challenges.find(({startDate}) =>
+            startDate.equals(week.startDate),
+          );
+
+          return {
+            ...week,
+            challenge: matchingChallenge?.veggie ?? getRandomItem(availableVeggies)!,
+          };
+        }),
+      };
+    },
+  },
 ];
 
 /**
