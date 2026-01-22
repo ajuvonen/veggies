@@ -118,6 +118,31 @@ describe('readStorageData', () => {
     expect(result.startDate).toBeInstanceOf(DateTime);
     expect((result.startDate as DateTime).toISODate()).toBe(isoDate);
   });
+
+  it('ignores backup keys', () => {
+    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
+    localStorage.setItem(
+      'veggies-settings-backup',
+      JSON.stringify({...DEFAULT_SETTINGS, locale: 'fi'}, dateReplacer),
+    );
+    localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
+    localStorage.setItem(
+      'veggies-weeks-backup',
+      JSON.stringify(
+        [{startDate: thisWeek, veggies: ['apple'], challenge: 'banana'}],
+        dateReplacer,
+      ),
+    );
+
+    const result = readStorageData();
+
+    expect(result).toHaveProperty('settings');
+    expect(result).toHaveProperty('weeks');
+    expect(result).not.toHaveProperty('settings-backup');
+    expect(result).not.toHaveProperty('weeks-backup');
+    expect((result.settings as Settings).locale).toBe('en'); // Not 'fi' from backup
+    expect(result.weeks as Week[]).toHaveLength(0); // Not the backup week
+  });
 });
 
 describe('writeStorageData', () => {
