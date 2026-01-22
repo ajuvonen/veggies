@@ -50,6 +50,22 @@ const migrations: Migration[] = [
       };
     },
   },
+  {
+    version: 3,
+    name: 'Rename start-date key',
+    migrate: (data) => {
+      const startDate = data['veggies-start-date'];
+      if (startDate !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const {['veggies-start-date']: _, ...rest} = data;
+        return {
+          ...rest,
+          'veggies-startDate': startDate,
+        };
+      }
+      return data;
+    },
+  },
 ];
 
 /**

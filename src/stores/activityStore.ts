@@ -52,7 +52,7 @@ export const useActivityStore = defineStore('activity', () => {
   }, 2000);
 
   // State refs
-  const startDate = useStorage<DateTime | null>('veggies-start-date', null, localStorage, {
+  const startDate = useStorage<DateTime | null>('veggies-startDate', null, localStorage, {
     mergeDefaults: true,
     serializer: {
       read: (v) => (v ? DateTime.fromISO(v.split('T')[0] as string) : null),

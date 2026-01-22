@@ -77,7 +77,7 @@ test('export works', async ({browser}) => {
           origin: 'http://localhost:5173',
           localStorage: [
             {
-              name: 'veggies-start-date',
+              name: 'veggies-startDate',
               value: '2025-08-04',
             },
             {
