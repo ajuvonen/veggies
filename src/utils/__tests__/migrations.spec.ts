@@ -17,21 +17,21 @@ const lastWeek = thisWeek.minus({weeks: 1});
 
 describe('applyMigrations', () => {
   it('returns unchanged data when fromVersion equals toVersion', () => {
-    const data = {'veggies-settings': {...DEFAULT_SETTINGS, migrationVersion: 2}};
+    const data = {settings: {...DEFAULT_SETTINGS, migrationVersion: 2}};
     const result = applyMigrations(data, 1, 1);
     expect(result).toBe(data);
   });
 
   it('returns unchanged data when fromVersion is greater than toVersion', () => {
-    const data = {'veggies-settings': {...DEFAULT_SETTINGS, migrationVersion: 1}};
+    const data = {settings: {...DEFAULT_SETTINGS, migrationVersion: 1}};
     const result = applyMigrations(data, 1, 0);
     expect(result).toBe(data);
   });
 
   it('returns unchanged data when no migrations are defined', () => {
     const data = {
-      'veggies-settings': {...DEFAULT_SETTINGS, migrationVersion: 0},
-      'veggies-weeks': [],
+      settings: {...DEFAULT_SETTINGS, migrationVersion: 0},
+      weeks: [],
     };
     const result = applyMigrations(data, 0, 1);
     expect(result).toEqual(data);
@@ -40,14 +40,16 @@ describe('applyMigrations', () => {
 
 describe('readStorageData', () => {
   it('reads all veggies-prefixed keys from localStorage', () => {
+    localStorage.setItem('veggies-startDate', thisWeek.toISODate());
     localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
     localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
     localStorage.setItem('other-data', 'should be ignored');
 
     const result = readStorageData();
 
-    expect(result).toHaveProperty('veggies-settings');
-    expect(result).toHaveProperty('veggies-weeks');
+    expect(result).toHaveProperty('startDate');
+    expect(result).toHaveProperty('settings');
+    expect(result).toHaveProperty('weeks');
     expect(result).not.toHaveProperty('other-data');
   });
 
@@ -57,7 +59,7 @@ describe('readStorageData', () => {
 
     const result = readStorageData();
 
-    expect(result['veggies-settings']).toEqual(settings);
+    expect(result.settings).toEqual(settings);
   });
 
   it('parses DateTime objects using dateParser', () => {
@@ -66,7 +68,7 @@ describe('readStorageData', () => {
     localStorage.setItem('veggies-settings', JSON.stringify(settings, dateReplacer));
 
     const result = readStorageData();
-    const parsed = result['veggies-settings'] as Settings;
+    const parsed = result.settings as Settings;
 
     expect(parsed.summaryViewedDate).toBeInstanceOf(DateTime);
     expect(parsed.summaryViewedDate?.toISODate()).toBe(dateString);
@@ -77,7 +79,7 @@ describe('readStorageData', () => {
 
     const result = readStorageData();
 
-    expect(result['veggies-raw']).toBe('plain string');
+    expect(result.raw).toBe('plain string');
   });
 
   it('returns empty object when no veggies data exists', () => {
@@ -88,20 +90,36 @@ describe('readStorageData', () => {
     expect(result).toEqual({});
   });
 
-  it('handles malformed JSON gracefully', () => {
-    localStorage.setItem('veggies-broken', '{invalid json}');
+  it('filters out dangerous keys that could cause prototype pollution', () => {
+    localStorage.setItem('veggies-__proto__', 'dangerous');
+    localStorage.setItem('veggies-constructor', 'dangerous');
+    localStorage.setItem('veggies-prototype', 'dangerous');
+    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
 
     const result = readStorageData();
 
-    expect(result['veggies-broken']).toBe('{invalid json}');
+    expect(result).not.toHaveProperty('__proto__');
+    expect(result).not.toHaveProperty('constructor');
+    expect(result).not.toHaveProperty('prototype');
+    expect(result).toHaveProperty('settings');
+  });
+
+  it('reads top-level DateTime values correctly (startDate)', () => {
+    const isoDate = thisWeek.toISODate();
+    localStorage.setItem('veggies-startDate', isoDate);
+
+    const result = readStorageData();
+
+    expect(result.startDate).toBeInstanceOf(DateTime);
+    expect((result.startDate as DateTime).toISODate()).toBe(isoDate);
   });
 });
 
 describe('writeStorageData', () => {
   it('writes veggies-prefixed data to localStorage', () => {
     const data = {
-      'veggies-settings': {...DEFAULT_SETTINGS},
-      'veggies-weeks': [],
+      settings: {...DEFAULT_SETTINGS},
+      weeks: [],
     };
 
     writeStorageData(data, 1);
@@ -113,7 +131,7 @@ describe('writeStorageData', () => {
 
   it('serializes DateTime objects using dateReplacer', () => {
     const data = {
-      'veggies-settings': {...DEFAULT_SETTINGS, summaryViewedDate: thisWeek},
+      settings: {...DEFAULT_SETTINGS, summaryViewedDate: thisWeek},
     };
 
     writeStorageData(data, 1);
@@ -123,22 +141,10 @@ describe('writeStorageData', () => {
     expect(stored).not.toContain('T'); // Should only store date, not time
   });
 
-  it('does not write non-veggies-prefixed keys', () => {
-    const data = {
-      'veggies-settings': {...DEFAULT_SETTINGS},
-      'other-data': 'should not be written',
-    };
-
-    writeStorageData(data, 1);
-
-    expect(localStorage.getItem('veggies-settings')).toBeTruthy();
-    expect(localStorage.getItem('other-data')).toBeNull();
-  });
-
   it('handles string values directly', () => {
     const data = {
-      'veggies-raw': 'plain string',
-      'veggies-settings': {...DEFAULT_SETTINGS},
+      raw: 'plain string',
+      settings: {...DEFAULT_SETTINGS},
     };
 
     writeStorageData(data, 1);
@@ -152,7 +158,7 @@ describe('writeStorageData', () => {
       JSON.stringify({...DEFAULT_SETTINGS, locale: 'el'}, dateReplacer),
     );
 
-    writeStorageData({'veggies-settings': {...DEFAULT_SETTINGS}}, 2);
+    writeStorageData({settings: {...DEFAULT_SETTINGS}}, 2);
 
     const stored = JSON.parse(localStorage.getItem('veggies-settings')!, dateParser);
     expect(stored).toMatchObject({...DEFAULT_SETTINGS, migrationVersion: 2});
@@ -167,7 +173,7 @@ describe('writeStorageData', () => {
     // Write data with only settings (omitting challenges and weeks)
     writeStorageData(
       {
-        'veggies-settings': {...DEFAULT_SETTINGS, locale: 'fi' as const},
+        settings: {...DEFAULT_SETTINGS, locale: 'fi' as const},
       },
       1,
     );
@@ -181,9 +187,9 @@ describe('writeStorageData', () => {
     expect(localStorage.getItem('veggies-weeks')).toBeNull();
   });
 
-  it('updates migrationVersion when toVersion is provided', () => {
+  it('updates migrationVersion', () => {
     const data = {
-      'veggies-settings': {...DEFAULT_SETTINGS, migrationVersion: 1},
+      settings: {...DEFAULT_SETTINGS, migrationVersion: 1},
     };
 
     writeStorageData(data, 3);
@@ -195,7 +201,7 @@ describe('writeStorageData', () => {
 
   it('preserves other settings fields when updating migrationVersion', () => {
     const data = {
-      'veggies-settings': {...DEFAULT_SETTINGS, locale: 'fi' as const, allergens: ['peanuts']},
+      settings: {...DEFAULT_SETTINGS, locale: 'fi' as const, allergens: ['peanuts']},
     };
 
     writeStorageData(data, 2);
@@ -205,6 +211,33 @@ describe('writeStorageData', () => {
     expect(parsed.migrationVersion).toBe(2);
     expect(parsed.locale).toBe('fi');
     expect(parsed.allergens).toEqual(['peanuts']);
+  });
+
+  it('writes top-level DateTime values as plain ISO date strings', () => {
+    const data = {
+      settings: {...DEFAULT_SETTINGS},
+      startDate: thisWeek,
+    };
+
+    writeStorageData(data, 1);
+
+    const stored = localStorage.getItem('veggies-startDate');
+    expect(stored).toBe(thisWeek.toISODate());
+    expect(stored).not.toContain('"'); // Should not be JSON-stringified
+  });
+
+  it('round-trips top-level DateTime values correctly', () => {
+    const data = {
+      settings: {...DEFAULT_SETTINGS},
+      startDate: thisWeek,
+      weeks: [],
+    };
+
+    writeStorageData(data, 1);
+    const result = readStorageData();
+
+    expect(result.startDate).toBeInstanceOf(DateTime);
+    expect((result.startDate as DateTime).equals(thisWeek)).toBe(true);
   });
 });
 
@@ -249,7 +282,7 @@ describe('runMigrations', () => {
 });
 
 describe('createBackup', () => {
-  it('creates backup copies of all veggies-* keys with DateTime objects', () => {
+  it('creates backup copies of all veggies-* keys', () => {
     const weeks: Week[] = [
       {startDate: lastWeek, veggies: ['apple', 'banana'], challenge: 'orange'},
       {startDate: thisWeek, veggies: ['tomato', 'carrot', 'spinach'], challenge: 'cucumber'},
@@ -257,6 +290,7 @@ describe('createBackup', () => {
 
     localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
     localStorage.setItem('veggies-weeks', JSON.stringify(weeks, dateReplacer));
+    localStorage.setItem('veggies-startDate', thisWeek.toISODate()!);
     localStorage.setItem('other-data', 'should not be backed up');
 
     createBackup();
@@ -265,6 +299,7 @@ describe('createBackup', () => {
       JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer),
     );
     expect(localStorage.getItem('veggies-weeks-backup')).toBe(JSON.stringify(weeks, dateReplacer));
+    expect(localStorage.getItem('veggies-startDate-backup')).toBe(thisWeek.toISODate());
     expect(localStorage.getItem('other-data-backup')).toBeNull();
 
     // Verify DateTime objects are properly serialized in backup
@@ -315,6 +350,7 @@ describe('restoreFromBackup', () => {
       JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer),
     );
     localStorage.setItem('veggies-weeks-backup', JSON.stringify(weeks, dateReplacer));
+    localStorage.setItem('veggies-startDate-backup', thisWeek.toISODate()!);
 
     restoreFromBackup();
 
@@ -322,6 +358,7 @@ describe('restoreFromBackup', () => {
       JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer),
     );
     expect(localStorage.getItem('veggies-weeks')).toBe(JSON.stringify(weeks, dateReplacer));
+    expect(localStorage.getItem('veggies-startDate')).toBe(thisWeek.toISODate());
 
     // Verify DateTime objects are properly restored and parsed
     const restoredWeeks = JSON.parse(localStorage.getItem('veggies-weeks')!, dateParser) as Week[];
