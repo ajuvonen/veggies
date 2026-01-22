@@ -122,7 +122,7 @@ export function applyMigrations(
  */
 export function readStorageData(): StorageData {
   const data: StorageData = {};
-  const keys = getStorageKeys();
+  const keys = getStorageKeys().filter((key) => !key.endsWith('-backup'));
   const dangerousKeys = ['__proto__', 'constructor', 'prototype'];
 
   keys.forEach((key) => {
@@ -140,7 +140,7 @@ export function readStorageData(): StorageData {
         data[unprefixedKey] = JSON.parse(value, dateParser);
       } catch {
         // JSON.parse failed - handle plain strings and plain ISO date strings
-        if (unprefixedKey.endsWith('Date') && value) {
+        if (value && value.match(/^\d{4}-\d{2}-\d{2}(T.*)?$/)) {
           data[unprefixedKey] = DateTime.fromISO(value.split('T')[0]!);
         } else {
           data[unprefixedKey] = value;
@@ -171,14 +171,12 @@ export function writeStorageData(data: StorageData, toVersion: number): void {
   const writtenKeys = new Set<string>();
 
   for (const [key, value] of Object.entries(dataToWrite)) {
-    // Add veggies- prefix to all keys
     const prefixedKey = `veggies-${key}`;
 
     let serialized: string;
     if (typeof value === 'string') {
       serialized = value;
     } else if (DateTime.isDateTime(value)) {
-      // Handle top-level DateTime values - store as ISO date string
       serialized = value.toISODate()!;
     } else {
       serialized = JSON.stringify(value, dateReplacer);
