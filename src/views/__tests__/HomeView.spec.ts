@@ -1,14 +1,19 @@
 import {describe, it, expect, vi, afterEach, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
+import {DateTime} from 'luxon';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {useActivityStore} from '@/stores/activityStore';
+import {CURRENT_MIGRATION_VERSION} from '@/utils/constants';
 import HomeView from '@/views/HomeView.vue';
 import DialogStub from '@/test-utils/DialogStub.vue';
 
 describe('HomeView', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
+  let activityStore: ReturnType<typeof useActivityStore>;
 
   beforeEach(() => {
     appStateStore = useAppStateStore();
+    activityStore = useActivityStore();
   });
 
   afterEach(() => {
@@ -54,5 +59,16 @@ describe('HomeView', () => {
     expect(wrapper.findByTestId('dialog').exists()).toBe(false);
     await wrapper.findByTestId('home-info-button').trigger('click');
     expect(wrapper.findByTestId('dialog').exists()).toBe(true);
+  });
+
+  it('sets startDate and migrationVersion when user starts', async () => {
+    const wrapper = mount(HomeView);
+
+    expect(activityStore.startDate).toBeNull();
+
+    await wrapper.findByTestId('home-start-button').trigger('click');
+
+    expect(activityStore.startDate?.equals(DateTime.now().startOf('week'))).toBe(true);
+    expect(appStateStore.settings.migrationVersion).toBe(CURRENT_MIGRATION_VERSION);
   });
 });
