@@ -59,6 +59,18 @@ describe('VeggieSearch', () => {
     expect(wrapper.findByText('.dropdown-list-option', 'eggplant').exists()).toBe(true);
   });
 
+  it('filters veggies with accent-insensitive search', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
+    await input.setValue('frisee');
+    expect(wrapper.findByText('.dropdown-list-option', 'frisée').exists()).toBe(true);
+    await input.setValue('mache');
+    expect(wrapper.findByText('.dropdown-list-option', 'machê').exists()).toBe(true);
+    await input.setValue('machê');
+    expect(wrapper.findByText('.dropdown-list-option', 'machê').exists()).toBe(true);
+  });
+
   it('shows all categories with matches', async () => {
     const wrapper = mounter();
     const input = wrapper.findByTestId('veggie-search-input');

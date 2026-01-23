@@ -87,6 +87,18 @@ export const getRandomEmojis = (amount: number = 1) => sample(veggieEmojis, amou
 export const achievementLevelHelper = (levels: [number, AchievementLevel][], value: number) =>
   levels.find(([threshold]) => value >= threshold)?.[1] ?? AchievementLevel.NoAchievement;
 
+export const normalizeForSearch = useMemoize((text: string): string => {
+  return (
+    text
+      .toLowerCase()
+      .normalize('NFD')
+      // Remove combining marks except U+0308 (diaeresis/umlaut)
+      .replace(/[\u0300-\u0307\u0309-\u036f]/g, '')
+      .normalize('NFC')
+      .replace(/\s+/g, '')
+  );
+});
+
 export const getStorageKeys = (): string[] => {
   const keys: string[] = [];
   Array.from({length: localStorage.length}).forEach((_, index) => {
