@@ -17,6 +17,7 @@ type Migration = {
   migrate: (data: StorageData) => StorageData;
 };
 
+// When adding new migrations, remember to sync settings export test to latest localStorage version
 const migrations: Migration[] = [
   {
     version: 2,
