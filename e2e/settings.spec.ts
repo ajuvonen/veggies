@@ -85,6 +85,7 @@ test('export works', async ({browser}) => {
               value: JSON.stringify({
                 allergens: ['peanut'],
                 locale: 'en',
+                migrationVersion: 3,
                 showChartAnimations: true,
                 suggestionCount: 10,
                 summaryViewedDate: thisWeekISO,
@@ -96,23 +97,12 @@ test('export works', async ({browser}) => {
                 {
                   veggies: ['apple', 'carrot', 'spinach', 'banana'],
                   startDate: '2025-08-04',
+                  challenge: 'apple',
                 },
                 {
                   veggies: ['arugula', 'black bean', 'chanterelle', 'iceberg lettuce'],
                   startDate: '2025-08-11',
-                },
-              ]),
-            },
-            {
-              name: 'veggies-challenges',
-              value: JSON.stringify([
-                {
-                  startDate: '2025-08-04',
-                  veggie: 'apple',
-                },
-                {
-                  startDate: '2025-08-11',
-                  veggie: 'lychee',
+                  challenge: 'lychee',
                 },
               ]),
             },
