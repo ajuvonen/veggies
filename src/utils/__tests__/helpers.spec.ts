@@ -1,6 +1,5 @@
 import {describe, it, expect} from 'vitest';
 import {DateTime} from 'luxon';
-import {unique} from 'remeda';
 import {ALL_VEGGIES, NUTRIENTS} from '@/utils/veggieDetails';
 import {CURRENT_MIGRATION_VERSION, DEFAULT_SETTINGS} from '@/utils/constants';
 import {
@@ -13,7 +12,7 @@ import {
   getRandomItem,
   getStorageKeys,
 } from '@/utils/helpers';
-import {AchievementLevel, Category} from '@/types';
+import {AchievementLevel, Category, type Week} from '@/types';
 
 const thisWeek = DateTime.now().startOf('week');
 const importSchema = await getImportSchema();
@@ -41,17 +40,17 @@ describe('helpers', () => {
   });
 
   it('gets all veggies-prefixed localStorage keys', () => {
-    localStorage.setItem('veggies-settings', 'data1');
-    localStorage.setItem('veggies-weeks', 'data2');
-    localStorage.setItem('veggies-challenges', 'data3');
+    localStorage.setItem('veggies-startDate', thisWeek.toISODate());
+    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
+    localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
     localStorage.setItem('other-data', 'should not be included');
 
     const keys = getStorageKeys();
 
     expect(keys).toHaveLength(3);
+    expect(keys).toContain('veggies-startDate');
     expect(keys).toContain('veggies-settings');
     expect(keys).toContain('veggies-weeks');
-    expect(keys).toContain('veggies-challenges');
     expect(keys).not.toContain('other-data');
   });
 
@@ -62,20 +61,20 @@ describe('helpers', () => {
   });
 
   it('parses dates from JSON', () => {
-    const parsed: {startDate: DateTime; veggie: string}[] = JSON.parse(
-      '[{"startDate":"2024-09-02T00:00:00.000Z","veggie":"nectarine"},{"startDate":"2024-09-16T22:00:00.000+14:00","veggie":"kale"},{"startDate":"2024-09-23T11:00:00.000-12:00","veggie":"cucumber"}]',
+    const parsed: Week[] = JSON.parse(
+      '[{"startDate":"2024-09-02T00:00:00.000Z","veggies":["nectarine","apple"],"challenge":"nectarine"},{"startDate":"2024-09-16T22:00:00.000+14:00","veggies":["kale","spinach"],"challenge":"kale"},{"startDate":"2024-09-23T11:00:00.000-12:00","veggies":["cucumber","tomato"],"challenge":"cucumber"}]',
       dateParser,
     );
     expect(parsed.length).toBe(3);
-    expect(parsed[0].veggie).toBe('nectarine');
-    expect(parsed[0].startDate).toBeInstanceOf(DateTime);
-    expect(parsed[0].startDate).toEqual(DateTime.fromISO('2024-09-02'));
-    expect(parsed[1].veggie).toBe('kale');
-    expect(parsed[1].startDate).toBeInstanceOf(DateTime);
-    expect(parsed[1].startDate).toEqual(DateTime.fromISO('2024-09-16'));
-    expect(parsed[2].veggie).toBe('cucumber');
-    expect(parsed[2].startDate).toBeInstanceOf(DateTime);
-    expect(parsed[2].startDate).toEqual(DateTime.fromISO('2024-09-23'));
+    expect(parsed[0].veggies).toEqual(['nectarine', 'apple']);
+    expect(parsed[0].challenge).toBe('nectarine');
+    expect(parsed[0].startDate.equals(DateTime.fromISO('2024-09-02'))).toBe(true);
+    expect(parsed[1].veggies).toEqual(['kale', 'spinach']);
+    expect(parsed[1].challenge).toBe('kale');
+    expect(parsed[1].startDate.equals(DateTime.fromISO('2024-09-16'))).toBe(true);
+    expect(parsed[2].veggies).toEqual(['cucumber', 'tomato']);
+    expect(parsed[2].challenge).toBe('cucumber');
+    expect(parsed[2].startDate.equals(DateTime.fromISO('2024-09-23'))).toBe(true);
   });
 
   it('parses numbers as they are', () => {
@@ -95,7 +94,7 @@ describe('helpers', () => {
 
   it('gives unique emojis', () => {
     const emojis = getRandomEmojis(15);
-    expect(unique(emojis)).toHaveLength(15);
+    expect(new Set(emojis)).toHaveLength(15);
   });
 
   it('returns correct achievement levels', () => {
