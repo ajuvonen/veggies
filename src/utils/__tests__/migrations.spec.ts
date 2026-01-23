@@ -6,14 +6,11 @@ import {
   readStorageData,
   writeStorageData,
   runMigrations,
-  createBackup,
-  restoreFromBackup,
 } from '@/utils/migrations';
 import {dateParser, dateReplacer} from '@/utils/helpers';
 import type {Settings, Week} from '@/types';
 
 const thisWeek = DateTime.now().startOf('week');
-const lastWeek = thisWeek.minus({weeks: 1});
 
 describe('applyMigrations', () => {
   it('returns unchanged data when fromVersion equals toVersion', () => {
@@ -26,20 +23,6 @@ describe('applyMigrations', () => {
     const data = {settings: {...DEFAULT_SETTINGS, migrationVersion: 1}};
     const result = applyMigrations(data, 1, 0);
     expect(result).toBe(data);
-  });
-
-  it('applies no-op migration correctly', () => {
-    const data = {
-      settings: {...DEFAULT_SETTINGS, migrationVersion: 0},
-      weeks: [],
-    };
-    const result = applyMigrations(data, 0, 1);
-    expect(result).toEqual({
-      settings: {...DEFAULT_SETTINGS, migrationVersion: 1},
-      weeks: [],
-    });
-    // Verify it's a clone, not the same reference
-    expect(result).not.toBe(data);
   });
 });
 
@@ -117,31 +100,6 @@ describe('readStorageData', () => {
 
     expect(result.startDate).toBeInstanceOf(DateTime);
     expect((result.startDate as DateTime).toISODate()).toBe(isoDate);
-  });
-
-  it('ignores backup keys', () => {
-    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
-    localStorage.setItem(
-      'veggies-settings-backup',
-      JSON.stringify({...DEFAULT_SETTINGS, locale: 'fi'}, dateReplacer),
-    );
-    localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
-    localStorage.setItem(
-      'veggies-weeks-backup',
-      JSON.stringify(
-        [{startDate: thisWeek, veggies: ['apple'], challenge: 'banana'}],
-        dateReplacer,
-      ),
-    );
-
-    const result = readStorageData();
-
-    expect(result).toHaveProperty('settings');
-    expect(result).toHaveProperty('weeks');
-    expect(result).not.toHaveProperty('settings-backup');
-    expect(result).not.toHaveProperty('weeks-backup');
-    expect((result.settings as Settings).locale).toBe('en'); // Not 'fi' from backup
-    expect(result.weeks as Week[]).toHaveLength(0); // Not the backup week
   });
 });
 
@@ -310,7 +268,7 @@ describe('runMigrations', () => {
     expect(stored).toEqual(initialData);
   });
 
-  it('throws validation error and restores backup when migrationVersion gets set incorrectly', async () => {
+  it('throws validation error when migrationVersion is incorrect', async () => {
     // Set up data with version 0 (no migration run yet)
     const oldData = {...DEFAULT_SETTINGS, migrationVersion: 0};
     const weeks: Week[] = [
@@ -322,144 +280,6 @@ describe('runMigrations', () => {
     localStorage.setItem('veggies-startDate', thisWeek.toISODate()!);
 
     // Attempt to run migration from 0 to 1 (no-op migration)
-    // Migration 1 will run and set migrationVersion to 1
-    // Schema validation will fail because it expects CURRENT_MIGRATION_VERSION (3)
     await expect(runMigrations(0, 1)).rejects.toThrow();
-
-    // Verify data was restored to original state from backup
-    const restoredSettings = JSON.parse(localStorage.getItem('veggies-settings')!, dateParser);
-    expect(restoredSettings.migrationVersion).toBe(0); // Original version
-
-    // Verify backup keys were removed after restoration
-    expect(localStorage.getItem('veggies-settings-backup')).toBeNull();
-    expect(localStorage.getItem('veggies-weeks-backup')).toBeNull();
-  });
-});
-
-describe('createBackup', () => {
-  it('creates backup copies of all veggies-* keys', () => {
-    const weeks: Week[] = [
-      {startDate: lastWeek, veggies: ['apple', 'banana'], challenge: 'orange'},
-      {startDate: thisWeek, veggies: ['tomato', 'carrot', 'spinach'], challenge: 'cucumber'},
-    ];
-
-    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
-    localStorage.setItem('veggies-weeks', JSON.stringify(weeks, dateReplacer));
-    localStorage.setItem('veggies-startDate', thisWeek.toISODate()!);
-    localStorage.setItem('other-data', 'should not be backed up');
-
-    createBackup();
-
-    expect(localStorage.getItem('veggies-settings-backup')).toBe(
-      JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer),
-    );
-    expect(localStorage.getItem('veggies-weeks-backup')).toBe(JSON.stringify(weeks, dateReplacer));
-    expect(localStorage.getItem('veggies-startDate-backup')).toBe(thisWeek.toISODate());
-    expect(localStorage.getItem('other-data-backup')).toBeNull();
-
-    // Verify DateTime objects are properly serialized in backup
-    const backedUpWeeks = JSON.parse(
-      localStorage.getItem('veggies-weeks-backup')!,
-      dateParser,
-    ) as Week[];
-    expect(backedUpWeeks[0].startDate.equals(lastWeek)).toBe(true);
-    expect(backedUpWeeks[0].veggies).toEqual(['apple', 'banana']);
-    expect(backedUpWeeks[1].startDate.equals(thisWeek)).toBe(true);
-    expect(backedUpWeeks[1].veggies).toEqual(['tomato', 'carrot', 'spinach']);
-  });
-
-  it('preserves raw string values in backups', () => {
-    const rawValue = '{"custom":"data","number":42}';
-    localStorage.setItem('veggies-custom', rawValue);
-
-    createBackup();
-
-    expect(localStorage.getItem('veggies-custom-backup')).toBe(rawValue);
-  });
-
-  it('does not backup existing backup keys', () => {
-    localStorage.setItem('veggies-settings', 'original');
-    localStorage.setItem('veggies-old-backup', 'old backup');
-
-    createBackup();
-
-    expect(localStorage.getItem('veggies-settings-backup')).toBe('original');
-    expect(localStorage.getItem('veggies-old-backup')).toBe('old backup');
-    expect(localStorage.getItem('veggies-old-backup-backup')).toBeNull();
-  });
-
-  it('handles empty localStorage', () => {
-    expect(() => createBackup()).not.toThrow();
-  });
-});
-
-describe('restoreFromBackup', () => {
-  it('restores all backup keys with DateTime objects properly', () => {
-    const weeks: Week[] = [
-      {startDate: lastWeek, veggies: ['apple', 'banana'], challenge: 'orange'},
-      {startDate: thisWeek, veggies: ['tomato', 'carrot', 'spinach'], challenge: 'cucumber'},
-    ];
-
-    localStorage.setItem(
-      'veggies-settings-backup',
-      JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer),
-    );
-    localStorage.setItem('veggies-weeks-backup', JSON.stringify(weeks, dateReplacer));
-    localStorage.setItem('veggies-startDate-backup', thisWeek.toISODate()!);
-
-    restoreFromBackup();
-
-    expect(localStorage.getItem('veggies-settings')).toBe(
-      JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer),
-    );
-    expect(localStorage.getItem('veggies-weeks')).toBe(JSON.stringify(weeks, dateReplacer));
-    expect(localStorage.getItem('veggies-startDate')).toBe(thisWeek.toISODate());
-
-    // Verify DateTime objects are properly restored and parsed
-    const restoredWeeks = JSON.parse(localStorage.getItem('veggies-weeks')!, dateParser) as Week[];
-    expect(restoredWeeks[0].startDate.equals(lastWeek)).toBe(true);
-    expect(restoredWeeks[0].veggies).toEqual(['apple', 'banana']);
-    expect(restoredWeeks[1].startDate.equals(thisWeek)).toBe(true);
-    expect(restoredWeeks[1].veggies).toEqual(['tomato', 'carrot', 'spinach']);
-  });
-
-  it('removes backup keys after restoration', () => {
-    localStorage.setItem('veggies-settings-backup', 'backup-data');
-
-    restoreFromBackup();
-
-    expect(localStorage.getItem('veggies-settings-backup')).toBeNull();
-  });
-
-  it('overwrites existing keys with backup values', () => {
-    localStorage.setItem('veggies-settings', 'corrupted-data');
-    localStorage.setItem('veggies-settings-backup', 'good-backup-data');
-
-    restoreFromBackup();
-
-    expect(localStorage.getItem('veggies-settings')).toBe('good-backup-data');
-  });
-
-  it('handles empty localStorage', () => {
-    expect(() => restoreFromBackup()).not.toThrow();
-  });
-
-  it('only restores veggies-* backup keys', () => {
-    localStorage.setItem('other-data-backup', 'should not restore');
-    localStorage.setItem('veggies-settings-backup', 'should restore');
-
-    restoreFromBackup();
-
-    expect(localStorage.getItem('other-data')).toBeNull();
-    expect(localStorage.getItem('veggies-settings')).toBe('should restore');
-  });
-
-  it('preserves exact string values during restore', () => {
-    const weeks = '[{"startDate":"2024-01-05","veggies":[]}]';
-    localStorage.setItem('veggies-weeks-backup', weeks);
-
-    restoreFromBackup();
-
-    expect(localStorage.getItem('veggies-weeks')).toBe(weeks);
   });
 });

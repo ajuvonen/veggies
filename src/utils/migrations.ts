@@ -7,7 +7,6 @@ import {
 } from '@/utils/helpers';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {DateTime} from 'luxon';
-import {clone} from 'remeda';
 import type {Week, Settings} from '@/types';
 
 type StorageData = Record<string, unknown>;
@@ -19,13 +18,6 @@ type Migration = {
 };
 
 const migrations: Migration[] = [
-  {
-    version: 1,
-    name: 'No-op migration',
-    migrate: (data) => {
-      return clone(data);
-    },
-  },
   {
     version: 2,
     name: 'Move challenges to weeks',
@@ -97,7 +89,7 @@ export function applyMigrations(
   if (fromVersion >= toVersion) return data;
 
   const toRun = migrations
-    .filter((m) => m.version > fromVersion && m.version <= toVersion)
+    .filter(({version}) => version > fromVersion && version <= toVersion)
     .sort((a, b) => a.version - b.version);
 
   return toRun.reduce((currentData, migration) => {
@@ -122,11 +114,10 @@ export function applyMigrations(
  */
 export function readStorageData(): StorageData {
   const data: StorageData = {};
-  const keys = getStorageKeys().filter((key) => !key.endsWith('-backup'));
+  const keys = getStorageKeys();
   const dangerousKeys = ['__proto__', 'constructor', 'prototype'];
 
   keys.forEach((key) => {
-    // Strip veggies- prefix
     const unprefixedKey = key.replace(/^veggies-/, '');
 
     // Filter out dangerous keys that could cause prototype pollution
@@ -134,17 +125,15 @@ export function readStorageData(): StorageData {
       return;
     }
 
-    const value = localStorage.getItem(key);
-    if (value !== null) {
-      try {
-        data[unprefixedKey] = JSON.parse(value, dateParser);
-      } catch {
-        // JSON.parse failed - handle plain strings and plain ISO date strings
-        if (value && value.match(/^\d{4}-\d{2}-\d{2}(T.*)?$/)) {
-          data[unprefixedKey] = DateTime.fromISO(value.split('T')[0]!);
-        } else {
-          data[unprefixedKey] = value;
-        }
+    const value = localStorage.getItem(key)!;
+    try {
+      data[unprefixedKey] = JSON.parse(value, dateParser);
+    } catch {
+      // JSON.parse failed - handle plain strings and plain ISO date strings
+      if (value && value.match(/^\d{4}-\d{2}-\d{2}(T.*)?$/)) {
+        data[unprefixedKey] = DateTime.fromISO(value.split('T')[0]!);
+      } else {
+        data[unprefixedKey] = value;
       }
     }
   });
@@ -176,7 +165,7 @@ export function writeStorageData(data: StorageData, toVersion: number): void {
     let serialized: string;
     if (typeof value === 'string') {
       serialized = value;
-    } else if (DateTime.isDateTime(value)) {
+    } else if (value instanceof DateTime) {
       serialized = value.toISODate()!;
     } else {
       serialized = JSON.stringify(value, dateReplacer);
@@ -193,39 +182,7 @@ export function writeStorageData(data: StorageData, toVersion: number): void {
 }
 
 /**
- * Creates backup copies of all veggies-* keys in localStorage.
- */
-export function createBackup(): void {
-  const keys = getStorageKeys().filter((key) => !key.endsWith('-backup'));
-
-  keys.forEach((key) => {
-    const value = localStorage.getItem(key);
-    if (value !== null) {
-      localStorage.setItem(`${key}-backup`, value);
-    }
-  });
-}
-
-/**
- * Restores all veggies-* keys from their backup copies.
- * Removes backup keys after restoration.
- */
-export function restoreFromBackup(): void {
-  const backupKeys = getStorageKeys().filter((key) => key.endsWith('-backup'));
-
-  backupKeys.forEach((backupKey) => {
-    const originalKey = backupKey.replace(/-backup$/, '');
-    const value = localStorage.getItem(backupKey);
-    if (value !== null) {
-      localStorage.setItem(originalKey, value);
-      localStorage.removeItem(backupKey);
-    }
-  });
-}
-
-/**
  * Reads current data, applies migrations, and writes back to localStorage.
- * Creates backups before migration and restores on error.
  * Validates migrated data against schema before writing.
  * @param fromVersion - The current migration version
  * @param toVersion - The target migration version
@@ -233,19 +190,12 @@ export function restoreFromBackup(): void {
 export async function runMigrations(fromVersion: number, toVersion: number): Promise<void> {
   if (fromVersion >= toVersion) return;
 
-  createBackup();
+  const currentData = readStorageData();
+  const migratedData = applyMigrations(currentData, fromVersion, toVersion);
 
-  try {
-    const currentData = readStorageData();
-    const migratedData = applyMigrations(currentData, fromVersion, toVersion);
+  // Validate migrated data against schema
+  const schema = await getImportSchema();
+  const validatedData = schema.parse(migratedData);
 
-    // Validate migrated data against schema
-    const schema = await getImportSchema();
-    const validatedData = schema.parse(migratedData);
-
-    writeStorageData(validatedData, toVersion);
-  } catch (error) {
-    restoreFromBackup();
-    throw error;
-  }
+  writeStorageData(validatedData, toVersion);
 }
