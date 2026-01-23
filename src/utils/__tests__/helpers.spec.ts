@@ -11,6 +11,7 @@ import {
   getRandomEmojis,
   getRandomItem,
   getStorageKeys,
+  normalizeForSearch,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Week} from '@/types';
 
@@ -95,6 +96,13 @@ describe('helpers', () => {
   it('gives unique emojis', () => {
     const emojis = getRandomEmojis(15);
     expect(new Set(emojis)).toHaveLength(15);
+  });
+
+  it('normalizes text for search', () => {
+    expect(normalizeForSearch('frisée')).toBe('frisee');
+    expect(normalizeForSearch('machê')).toBe('mache');
+    expect(normalizeForSearch('kookospähkinä')).toBe('kookospähkinä');
+    expect(normalizeForSearch('blood grapefruit')).toBe('bloodgrapefruit');
   });
 
   it('returns correct achievement levels', () => {

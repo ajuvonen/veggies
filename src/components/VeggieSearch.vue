@@ -3,7 +3,7 @@ import {ref, useTemplateRef} from 'vue';
 import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
 import {useMemoize, onClickOutside} from '@vueuse/core';
 import {Category, type TranslatedListing} from '@/types';
-import {getCategoryForVeggie} from '@/utils/helpers';
+import {getCategoryForVeggie, normalizeForSearch} from '@/utils/helpers';
 import {useScreen} from '@/hooks/screen';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useI18nWithCollator} from '@/hooks/i18n';
@@ -49,13 +49,13 @@ const translatedVeggies = useMemoize(() =>
 
 const filteredVeggies = useMemoize(
   (category?: Category) => {
-    const cleanedQuery = query.value.toLowerCase().replace(/\s+/g, '');
+    const normalizedQuery = normalizeForSearch(query.value);
     return translatedVeggies().filter(
       (veggie) =>
         (!category || veggie.category === category) &&
-        (!cleanedQuery ||
-          veggie.translation.replace(/\s+/g, '').includes(cleanedQuery) ||
-          veggie.synonyms.some((synonym) => synonym.replace(/\s+/g, '').includes(cleanedQuery))),
+        (!normalizedQuery ||
+          normalizeForSearch(veggie.translation).includes(normalizedQuery) ||
+          veggie.synonyms.some((synonym) => normalizeForSearch(synonym).includes(normalizedQuery))),
     );
   },
   {
