@@ -52,14 +52,6 @@ export const useActivityStore = defineStore('activity', () => {
   }, 2000);
 
   // State refs
-  const startDate = useLocalStorage<DateTime | null>('veggies-startDate', null, {
-    mergeDefaults: true,
-    serializer: {
-      read: (v) => (v ? DateTime.fromISO(v.split('T')[0] as string) : null),
-      write: (v) => v?.toISODate() ?? '',
-    },
-  });
-
   const weeks = useLocalStorage<Week[]>('veggies-weeks', [], {
     mergeDefaults: true,
     eventFilter: debounceFilter(2000),
@@ -73,8 +65,8 @@ export const useActivityStore = defineStore('activity', () => {
   const currentWeekStart = computed(() => currentDate.value.startOf('week'));
 
   const getWeekStarts = computed(() => {
-    if (!startDate.value) return [currentWeekStart.value];
-    const totalWeeks = Math.ceil(currentDate.value.diff(startDate.value, 'week').weeks);
+    if (!settings.value.startDate) return [currentWeekStart.value];
+    const totalWeeks = Math.ceil(currentDate.value.diff(settings.value.startDate, 'week').weeks);
     return Array.from({length: totalWeeks}, (_, weekIndex) =>
       currentWeekStart.value.minus({weeks: weekIndex}),
     );
@@ -322,7 +314,6 @@ export const useActivityStore = defineStore('activity', () => {
   };
 
   const $reset = () => {
-    startDate.value = null;
     weeks.value = [];
   };
 
@@ -338,7 +329,6 @@ export const useActivityStore = defineStore('activity', () => {
     getWeekStarts,
     hotStreak,
     over30Veggies,
-    startDate,
     suggestions,
     uniqueVeggies,
     veggiesByCategory,

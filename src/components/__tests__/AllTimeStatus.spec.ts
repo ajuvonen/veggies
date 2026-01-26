@@ -2,13 +2,20 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
+
+const thisWeek = DateTime.now().startOf('week');
+const lastWeek = thisWeek.minus({weeks: 1});
+const twoWeeksAgo = thisWeek.minus({weeks: 2});
 
 describe('AllTimeStatus', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
+  let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
     activityStore = useActivityStore();
+    appStateStore = useAppStateStore();
   });
 
   it('renders', () => {
@@ -17,21 +24,21 @@ describe('AllTimeStatus', () => {
   });
 
   it('shows total weeks', () => {
-    activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
+    appStateStore.settings.startDate = twoWeeksAgo;
     const wrapper = mount(AllTimeStatus);
     expect(wrapper.findByTestId('all-time-status-totalWeeks').text()).toBe('In Total 3 Weeks');
   });
 
   it('shows unique veggies', () => {
-    activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 1});
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
-        startDate: DateTime.now().startOf('week').minus({weeks: 1}),
+        startDate: lastWeek,
         veggies: ['apple', 'cucumber', 'potato'],
         challenge: 'cucumber',
       },
       {
-        startDate: DateTime.now().startOf('week'),
+        startDate: thisWeek,
         veggies: ['apple', 'cucumber', 'rice', 'fennel'],
         challenge: 'cucumber',
       },
@@ -43,20 +50,20 @@ describe('AllTimeStatus', () => {
   });
 
   it('shows weeks with over 30 veggies', () => {
-    activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
-        startDate: DateTime.now().startOf('week').minus({weeks: 2}),
+        startDate: twoWeeksAgo,
         veggies: [...Array(31)],
         challenge: 'cucumber',
       },
       {
-        startDate: DateTime.now().startOf('week').minus({weeks: 1}),
+        startDate: lastWeek,
         veggies: [...Array(29)],
         challenge: 'cucumber',
       },
       {
-        startDate: DateTime.now().startOf('week'),
+        startDate: thisWeek,
         veggies: [...Array(30)],
         challenge: 'cucumber',
       },
@@ -68,20 +75,20 @@ describe('AllTimeStatus', () => {
   });
 
   it('shows highest number of veggies', () => {
-    activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
-        startDate: DateTime.now().startOf('week').minus({weeks: 2}),
+        startDate: twoWeeksAgo,
         veggies: [...Array(31)],
         challenge: 'cucumber',
       },
       {
-        startDate: DateTime.now().startOf('week').minus({weeks: 1}),
+        startDate: lastWeek,
         veggies: [...Array(29)],
         challenge: 'cucumber',
       },
       {
-        startDate: DateTime.now().startOf('week'),
+        startDate: thisWeek,
         veggies: [...Array(30)],
         challenge: 'cucumber',
       },

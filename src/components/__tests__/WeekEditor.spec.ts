@@ -1,20 +1,23 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import WeekEditor from '@/components/WeekEditor.vue';
 import {DateTime} from 'luxon';
 
 describe('WeekEditor', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
+  let appStateStore: ReturnType<typeof useAppStateStore>;
   beforeEach(() => {
     activityStore = useActivityStore();
+    appStateStore = useAppStateStore();
   });
 
   it('renders', () => {
     const testDate = DateTime.fromFormat('30.12.2024', 'dd.MM.yyyy');
     // @ts-expect-error: getters are writable in tests
     activityStore.getWeekStarts = [testDate, testDate.minus({weeks: 1})];
-    activityStore.startDate = testDate.minus({weeks: 1});
+    appStateStore.settings.startDate = testDate.minus({weeks: 1});
     activityStore.weeks = [
       {
         startDate: testDate,
@@ -27,7 +30,7 @@ describe('WeekEditor', () => {
   });
 
   it('renders without data', async () => {
-    activityStore.startDate = DateTime.now().startOf('week').minus({weeks: 2});
+    appStateStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 2});
     const wrapper = mount(WeekEditor);
     expect(wrapper.findAll('tags__container li').length).toBe(0);
     await wrapper.findByTestId('week-editor-button').trigger('click');

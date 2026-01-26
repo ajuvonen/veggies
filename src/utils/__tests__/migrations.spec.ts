@@ -1,6 +1,10 @@
 import {describe, it, expect, vi} from 'vitest';
 import {DateTime} from 'luxon';
-import {DEFAULT_SETTINGS} from '@/utils/constants';
+import {
+  CURRENT_MIGRATION_VERSION,
+  DEFAULT_SETTINGS,
+  MINIMUM_MIGRATION_VERSION,
+} from '@/utils/constants';
 import {
   applyMigrations,
   readStorageData,
@@ -11,16 +15,39 @@ import {dateParser, dateReplacer} from '@/utils/helpers';
 import type {Settings, Week} from '@/types';
 
 const thisWeek = DateTime.now().startOf('week');
+const lastWeek = thisWeek.minus({weeks: 1});
+
+const dataV1 = {
+  settings: {
+    allergens: ['peanut'],
+    locale: 'en',
+    showChartAnimations: true,
+    suggestionCount: 10,
+    summaryViewedDate: thisWeek,
+  },
+  weeks: [
+    {startDate: lastWeek.toISODate(), veggies: ['apple', 'carrot', 'spinach', 'banana']},
+    {
+      startDate: thisWeek.toISODate(),
+      veggies: ['arugula', 'black bean', 'chanterelle', 'iceberg lettuce'],
+    },
+  ],
+  challenges: [
+    {startDate: lastWeek.toISODate(), veggie: 'apple'},
+    {startDate: thisWeek.toISODate(), veggie: 'lychee'},
+  ],
+  ['start-date']: lastWeek.toISODate(),
+};
 
 describe('applyMigrations', () => {
   it('returns unchanged data when fromVersion equals toVersion', () => {
-    const data = {settings: {...DEFAULT_SETTINGS, migrationVersion: 2}};
+    const data = dataV1;
     const result = applyMigrations(data, 1, 1);
     expect(result).toBe(data);
   });
 
   it('returns unchanged data when fromVersion is greater than toVersion', () => {
-    const data = {settings: {...DEFAULT_SETTINGS, migrationVersion: 1}};
+    const data = dataV1;
     const result = applyMigrations(data, 1, 0);
     expect(result).toBe(data);
   });
@@ -231,7 +258,9 @@ describe('writeStorageData', () => {
 
 describe('runMigrations', () => {
   it('does not run when fromVersion equals toVersion', async () => {
-    const initialData = {...DEFAULT_SETTINGS, migrationVersion: 2};
+    const initialData = {
+      ...dataV1.settings,
+    };
     localStorage.setItem('veggies-settings', JSON.stringify(initialData, dateReplacer));
 
     const getItemSpy = vi.spyOn(localStorage, 'getItem');
@@ -250,7 +279,9 @@ describe('runMigrations', () => {
   });
 
   it('does not run when fromVersion is greater than toVersion', async () => {
-    const initialData = {...DEFAULT_SETTINGS, migrationVersion: 2};
+    const initialData = {
+      ...dataV1.settings,
+    };
     localStorage.setItem('veggies-settings', JSON.stringify(initialData, dateReplacer));
 
     const getItemSpy = vi.spyOn(localStorage, 'getItem');
@@ -281,5 +312,48 @@ describe('runMigrations', () => {
 
     // Attempt to run migration from 0 to 1 (no-op migration)
     await expect(runMigrations(0, 1)).rejects.toThrow();
+  });
+
+  it('runs complete migration pipeline from v1 to current version', async () => {
+    // Set up v1 data structure in localStorage
+    // v1 had: separate start-date key, challenges array, no migrationVersion in settings
+    localStorage.setItem('veggies-start-date', dataV1['start-date']!);
+    localStorage.setItem('veggies-settings', JSON.stringify(dataV1.settings, dateReplacer));
+    localStorage.setItem('veggies-weeks', JSON.stringify(dataV1.weeks, dateReplacer));
+    localStorage.setItem('veggies-challenges', JSON.stringify(dataV1.challenges, dateReplacer));
+
+    // Run migrations
+    await runMigrations(MINIMUM_MIGRATION_VERSION, CURRENT_MIGRATION_VERSION);
+
+    // Verify v1 localStorage keys are removed
+    expect(localStorage.getItem('veggies-start-date')).toBeNull();
+    expect(localStorage.getItem('veggies-startDate')).toBeNull();
+    expect(localStorage.getItem('veggies-challenges')).toBeNull();
+
+    // Read migrated data from localStorage
+    const storedSettings = JSON.parse(localStorage.getItem('veggies-settings')!, dateParser);
+    const storedWeeks = JSON.parse(localStorage.getItem('veggies-weeks')!, dateParser);
+
+    // Verify current version structure in settings
+    expect(storedSettings.startDate.equals(lastWeek)).toBe(true);
+    expect(storedSettings.migrationVersion).toBe(CURRENT_MIGRATION_VERSION);
+    expect(storedSettings.allergens).toEqual(['peanut']);
+    expect(storedSettings.locale).toBe('en');
+    expect(storedSettings.showChartAnimations).toBe(true);
+    expect(storedSettings.suggestionCount).toBe(10);
+
+    // Verify challenges were moved into weeks (migration v2)
+    expect(storedWeeks).toHaveLength(2);
+    expect(storedWeeks[0].challenge).toBe('apple');
+    expect(storedWeeks[0].veggies).toEqual(['apple', 'carrot', 'spinach', 'banana']);
+    expect(storedWeeks[0].startDate).toEqual(lastWeek);
+    expect(storedWeeks[1].challenge).toBe('lychee');
+    expect(storedWeeks[1].veggies).toEqual([
+      'arugula',
+      'black bean',
+      'chanterelle',
+      'iceberg lettuce',
+    ]);
+    expect(storedWeeks[1].startDate).toEqual(thisWeek);
   });
 });

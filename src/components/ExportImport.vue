@@ -14,7 +14,7 @@ const {t} = useI18n();
 
 const router = useRouter();
 
-const {startDate, weeks} = storeToRefs(useActivityStore());
+const {weeks} = storeToRefs(useActivityStore());
 const {settings} = storeToRefs(useAppStateStore());
 const {addToastMessage} = useAppStateStore();
 
@@ -26,7 +26,6 @@ const {open, onChange} = useFileDialog({
 const exportData = () => {
   try {
     const data = {
-      startDate: localStorage.getItem('veggies-startDate'),
       weeks: JSON.parse(localStorage.getItem('veggies-weeks') || ''),
       settings: JSON.parse(localStorage.getItem('veggies-settings') || ''),
     };
@@ -63,13 +62,8 @@ onChange(async (files) => {
     const migratedData = applyMigrations(parsedData, importVersion, CURRENT_MIGRATION_VERSION);
 
     // Validate the migrated data
-    const {
-      startDate: importStartDate,
-      weeks: importWeeks,
-      settings: importSettings,
-    } = importSchema.parse(migratedData);
+    const {weeks: importWeeks, settings: importSettings} = importSchema.parse(migratedData);
 
-    startDate.value = importStartDate;
     weeks.value = importWeeks;
     settings.value = importSettings;
 

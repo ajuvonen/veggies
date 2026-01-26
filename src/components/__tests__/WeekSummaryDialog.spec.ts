@@ -9,9 +9,9 @@ import DialogStub from '@/test-utils/DialogStub.vue';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 
-const currentWeek = DateTime.now().startOf('week');
-const lastWeek = currentWeek.minus({weeks: 1});
-const twoWeeksAgo = currentWeek.minus({weeks: 2});
+const thisWeek = DateTime.now().startOf('week');
+const lastWeek = thisWeek.minus({weeks: 1});
+const twoWeeksAgo = thisWeek.minus({weeks: 2});
 
 const mounter = () =>
   mount(WeekSummaryDialog, {
@@ -40,20 +40,20 @@ describe('WeekSummaryDialog', () => {
     expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(false);
   });
 
-  it('does not show dialog when in the first week (startDate equals currentWeekStart)', async () => {
-    activityStore.startDate = currentWeek;
+  it('does not show dialog when in the first week (startDate equals thisWeekStart)', async () => {
+    appStateStore.settings.startDate = thisWeek;
     const wrapper = mounter();
     expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(false);
   });
 
   it('shows dialog when not in first week and summaryViewedDate is null', async () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     const wrapper = mounter();
     expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(true);
   });
 
   it('shows dialog when not in first week and summaryViewedDate is from previous week', async () => {
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
 
     // Set summaryViewedDate to previous week
     appStateStore.settings.summaryViewedDate = twoWeeksAgo;
@@ -63,10 +63,10 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('does not show dialog when summaryViewedDate is current week', async () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     // Set summaryViewedDate to current week
-    appStateStore.settings.summaryViewedDate = currentWeek;
+    appStateStore.settings.summaryViewedDate = thisWeek;
 
     const wrapper = mounter();
     expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(false);
@@ -77,9 +77,9 @@ describe('WeekSummaryDialog', () => {
     activityStore.weeks.splice(0);
     activityStore.weeks.push(
       {startDate: lastWeek, veggies: ['apple', 'spinach', 'tomato'], challenge: 'cucumber'},
-      {startDate: currentWeek, veggies: ['carrot', 'broccoli'], challenge: 'cucumber'},
+      {startDate: thisWeek, veggies: ['carrot', 'broccoli'], challenge: 'cucumber'},
     );
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -91,7 +91,7 @@ describe('WeekSummaryDialog', () => {
 
   it('identifies first week correctly for lastWeekData', () => {
     activityStore.weeks = [{startDate: lastWeek, veggies: ['apple'], challenge: 'cucumber'}];
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -102,9 +102,9 @@ describe('WeekSummaryDialog', () => {
   it('identifies non-first week correctly for lastWeekData', () => {
     activityStore.weeks = [
       {startDate: lastWeek, veggies: ['apple'], challenge: 'cucumber'},
-      {startDate: currentWeek, veggies: ['spinach'], challenge: 'cucumber'},
+      {startDate: thisWeek, veggies: ['spinach'], challenge: 'cucumber'},
     ];
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -114,12 +114,12 @@ describe('WeekSummaryDialog', () => {
 
   it('calculates mean correctly from past 5 weeks', () => {
     for (let i = 0; i < 7; i++) {
-      const weekStart = currentWeek.minus({weeks: i});
+      const weekStart = thisWeek.minus({weeks: i});
       const veggieCount = (i + 1) * 2; // 2, 4, 6, 8, 10, 12 veggies
       const veggies = take(ALL_VEGGIES, veggieCount);
       activityStore.weeks.push({startDate: weekStart, veggies, challenge: 'cucumber'});
     }
-    activityStore.startDate = currentWeek.minus({weeks: 6});
+    appStateStore.settings.startDate = thisWeek.minus({weeks: 6});
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -137,7 +137,7 @@ describe('WeekSummaryDialog', () => {
         challenge: 'cucumber',
       },
     ];
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -148,9 +148,9 @@ describe('WeekSummaryDialog', () => {
   it('finds weekly challenge correctly', () => {
     activityStore.weeks = [
       {startDate: lastWeek, veggies: ['apple', 'spinach'], challenge: 'apple'},
-      {startDate: currentWeek, veggies: ['carrot'], challenge: 'carrot'},
+      {startDate: thisWeek, veggies: ['carrot'], challenge: 'carrot'},
     ];
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -159,7 +159,7 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('handles missing weekly challenge', () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -172,7 +172,7 @@ describe('WeekSummaryDialog', () => {
       {startDate: twoWeeksAgo, veggies: ['apple', 'carrot'], challenge: 'cucumber'},
       {startDate: lastWeek, veggies: ['apple', 'spinach', 'broccoli'], challenge: 'cucumber'},
     ];
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -184,7 +184,7 @@ describe('WeekSummaryDialog', () => {
     activityStore.weeks = [
       {startDate: lastWeek, veggies: ['apple', 'spinach'], challenge: 'cucumber'},
     ];
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -197,7 +197,7 @@ describe('WeekSummaryDialog', () => {
       {startDate: twoWeeksAgo, veggies: ['apple', 'carrot', 'spinach'], challenge: 'cucumber'},
       {startDate: lastWeek, veggies: ['apple', 'spinach'], challenge: 'cucumber'},
     ];
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -212,7 +212,7 @@ describe('WeekSummaryDialog', () => {
       {startDate: twoWeeksAgo, veggies: thirtyVeggies, challenge: 'cucumber'},
       {startDate: lastWeek, veggies: thirtyVeggies, challenge: 'cucumber'},
     ];
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
 
     const wrapper = mounter();
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;
@@ -227,7 +227,7 @@ describe('WeekSummaryDialog', () => {
       {startDate: twoWeeksAgo, veggies: ['apple', 'carrot', 'spinach'], challenge: 'cucumber'},
       {startDate: lastWeek, veggies: thirtyVeggies, challenge: 'apple'},
     ];
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
 
     const wrapper = mounter();
 
@@ -241,7 +241,7 @@ describe('WeekSummaryDialog', () => {
 
   it('does not show share/copy button when no veggies were eaten', () => {
     activityStore.weeks = [{startDate: lastWeek, veggies: [], challenge: 'cucumber'}];
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
 
@@ -250,7 +250,7 @@ describe('WeekSummaryDialog', () => {
   });
 
   it('closes dialog on close button click', async () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     const wrapper = mounter();
 
     expect(wrapper.findByTestId('week-summary-dialog').exists()).toBe(true);
@@ -276,7 +276,7 @@ describe('WeekSummaryDialog', () => {
         challenge: 'cucumber',
       },
     ];
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
 
@@ -308,7 +308,7 @@ https://eatyourveggies.app`;
         challenge: 'cucumber',
       },
     ];
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
 
     const wrapper = mounter();
 

@@ -94,11 +94,10 @@ describe('helpers', () => {
   it('stringifies only date part', () => {
     const testData = {
       startDate: DateTime.fromISO('2024-09-02T00:00:00.000Z'),
-      veggies: ['nectarine', 'kale'],
     };
 
     const stringified = JSON.stringify(testData, dateReplacer);
-    expect(stringified).toBe('{"startDate":"2024-09-02","veggies":["nectarine","kale"]}');
+    expect(stringified).toBe('{"startDate":"2024-09-02"}');
   });
 
   it('stringifies null dates correctly', () => {
@@ -139,11 +138,11 @@ describe('helpers', () => {
 
   it('fails on missing startDate', () => {
     const faultyData = {
-      startDate: null,
       weeks: [],
       challenges: [],
       settings: {
         ...DEFAULT_SETTINGS,
+        startDate: null,
       },
     };
     const result = importSchema.safeParse(faultyData);
@@ -151,12 +150,11 @@ describe('helpers', () => {
     const errorMessage = JSON.parse(result.error?.message ?? '');
     expect(errorMessage.length).toEqual(1);
     expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
-    expect(errorMessage[0].path).toEqual(['startDate']);
+    expect(errorMessage[0].path).toEqual(['settings', 'startDate']);
   });
 
   it('fails on missing week data', () => {
     const faultyData = {
-      startDate: thisWeek,
       weeks: [
         {
           startDate: null,
@@ -165,6 +163,7 @@ describe('helpers', () => {
       ],
       settings: {
         ...DEFAULT_SETTINGS,
+        startDate: thisWeek,
       },
     };
     const result = importSchema.safeParse(faultyData);
@@ -179,20 +178,21 @@ describe('helpers', () => {
 
   it('handles missing data', () => {
     const faultyData = {
-      startDate: thisWeek,
+      settings: {
+        startDate: thisWeek,
+        migrationVersion: CURRENT_MIGRATION_VERSION,
+      },
     };
     const result = importSchema.safeParse(faultyData);
     expect(result.success).toBe(true);
     expect(result.data).toEqual({
-      startDate: thisWeek,
       weeks: [],
-      settings: {...DEFAULT_SETTINGS},
+      settings: {...DEFAULT_SETTINGS, startDate: thisWeek},
     });
   });
 
   it('handles extra data', () => {
     const faultyData = {
-      startDate: thisWeek,
       weeks: [
         {
           startDate: thisWeek,
@@ -203,22 +203,22 @@ describe('helpers', () => {
       ],
       settings: {
         ...DEFAULT_SETTINGS,
+        startDate: thisWeek,
         baz: true,
       },
     };
     const result = importSchema.safeParse(faultyData);
     expect(result.success).toBe(true);
     expect(result.data).toEqual({
-      startDate: thisWeek,
       weeks: [{startDate: thisWeek, veggies: ['apple'], challenge: 'cucumber'}],
-      settings: {...DEFAULT_SETTINGS},
+      settings: {...DEFAULT_SETTINGS, startDate: thisWeek},
     });
   });
 
   it('handles wrong data', () => {
     const faultyData = {
-      startDate: thisWeek,
       settings: {
+        startDate: thisWeek,
         locale: 'el',
         suggestionCount: 100,
         showChartAnimations: 0,
@@ -228,9 +228,12 @@ describe('helpers', () => {
     const result = importSchema.safeParse(faultyData);
     expect(result.success).toBe(true);
     expect(result.data).toEqual({
-      startDate: thisWeek,
       weeks: [],
-      settings: {...DEFAULT_SETTINGS, migrationVersion: CURRENT_MIGRATION_VERSION},
+      settings: {
+        ...DEFAULT_SETTINGS,
+        startDate: thisWeek,
+        migrationVersion: CURRENT_MIGRATION_VERSION,
+      },
     });
   });
 

@@ -3,6 +3,7 @@ import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import LogView from '@/views/LogView.vue';
 
 const mocks = vi.hoisted(() => ({
@@ -32,9 +33,11 @@ describe('LogView', () => {
   const thisWeek = DateTime.now().startOf('week');
   const lastWeek = thisWeek.minus({weeks: 1});
   let activityStore: ReturnType<typeof useActivityStore>;
+  let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
     activityStore = useActivityStore();
+    appStateStore = useAppStateStore();
   });
 
   afterEach(() => {
@@ -67,7 +70,7 @@ describe('LogView', () => {
   });
 
   it('renders with data', async () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         veggies: ['rye', 'rice', 'wheat'],
@@ -86,7 +89,7 @@ describe('LogView', () => {
   });
 
   it('renders empty when week changes', async () => {
-    activityStore.startDate = thisWeek;
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
         veggies: ['rye', 'rice', 'wheat'],
