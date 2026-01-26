@@ -12,6 +12,7 @@ export const PLAY_STORE_URL =
 
 export const BUILD_TIME = __VITE_BUILD_TIME__;
 
+export const MINIMUM_MIGRATION_VERSION = 1;
 export const CURRENT_MIGRATION_VERSION = 3;
 
 export const DEFAULT_LOCALE: Locale = 'en';

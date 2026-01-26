@@ -7,7 +7,7 @@ import {useFileDialog} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {dateParser, getImportSchema} from '@/utils/helpers';
-import {CURRENT_MIGRATION_VERSION} from '@/utils/constants';
+import {CURRENT_MIGRATION_VERSION, MINIMUM_MIGRATION_VERSION} from '@/utils/constants';
 import {applyMigrations} from '@/utils/migrations';
 
 const {t} = useI18n();
@@ -56,7 +56,8 @@ onChange(async (files) => {
     const parsedData = JSON.parse(text, dateParser);
 
     // Get the import version, defaulting to 1 if not present
-    const importVersion = (parsedData.settings?.migrationVersion as number) ?? 1;
+    const importVersion: number =
+      parsedData.settings?.migrationVersion || MINIMUM_MIGRATION_VERSION;
 
     // Apply migrations to bring data up to current version
     const migratedData = applyMigrations(parsedData, importVersion, CURRENT_MIGRATION_VERSION);

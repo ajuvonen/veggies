@@ -4,7 +4,7 @@ import {plugin as VueTippy} from 'vue-tippy';
 import App from '@/App.vue';
 import router from '@/router';
 import createI18n from '@/i18n';
-import {KEYS, CURRENT_MIGRATION_VERSION} from '@/utils/constants';
+import {KEYS, CURRENT_MIGRATION_VERSION, MINIMUM_MIGRATION_VERSION} from '@/utils/constants';
 import {useDropdown} from '@/hooks/dropdown';
 import {dateParser} from '@/utils/helpers';
 import {runMigrations} from '@/utils/migrations';
@@ -23,7 +23,7 @@ const storedSettings = localStorage.getItem('veggies-settings');
 if (storedSettings) {
   try {
     const settings = JSON.parse(storedSettings, dateParser);
-    const currentVersion = settings.migrationVersion ?? 1;
+    const currentVersion = settings.migrationVersion || MINIMUM_MIGRATION_VERSION;
 
     if (currentVersion < CURRENT_MIGRATION_VERSION) {
       await runMigrations(currentVersion, CURRENT_MIGRATION_VERSION);
