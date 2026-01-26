@@ -16,7 +16,7 @@ const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
 );
 
-const {currentWeekStart, startDate, veggiesForWeek, hotStreak, atMostVeggies, weeks, allVeggies} =
+const {currentWeekStart, veggiesForWeek, hotStreak, atMostVeggies, weeks, allVeggies} =
   storeToRefs(useActivityStore());
 
 const {settings} = storeToRefs(useAppStateStore());
@@ -25,8 +25,8 @@ const {shareSupported, shareOrCopy} = useShare();
 
 const dialogOpen = computed({
   get: () =>
-    !!startDate.value &&
-    !currentWeekStart.value.equals(startDate.value) &&
+    !!settings.value.startDate &&
+    !currentWeekStart.value.equals(settings.value.startDate) &&
     (!settings.value.summaryViewedDate ||
       settings.value.summaryViewedDate < currentWeekStart.value),
   set: (value) => {

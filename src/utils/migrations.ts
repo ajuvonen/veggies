@@ -73,6 +73,24 @@ const migrations: Migration[] = [
       return data;
     },
   },
+  {
+    version: 4,
+    name: 'Move startDate to settings',
+    migrate: (data) => {
+      const {startDate, settings, ...rest} = data as {
+        startDate: unknown;
+        settings: Record<string, unknown>;
+        [key: string]: unknown;
+      };
+      return {
+        ...rest,
+        settings: {
+          ...settings,
+          startDate,
+        },
+      };
+    },
+  },
 ];
 
 /**

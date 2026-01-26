@@ -117,7 +117,6 @@ export const getImportSchema = async () => {
     'Invalid DateTime instance',
   );
   return z.object({
-    startDate: luxonDateTimeSchema,
     weeks: z
       .array(
         z.object({
@@ -127,22 +126,21 @@ export const getImportSchema = async () => {
         }),
       )
       .default([]),
-    settings: z
-      .object({
-        allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
-        locale: z.enum(LOCALES).catch(DEFAULT_SETTINGS.locale).default(DEFAULT_SETTINGS.locale),
-        migrationVersion: z.literal(CURRENT_MIGRATION_VERSION),
-        showChartAnimations: z
-          .boolean()
-          .catch(DEFAULT_SETTINGS.showChartAnimations)
-          .default(DEFAULT_SETTINGS.showChartAnimations),
-        suggestionCount: z
-          .number()
-          .refine((val) => [0, 5, 10, 15, 20].includes(val))
-          .catch(DEFAULT_SETTINGS.suggestionCount)
-          .default(DEFAULT_SETTINGS.suggestionCount),
-        summaryViewedDate: z.union([luxonDateTimeSchema, z.null()]).default(null),
-      })
-      .default({...DEFAULT_SETTINGS}),
+    settings: z.object({
+      allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
+      locale: z.enum(LOCALES).catch(DEFAULT_SETTINGS.locale).default(DEFAULT_SETTINGS.locale),
+      migrationVersion: z.literal(CURRENT_MIGRATION_VERSION),
+      showChartAnimations: z
+        .boolean()
+        .catch(DEFAULT_SETTINGS.showChartAnimations)
+        .default(DEFAULT_SETTINGS.showChartAnimations),
+      startDate: luxonDateTimeSchema,
+      suggestionCount: z
+        .number()
+        .refine((val) => [0, 5, 10, 15, 20].includes(val))
+        .catch(DEFAULT_SETTINGS.suggestionCount)
+        .default(DEFAULT_SETTINGS.suggestionCount),
+      summaryViewedDate: luxonDateTimeSchema.nullable().default(DEFAULT_SETTINGS.summaryViewedDate),
+    }),
   });
 };

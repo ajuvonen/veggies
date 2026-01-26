@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
-import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,8 +10,8 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       beforeEnter: () => {
-        const {startDate} = useActivityStore();
-        if (startDate) {
+        const {settings} = useAppStateStore();
+        if (settings.startDate) {
           return {name: 'log', replace: true};
         }
       },
@@ -36,8 +36,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  const {startDate} = useActivityStore();
-  if (to.name !== 'home' && !startDate) {
+  const {settings} = useAppStateStore();
+  if (to.name !== 'home' && !settings.startDate) {
     return {name: 'home', replace: true};
   }
 });

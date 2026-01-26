@@ -4,6 +4,7 @@ import {DateTime} from 'luxon';
 import {take} from 'remeda';
 import {BEANS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
@@ -26,9 +27,11 @@ describe('charts', () => {
   ];
   const labelProps = weekStartProps.map((weekStart) => weekStart.toFormat('W/kkkk'));
   let activityStore: ReturnType<typeof useActivityStore>;
+  let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
     activityStore = useActivityStore();
+    appStateStore = useAppStateStore();
   });
 
   it('prepares data for CategoryStatusChart', () => {
@@ -54,7 +57,7 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyCategoriesChart', () => {
-    activityStore.startDate = fiveWeeksAgo;
+    appStateStore.settings.startDate = fiveWeeksAgo;
     activityStore.weeks = [
       {
         startDate: fiveWeeksAgo,
@@ -130,7 +133,7 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyAmountsChart', () => {
-    activityStore.startDate = fiveWeeksAgo;
+    appStateStore.settings.startDate = fiveWeeksAgo;
     activityStore.weeks = [
       {
         startDate: fiveWeeksAgo,
@@ -229,7 +232,7 @@ describe('charts', () => {
     const week1 = DateTime.fromISO('2025-12-01');
     const week2 = week1.plus({weeks: 1});
     const week3 = week2.plus({weeks: 1});
-    activityStore.startDate = week1;
+    appStateStore.settings.startDate = week1;
     activityStore.weeks = [
       {
         startDate: week2,

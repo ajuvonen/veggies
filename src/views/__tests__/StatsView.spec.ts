@@ -2,17 +2,20 @@ import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
+import {useAppStateStore} from '@/stores/appStateStore';
 import StatsView from '@/views/StatsView.vue';
 
 describe('StatsView', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
+  let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
     activityStore = useActivityStore();
+    appStateStore = useAppStateStore();
   });
 
   it('renders all time statistics by default', () => {
-    activityStore.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = DateTime.now().startOf('week');
     activityStore.weeks = [
       {
         startDate: DateTime.now().startOf('week'),
@@ -31,7 +34,7 @@ describe('StatsView', () => {
   });
 
   it('shows weekly statistics', async () => {
-    activityStore.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = DateTime.now().startOf('week');
     activityStore.weeks = [
       {
         startDate: DateTime.now().startOf('week'),
@@ -56,7 +59,7 @@ describe('StatsView', () => {
   });
 
   it('renders current week', async () => {
-    activityStore.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = DateTime.now().startOf('week');
     activityStore.weeks = [
       {
         startDate: DateTime.now().startOf('week'),
@@ -71,7 +74,7 @@ describe('StatsView', () => {
   });
 
   it('renders veggie list', async () => {
-    activityStore.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = DateTime.now().startOf('week');
     activityStore.weeks = [
       {
         startDate: DateTime.now().startOf('week'),
@@ -88,7 +91,7 @@ describe('StatsView', () => {
   });
 
   it('renders achievements', async () => {
-    activityStore.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = DateTime.now().startOf('week');
     activityStore.weeks = [
       {
         startDate: DateTime.now().startOf('week'),

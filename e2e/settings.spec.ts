@@ -77,16 +77,13 @@ test('export works', async ({browser}) => {
           origin: 'http://localhost:5173',
           localStorage: [
             {
-              name: 'veggies-startDate',
-              value: '2025-08-04',
-            },
-            {
               name: 'veggies-settings',
               value: JSON.stringify({
                 allergens: ['peanut'],
                 locale: 'en',
-                migrationVersion: 3,
+                migrationVersion: 4,
                 showChartAnimations: true,
+                startDate: '2025-08-04',
                 suggestionCount: 10,
                 summaryViewedDate: thisWeekISO,
               }),

@@ -3,7 +3,6 @@ import {onMounted, ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
 import {DateTime} from 'luxon';
-import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
 import type {Locale} from '@/types';
@@ -11,13 +10,12 @@ import FooterComponent from '@/components/FooterComponent.vue';
 
 const router = useRouter();
 
-const {startDate} = storeToRefs(useActivityStore());
 const {settings} = storeToRefs(useAppStateStore());
 
 const dialogOpen = ref(false);
 
 const start = () => {
-  startDate.value = DateTime.now().startOf('week');
+  settings.value.startDate = DateTime.now().startOf('week');
   router.replace({name: 'log'});
 };
 

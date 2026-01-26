@@ -7,6 +7,7 @@ import {AchievementLevel, Category, type Week} from '@/types';
 import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {DEFAULT_SETTINGS} from '@/utils/constants';
 
 describe('activityStore', () => {
   const thisWeek = DateTime.now().startOf('week');
@@ -26,7 +27,13 @@ describe('activityStore', () => {
   });
 
   it('resets the date timezones', async () => {
-    localStorage.setItem('veggies-startDate', '2025-01-20T00:00:00.000+14:00');
+    localStorage.setItem(
+      'veggies-settings',
+      JSON.stringify({
+        ...DEFAULT_SETTINGS,
+        startDate: '2025-01-20T00:00:00.000+14:00',
+      }),
+    );
     localStorage.setItem(
       'veggies-weeks',
       JSON.stringify([
@@ -38,7 +45,8 @@ describe('activityStore', () => {
         template: '<div />',
         setup: () => {
           const store = useActivityStore();
-          resolve([store.startDate, store.weeks[0].startDate]);
+          const appStore = useAppStateStore();
+          resolve([appStore.settings.startDate, store.weeks[0].startDate]);
         },
       }),
     );
@@ -79,7 +87,7 @@ describe('activityStore', () => {
   });
 
   it('returns all veggies', () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         startDate: lastWeek,
@@ -98,7 +106,7 @@ describe('activityStore', () => {
   });
 
   it('returns veggies by category', () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         startDate: lastWeek,
@@ -179,7 +187,7 @@ describe('activityStore', () => {
   });
 
   it("returns this week's veggies", () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         startDate: lastWeek,
@@ -196,7 +204,7 @@ describe('activityStore', () => {
   });
 
   it('returns completed challenges', () => {
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
@@ -219,7 +227,7 @@ describe('activityStore', () => {
   });
 
   it("sets this week's veggies", () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         startDate: lastWeek,
@@ -238,7 +246,7 @@ describe('activityStore', () => {
   });
 
   it("sets this week's veggies from empty", () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         startDate: lastWeek,
@@ -253,7 +261,7 @@ describe('activityStore', () => {
   });
 
   it("returns specific week's veggies", () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         veggies: ['apple'],
@@ -273,7 +281,7 @@ describe('activityStore', () => {
   });
 
   it("returns this week's challenge", () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         startDate: lastWeek,
@@ -301,7 +309,7 @@ describe('activityStore', () => {
   });
 
   it('returns suggestions', () => {
-    activityStore.startDate = threeWeeksAgo;
+    appStateStore.settings.startDate = threeWeeksAgo;
     activityStore.weeks = [
       {
         startDate: threeWeeksAgo,
@@ -324,7 +332,7 @@ describe('activityStore', () => {
   });
 
   it('excludes this week from suggestions', () => {
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
         veggies: ['apple'],
@@ -359,7 +367,7 @@ describe('activityStore', () => {
       'garlic',
       'endive',
     ];
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
         veggies: [...expected, 'lettuce', 'broccoli', 'lychee'],
@@ -381,7 +389,7 @@ describe('activityStore', () => {
   });
 
   it('returns unique veggies', () => {
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
       {
         veggies: ['tomato', 'apple', 'banana'],
@@ -399,7 +407,7 @@ describe('activityStore', () => {
   });
 
   it('returns 0 as streak length', () => {
-    activityStore.startDate = thisWeek;
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
         startDate: thisWeek,
@@ -411,7 +419,7 @@ describe('activityStore', () => {
   });
 
   it('returns 1 as streak length', () => {
-    activityStore.startDate = thisWeek;
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
         startDate: thisWeek,
@@ -423,7 +431,7 @@ describe('activityStore', () => {
   });
 
   it('missing week ends streak', () => {
-    activityStore.startDate = threeWeeksAgo;
+    appStateStore.settings.startDate = threeWeeksAgo;
     activityStore.weeks = [
       {
         startDate: threeWeeksAgo,
@@ -445,7 +453,7 @@ describe('activityStore', () => {
   });
 
   it('missing current week does not end streak', () => {
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
@@ -462,7 +470,7 @@ describe('activityStore', () => {
   });
 
   it('too few veggies ends streak', () => {
-    activityStore.startDate = threeWeeksAgo;
+    appStateStore.settings.startDate = threeWeeksAgo;
     activityStore.weeks = [
       {
         startDate: threeWeeksAgo,
@@ -489,7 +497,7 @@ describe('activityStore', () => {
   });
 
   it('returns amount of weeks with over 30 veggies', () => {
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
@@ -512,7 +520,7 @@ describe('activityStore', () => {
   });
 
   it('returns the amount of most veggies in a week', () => {
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
@@ -535,16 +543,16 @@ describe('activityStore', () => {
   });
 
   it('returns all weekStarts from the start date', async () => {
-    activityStore.startDate = thisWeek;
+    appStateStore.settings.startDate = thisWeek;
     expect(activityStore.getWeekStarts).toEqual([thisWeek]);
-    activityStore.startDate = lastWeek;
+    appStateStore.settings.startDate = lastWeek;
     expect(activityStore.getWeekStarts).toEqual([thisWeek, lastWeek]);
-    activityStore.startDate = thisWeek.minus({weeks: 5});
+    appStateStore.settings.startDate = thisWeek.minus({weeks: 5});
     expect(activityStore.getWeekStarts.length).toBe(6);
   });
 
   it('returns category favorites', () => {
-    activityStore.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
         startDate: twoWeeksAgo,
@@ -648,7 +656,7 @@ describe('activityStore', () => {
   });
 
   it('resets the store', () => {
-    activityStore.startDate = thisWeek;
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
         startDate: thisWeek,
@@ -659,7 +667,6 @@ describe('activityStore', () => {
 
     activityStore.$reset();
 
-    expect(activityStore.startDate).toBe(null);
     expect(activityStore.weeks).toHaveLength(0);
     expect(activityStore.achievements).toEqual({
       allOnRed: AchievementLevel.NoAchievement,

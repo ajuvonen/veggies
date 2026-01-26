@@ -1,5 +1,4 @@
 {
-  "startDate": "2025-08-04",
   "weeks": [
     {
       "veggies": ["apple", "carrot", "spinach", "banana"],
@@ -15,8 +14,9 @@
   "settings": {
     "allergens": ["peanut"],
     "locale": "en",
-    "migrationVersion": 3,
+    "migrationVersion": 4,
     "showChartAnimations": true,
+    "startDate": "2025-08-04",
     "suggestionCount": 10,
     "summaryViewedDate": null
   }
