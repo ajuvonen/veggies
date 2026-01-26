@@ -1,6 +1,6 @@
 import {ref} from 'vue';
 import {defineStore} from 'pinia';
-import {useStorage} from '@vueuse/core';
+import {useLocalStorage} from '@vueuse/core';
 import type {Settings} from '@/types';
 import {DEFAULT_SETTINGS} from '@/utils/constants';
 import {dateParser, dateReplacer} from '@/utils/helpers';
@@ -12,12 +12,11 @@ type Message = {
 
 export const useAppStateStore = defineStore('appState', () => {
   // State refs
-  const settings = useStorage<Settings>(
+  const settings = useLocalStorage<Settings>(
     'veggies-settings',
     {
       ...DEFAULT_SETTINGS,
     },
-    localStorage,
     {
       mergeDefaults: true,
       serializer: {
