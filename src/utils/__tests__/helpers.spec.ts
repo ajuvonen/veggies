@@ -83,6 +83,14 @@ describe('helpers', () => {
     expect(parsed).toEqual({foo: 1, bar: 2});
   });
 
+  it('parses null dates correctly', () => {
+    const parsed: {summaryViewedDate: DateTime | null} = JSON.parse(
+      '{"summaryViewedDate": null}',
+      dateParser,
+    );
+    expect(parsed.summaryViewedDate).toBeNull();
+  });
+
   it('stringifies only date part', () => {
     const testData = {
       startDate: DateTime.fromISO('2024-09-02T00:00:00.000Z'),
@@ -91,6 +99,13 @@ describe('helpers', () => {
 
     const stringified = JSON.stringify(testData, dateReplacer);
     expect(stringified).toBe('{"startDate":"2024-09-02","veggies":["nectarine","kale"]}');
+  });
+
+  it('stringifies null dates correctly', () => {
+    const testData = {summaryViewedDate: null};
+
+    const stringified = JSON.stringify(testData, dateReplacer);
+    expect(stringified).toBe('{"summaryViewedDate":null}');
   });
 
   it('gives unique emojis', () => {
