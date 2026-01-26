@@ -1,7 +1,7 @@
 import type {InjectionKey, Ref} from 'vue';
 import type {DateTime} from 'luxon';
 import type {UseMemoizeReturn} from '@vueuse/core';
-import {Category, type Locale} from '@/types';
+import {Category, type Locale, type Settings} from '@/types';
 
 export const APP_URL = 'https://eatyourveggies.app';
 
@@ -25,7 +25,7 @@ export const DEFAULT_SETTINGS = {
   startDate: null as DateTime | null,
   suggestionCount: 10,
   summaryViewedDate: null as DateTime | null,
-};
+} as const satisfies Settings;
 
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
