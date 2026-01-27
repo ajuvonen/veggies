@@ -43,7 +43,7 @@ const showConfetti = async () => {
 };
 
 watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
-  const addedVeggie = difference(newCurrentVeggies, oldCurrentVeggies)[0];
+  const [addedVeggie] = difference(newCurrentVeggies, oldCurrentVeggies);
   if (addedVeggie) {
     const cheers: string[] = tm('cheers');
     const cheer = getRandomItem(cheers);
