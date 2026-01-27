@@ -49,7 +49,7 @@ const exportData = () => {
 
 onChange(async (files) => {
   try {
-    const file = files?.[0];
+    const [file] = files ?? [];
     const text = (await file?.text()) || '';
     const importSchema = await getImportSchema();
     const parsedData = JSON.parse(text, dateParser);
