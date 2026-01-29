@@ -57,9 +57,9 @@ const chartData = computed(() => {
         return COLORS.chartColorsAlternate[2] + opacityHex;
       },
       width: ({chart}: ScriptableContext<'matrix'>) =>
-        (chart.chartArea || {}).width / props.weekStarts.length - 1,
+        chart.chartArea.width / props.weekStarts.length - 1,
       height: ({chart}: ScriptableContext<'matrix'>) =>
-        (chart.chartArea || {}).height / Object.values(Category).length - 1,
+        chart.chartArea.height / Object.values(Category).length - 1,
     },
   ];
 
