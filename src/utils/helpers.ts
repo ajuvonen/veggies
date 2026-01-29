@@ -111,36 +111,49 @@ export const getStorageKeys = (): string[] => {
 };
 
 export const getImportSchema = async () => {
-  const z = await import('zod/v4');
+  const z = await import('zod/mini');
+  z.config(z.locales.en());
   const luxonDateTimeSchema = z.custom<DateTime<true>>(
     (val) => val instanceof DateTime && val.isValid,
     'Invalid DateTime instance',
   );
   return z.object({
-    weeks: z
-      .array(
+    weeks: z._default(
+      z.array(
         z.object({
           startDate: luxonDateTimeSchema,
           veggies: z.array(z.string()),
           challenge: z.string(),
         }),
-      )
-      .default([]),
+      ),
+      () => [],
+    ),
     settings: z.object({
-      allergens: z.array(z.string()).default(DEFAULT_SETTINGS.allergens),
-      locale: z.enum(LOCALES).catch(DEFAULT_SETTINGS.locale).default(DEFAULT_SETTINGS.locale),
+      allergens: z._default(
+        z.catch(z.array(z.string()), () => DEFAULT_SETTINGS.allergens),
+        () => DEFAULT_SETTINGS.allergens,
+      ),
+      locale: z._default(
+        z.catch(z.enum(LOCALES), DEFAULT_SETTINGS.locale),
+        DEFAULT_SETTINGS.locale,
+      ),
       migrationVersion: z.literal(CURRENT_MIGRATION_VERSION),
-      showChartAnimations: z
-        .boolean()
-        .catch(DEFAULT_SETTINGS.showChartAnimations)
-        .default(DEFAULT_SETTINGS.showChartAnimations),
+      showChartAnimations: z._default(
+        z.catch(z.boolean(), DEFAULT_SETTINGS.showChartAnimations),
+        DEFAULT_SETTINGS.showChartAnimations,
+      ),
       startDate: luxonDateTimeSchema,
-      suggestionCount: z
-        .number()
-        .refine((val) => [0, 5, 10, 15, 20].includes(val))
-        .catch(DEFAULT_SETTINGS.suggestionCount)
-        .default(DEFAULT_SETTINGS.suggestionCount),
-      summaryViewedDate: luxonDateTimeSchema.nullable().default(DEFAULT_SETTINGS.summaryViewedDate),
+      suggestionCount: z._default(
+        z.catch(
+          z.number().check(z.refine((val) => [0, 5, 10, 15, 20].includes(val))),
+          DEFAULT_SETTINGS.suggestionCount,
+        ),
+        DEFAULT_SETTINGS.suggestionCount,
+      ),
+      summaryViewedDate: z._default(
+        z.nullable(luxonDateTimeSchema),
+        DEFAULT_SETTINGS.summaryViewedDate,
+      ),
     }),
   });
 };
