@@ -63,6 +63,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  build: {
+    rollupOptions: {
+      // Exclude all locale files except English from Zod
+      external: (id) => id.includes('zod/v4/locales/') && !id.endsWith('en.js'),
+    },
+  },
   preview: {
     port: 5173,
   },
