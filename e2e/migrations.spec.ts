@@ -13,7 +13,7 @@ test('Migrations work', async ({browser}) => {
           origin: 'http://localhost:5173',
           localStorage: [
             {
-              name: 'veggies-start-date', // Migration v2
+              name: 'veggies-start-date',
               value: lastWeek.toISODate(),
             },
             {
@@ -78,4 +78,5 @@ test('Migrations work', async ({browser}) => {
   await expect(page.getByTestId('all-time-status-completedChallenges')).toHaveText(
     'Completed 1 Weekly Challenge',
   );
+  await browserContext.close();
 });
