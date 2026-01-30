@@ -114,15 +114,12 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
           origin: 'http://localhost:5173',
           localStorage: [
             {
-              name: 'veggies-startDate',
-              value: previousWeekStartISO,
-            },
-            {
               name: 'veggies-settings',
               value: JSON.stringify({
                 allergens: [],
                 locale: 'en',
                 showChartAnimations: true,
+                startDate: previousWeekStartISO,
                 suggestionCount: 10,
                 summaryViewedDate: null,
               }),
@@ -133,15 +130,7 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
                 {
                   veggies: ['apple', 'carrot', 'spinach', 'banana'],
                   startDate: previousWeekStartISO,
-                },
-              ]),
-            },
-            {
-              name: 'veggies-challenges',
-              value: JSON.stringify([
-                {
-                  startDate: previousWeekStartISO,
-                  veggie: 'apple',
+                  challenge: 'apple',
                 },
               ]),
             },
