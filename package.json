@@ -31,23 +31,23 @@
     "luxon": "3.7.2",
     "pinia": "3.0.4",
     "remeda": "2.33.4",
-    "simple-icons": "16.5.0",
-    "vue": "3.5.26",
+    "simple-icons": "16.6.1",
+    "vue": "3.5.27",
     "vue-chartjs": "5.3.3",
     "vue-i18n": "11.2.8",
     "vue-router": "4.6.4",
     "vue-tippy": "6.7.1",
-    "zod": "4.3.5"
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@eslint/compat": "2.0.1",
     "@pinia/testing": "1.0.3",
-    "@playwright/test": "1.57.0",
+    "@playwright/test": "1.58.0",
     "@tsconfig/node22": "22.0.5",
     "@types/canvas-confetti": "1.9.0",
     "@types/jsdom": "27.0.0",
     "@types/luxon": "3.7.1",
-    "@types/node": "25.0.9",
+    "@types/node": "25.0.10",
     "@vitejs/plugin-vue": "6.0.3",
     "@vitest/coverage-istanbul": "3.2.4",
     "@vitest/eslint-plugin": "1.6.6",
@@ -59,11 +59,11 @@
     "canvas": "^3.2.1",
     "eslint": "9.39.2",
     "eslint-plugin-playwright": "2.5.0",
-    "eslint-plugin-vue": "10.6.2",
+    "eslint-plugin-vue": "10.7.0",
     "eslint-plugin-vuejs-accessibility": "2.4.1",
     "jsdom": "27.4.0",
     "postcss": "8.5.6",
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "tailwindcss": "3.4.18",
     "typescript": "5.9.3",
     "vite": "7.3.1",
@@ -83,6 +83,6 @@
     }
   },
   "overrides": {
-    "typescript-eslint": "8.50.1"
+    "typescript-eslint": "8.53.1"
   }
 }
