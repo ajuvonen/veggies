@@ -4,6 +4,19 @@ import {VitePWA} from 'vite-plugin-pwa';
 import vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
+// Plugin to intercept zod locales index.js and only load English
+function zodLocalesPlugin() {
+  return {
+    name: 'zod-locales-en-only',
+    load(id: string) {
+      if (id.endsWith('zod/v4/locales/index.js')) {
+        return 'export { default as en } from "./en.js";';
+      }
+      return null;
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
@@ -12,6 +25,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
+    zodLocalesPlugin(),
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
@@ -61,12 +75,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
-  build: {
-    rollupOptions: {
-      // Exclude all locale files except English from Zod
-      external: (id) => id.includes('zod/v4/locales/') && !id.endsWith('en.js'),
     },
   },
   preview: {
