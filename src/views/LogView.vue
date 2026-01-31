@@ -7,7 +7,9 @@ import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {KEYS} from '@/utils/constants';
 import {getRandomItem} from '@/utils/helpers';
+import {useFactsLoader} from '@/hooks/factsLoader';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
+import type {Locale} from '@/types';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
@@ -22,7 +24,9 @@ const FrontPageAnimation = defineAsyncComponent(
   () => import('@/components/FrontPageAnimation.vue'),
 );
 
-const {t, tm} = useI18n();
+const {t, tm, locale} = useI18n();
+
+const ensureFactsLoaded = useFactsLoader();
 
 const activityStore = useActivityStore();
 const {allVeggies, uniqueVeggies, suggestions, currentVeggies, currentChallenge} =
@@ -42,7 +46,7 @@ const showConfetti = async () => {
   });
 };
 
-watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
+watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
   const [addedVeggie] = difference(newCurrentVeggies, oldCurrentVeggies);
   if (addedVeggie) {
     const cheers: string[] = tm('cheers');
@@ -59,6 +63,8 @@ watch(currentVeggies, (newCurrentVeggies, oldCurrentVeggies) => {
       addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, cheer]));
       showConfetti();
     } else if (Math.random() <= 0.5) {
+      await ensureFactsLoaded(locale.value as Locale);
+
       const facts = [
         ...Object.values<string>(tm(`facts.${addedVeggie}`)),
         t('toasts.uniqueVeggies', [
