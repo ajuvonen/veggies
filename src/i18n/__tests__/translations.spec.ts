@@ -42,6 +42,7 @@ const getFlattenedKeys = (obj: any, prefix = ''): string[] => {
 };
 
 const {default: defaultMessages} = await import(`@/i18n/${DEFAULT_LOCALE}.json`);
+const {default: defaultFactsMessages} = await import(`@/i18n/facts_${DEFAULT_LOCALE}.json`);
 
 describe('i18n translation files', () => {
   it('has translation for all veggies', async () => {
@@ -53,19 +54,23 @@ describe('i18n translation files', () => {
   });
 
   it('has facts for all veggies', async () => {
-    const {tm} = await mountLocalization();
+    const {default: defaultFactsMessages} = await import(`@/i18n/facts_${DEFAULT_LOCALE}.json`);
     ALL_VEGGIES.forEach((veggie) =>
-      expect.soft(tm(`facts.${veggie}`).length || 0).toBeGreaterThan(1),
+      expect.soft(defaultFactsMessages.facts[veggie]?.length || 0).toBeGreaterThan(1),
     );
-    expect(Object.keys(tm('facts')).length).toEqual(ALL_VEGGIES.length);
+    expect(Object.keys(defaultFactsMessages.facts).length).toEqual(ALL_VEGGIES.length);
   });
 
   it.each(LOCALES.filter((locale) => locale !== DEFAULT_LOCALE))(
     '%s keys match default locale',
     async (locale) => {
       const {default: messages} = await import(`@/i18n/${locale}.json`);
+      const {default: factsMessages} = await import(`@/i18n/facts_${locale}.json`);
       expect(new Set(getFlattenedKeys(messages))).toEqual(
         new Set(getFlattenedKeys(defaultMessages)),
+      );
+      expect(new Set(getFlattenedKeys(factsMessages))).toEqual(
+        new Set(getFlattenedKeys(defaultFactsMessages)),
       );
     },
   );
