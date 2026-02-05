@@ -1,7 +1,7 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
-import {take} from 'remeda';
+import {take} from '@/test-utils';
 import {BEANS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -178,8 +178,8 @@ describe('charts', () => {
     expect(datasets[0].data).toEqual([1, 0, 0, 2, 2, 4]);
   });
 
-  const getPercentage = (group: readonly string[], amount: number) =>
-    Math.round((amount / group.length) * 100);
+  const getPercentage = (group: ReadonlySet<string>, amount: number) =>
+    Math.round((amount / group.size) * 100);
   it('prepares data for VeggieCompletionChart', () => {
     const wrapper = mount(VeggieCompletionChart, {
       props: {

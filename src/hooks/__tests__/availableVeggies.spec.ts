@@ -41,13 +41,13 @@ describe('availableVeggies', () => {
       availableVegetables,
     } = withSetup(useAvailableVeggies);
     expect(availableVeggies.value.length).toBe(ALL_VEGGIES.length - 7);
-    expect(availableBeans.value.length).toBe(BEANS.length - 1);
-    expect(availableFruits.value.length).toBe(FRUITS.length - 1);
-    expect(availableGrains.value.length).toBe(GRAINS.length - 1);
-    expect(availableLeafies.value.length).toBe(LEAFIES.length - 1);
-    expect(availableMushrooms.value.length).toBe(MUSHROOMS.length - 1);
-    expect(availableRoots.value.length).toBe(ROOTS.length - 1);
-    expect(availableVegetables.value.length).toBe(VEGETABLES.length - 1);
+    expect(availableBeans.value.length).toBe(BEANS.size - 1);
+    expect(availableFruits.value.length).toBe(FRUITS.size - 1);
+    expect(availableGrains.value.length).toBe(GRAINS.size - 1);
+    expect(availableLeafies.value.length).toBe(LEAFIES.size - 1);
+    expect(availableMushrooms.value.length).toBe(MUSHROOMS.size - 1);
+    expect(availableRoots.value.length).toBe(ROOTS.size - 1);
+    expect(availableVegetables.value.length).toBe(VEGETABLES.size - 1);
   });
 
   it('returns all veggies if no allergens', () => {
@@ -62,13 +62,13 @@ describe('availableVeggies', () => {
       availableVegetables,
     } = withSetup(useAvailableVeggies);
     expect(availableVeggies.value.length).toBe(ALL_VEGGIES.length);
-    expect(availableBeans.value.length).toBe(BEANS.length);
-    expect(availableFruits.value.length).toBe(FRUITS.length);
-    expect(availableGrains.value.length).toBe(GRAINS.length);
-    expect(availableLeafies.value.length).toBe(LEAFIES.length);
-    expect(availableMushrooms.value.length).toBe(MUSHROOMS.length);
-    expect(availableRoots.value.length).toBe(ROOTS.length);
-    expect(availableVegetables.value.length).toBe(VEGETABLES.length);
+    expect(availableBeans.value.length).toBe(BEANS.size);
+    expect(availableFruits.value.length).toBe(FRUITS.size);
+    expect(availableGrains.value.length).toBe(GRAINS.size);
+    expect(availableLeafies.value.length).toBe(LEAFIES.size);
+    expect(availableMushrooms.value.length).toBe(MUSHROOMS.size);
+    expect(availableRoots.value.length).toBe(ROOTS.size);
+    expect(availableVegetables.value.length).toBe(VEGETABLES.size);
   });
 
   it('returns empty if no available veggies', () => {

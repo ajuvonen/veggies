@@ -1,4 +1,4 @@
-export const FRUITS: readonly string[] = [
+export const FRUITS: ReadonlySet<string> = new Set([
   'apple',
   'apricot',
   'asian pear',
@@ -65,9 +65,9 @@ export const FRUITS: readonly string[] = [
   'strawberry',
   'watermelon',
   'yuzu',
-];
+]);
 
-export const LEAFIES: readonly string[] = [
+export const LEAFIES: ReadonlySet<string> = new Set([
   'arugula',
   'basil',
   'bok choy',
@@ -112,9 +112,9 @@ export const LEAFIES: readonly string[] = [
   'thyme',
   'water spinach',
   'watercress',
-];
+]);
 
-export const ROOTS: readonly string[] = [
+export const ROOTS: ReadonlySet<string> = new Set([
   'bamboo shoots',
   'beet',
   'black radish',
@@ -149,9 +149,9 @@ export const ROOTS: readonly string[] = [
   'white onion',
   'yam',
   'yellow beet',
-];
+]);
 
-export const VEGETABLES: readonly string[] = [
+export const VEGETABLES: ReadonlySet<string> = new Set([
   'artichoke',
   'asparagus',
   'avocado',
@@ -184,9 +184,9 @@ export const VEGETABLES: readonly string[] = [
   'wakame',
   'wax gourd',
   'zucchini',
-];
+]);
 
-export const MUSHROOMS: readonly string[] = [
+export const MUSHROOMS: ReadonlySet<string> = new Set([
   'black trumpet mushroom',
   'champignon',
   'chanterelle',
@@ -204,9 +204,9 @@ export const MUSHROOMS: readonly string[] = [
   'wild mushroom',
   'wood ear mushroom',
   'yellowfoot mushroom',
-];
+]);
 
-export const BEANS: readonly string[] = [
+export const BEANS: ReadonlySet<string> = new Set([
   'black bean',
   'black lentil',
   'black-eyed pea',
@@ -234,9 +234,9 @@ export const BEANS: readonly string[] = [
   'white bean',
   'yardlong bean',
   'yellow lentil',
-];
+]);
 
-export const GRAINS: readonly string[] = [
+export const GRAINS: ReadonlySet<string> = new Set([
   'almond',
   'amaranth',
   'barley',
@@ -274,7 +274,7 @@ export const GRAINS: readonly string[] = [
   'walnut',
   'wheat',
   'wild rice',
-];
+]);
 
 export const ALL_VEGGIES: readonly string[] = [
   ...FRUITS,
@@ -286,7 +286,7 @@ export const ALL_VEGGIES: readonly string[] = [
   ...MUSHROOMS,
 ];
 
-export const CITRUSES: readonly string[] = [
+export const CITRUSES: ReadonlySet<string> = new Set([
   'blood grapefruit',
   'blood orange',
   'calamansi',
@@ -300,9 +300,9 @@ export const CITRUSES: readonly string[] = [
   'orange',
   'pomelo',
   'yuzu',
-];
+]);
 
-export const RED_VEGGIES: readonly string[] = [
+export const RED_VEGGIES: ReadonlySet<string> = new Set([
   'apple',
   'beet',
   'bell pepper',
@@ -325,9 +325,9 @@ export const RED_VEGGIES: readonly string[] = [
   'strawberry',
   'tomato',
   'watermelon',
-];
+]);
 
-export const NUTS: readonly string[] = [
+export const NUTS: ReadonlySet<string> = new Set([
   'almond',
   'brazil nut',
   'cashew nut',
@@ -340,9 +340,9 @@ export const NUTS: readonly string[] = [
   'pine nut',
   'pistachio nut',
   'walnut',
-];
+]);
 
-export const BOTANICAL_BERRIES: readonly string[] = [
+export const BOTANICAL_BERRIES: ReadonlySet<string> = new Set([
   'avocado',
   'banana',
   'bell pepper',
@@ -384,9 +384,9 @@ export const BOTANICAL_BERRIES: readonly string[] = [
   'watermelon',
   'yuzu',
   'zucchini',
-];
+]);
 
-export const ONIONS: readonly string[] = [
+export const ONIONS: ReadonlySet<string> = new Set([
   'chives',
   'garlic',
   'leek',
@@ -395,10 +395,10 @@ export const ONIONS: readonly string[] = [
   'scallion',
   'shallot',
   'white onion',
-];
+]);
 
-export const NUTRIENTS: Record<string, readonly string[]> = {
-  A: [
+export const NUTRIENTS: Record<string, ReadonlySet<string>> = {
+  A: new Set([
     'apricot',
     'bell pepper',
     'broccoli',
@@ -415,8 +415,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'pumpkin',
     'spinach',
     'sweet potato',
-  ],
-  B1: [
+  ]),
+  B1: new Set([
     'black bean',
     'black lentil',
     'black-eyed pea',
@@ -446,8 +446,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'sunflower seed',
     'white bean',
     'yellow lentil',
-  ],
-  B2: [
+  ]),
+  B2: new Set([
     'almond',
     'champignon',
     'edamame',
@@ -457,8 +457,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'soybean',
     'sunflower seed',
     'white bean',
-  ],
-  B3: [
+  ]),
+  B3: new Set([
     'black bean',
     'black-eyed pea',
     'brown bean',
@@ -482,8 +482,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'oat',
     'peanut',
     'sunflower seed',
-  ],
-  B5: [
+  ]),
+  B5: new Set([
     'avocado',
     'black bean',
     'black-eyed pea',
@@ -508,8 +508,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'oat',
     'peanut',
     'sunflower seed',
-  ],
-  B6: [
+  ]),
+  B6: new Set([
     'avocado',
     'banana',
     'black lentil',
@@ -521,9 +521,9 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'red lentil',
     'sunflower seed',
     'yellow lentil',
-  ],
-  B7: ['almond', 'champignon', 'peanut', 'portobello', 'shiitake', 'soybean', 'sunflower seed'],
-  B9: [
+  ]),
+  B7: new Set(['almond', 'champignon', 'peanut', 'portobello', 'shiitake', 'soybean', 'sunflower seed']),
+  B9: new Set([
     'asparagus',
     'avocado',
     'black bean',
@@ -552,8 +552,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'sunflower seed',
     'white bean',
     'yellow lentil',
-  ],
-  C: [
+  ]),
+  C: new Set([
     'bell pepper',
     'blood orange',
     'broccoli',
@@ -568,8 +568,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'pomelo',
     'spinach',
     'strawberry',
-  ],
-  E: [
+  ]),
+  E: new Set([
     'almond',
     'avocado',
     'brazil nut',
@@ -578,8 +578,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'pine nut',
     'spinach',
     'sunflower seed',
-  ],
-  K: [
+  ]),
+  K: new Set([
     'arugula',
     'broccoli',
     'brussels sprouts',
@@ -594,8 +594,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'red leaf lettuce',
     'romaine',
     'spinach',
-  ],
-  calcium: [
+  ]),
+  calcium: new Set([
     'almond',
     'amaranth',
     'black bean',
@@ -611,8 +611,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'teff',
     'watercress',
     'white bean',
-  ],
-  fiber: [
+  ]),
+  fiber: new Set([
     'almond',
     'avocado',
     'black bean',
@@ -645,8 +645,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'sweet potato',
     'white bean',
     'yellow lentil',
-  ],
-  iron: [
+  ]),
+  iron: new Set([
     'almond',
     'amaranth',
     'black bean',
@@ -678,8 +678,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'sunflower seed',
     'white bean',
     'yellow lentil',
-  ],
-  magnesium: [
+  ]),
+  magnesium: new Set([
     'almond',
     'black bean',
     'black lentil',
@@ -711,8 +711,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'sunflower seed',
     'white bean',
     'yellow lentil',
-  ],
-  potassium: [
+  ]),
+  potassium: new Set([
     'avocado',
     'banana',
     'beet',
@@ -744,8 +744,8 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'sweet potato',
     'white bean',
     'yellow lentil',
-  ],
-  zinc: [
+  ]),
+  zinc: new Set([
     'almond',
     'black bean',
     'black lentil',
@@ -777,5 +777,5 @@ export const NUTRIENTS: Record<string, readonly string[]> = {
     'sunflower seed',
     'white bean',
     'yellow lentil',
-  ],
+  ]),
 };

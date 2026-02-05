@@ -1,10 +1,10 @@
 import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
-import {take} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import type {WeekData} from '@/types';
+import {take} from '@/test-utils';
 import DialogStub from '@/test-utils/DialogStub.vue';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
