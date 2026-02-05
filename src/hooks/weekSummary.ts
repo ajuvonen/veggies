@@ -1,9 +1,9 @@
 import {computed, toValue, type MaybeRefOrGetter} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {countBy, intersection, sample} from 'remeda';
+import {countBy, sample} from 'remeda';
 import type {WeekData, SummaryItem} from '@/types';
 import {Category} from '@/types';
-import {getCategoryForVeggie} from '@/utils/helpers';
+import {getCategoryForVeggie, setIntersection} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {NUTRIENTS} from '@/utils/veggieDetails';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
@@ -17,9 +17,9 @@ export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
     const messages: SummaryItem[] = [];
 
     Object.entries(NUTRIENTS).forEach(([nutrient, nutrientVeggies]) => {
-      const foundVeggies = nutrientVeggies.filter((veggie) => data.veggies.includes(veggie));
+      const foundVeggies = setIntersection(nutrientVeggies, data.veggies);
       if (foundVeggies.length < 2) {
-        const suggestions = sample(intersection(availableVeggies.value, nutrientVeggies), 3)
+        const suggestions = sample(setIntersection(nutrientVeggies, availableVeggies.value), 3)
           .map((veggie) => t(`veggies.${veggie}`).toLowerCase())
           .join(', ');
         messages.push({

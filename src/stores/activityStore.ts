@@ -7,7 +7,6 @@ import {
   difference,
   entries,
   fromKeys,
-  intersection,
   map,
   pipe,
   prop,
@@ -22,6 +21,7 @@ import {
   dateReplacer,
   getCategoryForVeggie,
   getRandomItem,
+  setIntersection,
 } from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {
@@ -113,16 +113,17 @@ export const useActivityStore = defineStore('activity', () => {
     () => weeks.value.find(({startDate}) => startDate.equals(currentWeekStart.value))?.challenge,
   );
 
-  const suggestions = computed(() =>
-    pipe(
-      allVeggies.value.filter((veggie) => !currentVeggies.value.includes(veggie)),
+  const suggestions = computed(() => {
+    const currentVeggiesSet = new Set(currentVeggies.value);
+    return pipe(
+      allVeggies.value.filter((veggie) => !currentVeggiesSet.has(veggie)),
       countBy((veggie) => veggie),
       entries(),
       sortBy([prop(1), 'desc']),
       take(settings.value.suggestionCount),
       map(prop(0)),
-    ),
-  );
+    );
+  });
 
   const veggiesByCategory = computed(() =>
     allVeggies.value.reduce(
@@ -165,19 +166,19 @@ export const useActivityStore = defineStore('activity', () => {
         return {
           allOnRed: achievementLevelHelper(
             [[10, AchievementLevel.Gold]],
-            intersection(RED_VEGGIES, veggies).length,
+            setIntersection(RED_VEGGIES, veggies).length,
           ),
           botanicalBerries: achievementLevelHelper(
             [[15, AchievementLevel.Gold]],
-            intersection(BOTANICAL_BERRIES, veggies).length,
+            setIntersection(BOTANICAL_BERRIES, veggies).length,
           ),
           goNuts: achievementLevelHelper(
             [[5, AchievementLevel.Gold]],
-            intersection(NUTS, veggies).length,
+            setIntersection(NUTS, veggies).length,
           ),
           lemons: achievementLevelHelper(
             [[5, AchievementLevel.Gold]],
-            intersection(CITRUSES, veggies).length,
+            setIntersection(CITRUSES, veggies).length,
           ),
           overachiever:
             veggies.length >= 30 && challengeCompleted
@@ -190,7 +191,7 @@ export const useActivityStore = defineStore('activity', () => {
             : AchievementLevel.NoAchievement,
           tearnado: achievementLevelHelper(
             [[5, AchievementLevel.Gold]],
-            intersection(ONIONS, veggies).length,
+            setIntersection(ONIONS, veggies).length,
           ),
           thirtyVeggies: achievementLevelHelper(
             [
@@ -230,31 +231,31 @@ export const useActivityStore = defineStore('activity', () => {
     ),
     experimenterBean: achievementLevelHelper(
       [[15, AchievementLevel.Gold]],
-      intersection(BEANS, uniqueVeggies.value).length,
+      setIntersection(BEANS, uniqueVeggies.value).length,
     ),
     experimenterFruit: achievementLevelHelper(
       [[15, AchievementLevel.Gold]],
-      intersection(FRUITS, uniqueVeggies.value).length,
+      setIntersection(FRUITS, uniqueVeggies.value).length,
     ),
     experimenterGrain: achievementLevelHelper(
       [[15, AchievementLevel.Gold]],
-      intersection(GRAINS, uniqueVeggies.value).length,
+      setIntersection(GRAINS, uniqueVeggies.value).length,
     ),
     experimenterLeafy: achievementLevelHelper(
       [[15, AchievementLevel.Gold]],
-      intersection(LEAFIES, uniqueVeggies.value).length,
+      setIntersection(LEAFIES, uniqueVeggies.value).length,
     ),
     experimenterMushroom: achievementLevelHelper(
       [[15, AchievementLevel.Gold]],
-      intersection(MUSHROOMS, uniqueVeggies.value).length,
+      setIntersection(MUSHROOMS, uniqueVeggies.value).length,
     ),
     experimenterRoot: achievementLevelHelper(
       [[15, AchievementLevel.Gold]],
-      intersection(ROOTS, uniqueVeggies.value).length,
+      setIntersection(ROOTS, uniqueVeggies.value).length,
     ),
     experimenterVegetable: achievementLevelHelper(
       [[15, AchievementLevel.Gold]],
-      intersection(VEGETABLES, uniqueVeggies.value).length,
+      setIntersection(VEGETABLES, uniqueVeggies.value).length,
     ),
     hotStreak: achievementLevelHelper(
       [

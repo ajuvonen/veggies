@@ -12,6 +12,7 @@ import {
   getRandomItem,
   getStorageKeys,
   normalizeForSearch,
+  setIntersection,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Week} from '@/types';
 
@@ -38,6 +39,44 @@ describe('helpers', () => {
 
   it('returns undefined for empty arrays', () => {
     expect(getRandomItem([])).toBeUndefined();
+  });
+
+  describe('setIntersection', () => {
+    it('returns items from array that are in the set', () => {
+      const set = new Set(['a', 'b', 'c']);
+      expect(setIntersection(set, ['a', 'x', 'b', 'y', 'c'])).toEqual(['a', 'b', 'c']);
+    });
+
+    it('returns empty array when no items match', () => {
+      const set = new Set(['a', 'b']);
+      expect(setIntersection(set, ['x', 'y', 'z'])).toEqual([]);
+    });
+
+    it('returns full array when all items are in set', () => {
+      const set = new Set([1, 2, 3]);
+      expect(setIntersection(set, [1, 2, 3])).toEqual([1, 2, 3]);
+    });
+
+    it('preserves order of the input array', () => {
+      const set = new Set(['c', 'a', 'b']);
+      expect(setIntersection(set, ['z', 'a', 'y', 'b', 'x', 'c'])).toEqual(['a', 'b', 'c']);
+    });
+
+    it('handles empty set', () => {
+      const set = new Set<string>();
+      expect(setIntersection(set, ['a', 'b', 'c'])).toEqual([]);
+    });
+
+    it('handles empty array', () => {
+      const set = new Set(['a', 'b', 'c']);
+      expect(setIntersection(set, [])).toEqual([]);
+    });
+
+    it('works with two sets', () => {
+      const set1 = new Set(['a', 'b', 'c']);
+      const set2 = new Set(['b', 'c', 'd']);
+      expect(setIntersection(set1, set2)).toEqual(['b', 'c']);
+    });
   });
 
   it('gets all veggies-prefixed localStorage keys', () => {

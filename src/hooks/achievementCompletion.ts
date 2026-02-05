@@ -1,7 +1,7 @@
 import {computed, toValue, type MaybeRefOrGetter} from 'vue';
-import {countBy, intersection} from 'remeda';
+import {countBy} from 'remeda';
 import {BOTANICAL_BERRIES, CITRUSES, NUTS, ONIONS, RED_VEGGIES} from '@/utils/veggieDetails';
-import {getCategoryForVeggie} from '@/utils/helpers';
+import {getCategoryForVeggie, setIntersection} from '@/utils/helpers';
 import {Category, type Achievements} from '@/types';
 
 export function useAchievementCompletion(
@@ -26,12 +26,12 @@ export function useAchievementCompletion(
       : Math.min(valueForVeggies.length / 30, 1) * 0.5;
 
     return {
-      allOnRed: degreeFormatter(intersection(RED_VEGGIES, valueForVeggies).length / 10),
+      allOnRed: degreeFormatter(setIntersection(RED_VEGGIES, valueForVeggies).length / 10),
       botanicalBerries: degreeFormatter(
-        intersection(BOTANICAL_BERRIES, valueForVeggies).length / 15,
+        setIntersection(BOTANICAL_BERRIES, valueForVeggies).length / 15,
       ),
-      lemons: degreeFormatter(intersection(CITRUSES, valueForVeggies).length / 5),
-      goNuts: degreeFormatter(intersection(NUTS, valueForVeggies).length / 5),
+      lemons: degreeFormatter(setIntersection(CITRUSES, valueForVeggies).length / 5),
+      goNuts: degreeFormatter(setIntersection(NUTS, valueForVeggies).length / 5),
       overachiever: degreeFormatter(overachieverProgress),
       rainbow: degreeFormatter(
         categories.reduce(
@@ -40,7 +40,7 @@ export function useAchievementCompletion(
           0,
         ) / categories.length,
       ),
-      tearnado: degreeFormatter(intersection(ONIONS, valueForVeggies).length / 5),
+      tearnado: degreeFormatter(setIntersection(ONIONS, valueForVeggies).length / 5),
       thirtyVeggies: degreeFormatter(valueForVeggies.length / 30),
     };
   });

@@ -1,24 +1,32 @@
 import {useMemoize} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {sample} from 'remeda';
-import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
+import {
+  BEANS,
+  FRUITS,
+  GRAINS,
+  LEAFIES,
+  MUSHROOMS,
+  ROOTS,
+  VEGETABLES,
+} from '@/utils/veggieDetails';
 import {CURRENT_MIGRATION_VERSION, DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
 import {AchievementLevel, Category} from '@/types';
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
-  if (FRUITS.includes(veggie)) {
+  if (FRUITS.has(veggie)) {
     return Category.Fruit;
-  } else if (VEGETABLES.includes(veggie)) {
+  } else if (VEGETABLES.has(veggie)) {
     return Category.Vegetable;
-  } else if (LEAFIES.includes(veggie)) {
+  } else if (LEAFIES.has(veggie)) {
     return Category.Leafy;
-  } else if (ROOTS.includes(veggie)) {
+  } else if (ROOTS.has(veggie)) {
     return Category.Root;
-  } else if (BEANS.includes(veggie)) {
+  } else if (BEANS.has(veggie)) {
     return Category.Bean;
-  } else if (GRAINS.includes(veggie)) {
+  } else if (GRAINS.has(veggie)) {
     return Category.Grain;
-  } else if (MUSHROOMS.includes(veggie)) {
+  } else if (MUSHROOMS.has(veggie)) {
     return Category.Mushroom;
   }
   return undefined;
@@ -26,6 +34,9 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
 
 export const getRandomItem = <T>(availableItems: readonly T[] = []): T | undefined =>
   availableItems[Math.floor(Math.random() * availableItems.length)];
+
+export const setIntersection = <T>(set: ReadonlySet<T>, collection: Iterable<T>): T[] =>
+  [...collection].filter((item) => set.has(item));
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const dateParser = (key: string, value: any) => {
