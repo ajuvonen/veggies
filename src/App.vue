@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {watch, watchEffect} from 'vue';
+import {defineAsyncComponent, watch, watchEffect} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {RouterView, useRoute} from 'vue-router';
@@ -9,8 +9,9 @@ import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {LOCALES} from '@/utils/constants';
 import NavBar from '@/components/NavBar.vue';
-import ToastContainer from '@/components/ToastContainer.vue';
-import AchievementDialog from '@/components/AchievementDialog.vue';
+
+const ToastContainer = defineAsyncComponent(() => import('@/components/ToastContainer.vue'));
+const AchievementDialog = defineAsyncComponent(() => import('@/components/AchievementDialog.vue'));
 
 const {t, locale, setLocaleMessage} = useI18n();
 
@@ -67,12 +68,12 @@ watch(
 </script>
 
 <template>
-  <ToastContainer />
+  <ToastContainer v-if="settings.startDate" />
   <NavBar :showStats="!!allVeggies.length" />
   <main>
     <RouterView />
   </main>
-  <AchievementDialog />
+  <AchievementDialog v-if="settings.startDate" />
 </template>
 
 <style scoped>
