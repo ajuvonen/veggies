@@ -40,7 +40,7 @@ npm run test:e2e -- --debug
 ```sh
 npm install
 
-npm test:unit
+npm run test:unit
 # Runs the tests of a specific file
 npm run test:unit example.spec.ts
 ```
