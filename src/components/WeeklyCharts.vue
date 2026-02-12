@@ -4,11 +4,9 @@ import {storeToRefs} from 'pinia';
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import {useDateTime} from '@/hooks/dateTime';
+import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import AsyncLoader from '@/components/AsyncLoader.vue';
 
-const WeeklyAmountsChart = defineAsyncComponent(
-  () => import('@/components/charts/WeeklyAmountsChart.vue'),
-);
 const WeeklyCategoriesChart = defineAsyncComponent(
   () => import('@/components/charts/WeeklyCategoriesChart.vue'),
 );
@@ -49,9 +47,7 @@ const statisticOptions = [
       </RadioGroupOption>
     </ContentElement>
   </RadioGroup>
-  <AsyncLoader>
-    <WeeklyAmountsChart v-if="selectedStatistic === 0" :labels="labels" :weekStarts="weekStarts" />
-  </AsyncLoader>
+  <WeeklyAmountsChart v-if="selectedStatistic === 0" :labels="labels" :weekStarts="weekStarts" />
   <AsyncLoader>
     <WeeklyCategoriesChart
       v-if="selectedStatistic === 1"

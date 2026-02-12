@@ -13,14 +13,11 @@ import VeggieSearch from '@/components/VeggieSearch.vue';
 import TagsComponent from '@/components/TagsComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
+import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
 import AsyncLoader from '@/components/AsyncLoader.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
-);
-
-const FrontPageAnimation = defineAsyncComponent(
-  () => import('@/components/FrontPageAnimation.vue'),
 );
 
 const {t, tm, locale} = useI18n();
@@ -91,9 +88,7 @@ provide(KEYS.challenge, readonly(currentChallenge));
   <AsyncLoader>
     <CategoryStatusChart v-if="currentVeggies.length" :veggies="currentVeggies" />
   </AsyncLoader>
-  <AsyncLoader>
-    <FrontPageAnimation v-if="!currentVeggies.length" />
-  </AsyncLoader>
+  <FrontPageAnimation v-if="!currentVeggies.length" />
   <TagsComponent
     :veggies="suggestions"
     :variant="['tag', 'primary']"

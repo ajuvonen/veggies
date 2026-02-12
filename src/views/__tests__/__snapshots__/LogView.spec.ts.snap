@@ -1742,6 +1742,7 @@ exports[`LogView > renders with data 1`] = `
     </tbody>
   </table>
 </div>
+<!--v-if-->
 <ul data-v-cd627eac="" aria-label="Suggestions" tabindex="-1" tag="ul" class="tags__container">
   <transition-group-stub data-v-cd627eac="" name="tags" appear="false" persisted="false" css="true">
     <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-ee781121="" data-v-cd627eac="" class="button-like button--tag button--primary" id="tag-button-rice" aria-label="Add rice">
