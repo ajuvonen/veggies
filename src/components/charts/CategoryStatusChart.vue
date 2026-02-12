@@ -68,7 +68,7 @@ const {chartOptions} = useChartOptions<'doughnut'>(
   false,
   true,
   computed(() => ({
-    cutout: height.value < 280 ? '60%' : undefined,
+    cutout: height.value && height.value < 280 ? '60%' : undefined,
     plugins: {
       tooltip: {
         callbacks: {
@@ -130,7 +130,7 @@ defineExpose({chartData});
 </template>
 <style scoped>
 :deep(canvas) {
-  @apply relative z-10;
+  @apply z-10 !h-full !w-auto aspect-square max-w-full;
 }
 
 .category-status-chart__background {
