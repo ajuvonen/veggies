@@ -70,6 +70,7 @@ describe('StatsView', () => {
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-2').trigger('click');
+    await vi.dynamicImportSettled();
     expect(wrapper.findByTestId('week-editor').exists()).toBe(true);
   });
 
@@ -85,9 +86,9 @@ describe('StatsView', () => {
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-3').trigger('click');
+    await vi.dynamicImportSettled();
     expect(wrapper.findByTestId('veggie-completion-chart').exists()).toBe(true);
     expect(wrapper.findByTestId('veggie-completion-table').exists()).toBe(true);
-    expect(wrapper.findByTestId('veggie-list').exists()).toBe(true);
   });
 
   it('renders achievements', async () => {
@@ -102,6 +103,7 @@ describe('StatsView', () => {
     const wrapper = mount(StatsView);
 
     await wrapper.findByTestId('stats-tab-4').trigger('click');
-    expect(wrapper.findByTestId('achievement-list').exists()).toBe(true);
+    await vi.dynamicImportSettled();
+    expect(wrapper.findByTestId('badge-goNuts-3').exists()).toBe(true);
   });
 });

@@ -29,44 +29,42 @@ const specialCases = ['cloudberry', 'raspberry'];
 </script>
 
 <template>
-  <div class="has-scroll m-0 p-0" data-test-id="veggie-list">
-    <VeggieCompletionChart :veggies="uniqueVeggies" />
-    <ul v-for="category in Category" :key="category" class="flex gap-4 flex-col">
-      <ContentElement :title="$t(`categories.${category}`)">
-        <ul class="columns-2 md:columns-3">
-          <li
-            v-for="{veggie, translation} in translatedVeggies().filter(
-              (item) => item.category === category,
-            )"
-            v-tippy="
-              specialCases.includes(veggie)
-                ? {
-                    content: '❤️',
-                    aria: {
-                      content: null,
-                      expanded: false,
-                    },
-                    placement: 'top',
-                  }
-                : undefined
-            "
-            :key="veggie"
-            class="veggie-list__veggie"
-          >
-            <IconComponent
-              :icon="uniqueVeggies.includes(veggie) ? 'checkboxMarked' : 'checkboxBlank'"
-            />
-            <span class="truncate capitalize" :title="translation">
-              {{ translation }}
-            </span>
-            <span :data-test-id="`veggie-list-status-${veggie}`" class="sr-only">{{
-              $t(uniqueVeggies.includes(veggie) ? 'veggieList.complete' : 'veggieList.missing')
-            }}</span>
-          </li>
-        </ul>
-      </ContentElement>
-    </ul>
-  </div>
+  <VeggieCompletionChart :veggies="uniqueVeggies" />
+  <ul v-for="category in Category" :key="category" class="flex gap-4 flex-col">
+    <ContentElement :title="$t(`categories.${category}`)">
+      <ul class="columns-2 md:columns-3">
+        <li
+          v-for="{veggie, translation} in translatedVeggies().filter(
+            (item) => item.category === category,
+          )"
+          v-tippy="
+            specialCases.includes(veggie)
+              ? {
+                  content: '❤️',
+                  aria: {
+                    content: null,
+                    expanded: false,
+                  },
+                  placement: 'top',
+                }
+              : undefined
+          "
+          :key="veggie"
+          class="veggie-list__veggie"
+        >
+          <IconComponent
+            :icon="uniqueVeggies.includes(veggie) ? 'checkboxMarked' : 'checkboxBlank'"
+          />
+          <span class="truncate capitalize" :title="translation">
+            {{ translation }}
+          </span>
+          <span :data-test-id="`veggie-list-status-${veggie}`" class="sr-only">{{
+            $t(uniqueVeggies.includes(veggie) ? 'veggieList.complete' : 'veggieList.missing')
+          }}</span>
+        </li>
+      </ul>
+    </ContentElement>
+  </ul>
 </template>
 <style scoped>
 .veggie-list__veggie {

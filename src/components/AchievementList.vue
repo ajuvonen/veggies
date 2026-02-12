@@ -25,8 +25,7 @@ const standardAchievements: (keyof Achievements)[] = [
 ];
 </script>
 <template>
-  <div class="has-scroll m-0 p-0" data-test-id="achievement-list">
-    <ContentElement
+  <ContentElement
       v-if="achievements.thousandsOdd !== achievements.thousandsEven"
       :title="$t('achievements.thousandsOdd.title')"
       data-test-id="thousands-container"
@@ -48,7 +47,7 @@ const standardAchievements: (keyof Achievements)[] = [
         />
       </ul>
     </ContentElement>
-    <ContentElement :title="$t('achievements.thirtyVeggies.title')">
+  <ContentElement :title="$t('achievements.thirtyVeggies.title')">
       <ul class="achievement-list__badge-container">
         <AchievementBadge
           v-for="achievement in weeklyAchievements"
@@ -63,14 +62,14 @@ const standardAchievements: (keyof Achievements)[] = [
           achievement="thirtyVeggies"
         />
       </ul>
-    </ContentElement>
-    <AchievementListSection
+  </ContentElement>
+  <AchievementListSection
       v-for="achievement in standardAchievements"
       :key="achievement"
       :achievement="achievement"
       :achievementLevel="achievements[achievement]"
     />
-    <ContentElement :title="$t('achievements.experimenterFruit.title')">
+  <ContentElement :title="$t('achievements.experimenterFruit.title')">
       <ul class="achievement-list__badge-container">
         <AchievementBadge
           v-for="category in Category"
@@ -80,8 +79,7 @@ const standardAchievements: (keyof Achievements)[] = [
           :active="achievements[`experimenter${category}`] === AchievementLevel.Gold"
         />
       </ul>
-    </ContentElement>
-  </div>
+  </ContentElement>
 </template>
 <style scoped>
 :deep(.achievement-list__badge-container) {

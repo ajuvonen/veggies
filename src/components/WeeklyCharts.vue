@@ -31,41 +31,35 @@ const statisticOptions = [
 ];
 </script>
 <template>
-  <div class="flex flex-col gap-4" data-test-id="weekly-charts">
-    <RadioGroup v-model="selectedStatistic">
-      <ContentElement :title="$t('stats.selectStatistic')" :labelTag="RadioGroupLabel">
-        <RadioGroupOption
-          v-for="option in statisticOptions"
-          as="template"
-          :key="option.value"
-          :value="option.value"
-          v-slot="{checked}"
+  <RadioGroup v-model="selectedStatistic">
+    <ContentElement :title="$t('stats.selectStatistic')" :labelTag="RadioGroupLabel">
+      <RadioGroupOption
+        v-for="option in statisticOptions"
+        as="template"
+        :key="option.value"
+        :value="option.value"
+        v-slot="{checked}"
+      >
+        <ButtonComponent
+          :icon="checked ? 'radioboxMarked' : 'radioboxBlank'"
+          :data-test-id="`statistic-selector-${option.value}`"
         >
-          <ButtonComponent
-            :icon="checked ? 'radioboxMarked' : 'radioboxBlank'"
-            :data-test-id="`statistic-selector-${option.value}`"
-          >
-            <RadioGroupLabel as="span">{{ $t(option.label) }}</RadioGroupLabel>
-          </ButtonComponent>
-        </RadioGroupOption>
-      </ContentElement>
-    </RadioGroup>
-    <AsyncLoader>
-      <WeeklyAmountsChart
-        v-if="selectedStatistic === 0"
-        :labels="labels"
-        :weekStarts="weekStarts"
-      />
-    </AsyncLoader>
-    <AsyncLoader>
-      <WeeklyCategoriesChart
-        v-if="selectedStatistic === 1"
-        :labels="labels"
-        :weekStarts="weekStarts"
-      />
-    </AsyncLoader>
-    <AsyncLoader>
-      <WeeklyHeatmap v-if="selectedStatistic === 2" :labels="labels" :weekStarts="weekStarts" />
-    </AsyncLoader>
-  </div>
+          <RadioGroupLabel as="span">{{ $t(option.label) }}</RadioGroupLabel>
+        </ButtonComponent>
+      </RadioGroupOption>
+    </ContentElement>
+  </RadioGroup>
+  <AsyncLoader>
+    <WeeklyAmountsChart v-if="selectedStatistic === 0" :labels="labels" :weekStarts="weekStarts" />
+  </AsyncLoader>
+  <AsyncLoader>
+    <WeeklyCategoriesChart
+      v-if="selectedStatistic === 1"
+      :labels="labels"
+      :weekStarts="weekStarts"
+    />
+  </AsyncLoader>
+  <AsyncLoader>
+    <WeeklyHeatmap v-if="selectedStatistic === 2" :labels="labels" :weekStarts="weekStarts" />
+  </AsyncLoader>
 </template>

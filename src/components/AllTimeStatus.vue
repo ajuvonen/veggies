@@ -3,9 +3,17 @@ import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import StatContainer from '@/components/StatContainer.vue';
+import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 
-const {over30Veggies, atMostVeggies, getWeekStarts, uniqueVeggies, completedChallenges} =
-  storeToRefs(useActivityStore());
+const {
+  over30Veggies,
+  atMostVeggies,
+  getWeekStarts,
+  uniqueVeggies,
+  completedChallenges,
+  allVeggies,
+  favorites,
+} = storeToRefs(useActivityStore());
 
 const sections = computed(() => ({
   totalWeeks: getWeekStarts.value.length,
@@ -27,6 +35,13 @@ const sections = computed(() => ({
       <StatContainer :statAmount="value" :statKey="key" />
     </div>
   </div>
+  <CategoryStatusChart
+    :favorites="favorites"
+    :veggies="allVeggies"
+    alternateColorScheme
+    topLabelKey="categoryStatus.topLabelTotal"
+    bottomLabelKey="categoryStatus.bottomLabelTotal"
+  />
 </template>
 <style scoped>
 .all-time-status__container {
