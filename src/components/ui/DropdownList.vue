@@ -35,7 +35,7 @@ const getDropdownStyles = inject(KEYS.dropdownStyles);
 </script>
 
 <template>
-  <Listbox v-model="selected" class="relative z-30" as="div" v-slot="{open}">
+  <Listbox v-model="selected" as="div" :data-test-id="prefix" class="relative z-30" v-slot="{open}">
     <ContentElement :title="label" :labelTag="ListboxLabel">
       <ListboxButton
         :as="ButtonComponent"

@@ -1,17 +1,18 @@
 <script lang="ts" setup>
-import {ref} from 'vue';
+import {defineAsyncComponent, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {TabGroup, TabList, Tab, TabPanels, TabPanel} from '@headlessui/vue';
 import {useActivityStore} from '@/stores/activityStore';
 import type {IconString} from '@/components/ui/IconComponent.vue';
-import WeeklyCharts from '@/components/WeeklyCharts.vue';
+import AsyncLoader from '@/components/AsyncLoader.vue';
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
-import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
-import AchievementList from '@/components/AchievementList.vue';
-import VeggieList from '@/components/VeggieList.vue';
-import WeekEditor from '@/components/WeekEditor.vue';
 
-const {allVeggies, uniqueVeggies, favorites, achievements} = storeToRefs(useActivityStore());
+const WeeklyCharts = defineAsyncComponent(() => import('@/components/WeeklyCharts.vue'));
+const WeekEditor = defineAsyncComponent(() => import('@/components/WeekEditor.vue'));
+const VeggieList = defineAsyncComponent(() => import('@/components/VeggieList.vue'));
+const AchievementList = defineAsyncComponent(() => import('@/components/AchievementList.vue'));
+
+const {uniqueVeggies, achievements} = storeToRefs(useActivityStore());
 
 const selectedStat = ref(0);
 
@@ -46,24 +47,36 @@ const tabIcons: IconString[] = [
     <TabPanels class="flex grow min-h-0">
       <TabPanel class="stats__tab">
         <AllTimeStatus />
-        <CategoryStatusChart
-          :favorites="favorites"
-          :veggies="allVeggies"
-          alternateColorScheme
-          topLabelKey="categoryStatus.topLabelTotal"
-          bottomLabelKey="categoryStatus.bottomLabelTotal"
-        />
       </TabPanel>
-      <TabPanel :as="WeeklyCharts" class="stats__tab" />
-      <TabPanel :as="WeekEditor" class="stats__tab" />
-      <TabPanel :as="VeggieList" :uniqueVeggies="uniqueVeggies" class="stats__tab" />
-      <TabPanel :as="AchievementList" :achievements="achievements" class="stats__tab" />
+      <TabPanel class="stats__tab">
+        <AsyncLoader>
+          <WeeklyCharts v-if="selectedStat === 1" />
+        </AsyncLoader>
+      </TabPanel>
+      <TabPanel class="stats__tab">
+        <AsyncLoader>
+          <WeekEditor v-if="selectedStat === 2" />
+        </AsyncLoader>
+      </TabPanel>
+      <TabPanel class="stats__tab stats__tab--scrolling">
+        <AsyncLoader>
+          <VeggieList v-if="selectedStat === 3" :uniqueVeggies="uniqueVeggies" />
+        </AsyncLoader>
+      </TabPanel>
+      <TabPanel class="stats__tab stats__tab--scrolling">
+        <AsyncLoader>
+          <AchievementList v-if="selectedStat === 4" :achievements="achievements" />
+        </AsyncLoader>
+      </TabPanel>
     </TabPanels>
   </TabGroup>
 </template>
 <style scoped>
 .stats__tab {
-  @apply w-full;
-  @apply flex flex-col gap-4;
+  @apply flex flex-col gap-4 h-full w-full;
+}
+
+.stats__tab--scrolling {
+  @apply has-scroll m-0 p-0;
 }
 </style>
