@@ -30,7 +30,7 @@ const specialCases = ['cloudberry', 'raspberry'];
 
 <template>
   <VeggieCompletionChart :veggies="uniqueVeggies" />
-  <ul v-for="category in Category" :key="category" class="flex gap-4 flex-col">
+  <section v-for="category in Category" :key="category" class="flex gap-4 flex-col">
     <ContentElement :title="$t(`categories.${category}`)">
       <ul class="columns-2 md:columns-3">
         <li
@@ -55,7 +55,7 @@ const specialCases = ['cloudberry', 'raspberry'];
           <IconComponent
             :icon="uniqueVeggies.includes(veggie) ? 'checkboxMarked' : 'checkboxBlank'"
           />
-          <span class="truncate capitalize" :title="translation">
+          <span class="truncate capitalize">
             {{ translation }}
           </span>
           <span :data-test-id="`veggie-list-status-${veggie}`" class="sr-only">{{
@@ -64,7 +64,7 @@ const specialCases = ['cloudberry', 'raspberry'];
         </li>
       </ul>
     </ContentElement>
-  </ul>
+  </section>
 </template>
 <style scoped>
 .veggie-list__veggie {

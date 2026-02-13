@@ -94,7 +94,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
+  <div ref="chartContainer" class="has-scroll m-0 p-0">
     <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
       <Line
         id="weekly-amounts-chart"

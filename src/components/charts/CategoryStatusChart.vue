@@ -130,7 +130,7 @@ defineExpose({chartData});
 </template>
 <style scoped>
 :deep(canvas) {
-  @apply z-10 !h-full !w-auto aspect-square max-w-full;
+  @apply z-10 !h-full !w-auto max-w-full;
 }
 
 .category-status-chart__background {

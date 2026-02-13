@@ -86,7 +86,7 @@ onMounted(() => {
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="chartContainer" class="h-full has-scroll m-0 p-0">
+  <div ref="chartContainer" class="has-scroll m-0 p-0">
     <div :style="{width: `max(100%, ${props.weekStarts.length * 60}px)`}" class="relative h-full">
       <Bar
         id="weekly-categories-chart"
