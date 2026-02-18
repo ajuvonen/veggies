@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {computed, useTemplateRef} from 'vue';
-import {useElementSize} from '@vueuse/core';
+import {useElementSize, useElementBounding, useParentElement} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -10,8 +10,8 @@ import {CATEGORY_EMOJI} from '@/utils/constants';
 import {COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useI18nWithCollator} from '@/hooks/i18n';
-import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 import {useChartOptions} from '@/hooks/chartOptions';
+import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
@@ -33,8 +33,18 @@ const props = withDefaults(
 
 const {t, collator} = useI18nWithCollator();
 
+const parent = useParentElement();
 const container = useTemplateRef('container');
-const {height} = useElementSize(container);
+const {width} = useElementSize(container);
+const {bottom: parentBottom} = useElementBounding(parent);
+const {top: containerTop} = useElementBounding(container);
+/*
+  Element height is determined by the smaller of the container's width,
+  the distance to the bottom of the parent, and a max of 400px.
+*/
+const containerHeight = computed(() =>
+  Math.min(parentBottom.value - containerTop.value, width.value, 400),
+);
 
 const medalEmojis = ['🥇', '🥈', '🥉', '🍀', '🖐️', '🕕'];
 
@@ -68,7 +78,7 @@ const {chartOptions} = useChartOptions<'doughnut'>(
   false,
   true,
   computed(() => ({
-    cutout: height.value && height.value < 280 ? '60%' : undefined,
+    cutout: containerHeight.value && containerHeight.value < 280 ? '60%' : undefined,
     plugins: {
       tooltip: {
         callbacks: {
@@ -100,7 +110,11 @@ const chartTitle = computed(() =>
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="container" :class="{'shrink-0': !favorites}" class="category-status-chart__background">
+  <div
+    ref="container"
+    :style="{height: `${containerHeight}px`}"
+    class="category-status-chart__background"
+  >
     <i18n-t
       id="category-status-chart-center-label"
       scope="global"
@@ -118,6 +132,7 @@ defineExpose({chartData});
       :options="chartOptions"
       :aria-label="chartTitle"
       :aria-description="$t('general.seeTableBelow')"
+      class="z-10"
       data-test-id="category-status-chart"
     />
     <ChartScreenReaderTable
@@ -129,13 +144,9 @@ defineExpose({chartData});
   </div>
 </template>
 <style scoped>
-:deep(canvas) {
-  @apply z-10 !h-full !w-auto max-w-full;
-}
-
 .category-status-chart__background {
-  @apply relative overflow-hidden max-h-[400px];
-  @apply flex justify-center;
+  @apply relative overflow-hidden;
+  @apply flex shrink-0 grow-0 justify-center;
 }
 
 .category-status-chart__center-label {

@@ -1723,8 +1723,8 @@ exports[`LogView > renders with data 1`] = `
     </div>
   </transition-stub>
 </div>
-<div data-v-38bd5fcc="" class="shrink-0 category-status-chart__background">
-  <div data-v-38bd5fcc="" id="category-status-chart-center-label" class="category-status-chart__center-label" data-test-id="category-status-chart-center-label"><span data-v-38bd5fcc="">This Week</span> <span data-v-38bd5fcc="" class="text-6xl">1</span> <span data-v-38bd5fcc="">Veggie</span></div><canvas data-v-38bd5fcc="" role="img" aria-label="Veggies of the Week" aria-description="See table below for details." data-test-id="category-status-chart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0">
+<div data-v-38bd5fcc="" style="height: 0px;" class="category-status-chart__background">
+  <div data-v-38bd5fcc="" id="category-status-chart-center-label" class="category-status-chart__center-label" data-test-id="category-status-chart-center-label"><span data-v-38bd5fcc="">This Week</span> <span data-v-38bd5fcc="" class="text-6xl">1</span> <span data-v-38bd5fcc="">Veggie</span></div><canvas data-v-38bd5fcc="" role="img" aria-label="Veggies of the Week" aria-description="See table below for details." class="z-10" data-test-id="category-status-chart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0">
     <p></p>
   </canvas>
   <table data-v-38bd5fcc="" class="sr-only" data-test-id="category-status-table">
