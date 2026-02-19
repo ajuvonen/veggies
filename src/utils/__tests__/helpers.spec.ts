@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
 import {DateTime} from 'luxon';
-import {ALL_VEGGIES, NUTRIENTS} from '@/utils/veggieDetails';
+import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {CURRENT_MIGRATION_VERSION, DEFAULT_SETTINGS} from '@/utils/constants';
 import {
   achievementLevelHelper,
@@ -20,25 +20,32 @@ const thisWeek = DateTime.now().startOf('week');
 const importSchema = await getImportSchema();
 
 describe('helpers', () => {
-  it('returns correct veggie categories', () => {
-    expect(getCategoryForVeggie('onion')).toBe(Category.Root);
-    expect(getCategoryForVeggie('watermelon')).toBe(Category.Fruit);
-    expect(getCategoryForVeggie('endive')).toBe(Category.Leafy);
-    expect(getCategoryForVeggie('cucumber')).toBe(Category.Vegetable);
-    expect(getCategoryForVeggie('fava bean')).toBe(Category.Bean);
-    expect(getCategoryForVeggie('rye')).toBe(Category.Grain);
-    expect(getCategoryForVeggie('shiitake')).toBe(Category.Mushroom);
-    expect(getCategoryForVeggie('split pea')).toBe(undefined);
+  describe('getCategoryForVeggie', () => {
+    it('returns correct veggie categories', () => {
+      expect(getCategoryForVeggie('onion')).toBe(Category.Root);
+      expect(getCategoryForVeggie('watermelon')).toBe(Category.Fruit);
+      expect(getCategoryForVeggie('endive')).toBe(Category.Leafy);
+      expect(getCategoryForVeggie('cucumber')).toBe(Category.Vegetable);
+      expect(getCategoryForVeggie('fava bean')).toBe(Category.Bean);
+      expect(getCategoryForVeggie('rye')).toBe(Category.Grain);
+      expect(getCategoryForVeggie('shiitake')).toBe(Category.Mushroom);
+    });
+
+    it('returns undefined for unknown veggies', () => {
+      expect(getCategoryForVeggie('unknown veggie')).toBeUndefined();
+    });
   });
 
-  it('returns random item', () => {
-    const randomVeggies = [...Array(100)].map(() => getRandomItem(ALL_VEGGIES));
-    randomVeggies.forEach((veggie) => expect(ALL_VEGGIES).toContain(veggie));
-    expect(new Set(randomVeggies).size).toBeGreaterThan(70);
-  });
+  describe('getRandomItem', () => {
+    it('returns random item', () => {
+      const randomVeggies = [...Array(100)].map(() => getRandomItem(ALL_VEGGIES));
+      randomVeggies.forEach((veggie) => expect(ALL_VEGGIES).toContain(veggie));
+      expect(new Set(randomVeggies).size).toBeGreaterThan(70);
+    });
 
-  it('returns undefined for empty arrays', () => {
-    expect(getRandomItem([])).toBeUndefined();
+    it('returns undefined for empty arrays', () => {
+      expect(getRandomItem([])).toBeUndefined();
+    });
   });
 
   describe('setIntersection', () => {
@@ -79,207 +86,214 @@ describe('helpers', () => {
     });
   });
 
-  it('gets all veggies-prefixed localStorage keys', () => {
-    localStorage.setItem('veggies-startDate', thisWeek.toISODate());
-    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
-    localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
-    localStorage.setItem('other-data', 'should not be included');
+  describe('getStorageKeys', () => {
+    it('gets all veggies-prefixed localStorage keys', () => {
+      localStorage.setItem('veggies-startDate', thisWeek.toISODate());
+      localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
+      localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
+      localStorage.setItem('other-data', 'should not be included');
 
-    const keys = getStorageKeys();
+      const keys = getStorageKeys();
 
-    expect(keys).toHaveLength(3);
-    expect(keys).toContain('veggies-startDate');
-    expect(keys).toContain('veggies-settings');
-    expect(keys).toContain('veggies-weeks');
-    expect(keys).not.toContain('other-data');
+      expect(keys).toHaveLength(3);
+      expect(keys).toContain('veggies-startDate');
+      expect(keys).toContain('veggies-settings');
+      expect(keys).toContain('veggies-weeks');
+      expect(keys).not.toContain('other-data');
+    });
+
+    it('returns empty array when localStorage is empty', () => {
+      const keys = getStorageKeys();
+
+      expect(keys).toEqual([]);
+    });
   });
 
-  it('returns empty array when localStorage is empty', () => {
-    const keys = getStorageKeys();
+  describe('dateParser', () => {
+    it('parses dates from JSON', () => {
+      const parsed: Week[] = JSON.parse(
+        '[{"startDate":"2024-09-02T00:00:00.000Z","veggies":["nectarine","apple"],"challenge":"nectarine"},{"startDate":"2024-09-16T22:00:00.000+14:00","veggies":["kale","spinach"],"challenge":"kale"},{"startDate":"2024-09-23T11:00:00.000-12:00","veggies":["cucumber","tomato"],"challenge":"cucumber"}]',
+        dateParser,
+      );
+      expect(parsed.length).toBe(3);
+      expect(parsed[0].veggies).toEqual(['nectarine', 'apple']);
+      expect(parsed[0].challenge).toBe('nectarine');
+      expect(parsed[0].startDate.equals(DateTime.fromISO('2024-09-02'))).toBe(true);
+      expect(parsed[1].veggies).toEqual(['kale', 'spinach']);
+      expect(parsed[1].challenge).toBe('kale');
+      expect(parsed[1].startDate.equals(DateTime.fromISO('2024-09-16'))).toBe(true);
+      expect(parsed[2].veggies).toEqual(['cucumber', 'tomato']);
+      expect(parsed[2].challenge).toBe('cucumber');
+      expect(parsed[2].startDate.equals(DateTime.fromISO('2024-09-23'))).toBe(true);
+    });
 
-    expect(keys).toEqual([]);
+    it('parses numbers as they are', () => {
+      const parsed: {foo: number; bar: number} = JSON.parse('{"foo": 1, "bar": 2}', dateParser);
+      expect(parsed).toEqual({foo: 1, bar: 2});
+    });
+
+    it('parses null dates correctly', () => {
+      const parsed: {summaryViewedDate: DateTime | null} = JSON.parse(
+        '{"summaryViewedDate": null}',
+        dateParser,
+      );
+      expect(parsed.summaryViewedDate).toBeNull();
+    });
   });
 
-  it('parses dates from JSON', () => {
-    const parsed: Week[] = JSON.parse(
-      '[{"startDate":"2024-09-02T00:00:00.000Z","veggies":["nectarine","apple"],"challenge":"nectarine"},{"startDate":"2024-09-16T22:00:00.000+14:00","veggies":["kale","spinach"],"challenge":"kale"},{"startDate":"2024-09-23T11:00:00.000-12:00","veggies":["cucumber","tomato"],"challenge":"cucumber"}]',
-      dateParser,
-    );
-    expect(parsed.length).toBe(3);
-    expect(parsed[0].veggies).toEqual(['nectarine', 'apple']);
-    expect(parsed[0].challenge).toBe('nectarine');
-    expect(parsed[0].startDate.equals(DateTime.fromISO('2024-09-02'))).toBe(true);
-    expect(parsed[1].veggies).toEqual(['kale', 'spinach']);
-    expect(parsed[1].challenge).toBe('kale');
-    expect(parsed[1].startDate.equals(DateTime.fromISO('2024-09-16'))).toBe(true);
-    expect(parsed[2].veggies).toEqual(['cucumber', 'tomato']);
-    expect(parsed[2].challenge).toBe('cucumber');
-    expect(parsed[2].startDate.equals(DateTime.fromISO('2024-09-23'))).toBe(true);
+  describe('dateReplacer', () => {
+    it('stringifies only date part', () => {
+      const testData = {
+        startDate: DateTime.fromISO('2024-09-02T00:00:00.000Z'),
+      };
+
+      const stringified = JSON.stringify(testData, dateReplacer);
+      expect(stringified).toBe('{"startDate":"2024-09-02"}');
+    });
+
+    it('stringifies null dates correctly', () => {
+      const testData = {summaryViewedDate: null};
+
+      const stringified = JSON.stringify(testData, dateReplacer);
+      expect(stringified).toBe('{"summaryViewedDate":null}');
+    });
   });
 
-  it('parses numbers as they are', () => {
-    const parsed: {foo: number; bar: number} = JSON.parse('{"foo": 1, "bar": 2}', dateParser);
-    expect(parsed).toEqual({foo: 1, bar: 2});
+  describe('getRandomEmojis', () => {
+    it('gives unique emojis', () => {
+      const emojis = getRandomEmojis(15);
+      expect(new Set(emojis)).toHaveLength(15);
+    });
   });
 
-  it('parses null dates correctly', () => {
-    const parsed: {summaryViewedDate: DateTime | null} = JSON.parse(
-      '{"summaryViewedDate": null}',
-      dateParser,
-    );
-    expect(parsed.summaryViewedDate).toBeNull();
+  describe('normalizeForSearch', () => {
+    it('normalizes text for search', () => {
+      expect(normalizeForSearch('frisée')).toBe('frisee');
+      expect(normalizeForSearch('machê')).toBe('mache');
+      expect(normalizeForSearch('kookospähkinä')).toBe('kookospähkinä');
+      expect(normalizeForSearch('blood grapefruit')).toBe('bloodgrapefruit');
+    });
   });
 
-  it('stringifies only date part', () => {
-    const testData = {
-      startDate: DateTime.fromISO('2024-09-02T00:00:00.000Z'),
-    };
-
-    const stringified = JSON.stringify(testData, dateReplacer);
-    expect(stringified).toBe('{"startDate":"2024-09-02"}');
+  describe('achievementLevelHelper', () => {
+    it('returns correct achievement levels', () => {
+      const levels: [number, AchievementLevel][] = [
+        [40, AchievementLevel.Platinum],
+        [30, AchievementLevel.Gold],
+        [20, AchievementLevel.Silver],
+        [10, AchievementLevel.Bronze],
+      ];
+      expect(achievementLevelHelper(levels, 9)).toBe(AchievementLevel.NoAchievement);
+      expect(achievementLevelHelper(levels, 10)).toBe(AchievementLevel.Bronze);
+      expect(achievementLevelHelper(levels, 19)).toBe(AchievementLevel.Bronze);
+      expect(achievementLevelHelper(levels, 20)).toBe(AchievementLevel.Silver);
+      expect(achievementLevelHelper(levels, 29)).toBe(AchievementLevel.Silver);
+      expect(achievementLevelHelper(levels, 30)).toBe(AchievementLevel.Gold);
+      expect(achievementLevelHelper(levels, 40)).toBe(AchievementLevel.Platinum);
+      expect(achievementLevelHelper(levels, 41)).toBe(AchievementLevel.Platinum);
+    });
   });
 
-  it('stringifies null dates correctly', () => {
-    const testData = {summaryViewedDate: null};
-
-    const stringified = JSON.stringify(testData, dateReplacer);
-    expect(stringified).toBe('{"summaryViewedDate":null}');
-  });
-
-  it('gives unique emojis', () => {
-    const emojis = getRandomEmojis(15);
-    expect(new Set(emojis)).toHaveLength(15);
-  });
-
-  it('normalizes text for search', () => {
-    expect(normalizeForSearch('frisée')).toBe('frisee');
-    expect(normalizeForSearch('machê')).toBe('mache');
-    expect(normalizeForSearch('kookospähkinä')).toBe('kookospähkinä');
-    expect(normalizeForSearch('blood grapefruit')).toBe('bloodgrapefruit');
-  });
-
-  it('returns correct achievement levels', () => {
-    const levels: [number, AchievementLevel][] = [
-      [40, AchievementLevel.Platinum],
-      [30, AchievementLevel.Gold],
-      [20, AchievementLevel.Silver],
-      [10, AchievementLevel.Bronze],
-    ];
-    expect(achievementLevelHelper(levels, 9)).toBe(AchievementLevel.NoAchievement);
-    expect(achievementLevelHelper(levels, 10)).toBe(AchievementLevel.Bronze);
-    expect(achievementLevelHelper(levels, 19)).toBe(AchievementLevel.Bronze);
-    expect(achievementLevelHelper(levels, 20)).toBe(AchievementLevel.Silver);
-    expect(achievementLevelHelper(levels, 29)).toBe(AchievementLevel.Silver);
-    expect(achievementLevelHelper(levels, 30)).toBe(AchievementLevel.Gold);
-    expect(achievementLevelHelper(levels, 40)).toBe(AchievementLevel.Platinum);
-    expect(achievementLevelHelper(levels, 41)).toBe(AchievementLevel.Platinum);
-  });
-
-  it('fails on missing startDate', () => {
-    const faultyData = {
-      weeks: [],
-      challenges: [],
-      settings: {
-        ...DEFAULT_SETTINGS,
-        startDate: null,
-      },
-    };
-    const result = importSchema.safeParse(faultyData);
-    expect(result.success).toBe(false);
-    const errorMessage = JSON.parse(result.error?.message ?? '');
-    expect(errorMessage.length).toEqual(1);
-    expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
-    expect(errorMessage[0].path).toEqual(['settings', 'startDate']);
-  });
-
-  it('fails on missing week data', () => {
-    const faultyData = {
-      weeks: [
-        {
+  describe('getImportSchema', () => {
+    it('fails on missing startDate', () => {
+      const faultyData = {
+        weeks: [],
+        challenges: [],
+        settings: {
+          ...DEFAULT_SETTINGS,
           startDate: null,
-          veggies: [],
         },
-      ],
-      settings: {
-        ...DEFAULT_SETTINGS,
-        startDate: thisWeek,
-      },
-    };
-    const result = importSchema.safeParse(faultyData);
-    expect(result.success).toBe(false);
-    const errorMessage = JSON.parse(result.error?.message ?? '');
-    expect(errorMessage.length).toEqual(2);
-    expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
-    expect(errorMessage[0].path).toEqual(['weeks', 0, 'startDate']);
-    expect(errorMessage[1].message).toEqual('Invalid input: expected string, received undefined');
-    expect(errorMessage[1].path).toEqual(['weeks', 0, 'challenge']);
-  });
-
-  it('handles missing data', () => {
-    const faultyData = {
-      settings: {
-        startDate: thisWeek,
-        migrationVersion: CURRENT_MIGRATION_VERSION,
-      },
-    };
-    const result = importSchema.safeParse(faultyData);
-    expect(result.success).toBe(true);
-    expect(result.data).toEqual({
-      weeks: [],
-      settings: {...DEFAULT_SETTINGS, startDate: thisWeek},
+      };
+      const result = importSchema.safeParse(faultyData);
+      expect(result.success).toBe(false);
+      const errorMessage = JSON.parse(result.error?.message ?? '');
+      expect(errorMessage.length).toEqual(1);
+      expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
+      expect(errorMessage[0].path).toEqual(['settings', 'startDate']);
     });
-  });
 
-  it('handles extra data', () => {
-    const faultyData = {
-      weeks: [
-        {
+    it('fails on missing week data', () => {
+      const faultyData = {
+        weeks: [
+          {
+            startDate: null,
+            veggies: [],
+          },
+        ],
+        settings: {
+          ...DEFAULT_SETTINGS,
           startDate: thisWeek,
-          veggies: ['apple'],
-          challenge: 'cucumber',
-          foo: true,
         },
-      ],
-      settings: {
-        ...DEFAULT_SETTINGS,
-        startDate: thisWeek,
-        baz: true,
-      },
-    };
-    const result = importSchema.safeParse(faultyData);
-    expect(result.success).toBe(true);
-    expect(result.data).toEqual({
-      weeks: [{startDate: thisWeek, veggies: ['apple'], challenge: 'cucumber'}],
-      settings: {...DEFAULT_SETTINGS, startDate: thisWeek},
+      };
+      const result = importSchema.safeParse(faultyData);
+      expect(result.success).toBe(false);
+      const errorMessage = JSON.parse(result.error?.message ?? '');
+      expect(errorMessage.length).toEqual(2);
+      expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
+      expect(errorMessage[0].path).toEqual(['weeks', 0, 'startDate']);
+      expect(errorMessage[1].message).toEqual('Invalid input: expected string, received undefined');
+      expect(errorMessage[1].path).toEqual(['weeks', 0, 'challenge']);
     });
-  });
 
-  it('handles wrong data', () => {
-    const faultyData = {
-      settings: {
-        startDate: thisWeek,
-        locale: 'el',
-        suggestionCount: 100,
-        showChartAnimations: 0,
-        migrationVersion: CURRENT_MIGRATION_VERSION,
-      },
-    };
-    const result = importSchema.safeParse(faultyData);
-    expect(result.success).toBe(true);
-    expect(result.data).toEqual({
-      weeks: [],
-      settings: {
-        ...DEFAULT_SETTINGS,
-        startDate: thisWeek,
-        migrationVersion: CURRENT_MIGRATION_VERSION,
-      },
+    it('handles missing data', () => {
+      const faultyData = {
+        settings: {
+          startDate: thisWeek,
+          migrationVersion: CURRENT_MIGRATION_VERSION,
+        },
+      };
+      const result = importSchema.safeParse(faultyData);
+      expect(result.success).toBe(true);
+      expect(result.data).toEqual({
+        weeks: [],
+        settings: {...DEFAULT_SETTINGS, startDate: thisWeek},
+      });
     });
-  });
 
-  it.each(Object.keys(NUTRIENTS))('existing veggies in nutrient %s', (nutrient) => {
-    const veggies = NUTRIENTS[nutrient as keyof typeof NUTRIENTS];
-    veggies.forEach((veggie) => {
-      expect.soft(ALL_VEGGIES).toContain(veggie);
+    it('handles extra data', () => {
+      const faultyData = {
+        weeks: [
+          {
+            startDate: thisWeek,
+            veggies: ['apple'],
+            challenge: 'cucumber',
+            foo: true,
+          },
+        ],
+        settings: {
+          ...DEFAULT_SETTINGS,
+          startDate: thisWeek,
+          baz: true,
+        },
+      };
+      const result = importSchema.safeParse(faultyData);
+      expect(result.success).toBe(true);
+      expect(result.data).toEqual({
+        weeks: [{startDate: thisWeek, veggies: ['apple'], challenge: 'cucumber'}],
+        settings: {...DEFAULT_SETTINGS, startDate: thisWeek},
+      });
+    });
+
+    it('handles wrong data', () => {
+      const faultyData = {
+        settings: {
+          startDate: thisWeek,
+          locale: 'el',
+          suggestionCount: 100,
+          showChartAnimations: 0,
+          migrationVersion: CURRENT_MIGRATION_VERSION,
+        },
+      };
+      const result = importSchema.safeParse(faultyData);
+      expect(result.success).toBe(true);
+      expect(result.data).toEqual({
+        weeks: [],
+        settings: {
+          ...DEFAULT_SETTINGS,
+          startDate: thisWeek,
+          migrationVersion: CURRENT_MIGRATION_VERSION,
+        },
+      });
     });
   });
 });
