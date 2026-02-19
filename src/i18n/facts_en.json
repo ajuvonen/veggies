@@ -463,10 +463,16 @@
       "You can soak frisée in ice water before cooking to reduce its bitterness.",
       "Frisée is the base ingredient for the Salad Lyonnaise."
     ],
+    "gai lan": [
+      "Gai lan is especially important in Cantonese cuisine, where it's often served steamed or stir-fried.",
+      "All members of this plant family — from kale to cauliflower — can technically interbreed.",
+      "Younger leaves of gai lan are less bitter."
+    ],
     "garlic": [
       "Garlic has been used for thousands of years, both as a food flavoring and in traditional medicine.",
       "Garlic is believed to have antimicrobial and anti-inflammatory properties.",
-      "Onions are harmful to many animals."
+      "Onions are harmful to many animals.",
+      "Black garlic is made by ageing garlic under warm, humid conditions over a prolonged period."
     ],
     "ginger": [
       "Ginger has been used for centuries in Asian cuisine and traditional medicine.",
@@ -599,6 +605,11 @@
       "Kumquat is a bite-sized fruit that can be eaten whole, including its sweet peel.",
       "Kumquats are unique among citrus fruits because their peel is sweet, while the flesh is tart.",
       "Citruses are harmful to cats and dogs."
+    ],
+    "lacinato kale": [
+      "Lacinato kale has been cultivated in the Tuscany region of Italy for centuries.",
+      "Lacinato kale gained popularity in the 2010s as the health benefits of kale became well known.",
+      "Lacinato kale is hardy and can withstand cold and light frosts."
     ],
     "leek": [
       "The heaviest leek grown weighed 9.75 kg.",
@@ -865,6 +876,11 @@
       "Plums are high in vitamin C and antioxidants, especially in their skins.",
       "Plums are related to cherries and almonds and can be eaten fresh or dried to make prunes.",
       "The pit of plum contains compounds that are harmful to animals."
+    ],
+    "poblano": [
+      "Poblano peppers originated in the state of Puebla, Mexico.",
+      "Dried poblano peppers are known as ancho chilies.",
+      "Poblano peppers are often served stuffed with cheese or meat in Mexican cuisine."
     ],
     "pointed pepper": [
       "Pointed pepper contains over 200% of the daily required vitamin C.",

@@ -464,10 +464,16 @@
       "Friseesalaattia voi pitää hetken jäävedessä kitkeryyden vähentämiseksi.",
       "Frisee on lyoninsalaatin pääraaka-aine."
     ],
+    "gai lan": [
+      "Gai lan on erityisen tärkeä kantonilaisessa keittiössä, jossa se tarjoillaan usein höyrytettynä tai wokattuna.",
+      "Kaikki tämän kasvisuvun jäsenet — lehtikaalista kukkakaaliin — voivat teknisesti risteytyä keskenään.",
+      "Gai lanin nuoremmat lehdet ovat vähemmän karvaita."
+    ],
     "garlic": [
       "Valkosipulia on käytetty tuhansia vuosia sekä maustamiseen että perinteisessä lääketieteessä.",
       "Valkosipulilla uskotaan olevan antibakteerisia ja tulehdusta vähentäviä ominaisuuksia.",
-      "Sipulit ovat haitallisia monille eläimille."
+      "Sipulit ovat haitallisia monille eläimille.",
+      "Mustaa valkosipulia valmistetaan ikäännyttämällä valkosipulia pitkään lämpimässä ja kosteassa ympäristössä."
     ],
     "ginger": [
       "Inkivääriä on käytetty vuosisatojen ajan Aasian keittiöissä ja perinteisessä lääketieteessä.",
@@ -600,6 +606,11 @@
       "Kumkvatti on suupalan kokoinen hedelmä, joka voidaan syödä makeine kuorineen.",
       "Kumkvatit ovat ainutlaatuisia sitrushedelmiä, sillä niiden kuori on makea, mutta hedelmäliha hapan.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
+    ],
+    "lacinato kale": [
+      "Mustakaalia on kasvatettu Toscanan alueella Italiassa vuosisatojen ajan.",
+      "Mustakaalin suosio kasvoi 2010-luvulla, kun lehtikaalin terveellisyys tuli tunnetuksi.",
+      "Mustakaali kestää hyvin kylmää ja pikkupakkasiakin."
     ],
     "leek": [
       "Painavin kasvatettu purjosipuli painoi 9,75 kiloa.",
@@ -866,6 +877,11 @@
       "Luumuissa, erityisesti niiden kuoressa, on runsaasti C-vitamiinia ja antioksidantteja.",
       "Luumu on sukua kirsikoille ja manteleille, ja niitä voidaan syödä tuoreina tai kuivattuina.",
       "Luumun kivet sisältävät yhdisteitä jotka ovat haitallisia eläimille."
+    ],
+    "poblano": [
+      "Poblano-chili on kotoisin Pueblan alueelta Meksikossa.",
+      "Kuivattua poblanoa kutsutaan nimellä ancho.",
+      "Meksikossa poblano-chilejä tarjoillaan usein lihalla tai juustolla täytettynä."
     ],
     "pointed pepper": [
       "Suippopaprika sisältää jopa 200 % päivittäisestä C-vitamiinin tarpeesta.",
