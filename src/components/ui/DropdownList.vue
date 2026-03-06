@@ -1,18 +1,16 @@
 <script setup lang="ts" generic="T extends string | number | object | null">
-import {inject, useTemplateRef} from 'vue';
 import {
-  Listbox,
-  ListboxButton,
-  ListboxLabel,
-  ListboxOption,
-  ListboxOptions,
-  TransitionRoot,
-} from '@headlessui/vue';
-import {useScreen} from '@/hooks/screen';
-import {KEYS} from '@/utils/constants';
-import ButtonComponent from '@/components/ui/ButtonComponent.vue';
-import IconComponent from '@/components/ui/IconComponent.vue';
-import ContentElement from '@/components/ui/ContentElement.vue';
+  SelectContent,
+  SelectIcon,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+  SelectPortal,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+  SelectViewport,
+} from 'reka-ui';
 
 withDefaults(
   defineProps<{
@@ -22,61 +20,64 @@ withDefaults(
     prefix?: string;
   }>(),
   {
-    keyFn: (item: T) => String(item),
+    keyFn: (item: T) => JSON.stringify(item),
     prefix: 'dropdown',
   },
 );
 
-const selected = defineModel<T>({required: true});
-
-const optionsElement = useTemplateRef('optionsElement');
-const {maxHeight} = useScreen(optionsElement);
-const getDropdownStyles = inject(KEYS.dropdownStyles);
+const model = defineModel<T>({required: true});
 </script>
 
 <template>
-  <Listbox v-model="selected" as="div" :data-test-id="prefix" class="relative z-30" v-slot="{open}">
-    <ContentElement :title="label" :labelTag="ListboxLabel">
-      <ListboxButton
-        :as="ButtonComponent"
-        class="justify-between"
-        :data-test-id="`${prefix}-button`"
-      >
-        <slot name="selected" :item="selected" :open="open">
-          {{ selected }}
-        </slot>
-        <IconComponent :class="open ? 'rotate-180 transform' : ''" icon="chevronDown" />
-      </ListboxButton>
-    </ContentElement>
-    <TransitionRoot
-      leave-active-class="transition duration-100 ease-in"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <ListboxOptions
-        ref="optionsElement"
-        :style="`max-height: calc(${maxHeight}px - 1rem)`"
-        class="dropdown-list-container"
-      >
-        <ListboxOption
-          v-for="(option, index) in options"
-          v-slot="{active, selected: isSelected}"
-          :key="keyFn(option)"
-          :value="option"
-          :data-test-id="`${prefix}-option-${index}`"
-          as="template"
+  <ContentElement
+    :title="label"
+    :labelAttrs="{for: `${prefix}-button`} as Record<string, string>"
+    labelTag="label"
+  >
+    <SelectRoot v-model="model" v-slot="{open}" :data-test-id="prefix">
+      <SelectTrigger :id="`${prefix}-button`" asChild>
+        <ButtonComponent :data-test-id="`${prefix}-button`" class="justify-between">
+          <SelectValue />
+          <SelectIcon asChild>
+            <IconComponent
+              :class="{'rotate-180': open}"
+              class="transition duration-200"
+              icon="chevronDown"
+            />
+          </SelectIcon>
+        </ButtonComponent>
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectContent
+          class="z-20"
+          position="popper"
+          :bodyLock="false"
+          :disableOutsidePointerEvents="false"
         >
-          <li
-            :class="[getDropdownStyles?.(active, isSelected), 'dropdown-list-option']"
-            role="menuitem"
+          <SelectViewport
+            :data-test-id="`${prefix}-options`"
+            class="dropdown-list-container"
+            style="max-height: calc(var(--reka-select-content-available-height) - 1rem)"
           >
-            <slot name="option" :item="option" :index="index">
-              {{ option }}
-            </slot>
-            <IconComponent v-if="isSelected" icon="check" />
-          </li>
-        </ListboxOption>
-      </ListboxOptions>
-    </TransitionRoot>
-  </Listbox>
+            <SelectItem
+              v-for="(option, index) in options"
+              :key="keyFn(option)"
+              :value="option"
+              :data-test-id="`${prefix}-option-${index}`"
+              class="dropdown-list-option"
+            >
+              <SelectItemText>
+                <slot name="option" :item="option">
+                  {{ option }}
+                </slot>
+              </SelectItemText>
+              <SelectItemIndicator asChild>
+                <IconComponent icon="check" />
+              </SelectItemIndicator>
+            </SelectItem>
+          </SelectViewport>
+        </SelectContent>
+      </SelectPortal>
+    </SelectRoot>
+  </ContentElement>
 </template>

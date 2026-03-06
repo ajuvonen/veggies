@@ -1,73 +1,76 @@
 <script setup lang="ts">
-import {ref, watch} from 'vue';
-import {Dialog, DialogPanel, DialogTitle, TransitionRoot} from '@headlessui/vue';
+import {
+  DialogClose,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogRoot,
+  DialogTitle,
+} from 'reka-ui';
 
 const model = defineModel<boolean>({required: true});
 defineProps<{
   title: string;
 }>();
 
-const previouslyActiveElement = ref<HTMLElement | null>(null);
-
-watch(model, (value) => {
-  if (value) {
-    previouslyActiveElement.value = document.activeElement as HTMLElement;
+const checkIfModalClick = (event: Event) => {
+  const element = event.target as HTMLElement;
+  if (element.closest('.modal-dialog, .toast-container') !== null) {
+    event.preventDefault();
   }
-});
+};
 </script>
 <template>
-  <TransitionRoot
-    :show="model"
-    as="template"
-    enter="duration-200 ease-out"
-    enter-from="opacity-0"
-    enter-to="opacity-100"
-    leave="duration-200 ease-in"
-    leave-from="opacity-100"
-    leave-to="opacity-0"
-    @after-leave="$nextTick(() => previouslyActiveElement?.focus())"
-  >
-    <Dialog static class="relative z-20" @close="model = false">
-      <!-- The backdrop, rendered as a fixed sibling to the panel container -->
-      <div class="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true" />
-      <!-- Full-screen container to center the panel -->
-      <div class="modal-dialog__container">
-        <DialogPanel data-test-id="dialog" class="modal-dialog">
-          <div class="modal-dialog__header outline-override">
-            <DialogTitle as="h2" class="modal-dialog__title" data-test-id="dialog-title">{{
-              title
-            }}</DialogTitle>
+  <DialogRoot v-model:open="model">
+    <DialogPortal>
+      <DialogOverlay class="modal-dialog__overlay" />
+
+      <DialogContent
+        :aria-describedby="undefined"
+        class="modal-dialog"
+        data-test-id="dialog"
+        @interactOutside="checkIfModalClick"
+      >
+        <div class="modal-dialog__header outline-override">
+          <DialogTitle class="modal-dialog__title" data-test-id="dialog-title">
+            {{ title }}
+          </DialogTitle>
+          <DialogClose v-if="!$slots.buttons" asChild>
             <ButtonComponent
-              v-if="!$slots.buttons"
+              :variant="['text', 'alternative']"
               :aria-label="$t('general.close')"
-              class="fill-[--color-text-alternative]"
-              variant="text"
               icon="close"
               data-test-id="dialog-close-button"
-              @click="model = false"
             />
-          </div>
-          <div class="modal-dialog__content outline-override">
-            <slot name="content" />
-          </div>
-          <div class="modal-dialog__buttons outline-override">
-            <slot name="buttons" />
-          </div>
-        </DialogPanel>
-      </div>
-    </Dialog>
-  </TransitionRoot>
+          </DialogClose>
+        </div>
+        <div class="modal-dialog__content outline-override">
+          <slot name="content" />
+        </div>
+        <div class="modal-dialog__buttons outline-override">
+          <slot name="buttons" />
+        </div>
+      </DialogContent>
+    </DialogPortal>
+  </DialogRoot>
 </template>
 <style scoped>
-.modal-dialog__container {
-  @apply fixed inset-0 w-screen p-4;
-  @apply flex items-center justify-center;
+.modal-dialog__overlay {
+  @apply fixed inset-0 z-20 backdrop-blur-sm;
+  @apply bg-black/30;
 }
 
 .modal-dialog {
-  @apply w-full max-w-xl max-h-full rounded-md p-4 shadow-xl;
+  @apply fixed z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100%-2rem)] rounded-md p-4 shadow-xl !pointer-events-auto;
   @apply flex flex-col gap-4;
-  @apply bg-[--color-bg-alternative];
+  @apply bg-[--color-bg-alternative] text-[--color-text-alternative];
+  &[data-state='open'] {
+    animation: fadeIn 200ms ease-out;
+  }
+
+  &[data-state='closed'] {
+    animation: fadeOut 200ms ease-out;
+  }
 }
 
 .modal-dialog__title {
@@ -84,12 +87,25 @@ watch(model, (value) => {
   scrollbar-color: initial;
 }
 
-.modal-dialog__title,
-.modal-dialog__content {
-  @apply text-[--color-text-alternative] fill-[--color-text-alternative];
-}
-
 .modal-dialog__buttons {
   @apply flex-container justify-end;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 </style>

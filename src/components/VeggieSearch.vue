@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import {ref, useTemplateRef} from 'vue';
-import {Combobox, ComboboxInput, ComboboxOptions} from '@headlessui/vue';
-import {useMemoize, onClickOutside} from '@vueuse/core';
+import {type ComponentPublicInstance, ref, useTemplateRef} from 'vue';
+import {useMemoize} from '@vueuse/core';
+import {
+  ComboboxRoot,
+  ComboboxAnchor,
+  ComboboxInput,
+  ComboboxTrigger,
+  ComboboxPortal,
+  ComboboxContent,
+  ComboboxViewport,
+  ComboboxEmpty,
+} from 'reka-ui';
 import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie, normalizeForSearch} from '@/utils/helpers';
-import {useScreen} from '@/hooks/screen';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useI18nWithCollator} from '@/hooks/i18n';
 import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
@@ -28,13 +36,9 @@ const {t, tm, collator} = useI18nWithCollator();
 const {availableVeggies} = useAvailableVeggies();
 
 const query = ref('');
-const listOpen = ref(false);
 const groups = useTemplateRef('groups');
-const combobox = useTemplateRef('combobox');
-const searchInput = useTemplateRef('searchInput');
+const searchInput = useTemplateRef<ComponentPublicInstance>('searchInput');
 const optionsElement = useTemplateRef('optionsElement');
-
-const {maxHeight} = useScreen(optionsElement);
 
 const translatedVeggies = useMemoize(() =>
   availableVeggies.value
@@ -79,89 +83,56 @@ const jumpToCategory = (index: number) => {
 
 const clearQuery = () => {
   query.value = '';
-  searchInput.value?.focus();
+  searchInput.value?.$el.focus();
 };
-
-onClickOutside(
-  combobox,
-  () => {
-    listOpen.value = false;
-  },
-  {
-    ignore: ['.toast-message', '#achievement-dialog'],
-  },
-);
 </script>
 <template>
-  <div ref="combobox" class="relative z-20">
-    <Combobox v-model="model" nullable multiple>
-      <ComboboxInput as="template" id="veggie-search-input">
-        <input
-          ref="searchInput"
-          :aria-label="placeholder || $t('veggieSearch.search')"
-          :aria-expanded="listOpen"
-          :placeholder="placeholder || $t('veggieSearch.search')"
-          :value="query"
-          class="veggie-search__input"
-          inputmode="search"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="none"
-          maxlength="20"
-          data-test-id="veggie-search-input"
-          @input="
-            (event: Event) => {
-              const target = event.target as HTMLInputElement;
-              query = target.value;
-            }
-          "
-          @focus="listOpen = true"
-          @keydown.tab="listOpen = false"
-        />
-      </ComboboxInput>
+  <ComboboxRoot v-model="model" v-slot="{open}" multiple ignoreFilter openOnClick>
+    <ComboboxAnchor class="relative">
+      <ComboboxInput
+        v-model="query"
+        ref="searchInput"
+        id="veggie-search-input"
+        :aria-label="placeholder || $t('veggieSearch.search')"
+        :placeholder="placeholder || $t('veggieSearch.search')"
+        :value="query"
+        class="veggie-search__input"
+        inputmode="search"
+        autocorrect="off"
+        autocapitalize="none"
+        maxlength="20"
+        data-test-id="veggie-search-input"
+      />
       <ButtonComponent
         v-if="query"
-        :aria-label="$t('general.clear')"
-        variant="text"
-        icon="close"
+        :variant="['text', 'alternative']"
         class="veggie-search__button right-12 outline-override"
+        icon="close"
         data-test-id="veggie-search-clear-button"
         @click="clearQuery"
       />
-      <ButtonComponent
-        :class="{'rotate-180 transform': listOpen}"
-        :aria-label="listOpen ? $t('general.closeList') : $t('general.openList')"
-        :aria-expanded="listOpen"
-        variant="text"
-        icon="chevronDown"
-        class="veggie-search__button right-2 outline-override"
-        aria-haspopup="listbox"
-        aria-controls="veggie-search-options"
-        data-test-id="veggie-search-toggle-button"
-        @click="listOpen = !listOpen"
-      />
-      <Transition
-        leaveActiveClass="ease-in duration-200"
-        leaveFromClass="opacity-100"
-        leaveToClass="opacity-0"
-      >
-        <ComboboxOptions
-          v-show="listOpen"
+      <ComboboxTrigger asChild>
+        <ButtonComponent
+          :class="{'rotate-180': open}"
+          :variant="['text', 'alternative']"
+          class="veggie-search__button right-2 outline-override transition duration-200"
+          icon="chevronDown"
+          data-test-id="veggie-search-toggle-button"
+        />
+      </ComboboxTrigger>
+    </ComboboxAnchor>
+    <ComboboxPortal>
+      <ComboboxContent class="z-20" position="popper">
+        <ComboboxViewport
           ref="optionsElement"
           id="veggie-search-options"
-          :style="`max-height: calc(${maxHeight}px - 1rem)`"
-          static
-          as="div"
           class="dropdown-list-container"
+          style="max-height: calc(var(--reka-combobox-content-available-height) - 1.5rem)"
           data-test-id="veggie-search-options"
         >
-          <div
-            v-if="query && !filteredVeggies().length"
-            class="veggie-search__no-results"
-            role="presentation"
-          >
+          <ComboboxEmpty class="veggie-search__no-results">
             {{ $t('veggieSearch.noResults') }}
-          </div>
+          </ComboboxEmpty>
           <VeggieSearchChallenge v-if="!query" />
           <VeggieSearchGroup
             v-for="(category, _, index) in Category"
@@ -169,24 +140,23 @@ onClickOutside(
             :key="category"
             :category="category"
             :items="filteredVeggies(category)"
-            :showControls="!query.length"
+            :showControls="!query"
             @previous="jumpToCategory(index - 1)"
             @next="jumpToCategory(index + 1)"
           />
-        </ComboboxOptions>
-      </Transition>
-    </Combobox>
-  </div>
+        </ComboboxViewport>
+      </ComboboxContent>
+    </ComboboxPortal>
+  </ComboboxRoot>
 </template>
 <style scoped>
 .veggie-search__input {
-  @apply w-full h-full py-2 pl-4 pr-24 rounded-full;
+  @apply w-full py-2 pl-4 pr-24 rounded-full;
   @apply text-[--color-text-alternative] bg-[--color-bg-alternative] placeholder-gray-500;
 }
 
 .veggie-search__button {
   @apply absolute top-1/2 -translate-y-1/2 p-2 -outline-offset-4;
-  @apply fill-[--color-text-alternative];
 }
 
 .veggie-search__no-results {

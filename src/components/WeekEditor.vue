@@ -40,11 +40,6 @@ provide(KEYS.challenge, readonly(selectedChallenge));
     :keyFn="(date) => date.toISODate()"
     prefix="week-editor"
   >
-    <template #selected="{item: date}">
-      <time :datetime="date.toFormat(`yyyy-'W'WW`)" class="truncate">
-        {{ formatWeekString(date) }}
-      </time>
-    </template>
     <template #option="{item: date}">
       <time :datetime="date.toFormat(`yyyy-'W'WW`)" class="truncate">
         {{ formatWeekString(date) }}
@@ -52,14 +47,9 @@ provide(KEYS.challenge, readonly(selectedChallenge));
     </template>
   </DropdownList>
   <VeggieSearch v-model="veggies" />
-  <ul
-    class="flex-container flex-wrap justify-center"
-    :aria-label="$t('stats.weeklyAchievements')"
-  >
+  <ul class="flex-container flex-wrap justify-center" :aria-label="$t('stats.weeklyAchievements')">
     <AchievementBadge
-      v-for="[achievement, level] in Object.entries(
-        weeklyAchievements(veggies, selectedWeekStart),
-      )"
+      v-for="[achievement, level] in Object.entries(weeklyAchievements(veggies, selectedWeekStart))"
       :key="achievement"
       :achievement="achievement as keyof Achievements"
       :level="level || AchievementLevel.Gold"

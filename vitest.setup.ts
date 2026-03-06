@@ -1,30 +1,28 @@
-import {beforeEach, vi} from 'vitest';
-import {config, mount} from '@vue/test-utils';
+import {afterEach, beforeEach, vi} from 'vitest';
+import {config, enableAutoUnmount, mount} from '@vue/test-utils';
 import {createTestingPinia} from '@pinia/testing';
+import resizeObserver from 'resize-observer-polyfill';
 import createI18n from '@/i18n';
 import en from '@/i18n/en.json';
-import {KEYS} from '@/utils/constants';
 import router from '@/router';
 import ButtonComponent from '@/components/ui/ButtonComponent.vue';
 import ContentElement from '@/components/ui/ContentElement.vue';
 import IconComponent from '@/components/ui/IconComponent.vue';
 import ModalDialog from '@/components/ui/ModalDialog.vue';
 
-config.global.plugins = [createI18n(en), router];
+window.HTMLElement.prototype.scrollIntoView = vi.fn();
+window.HTMLElement.prototype.hasPointerCapture = vi.fn();
+vi.stubGlobal('ResizeObserver', resizeObserver);
 
+config.global.plugins = [createI18n(en), router];
 config.global.components = {
   ButtonComponent,
   ContentElement,
   IconComponent,
   ModalDialog,
 };
-
 config.global.directives = {
   tippy() {},
-};
-
-config.global.provide = {
-  [KEYS.dropdownStyles]: vi.fn(),
 };
 
 const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
@@ -36,6 +34,7 @@ const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
 });
 
 config.plugins.VueWrapper.install(dataTestIdPlugin);
+enableAutoUnmount(afterEach);
 
 vi.mock('canvas-confetti', () => ({
   default: () => false,

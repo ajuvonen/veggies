@@ -4,9 +4,9 @@ exports[`HomeView > renders 1`] = `
 "<div data-v-b4e148ca="" class="home__container">
   <h1 data-v-b4e148ca="" class="home__title" lang="en">Eat Your Veggies</h1>
   <p data-v-b4e148ca="" class="sm:text-center">Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app.</p>
-  <div data-v-b4e148ca="" class="flex-container justify-center"><button data-v-ee781121="" data-v-b4e148ca="" class="button-like button--primary" data-test-id="home-start-button">
+  <div data-v-b4e148ca="" class="flex-container justify-center"><button data-v-ee781121="" data-v-b4e148ca="" class="button-like button button--primary" type="button" data-test-id="home-start-button">
       <!--v-if-->Start
-    </button><button data-v-ee781121="" data-v-b4e148ca="" class="button-like button--secondary" data-test-id="home-info-button">
+    </button><button data-v-ee781121="" data-v-b4e148ca="" class="button-like button button--secondary" type="button" data-test-id="home-info-button">
       <!--v-if-->Learn more
     </button></div>
   <footer data-v-7490b180="" data-v-b4e148ca=""><a data-v-7490b180="" class="flex-container items-center" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener="" data-test-id="bluesky-link"><svg data-v-7490b180="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -14,6 +14,22 @@ exports[`HomeView > renders 1`] = `
       </svg> Follow on Bluesky</a>
     <!--v-if-->
   </footer>
-  <!---->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`HomeView > shows dialog 1`] = `
+"<div data-v-9ec8a7f3="" data-dismissable-layer="" tabindex="-1" class="modal-dialog" data-test-id="dialog" id="" role="dialog" aria-labelledby="reka-dialog-title-v-0" data-state="open" style="pointer-events: auto;">
+  <div data-v-9ec8a7f3="" class="modal-dialog__header outline-override">
+    <h2 data-v-9ec8a7f3="" id="reka-dialog-title-v-0" class="modal-dialog__title" data-test-id="dialog-title">What is this about?</h2><button data-v-ee781121="" data-v-9ec8a7f3="" class="button-like button button--text button--alternative" type="button" aria-label="Close" data-test-id="dialog-close-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" class="transition-all"></path>
+      </svg></button>
+  </div>
+  <div data-v-9ec8a7f3="" class="modal-dialog__content outline-override">
+    <p data-v-b4e148ca="">A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. According to the study, by steadily incorporating a wide range of vegetables into your diet, you can reduce inflammation, improve nutrient absorption, and boost your overall vitality.</p>
+    <p data-v-b4e148ca="">Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app requires no registration and the data is kept in your own device's browser cache.</p>
+    <p data-v-b4e148ca="">Don't miss out on the benefits of a diverse diet. Transform your health today with the help of Eat Your Veggies and experience the difference that plant diversity can make.</p>
+  </div>
+  <div data-v-9ec8a7f3="" class="modal-dialog__buttons outline-override"></div>
 </div>"
 `;

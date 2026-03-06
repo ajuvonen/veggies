@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest';
-import {mount} from '@vue/test-utils';
+import {flushPromises, mount} from '@vue/test-utils';
+import {SelectViewport} from 'reka-ui';
 import DropdownList from '@/components/ui/DropdownList.vue';
 
 const stringOptions = ['Apple', 'Banana', 'Cherry'];
@@ -22,33 +23,41 @@ describe('DropdownList', () => {
         options,
         label: 'Select Item',
       },
+      slots: {
+        option:
+          type === 'object'
+            ? '<template #option="{ item }">{{ item.name }}</template>'
+            : '<template #option="{ item }">{{ item }}</template>',
+      },
     });
 
-    // Check selected value is displayed
+    await flushPromises();
     const button = wrapper.findByTestId('dropdown-button');
+    const viewport = wrapper.getComponent(SelectViewport);
+    await button.trigger('pointerdown');
+
     if (type === 'object') {
       // eslint-disable-next-line vitest/no-conditional-expect
-      expect(button.text()).toContain('Banana');
+      expect(button.text()).toBe('Banana');
     } else {
       // eslint-disable-next-line vitest/no-conditional-expect
       expect(button.text()).toBe(String(options[1]));
     }
+    expect(viewport.findByTestId('dropdown-option-0').isVisible()).toBe(true);
+    expect(viewport.findByTestId('dropdown-option-1').isVisible()).toBe(true);
+    expect(viewport.findByTestId('dropdown-option-2').isVisible()).toBe(true);
 
-    // Open dropdown
-    await button.trigger('click');
+    const option1 = viewport.findByTestId('dropdown-option-1');
+    expect(option1.attributes('data-state')).toBe('checked');
+    expect(option1.find('svg').exists()).toBe(true);
 
-    // Check all options are rendered
-    const optionElements = wrapper.findAll('li');
-    expect(optionElements).toHaveLength(3);
+    const option2 = viewport.findByTestId('dropdown-option-2');
+    await option2.trigger('pointerup');
 
-    // Check selected item has check icon
-    const checkIcon = optionElements[1].find('svg');
-    expect(checkIcon.exists()).toBe(true);
-
-    // Click another option and check emitted value
-    await optionElements[2].trigger('click');
-    expect(wrapper.emitted('update:modelValue')).toBeTruthy();
-    expect(wrapper.emitted('update:modelValue')![0]).toEqual([options[2]]);
+    const modelValueUpdates = wrapper.emitted('update:modelValue');
+    expect(modelValueUpdates?.length).toBeGreaterThan(0);
+    expect(modelValueUpdates?.[modelValueUpdates.length - 1]).toEqual([options[2]]);
+    expect(button.text()).toBe(type === 'object' ? objectOptions[2].name : String(options[2]));
   });
 
   it('rotates chevron icon when dropdown opens', async () => {
@@ -60,11 +69,11 @@ describe('DropdownList', () => {
       },
     });
 
+    await flushPromises();
     const chevron = wrapper.find('svg');
-    const button = wrapper.findByTestId('dropdown-button');
 
     expect(chevron.classes()).not.toContain('rotate-180');
-    await button.trigger('click');
+    await wrapper.findByTestId('dropdown-button').trigger('pointerdown');
     expect(chevron.classes()).toContain('rotate-180');
   });
 
@@ -78,12 +87,13 @@ describe('DropdownList', () => {
       },
     });
 
-    expect(wrapper.findByTestId('fruit-select-button').exists()).toBe(true);
-    await wrapper.findByTestId('fruit-select-button').trigger('click');
+    await flushPromises();
+    const viewport = wrapper.getComponent(SelectViewport);
+    await wrapper.findByTestId('fruit-select-button').trigger('pointerdown');
 
-    expect(wrapper.findByTestId('fruit-select-option-0').exists()).toBe(true);
-    expect(wrapper.findByTestId('fruit-select-option-1').exists()).toBe(true);
-    expect(wrapper.findByTestId('fruit-select-option-2').exists()).toBe(true);
+    expect(viewport.findByTestId('fruit-select-option-0').isVisible()).toBe(true);
+    expect(viewport.findByTestId('fruit-select-option-1').isVisible()).toBe(true);
+    expect(viewport.findByTestId('fruit-select-option-2').isVisible()).toBe(true);
   });
 
   it('adds default prefix for test IDs', async () => {
@@ -95,15 +105,16 @@ describe('DropdownList', () => {
       },
     });
 
-    expect(wrapper.findByTestId('dropdown-button').exists()).toBe(true);
-    await wrapper.findByTestId('dropdown-button').trigger('click');
+    await flushPromises();
+    const viewport = wrapper.getComponent(SelectViewport);
+    await wrapper.findByTestId('dropdown-button').trigger('pointerdown');
 
-    expect(wrapper.findByTestId('dropdown-option-0').exists()).toBe(true);
-    expect(wrapper.findByTestId('dropdown-option-1').exists()).toBe(true);
-    expect(wrapper.findByTestId('dropdown-option-2').exists()).toBe(true);
+    expect(viewport.findByTestId('dropdown-option-0').isVisible()).toBe(true);
+    expect(viewport.findByTestId('dropdown-option-1').isVisible()).toBe(true);
+    expect(viewport.findByTestId('dropdown-option-2').isVisible()).toBe(true);
   });
 
-  it('renders custom selected slot content', () => {
+  it('renders custom selected slot content', async () => {
     const wrapper = mount(DropdownList, {
       props: {
         modelValue: objectOptions[0],
@@ -111,12 +122,13 @@ describe('DropdownList', () => {
         label: 'Select Item',
       },
       slots: {
-        selected: '<span class="custom-selected">Custom: {{ item.name }}</span>',
+        option:
+          '<template #option="{ item }"><span class="custom-selected">Custom: {{ item.name }}</span></template>',
       },
     });
+    await flushPromises();
 
-    expect(wrapper.find('.custom-selected').exists()).toBe(true);
-    expect(wrapper.find('.custom-selected').text()).toContain('Custom:');
+    expect(wrapper.findByTestId('dropdown-button').text()).toBe(`Custom: ${objectOptions[0].name}`);
   });
 
   it('renders custom option slot', async () => {
@@ -127,18 +139,21 @@ describe('DropdownList', () => {
         label: 'Select Item',
       },
       slots: {
-        option: '<span class="custom-option">{{ item.name }}</span>',
+        option:
+          '<template #option="{ item }"><span class="custom-option">{{ item.name }}</span></template>',
       },
     });
 
-    await wrapper.findByTestId('dropdown-button').trigger('click');
+    await flushPromises();
+    const viewport = wrapper.getComponent(SelectViewport);
+    await wrapper.findByTestId('dropdown-button').trigger('pointerdown');
 
-    const customOptions = wrapper.findAll('.custom-option');
+    const customOptions = viewport.findAll('.custom-option').filter((option) => option.isVisible());
     expect(customOptions).toHaveLength(3);
-    expect(customOptions[0].text()).toBe('Apple');
+    expect(customOptions[0].text()).toBe(objectOptions[0].name);
   });
 
-  it('handles empty options array', () => {
+  it('handles empty options array', async () => {
     const wrapper = mount(DropdownList, {
       props: {
         modelValue: '',
@@ -147,7 +162,11 @@ describe('DropdownList', () => {
       },
     });
 
-    expect(wrapper.findByTestId('dropdown-button').exists()).toBe(true);
+    await flushPromises();
+    const viewport = wrapper.getComponent(SelectViewport);
+    await wrapper.findByTestId('dropdown-button').trigger('pointerdown');
+
+    expect(viewport.findByTestId('dropdown-option-0').exists()).toBe(false);
   });
 
   it('handles single option', async () => {
@@ -159,11 +178,15 @@ describe('DropdownList', () => {
       },
     });
 
-    await wrapper.findByTestId('dropdown-button').trigger('click');
+    await flushPromises();
+    const viewport = wrapper.getComponent(SelectViewport);
+    await wrapper.findByTestId('dropdown-button').trigger('pointerdown');
 
-    const options = wrapper.findAll('li');
-    expect(options).toHaveLength(1);
-    expect(options[0].text()).toContain('Only');
+    const option = viewport.findByTestId('dropdown-option-0');
+    expect(option.attributes('data-state')).toBe('checked');
+    expect(option.isVisible()).toBe(true);
+    expect(option.text()).toBe('Only');
+    expect(option.find('svg').exists()).toBe(true);
   });
 
   it('handles null value', async () => {
@@ -175,11 +198,13 @@ describe('DropdownList', () => {
       },
     });
 
-    await wrapper.findByTestId('dropdown-button').trigger('click');
+    await flushPromises();
+    const viewport = wrapper.getComponent(SelectViewport);
+    await wrapper.findByTestId('dropdown-button').trigger('pointerdown');
 
-    const options = wrapper.findAll('li');
-    expect(options).toHaveLength(1);
-    const checkIcon = options[0].find('svg');
-    expect(checkIcon.exists()).toBe(false);
+    const option = viewport.findByTestId('dropdown-option-0');
+    expect(option.attributes('data-state')).toBe('unchecked');
+    expect(option.isVisible()).toBe(true);
+    expect(option.find('svg').exists()).toBe(false);
   });
 });

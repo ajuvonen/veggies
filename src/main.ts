@@ -4,8 +4,7 @@ import {plugin as VueTippy} from 'vue-tippy';
 import App from '@/App.vue';
 import router from '@/router';
 import createI18n from '@/i18n';
-import {KEYS, CURRENT_MIGRATION_VERSION, MINIMUM_MIGRATION_VERSION} from '@/utils/constants';
-import {useDropdown} from '@/hooks/dropdown';
+import {CURRENT_MIGRATION_VERSION, MINIMUM_MIGRATION_VERSION} from '@/utils/constants';
 import {dateParser} from '@/utils/helpers';
 import {runMigrations} from '@/utils/migrations';
 import ButtonComponent from '@/components/ui/ButtonComponent.vue';
@@ -34,7 +33,6 @@ if (storedSettings) {
 }
 
 const app = createApp(App);
-const {getDropdownStyles} = useDropdown();
 app
   .use(createPinia())
   .use(router)
@@ -44,7 +42,6 @@ app
       hideOnClick: true,
     },
   })
-  .provide(KEYS.dropdownStyles, getDropdownStyles)
   .component('ButtonComponent', ButtonComponent)
   .component('ContentElement', ContentElement)
   .component('IconComponent', IconComponent)

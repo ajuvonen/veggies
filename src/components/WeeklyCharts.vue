@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {computed, defineAsyncComponent, ref} from 'vue';
 import {storeToRefs} from 'pinia';
-import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue';
+import {RadioGroupItem, RadioGroupRoot} from 'reka-ui';
 import {useActivityStore} from '@/stores/activityStore';
 import {useDateTime} from '@/hooks/dateTime';
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
@@ -29,24 +29,28 @@ const statisticOptions = [
 ];
 </script>
 <template>
-  <RadioGroup v-model="selectedStatistic">
-    <ContentElement :title="$t('stats.selectStatistic')" :labelTag="RadioGroupLabel">
-      <RadioGroupOption
+  <RadioGroupRoot v-model="selectedStatistic" asChild>
+    <ContentElement
+      :title="$t('stats.selectStatistic')"
+      :labelAttrs="{id: 'statistic-selector-title'}"
+      labelTag="h2"
+      aria-labelledby="statistic-selector-title"
+    >
+      <RadioGroupItem
         v-for="option in statisticOptions"
-        as="template"
         :key="option.value"
         :value="option.value"
-        v-slot="{checked}"
+        asChild
       >
         <ButtonComponent
-          :icon="checked ? 'radioboxMarked' : 'radioboxBlank'"
+          :icon="selectedStatistic === option.value ? 'radioboxMarked' : 'radioboxBlank'"
           :data-test-id="`statistic-selector-${option.value}`"
         >
-          <RadioGroupLabel as="span">{{ $t(option.label) }}</RadioGroupLabel>
+          {{ $t(option.label) }}
         </ButtonComponent>
-      </RadioGroupOption>
+      </RadioGroupItem>
     </ContentElement>
-  </RadioGroup>
+  </RadioGroupRoot>
   <WeeklyAmountsChart v-if="selectedStatistic === 0" :labels="labels" :weekStarts="weekStarts" />
   <AsyncLoader>
     <WeeklyCategoriesChart

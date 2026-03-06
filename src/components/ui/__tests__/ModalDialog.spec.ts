@@ -1,70 +1,52 @@
 import {describe, it, expect} from 'vitest';
-import {mount, type ComponentMountingOptions} from '@vue/test-utils';
+import {mount, flushPromises} from '@vue/test-utils';
+import {DialogContent} from 'reka-ui';
 import ModalDialog from '@/components/ui/ModalDialog.vue';
-import DialogStub from '@/test-utils/DialogStub.vue';
-
-const mounter = (options?: Partial<ComponentMountingOptions<typeof ModalDialog>>) =>
-  mount(ModalDialog, {
-    ...options,
-    global: {
-      stubs: {
-        Dialog: DialogStub,
-        DialogPanel: {
-          template: '<div><slot /></div>',
-        },
-        DialogTitle: true,
-      },
-    },
-  });
 
 describe('ModalDialog', () => {
-  it('renders closed', () => {
+  it('renders closed', async () => {
     const wrapper = mount(ModalDialog, {
-      props: {
-        title: 'Test dialog',
-        modelValue: false,
-      },
+      props: {title: 'Test dialog', modelValue: false},
     });
-    expect(wrapper).toBeTruthy();
-    expect(wrapper.findByTestId('dialog').exists()).toBe(false);
+    await flushPromises();
+    const dialog = wrapper.getComponent(DialogContent);
+    expect(dialog.isVisible()).toBe(false);
   });
 
-  it('shows dialog', () => {
-    const wrapper = mounter({
-      props: {
-        title: 'Test dialog',
-        modelValue: true,
-      },
+  it('shows dialog', async () => {
+    const wrapper = mount(ModalDialog, {
+      props: {title: 'Test dialog', modelValue: true},
     });
-    expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findByTestId('dialog').exists()).toBe(true);
-    expect(wrapper.findByTestId('dialog-close-button').exists()).toBe(true);
+    await flushPromises();
+    const dialog = wrapper.getComponent(DialogContent);
+    expect(dialog.isVisible()).toBe(true);
+    expect(dialog.html()).toMatchSnapshot();
+    expect(dialog.findByTestId('dialog-close-button').isVisible()).toBe(true);
   });
 
-  it('renders content', () => {
-    const wrapper = mounter({
-      props: {
-        title: 'Test dialog',
-        modelValue: true,
-      },
+  it('renders content', async () => {
+    const wrapper = mount(ModalDialog, {
+      props: {title: 'Test dialog', modelValue: true},
       slots: {
         content: '<p>Test content</p>',
         buttons: '<p>Test buttons</p>',
       },
     });
-    expect(wrapper.findByText('p', 'Test content').exists()).toBe(true);
-    expect(wrapper.findByText('p', 'Test buttons').exists()).toBe(true);
-    expect(wrapper.findByTestId('dialog-close-button').exists()).toBe(false);
+    await flushPromises();
+    const dialog = wrapper.getComponent(DialogContent);
+    expect(dialog.isVisible()).toBe(true);
+    expect(dialog.findByText('p', 'Test content').isVisible()).toBe(true);
+    expect(dialog.findByText('p', 'Test buttons').isVisible()).toBe(true);
+    expect(dialog.findByTestId('dialog-close-button').exists()).toBe(false);
   });
 
   it('closes dialog on button click', async () => {
-    const wrapper = mounter({
-      props: {
-        title: 'Test dialog',
-        modelValue: true,
-      },
+    const wrapper = mount(ModalDialog, {
+      props: {title: 'Test dialog', modelValue: true},
     });
-    await wrapper.findByTestId('dialog-close-button').trigger('click');
+    await flushPromises();
+    const dialog = wrapper.getComponent(DialogContent);
+    await dialog.findByTestId('dialog-close-button').trigger('click');
     expect(wrapper.emitted('update:modelValue')).toEqual([[false]]);
   });
 });

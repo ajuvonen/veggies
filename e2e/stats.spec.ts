@@ -82,6 +82,7 @@ test('shows achievements', async ({page}) => {
     await element.click();
   }
   await page.getByTestId('dialog-close-button').click();
+  await expect(page.getByTestId('dialog')).toBeHidden();
   await page.getByTestId('navbar-stats-link').click();
   await page.getByTestId('stats-tab-4').click();
   await expect(page.getByTestId('badge-experimenterFruit-3')).not.toContainClass('badge--locked');

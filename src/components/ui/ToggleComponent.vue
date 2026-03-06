@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {Switch} from '@headlessui/vue';
+import {SwitchRoot, SwitchThumb} from 'reka-ui';
+
 const model = defineModel<boolean>({required: true});
 withDefaults(
   defineProps<{
@@ -11,11 +12,11 @@ withDefaults(
 );
 </script>
 <template>
-  <Switch v-model="model" :disabled="disabled" class="toggle-button">
-    <div>
+  <SwitchRoot v-model="model" :disabled="disabled" class="toggle-button">
+    <SwitchThumb class="toggle-button__thumb">
       <IconComponent :icon="model ? 'check' : 'close'" />
-    </div>
-  </Switch>
+    </SwitchThumb>
+  </SwitchRoot>
 </template>
 <style>
 .toggle-button {
@@ -23,18 +24,21 @@ withDefaults(
   @apply bg-[--color-ui-dark];
 
   &[disabled] {
-    @apply opacity-50 cursor-not-allowed pointer-events-none;
+    @apply opacity-50 cursor-not-allowed;
   }
 
-  > div {
-    @apply inline-block w-6 h-6 transform rounded-md transition-transform;
+  > .toggle-button__thumb {
+    @apply inline-block w-6 h-6 transform rounded-md transition-transform duration-200;
     @apply flex items-center justify-center;
-    @apply bg-[--color-bg-alternative] fill-[--color-text-alternative] active:bg-[--color-primary-active] hover:bg-[--color-primary-hover] hover:fill-[--color-text];
-  }
+    @apply bg-[--color-bg-alternative] fill-[--color-text-alternative] active:bg-[--color-primary-active];
 
-  &[data-headlessui-state='checked'] > div {
-    @apply translate-x-6;
-    @apply bg-[--color-primary] fill-[--color-text] active:bg-[--color-primary-active] hover:bg-[--color-primary-hover];
+    [data-state='checked']& {
+      @apply translate-x-6;
+      @apply bg-[--color-primary] fill-[--color-text] active:bg-[--color-primary-active];
+    }
+    :not([disabled])& {
+      @apply hover:bg-[--color-primary-hover] hover:fill-[--color-text];
+    }
   }
 }
 </style>
