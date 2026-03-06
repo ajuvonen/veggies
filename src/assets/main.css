@@ -79,14 +79,29 @@
   }
 
   .dropdown-list-container {
-    @apply absolute mt-2 w-full overflow-x-hidden rounded-md shadow-lg;
-    scrollbar-width: thin;
-    scrollbar-color: initial;
+    @apply rounded-md mt-2 mb-2 shadow-lg;
+    @apply bg-[--color-bg-alternative];
+    scrollbar-width: thin !important;
+    scrollbar-color: initial !important;
+    width: var(--reka-select-trigger-width, var(--reka-combobox-trigger-width));
+  }
+
+  .dropdown-list-heading {
+    @apply flex-container justify-between;
+    @apply select-none p-2 pr-4;
+    @apply bg-[--color-ui-dark];
   }
 
   .dropdown-list-option {
     @apply truncate h-12 button-like rounded-none;
-    @apply flex items-center justify-between;
+    @apply justify-between;
+    @apply text-[--color-text-alternative] fill-[--color-text-alternative];
+    &[data-state='checked'] {
+      @apply bg-[--color-primary-active] text-[--color-text] fill-[--color-text];
+    }
+    &[data-highlighted] {
+      @apply bg-[--color-primary-hover] text-[--color-text] fill-[--color-text];
+    }
   }
 
   .text-link {

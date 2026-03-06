@@ -20,11 +20,6 @@ vi.mock('@vueuse/core', async () => {
 
 const mounter = (options = {}) => {
   return mount(LogView, {
-    global: {
-      stubs: {
-        Dialog: true,
-      },
-    },
     ...options,
   });
 };
@@ -49,7 +44,6 @@ describe('LogView', () => {
       global: {
         stubs: {
           FrontPageAnimation: true,
-          Dialog: true,
         },
       },
     });

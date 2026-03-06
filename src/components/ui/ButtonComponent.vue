@@ -2,7 +2,14 @@
 import {computed} from 'vue';
 import type {IconString} from '@/components/ui/IconComponent.vue';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'tag' | 'remove' | 'text';
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'danger'
+  | 'tag'
+  | 'remove'
+  | 'text'
+  | 'alternative';
 
 defineEmits(['click']);
 const props = withDefaults(
@@ -24,12 +31,24 @@ const getVariants = computed(() => {
 });
 </script>
 <template>
-  <button @click="$emit('click', $event)" :class="`button-like ${getVariants}`">
+  <button
+    :class="`button-like button ${getVariants}`"
+    type="button"
+    @click="$emit('click', $event)"
+  >
     <IconComponent v-if="icon" :icon="icon" />
     <slot></slot>
   </button>
 </template>
 <style scoped>
+.button {
+  @apply text-[--color-text] fill-[--color-text];
+}
+
+.button--alternative {
+  @apply text-[--color-text-alternative] fill-[--color-text-alternative];
+}
+
 .button--primary,
 .button--tag {
   @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];

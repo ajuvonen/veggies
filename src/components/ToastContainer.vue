@@ -39,7 +39,7 @@ const {maxHeight} = useScreen(toasts);
 .toasts-move,
 .toasts-enter-active,
 .toasts-leave-active {
-  transition: all 0.5s ease;
+  @apply transition-all duration-200 ease-out;
 }
 
 .toasts-leave-from,

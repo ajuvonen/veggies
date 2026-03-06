@@ -2,7 +2,7 @@
 import {computed, nextTick, useTemplateRef} from 'vue';
 import {useI18nWithCollator} from '@/hooks/i18n';
 import type {IconString} from '@/components/ui/IconComponent.vue';
-import ButtonComponent, {type ButtonVariant} from '@/components/ui/ButtonComponent.vue';
+import type {ButtonVariant} from '@/components/ui/ButtonComponent.vue';
 
 const props = withDefaults(
   defineProps<{
@@ -36,31 +36,36 @@ const toggle = async (veggie: string, index: number) => {
   await nextTick();
   const focusTarget = translatedVeggies.value[index] || translatedVeggies.value[index - 1];
   const focusElement =
-    document.getElementById(`tag-button-${focusTarget?.veggie}`) || listElement.value;
+    document.getElementById(`tag-button-${focusTarget?.veggie}`) || listElement.value?.$el;
   focusElement?.focus();
 };
 </script>
 <template>
-  <ul ref="listElement" :aria-label="ariaLabel" tabindex="-1" tag="ul" class="tags__container">
-    <TransitionGroup name="tags">
-      <li
-        v-for="({veggie, translation}, index) in translatedVeggies"
-        :key="veggie"
-        :data-test-id="`tag-${veggie}`"
-        class="z-10"
+  <TransitionGroup
+    name="tags"
+    ref="listElement"
+    :aria-label="ariaLabel"
+    tabindex="-1"
+    tag="ul"
+    class="tags__container"
+  >
+    <li
+      v-for="({veggie, translation}, index) in translatedVeggies"
+      :key="veggie"
+      :data-test-id="`tag-${veggie}`"
+      class="z-10"
+    >
+      <ButtonComponent
+        :id="`tag-button-${veggie}`"
+        :variant="variant"
+        :icon="icon"
+        :aria-label="$t(ariaTagKey, [translation])"
+        @click="toggle(veggie, index)"
       >
-        <ButtonComponent
-          :id="`tag-button-${veggie}`"
-          :variant="variant"
-          :aria-label="$t(ariaTagKey, [translation])"
-          @click="toggle(veggie, index)"
-        >
-          <IconComponent :icon="icon" />
-          {{ translation }}</ButtonComponent
-        >
-      </li>
-    </TransitionGroup>
-  </ul>
+        {{ translation }}
+      </ButtonComponent>
+    </li>
+  </TransitionGroup>
 </template>
 <style scoped>
 .tags__container {
@@ -68,11 +73,10 @@ const toggle = async (veggie: string, index: number) => {
   @apply flex-container flex-wrap justify-center content-start;
 }
 
-/* Transition classes */
 .tags-enter-active,
 .tags-leave-active,
 .tags-move {
-  transition: all 0.5s ease;
+  @apply transition-all duration-200 ease-out;
 }
 
 .tags-enter-from,
