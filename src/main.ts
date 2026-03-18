@@ -23,10 +23,7 @@ if (storedSettings) {
   try {
     const settings = JSON.parse(storedSettings, dateParser);
     const currentVersion = settings.migrationVersion || MINIMUM_MIGRATION_VERSION;
-
-    if (currentVersion < CURRENT_MIGRATION_VERSION) {
-      await runMigrations(currentVersion, CURRENT_MIGRATION_VERSION);
-    }
+    await runMigrations(currentVersion, CURRENT_MIGRATION_VERSION);
   } catch (error) {
     console.error('Migration failed:', error);
   }

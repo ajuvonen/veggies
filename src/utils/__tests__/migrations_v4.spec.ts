@@ -46,7 +46,7 @@ describe('migration v4: move startDate to settings', () => {
   it('preserves other data', () => {
     const data = {
       settings: {
-        allergens: ['peanut', 'soy'],
+        allergens: ['peanut', 'orange'],
         locale: 'fi' as const,
         migrationVersion: 3,
         showChartAnimations: false,
@@ -61,7 +61,7 @@ describe('migration v4: move startDate to settings', () => {
 
     expect(result).not.toHaveProperty('startDate');
     const settings = result.settings as Record<string, unknown>;
-    expect(settings.allergens).toEqual(['peanut', 'soy']);
+    expect(settings.allergens).toEqual(['peanut', 'orange']);
     expect(settings.locale).toBe('fi');
     expect(settings.showChartAnimations).toBe(false);
     expect(settings.suggestionCount).toBe(15);

@@ -12,6 +12,7 @@ import {
   runMigrations,
 } from '@/utils/migrations';
 import {dateParser, dateReplacer} from '@/utils/helpers';
+import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import type {Settings, Week} from '@/types';
 
 const thisWeek = DateTime.now().startOf('week');
@@ -40,16 +41,85 @@ const dataV1 = {
 };
 
 describe('applyMigrations', () => {
-  it('returns unchanged data when fromVersion equals toVersion', () => {
+  it('applies no migrations when fromVersion equals toVersion', () => {
     const data = dataV1;
     const result = applyMigrations(data, 1, 1);
-    expect(result).toBe(data);
+    expect(result.settings).toEqual(data.settings);
   });
 
-  it('returns unchanged data when fromVersion is greater than toVersion', () => {
+  it('applies no migrations when fromVersion is greater than toVersion', () => {
     const data = dataV1;
     const result = applyMigrations(data, 1, 0);
-    expect(result).toBe(data);
+    expect(result.settings).toEqual(data.settings);
+  });
+
+  it('preserves valid veggies unchanged', () => {
+    const data = {
+      settings: dataV1.settings,
+      weeks: [{startDate: lastWeek, veggies: ['apple', 'tomato', 'spinach'], challenge: 'apple'}],
+    };
+    const result = applyMigrations(data, 1, 1);
+    expect((result.weeks as Week[])[0].veggies).toEqual(['apple', 'tomato', 'spinach']);
+  });
+
+  it('handles weeks with no veggies', () => {
+    const data = {
+      settings: dataV1.settings,
+      weeks: [{startDate: lastWeek, veggies: [], challenge: 'apple'}],
+    };
+    const result = applyMigrations(data, 1, 1);
+    expect((result.weeks as Week[])[0].veggies).toEqual([]);
+  });
+
+  it('keeps a valid challenge unchanged', () => {
+    const data = {
+      settings: dataV1.settings,
+      weeks: [{startDate: thisWeek, veggies: [], challenge: 'apple'}],
+    };
+    const result = applyMigrations(data, 1, 1);
+    expect((result.weeks as Week[])[0].challenge).toBe('apple');
+  });
+
+  it('replaces an invalid challenge with a random valid veggie', () => {
+    const data = {
+      settings: dataV1.settings,
+      weeks: [{startDate: thisWeek, veggies: [], challenge: 'not-a-real-veggie'}],
+    };
+    const result = applyMigrations(data, 1, 1);
+    const challenge = (result.weeks as Week[])[0].challenge;
+    expect(ALL_VEGGIES).toContain(challenge);
+  });
+
+  it('sanitizes veggies across multiple weeks', () => {
+    const data = {
+      settings: dataV1.settings,
+      weeks: [
+        {startDate: lastWeek, veggies: ['apple', 'fake1'], challenge: 'apple'},
+        {startDate: thisWeek, veggies: ['tomato', 'fake2', 'spinach'], challenge: 'tomato'},
+      ],
+    };
+    const result = applyMigrations(data, 1, 1);
+    const weeks = result.weeks as Week[];
+    expect(weeks[0].veggies).toEqual(['apple']);
+    expect(weeks[1].veggies).toEqual(['tomato', 'spinach']);
+  });
+
+  it('removes invalid allergens from settings', () => {
+    const data = {
+      settings: {...(dataV1.settings as Settings), allergens: ['apple', 'not-a-real-veggie']},
+      weeks: [{startDate: thisWeek, veggies: [], challenge: 'tomato'}],
+    };
+    const result = applyMigrations(data, 1, 1);
+    expect((result.settings as Settings).allergens).toEqual(['apple']);
+  });
+
+  it('preserves valid allergens unchanged', () => {
+    const data = {
+      settings: {...(dataV1.settings as Settings), allergens: ['apple', 'tomato']},
+      weeks: [{startDate: thisWeek, veggies: [], challenge: 'spinach'}],
+    };
+    const result = applyMigrations(data, 1, 1);
+    expect((result.settings as Settings).allergens).toEqual(['apple', 'tomato']);
   });
 });
 
@@ -69,7 +139,7 @@ describe('readStorageData', () => {
   });
 
   it('parses JSON data correctly', () => {
-    const settings = {...DEFAULT_SETTINGS, locale: 'fi' as const, allergens: ['peanuts']};
+    const settings = {...DEFAULT_SETTINGS, locale: 'fi' as const, allergens: ['peanut']};
     localStorage.setItem('veggies-settings', JSON.stringify(settings, dateReplacer));
 
     const result = readStorageData();
@@ -216,7 +286,7 @@ describe('writeStorageData', () => {
 
   it('preserves other settings fields when updating migrationVersion', () => {
     const data = {
-      settings: {...DEFAULT_SETTINGS, locale: 'fi' as const, allergens: ['peanuts']},
+      settings: {...DEFAULT_SETTINGS, locale: 'fi' as const, allergens: ['peanut']},
     };
 
     writeStorageData(data, 2);
@@ -225,7 +295,7 @@ describe('writeStorageData', () => {
     const parsed = JSON.parse(stored!, dateParser);
     expect(parsed.migrationVersion).toBe(2);
     expect(parsed.locale).toBe('fi');
-    expect(parsed.allergens).toEqual(['peanuts']);
+    expect(parsed.allergens).toEqual(['peanut']);
   });
 
   it('writes top-level DateTime values as plain ISO date strings', () => {

@@ -9,6 +9,31 @@ import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {DateTime} from 'luxon';
 import type {Week, Settings} from '@/types';
 
+function sanitizeStorageData(data: StorageData): StorageData {
+  const validVeggies = new Set(ALL_VEGGIES);
+  const settings = data.settings as Settings;
+  const allergens = Array.isArray(settings.allergens) ? settings.allergens : [];
+  const sanitizedAllergens = allergens.filter((veggie) => validVeggies.has(veggie));
+  const availableVeggies = ALL_VEGGIES.filter((veggie) => !sanitizedAllergens.includes(veggie));
+  const weeks = Array.isArray(data.weeks) ? (data.weeks as Week[]) : [];
+  return {
+    ...data,
+    settings: {
+      ...settings,
+      allergens: sanitizedAllergens,
+    },
+    weeks: weeks.map((week) => ({
+      ...week,
+      veggies: Array.isArray(week.veggies)
+        ? week.veggies.filter((veggie) => validVeggies.has(veggie))
+        : [],
+      challenge: validVeggies.has(week.challenge)
+        ? week.challenge
+        : getRandomItem(availableVeggies)!,
+    })),
+  };
+}
+
 type StorageData = Record<string, unknown>;
 
 type Migration = {
@@ -23,15 +48,15 @@ const migrations: Migration[] = [
     version: 2,
     name: 'Move challenges to weeks',
     migrate: (data) => {
-      const weeks = (data.weeks || []) as Week[];
-      const challenges = (data.challenges || []) as {
-        startDate: DateTime;
-        veggie: string;
-      }[];
+      const weeks = Array.isArray(data.weeks) ? (data.weeks as Week[]) : [];
+      const challenges = Array.isArray(data.challenges)
+        ? (data.challenges as {startDate: DateTime; veggie: string}[])
+        : [];
       const settings = data.settings as Settings;
+      const allergens = Array.isArray(settings.allergens) ? settings.allergens : [];
 
       // Get all available veggies excluding allergens
-      const availableVeggies = ALL_VEGGIES.filter((veggie) => !settings.allergens.includes(veggie));
+      const availableVeggies = ALL_VEGGIES.filter((veggie) => !allergens.includes(veggie));
 
       // Return data without challenges key
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -105,13 +130,11 @@ export function applyMigrations(
   fromVersion: number,
   toVersion: number,
 ): StorageData {
-  if (fromVersion >= toVersion) return data;
-
   const toRun = migrations
     .filter(({version}) => version > fromVersion && version <= toVersion)
     .sort((a, b) => a.version - b.version);
 
-  return toRun.reduce((currentData, migration) => {
+  const result = toRun.reduce((currentData, migration) => {
     const migratedData = migration.migrate(currentData);
 
     // Update migrationVersion after each migration
@@ -124,6 +147,8 @@ export function applyMigrations(
       },
     };
   }, data);
+
+  return sanitizeStorageData(result);
 }
 
 /**
