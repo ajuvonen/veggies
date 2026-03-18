@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 24.12
+          node-version: 24.14
       - name: Install dependencies
         run: npm ci
       - name: Build
@@ -35,7 +35,7 @@ jobs:
           rclone config create sftp-remote sftp host="${{ secrets.FTP_HOST }}" user="${{ secrets.FTP_USER }}" key_file=~/.ssh/deploy_key
           rclone sync ./dist/ sftp-remote:"${{ secrets.FTP_DIRECTORY }}" --verbose --log-file=rclone.log
       - name: Upload Log
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: deploy-log
           path: rclone.log
