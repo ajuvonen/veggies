@@ -1,5 +1,5 @@
-import {afterEach, beforeEach, vi} from 'vitest';
-import {config, enableAutoUnmount, mount} from '@vue/test-utils';
+import {beforeEach, vi} from 'vitest';
+import {config, mount} from '@vue/test-utils';
 import {createTestingPinia} from '@pinia/testing';
 import resizeObserver from 'resize-observer-polyfill';
 import createI18n from '@/i18n';
@@ -34,7 +34,6 @@ const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
 });
 
 config.plugins.VueWrapper.install(dataTestIdPlugin);
-enableAutoUnmount(afterEach);
 
 vi.mock('canvas-confetti', () => ({
   default: () => false,
