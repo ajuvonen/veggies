@@ -18,7 +18,7 @@ describe('screen', () => {
   it('calculates max-height correctly', async () => {
     // Mock getBoundingClientRect
     const mockGetBoundingClientRect = vi.spyOn(Element.prototype, 'getBoundingClientRect');
-    mockGetBoundingClientRect.mockReturnValue({
+    mockGetBoundingClientRect.mockReturnValueOnce({
       width: 300,
       height: 500,
       top: 100,
