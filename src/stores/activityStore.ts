@@ -1,6 +1,6 @@
 import {computed, ref} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
-import {debounceFilter, useLocalStorage} from '@vueuse/core';
+import {debounceFilter, tryOnScopeDispose, useLocalStorage} from '@vueuse/core';
 import {DateTime} from 'luxon';
 import {
   countBy,
@@ -44,12 +44,13 @@ export const useActivityStore = defineStore('activity', () => {
   const {settings} = storeToRefs(useAppStateStore());
   const {availableVeggies} = useAvailableVeggies();
   const currentDate = ref(DateTime.now());
-  setInterval(() => {
+  const intervalId = setInterval(() => {
     const now = DateTime.now();
     if (!currentDate.value.hasSame(now, 'day')) {
       currentDate.value = now;
     }
   }, 2000);
+  tryOnScopeDispose(() => clearInterval(intervalId));
 
   // State refs
   const weeks = useLocalStorage<Week[]>('veggies-weeks', [], {
