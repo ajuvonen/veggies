@@ -34,7 +34,7 @@ describe('chartAnimations', () => {
   });
 
   it('reduced motion overrides store', () => {
-    mocks.usePreferredReducedMotion.mockReturnValue(computed(() => 'reduce'));
+    mocks.usePreferredReducedMotion.mockReturnValueOnce(computed(() => 'reduce'));
     const {showChartAnimations} = withSetup(useChartAnimations);
     expect(showChartAnimations.value).toBe(false);
     appStateStore.settings.showChartAnimations = false;
@@ -47,7 +47,7 @@ describe('chartAnimations', () => {
   });
 
   it('returns true reduced motion value', () => {
-    mocks.usePreferredReducedMotion.mockReturnValue(computed(() => 'reduce'));
+    mocks.usePreferredReducedMotion.mockReturnValueOnce(computed(() => 'reduce'));
     const {reduceMotion} = useChartAnimations();
     expect(reduceMotion.value).toBe(true);
   });

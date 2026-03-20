@@ -40,7 +40,7 @@ describe('useFactsLoader', () => {
   });
 
   it('loads facts when they are not present', async () => {
-    mocks.te.mockReturnValue(false);
+    mocks.te.mockReturnValueOnce(false);
 
     const ensureFactsLoaded = withSetup(useFactsLoader);
     await ensureFactsLoaded('en');
@@ -55,7 +55,7 @@ describe('useFactsLoader', () => {
   });
 
   it('does not load facts when they are already present', async () => {
-    mocks.te.mockReturnValue(true);
+    mocks.te.mockReturnValueOnce(true);
 
     const ensureFactsLoaded = withSetup(useFactsLoader);
     await ensureFactsLoaded('en');
@@ -65,7 +65,7 @@ describe('useFactsLoader', () => {
   });
 
   it('loads correct locale facts', async () => {
-    mocks.te.mockReturnValue(false);
+    mocks.te.mockReturnValueOnce(false);
 
     const ensureFactsLoaded = withSetup(useFactsLoader);
     await ensureFactsLoaded('fi');
