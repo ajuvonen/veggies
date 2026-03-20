@@ -1,9 +1,10 @@
 import {computed, toValue, type MaybeRefOrGetter} from 'vue';
 import {mergeDeep} from 'remeda';
 import type {ChartOptions, ChartType, Scale} from 'chart.js';
+import type {Context} from 'chartjs-plugin-datalabels';
+import {useCssVar, usePreferredDark} from '@vueuse/core';
 import {useChartAnimations} from '@/hooks/chartAnimations';
 import {CATEGORY_EMOJI} from '@/utils/constants';
-import type {Context} from 'chartjs-plugin-datalabels';
 import type {Category} from '@/types';
 
 export function useChartOptions<T extends ChartType>(
@@ -13,8 +14,10 @@ export function useChartOptions<T extends ChartType>(
   overrides: MaybeRefOrGetter<Partial<ChartOptions<T>>>,
 ) {
   const {showChartAnimations} = useChartAnimations();
+  const isDark = usePreferredDark();
+  const uiDark = useCssVar('--color-ui-dark');
   const chartOptions = computed(() => {
-    const textColor = getComputedStyle(document.documentElement).getPropertyValue('--color-text');
+    const textColor = isDark.value ? '#e5e7eb' : '#fff';
     return mergeDeep(
       {
         animation: !showChartAnimations.value ? false : undefined,
@@ -98,9 +101,7 @@ export function useChartOptions<T extends ChartType>(
               weight: 'normal',
             },
             displayColors: false,
-            backgroundColor: getComputedStyle(document.documentElement).getPropertyValue(
-              '--color-ui-dark',
-            ),
+            backgroundColor: uiDark.value,
             bodyColor: textColor,
             titleColor: textColor,
           },
