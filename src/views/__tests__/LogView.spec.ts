@@ -1,6 +1,6 @@
 import {computed} from 'vue';
 import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
-import {mount} from '@vue/test-utils';
+import {enableAutoUnmount, mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -34,7 +34,7 @@ describe('LogView', () => {
     activityStore = useActivityStore();
     appStateStore = useAppStateStore();
   });
-
+  enableAutoUnmount(afterEach);
   afterEach(() => {
     vi.restoreAllMocks();
   });
@@ -80,10 +80,9 @@ describe('LogView', () => {
     const wrapper = mounter();
     await vi.dynamicImportSettled();
     expect(wrapper.html()).toMatchSnapshot();
-    wrapper.unmount();
   });
 
-  it.skip('renders empty when week changes', async () => {
+  it('renders empty when week changes', async () => {
     appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
