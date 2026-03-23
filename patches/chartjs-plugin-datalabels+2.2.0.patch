@@ -1,0 +1,16 @@
+diff --git a/node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.esm.js b/node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.esm.js
+index a1c71c4..a28c90b 100644
+--- a/node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.esm.js
++++ b/node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.esm.js
+@@ -1299,7 +1299,10 @@ var plugin = {
+   // https://github.com/chartjs/chartjs-plugin-datalabels/issues/29
+   // https://github.com/chartjs/chartjs-plugin-datalabels/issues/32
+   afterDatasetsDraw: function(chart) {
+-    layout.draw(chart, chart[EXPANDO_KEY]._labels);
++    var labels = chart[EXPANDO_KEY]._labels;
++    if (labels) {
++      layout.draw(chart, labels);
++    }
+   },
+ 
+   beforeEvent: function(chart, args) {
