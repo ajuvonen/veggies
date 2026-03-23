@@ -1,0 +1,15 @@
+diff --git a/node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.esm.js b/node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.esm.js
+index 4d6b1f2..19fd9ff 100644
+--- a/node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.esm.js
++++ b/node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.esm.js
+@@ -2988,6 +2988,10 @@ function draw(chart, caller, clip) {
+   const {ctx, chartArea} = chart;
+   const state = chartStates.get(chart);
+ 
++  if (!chartArea) {
++    return;
++  }
++
+   if (clip) {
+     clipArea(ctx, chartArea);
+   }

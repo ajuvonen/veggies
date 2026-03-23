@@ -27,6 +27,7 @@ export function useChartOptions<T extends ChartType>(
         layout: {
           padding: 0,
         },
+        resizeDelay: 1,
         scales: showGrid
           ? {
               y: {
