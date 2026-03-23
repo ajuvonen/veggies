@@ -86,7 +86,7 @@ provide(KEYS.challenge, readonly(currentChallenge));
 <template>
   <VeggieSearch v-model="currentVeggies" />
   <AsyncLoader>
-    <CategoryStatusChart v-if="currentVeggies.length" :veggies="currentVeggies" />
+    <CategoryStatusChart v-if="currentVeggies.length" :veggies="currentVeggies" class="shrink-0" />
   </AsyncLoader>
   <FrontPageAnimation v-if="!currentVeggies.length" />
   <TagsComponent

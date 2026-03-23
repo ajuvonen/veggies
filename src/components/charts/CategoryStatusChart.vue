@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {computed, useTemplateRef} from 'vue';
-import {useElementSize, useElementBounding, useParentElement} from '@vueuse/core';
+import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
 import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -32,19 +32,8 @@ const props = withDefaults(
 );
 
 const {t, collator} = useI18nWithCollator();
-
-const parent = useParentElement();
 const container = useTemplateRef('container');
-const {width} = useElementSize(container);
-const {bottom: parentBottom} = useElementBounding(parent);
-const {top: containerTop} = useElementBounding(container);
-/*
-  Element height is determined by the smaller of the container's width,
-  the distance to the bottom of the parent, and a max of 400px.
-*/
-const containerHeight = computed(() =>
-  Math.min(parentBottom.value - containerTop.value, width.value, 400),
-);
+const {height} = useElementSize(container);
 
 const medalEmojis = ['🥇', '🥈', '🥉', '🍀', '🖐️', '🕕'];
 
@@ -78,7 +67,7 @@ const {chartOptions} = useChartOptions<'doughnut'>(
   false,
   true,
   computed(() => ({
-    cutout: containerHeight.value && containerHeight.value < 280 ? '60%' : undefined,
+    cutout: height.value && height.value < 280 ? '60%' : undefined,
     plugins: {
       tooltip: {
         callbacks: {
@@ -110,11 +99,7 @@ const chartTitle = computed(() =>
 defineExpose({chartData});
 </script>
 <template>
-  <div
-    ref="container"
-    :style="{height: `${containerHeight}px`}"
-    class="category-status-chart__background"
-  >
+  <div ref="container" class="category-status-chart__background">
     <i18n-t
       id="category-status-chart-center-label"
       scope="global"
@@ -146,7 +131,8 @@ defineExpose({chartData});
 <style scoped>
 .category-status-chart__background {
   @apply relative overflow-hidden;
-  @apply flex shrink-0 grow-0 justify-center;
+  @apply flex justify-center grow;
+  max-height: min(400px, 50vh);
 }
 
 .category-status-chart__center-label {

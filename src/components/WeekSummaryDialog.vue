@@ -119,39 +119,38 @@ defineExpose({
     data-test-id="week-summary-dialog"
   >
     <template #content>
-      <div class="flex gap-4 flex-col">
-        <CategoryStatusChart
-          v-if="lastWeekData.veggies.length"
-          :veggies="lastWeekData.veggies"
-          alternateColorScheme
-          topLabelKey="categoryStatus.topLabelLastWeek"
-        />
-        <div class="grid grid-cols-[auto_1fr] gap-2">
-          <template
-            v-for="{emoji, translationKey, translationParameters} in summary"
-            :key="`${translationKey}-${JSON.stringify(translationParameters)}`"
-          >
-            <WeekSummaryBadge aria-hidden="true">{{ emoji }}</WeekSummaryBadge>
-            <span class="weekSummaryDialog__message">{{
-              $t(translationKey, translationParameters, Number(translationParameters[0]))
-            }}</span>
-          </template>
-          <span class="flex items-center justify-center">
-            <AchievementBadge
-              as="div"
-              :achievement="lastWeekData.promotedAchievement"
-              :level="AchievementLevel.Gold"
-              :active="true"
-              noLabel
-              data-test-id="promoted-achievement"
-            />
-          </span>
-          <span class="flex items-center">{{
-            $t('weekSummaryDialog.promotedAchievement', [
-              $t(`achievements.${lastWeekData.promotedAchievement}.badgeText`).replace(/\"/g, ''),
-            ])
+      <CategoryStatusChart
+        v-if="lastWeekData.veggies.length"
+        :veggies="lastWeekData.veggies"
+        alternateColorScheme
+        topLabelKey="categoryStatus.topLabelLastWeek"
+        class="shrink-0"
+      />
+      <div class="grid grid-cols-[auto_1fr] gap-2">
+        <template
+          v-for="{emoji, translationKey, translationParameters} in summary"
+          :key="`${translationKey}-${JSON.stringify(translationParameters)}`"
+        >
+          <WeekSummaryBadge aria-hidden="true">{{ emoji }}</WeekSummaryBadge>
+          <span class="weekSummaryDialog__message">{{
+            $t(translationKey, translationParameters, Number(translationParameters[0]))
           }}</span>
-        </div>
+        </template>
+        <span class="flex items-center justify-center">
+          <AchievementBadge
+            as="div"
+            :achievement="lastWeekData.promotedAchievement"
+            :level="AchievementLevel.Gold"
+            :active="true"
+            noLabel
+            data-test-id="promoted-achievement"
+          />
+        </span>
+        <span class="flex items-center">{{
+          $t('weekSummaryDialog.promotedAchievement', [
+            $t(`achievements.${lastWeekData.promotedAchievement}.badgeText`).replace(/\"/g, ''),
+          ])
+        }}</span>
       </div>
     </template>
     <template #buttons>
