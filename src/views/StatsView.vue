@@ -73,6 +73,6 @@ const tabIcons: IconString[] = [
 }
 
 .stats__tab--scrolling {
-  @apply has-scroll overflow-x-hidden m-0 p-0;
+  @apply has-scroll has-scroll--flush overflow-x-hidden;
 }
 </style>

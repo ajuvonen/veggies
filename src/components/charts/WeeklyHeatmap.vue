@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, onMounted, useTemplateRef} from 'vue';
+import {computed, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {groupByProp} from 'remeda';
@@ -114,16 +114,10 @@ const {chartOptions} = useChartOptions<'matrix'>(true, false, false, {
   },
 });
 
-onMounted(() => {
-  if (chartContainer.value) {
-    chartContainer.value.scrollLeft = chartContainer.value.scrollWidth;
-  }
-});
-
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="chartContainer" class="has-scroll m-0 p-0">
+  <div ref="chartContainer" class="has-scroll has-scroll--flush">
     <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
       <HeatmapChart
         id="weekly-heatmap"
