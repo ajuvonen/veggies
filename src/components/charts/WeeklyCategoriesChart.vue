@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, onMounted, useTemplateRef} from 'vue';
+import {computed, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
@@ -77,16 +77,10 @@ const {chartOptions} = useChartOptions<'bar'>(true, true, true, {
   },
 });
 
-onMounted(() => {
-  if (chartContainer.value) {
-    chartContainer.value.scrollLeft = chartContainer.value.scrollWidth;
-  }
-});
-
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="chartContainer" class="has-scroll m-0 p-0">
+  <div ref="chartContainer" class="has-scroll has-scroll--flush">
     <div :style="{width: `max(100%, ${props.weekStarts.length * 60}px)`}" class="relative h-full">
       <Bar
         id="weekly-categories-chart"
