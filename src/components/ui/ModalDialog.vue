@@ -24,7 +24,6 @@ const checkIfModalClick = (event: Event) => {
   <DialogRoot v-model:open="model">
     <DialogPortal>
       <DialogOverlay class="modal-dialog__overlay" />
-
       <DialogContent
         :aria-describedby="undefined"
         class="modal-dialog"
@@ -56,12 +55,12 @@ const checkIfModalClick = (event: Event) => {
 </template>
 <style scoped>
 .modal-dialog__overlay {
-  @apply fixed inset-0 z-20 backdrop-blur-sm;
+  @apply fixed inset-0 z-30 backdrop-blur-sm;
   @apply bg-black/30;
 }
 
 .modal-dialog {
-  @apply fixed z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100%-2rem)] rounded-md p-4 shadow-xl !pointer-events-auto;
+  @apply fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100%-2rem)] rounded-md p-4 shadow-xl !pointer-events-auto;
   @apply flex flex-col gap-4;
   @apply bg-[--color-bg-alternative] text-[--color-text-alternative];
   &[data-state='open'] {

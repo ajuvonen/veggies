@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {type ComponentPublicInstance, ref, useTemplateRef} from 'vue';
-import {useMemoize} from '@vueuse/core';
+import {onClickOutside, useMemoize} from '@vueuse/core';
 import {
   ComboboxRoot,
   ComboboxAnchor,
@@ -32,12 +32,13 @@ withDefaults(
 );
 
 const {t, tm, collator} = useI18nWithCollator();
-
 const {availableVeggies} = useAvailableVeggies();
 
+const listOpen = ref(false);
 const query = ref('');
 const groups = useTemplateRef('groups');
 const searchInput = useTemplateRef<ComponentPublicInstance>('searchInput');
+const anchorElement = useTemplateRef<ComponentPublicInstance>('anchorElement');
 const optionsElement = useTemplateRef('optionsElement');
 
 const translatedVeggies = useMemoize(() =>
@@ -83,12 +84,41 @@ const jumpToCategory = (index: number) => {
 
 const clearQuery = () => {
   query.value = '';
-  searchInput.value?.$el.focus();
+  if (listOpen.value) {
+    searchInput.value?.$el.focus();
+  }
 };
+
+const handleInputBlur = (event: FocusEvent) => {
+  if (
+    event.relatedTarget instanceof Node &&
+    anchorElement.value?.$el?.contains(event.relatedTarget)
+  ) {
+    return;
+  }
+  listOpen.value = false;
+};
+
+onClickOutside(
+  optionsElement,
+  () => {
+    listOpen.value = false;
+  },
+  {
+    ignore: ['.toast-message', '.modal-dialog', anchorElement],
+  },
+);
 </script>
 <template>
-  <ComboboxRoot v-model="model" v-slot="{open}" multiple ignoreFilter openOnClick>
-    <ComboboxAnchor class="relative">
+  <ComboboxRoot
+    v-model="model"
+    :open="listOpen"
+    :resetSearchTermOnBlur="false"
+    :resetSearchTermOnSelect="false"
+    multiple
+    ignoreFilter
+  >
+    <ComboboxAnchor ref="anchorElement" class="relative">
       <ComboboxInput
         v-model="query"
         ref="searchInput"
@@ -102,6 +132,10 @@ const clearQuery = () => {
         autocapitalize="none"
         maxlength="20"
         data-test-id="veggie-search-input"
+        @input="listOpen = true"
+        @focus="listOpen = true"
+        @blur="handleInputBlur"
+        @keydown.escape.stop.prevent="listOpen = false"
       />
       <ButtonComponent
         v-if="query"
@@ -110,14 +144,16 @@ const clearQuery = () => {
         icon="close"
         data-test-id="veggie-search-clear-button"
         @click="clearQuery"
+        @blur="handleInputBlur"
       />
       <ComboboxTrigger asChild>
         <ButtonComponent
-          :class="{'rotate-180': open}"
+          :class="{'rotate-180': listOpen}"
           :variant="['text', 'alternative']"
           class="veggie-search__button right-2 outline-override transition duration-200"
           icon="chevronDown"
           data-test-id="veggie-search-toggle-button"
+          @click="listOpen = !listOpen"
         />
       </ComboboxTrigger>
     </ComboboxAnchor>
