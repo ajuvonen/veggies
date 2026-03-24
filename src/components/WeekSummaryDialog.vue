@@ -116,7 +116,6 @@ defineExpose({
     v-if="lastWeekData"
     v-model="dialogOpen"
     :title="$t('weekSummaryDialog.title', [lastWeekData.weekNumber])"
-    data-test-id="week-summary-dialog"
   >
     <template #content>
       <CategoryStatusChart
