@@ -32,7 +32,7 @@ const {maxHeight} = useScreen(toasts);
 </template>
 <style scoped>
 .toast-container {
-  @apply absolute inset-0 m-0 w-full z-30 pointer-events-none;
+  @apply absolute inset-0 m-0 w-full z-40 pointer-events-none;
   @apply flex-container flex-col-reverse;
 }
 
