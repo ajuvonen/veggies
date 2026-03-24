@@ -128,6 +128,82 @@ describe('VeggieSearch', () => {
     expect(viewport.findByTestId('veggie-search-challenge').isVisible()).toBe(true);
   });
 
+  it('selects from list with mouse', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('tomato');
+    const viewport = wrapper.getComponent(ComboboxViewport);
+    const option = viewport.findByTestId('veggie-search-option-tomato');
+    await option.trigger('click');
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['tomato']]);
+    await wrapper.setProps({modelValue: ['tomato']});
+    await option.trigger('click');
+    expect(wrapper.emitted('update:modelValue')?.[1]).toEqual([[]]);
+  });
+
+  it('selects from list with keyboard', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('grapefruit');
+    await input.trigger('keydown', {key: 'ArrowDown'});
+    await input.trigger('keydown', {key: 'ArrowDown'});
+    await input.trigger('keydown', {key: 'Enter'});
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([['grapefruit']]);
+    await wrapper.setProps({modelValue: ['grapefruit']});
+    await input.trigger('keydown', {key: 'Enter'});
+    expect(wrapper.emitted('update:modelValue')?.[1]).toEqual([[]]);
+  });
+
+  it('closes list on esc key press', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
+    expect(
+      wrapper.getComponent(ComboboxViewport).findByTestId('veggie-search-options').isVisible(),
+    ).toBe(true);
+    await input.trigger('keydown', {key: 'Escape'});
+    expect(wrapper.findComponent(ComboboxViewport).exists()).toBe(false);
+  });
+
+  it('closes list when tabbing out of input', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.trigger('focus');
+    expect(
+      wrapper.getComponent(ComboboxViewport).findByTestId('veggie-search-options').isVisible(),
+    ).toBe(true);
+    await input.trigger('blur');
+    expect(wrapper.findComponent(ComboboxViewport).exists()).toBe(false);
+  });
+
+  it('keeps list open when clear button is clicked', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('tom');
+    const clearButton = wrapper.findByTestId('veggie-search-clear-button');
+    await input.trigger('blur', {relatedTarget: clearButton.element});
+    expect(
+      wrapper.getComponent(ComboboxViewport).findByTestId('veggie-search-options').isVisible(),
+    ).toBe(true);
+    await clearButton.trigger('click');
+    expect(
+      wrapper.getComponent(ComboboxViewport).findByTestId('veggie-search-options').isVisible(),
+    ).toBe(true);
+  });
+
+  it('keeps list open when tabbing to clear button, closes when tabbing past it', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('tom');
+    const clearButton = wrapper.findByTestId('veggie-search-clear-button');
+    await input.trigger('blur', {relatedTarget: clearButton.element});
+    expect(
+      wrapper.getComponent(ComboboxViewport).findByTestId('veggie-search-options').isVisible(),
+    ).toBe(true);
+    await clearButton.trigger('blur');
+    expect(wrapper.findComponent(ComboboxViewport).exists()).toBe(false);
+  });
+
   it('shows placeholder', async () => {
     const wrapper = mounter();
     expect(wrapper.findByTestId('veggie-search-input').attributes('placeholder')).toBe(

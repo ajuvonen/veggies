@@ -29,7 +29,7 @@ test('allergens work', async ({page}) => {
   await page.getByTestId('navbar-settings-link').click();
   await page.getByTestId('veggie-search-toggle-button').click();
   await page.getByTestId('veggie-search-option-apple').click();
-  await page.keyboard.press('Escape');
+  await page.getByTestId('veggie-search-input').press('Escape');
   await expect(page.getByTestId('tag-apple')).toBeVisible();
   await page.getByTestId('navbar-log-link').click();
   await page.getByTestId('veggie-search-toggle-button').click();
