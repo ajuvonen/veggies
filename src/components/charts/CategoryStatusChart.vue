@@ -130,9 +130,9 @@ defineExpose({chartData});
 </template>
 <style scoped>
 .category-status-chart__background {
-  @apply relative overflow-hidden;
-  @apply flex justify-center grow;
-  max-height: min(400px, 50vh);
+  @apply relative overflow-hidden aspect-square;
+  @apply flex justify-center grow-0 self-center;
+  width: min(100%, 400px, 50vh);
 }
 
 .category-status-chart__center-label {
