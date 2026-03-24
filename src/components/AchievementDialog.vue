@@ -29,11 +29,7 @@ watch(achievements, async (newValue, oldValue) => {
 });
 </script>
 <template>
-  <ModalDialog
-    id="achievement-dialog"
-    v-model="dialogOpen"
-    :title="$t('achievements.newAchievements')"
-  >
+  <ModalDialog v-model="dialogOpen" :title="$t('achievements.newAchievements')">
     <template #content>
       <ul class="achievement-container">
         <li v-for="(value, key) in newAchievements" :key="key" class="flex-container flex-col">
