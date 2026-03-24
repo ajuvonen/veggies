@@ -92,7 +92,8 @@ const clearQuery = () => {
 const handleInputBlur = (event: FocusEvent) => {
   if (
     event.relatedTarget instanceof Node &&
-    anchorElement.value?.$el?.contains(event.relatedTarget)
+    (anchorElement.value?.$el?.contains(event.relatedTarget) ||
+      optionsElement.value?.$el?.contains(event.relatedTarget))
   ) {
     return;
   }
