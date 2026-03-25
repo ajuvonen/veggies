@@ -19,8 +19,10 @@ const route = useRoute();
 
 const isDark = usePreferredDark();
 
-useEventListener('touchstart', () => document.body.setAttribute('data-input', 'touch'), {passive: true});
-useEventListener('mousemove', () => document.body.setAttribute('data-input', 'mouse'));
+useEventListener('touchstart', () => document.body.setAttribute('data-input', 'touch'), {
+  passive: true,
+});
+useEventListener('mousedown', () => document.body.setAttribute('data-input', 'mouse'));
 onKeyStroke(true, () => document.body.setAttribute('data-input', 'keyboard'), {dedupe: true});
 
 const {settings} = storeToRefs(useAppStateStore());
