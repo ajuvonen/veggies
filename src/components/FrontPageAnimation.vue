@@ -10,6 +10,8 @@ let emojis = getRandomEmojis(4);
 // emojis = ['🎃', '👻', '🧟', '👽'];
 // Christmas
 // emojis = ['🎅', '☃️', '🤶', '🎄'];
+// Easter
+emojis = ['🐰', '🥚', '🐣', '🌷'];
 </script>
 <template>
   <div class="front-page-animation__container" aria-hidden="true">
