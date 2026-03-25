@@ -4,7 +4,7 @@ import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {RouterView, useRoute} from 'vue-router';
 import {useRegisterSW} from 'virtual:pwa-register/vue';
-import {usePreferredDark} from '@vueuse/core';
+import {onKeyStroke, useEventListener, usePreferredDark} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {LOCALES} from '@/utils/constants';
@@ -18,6 +18,10 @@ const {t, locale, setLocaleMessage} = useI18n();
 const route = useRoute();
 
 const isDark = usePreferredDark();
+
+useEventListener('touchstart', () => document.body.setAttribute('data-input', 'touch'), {passive: true});
+useEventListener('mousemove', () => document.body.setAttribute('data-input', 'mouse'));
+onKeyStroke(true, () => document.body.setAttribute('data-input', 'keyboard'), {dedupe: true});
 
 const {settings} = storeToRefs(useAppStateStore());
 const {allVeggies} = storeToRefs(useActivityStore());
