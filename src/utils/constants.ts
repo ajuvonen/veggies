@@ -21,6 +21,7 @@ export const DEFAULT_SETTINGS = {
   locale: DEFAULT_LOCALE,
   migrationVersion: CURRENT_MIGRATION_VERSION,
   showChartAnimations: true,
+  showVeggieFacts: true,
   startDate: null as DateTime | null,
   suggestionCount: 10,
   summaryViewedDate: null as DateTime | null,

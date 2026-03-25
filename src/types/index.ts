@@ -27,6 +27,7 @@ export type Settings = {
   locale: Locale;
   migrationVersion: number;
   showChartAnimations: boolean;
+  showVeggieFacts: boolean;
   startDate: DateTime | null;
   suggestionCount: number;
   summaryViewedDate: DateTime | null;

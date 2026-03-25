@@ -16,6 +16,7 @@
     "locale": "en",
     "migrationVersion": 4,
     "showChartAnimations": true,
+    "showVeggieFacts": true,
     "startDate": "2025-08-04",
     "suggestionCount": 10,
     "summaryViewedDate": null

@@ -1,6 +1,7 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {createPinia, setActivePinia} from 'pinia';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {DEFAULT_SETTINGS} from '@/utils/constants';
 
 describe('appStateStore', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
@@ -31,13 +32,11 @@ describe('appStateStore', () => {
     appStateStore.settings.allergens = ['peanut'];
     appStateStore.settings.locale = 'fi';
     appStateStore.settings.showChartAnimations = false;
+    appStateStore.settings.showVeggieFacts = false;
     appStateStore.settings.suggestionCount = 20;
     appStateStore.addToastMessage('hello');
     appStateStore.$reset();
-    expect(appStateStore.settings.allergens).toHaveLength(0);
-    expect(appStateStore.settings.showChartAnimations).toBe(true);
-    expect(appStateStore.settings.locale).toBe('en');
-    expect(appStateStore.settings.suggestionCount).toBe(10);
+    expect(appStateStore.settings).toEqual(DEFAULT_SETTINGS);
     expect(appStateStore.messages).toHaveLength(0);
   });
 });

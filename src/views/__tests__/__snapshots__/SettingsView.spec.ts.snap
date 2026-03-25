@@ -16,6 +16,9 @@ exports[`SettingsView > renders 1`] = `
   <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="show-animations-button">Show charts' animations</label><button data-v-5e0b544f="" class="toggle-button" data-test-id="show-animations-button" id="show-animations-button" role="switch" type="button" aria-checked="true" aria-required="false" data-state="checked" value="on"><span data-state="checked" class="toggle-button__thumb"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" class="transition-all"></path></svg></span>
       <!--v-if-->
     </button></div>
+  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="show-veggie-facts-button">Show veggie facts</label><button data-v-5e0b544f="" class="toggle-button" data-test-id="show-veggie-facts-button" id="show-veggie-facts-button" role="switch" type="button" aria-checked="true" aria-required="false" data-state="checked" value="on"><span data-state="checked" class="toggle-button__thumb"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" class="transition-all"></path></svg></span>
+      <!--v-if-->
+    </button></div>
   <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="veggie-search-input">Allergens</label>
     <div dir="ltr">
       <div data-v-487fdf11="" class="relative"><input data-v-487fdf11="" aria-disabled="false" type="text" aria-expanded="false" aria-controls="" aria-autocomplete="list" role="combobox" autocomplete="off" id="veggie-search-input" aria-label="Select allergens" placeholder="Select allergens" class="veggie-search__input" inputmode="search" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="">
