@@ -28,7 +28,9 @@ const activityStore = useActivityStore();
 const {allVeggies, uniqueVeggies, suggestions, currentVeggies, currentChallenge} =
   storeToRefs(activityStore);
 const {toggleVeggie} = activityStore;
-const {addToastMessage} = useAppStateStore();
+const appStateStore = useAppStateStore();
+const {settings} = storeToRefs(appStateStore);
+const {addToastMessage} = appStateStore;
 
 const {availableVeggies} = useAvailableVeggies();
 
@@ -58,7 +60,7 @@ watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
     } else if (allVeggies.value.length % 100 === 0) {
       addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, cheer]));
       showConfetti();
-    } else if (Math.random() <= 0.5) {
+    } else if (settings.value.showVeggieFacts && Math.random() <= 0.5) {
       await ensureFactsLoaded(locale.value as Locale);
 
       const facts = [

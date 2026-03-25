@@ -153,6 +153,10 @@ export const getImportSchema = async () => {
         z.catch(z.boolean(), DEFAULT_SETTINGS.showChartAnimations),
         DEFAULT_SETTINGS.showChartAnimations,
       ),
+      showVeggieFacts: z._default(
+        z.catch(z.boolean(), DEFAULT_SETTINGS.showVeggieFacts),
+        DEFAULT_SETTINGS.showVeggieFacts,
+      ),
       startDate: luxonDateTimeSchema,
       suggestionCount: z._default(
         z.catch(

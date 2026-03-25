@@ -53,6 +53,16 @@ describe('SettingsView', () => {
     expect(toggle.attributes('data-state')).not.toBe('checked');
   });
 
+  it('toggles veggie facts', async () => {
+    const wrapper = mount(SettingsView);
+    expect(appStateStore.settings.showVeggieFacts).toBe(true);
+    const toggle = wrapper.findByTestId('show-veggie-facts-button');
+    expect(toggle.attributes('data-state')).toBe('checked');
+    await toggle.trigger('click');
+    expect(appStateStore.settings.showVeggieFacts).toBe(false);
+    expect(toggle.attributes('data-state')).not.toBe('checked');
+  });
+
   it('prevents animation toggle if all animations are disabled', () => {
     mocks.usePreferredReducedMotion.mockImplementation(() => computed(() => 'reduce'));
     const wrapper = mount(SettingsView);

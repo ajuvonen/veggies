@@ -68,6 +68,18 @@ const removeAllergen = (veggie: string) => {
       </ToggleComponent>
     </ContentElement>
     <ContentElement
+      :title="$t('settings.showVeggieFacts')"
+      :labelAttrs="{for: 'show-veggie-facts-button'}"
+      labelTag="label"
+    >
+      <ToggleComponent
+        id="show-veggie-facts-button"
+        v-model="settings.showVeggieFacts"
+        data-test-id="show-veggie-facts-button"
+      >
+      </ToggleComponent>
+    </ContentElement>
+    <ContentElement
       :title="$t('settings.allergens')"
       :labelAttrs="{for: 'veggie-search-input'}"
       labelTag="label"
