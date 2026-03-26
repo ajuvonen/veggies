@@ -4,8 +4,6 @@ import {storeToRefs} from 'pinia';
 import {TabsContent, TabsList, TabsRoot, TabsTrigger} from 'reka-ui';
 import {useActivityStore} from '@/stores/activityStore';
 import type {IconString} from '@/components/ui/IconComponent.vue';
-import AsyncLoader from '@/components/AsyncLoader.vue';
-import AllTimeStatus from '@/components/AllTimeStatus.vue';
 
 const WeeklyCharts = defineAsyncComponent(() => import('@/components/WeeklyCharts.vue'));
 const WeekEditor = defineAsyncComponent(() => import('@/components/WeekEditor.vue'));

@@ -5,22 +5,12 @@ import resizeObserver from 'resize-observer-polyfill';
 import createI18n from '@/i18n';
 import en from '@/i18n/en.json';
 import router from '@/router';
-import ButtonComponent from '@/components/ui/ButtonComponent.vue';
-import ContentElement from '@/components/ui/ContentElement.vue';
-import IconComponent from '@/components/ui/IconComponent.vue';
-import ModalDialog from '@/components/ui/ModalDialog.vue';
 
 window.HTMLElement.prototype.scrollIntoView = vi.fn();
 window.HTMLElement.prototype.hasPointerCapture = vi.fn();
 vi.stubGlobal('ResizeObserver', resizeObserver);
 
 config.global.plugins = [createI18n(en), router];
-config.global.components = {
-  ButtonComponent,
-  ContentElement,
-  IconComponent,
-  ModalDialog,
-};
 config.global.directives = {
   tippy() {},
 };

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {storeToRefs} from 'pinia';
-import {RadioGroupItem, RadioGroupRoot} from 'reka-ui';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {LOCALES} from '@/utils/constants';
 

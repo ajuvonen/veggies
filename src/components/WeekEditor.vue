@@ -6,10 +6,6 @@ import {KEYS} from '@/utils/constants';
 import {AchievementLevel, type Achievements} from '@/types';
 import {useDateTime} from '@/hooks/dateTime';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
-import TagsComponent from '@/components/TagsComponent.vue';
-import VeggieSearch from '@/components/VeggieSearch.vue';
-import AchievementBadge from '@/components/AchievementBadge.vue';
-import DropdownList from '@/components/ui/DropdownList.vue';
 
 const activityStore = useActivityStore();
 const {getWeekStarts, veggiesForWeek, weeks, weeklyAchievements} = storeToRefs(activityStore);

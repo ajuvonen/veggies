@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import {ComboboxItem, ComboboxItemIndicator} from 'reka-ui';
-
 defineProps<{
   veggie: string;
   translation?: string;

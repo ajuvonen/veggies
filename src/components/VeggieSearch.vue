@@ -1,22 +1,10 @@
 <script setup lang="ts">
 import {type ComponentPublicInstance, ref, useTemplateRef} from 'vue';
 import {onClickOutside, useMemoize} from '@vueuse/core';
-import {
-  ComboboxRoot,
-  ComboboxAnchor,
-  ComboboxInput,
-  ComboboxTrigger,
-  ComboboxPortal,
-  ComboboxContent,
-  ComboboxViewport,
-  ComboboxEmpty,
-} from 'reka-ui';
 import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie, normalizeForSearch} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useI18nWithCollator} from '@/hooks/i18n';
-import VeggieSearchGroup from '@/components/VeggieSearchGroup.vue';
-import VeggieSearchChallenge from '@/components/VeggieSearchChallenge.vue';
 
 const model = defineModel<string[]>({
   required: true,

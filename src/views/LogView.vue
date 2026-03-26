@@ -9,12 +9,6 @@ import {getRandomItem} from '@/utils/helpers';
 import {useFactsLoader} from '@/hooks/factsLoader';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import type {Locale} from '@/types';
-import VeggieSearch from '@/components/VeggieSearch.vue';
-import TagsComponent from '@/components/TagsComponent.vue';
-import FooterComponent from '@/components/FooterComponent.vue';
-import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
-import FrontPageAnimation from '@/components/FrontPageAnimation.vue';
-import AsyncLoader from '@/components/AsyncLoader.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),

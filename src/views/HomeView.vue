@@ -6,7 +6,6 @@ import {DateTime} from 'luxon';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
 import type {Locale} from '@/types';
-import FooterComponent from '@/components/FooterComponent.vue';
 
 const router = useRouter();
 

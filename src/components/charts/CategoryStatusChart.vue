@@ -2,7 +2,6 @@
 import {computed, useTemplateRef} from 'vue';
 import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
-import {Doughnut} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy, entries, pipe, prop, sortBy} from 'remeda';
 import {Category, type Favorites} from '@/types';
@@ -11,7 +10,6 @@ import {COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useI18nWithCollator} from '@/hooks/i18n';
 import {useChartOptions} from '@/hooks/chartOptions';
-import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(ArcElement, Tooltip, ChartDataLabels);

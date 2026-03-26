@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {AchievementLevel, type Achievements} from '@/types';
-import AchievementBadge from '@/components/AchievementBadge.vue';
 
 defineProps<{
   achievement: keyof Achievements;

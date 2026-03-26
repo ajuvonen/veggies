@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import {SwitchRoot, SwitchThumb} from 'reka-ui';
-
 const model = defineModel<boolean>({required: true});
 withDefaults(
   defineProps<{

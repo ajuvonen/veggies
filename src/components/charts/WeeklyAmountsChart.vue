@@ -9,7 +9,6 @@ import {
   LineElement,
   Tooltip,
 } from 'chart.js';
-import {Line} from 'vue-chartjs';
 import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean} from 'remeda';
 import type {DateTime} from 'luxon';
@@ -18,7 +17,6 @@ import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
 import {COLORS} from '@/utils/constants';
-import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);

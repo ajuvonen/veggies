@@ -3,7 +3,6 @@ import {useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useScreen} from '@/hooks/screen';
-import ToastMessage from '@/components/ToastMessage.vue';
 
 const appStateStore = useAppStateStore();
 const {messages} = storeToRefs(appStateStore);

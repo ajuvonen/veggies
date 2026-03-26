@@ -4,7 +4,6 @@ import {storeToRefs} from 'pinia';
 import {omitBy} from 'remeda';
 import {AchievementLevel, type Achievements} from '@/types';
 import {useActivityStore} from '@/stores/activityStore';
-import AchievementBadge from '@/components/AchievementBadge.vue';
 
 const {achievements} = storeToRefs(useActivityStore());
 
