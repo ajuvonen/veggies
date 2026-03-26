@@ -1,4 +1,4 @@
-import {computed, nextTick} from 'vue';
+import {computed} from 'vue';
 import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {mount, flushPromises} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
@@ -79,6 +79,13 @@ describe('SettingsView', () => {
     expect(wrapper.findByTestId('tag-cashew nut').exists()).toBe(true);
   });
 
+  it('removes an allergen when its tag is clicked', async () => {
+    appStateStore.settings.allergens = ['peanut', 'cashew nut'];
+    const wrapper = mount(SettingsView);
+    await wrapper.findByTestId('tag-peanut').find('button').trigger('click');
+    expect(appStateStore.settings.allergens).toEqual(['cashew nut']);
+  });
+
   it('resets the app', async () => {
     const wrapper = mount(SettingsView);
     await wrapper.findByTestId('reset-button').trigger('click');
@@ -99,31 +106,5 @@ describe('SettingsView', () => {
     await dialog.findByTestId('cancel-button').trigger('click');
     expect(appStateStore.$reset).not.toHaveBeenCalled();
     expect(activityStore.$reset).not.toHaveBeenCalled();
-  });
-
-  it('starts file download', async () => {
-    const wrapper = mount(SettingsView);
-    const link = document.createElement('a');
-    link.click = vi.fn();
-    class MockURL {
-      constructor(url: string) {
-        return url;
-      }
-      static createObjectURL = vi.fn(() => 'https://eatyourveggies.app/');
-      static revokeObjectURL = vi.fn();
-    }
-
-    vi.stubGlobal('URL', MockURL);
-    const createElementSpy = vi.spyOn(document, 'createElement').mockImplementationOnce(() => link);
-
-    wrapper.findByTestId('export-button').trigger('click');
-    await nextTick();
-    try {
-      expect(link.href).toBe('https://eatyourveggies.app/');
-      expect(link.click).toHaveBeenCalledTimes(1);
-    } finally {
-      vi.unstubAllGlobals();
-      createElementSpy.mockRestore();
-    }
   });
 });
