@@ -1,17 +1,4 @@
 <script setup lang="ts" generic="T extends string | number | object | null">
-import {
-  SelectContent,
-  SelectIcon,
-  SelectItem,
-  SelectItemIndicator,
-  SelectItemText,
-  SelectPortal,
-  SelectRoot,
-  SelectTrigger,
-  SelectValue,
-  SelectViewport,
-} from 'reka-ui';
-
 withDefaults(
   defineProps<{
     options: T[];
@@ -29,11 +16,7 @@ const model = defineModel<T>({required: true});
 </script>
 
 <template>
-  <ContentElement
-    :title="label"
-    :labelAttrs="{for: `${prefix}-button`} as Record<string, string>"
-    labelTag="label"
-  >
+  <ContentElement :title="label" :labelAttrs="{for: `${prefix}-button`}" labelTag="label">
     <SelectRoot v-model="model" v-slot="{open}" :data-test-id="prefix">
       <SelectTrigger :id="`${prefix}-button`" asChild>
         <ButtonComponent :data-test-id="`${prefix}-button`" class="justify-between">

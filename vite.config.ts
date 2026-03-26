@@ -3,6 +3,8 @@ import {defineConfig} from 'vite';
 import {VitePWA} from 'vite-plugin-pwa';
 import vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
+import Components from 'unplugin-vue-components/vite';
+import RekaResolver from 'reka-ui/resolver';
 
 // Plugin to intercept zod locales index.js and only load English
 function zodLocalesPlugin() {
@@ -24,6 +26,22 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    Components({
+      dts: 'src/types/components.d.ts',
+      resolvers: [
+        RekaResolver(),
+        (name) => {
+          const vueChartjs = ['Bar', 'Doughnut', 'Line', 'PolarArea'];
+          if (vueChartjs.includes(name)) return {name, from: 'vue-chartjs'};
+        },
+      ],
+      types: [
+        {
+          from: 'vue-router',
+          names: ['RouterLink', 'RouterView'],
+        },
+      ],
+    }),
     vueDevTools(),
     zodLocalesPlugin(),
     VitePWA({

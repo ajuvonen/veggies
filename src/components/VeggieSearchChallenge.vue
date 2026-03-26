@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import {inject} from 'vue';
-import {ComboboxGroup, ComboboxLabel} from 'reka-ui';
-import VeggieSearchOption from '@/components/VeggieSearchOption.vue';
 import {KEYS} from '@/utils/constants';
 
 const challenge = inject(KEYS.challenge, undefined);

@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import {ComboboxGroup, ComboboxLabel} from 'reka-ui';
 import type {Category, TranslatedListing} from '@/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
-import VeggieSearchOption from '@/components/VeggieSearchOption.vue';
 
 defineEmits(['previous', 'next']);
 defineProps<{

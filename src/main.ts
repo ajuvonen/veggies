@@ -7,10 +7,6 @@ import createI18n from '@/i18n';
 import {CURRENT_MIGRATION_VERSION, MINIMUM_MIGRATION_VERSION} from '@/utils/constants';
 import {dateParser} from '@/utils/helpers';
 import {runMigrations} from '@/utils/migrations';
-import ButtonComponent from '@/components/ui/ButtonComponent.vue';
-import ContentElement from '@/components/ui/ContentElement.vue';
-import IconComponent from '@/components/ui/IconComponent.vue';
-import ModalDialog from '@/components/ui/ModalDialog.vue';
 
 import '@fontsource/bungee-shade/latin-400.css';
 import '@fontsource/nunito/latin-400.css';
@@ -39,8 +35,4 @@ app
       hideOnClick: true,
     },
   })
-  .component('ButtonComponent', ButtonComponent)
-  .component('ContentElement', ContentElement)
-  .component('IconComponent', IconComponent)
-  .component('ModalDialog', ModalDialog)
   .mount('#app');

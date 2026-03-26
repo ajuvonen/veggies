@@ -1,11 +1,4 @@
 <script lang="ts" setup>
-import {
-  AccordionContent,
-  AccordionRoot,
-  AccordionItem,
-  AccordionHeader,
-  AccordionTrigger,
-} from 'reka-ui';
 import {BLUESKY_URL, PLAY_STORE_URL} from '@/utils/constants';
 
 const questionKeysAndLinks = {

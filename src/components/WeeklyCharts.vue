@@ -1,11 +1,8 @@
 <script lang="ts" setup>
 import {computed, defineAsyncComponent, ref} from 'vue';
 import {storeToRefs} from 'pinia';
-import {RadioGroupItem, RadioGroupRoot} from 'reka-ui';
 import {useActivityStore} from '@/stores/activityStore';
 import {useDateTime} from '@/hooks/dateTime';
-import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
-import AsyncLoader from '@/components/AsyncLoader.vue';
 
 const WeeklyCategoriesChart = defineAsyncComponent(
   () => import('@/components/charts/WeeklyCategoriesChart.vue'),

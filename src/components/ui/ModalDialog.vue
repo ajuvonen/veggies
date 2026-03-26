@@ -1,13 +1,4 @@
 <script setup lang="ts">
-import {
-  DialogClose,
-  DialogContent,
-  DialogOverlay,
-  DialogPortal,
-  DialogRoot,
-  DialogTitle,
-} from 'reka-ui';
-
 const model = defineModel<boolean>({required: true});
 defineProps<{
   title: string;

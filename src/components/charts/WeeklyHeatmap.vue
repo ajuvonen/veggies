@@ -3,7 +3,7 @@ import {computed, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {groupByProp} from 'remeda';
-import {Chart as ChartJS, Tooltip, type ScaleOptions, type ScriptableContext} from 'chart.js';
+import {type ScaleOptions, type ScriptableContext} from 'chart.js';
 import type {MatrixDataPoint} from 'chartjs-chart-matrix';
 import type {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
@@ -11,13 +11,8 @@ import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
 import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
-import {Category} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
-import {HeatmapChart} from '@/components/charts/HeatmapChart';
-import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
-
-ChartJS.defaults.font.family = 'Nunito';
-ChartJS.register(Tooltip);
+import {Category} from '@/types';
 
 const props = defineProps<{
   labels: string[];

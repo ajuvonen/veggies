@@ -2,8 +2,6 @@
 import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
-import StatContainer from '@/components/StatContainer.vue';
-import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 
 const {
   over30Veggies,

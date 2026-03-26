@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {computed} from 'vue';
-import {RouterLink, useRoute} from 'vue-router';
+import {useRoute} from 'vue-router';
 import {useI18n} from 'vue-i18n';
-import HomeLocaleChanger from '@/components/HomeLocaleChanger.vue';
+
 defineProps<{
   showStats: boolean;
 }>();

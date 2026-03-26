@@ -2,7 +2,6 @@
 import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, Tooltip, RadialLinearScale, ArcElement} from 'chart.js';
-import {PolarArea} from 'vue-chartjs';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy} from 'remeda';
 import {Category} from '@/types';
@@ -10,7 +9,6 @@ import {CATEGORY_EMOJI} from '@/utils/constants';
 import {COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
-import ChartScreenReaderTable from '@/components/ChartScreenReaderTable.vue';
 import {useChartOptions} from '@/hooks/chartOptions';
 
 ChartJS.defaults.font.family = 'Nunito';

@@ -4,7 +4,6 @@ import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useI18nWithCollator} from '@/hooks/i18n';
-import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue';
 
 defineProps<{
   uniqueVeggies: string[];

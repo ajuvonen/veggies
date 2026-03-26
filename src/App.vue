@@ -2,13 +2,12 @@
 import {defineAsyncComponent, watch, watchEffect} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
-import {RouterView, useRoute} from 'vue-router';
+import {useRoute} from 'vue-router';
 import {useRegisterSW} from 'virtual:pwa-register/vue';
 import {onKeyStroke, useEventListener, usePreferredDark} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {LOCALES} from '@/utils/constants';
-import NavBar from '@/components/NavBar.vue';
 
 const ToastContainer = defineAsyncComponent(() => import('@/components/ToastContainer.vue'));
 const AchievementDialog = defineAsyncComponent(() => import('@/components/AchievementDialog.vue'));
