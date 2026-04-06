@@ -11,7 +11,6 @@ import {
 } from 'chart.js';
 import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean} from 'remeda';
-import type {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
@@ -23,7 +22,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 
 const props = defineProps<{
   labels: string[];
-  weekStarts: DateTime[];
+  weekStarts: Temporal.PlainDate[];
 }>();
 
 const {veggiesForWeek} = storeToRefs(useActivityStore());

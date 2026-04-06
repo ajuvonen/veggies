@@ -5,7 +5,6 @@ import {useI18n} from 'vue-i18n';
 import {groupByProp} from 'remeda';
 import {type ScaleOptions, type ScriptableContext} from 'chart.js';
 import type {MatrixDataPoint} from 'chartjs-chart-matrix';
-import type {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
@@ -16,7 +15,7 @@ import {Category} from '@/types';
 
 const props = defineProps<{
   labels: string[];
-  weekStarts: DateTime[];
+  weekStarts: Temporal.PlainDate[];
 }>();
 
 const {t} = useI18n();

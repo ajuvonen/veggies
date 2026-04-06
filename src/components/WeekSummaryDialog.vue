@@ -7,7 +7,7 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import {useWeekSummary} from '@/hooks/weekSummary';
 import {useShare} from '@/hooks/share';
 import {AchievementLevel, Category, type Achievements, type WeekData} from '@/types';
-import {getCategoryForVeggie, getRandomItem} from '@/utils/helpers';
+import {areDatesEqual, getCategoryForVeggie, getRandomItem} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 
 const CategoryStatusChart = defineAsyncComponent(
@@ -24,9 +24,9 @@ const {shareSupported, shareOrCopy} = useShare();
 const dialogOpen = computed({
   get: () =>
     !!settings.value.startDate &&
-    !currentWeekStart.value.equals(settings.value.startDate) &&
+    !areDatesEqual(currentWeekStart.value, settings.value.startDate) &&
     (!settings.value.summaryViewedDate ||
-      settings.value.summaryViewedDate < currentWeekStart.value),
+      Temporal.PlainDate.compare(settings.value.summaryViewedDate, currentWeekStart.value) < 0),
   set: (value) => {
     if (!value) {
       settings.value.summaryViewedDate = currentWeekStart.value;
@@ -49,15 +49,15 @@ watch(
   dialogOpen,
   (shouldShow) => {
     if (shouldShow) {
-      const lastWeekStart = currentWeekStart.value.minus({weeks: 1});
+      const lastWeekStart = currentWeekStart.value.subtract({weeks: 1});
       const lastWeekChallenge = weeks.value.find((week) =>
-        week.startDate.equals(lastWeekStart),
+        areDatesEqual(week.startDate, lastWeekStart),
       )?.challenge;
 
       const pastVeggies = Array.from(
         {length: Math.min(5, weeks.value.length)},
         (_, weekIndex) =>
-          veggiesForWeek.value(currentWeekStart.value.minus({weeks: weekIndex + 1})).length,
+          veggiesForWeek.value(currentWeekStart.value.subtract({weeks: weekIndex + 1})).length,
       );
 
       const lastWeekVeggies = veggiesForWeek.value(lastWeekStart);
@@ -74,10 +74,10 @@ watch(
         firstWeek: weeks.value.length === 1,
         hotStreak: hotStreak.value,
         mean: Math.round(mean(pastVeggies) as number),
-        previousWeekCount: veggiesForWeek.value(currentWeekStart.value.minus({weeks: 2})).length,
+        previousWeekCount: veggiesForWeek.value(currentWeekStart.value.subtract({weeks: 2})).length,
         promotedAchievement: getRandomItem(weeklyAchievements)!,
         veggies: lastWeekVeggies,
-        weekNumber: lastWeekStart.toFormat('W'),
+        weekNumber: String(lastWeekStart.weekOfYear),
       };
     } else {
       lastWeekData.value = null;

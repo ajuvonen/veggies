@@ -3,6 +3,7 @@ import {computed, provide, readonly, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
+import {areDatesEqual} from '@/utils/helpers';
 import {AchievementLevel, type Achievements} from '@/types';
 import {useDateTime} from '@/hooks/dateTime';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
@@ -21,7 +22,8 @@ const veggies = computed({
 const {formatWeekString} = useDateTime();
 
 const selectedChallenge = computed(
-  () => weeks.value.find((week) => week.startDate.equals(selectedWeekStart.value))?.challenge,
+  () =>
+    weeks.value.find((week) => areDatesEqual(week.startDate, selectedWeekStart.value))?.challenge,
 );
 
 const {weeklyCompletion} = useAchievementCompletion(veggies, selectedChallenge);
@@ -33,11 +35,15 @@ provide(KEYS.challenge, readonly(selectedChallenge));
     v-model="selectedWeekStart"
     :options="getWeekStarts"
     :label="$t('stats.editWeek')"
-    :keyFn="(date) => date.toISODate()"
+    :keyFn="(date) => date.toString()"
+    :by="areDatesEqual"
     prefix="week-editor"
   >
     <template #option="{item: date}">
-      <time :datetime="date.toFormat(`yyyy-'W'WW`)" class="truncate">
+      <time
+        :datetime="`${date.yearOfWeek}-W${String(date.weekOfYear).padStart(2, '0')}`"
+        class="truncate"
+      >
         {{ formatWeekString(date) }}
       </time>
     </template>

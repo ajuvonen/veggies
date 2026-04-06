@@ -1,10 +1,10 @@
 import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {mount, flushPromises} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
-import ExportImport from '@/components/ExportImport.vue';
 import {CURRENT_MIGRATION_VERSION} from '@/utils/constants';
+import {getWeekStart} from '@/utils/helpers';
+import ExportImport from '@/components/ExportImport.vue';
 
 // Captures the onChange callback registered during component setup
 const fileDialog = {
@@ -37,7 +37,7 @@ const triggerImport = (data: object) => {
   return fileDialog.onChange!([file] as unknown as FileList);
 };
 
-const startDateIso = DateTime.now().startOf('week').toISODate()!;
+const startDateIso = getWeekStart().toString();
 
 const validV4Data = {
   weeks: [{startDate: startDateIso, veggies: ['apple', 'carrot'], challenge: 'broccoli'}],
@@ -101,7 +101,7 @@ describe('ExportImport', () => {
       await flushPromises();
 
       // v3→v4 migration moves startDate into settings
-      expect(appStateStore.settings.startDate).toBeInstanceOf(DateTime);
+      expect(appStateStore.settings.startDate).toBeInstanceOf(Temporal.PlainDate);
       expect(appStateStore.settings.showChartAnimations).toBe(false);
       expect(appStateStore.settings.suggestionCount).toBe(5);
       expect(mocks.push).toHaveBeenCalledWith({name: 'log'});

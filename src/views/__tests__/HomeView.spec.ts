@@ -1,7 +1,7 @@
 import {describe, it, expect, vi, afterEach, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {DialogContent} from 'reka-ui';
+import {areDatesEqual, getWeekStart} from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {CURRENT_MIGRATION_VERSION} from '@/utils/constants';
 import HomeView from '@/views/HomeView.vue';
@@ -50,13 +50,15 @@ describe('HomeView', () => {
   });
 
   it('sets startDate and migrationVersion when user starts', async () => {
+    const thisWeek = getWeekStart();
     const wrapper = mount(HomeView);
 
     expect(appStateStore.settings.startDate).toBeNull();
 
     await wrapper.findByTestId('home-start-button').trigger('click');
 
-    expect(appStateStore.settings.startDate?.equals(DateTime.now().startOf('week'))).toBe(true);
+    expect(appStateStore.settings.startDate).toBeInstanceOf(Temporal.PlainDate);
+    expect(areDatesEqual(appStateStore.settings.startDate!, thisWeek)).toBe(true);
     expect(appStateStore.settings.migrationVersion).toBe(CURRENT_MIGRATION_VERSION);
   });
 });

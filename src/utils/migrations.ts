@@ -1,12 +1,11 @@
 import {
+  areDatesEqual,
   dateParser,
-  dateReplacer,
   getStorageKeys,
   getRandomItem,
   getImportSchema,
 } from '@/utils/helpers';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
-import {DateTime} from 'luxon';
 import type {Week, Settings} from '@/types';
 
 function sanitizeStorageData(data: StorageData): StorageData {
@@ -50,7 +49,7 @@ const migrations: Migration[] = [
     migrate: (data) => {
       const weeks = Array.isArray(data.weeks) ? (data.weeks as Week[]) : [];
       const challenges = Array.isArray(data.challenges)
-        ? (data.challenges as {startDate: DateTime; veggie: string}[])
+        ? (data.challenges as {startDate: Temporal.PlainDate; veggie: string}[])
         : [];
       const settings = data.settings as Settings;
       const allergens = Array.isArray(settings.allergens) ? settings.allergens : [];
@@ -71,7 +70,7 @@ const migrations: Migration[] = [
 
           // Find matching challenge by date
           const matchingChallenge = challenges.find(({startDate}) =>
-            startDate.equals(week.startDate),
+            areDatesEqual(startDate, week.startDate),
           );
 
           return {
@@ -175,7 +174,7 @@ export function readStorageData(): StorageData {
     } catch {
       // JSON.parse failed - handle plain strings and plain ISO date strings
       if (value && value.match(/^\d{4}-\d{2}-\d{2}(T.*)?$/)) {
-        data[unprefixedKey] = DateTime.fromISO(value.split('T')[0]!);
+        data[unprefixedKey] = Temporal.PlainDate.from(value.split('T')[0]!);
       } else {
         data[unprefixedKey] = value;
       }
@@ -205,17 +204,7 @@ export function writeStorageData(data: StorageData, toVersion: number): void {
 
   for (const [key, value] of Object.entries(dataToWrite)) {
     const prefixedKey = `veggies-${key}`;
-
-    let serialized: string;
-    if (typeof value === 'string') {
-      serialized = value;
-    } else if (value instanceof DateTime) {
-      serialized = value.toISODate()!;
-    } else {
-      serialized = JSON.stringify(value, dateReplacer);
-    }
-
-    localStorage.setItem(prefixedKey, serialized);
+    localStorage.setItem(prefixedKey, JSON.stringify(value));
     writtenKeys.add(prefixedKey);
   }
 

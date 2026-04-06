@@ -1,14 +1,14 @@
 import {describe, it, expect} from 'vitest';
-import {DateTime} from 'luxon';
 import {DEFAULT_SETTINGS} from '@/utils/constants';
 import {applyMigrations} from '@/utils/migrations';
+import {getWeekStart} from '@/utils/helpers';
 import type {Week} from '@/types';
 
-const thisWeek = DateTime.now().startOf('week');
-const lastWeek = thisWeek.minus({weeks: 1});
-const twoWeeksAgo = thisWeek.minus({weeks: 2});
-
 describe('migration v2', () => {
+  const thisWeek = getWeekStart();
+  const lastWeek = thisWeek.subtract({weeks: 1});
+  const twoWeeksAgo = thisWeek.subtract({weeks: 2});
+
   it('migrates sequential weeks with matching challenges', () => {
     const data = {
       settings: {...DEFAULT_SETTINGS, migrationVersion: 1},

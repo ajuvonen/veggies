@@ -1,17 +1,15 @@
 import {useMemoize} from '@vueuse/core';
-import {DateTime} from 'luxon';
 import {sample} from 'remeda';
-import {
-  BEANS,
-  FRUITS,
-  GRAINS,
-  LEAFIES,
-  MUSHROOMS,
-  ROOTS,
-  VEGETABLES,
-} from '@/utils/veggieDetails';
+import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {CURRENT_MIGRATION_VERSION, DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
 import {AchievementLevel, Category} from '@/types';
+
+export const areDatesEqual = (a: Temporal.PlainDate, b: Temporal.PlainDate) =>
+  Temporal.PlainDate.compare(a, b) === 0;
+
+export const getWeekStart = (
+  date: Temporal.PlainDate = Temporal.Now.plainDateISO(),
+): Temporal.PlainDate => date.subtract({days: date.dayOfWeek - 1});
 
 export const getCategoryForVeggie = useMemoize((veggie: string) => {
   if (FRUITS.has(veggie)) {
@@ -41,15 +39,7 @@ export const setIntersection = <T>(set: ReadonlySet<T>, collection: Iterable<T>)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const dateParser = (key: string, value: any) => {
   if (key.endsWith('Date') && value) {
-    return DateTime.fromISO(value.split('T')[0]);
-  }
-  return value;
-};
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const dateReplacer = (key: string, value: any) => {
-  if (key.endsWith('Date') && value) {
-    return value.split('T')[0];
+    return Temporal.PlainDate.from(value);
   }
   return value;
 };
@@ -124,15 +114,15 @@ export const getStorageKeys = (): string[] => {
 export const getImportSchema = async () => {
   const z = await import('zod/mini');
   z.config(z.locales.en());
-  const luxonDateTimeSchema = z.custom<DateTime<true>>(
-    (val) => val instanceof DateTime && val.isValid,
-    'Invalid DateTime instance',
+  const plainDateSchema = z.custom<Temporal.PlainDate>(
+    (val) => val instanceof Temporal.PlainDate,
+    'Invalid Temporal.PlainDate instance',
   );
   return z.object({
     weeks: z._default(
       z.array(
         z.object({
-          startDate: luxonDateTimeSchema,
+          startDate: plainDateSchema,
           veggies: z.array(z.string()),
           challenge: z.string(),
         }),
@@ -157,7 +147,7 @@ export const getImportSchema = async () => {
         z.catch(z.boolean(), DEFAULT_SETTINGS.showVeggieFacts),
         DEFAULT_SETTINGS.showVeggieFacts,
       ),
-      startDate: luxonDateTimeSchema,
+      startDate: plainDateSchema,
       suggestionCount: z._default(
         z.catch(
           z.number().check(z.refine((val) => [0, 5, 10, 15, 20].includes(val))),
@@ -166,7 +156,7 @@ export const getImportSchema = async () => {
         DEFAULT_SETTINGS.suggestionCount,
       ),
       summaryViewedDate: z._default(
-        z.nullable(luxonDateTimeSchema),
+        z.nullable(plainDateSchema),
         DEFAULT_SETTINGS.summaryViewedDate,
       ),
     }),

@@ -1,9 +1,7 @@
 import {describe, it, expect} from 'vitest';
-import {DateTime} from 'luxon';
 import {applyMigrations} from '@/utils/migrations';
+import {getWeekStart} from '@/utils/helpers';
 import type {Week} from '@/types';
-
-const thisWeek = DateTime.now().startOf('week');
 
 // v3 settings structure (before startDate was moved into settings)
 const settingsV3 = {
@@ -16,6 +14,8 @@ const settingsV3 = {
 };
 
 describe('migration v4: move startDate to settings', () => {
+  const thisWeek = getWeekStart();
+
   it('moves startDate from root to settings', () => {
     const data = {
       settings: {...settingsV3},

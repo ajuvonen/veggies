@@ -1,9 +1,9 @@
 import {computed} from 'vue';
 import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {enableAutoUnmount, mount, flushPromises} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {getWeekStart} from '@/utils/helpers';
 import LogView from '@/views/LogView.vue';
 
 const mocks = vi.hoisted(() => ({
@@ -25,8 +25,8 @@ const mounter = (options = {}) => {
 };
 
 describe('LogView', () => {
-  const thisWeek = DateTime.now().startOf('week');
-  const lastWeek = thisWeek.minus({weeks: 1});
+  const thisWeek = getWeekStart();
+  const lastWeek = thisWeek.subtract({weeks: 1});
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
@@ -159,11 +159,13 @@ describe('LogView', () => {
     try {
       expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
 
-      vi.setSystemTime(thisWeek.plus({days: 1}).toJSDate());
+      const nextDay = thisWeek.add({days: 1});
+      vi.setSystemTime(nextDay.toZonedDateTime(Temporal.Now.timeZoneId()).epochMilliseconds);
       await new Promise((resolve) => setTimeout(resolve, 2000));
       expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
 
-      vi.setSystemTime(thisWeek.plus({weeks: 1}).toJSDate());
+      const nextWeek = thisWeek.add({weeks: 1});
+      vi.setSystemTime(nextWeek.toZonedDateTime(Temporal.Now.timeZoneId()).epochMilliseconds);
       await new Promise((resolve) => setTimeout(resolve, 2000));
       expect(wrapper.findByTestId('front-page-animation').exists()).toBe(true);
     } finally {

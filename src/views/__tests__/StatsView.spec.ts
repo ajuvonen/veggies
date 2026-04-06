@@ -1,11 +1,12 @@
 import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {getWeekStart} from '@/utils/helpers';
 import StatsView from '@/views/StatsView.vue';
 
 describe('StatsView', () => {
+  const thisWeek = getWeekStart();
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
@@ -15,10 +16,10 @@ describe('StatsView', () => {
   });
 
   it('renders all time statistics by default', () => {
-    appStateStore.settings.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
-        startDate: DateTime.now().startOf('week'),
+        startDate: thisWeek,
         veggies: ['apple', 'raspberry', 'chickpea'],
         challenge: 'cucumber',
       },
@@ -28,10 +29,10 @@ describe('StatsView', () => {
   });
 
   it('shows weekly statistics', async () => {
-    appStateStore.settings.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
-        startDate: DateTime.now().startOf('week'),
+        startDate: thisWeek,
         veggies: ['apple', 'raspberry', 'chickpea'],
         challenge: 'cucumber',
       },
@@ -53,10 +54,10 @@ describe('StatsView', () => {
   });
 
   it('renders week editor', async () => {
-    appStateStore.settings.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
-        startDate: DateTime.now().startOf('week'),
+        startDate: thisWeek,
         veggies: ['apple', 'raspberry', 'chickpea'],
         challenge: 'cucumber',
       },
@@ -69,10 +70,10 @@ describe('StatsView', () => {
   });
 
   it('renders veggie list', async () => {
-    appStateStore.settings.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
-        startDate: DateTime.now().startOf('week'),
+        startDate: thisWeek,
         veggies: ['apple', 'raspberry', 'chickpea'],
         challenge: 'cucumber',
       },
@@ -86,10 +87,10 @@ describe('StatsView', () => {
   });
 
   it('renders achievements', async () => {
-    appStateStore.settings.startDate = DateTime.now().startOf('week');
+    appStateStore.settings.startDate = thisWeek;
     activityStore.weeks = [
       {
-        startDate: DateTime.now().startOf('week'),
+        startDate: thisWeek,
         veggies: ['apple', 'raspberry', 'chickpea'],
         challenge: 'cucumber',
       },

@@ -1,11 +1,11 @@
 import {describe, it, expect} from 'vitest';
-import {DateTime} from 'luxon';
 import {DEFAULT_SETTINGS} from '@/utils/constants';
 import {applyMigrations} from '@/utils/migrations';
-
-const thisWeek = DateTime.now().startOf('week');
+import {getWeekStart} from '@/utils/helpers';
 
 describe('migration v3: rename start-date key', () => {
+  const thisWeek = getWeekStart();
+
   it('renames veggies-start-date to veggies-startDate', () => {
     const data = {
       settings: {...DEFAULT_SETTINGS, migrationVersion: 2},

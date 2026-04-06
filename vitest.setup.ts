@@ -1,3 +1,5 @@
+import 'temporal-polyfill-lite/global';
+import 'temporal-polyfill-lite/types/global';
 import {beforeEach, vi} from 'vitest';
 import {config, mount} from '@vue/test-utils';
 import {createTestingPinia} from '@pinia/testing';

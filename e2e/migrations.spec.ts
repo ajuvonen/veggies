@@ -1,8 +1,8 @@
-import {test, expect} from '@playwright/test';
-import {DateTime} from 'luxon';
+import {test, expect} from './fixtures';
 
-const thisWeek = DateTime.now().startOf('week');
-const lastWeek = thisWeek.minus({weeks: 1});
+const today = Temporal.Now.plainDateISO();
+const thisWeek = today.subtract({days: today.dayOfWeek - 1});
+const lastWeek = thisWeek.subtract({weeks: 1});
 
 test('Migrations work', async ({browser}) => {
   const browserContext = await browser.newContext({
@@ -14,7 +14,7 @@ test('Migrations work', async ({browser}) => {
           localStorage: [
             {
               name: 'veggies-start-date',
-              value: lastWeek.toISODate(),
+              value: lastWeek.toString(),
             },
             {
               name: 'veggies-settings',
@@ -24,7 +24,7 @@ test('Migrations work', async ({browser}) => {
                 // No migration version, defaults to 1
                 showChartAnimations: true,
                 suggestionCount: 10,
-                summaryViewedDate: thisWeek.toISODate(),
+                summaryViewedDate: thisWeek,
               }),
             },
             {
@@ -32,11 +32,11 @@ test('Migrations work', async ({browser}) => {
               value: JSON.stringify([
                 {
                   veggies: ['apple', 'carrot', 'spinach', 'banana'],
-                  startDate: lastWeek.toISODate(),
+                  startDate: lastWeek,
                 },
                 {
                   veggies: ['arugula', 'black bean', 'chanterelle', 'iceberg lettuce'],
-                  startDate: thisWeek.toISODate(),
+                  startDate: thisWeek,
                 },
               ]),
             },
@@ -44,11 +44,11 @@ test('Migrations work', async ({browser}) => {
               name: 'veggies-challenges',
               value: JSON.stringify([
                 {
-                  startDate: lastWeek.toISODate(),
+                  startDate: lastWeek,
                   veggie: 'apple',
                 },
                 {
-                  startDate: thisWeek.toISODate(),
+                  startDate: thisWeek,
                   veggie: 'lychee',
                 },
               ]),

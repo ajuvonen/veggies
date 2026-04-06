@@ -4,7 +4,6 @@ import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import type {DateTime} from 'luxon';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
@@ -18,7 +17,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabel
 
 const props = defineProps<{
   labels: string[];
-  weekStarts: DateTime[];
+  weekStarts: Temporal.PlainDate[];
 }>();
 
 const {t} = useI18n();

@@ -1,5 +1,4 @@
-import {test, expect} from '@playwright/test';
-import {DateTime} from 'luxon';
+import {test, expect} from './fixtures';
 
 // See here how to get started:
 // https://playwright.dev/docs/intro
@@ -103,8 +102,8 @@ test('weekly achievement works', async ({page}) => {
 });
 
 test('shows week summary dialog for previous week data', async ({browser}) => {
-  const previousWeekStart = DateTime.now().startOf('week').minus({weeks: 1});
-  const previousWeekStartISO = previousWeekStart.toISODate();
+  const today = Temporal.Now.plainDateISO();
+  const previousWeekStart = today.subtract({days: today.dayOfWeek - 1}).subtract({weeks: 1});
 
   const browserContext = await browser.newContext({
     storageState: {
@@ -119,7 +118,7 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
                 allergens: [],
                 locale: 'en',
                 showChartAnimations: true,
-                startDate: previousWeekStartISO,
+                startDate: previousWeekStart,
                 suggestionCount: 10,
                 summaryViewedDate: null,
               }),
@@ -129,7 +128,7 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
               value: JSON.stringify([
                 {
                   veggies: ['apple', 'carrot', 'spinach', 'banana'],
-                  startDate: previousWeekStartISO,
+                  startDate: previousWeekStart,
                   challenge: 'apple',
                 },
               ]),
@@ -144,7 +143,7 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
   await page.goto('/');
   await expect(page.getByTestId('dialog')).toBeVisible();
   await expect(page.getByTestId('dialog-title')).toContainText(
-    `All done for week ${previousWeekStart.toFormat('W')}!`,
+    `All done for week ${previousWeekStart.weekOfYear}!`,
   );
   await expect(page.getByTestId('category-status-chart-center-label')).toContainText(
     'Last Week 4 Veggies',

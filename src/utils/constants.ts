@@ -1,5 +1,4 @@
 import type {InjectionKey, Ref} from 'vue';
-import type {DateTime} from 'luxon';
 import {Category, type Locale, type Settings} from '@/types';
 
 export const APP_URL = 'https://eatyourveggies.app';
@@ -22,9 +21,9 @@ export const DEFAULT_SETTINGS = {
   migrationVersion: CURRENT_MIGRATION_VERSION,
   showChartAnimations: true,
   showVeggieFacts: true,
-  startDate: null as DateTime | null,
+  startDate: null as Temporal.PlainDate | null,
   suggestionCount: 10,
-  summaryViewedDate: null as DateTime | null,
+  summaryViewedDate: null as Temporal.PlainDate | null,
 } as const satisfies Settings;
 
 export const KEYS = {
