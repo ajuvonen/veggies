@@ -24,7 +24,7 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-.github/instructions
+CLAUDE.md
 
 *.tsbuildinfo
 
