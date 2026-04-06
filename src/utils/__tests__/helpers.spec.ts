@@ -1,25 +1,79 @@
 import {describe, it, expect} from 'vitest';
-import {DateTime} from 'luxon';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {CURRENT_MIGRATION_VERSION, DEFAULT_SETTINGS} from '@/utils/constants';
 import {
   achievementLevelHelper,
+  areDatesEqual,
   dateParser,
-  dateReplacer,
   getCategoryForVeggie,
   getImportSchema,
   getRandomEmojis,
   getRandomItem,
   getStorageKeys,
+  getWeekStart,
   normalizeForSearch,
   setIntersection,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Week} from '@/types';
 
-const thisWeek = DateTime.now().startOf('week');
 const importSchema = await getImportSchema();
 
 describe('helpers', () => {
+  const thisWeek = getWeekStart();
+  describe('getWeekStart', () => {
+    it('returns Monday for a date mid-week', () => {
+      expect(
+        areDatesEqual(
+          getWeekStart(Temporal.PlainDate.from('2025-01-15')),
+          Temporal.PlainDate.from('2025-01-13'),
+        ),
+      ).toBe(true);
+    });
+
+    it('returns Monday for the end of the week', () => {
+      expect(
+        areDatesEqual(
+          getWeekStart(Temporal.PlainDate.from('2025-01-19')),
+          Temporal.PlainDate.from('2025-01-13'),
+        ),
+      ).toBe(true);
+    });
+
+    it('returns the same date for a Monday', () => {
+      expect(
+        areDatesEqual(
+          getWeekStart(Temporal.PlainDate.from('2025-01-13')),
+          Temporal.PlainDate.from('2025-01-13'),
+        ),
+      ).toBe(true);
+    });
+
+    it('defaults to this week', () => {
+      const today = Temporal.Now.plainDateISO();
+      expect(areDatesEqual(getWeekStart(), today.subtract({days: today.dayOfWeek - 1}))).toBe(true);
+    });
+  });
+
+  describe('areDatesEqual', () => {
+    it('returns true for equal dates', () => {
+      expect(
+        areDatesEqual(Temporal.PlainDate.from('2025-01-15'), Temporal.PlainDate.from('2025-01-15')),
+      ).toBe(true);
+    });
+
+    it('returns false for dates in different years', () => {
+      expect(
+        areDatesEqual(Temporal.PlainDate.from('2024-01-15'), Temporal.PlainDate.from('2025-01-15')),
+      ).toBe(false);
+    });
+
+    it('returns false for different dates in the same week', () => {
+      expect(
+        areDatesEqual(Temporal.PlainDate.from('2025-01-13'), Temporal.PlainDate.from('2025-01-19')),
+      ).toBe(false);
+    });
+  });
+
   describe('getCategoryForVeggie', () => {
     it('returns correct veggie categories', () => {
       expect(getCategoryForVeggie('onion')).toBe(Category.Root);
@@ -88,9 +142,9 @@ describe('helpers', () => {
 
   describe('getStorageKeys', () => {
     it('gets all veggies-prefixed localStorage keys', () => {
-      localStorage.setItem('veggies-startDate', thisWeek.toISODate());
-      localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
-      localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
+      localStorage.setItem('veggies-startDate', thisWeek.toString());
+      localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}));
+      localStorage.setItem('veggies-weeks', JSON.stringify([]));
       localStorage.setItem('other-data', 'should not be included');
 
       const keys = getStorageKeys();
@@ -112,19 +166,19 @@ describe('helpers', () => {
   describe('dateParser', () => {
     it('parses dates from JSON', () => {
       const parsed: Week[] = JSON.parse(
-        '[{"startDate":"2024-09-02T00:00:00.000Z","veggies":["nectarine","apple"],"challenge":"nectarine"},{"startDate":"2024-09-16T22:00:00.000+14:00","veggies":["kale","spinach"],"challenge":"kale"},{"startDate":"2024-09-23T11:00:00.000-12:00","veggies":["cucumber","tomato"],"challenge":"cucumber"}]',
+        '[{"startDate":"2024-09-02","veggies":["nectarine","apple"],"challenge":"nectarine"},{"startDate":"2024-09-16","veggies":["kale","spinach"],"challenge":"kale"},{"startDate":"2024-09-23","veggies":["cucumber","tomato"],"challenge":"cucumber"}]',
         dateParser,
       );
       expect(parsed.length).toBe(3);
       expect(parsed[0].veggies).toEqual(['nectarine', 'apple']);
       expect(parsed[0].challenge).toBe('nectarine');
-      expect(parsed[0].startDate.equals(DateTime.fromISO('2024-09-02'))).toBe(true);
+      expect(areDatesEqual(parsed[0].startDate, Temporal.PlainDate.from('2024-09-02'))).toBe(true);
       expect(parsed[1].veggies).toEqual(['kale', 'spinach']);
       expect(parsed[1].challenge).toBe('kale');
-      expect(parsed[1].startDate.equals(DateTime.fromISO('2024-09-16'))).toBe(true);
+      expect(areDatesEqual(parsed[1].startDate, Temporal.PlainDate.from('2024-09-16'))).toBe(true);
       expect(parsed[2].veggies).toEqual(['cucumber', 'tomato']);
       expect(parsed[2].challenge).toBe('cucumber');
-      expect(parsed[2].startDate.equals(DateTime.fromISO('2024-09-23'))).toBe(true);
+      expect(areDatesEqual(parsed[2].startDate, Temporal.PlainDate.from('2024-09-23'))).toBe(true);
     });
 
     it('parses numbers as they are', () => {
@@ -133,29 +187,11 @@ describe('helpers', () => {
     });
 
     it('parses null dates correctly', () => {
-      const parsed: {summaryViewedDate: DateTime | null} = JSON.parse(
+      const parsed: {summaryViewedDate: Temporal.PlainDate | null} = JSON.parse(
         '{"summaryViewedDate": null}',
         dateParser,
       );
       expect(parsed.summaryViewedDate).toBeNull();
-    });
-  });
-
-  describe('dateReplacer', () => {
-    it('stringifies only date part', () => {
-      const testData = {
-        startDate: DateTime.fromISO('2024-09-02T00:00:00.000Z'),
-      };
-
-      const stringified = JSON.stringify(testData, dateReplacer);
-      expect(stringified).toBe('{"startDate":"2024-09-02"}');
-    });
-
-    it('stringifies null dates correctly', () => {
-      const testData = {summaryViewedDate: null};
-
-      const stringified = JSON.stringify(testData, dateReplacer);
-      expect(stringified).toBe('{"summaryViewedDate":null}');
     });
   });
 
@@ -208,7 +244,7 @@ describe('helpers', () => {
       expect(result.success).toBe(false);
       const errorMessage = JSON.parse(result.error?.message ?? '');
       expect(errorMessage.length).toEqual(1);
-      expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
+      expect(errorMessage[0].message).toEqual('Invalid Temporal.PlainDate instance');
       expect(errorMessage[0].path).toEqual(['settings', 'startDate']);
     });
 
@@ -229,7 +265,7 @@ describe('helpers', () => {
       expect(result.success).toBe(false);
       const errorMessage = JSON.parse(result.error?.message ?? '');
       expect(errorMessage.length).toEqual(2);
-      expect(errorMessage[0].message).toEqual('Invalid DateTime instance');
+      expect(errorMessage[0].message).toEqual('Invalid Temporal.PlainDate instance');
       expect(errorMessage[0].path).toEqual(['weeks', 0, 'startDate']);
       expect(errorMessage[1].message).toEqual('Invalid input: expected string, received undefined');
       expect(errorMessage[1].path).toEqual(['weeks', 0, 'challenge']);

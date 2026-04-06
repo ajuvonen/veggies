@@ -16,17 +16,19 @@ import {
   ROOTS,
   VEGETABLES,
 } from '@/utils/veggieDetails';
+import {getWeekStart} from '@/utils/helpers';
 import {useActivityStore} from '@/stores/activityStore';
-import {DateTime} from 'luxon';
 
-const createWeeks = (amount: number, veggies: string[] = []): Week[] =>
-  [...Array(amount)]
+const createWeeks = (amount: number, veggies: string[] = []): Week[] => {
+  const weekStart = getWeekStart();
+  return [...Array(amount)]
     .map((_, index) => ({
-      startDate: DateTime.now().startOf('week').minus({weeks: index}),
+      startDate: weekStart.subtract({weeks: index}),
       veggies,
       challenge: 'cucumber',
     }))
     .reverse();
+};
 
 describe('achievements', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
@@ -252,7 +254,7 @@ describe('achievements', () => {
   });
 
   it('advances overachiever', async () => {
-    const thisWeek = DateTime.now().startOf('week');
+    const thisWeek = getWeekStart();
     // Setup 30 veggies but no challenge completed
     activityStore.weeks = [
       {

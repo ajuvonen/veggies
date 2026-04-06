@@ -1,8 +1,8 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {flushPromises, mount} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {SelectViewport} from 'reka-ui';
 import {useActivityStore} from '@/stores/activityStore';
+import {getWeekStart} from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
 import WeekEditor from '@/components/WeekEditor.vue';
 
@@ -15,10 +15,10 @@ describe('WeekEditor', () => {
   });
 
   it('renders', async () => {
-    const testDate = DateTime.fromFormat('30.12.2024', 'dd.MM.yyyy');
+    const testDate = Temporal.PlainDate.from('2024-12-30');
     // @ts-expect-error: getters are writable in tests
-    activityStore.getWeekStarts = [testDate, testDate.minus({weeks: 1})];
-    appStateStore.settings.startDate = testDate.minus({weeks: 1});
+    activityStore.getWeekStarts = [testDate, testDate.subtract({weeks: 1})];
+    appStateStore.settings.startDate = testDate.subtract({weeks: 1});
     activityStore.weeks = [
       {
         startDate: testDate,
@@ -34,10 +34,10 @@ describe('WeekEditor', () => {
   });
 
   it('changes week', async () => {
-    const testDate = DateTime.fromFormat('30.12.2024', 'dd.MM.yyyy');
+    const testDate = Temporal.PlainDate.from('2024-12-30');
     // @ts-expect-error: getters are writable in tests
-    activityStore.getWeekStarts = [testDate, testDate.minus({weeks: 1})];
-    appStateStore.settings.startDate = testDate.minus({weeks: 1});
+    activityStore.getWeekStarts = [testDate, testDate.subtract({weeks: 1})];
+    appStateStore.settings.startDate = testDate.subtract({weeks: 1});
     activityStore.weeks = [
       {
         startDate: testDate,
@@ -57,7 +57,7 @@ describe('WeekEditor', () => {
   });
 
   it('renders without data', async () => {
-    appStateStore.settings.startDate = DateTime.now().startOf('week').minus({weeks: 2});
+    appStateStore.settings.startDate = getWeekStart().subtract({weeks: 2});
     const wrapper = mount(WeekEditor);
     await flushPromises();
     const viewport = wrapper.getComponent(SelectViewport);

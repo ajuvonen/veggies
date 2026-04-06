@@ -1,3 +1,5 @@
+import 'temporal-polyfill-lite/global';
+import 'temporal-polyfill-lite/types/global';
 import {createApp} from 'vue';
 import {createPinia} from 'pinia';
 import {plugin as VueTippy} from 'vue-tippy';

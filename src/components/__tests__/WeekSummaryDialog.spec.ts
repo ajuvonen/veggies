@@ -1,19 +1,18 @@
 import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {mount, flushPromises} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {DialogContent} from 'reka-ui';
 import type {WeekData} from '@/types';
 import {take} from '@/test-utils';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
+import {getWeekStart} from '@/utils/helpers';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 
-const thisWeek = DateTime.now().startOf('week');
-const lastWeek = thisWeek.minus({weeks: 1});
-const twoWeeksAgo = thisWeek.minus({weeks: 2});
-
 describe('WeekSummaryDialog', () => {
+  const thisWeek = getWeekStart();
+  const lastWeek = thisWeek.subtract({weeks: 1});
+  const twoWeeksAgo = thisWeek.subtract({weeks: 2});
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
@@ -66,6 +65,15 @@ describe('WeekSummaryDialog', () => {
     expect(wrapper.findComponent(DialogContent).exists()).toBe(false);
   });
 
+  it('does not show dialog when summaryViewedDate is in a future week', async () => {
+    appStateStore.settings.startDate = lastWeek;
+    appStateStore.settings.summaryViewedDate = thisWeek.add({weeks: 1});
+
+    const wrapper = mount(WeekSummaryDialog);
+    await flushPromises();
+    expect(wrapper.findComponent(DialogContent).exists()).toBe(false);
+  });
+
   it('calculates basic week data properties correctly', () => {
     // Clear and setup test data
     activityStore.weeks.splice(0);
@@ -80,7 +88,7 @@ describe('WeekSummaryDialog', () => {
 
     expect(lastWeekData.veggies).toEqual(['apple', 'spinach', 'tomato']);
     expect(lastWeekData.atMostVeggies).toBe(3); // Max veggies from any week
-    expect(lastWeekData.weekNumber).toBe(lastWeek.toFormat('W'));
+    expect(lastWeekData.weekNumber).toBe(String(lastWeek.weekOfYear));
   });
 
   it('identifies first week correctly for lastWeekData', () => {
@@ -108,12 +116,12 @@ describe('WeekSummaryDialog', () => {
 
   it('calculates mean correctly from past 5 weeks', () => {
     for (let i = 0; i < 7; i++) {
-      const weekStart = thisWeek.minus({weeks: i});
+      const weekStart = thisWeek.subtract({weeks: i});
       const veggieCount = (i + 1) * 2; // 2, 4, 6, 8, 10, 12 veggies
       const veggies = take(ALL_VEGGIES, veggieCount);
       activityStore.weeks.push({startDate: weekStart, veggies, challenge: 'cucumber'});
     }
-    appStateStore.settings.startDate = thisWeek.minus({weeks: 6});
+    appStateStore.settings.startDate = thisWeek.subtract({weeks: 6});
 
     const wrapper = mount(WeekSummaryDialog);
     const lastWeekData = wrapper.vm.lastWeekData as WeekData;

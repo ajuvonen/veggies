@@ -1,15 +1,14 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {useActivityStore} from '@/stores/activityStore';
+import {getWeekStart} from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
 import AllTimeStatus from '@/components/AllTimeStatus.vue';
 
-const thisWeek = DateTime.now().startOf('week');
-const lastWeek = thisWeek.minus({weeks: 1});
-const twoWeeksAgo = thisWeek.minus({weeks: 2});
-
 describe('AllTimeStatus', () => {
+  const thisWeek = getWeekStart();
+  const lastWeek = thisWeek.subtract({weeks: 1});
+  const twoWeeksAgo = thisWeek.subtract({weeks: 2});
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 

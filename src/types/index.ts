@@ -1,5 +1,3 @@
-import type {DateTime} from 'luxon';
-
 export type Locale = 'en' | 'fi';
 
 export enum Category {
@@ -18,7 +16,7 @@ export type Favorites = {
 
 export type Week = {
   veggies: string[];
-  readonly startDate: DateTime;
+  readonly startDate: Temporal.PlainDate;
   readonly challenge: string;
 };
 
@@ -28,9 +26,9 @@ export type Settings = {
   migrationVersion: number;
   showChartAnimations: boolean;
   showVeggieFacts: boolean;
-  startDate: DateTime | null;
+  startDate: Temporal.PlainDate | null;
   suggestionCount: number;
-  summaryViewedDate: DateTime | null;
+  summaryViewedDate: Temporal.PlainDate | null;
 };
 
 export type Listing = {

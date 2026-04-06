@@ -5,6 +5,7 @@ withDefaults(
     label: string;
     keyFn?: (item: T) => string | number;
     prefix?: string;
+    by?: ((a: T, b: T) => boolean) | string;
   }>(),
   {
     keyFn: (item: T) => JSON.stringify(item),
@@ -17,7 +18,7 @@ const model = defineModel<T>({required: true});
 
 <template>
   <ContentElement :title="label" :labelAttrs="{for: `${prefix}-button`}" labelTag="label">
-    <SelectRoot v-model="model" v-slot="{open}" :data-test-id="prefix">
+    <SelectRoot v-model="model" v-slot="{open}" :by="by" :data-test-id="prefix">
       <SelectTrigger :id="`${prefix}-button`" asChild>
         <ButtonComponent :data-test-id="`${prefix}-button`" class="justify-between">
           <SelectValue />

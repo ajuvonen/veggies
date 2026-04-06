@@ -1,6 +1,5 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {createPinia, setActivePinia} from 'pinia';
 import {take} from '@/test-utils';
 import {AchievementLevel, Category, type Week} from '@/types';
@@ -8,12 +7,13 @@ import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/ut
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {DEFAULT_SETTINGS} from '@/utils/constants';
+import {areDatesEqual, getWeekStart} from '@/utils/helpers';
 
 describe('activityStore', () => {
-  const thisWeek = DateTime.now().startOf('week');
-  const lastWeek = thisWeek.minus({weeks: 1});
-  const twoWeeksAgo = thisWeek.minus({weeks: 2});
-  const threeWeeksAgo = thisWeek.minus({weeks: 3});
+  const thisWeek = getWeekStart();
+  const lastWeek = thisWeek.subtract({weeks: 1});
+  const twoWeeksAgo = thisWeek.subtract({weeks: 2});
+  const threeWeeksAgo = thisWeek.subtract({weeks: 3});
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
@@ -40,7 +40,7 @@ describe('activityStore', () => {
         {startDate: '2025-01-20T00:00:00.000+14:00', veggies: [], challenge: 'cucumber'},
       ]),
     );
-    const datesFromStorage = await new Promise<(DateTime | null)[]>((resolve) =>
+    const datesFromStorage = await new Promise<(Temporal.PlainDate | null)[]>((resolve) =>
       mount({
         template: '<div />',
         setup: () => {
@@ -50,11 +50,13 @@ describe('activityStore', () => {
         },
       }),
     );
-    datesFromStorage.forEach((date) => expect(date).toEqual(DateTime.fromISO('2025-01-20')));
+    datesFromStorage.forEach((date) =>
+      expect(areDatesEqual(date!, Temporal.PlainDate.from('2025-01-20'))).toBe(true),
+    );
   });
 
   it('returns current week start', () => {
-    expect(activityStore.currentWeekStart).toEqual(DateTime.now().startOf('week'));
+    expect(areDatesEqual(activityStore.currentWeekStart, thisWeek)).toBe(true);
   });
 
   it('adds veggies', () => {
@@ -257,7 +259,7 @@ describe('activityStore', () => {
     activityStore.currentVeggies = ['banana', 'apple'];
     expect(activityStore.currentVeggies).toEqual(['banana', 'apple']);
     expect(activityStore.weeks[0].veggies).toEqual(['cucumber', 'longan']);
-    expect(activityStore.weeks[1].startDate).toEqual(thisWeek);
+    expect(activityStore.weeks[1].startDate.toString()).toBe(thisWeek.toString());
   });
 
   it("returns specific week's veggies", () => {
@@ -544,10 +546,13 @@ describe('activityStore', () => {
 
   it('returns all weekStarts from the start date', async () => {
     appStateStore.settings.startDate = thisWeek;
-    expect(activityStore.getWeekStarts).toEqual([thisWeek]);
+    expect(activityStore.getWeekStarts.map((d) => d.toString())).toEqual([thisWeek.toString()]);
     appStateStore.settings.startDate = lastWeek;
-    expect(activityStore.getWeekStarts).toEqual([thisWeek, lastWeek]);
-    appStateStore.settings.startDate = thisWeek.minus({weeks: 5});
+    expect(activityStore.getWeekStarts.map((d) => d.toString())).toEqual([
+      thisWeek.toString(),
+      lastWeek.toString(),
+    ]);
+    appStateStore.settings.startDate = thisWeek.subtract({weeks: 5});
     expect(activityStore.getWeekStarts.length).toBe(6);
   });
 

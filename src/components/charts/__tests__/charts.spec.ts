@@ -1,9 +1,9 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {DateTime} from 'luxon';
 import {take} from '@/test-utils';
 import {BEANS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
+import {getWeekStart} from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
 import CategoryStatusChart from '@/components/charts/CategoryStatusChart.vue';
 import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue';
@@ -12,20 +12,20 @@ import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue
 import WeeklyHeatmap from '@/components/charts/WeeklyHeatmap.vue';
 
 describe('charts', () => {
-  const thisWeek = DateTime.now().startOf('week');
-  const lastWeek = thisWeek.minus({weeks: 1});
-  const twoWeeksAgo = thisWeek.minus({weeks: 2});
-  const fiveWeeksAgo = thisWeek.minus({weeks: 5});
+  const thisWeek = getWeekStart();
+  const lastWeek = thisWeek.subtract({weeks: 1});
+  const twoWeeksAgo = thisWeek.subtract({weeks: 2});
+  const fiveWeeksAgo = thisWeek.subtract({weeks: 5});
 
   const weekStartProps = [
     fiveWeeksAgo,
-    fiveWeeksAgo.plus({weeks: 1}),
-    fiveWeeksAgo.plus({weeks: 2}),
+    fiveWeeksAgo.add({weeks: 1}),
+    fiveWeeksAgo.add({weeks: 2}),
     twoWeeksAgo,
     lastWeek,
     thisWeek,
   ];
-  const labelProps = weekStartProps.map((weekStart) => weekStart.toFormat('W/kkkk'));
+  const labelProps = weekStartProps.map((w) => `${w.weekOfYear}/${w.yearOfWeek}`);
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
@@ -89,14 +89,7 @@ describe('charts', () => {
     });
 
     const {labels, accessibleData, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual([
-      thisWeek.minus({weeks: 5}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 3}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
-      thisWeek.toFormat('W/kkkk'),
-    ]);
+    expect(labels).toEqual(labelProps);
     expect(accessibleData.data).toEqual([
       [0, 0, 0, 0, 0, 2],
       [0, 0, 0, 0, 0, 1],
@@ -165,14 +158,7 @@ describe('charts', () => {
     });
 
     const {labels, accessibleData, datasets} = wrapper.vm.chartData;
-    expect(labels).toEqual([
-      thisWeek.minus({weeks: 5}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 4}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 3}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 2}).toFormat('W/kkkk'),
-      thisWeek.minus({weeks: 1}).toFormat('W/kkkk'),
-      thisWeek.toFormat('W/kkkk'),
-    ]);
+    expect(labels).toEqual(labelProps);
     expect(accessibleData.data).toEqual([1, 0, 0, 2, 2, 4]);
     expect(datasets).toHaveLength(1);
     expect(datasets[0].data).toEqual([1, 0, 0, 2, 2, 4]);
@@ -229,9 +215,9 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyHeatmap', () => {
-    const week1 = DateTime.fromISO('2025-12-01');
-    const week2 = week1.plus({weeks: 1});
-    const week3 = week2.plus({weeks: 1});
+    const week1 = Temporal.PlainDate.from('2025-12-01');
+    const week2 = week1.add({weeks: 1});
+    const week3 = week2.add({weeks: 1});
     appStateStore.settings.startDate = week1;
     activityStore.weeks = [
       {
@@ -256,7 +242,7 @@ describe('charts', () => {
     ];
 
     const heatmapWeeks = [week1, week2, week3];
-    const heatmapLabels = heatmapWeeks.map((weekStart) => weekStart.toFormat('W/kkkk'));
+    const heatmapLabels = heatmapWeeks.map((w) => `${w.weekOfYear}/${w.yearOfWeek}`);
 
     const wrapper = mount(WeeklyHeatmap, {
       props: {

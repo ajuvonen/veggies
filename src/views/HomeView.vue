@@ -2,9 +2,9 @@
 import {onMounted, ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {storeToRefs} from 'pinia';
-import {DateTime} from 'luxon';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {DEFAULT_LOCALE, LOCALES} from '@/utils/constants';
+import {getWeekStart} from '@/utils/helpers';
 import type {Locale} from '@/types';
 
 const router = useRouter();
@@ -14,7 +14,7 @@ const {settings} = storeToRefs(useAppStateStore());
 const dialogOpen = ref(false);
 
 const start = () => {
-  settings.value.startDate = DateTime.now().startOf('week');
+  settings.value.startDate = getWeekStart();
   router.replace({name: 'log'});
 };
 

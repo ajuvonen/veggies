@@ -1,5 +1,4 @@
 import {describe, it, expect, vi} from 'vitest';
-import {DateTime} from 'luxon';
 import {
   CURRENT_MIGRATION_VERSION,
   DEFAULT_SETTINGS,
@@ -11,12 +10,12 @@ import {
   writeStorageData,
   runMigrations,
 } from '@/utils/migrations';
-import {dateParser, dateReplacer} from '@/utils/helpers';
+import {areDatesEqual, dateParser, getWeekStart} from '@/utils/helpers';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import type {Settings, Week} from '@/types';
 
-const thisWeek = DateTime.now().startOf('week');
-const lastWeek = thisWeek.minus({weeks: 1});
+const thisWeek = getWeekStart();
+const lastWeek = thisWeek.subtract({weeks: 1});
 
 const dataV1 = {
   settings: {
@@ -27,17 +26,17 @@ const dataV1 = {
     summaryViewedDate: thisWeek,
   },
   weeks: [
-    {startDate: lastWeek.toISODate(), veggies: ['apple', 'carrot', 'spinach', 'banana']},
+    {startDate: lastWeek, veggies: ['apple', 'carrot', 'spinach', 'banana']},
     {
-      startDate: thisWeek.toISODate(),
+      startDate: thisWeek,
       veggies: ['arugula', 'black bean', 'chanterelle', 'iceberg lettuce'],
     },
   ],
   challenges: [
-    {startDate: lastWeek.toISODate(), veggie: 'apple'},
-    {startDate: thisWeek.toISODate(), veggie: 'lychee'},
+    {startDate: lastWeek, veggie: 'apple'},
+    {startDate: thisWeek, veggie: 'lychee'},
   ],
-  ['start-date']: lastWeek.toISODate(),
+  ['start-date']: lastWeek,
 };
 
 describe('applyMigrations', () => {
@@ -125,9 +124,9 @@ describe('applyMigrations', () => {
 
 describe('readStorageData', () => {
   it('reads all veggies-prefixed keys from localStorage', () => {
-    localStorage.setItem('veggies-startDate', thisWeek.toISODate());
-    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
-    localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
+    localStorage.setItem('veggies-startDate', thisWeek.toString());
+    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}));
+    localStorage.setItem('veggies-weeks', JSON.stringify([]));
     localStorage.setItem('other-data', 'should be ignored');
 
     const result = readStorageData();
@@ -140,23 +139,22 @@ describe('readStorageData', () => {
 
   it('parses JSON data correctly', () => {
     const settings = {...DEFAULT_SETTINGS, locale: 'fi' as const, allergens: ['peanut']};
-    localStorage.setItem('veggies-settings', JSON.stringify(settings, dateReplacer));
+    localStorage.setItem('veggies-settings', JSON.stringify(settings));
 
     const result = readStorageData();
 
     expect(result.settings).toEqual(settings);
   });
 
-  it('parses DateTime objects using dateParser', () => {
-    const dateString = thisWeek.toISODate();
-    const settings = {...DEFAULT_SETTINGS, summaryViewedDate: dateString};
-    localStorage.setItem('veggies-settings', JSON.stringify(settings, dateReplacer));
+  it('parses date objects using dateParser', () => {
+    const settings = {...DEFAULT_SETTINGS, summaryViewedDate: thisWeek};
+    localStorage.setItem('veggies-settings', JSON.stringify(settings));
 
     const result = readStorageData();
     const parsed = result.settings as Settings;
 
-    expect(parsed.summaryViewedDate).toBeInstanceOf(DateTime);
-    expect(parsed.summaryViewedDate?.toISODate()).toBe(dateString);
+    expect(parsed.summaryViewedDate).toBeInstanceOf(Temporal.PlainDate);
+    expect(areDatesEqual(parsed.summaryViewedDate as Temporal.PlainDate, thisWeek)).toBe(true);
   });
 
   it('handles non-JSON string values gracefully', () => {
@@ -179,7 +177,7 @@ describe('readStorageData', () => {
     localStorage.setItem('veggies-__proto__', 'dangerous');
     localStorage.setItem('veggies-constructor', 'dangerous');
     localStorage.setItem('veggies-prototype', 'dangerous');
-    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
+    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}));
 
     const result = readStorageData();
 
@@ -189,14 +187,13 @@ describe('readStorageData', () => {
     expect(result).toHaveProperty('settings');
   });
 
-  it('reads top-level DateTime values correctly (startDate)', () => {
-    const isoDate = thisWeek.toISODate();
-    localStorage.setItem('veggies-startDate', isoDate);
+  it('reads top-level date values correctly (startDate)', () => {
+    localStorage.setItem('veggies-startDate', thisWeek.toString());
 
     const result = readStorageData();
 
-    expect(result.startDate).toBeInstanceOf(DateTime);
-    expect((result.startDate as DateTime).toISODate()).toBe(isoDate);
+    expect(result.startDate).toBeInstanceOf(Temporal.PlainDate);
+    expect(areDatesEqual(result.startDate as Temporal.PlainDate, thisWeek)).toBe(true);
   });
 });
 
@@ -211,37 +208,11 @@ describe('writeStorageData', () => {
 
     const stored = JSON.parse(localStorage.getItem('veggies-settings')!, dateParser);
     expect(stored).toMatchObject({...DEFAULT_SETTINGS, migrationVersion: 1});
-    expect(localStorage.getItem('veggies-weeks')).toBe(JSON.stringify([], dateReplacer));
-  });
-
-  it('serializes DateTime objects using dateReplacer', () => {
-    const data = {
-      settings: {...DEFAULT_SETTINGS, summaryViewedDate: thisWeek},
-    };
-
-    writeStorageData(data, 1);
-
-    const stored = localStorage.getItem('veggies-settings');
-    expect(stored).toContain(thisWeek.toISODate());
-    expect(stored).not.toContain('T'); // Should only store date, not time
-  });
-
-  it('handles string values directly', () => {
-    const data = {
-      raw: 'plain string',
-      settings: {...DEFAULT_SETTINGS},
-    };
-
-    writeStorageData(data, 1);
-
-    expect(localStorage.getItem('veggies-raw')).toBe('plain string');
+    expect(localStorage.getItem('veggies-weeks')).toBe(JSON.stringify([]));
   });
 
   it('overwrites existing values', () => {
-    localStorage.setItem(
-      'veggies-settings',
-      JSON.stringify({...DEFAULT_SETTINGS, locale: 'el'}, dateReplacer),
-    );
+    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS, locale: 'el'}));
 
     writeStorageData({settings: {...DEFAULT_SETTINGS}}, 2);
 
@@ -251,9 +222,9 @@ describe('writeStorageData', () => {
 
   it('removes keys that are omitted from data object', () => {
     // Set up initial state with multiple keys
-    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}, dateReplacer));
-    localStorage.setItem('veggies-challenges', JSON.stringify([], dateReplacer));
-    localStorage.setItem('veggies-weeks', JSON.stringify([], dateReplacer));
+    localStorage.setItem('veggies-settings', JSON.stringify({...DEFAULT_SETTINGS}));
+    localStorage.setItem('veggies-challenges', JSON.stringify([]));
+    localStorage.setItem('veggies-weeks', JSON.stringify([]));
 
     // Write data with only settings (omitting challenges and weeks)
     writeStorageData(
@@ -297,33 +268,6 @@ describe('writeStorageData', () => {
     expect(parsed.locale).toBe('fi');
     expect(parsed.allergens).toEqual(['peanut']);
   });
-
-  it('writes top-level DateTime values as plain ISO date strings', () => {
-    const data = {
-      settings: {...DEFAULT_SETTINGS},
-      startDate: thisWeek,
-    };
-
-    writeStorageData(data, 1);
-
-    const stored = localStorage.getItem('veggies-startDate');
-    expect(stored).toBe(thisWeek.toISODate());
-    expect(stored).not.toContain('"'); // Should not be JSON-stringified
-  });
-
-  it('round-trips top-level DateTime values correctly', () => {
-    const data = {
-      settings: {...DEFAULT_SETTINGS},
-      startDate: thisWeek,
-      weeks: [],
-    };
-
-    writeStorageData(data, 1);
-    const result = readStorageData();
-
-    expect(result.startDate).toBeInstanceOf(DateTime);
-    expect((result.startDate as DateTime).equals(thisWeek)).toBe(true);
-  });
 });
 
 describe('runMigrations', () => {
@@ -331,7 +275,7 @@ describe('runMigrations', () => {
     const initialData = {
       ...dataV1.settings,
     };
-    localStorage.setItem('veggies-settings', JSON.stringify(initialData, dateReplacer));
+    localStorage.setItem('veggies-settings', JSON.stringify(initialData));
 
     const getItemSpy = vi.spyOn(localStorage, 'getItem');
     const setItemSpy = vi.spyOn(localStorage, 'setItem');
@@ -352,7 +296,7 @@ describe('runMigrations', () => {
     const initialData = {
       ...dataV1.settings,
     };
-    localStorage.setItem('veggies-settings', JSON.stringify(initialData, dateReplacer));
+    localStorage.setItem('veggies-settings', JSON.stringify(initialData));
 
     const getItemSpy = vi.spyOn(localStorage, 'getItem');
     const setItemSpy = vi.spyOn(localStorage, 'setItem');
@@ -376,9 +320,9 @@ describe('runMigrations', () => {
       {startDate: thisWeek, veggies: ['apple', 'banana'], challenge: 'orange'},
     ];
 
-    localStorage.setItem('veggies-settings', JSON.stringify(oldData, dateReplacer));
-    localStorage.setItem('veggies-weeks', JSON.stringify(weeks, dateReplacer));
-    localStorage.setItem('veggies-startDate', thisWeek.toISODate()!);
+    localStorage.setItem('veggies-settings', JSON.stringify(oldData));
+    localStorage.setItem('veggies-weeks', JSON.stringify(weeks));
+    localStorage.setItem('veggies-startDate', thisWeek.toString());
 
     // Attempt to run migration from 0 to 1 (no-op migration)
     await expect(runMigrations(0, 1)).rejects.toThrow();
@@ -387,10 +331,10 @@ describe('runMigrations', () => {
   it('runs complete migration pipeline from v1 to current version', async () => {
     // Set up v1 data structure in localStorage
     // v1 had: separate start-date key, challenges array, no migrationVersion in settings
-    localStorage.setItem('veggies-start-date', dataV1['start-date']!);
-    localStorage.setItem('veggies-settings', JSON.stringify(dataV1.settings, dateReplacer));
-    localStorage.setItem('veggies-weeks', JSON.stringify(dataV1.weeks, dateReplacer));
-    localStorage.setItem('veggies-challenges', JSON.stringify(dataV1.challenges, dateReplacer));
+    localStorage.setItem('veggies-start-date', dataV1['start-date']!.toString());
+    localStorage.setItem('veggies-settings', JSON.stringify(dataV1.settings));
+    localStorage.setItem('veggies-weeks', JSON.stringify(dataV1.weeks));
+    localStorage.setItem('veggies-challenges', JSON.stringify(dataV1.challenges));
 
     // Run migrations
     await runMigrations(MINIMUM_MIGRATION_VERSION, CURRENT_MIGRATION_VERSION);
@@ -405,7 +349,7 @@ describe('runMigrations', () => {
     const storedWeeks = JSON.parse(localStorage.getItem('veggies-weeks')!, dateParser);
 
     // Verify current version structure in settings
-    expect(storedSettings.startDate.equals(lastWeek)).toBe(true);
+    expect(areDatesEqual(storedSettings.startDate, lastWeek)).toBe(true);
     expect(storedSettings.migrationVersion).toBe(CURRENT_MIGRATION_VERSION);
     expect(storedSettings.allergens).toEqual(['peanut']);
     expect(storedSettings.locale).toBe('en');
@@ -416,7 +360,7 @@ describe('runMigrations', () => {
     expect(storedWeeks).toHaveLength(2);
     expect(storedWeeks[0].challenge).toBe('apple');
     expect(storedWeeks[0].veggies).toEqual(['apple', 'carrot', 'spinach', 'banana']);
-    expect(storedWeeks[0].startDate).toEqual(lastWeek);
+    expect(areDatesEqual(storedWeeks[0].startDate, lastWeek)).toBe(true);
     expect(storedWeeks[1].challenge).toBe('lychee');
     expect(storedWeeks[1].veggies).toEqual([
       'arugula',
@@ -424,6 +368,6 @@ describe('runMigrations', () => {
       'chanterelle',
       'iceberg lettuce',
     ]);
-    expect(storedWeeks[1].startDate).toEqual(thisWeek);
+    expect(areDatesEqual(storedWeeks[1].startDate, thisWeek)).toBe(true);
   });
 });

@@ -3,7 +3,7 @@ import {defineStore} from 'pinia';
 import {useLocalStorage} from '@vueuse/core';
 import type {Settings} from '@/types';
 import {DEFAULT_SETTINGS} from '@/utils/constants';
-import {dateParser, dateReplacer} from '@/utils/helpers';
+import {dateParser} from '@/utils/helpers';
 
 type Message = {
   id: string;
@@ -21,7 +21,7 @@ export const useAppStateStore = defineStore('appState', () => {
       mergeDefaults: true,
       serializer: {
         read: (v) => (v ? JSON.parse(v, dateParser) : null),
-        write: (v) => JSON.stringify(v, dateReplacer),
+        write: (v) => JSON.stringify(v),
       },
     },
   );

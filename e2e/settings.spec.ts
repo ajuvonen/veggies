@@ -1,5 +1,4 @@
-import {test, expect} from '@playwright/test';
-import {DateTime} from 'luxon';
+import {test, expect} from './fixtures';
 import {readFileSync} from 'fs';
 import {fileURLToPath} from 'node:url';
 
@@ -65,11 +64,12 @@ test('q&a works', async ({page}) => {
 });
 
 test('export works', async ({browser}) => {
-  const thisWeekISO = DateTime.now().startOf('week').toISODate();
+  const today = Temporal.Now.plainDateISO();
+  const thisWeek = today.subtract({days: today.dayOfWeek - 1});
   const expectedData = JSON.parse(
     readFileSync(fileURLToPath(new URL('./fixtures/EatYourVeggies.json', import.meta.url)), 'utf8'),
   );
-  expectedData.settings.summaryViewedDate = thisWeekISO;
+  expectedData.settings.summaryViewedDate = thisWeek.toString();
   const browserContext = await browser.newContext({
     storageState: {
       cookies: [],
@@ -86,7 +86,7 @@ test('export works', async ({browser}) => {
                 showChartAnimations: true,
                 startDate: '2025-08-04',
                 suggestionCount: 10,
-                summaryViewedDate: thisWeekISO,
+                summaryViewedDate: thisWeek,
               }),
             },
             {
