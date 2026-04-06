@@ -206,9 +206,9 @@ Android app via Trusted Web Activity. Configuration in `twa-manifest.json`.
 
 Use the `getWeekStart()` helper (Temporal-based) for week-based operations.
 
-```
+## Domain Logic
 
-**Domain Logic**: Seven veggie categories via `Category` enum: Fruit, Vegetable, Leafy, Root, Bean, Grain, Mushroom. Use `getCategoryForVeggie()` helper. Complex achievement system with threshold-based calculations.
+Seven veggie categories via `Category` enum: Fruit, Vegetable, Leafy, Root, Bean, Grain, Mushroom. Use `getCategoryForVeggie()` helper. Complex achievement system with threshold-based calculations.
 
 ## Performance Notes
 
@@ -227,4 +227,3 @@ There is a migration system in place for updating localStorage data structures. 
 After successful migration, the version number is updated and data validated against the most recent schema.
 
 Migrations are also run on data import.
-```
