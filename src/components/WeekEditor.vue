@@ -9,7 +9,8 @@ import {useDateTime} from '@/hooks/dateTime';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
 
 const activityStore = useActivityStore();
-const {getWeekStarts, veggiesForWeek, weeks, weeklyAchievements} = storeToRefs(activityStore);
+const {getWeekStarts, veggiesForWeek, challengeForWeek, weeklyAchievements} =
+  storeToRefs(activityStore);
 const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
 
 const selectedWeekStart = ref(getWeekStarts.value[0]!);
@@ -21,10 +22,7 @@ const veggies = computed({
 
 const {formatWeekString} = useDateTime();
 
-const selectedChallenge = computed(
-  () =>
-    weeks.value.find((week) => areDatesEqual(week.startDate, selectedWeekStart.value))?.challenge,
-);
+const selectedChallenge = computed(() => challengeForWeek.value(selectedWeekStart.value));
 
 const {weeklyCompletion} = useAchievementCompletion(veggies, selectedChallenge);
 

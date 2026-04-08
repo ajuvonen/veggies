@@ -61,10 +61,12 @@ export const useActivityStore = defineStore('activity', () => {
     },
   });
 
-  // Computed getters
-  const currentWeekStart = computed(() =>
-    getWeekStart(currentDate.value),
+  const weeksMap = computed(
+    () => new Map(weeks.value.map((week) => [week.startDate.toString(), week])),
   );
+
+  // Computed getters
+  const currentWeekStart = computed(() => getWeekStart(currentDate.value));
 
   const getWeekStarts = computed(() => {
     if (!settings.value.startDate) return [currentWeekStart.value];
@@ -104,7 +106,11 @@ export const useActivityStore = defineStore('activity', () => {
 
   const veggiesForWeek = computed(
     () => (weekStart: Temporal.PlainDate) =>
-      weeks.value.find(({startDate}) => areDatesEqual(startDate, weekStart))?.veggies ?? [],
+      weeksMap.value.get(weekStart.toString())?.veggies ?? [],
+  );
+
+  const challengeForWeek = computed(
+    () => (weekStart: Temporal.PlainDate) => weeksMap.value.get(weekStart.toString())?.challenge,
   );
 
   const currentVeggies = computed({
@@ -113,9 +119,7 @@ export const useActivityStore = defineStore('activity', () => {
   });
 
   const currentChallenge = computed(
-    () =>
-      weeks.value.find(({startDate}) => areDatesEqual(startDate, currentWeekStart.value))
-        ?.challenge,
+    () => weeksMap.value.get(currentWeekStart.value.toString())?.challenge,
   );
 
   const suggestions = computed(() => {
@@ -166,9 +170,7 @@ export const useActivityStore = defineStore('activity', () => {
         weekStart: Temporal.PlainDate = currentWeekStart.value,
       ) => {
         const groupedVeggies = countBy(veggies, getCategoryForVeggie);
-        const challenge = weeks.value.find(({startDate: weekStartDate}) =>
-          areDatesEqual(weekStartDate, weekStart),
-        )?.challenge;
+        const challenge = challengeForWeek.value(weekStart);
         const challengeCompleted = challenge && veggies.includes(challenge);
 
         return {
@@ -289,7 +291,7 @@ export const useActivityStore = defineStore('activity', () => {
     toggleVeggieForWeek(targetVeggie, currentWeekStart.value);
 
   const toggleVeggieForWeek = (targetVeggie: string, weekStart: Temporal.PlainDate) => {
-    const targetWeek = weeks.value.find(({startDate}) => areDatesEqual(startDate, weekStart));
+    const targetWeek = weeksMap.value.get(weekStart.toString());
     if (!targetWeek) {
       weeks.value = [
         ...weeks.value,
@@ -310,7 +312,7 @@ export const useActivityStore = defineStore('activity', () => {
     veggies: string[],
     weekStart: Temporal.PlainDate = currentWeekStart.value,
   ) => {
-    const targetWeek = weeks.value.find(({startDate}) => areDatesEqual(startDate, weekStart));
+    const targetWeek = weeksMap.value.get(weekStart.toString());
     if (!targetWeek) {
       weeks.value = [
         ...weeks.value,
@@ -332,6 +334,7 @@ export const useActivityStore = defineStore('activity', () => {
   return {
     achievements,
     allVeggies,
+    challengeForWeek,
     atMostVeggies,
     completedChallenges,
     currentChallenge,
