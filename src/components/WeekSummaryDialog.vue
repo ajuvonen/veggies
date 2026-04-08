@@ -14,8 +14,15 @@ const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
 );
 
-const {currentWeekStart, veggiesForWeek, hotStreak, atMostVeggies, weeks, allVeggies} =
-  storeToRefs(useActivityStore());
+const {
+  currentWeekStart,
+  veggiesForWeek,
+  challengeForWeek,
+  hotStreak,
+  atMostVeggies,
+  weeks,
+  allVeggies,
+} = storeToRefs(useActivityStore());
 
 const {settings} = storeToRefs(useAppStateStore());
 
@@ -50,9 +57,7 @@ watch(
   (shouldShow) => {
     if (shouldShow) {
       const lastWeekStart = currentWeekStart.value.subtract({weeks: 1});
-      const lastWeekChallenge = weeks.value.find((week) =>
-        areDatesEqual(week.startDate, lastWeekStart),
-      )?.challenge;
+      const lastWeekChallenge = challengeForWeek.value(lastWeekStart);
 
       const pastVeggies = Array.from(
         {length: Math.min(5, weeks.value.length)},

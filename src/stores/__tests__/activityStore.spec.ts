@@ -282,6 +282,20 @@ describe('activityStore', () => {
     expect(activityStore.veggiesForWeek(threeWeeksAgo)).toEqual([]);
   });
 
+  it('returns the challenge for a specific week', () => {
+    appStateStore.settings.startDate = twoWeeksAgo;
+    activityStore.weeks = [
+      {startDate: twoWeeksAgo, veggies: [], challenge: 'broccoli'},
+      {startDate: lastWeek, veggies: [], challenge: 'kale'},
+      {startDate: thisWeek, veggies: [], challenge: 'tomato'},
+    ];
+
+    expect(activityStore.challengeForWeek(twoWeeksAgo)).toBe('broccoli');
+    expect(activityStore.challengeForWeek(lastWeek)).toBe('kale');
+    expect(activityStore.challengeForWeek(thisWeek)).toBe('tomato');
+    expect(activityStore.challengeForWeek(threeWeeksAgo)).toBeUndefined();
+  });
+
   it("returns this week's challenge", () => {
     appStateStore.settings.startDate = lastWeek;
     activityStore.weeks = [
