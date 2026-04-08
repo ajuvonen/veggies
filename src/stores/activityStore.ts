@@ -147,20 +147,17 @@ export const useActivityStore = defineStore('activity', () => {
     ),
   );
 
-  const favorites = computed(() =>
-    Object.values(Category).reduce(
-      (acc, category) => ({
-        ...acc,
-        [category]: pipe(
+  const favorites = computed(
+    () =>
+      fromKeys(Object.values(Category), (category) =>
+        pipe(
           veggiesByCategory.value[category],
           countBy((veggie) => veggie),
           entries(),
           sortBy([prop(1), 'desc']),
           take(6),
         ),
-      }),
-      {} as Favorites,
-    ),
+      ) as Favorites,
   );
 
   const weeklyAchievements = computed(
