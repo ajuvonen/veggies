@@ -1,18 +1,7 @@
 import {computed, ref} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
 import {debounceFilter, useIntervalFn, useLocalStorage} from '@vueuse/core';
-import {
-  countBy,
-  difference,
-  entries,
-  fromKeys,
-  map,
-  pipe,
-  prop,
-  sortBy,
-  take,
-  takeWhile,
-} from 'remeda';
+import {countBy, difference, entries, fromKeys, map, pipe, prop, sortBy, take} from 'remeda';
 import {Category, type Favorites, type Week, type Achievements, AchievementLevel} from '@/types';
 import {
   achievementLevelHelper,
@@ -78,14 +67,15 @@ export const useActivityStore = defineStore('activity', () => {
   });
 
   const hotStreak = computed(() => {
-    let over30Weeks = takeWhile(
-      getWeekStarts.value,
-      (weekStart, weekIndex) => weekIndex === 0 || veggiesForWeek.value(weekStart).length >= 30,
-    ).length;
-    if (currentVeggies.value.length < 30) {
-      over30Weeks--;
+    let streak = currentVeggies.value.length >= 30 ? 1 : 0;
+    for (const weekStart of getWeekStarts.value.slice(1)) {
+      if (veggiesForWeek.value(weekStart).length >= 30) {
+        streak++;
+      } else {
+        break;
+      }
     }
-    return over30Weeks;
+    return streak;
   });
 
   const allVeggies = computed(() => weeks.value.flatMap(prop('veggies')));
