@@ -16,10 +16,7 @@ export const withSetup = <T, Args extends any[]>(
   return result!;
 };
 
-export const take = <T>(
-  collection: Iterable<T>,
-  count: number,
-) => [...collection].slice(0, count);
+export const take = <T>(collection: Iterable<T>, count: number) => [...collection].slice(0, count);
 
 export const getAchievements = (achievements: Partial<Achievements> = {}): Achievements => ({
   allOnRed: AchievementLevel.NoAchievement,
