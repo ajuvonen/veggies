@@ -39,7 +39,6 @@ const tabIcons: IconString[] = [
         </ButtonComponent>
       </TabsTrigger>
     </TabsList>
-
     <TabsContent :value="0" class="stats__tab">
       <AllTimeStatus />
     </TabsContent>
