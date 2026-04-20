@@ -20,6 +20,7 @@ declare module 'vue' {
     AchievementDialog: typeof import('./../components/AchievementDialog.vue')['default']
     AchievementList: typeof import('./../components/AchievementList.vue')['default']
     AchievementListSection: typeof import('./../components/AchievementListSection.vue')['default']
+    AIPermissionDialog: typeof import('./../components/AIPermissionDialog.vue')['default']
     AllTimeStatus: typeof import('./../components/AllTimeStatus.vue')['default']
     AsyncLoader: typeof import('./../components/AsyncLoader.vue')['default']
     Bar: typeof import('vue-chartjs')['Bar']
@@ -92,6 +93,8 @@ declare module 'vue' {
     WeeklyCategoriesChart: typeof import('./../components/charts/WeeklyCategoriesChart.vue')['default']
     WeeklyCharts: typeof import('./../components/WeeklyCharts.vue')['default']
     WeeklyHeatmap: typeof import('./../components/charts/WeeklyHeatmap.vue')['default']
+    WeekSummaryAiResult: typeof import('../components/WeekSummaryAIResult.vue')['default']
+    WeekSummaryAIResult: typeof import('./../components/WeekSummaryAIResult.vue')['default']
     WeekSummaryBadge: typeof import('./../components/WeekSummaryBadge.vue')['default']
     WeekSummaryDialog: typeof import('./../components/WeekSummaryDialog.vue')['default']
   }

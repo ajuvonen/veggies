@@ -63,6 +63,16 @@ describe('SettingsView', () => {
     expect(toggle.attributes('data-state')).not.toBe('checked');
   });
 
+  it('toggles AI permission from false to true', async () => {
+    appStateStore.settings.AIAllowed = false;
+    const wrapper = mount(SettingsView);
+    const toggle = wrapper.findByTestId('ai-enabled-button');
+    expect(toggle.attributes('data-state')).not.toBe('checked');
+    await toggle.trigger('click');
+    expect(appStateStore.settings.AIAllowed).toBe(true);
+    expect(toggle.attributes('data-state')).toBe('checked');
+  });
+
   it('prevents animation toggle if all animations are disabled', () => {
     mocks.usePreferredReducedMotion.mockImplementation(() => computed(() => 'reduce'));
     const wrapper = mount(SettingsView);

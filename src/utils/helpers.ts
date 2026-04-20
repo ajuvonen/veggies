@@ -130,6 +130,10 @@ export const getImportSchema = async () => {
       () => [],
     ),
     settings: z.object({
+      AIAllowed: z._default(
+        z.catch(z.nullable(z.boolean()), DEFAULT_SETTINGS.AIAllowed),
+        DEFAULT_SETTINGS.AIAllowed,
+      ),
       allergens: z._default(
         z.catch(z.array(z.string()), () => DEFAULT_SETTINGS.allergens),
         () => DEFAULT_SETTINGS.allergens,

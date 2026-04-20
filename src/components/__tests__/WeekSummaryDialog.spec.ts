@@ -9,6 +9,14 @@ import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 
+const mocks = vi.hoisted(() => ({
+  getAiSummary: vi.fn(() => 'Test AI summary'),
+}));
+
+vi.mock('@/api', () => ({
+  getAiSummary: mocks.getAiSummary,
+}));
+
 describe('WeekSummaryDialog', () => {
   const thisWeek = getWeekStart();
   const lastWeek = thisWeek.subtract({weeks: 1});
@@ -337,5 +345,64 @@ Try it out:`;
     });
 
     Object.assign(navigator, {share});
+  });
+
+  it('does not show AI summary toggle when AIAllowed is false', async () => {
+    appStateStore.settings.startDate = lastWeek;
+    appStateStore.settings.AIAllowed = false;
+    const wrapper = mount(WeekSummaryDialog);
+    await flushPromises();
+
+    const dialog = wrapper.getComponent(DialogContent);
+    expect(dialog.findByTestId('show-ai-summary-button').exists()).toBe(false);
+  });
+
+  it('shows permission dialog when AI tab is clicked and AIAllowed is null', async () => {
+    appStateStore.settings.startDate = lastWeek;
+    appStateStore.settings.AIAllowed = null;
+    const wrapper = mount(WeekSummaryDialog);
+    await flushPromises();
+
+    const dialog = wrapper.getComponent(DialogContent);
+    await dialog.findByTestId('show-ai-summary-button').trigger('click');
+    await flushPromises();
+
+    const permissionDialog = wrapper
+      .findAllComponents(DialogContent)
+      .find((d) => d.findByTestId('ai-permission-allow-button').exists())!;
+    expect(permissionDialog.isVisible()).toBe(true);
+  });
+
+  it('shows AI summary after permission is allowed', async () => {
+    appStateStore.settings.startDate = lastWeek;
+    appStateStore.settings.AIAllowed = null;
+    const wrapper = mount(WeekSummaryDialog);
+    await flushPromises();
+
+    const dialog = wrapper.getComponent(DialogContent);
+    await dialog.findByTestId('show-ai-summary-button').trigger('click');
+    await flushPromises();
+
+    const permissionDialog = wrapper
+      .findAllComponents(DialogContent)
+      .find((d) => d.findByTestId('ai-permission-allow-button').exists())!;
+
+    await permissionDialog.findByTestId('ai-permission-allow-button').trigger('click');
+    await flushPromises();
+
+    expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');
+  });
+
+  it('shows AI summary when AIAllowed is true and AI tab is clicked', async () => {
+    appStateStore.settings.startDate = lastWeek;
+    appStateStore.settings.AIAllowed = true;
+    const wrapper = mount(WeekSummaryDialog);
+    await flushPromises();
+
+    const dialog = wrapper.getComponent(DialogContent);
+    await dialog.findByTestId('show-ai-summary-button').trigger('click');
+    await flushPromises();
+
+    expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');
   });
 });

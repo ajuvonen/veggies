@@ -17,7 +17,7 @@ withDefaults(
 </script>
 <template>
   <div
-    :class="{'flex-col': !inline, 'align-center': inline, 'justify-between': inline}"
+    :class="{'flex-col': !inline, 'items-center': inline, 'justify-between': inline}"
     class="flex-container"
   >
     <component :is="labelTag" class="label-like" v-bind="labelAttrs">{{ title }}</component>

@@ -21,6 +21,7 @@ export type Week = {
 };
 
 export type Settings = {
+  AIAllowed: boolean | null;
   allergens: string[];
   locale: Locale;
   migrationVersion: number;
@@ -85,6 +86,8 @@ export type WeekData = {
   veggies: string[];
   weekNumber: string;
 };
+
+export type AIWeekData = Omit<WeekData, 'promotedAchievement'> & {locale: Locale};
 
 export type SummaryItem = {
   emoji: string;
