@@ -115,6 +115,7 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
             {
               name: 'veggies-settings',
               value: JSON.stringify({
+                AIAllowed: null,
                 allergens: [],
                 locale: 'en',
                 showChartAnimations: true,

@@ -3,6 +3,8 @@ import {Category, type Locale, type Settings} from '@/types';
 
 export const APP_URL = 'https://eatyourveggies.app';
 
+export const AI_SUMMARY_URL = 'https://veggies-api.ajuvonen.workers.dev/summarize';
+
 export const BLUESKY_URL = 'https://bsky.app/profile/eatyourveggies.app';
 
 export const PLAY_STORE_URL =
@@ -16,6 +18,7 @@ export const CURRENT_MIGRATION_VERSION = 4;
 export const DEFAULT_LOCALE: Locale = 'en';
 
 export const DEFAULT_SETTINGS = {
+  AIAllowed: null as boolean | null,
   allergens: [] as string[],
   locale: DEFAULT_LOCALE,
   migrationVersion: CURRENT_MIGRATION_VERSION,

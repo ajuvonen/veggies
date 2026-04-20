@@ -131,6 +131,12 @@
       "4": "You have logged a thousand veggies!"
     }
   },
+  "AIPermissionDialog": {
+    "allow": "Allow",
+    "deny": "Deny",
+    "message": "To generate AI summaries, limited usage data is sent to an AI service provider. No personal information is included. If you change your mind, you can adjust this in the app settings.",
+    "title": "Enable functionality?"
+  },
   "allTimeStatus": {
     "atMostVeggies": {
       "bottomLabel": "Weekly Veggies|Weekly Veggie|Weekly Veggies",
@@ -279,6 +285,7 @@
       "text": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
       "title": "Are you sure you want to reset?"
     },
+    "AIAllowed": "AI allowed",
     "selectAllergens": "Select allergens",
     "selectedAllergens": "Selected allergens",
     "showChartAnimations": "Show charts' animations",
@@ -649,6 +656,10 @@
   },
   "weekSummaryDialog": {
     "accomplishment": "Congratulations! You tried @:general.veggie last week!",
+    "AIGeneratedContent": "AI-generated content",
+    "AIMayContainErrors": "Please note that the AI summary may contain inaccuracies and should not be considered professional advice.",
+    "AISummary": "AI Summary",
+    "AISummaryUnavailable": "AI summary is not available at this time. Please try again later.",
     "allCategories": "Amazing! You tried veggies from all categories last week!",
     "challengeCompleted": "Mission accomplished! You tried {0} for your weekly challenge!",
     "challengeMissed": "You didn't complete your challenge ({0}) last week. Maybe next time?",

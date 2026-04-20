@@ -57,8 +57,7 @@ const removeAllergen = (veggie: string) => {
         v-model="showChartAnimations"
         :disabled="reduceMotion"
         data-test-id="show-animations-button"
-      >
-      </ToggleComponent>
+      />
     </ContentElement>
     <ContentElement
       :title="$t('settings.showVeggieFacts')"
@@ -69,8 +68,19 @@ const removeAllergen = (veggie: string) => {
         id="show-veggie-facts-button"
         v-model="settings.showVeggieFacts"
         data-test-id="show-veggie-facts-button"
-      >
-      </ToggleComponent>
+      />
+    </ContentElement>
+    <ContentElement
+      v-if="settings.AIAllowed !== null"
+      :title="$t('settings.AIAllowed')"
+      :labelAttrs="{for: 'ai-enabled-button'}"
+      labelTag="label"
+    >
+      <ToggleComponent
+        id="ai-enabled-button"
+        v-model="settings.AIAllowed"
+        data-test-id="ai-enabled-button"
+      />
     </ContentElement>
     <ContentElement
       :title="$t('settings.allergens')"

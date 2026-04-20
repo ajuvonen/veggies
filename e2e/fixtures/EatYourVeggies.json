@@ -12,6 +12,7 @@
     }
   ],
   "settings": {
+    "AIAllowed": null,
     "allergens": ["peanut"],
     "locale": "en",
     "migrationVersion": 4,

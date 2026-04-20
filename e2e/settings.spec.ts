@@ -80,6 +80,7 @@ test('export works', async ({browser}) => {
             {
               name: 'veggies-settings',
               value: JSON.stringify({
+                AIAllowed: null,
                 allergens: ['peanut'],
                 locale: 'en',
                 migrationVersion: 4,

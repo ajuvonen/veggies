@@ -9,6 +9,8 @@ import {useShare} from '@/hooks/share';
 import {AchievementLevel, Category, type Achievements, type WeekData} from '@/types';
 import {areDatesEqual, getCategoryForVeggie, getRandomItem} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
+import AIPermissionDialog from '@/components/AIPermissionDialog.vue';
+import WeekSummaryAIResult from '@/components/WeekSummaryAIResult.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
@@ -28,7 +30,12 @@ const {settings} = storeToRefs(useAppStateStore());
 
 const {shareSupported, shareOrCopy} = useShare();
 
-const dialogOpen = computed({
+const lastWeekData = ref<WeekData | null>(null);
+const {summaryMessages} = useWeekSummary(lastWeekData);
+const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
+const showPermissionDialog = ref(false);
+const showAISummary = ref(false);
+const showWeekSummaryDialog = computed({
   get: () =>
     !!settings.value.startDate &&
     !areDatesEqual(currentWeekStart.value, settings.value.startDate) &&
@@ -41,7 +48,6 @@ const dialogOpen = computed({
   },
 });
 
-const lastWeekData = ref<WeekData | null>(null);
 const weeklyAchievements: (keyof Achievements)[] = [
   'allOnRed',
   'botanicalBerries',
@@ -53,7 +59,7 @@ const weeklyAchievements: (keyof Achievements)[] = [
 ];
 
 watch(
-  dialogOpen,
+  showWeekSummaryDialog,
   (shouldShow) => {
     if (shouldShow) {
       const lastWeekStart = currentWeekStart.value.subtract({weeks: 1});
@@ -86,14 +92,12 @@ watch(
       };
     } else {
       lastWeekData.value = null;
+      showAISummary.value = false;
+      showPermissionDialog.value = false;
     }
   },
   {immediate: true},
 );
-
-const {summaryMessages} = useWeekSummary(lastWeekData);
-const summary = computed(() => shuffle(sample(summaryMessages.value, 3)));
-
 const shareWeeklyData = () => {
   const categoryList: string[] = [];
   Object.keys(Category).forEach((category) => {
@@ -109,6 +113,14 @@ const shareWeeklyData = () => {
   shareOrCopy('weekSummaryDialog.shareText', shareProps);
 };
 
+const handleAISummaryToggle = (value: boolean) => {
+  if (value && settings.value.AIAllowed === null) {
+    showPermissionDialog.value = true;
+  } else {
+    showAISummary.value = value;
+  }
+};
+
 defineExpose({
   lastWeekData,
 });
@@ -117,7 +129,7 @@ defineExpose({
 <template>
   <ModalDialog
     v-if="lastWeekData"
-    v-model="dialogOpen"
+    v-model="showWeekSummaryDialog"
     :title="$t('weekSummaryDialog.title', [lastWeekData.weekNumber])"
   >
     <template #content>
@@ -128,7 +140,25 @@ defineExpose({
         topLabelKey="categoryStatus.topLabelLastWeek"
         class="shrink-0"
       />
-      <div class="grid grid-cols-[auto_1fr] gap-2">
+      <ContentElement
+        v-if="settings.AIAllowed !== false"
+        :title="$t('weekSummaryDialog.AISummary')"
+        :labelAttrs="{for: 'show-ai-summary-button'}"
+        inline
+        labelTag="label"
+      >
+        <ToggleComponent
+          id="show-ai-summary-button"
+          :modelValue="showAISummary"
+          :disabled="showAISummary"
+          data-test-id="show-ai-summary-button"
+          @update:modelValue="handleAISummaryToggle"
+        />
+      </ContentElement>
+      <AsyncLoader v-if="showAISummary">
+        <WeekSummaryAIResult :weekData="{...lastWeekData, locale: settings.locale}" />
+      </AsyncLoader>
+      <div v-else class="grid grid-cols-[auto_1fr] gap-2">
         <template
           v-for="{emoji, translationKey, translationParameters} in summary"
           :key="`${translationKey}-${JSON.stringify(translationParameters)}`"
@@ -171,12 +201,22 @@ defineExpose({
       <ButtonComponent
         icon="close"
         data-test-id="week-summary-dialog-close-button"
-        @click="dialogOpen = false"
+        @click="showWeekSummaryDialog = false"
       >
         {{ $t('general.close') }}
       </ButtonComponent>
     </template>
   </ModalDialog>
+  <AIPermissionDialog
+    v-if="lastWeekData && settings.AIAllowed === null"
+    v-model="showPermissionDialog"
+    @resolve="
+      (value) => {
+        settings.AIAllowed = value;
+        showAISummary = value;
+      }
+    "
+  />
 </template>
 <style scoped>
 .weekSummaryDialog__message {

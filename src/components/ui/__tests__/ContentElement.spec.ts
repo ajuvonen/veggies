@@ -86,7 +86,7 @@ describe('ContentElement', () => {
     });
 
     expect(wrapper.find('div').classes()).toEqual([
-      'align-center',
+      'items-center',
       'justify-between',
       'flex-container',
       'min-h-0',

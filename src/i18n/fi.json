@@ -131,6 +131,12 @@
       "4": "Olet kirjannut täydet tuhat kasvista!"
     }
   },
+  "AIPermissionDialog": {
+    "allow": "Salli",
+    "deny": "Kiellä",
+    "message": "Tekoäly-yhteenvedon luomiseksi rajoitettuja käyttötietoja lähetetään AI-palveluntarjoajalle. Henkilökohtaisia tietoja ei lähetetä. Mikäli muutat mielesi, voit vaihtaa valintaasi sovelluksen asetuksissa.",
+    "title": "Otetaanko toiminto käyttöön?"
+  },
   "allTimeStatus": {
     "atMostVeggies": {
       "bottomLabel": "Kasvista viikossa|Kasvis viikossa|Kasvista viikossa",
@@ -279,6 +285,7 @@
       "text": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
       "title": "Haluatko tyhjentää sovelluksen?"
     },
+    "AIAllowed": "Tekoäly sallittu",
     "selectAllergens": "Valitse allergeenit",
     "selectedAllergens": "Valitut allergeenit",
     "showChartAnimations": "Näytä graafien animaatiot",
@@ -649,6 +656,10 @@
   },
   "weekSummaryDialog": {
     "accomplishment": "Onnittelut! Söit @:general.veggie viime viikolla!",
+    "AIGeneratedContent": "Tekoälyn luomaa sisältöä",
+    "AIMayContainErrors": "Tekoäly-yhteenveto saattaa sisältää virheitä eikä sitä tule pitää ammattilaisen kommenttina.",
+    "AISummary": "Tekoäly-yhteenveto",
+    "AISummaryUnavailable": "Tekoäly-yhteenveto ei ole saatavilla tällä hetkellä. Yritä myöhemmin uudelleen.",
     "allCategories": "Mahtavaa! Söit kasviksia kaikista kategorioista viime viikolla!",
     "challengeCompleted": "Tehtävä suoritettu! Viikkohaasteesi oli {0} ja onnistuit siinä!",
     "challengeMissed": "Et saanut viikkohaastettasi ({0}) suoritettua. Ehkä ensi kerralla?",
