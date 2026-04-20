@@ -10,11 +10,11 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 
 const mocks = vi.hoisted(() => ({
-  getAiSummary: vi.fn(() => 'Test AI summary'),
+  getAISummary: vi.fn(() => 'Test AI summary'),
 }));
 
 vi.mock('@/api', () => ({
-  getAiSummary: mocks.getAiSummary,
+  getAISummary: mocks.getAISummary,
 }));
 
 describe('WeekSummaryDialog', () => {

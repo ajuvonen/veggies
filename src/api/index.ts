@@ -1,7 +1,7 @@
 import type {AIWeekData} from '@/types';
 import {AI_SUMMARY_URL} from '@/utils/constants';
 
-export async function getAiSummary(weekData: AIWeekData) {
+export async function getAISummary(weekData: AIWeekData) {
   const res = await fetch(AI_SUMMARY_URL, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},

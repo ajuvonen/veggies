@@ -156,7 +156,7 @@ defineExpose({
         />
       </ContentElement>
       <AsyncLoader v-if="showAISummary">
-        <WeekSummaryAIResult :weekData="{...lastWeekData, locale: settings.locale}" />
+        <WeekSummaryAIResult :locale="settings.locale" :weekData="lastWeekData" />
       </AsyncLoader>
       <div v-else class="grid grid-cols-[auto_1fr] gap-2">
         <template
