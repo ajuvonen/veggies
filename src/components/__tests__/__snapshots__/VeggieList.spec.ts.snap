@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`VeggieList > renders 1`] = `
-"<div data-v-9c01a269="" data-v-5aea2802="" class="flex-container flex-col"><label class="label-like" for="veggie-completion-chart">Unique Veggies</label>
+"<div data-v-9c01a269="" data-v-5aea2802="" class="flex-col flex-container"><label class="label-like" for="veggie-completion-chart">Unique Veggies</label>
   <div data-v-9c01a269="" class="veggie-completion-chart__background"><canvas data-v-9c01a269="" role="img" id="veggie-completion-chart" aria-description="See table below for details." data-test-id="veggie-completion-chart" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" height="0" width="0">
       <p></p>
     </canvas>
@@ -34,7 +34,7 @@ exports[`VeggieList > renders 1`] = `
   </div>
 </div>
 <section data-v-5aea2802="" class="flex gap-4 flex-col">
-  <div data-v-5aea2802="" class="flex-container flex-col">
+  <div data-v-5aea2802="" class="flex-col flex-container">
     <h2 class="label-like">Fruits And Berries</h2>
     <ul data-v-5aea2802="" class="columns-2 md:columns-3">
       <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -239,7 +239,7 @@ exports[`VeggieList > renders 1`] = `
   </div>
 </section>
 <section data-v-5aea2802="" class="flex gap-4 flex-col">
-  <div data-v-5aea2802="" class="flex-container flex-col">
+  <div data-v-5aea2802="" class="flex-col flex-container">
     <h2 class="label-like">Vegetables</h2>
     <ul data-v-5aea2802="" class="columns-2 md:columns-3">
       <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -345,7 +345,7 @@ exports[`VeggieList > renders 1`] = `
   </div>
 </section>
 <section data-v-5aea2802="" class="flex gap-4 flex-col">
-  <div data-v-5aea2802="" class="flex-container flex-col">
+  <div data-v-5aea2802="" class="flex-col flex-container">
     <h2 class="label-like">Leafy Greens And Herbs</h2>
     <ul data-v-5aea2802="" class="columns-2 md:columns-3">
       <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -490,7 +490,7 @@ exports[`VeggieList > renders 1`] = `
   </div>
 </section>
 <section data-v-5aea2802="" class="flex gap-4 flex-col">
-  <div data-v-5aea2802="" class="flex-container flex-col">
+  <div data-v-5aea2802="" class="flex-col flex-container">
     <h2 class="label-like">Roots And Bulbs</h2>
     <ul data-v-5aea2802="" class="columns-2 md:columns-3">
       <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -599,7 +599,7 @@ exports[`VeggieList > renders 1`] = `
   </div>
 </section>
 <section data-v-5aea2802="" class="flex gap-4 flex-col">
-  <div data-v-5aea2802="" class="flex-container flex-col">
+  <div data-v-5aea2802="" class="flex-col flex-container">
     <h2 class="label-like">Beans And Legumes</h2>
     <ul data-v-5aea2802="" class="columns-2 md:columns-3">
       <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -687,7 +687,7 @@ exports[`VeggieList > renders 1`] = `
   </div>
 </section>
 <section data-v-5aea2802="" class="flex gap-4 flex-col">
-  <div data-v-5aea2802="" class="flex-container flex-col">
+  <div data-v-5aea2802="" class="flex-col flex-container">
     <h2 class="label-like">Grains, Nuts, And Seeds</h2>
     <ul data-v-5aea2802="" class="columns-2 md:columns-3">
       <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -805,7 +805,7 @@ exports[`VeggieList > renders 1`] = `
   </div>
 </section>
 <section data-v-5aea2802="" class="flex gap-4 flex-col">
-  <div data-v-5aea2802="" class="flex-container flex-col">
+  <div data-v-5aea2802="" class="flex-col flex-container">
     <h2 class="label-like">Mushrooms</h2>
     <ul data-v-5aea2802="" class="columns-2 md:columns-3">
       <li data-v-5aea2802="" class="veggie-list__veggie"><svg data-v-5aea2802="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
