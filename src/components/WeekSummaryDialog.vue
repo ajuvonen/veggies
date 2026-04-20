@@ -88,7 +88,7 @@ watch(
         previousWeekCount: veggiesForWeek.value(currentWeekStart.value.subtract({weeks: 2})).length,
         promotedAchievement: getRandomItem(weeklyAchievements)!,
         veggies: lastWeekVeggies,
-        weekNumber: String(lastWeekStart.weekOfYear),
+        weekNumber: lastWeekStart.weekOfYear!,
       };
     } else {
       lastWeekData.value = null;

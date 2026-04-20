@@ -84,7 +84,7 @@ export type WeekData = {
   previousWeekCount: number;
   promotedAchievement: keyof Achievements;
   veggies: string[];
-  weekNumber: string;
+  weekNumber: number;
 };
 
 export type AIWeekData = Omit<WeekData, 'promotedAchievement'> & {locale: Locale};

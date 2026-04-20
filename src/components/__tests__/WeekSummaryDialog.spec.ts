@@ -97,7 +97,7 @@ describe('WeekSummaryDialog', () => {
 
     expect(lastWeekData.veggies).toEqual(['apple', 'spinach', 'tomato']);
     expect(lastWeekData.atMostVeggies).toBe(3); // Max veggies from any week
-    expect(lastWeekData.weekNumber).toBe(String(lastWeek.weekOfYear));
+    expect(lastWeekData.weekNumber).toBe(lastWeek.weekOfYear);
   });
 
   it('identifies first week correctly for lastWeekData', () => {
@@ -407,7 +407,7 @@ Try it out:`;
       mean: 2,
       previousWeekCount: 0,
       veggies: ['apple', 'spinach'],
-      weekNumber: String(lastWeek.weekOfYear),
+      weekNumber: lastWeek.weekOfYear,
     });
   });
 
@@ -435,7 +435,7 @@ Try it out:`;
       mean: 2,
       previousWeekCount: 0,
       veggies: ['apple', 'spinach'],
-      weekNumber: String(lastWeek.weekOfYear),
+      weekNumber: lastWeek.weekOfYear,
     });
   });
 });

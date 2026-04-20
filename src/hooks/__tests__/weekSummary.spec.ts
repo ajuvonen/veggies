@@ -16,7 +16,7 @@ const createWeekData = (overrides: Partial<WeekData> = {}): WeekData => ({
   previousWeekCount: 0,
   promotedAchievement: 'goNuts',
   veggies: [],
-  weekNumber: '1',
+  weekNumber: 1,
   ...overrides,
 });
 
@@ -624,7 +624,7 @@ describe('useWeekSummary', () => {
         previousWeekCount: 0,
         promotedAchievement: 'goNuts',
         veggies: ['apple'],
-        weekNumber: '1',
+        weekNumber: 1,
       });
 
       const {summaryMessages} = withSetup(useWeekSummary, weekData);
