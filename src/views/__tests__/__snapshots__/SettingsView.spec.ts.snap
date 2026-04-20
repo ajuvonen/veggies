@@ -2,7 +2,7 @@
 
 exports[`SettingsView > renders 1`] = `
 "<div data-v-5e0b544f="" class="flex flex-col gap-4 has-scroll">
-  <div class="flex-container flex-col" tabindex="-1" dir="ltr" style="outline: none;" role="radiogroup" aria-required="false" aria-labelledby="locale-changer-title">
+  <div class="flex-col flex-container" tabindex="-1" dir="ltr" style="outline: none;" role="radiogroup" aria-required="false" aria-labelledby="locale-changer-title">
     <h2 class="label-like" id="locale-changer-title">Language</h2><button data-v-ee781121="" class="button-like button button--primary" type="button" data-reka-collection-item="" tabindex="-1" data-active="" role="radio" aria-checked="true" data-state="checked" required="false" data-test-id="locale-button-en" value="en"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7Z" class="transition-all"></path>
       </svg>English</button>
@@ -12,14 +12,15 @@ exports[`SettingsView > renders 1`] = `
     <!--v-if-->
   </div>
   <!--v-if-->
-  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="suggestions-count-slider">Suggestions on the front page</label><input data-v-5e0b544f="" id="suggestions-count-slider" type="range" min="0" max="20" step="5"><!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label --><output data-v-5e0b544f="" for="suggestions-count-slider">10</output></div>
-  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="show-animations-button">Show charts' animations</label><button data-v-5e0b544f="" class="toggle-button" data-test-id="show-animations-button" id="show-animations-button" role="switch" type="button" aria-checked="true" aria-required="false" data-state="checked" value="on"><span data-state="checked" class="toggle-button__thumb"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" class="transition-all"></path></svg></span>
+  <div data-v-5e0b544f="" class="flex-col flex-container"><label class="label-like" for="suggestions-count-slider">Suggestions on the front page</label><input data-v-5e0b544f="" id="suggestions-count-slider" type="range" min="0" max="20" step="5"><!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label --><output data-v-5e0b544f="" for="suggestions-count-slider">10</output></div>
+  <div data-v-5e0b544f="" class="flex-col flex-container"><label class="label-like" for="show-animations-button">Show charts' animations</label><button data-v-5e0b544f="" class="toggle-button" data-test-id="show-animations-button" id="show-animations-button" role="switch" type="button" aria-checked="true" aria-required="false" data-state="checked" value="on"><span data-state="checked" class="toggle-button__thumb"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" class="transition-all"></path></svg></span>
       <!--v-if-->
     </button></div>
-  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="show-veggie-facts-button">Show veggie facts</label><button data-v-5e0b544f="" class="toggle-button" data-test-id="show-veggie-facts-button" id="show-veggie-facts-button" role="switch" type="button" aria-checked="true" aria-required="false" data-state="checked" value="on"><span data-state="checked" class="toggle-button__thumb"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" class="transition-all"></path></svg></span>
+  <div data-v-5e0b544f="" class="flex-col flex-container"><label class="label-like" for="show-veggie-facts-button">Show veggie facts</label><button data-v-5e0b544f="" class="toggle-button" data-test-id="show-veggie-facts-button" id="show-veggie-facts-button" role="switch" type="button" aria-checked="true" aria-required="false" data-state="checked" value="on"><span data-state="checked" class="toggle-button__thumb"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" class="transition-all"></path></svg></span>
       <!--v-if-->
     </button></div>
-  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="veggie-search-input">Allergens</label>
+  <!--v-if-->
+  <div data-v-5e0b544f="" class="flex-col flex-container"><label class="label-like" for="veggie-search-input">Allergens</label>
     <div dir="ltr">
       <div data-v-487fdf11="" class="relative"><input data-v-487fdf11="" aria-disabled="false" type="text" aria-expanded="false" aria-controls="" aria-autocomplete="list" role="combobox" autocomplete="off" id="veggie-search-input" aria-label="Select allergens" placeholder="Select allergens" class="veggie-search__input" inputmode="search" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="">
         <!--v-if--><button data-v-ee781121="" data-v-487fdf11="" class="button-like button button--text button--alternative veggie-search__button right-2 outline-override transition duration-200" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" data-test-id="veggie-search-toggle-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -32,7 +33,7 @@ exports[`SettingsView > renders 1`] = `
     <transition-group-stub data-v-cd627eac="" data-v-5e0b544f="" name="tags" tag="ul" appear="false" persisted="false" css="true" aria-label="Selected allergens" tabindex="-1" class="tags__container hidden"></transition-group-stub>
     <p data-v-5e0b544f="">Veggies marked as allergens won't show up in the app.</p>
   </div>
-  <div data-v-bcc04aab="" data-v-5e0b544f="" class="flex-container flex-col">
+  <div data-v-bcc04aab="" data-v-5e0b544f="" class="flex-col flex-container">
     <h2 class="label-like">Common Questions</h2>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
       <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-2" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-appPurpose">
@@ -115,7 +116,7 @@ exports[`SettingsView > renders 1`] = `
       </div>
     </div>
   </div>
-  <div data-v-5e0b544f="" class="flex-container flex-col">
+  <div data-v-5e0b544f="" class="flex-col flex-container">
     <h2 class="label-like">Export or import app data</h2>
     <p id="export-description">Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.</p>
     <div class="flex-container justify-end"><button data-v-ee781121="" class="button-like button button--secondary" type="button" aria-describedby="export-description" data-test-id="export-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
@@ -124,7 +125,7 @@ exports[`SettingsView > renders 1`] = `
           <path d="M12,3C8.59,3 5.69,4.07 4.54,5.57L9.79,10.82C10.5,10.93 11.22,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M3.92,7.08L2.5,8.5L5,11H0V13H5L2.5,15.5L3.92,16.92L8.84,12M20,9C20,11.21 16.42,13 12,13C11.34,13 10.7,12.95 10.09,12.87L7.62,15.34C8.88,15.75 10.38,16 12,16C16.42,16 20,14.21 20,12M20,14C20,16.21 16.42,18 12,18C9.72,18 7.67,17.5 6.21,16.75L4.53,18.43C5.68,19.93 8.59,21 12,21C16.42,21 20,19.21 20,17" class="transition-all"></path>
         </svg>Import</button></div>
   </div>
-  <div data-v-5e0b544f="" class="flex-container flex-col"><label class="label-like" for="reset-button">Remove all data from the app</label><button data-v-ee781121="" data-v-5e0b544f="" class="button-like button button--danger self-end" type="button" id="reset-button" data-test-id="reset-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+  <div data-v-5e0b544f="" class="flex-col flex-container"><label class="label-like" for="reset-button">Remove all data from the app</label><button data-v-ee781121="" data-v-5e0b544f="" class="button-like button button--danger self-end" type="button" id="reset-button" data-test-id="reset-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" class="transition-all"></path>
       </svg>Reset</button></div>
   <build-time-stub data-v-5e0b544f=""></build-time-stub>

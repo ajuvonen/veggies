@@ -17,6 +17,7 @@ exports[`LogView > renders 1`] = `
     </svg> Follow on Bluesky</a>
   <!--v-if-->
 </footer>
+<!--v-if-->
 <!--v-if-->"
 `;
 
@@ -64,6 +65,8 @@ exports[`LogView > renders with data 1`] = `
     </svg> Follow on Bluesky</a>
   <!--v-if-->
 </footer>
+<!--teleport start-->
+<!--teleport end-->
 <!--teleport start-->
 <!--teleport end-->"
 `;

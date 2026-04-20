@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`WeekEditor > renders 1`] = `
-"<div class="flex-container flex-col"><label class="label-like" for="week-editor-button">Edit Week</label><button data-v-ee781121="" class="button-like button button--primary justify-between" type="button" id="week-editor-button" role="combobox" aria-controls="reka-select-content-v-0" aria-expanded="false" aria-required="false" aria-autocomplete="none" dir="ltr" data-state="closed" data-test-id="week-editor-button">
+"<div class="flex-col flex-container"><label class="label-like" for="week-editor-button">Edit Week</label><button data-v-ee781121="" class="button-like button button--primary justify-between" type="button" id="week-editor-button" role="combobox" aria-controls="reka-select-content-v-0" aria-expanded="false" aria-required="false" aria-autocomplete="none" dir="ltr" data-state="closed" data-test-id="week-editor-button">
     <!--v-if--><span style="pointer-events: none;">Week 1/2025 (30/12-05/01)</span><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
     </svg>

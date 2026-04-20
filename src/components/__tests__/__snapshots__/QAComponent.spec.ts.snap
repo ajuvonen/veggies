@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`QAComponent > renders 1`] = `
-"<div data-v-bcc04aab="" class="flex-container flex-col">
+"<div data-v-bcc04aab="" class="flex-col flex-container">
   <h2 class="label-like">Common Questions</h2>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-0" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-appPurpose">
@@ -87,7 +87,7 @@ exports[`QAComponent > renders 1`] = `
 `;
 
 exports[`QAComponent > renders answers 1`] = `
-"<div data-v-bcc04aab="" class="flex-container flex-col">
+"<div data-v-bcc04aab="" class="flex-col flex-container">
   <h2 class="label-like">Common Questions</h2>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-1" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-0" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-appPurpose">

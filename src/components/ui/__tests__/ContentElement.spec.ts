@@ -48,7 +48,7 @@ describe('ContentElement', () => {
     expect(wrapper.find('div').attributes('style')).toEqual('height: 100%;');
   });
 
-  it('merges classes', () => {
+  it('merges label classes', () => {
     const wrapper = mount(ContentElement, {
       props: {
         title: 'Test',
@@ -61,7 +61,7 @@ describe('ContentElement', () => {
     expect(wrapper.find('h2').classes()).toEqual(['label-like', 'truncate']);
   });
 
-  it('merges classes with attribute', () => {
+  it('merges container classes', () => {
     const wrapper = mount(ContentElement, {
       props: {
         title: 'Test',
@@ -71,6 +71,25 @@ describe('ContentElement', () => {
       },
     });
 
-    expect(wrapper.find('div').classes()).toEqual(['flex-container', 'flex-col', 'min-h-0']);
+    expect(wrapper.find('div').classes()).toEqual(['flex-col', 'flex-container', 'min-h-0']);
+  });
+
+  it('supports inline mode', () => {
+    const wrapper = mount(ContentElement, {
+      props: {
+        title: 'Test',
+        inline: true,
+      },
+      attrs: {
+        class: 'min-h-0',
+      },
+    });
+
+    expect(wrapper.find('div').classes()).toEqual([
+      'align-center',
+      'justify-between',
+      'flex-container',
+      'min-h-0',
+    ]);
   });
 });
