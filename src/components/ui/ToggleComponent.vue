@@ -26,16 +26,16 @@ withDefaults(
   }
 
   > .toggle-button__thumb {
-    @apply inline-block w-6 h-6 transform rounded-md transition-transform duration-200;
+    @apply inline-block w-6 h-6 transform rounded-md shadow-lg transition-transform duration-200;
     @apply flex items-center justify-center;
-    @apply bg-[--color-bg-alternative] fill-[--color-text-alternative] active:bg-[--color-primary-active];
+    @apply bg-[--color-bg-alternative] fill-[--color-text-alternative];
 
     [data-state='checked']& {
       @apply translate-x-6;
-      @apply bg-[--color-primary] fill-[--color-text] active:bg-[--color-primary-active];
+      @apply bg-[--color-primary] fill-[--color-text];
     }
     :not([disabled])& {
-      @apply hover:bg-[--color-primary-hover] hover:fill-[--color-text];
+      @apply hover:bg-[--color-primary-hover] hover:fill-[--color-text] active:bg-[--color-primary-active] active:fill-[--color-text];
     }
   }
 }
