@@ -10,11 +10,11 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 
 const mocks = vi.hoisted(() => ({
-  getAiSummary: vi.fn(() => 'Test AI summary'),
+  getAISummary: vi.fn(() => 'Test AI summary'),
 }));
 
 vi.mock('@/api', () => ({
-  getAiSummary: mocks.getAiSummary,
+  getAISummary: mocks.getAISummary,
 }));
 
 describe('WeekSummaryDialog', () => {
@@ -27,6 +27,7 @@ describe('WeekSummaryDialog', () => {
   beforeEach(() => {
     activityStore = useActivityStore();
     appStateStore = useAppStateStore();
+    mocks.getAISummary.mockClear();
   });
 
   it('does not show dialog when no startDate is set', async () => {
@@ -355,6 +356,7 @@ Try it out:`;
 
     const dialog = wrapper.getComponent(DialogContent);
     expect(dialog.findByTestId('show-ai-summary-button').exists()).toBe(false);
+    expect(mocks.getAISummary).not.toHaveBeenCalled();
   });
 
   it('shows permission dialog when AI tab is clicked and AIAllowed is null', async () => {
@@ -371,9 +373,13 @@ Try it out:`;
       .findAllComponents(DialogContent)
       .find((d) => d.findByTestId('ai-permission-allow-button').exists())!;
     expect(permissionDialog.isVisible()).toBe(true);
+    expect(mocks.getAISummary).not.toHaveBeenCalled();
   });
 
   it('shows AI summary after permission is allowed', async () => {
+    activityStore.weeks = [
+      {startDate: lastWeek, veggies: ['apple', 'spinach'], challenge: 'cucumber'},
+    ];
     appStateStore.settings.startDate = lastWeek;
     appStateStore.settings.AIAllowed = null;
     const wrapper = mount(WeekSummaryDialog);
@@ -391,9 +397,24 @@ Try it out:`;
     await flushPromises();
 
     expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');
+    expect(mocks.getAISummary).toHaveBeenCalledExactlyOnceWith({
+      atMostVeggies: 2,
+      challenge: 'cucumber',
+      firstTimeVeggies: [],
+      firstWeek: true,
+      hotStreak: 0,
+      locale: 'en',
+      mean: 2,
+      previousWeekCount: 0,
+      veggies: ['apple', 'spinach'],
+      weekNumber: String(lastWeek.weekOfYear),
+    });
   });
 
   it('shows AI summary when AIAllowed is true and AI tab is clicked', async () => {
+    activityStore.weeks = [
+      {startDate: lastWeek, veggies: ['apple', 'spinach'], challenge: 'cucumber'},
+    ];
     appStateStore.settings.startDate = lastWeek;
     appStateStore.settings.AIAllowed = true;
     const wrapper = mount(WeekSummaryDialog);
@@ -404,5 +425,17 @@ Try it out:`;
     await flushPromises();
 
     expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');
+    expect(mocks.getAISummary).toHaveBeenCalledExactlyOnceWith({
+      atMostVeggies: 2,
+      challenge: 'cucumber',
+      firstTimeVeggies: [],
+      firstWeek: true,
+      hotStreak: 0,
+      locale: 'en',
+      mean: 2,
+      previousWeekCount: 0,
+      veggies: ['apple', 'spinach'],
+      weekNumber: String(lastWeek.weekOfYear),
+    });
   });
 });

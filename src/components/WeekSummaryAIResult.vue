@@ -1,16 +1,23 @@
 <script setup lang="ts">
 import {ref} from 'vue';
-import {getAiSummary} from '@/api';
-import type {AIWeekData} from '@/types';
+import {addProp, omit} from 'remeda';
+import {getAISummary} from '@/api';
+import type {AIWeekData, Locale, WeekData} from '@/types';
 
 const props = defineProps<{
-  weekData: AIWeekData;
+  weekData: WeekData;
+  locale: Locale;
 }>();
 
 const summaryText = ref<string | null>(null);
 const error = ref(false);
 try {
-  summaryText.value = await getAiSummary(props.weekData);
+  const data: AIWeekData = addProp(
+    omit(props.weekData, ['promotedAchievement']),
+    'locale',
+    props.locale,
+  );
+  summaryText.value = await getAISummary(data);
 } catch {
   error.value = true;
 }
