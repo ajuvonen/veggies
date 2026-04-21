@@ -10,7 +10,10 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 
 const mocks = vi.hoisted(() => ({
-  getAISummary: vi.fn(() => 'Test AI summary'),
+  getAISummary: vi.fn((_, onChunk: (text: string) => void) => {
+    onChunk('Test AI summary');
+    return Promise.resolve('Test AI summary');
+  }),
 }));
 
 vi.mock('@/api', () => ({
@@ -397,18 +400,21 @@ Try it out:`;
     await flushPromises();
 
     expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');
-    expect(mocks.getAISummary).toHaveBeenCalledExactlyOnceWith({
-      atMostVeggies: 2,
-      challenge: 'cucumber',
-      firstTimeVeggies: [],
-      firstWeek: true,
-      hotStreak: 0,
-      locale: 'en',
-      mean: 2,
-      previousWeekCount: 0,
-      veggies: ['apple', 'spinach'],
-      weekNumber: lastWeek.weekOfYear,
-    });
+    expect(mocks.getAISummary).toHaveBeenCalledExactlyOnceWith(
+      {
+        atMostVeggies: 2,
+        challenge: 'cucumber',
+        firstTimeVeggies: [],
+        firstWeek: true,
+        hotStreak: 0,
+        locale: 'en',
+        mean: 2,
+        previousWeekCount: 0,
+        veggies: ['apple', 'spinach'],
+        weekNumber: lastWeek.weekOfYear,
+      },
+      expect.any(Function),
+    );
   });
 
   it('shows AI summary when AIAllowed is true and AI tab is clicked', async () => {
@@ -425,17 +431,20 @@ Try it out:`;
     await flushPromises();
 
     expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');
-    expect(mocks.getAISummary).toHaveBeenCalledExactlyOnceWith({
-      atMostVeggies: 2,
-      challenge: 'cucumber',
-      firstTimeVeggies: [],
-      firstWeek: true,
-      hotStreak: 0,
-      locale: 'en',
-      mean: 2,
-      previousWeekCount: 0,
-      veggies: ['apple', 'spinach'],
-      weekNumber: lastWeek.weekOfYear,
-    });
+    expect(mocks.getAISummary).toHaveBeenCalledExactlyOnceWith(
+      {
+        atMostVeggies: 2,
+        challenge: 'cucumber',
+        firstTimeVeggies: [],
+        firstWeek: true,
+        hotStreak: 0,
+        locale: 'en',
+        mean: 2,
+        previousWeekCount: 0,
+        veggies: ['apple', 'spinach'],
+        weekNumber: lastWeek.weekOfYear,
+      },
+      expect.any(Function),
+    );
   });
 });
