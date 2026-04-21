@@ -414,6 +414,7 @@ Try it out:`;
         weekNumber: lastWeek.weekOfYear,
       },
       expect.any(Function),
+      expect.any(AbortSignal),
     );
   });
 
@@ -445,6 +446,7 @@ Try it out:`;
         weekNumber: lastWeek.weekOfYear,
       },
       expect.any(Function),
+      expect.any(AbortSignal),
     );
   });
 });

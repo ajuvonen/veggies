@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, onMounted} from 'vue';
+import {ref, onMounted, onUnmounted} from 'vue';
 import {addProp, omit} from 'remeda';
 import {getAISummary} from '@/api';
 import type {AIWeekData, Locale, WeekData} from '@/types';
@@ -12,6 +12,7 @@ const props = defineProps<{
 const summaryText = ref('');
 const error = ref(false);
 const isStreaming = ref(true);
+const controller = new AbortController();
 
 onMounted(async () => {
   try {
@@ -22,13 +23,15 @@ onMounted(async () => {
     );
     await getAISummary(data, (text) => {
       summaryText.value = text;
-    });
+    }, controller.signal);
   } catch {
     error.value = true;
   } finally {
     isStreaming.value = false;
   }
 });
+
+onUnmounted(() => controller.abort());
 </script>
 
 <template>
