@@ -28,7 +28,6 @@
     "chartjs-chart-matrix": "3.0.0",
     "chartjs-plugin-annotation": "3.1.0",
     "chartjs-plugin-datalabels": "2.2.0",
-    "eventsource-parser": "3.0.8",
     "pinia": "3.0.4",
     "reka-ui": "2.9.6",
     "remeda": "2.33.7",

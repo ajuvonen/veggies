@@ -1,6 +1,21 @@
-import {EventSourceParserStream} from 'eventsource-parser/stream';
 import type {AIWeekData} from '@/types';
 import {AI_SUMMARY_URL} from '@/utils/constants';
+
+function processLine(line: string): string | null {
+  const trimmed = line.trim();
+  if (!trimmed) return null;
+  const jsonStr = trimmed.startsWith('data: ') ? trimmed.slice(6) : trimmed;
+  if (jsonStr === '[DONE]') return null;
+  try {
+    const parsed = JSON.parse(jsonStr);
+    if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
+      return parsed.delta.text;
+    }
+  } catch {
+    // skip non-JSON lines
+  }
+  return null;
+}
 
 export async function getAISummary(
   weekData: AIWeekData,
@@ -11,7 +26,9 @@ export async function getAISummary(
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(weekData),
-    signal: signal ? AbortSignal.any([AbortSignal.timeout(30000), signal]) : AbortSignal.timeout(30000),
+    signal: signal
+      ? AbortSignal.any([AbortSignal.timeout(30000), signal])
+      : AbortSignal.timeout(30000),
   });
 
   if (!res.ok) {
@@ -20,30 +37,30 @@ export async function getAISummary(
     throw new Error('AI summary response has no body.');
   }
 
-  const reader = res.body
-    .pipeThrough(new TextDecoderStream())
-    .pipeThrough(new EventSourceParserStream())
-    .getReader();
+  const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
 
+  let buffer = '';
   let fullText = '';
 
   try {
     while (true) {
-      const {done, value: event} = await reader.read();
+      const {done, value: chunk} = await reader.read();
       if (done) break;
-      if (event.data === '[DONE]') {
-        await reader.cancel();
-        break;
-      }
-      try {
-        const parsed = JSON.parse(event.data);
-        if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
-          fullText += parsed.delta.text;
+      buffer += chunk;
+      const lines = buffer.split('\n');
+      buffer = lines.pop() ?? '';
+      for (const line of lines) {
+        const delta = processLine(line);
+        if (delta) {
+          fullText += delta;
           onChunk(fullText);
         }
-      } catch {
-        // skip non-JSON events
       }
+    }
+    const delta = processLine(buffer);
+    if (delta) {
+      fullText += delta;
+      onChunk(fullText);
     }
   } finally {
     reader.releaseLock();
