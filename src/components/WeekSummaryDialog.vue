@@ -155,9 +155,7 @@ defineExpose({
           @update:modelValue="handleAISummaryToggle"
         />
       </ContentElement>
-      <AsyncLoader v-if="showAISummary">
-        <WeekSummaryAIResult :locale="settings.locale" :weekData="lastWeekData" />
-      </AsyncLoader>
+      <WeekSummaryAIResult v-if="showAISummary" :locale="settings.locale" :weekData="lastWeekData" />
       <div v-else class="grid grid-cols-[auto_1fr] gap-2">
         <template
           v-for="{emoji, translationKey, translationParameters} in summary"

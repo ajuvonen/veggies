@@ -93,7 +93,6 @@ declare module 'vue' {
     WeeklyCategoriesChart: typeof import('./../components/charts/WeeklyCategoriesChart.vue')['default']
     WeeklyCharts: typeof import('./../components/WeeklyCharts.vue')['default']
     WeeklyHeatmap: typeof import('./../components/charts/WeeklyHeatmap.vue')['default']
-    WeekSummaryAiResult: typeof import('../components/WeekSummaryAIResult.vue')['default']
     WeekSummaryAIResult: typeof import('./../components/WeekSummaryAIResult.vue')['default']
     WeekSummaryBadge: typeof import('./../components/WeekSummaryBadge.vue')['default']
     WeekSummaryDialog: typeof import('./../components/WeekSummaryDialog.vue')['default']

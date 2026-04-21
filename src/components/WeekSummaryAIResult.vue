@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
 import {addProp, omit} from 'remeda';
 import {getAISummary} from '@/api';
 import type {AIWeekData, Locale, WeekData} from '@/types';
@@ -9,25 +9,33 @@ const props = defineProps<{
   locale: Locale;
 }>();
 
-const summaryText = ref<string | null>(null);
+const summaryText = ref('');
 const error = ref(false);
-try {
-  const data: AIWeekData = addProp(
-    omit(props.weekData, ['promotedAchievement']),
-    'locale',
-    props.locale,
-  );
-  summaryText.value = await getAISummary(data);
-} catch {
-  error.value = true;
-}
+const isStreaming = ref(true);
+
+onMounted(async () => {
+  try {
+    const data: AIWeekData = addProp(
+      omit(props.weekData, ['promotedAchievement']),
+      'locale',
+      props.locale,
+    );
+    await getAISummary(data, (text) => {
+      summaryText.value = text;
+    });
+  } catch {
+    error.value = true;
+  } finally {
+    isStreaming.value = false;
+  }
+});
 </script>
 
 <template>
   <p v-if="error">{{ $t('weekSummaryDialog.AISummaryUnavailable') }}</p>
   <div v-else class="flex-container flex-col">
     <p>{{ $t('weekSummaryDialog.AIMayContainErrors') }}</p>
-    <div class="fade-wrap relative">
+    <div :class="{'ai-content--streaming': isStreaming}" class="ai-content">
       <p :aria-description="$t('weekSummaryDialog.AIGeneratedContent')" data-test-id="ai-summary">
         {{ summaryText }}
       </p>
@@ -36,19 +44,12 @@ try {
 </template>
 
 <style scoped>
-.fade-wrap::after {
-  @apply bottom-0 left-0 right-0 h-full absolute;
-  content: '';
-  background: linear-gradient(to bottom, transparent 0%, var(--color-bg-alternative) 30%);
-  animation: reveal 2s ease forwards;
-}
-
-@keyframes reveal {
-  from {
-    height: 100%;
-  }
-  to {
-    height: 0%;
+.ai-content {
+  @apply relative;
+  &--streaming::after {
+    @apply absolute bottom-0 left-0 right-0 h-12 pointer-events-none;
+    content: '';
+    background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--color-bg-alternative) 60%, transparent));
   }
 }
 </style>
