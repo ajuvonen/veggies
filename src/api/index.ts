@@ -5,13 +5,13 @@ import {AI_SUMMARY_URL} from '@/utils/constants';
 export async function getAISummary(
   weekData: AIWeekData,
   onChunk: (text: string) => void,
-  signal?: AbortSignal,
+  signal: AbortSignal,
 ): Promise<string> {
   const res = await fetch(AI_SUMMARY_URL, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(weekData),
-    signal: signal ? AbortSignal.any([AbortSignal.timeout(30000), signal]) : AbortSignal.timeout(30000),
+    signal: AbortSignal.any([AbortSignal.timeout(30000), signal]),
   });
 
   if (!res.ok) {
@@ -50,7 +50,7 @@ export async function getAISummary(
   }
 
   if (fullText.trim() === '') {
-    throw new Error('Unexpected response shape.');
+    throw new Error('No content received from API.');
   }
 
   return fullText;
