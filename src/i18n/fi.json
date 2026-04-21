@@ -657,7 +657,7 @@
   "weekSummaryDialog": {
     "accomplishment": "Onnittelut! Söit @:general.veggie viime viikolla!",
     "AIGeneratedContent": "Tekoälyn luomaa sisältöä",
-    "AIMayContainErrors": "Tekoäly-yhteenveto saattaa sisältää virheitä eikä sitä tule pitää ammattilaisen kommenttina.",
+    "AIMayContainErrors": "Tekoäly-yhteenveto saattaa sisältää virheitä eikä sitä tule pitää ammattilaisen kommenttina. Yhteenveto on saatavilla vain englanniksi.",
     "AISummary": "Tekoäly-yhteenveto",
     "AISummaryUnavailable": "Tekoäly-yhteenveto ei ole saatavilla tällä hetkellä. Yritä myöhemmin uudelleen.",
     "allCategories": "Mahtavaa! Söit kasviksia kaikista kategorioista viime viikolla!",

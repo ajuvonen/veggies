@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import {ref, onMounted, onUnmounted} from 'vue';
-import {addProp, omit} from 'remeda';
+import {omit} from 'remeda';
 import {getAISummary} from '@/api';
-import type {AIWeekData, Locale, WeekData} from '@/types';
+import type {AIWeekData, WeekData} from '@/types';
 
 const props = defineProps<{
   weekData: WeekData;
-  locale: Locale;
 }>();
 
 const summaryText = ref('');
@@ -16,11 +15,7 @@ const controller = new AbortController();
 
 onMounted(async () => {
   try {
-    const data: AIWeekData = addProp(
-      omit(props.weekData, ['promotedAchievement']),
-      'locale',
-      props.locale,
-    );
+    const data: AIWeekData = omit(props.weekData, ['promotedAchievement']);
     await getAISummary(data, (text) => {
       summaryText.value = text;
     }, controller.signal);
