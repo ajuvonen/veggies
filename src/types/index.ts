@@ -87,7 +87,7 @@ export type WeekData = {
   weekNumber: number;
 };
 
-export type AIWeekData = Omit<WeekData, 'promotedAchievement'> & {locale: Locale};
+export type AIWeekData = Omit<WeekData, 'promotedAchievement'>;
 
 export type SummaryItem = {
   emoji: string;
