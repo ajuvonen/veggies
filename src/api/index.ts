@@ -5,12 +5,13 @@ import {AI_SUMMARY_URL} from '@/utils/constants';
 export async function getAISummary(
   weekData: AIWeekData,
   onChunk: (text: string) => void,
+  signal?: AbortSignal,
 ): Promise<string> {
   const res = await fetch(AI_SUMMARY_URL, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(weekData),
-    signal: AbortSignal.timeout(30000),
+    signal: signal ? AbortSignal.any([AbortSignal.timeout(30000), signal]) : AbortSignal.timeout(30000),
   });
 
   if (!res.ok) {
@@ -30,7 +31,10 @@ export async function getAISummary(
     while (true) {
       const {done, value: event} = await reader.read();
       if (done) break;
-      if (event.data === '[DONE]') return fullText;
+      if (event.data === '[DONE]') {
+        await reader.cancel();
+        break;
+      }
       try {
         const parsed = JSON.parse(event.data);
         if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
