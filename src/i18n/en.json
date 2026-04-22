@@ -697,6 +697,8 @@
     "recordAchieved": "New personal record! You ate @:general.veggie last week!",
     "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
     "shareText": "I ate {0} different veggies last week\n{1}\nTry it out:\n{2}",
+    "summaryGenerated": "AI summary generated.",
+    "summaryGenerating": "AI summary is being generated.",
     "surpassedPreviousWeek": "You beat your previous week's count of @:general.veggieNominative{'!'}",
     "title": "All done for week {0}!"
   }
