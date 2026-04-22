@@ -697,6 +697,8 @@
     "recordAchieved": "Uusi ennätys! Söit @:general.veggie viime viikolla!",
     "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
     "shareText": "Söin {0} erilaista kasvista viime viikolla:\n{1}\nKokeile itse:\n{2}",
+    "summaryGenerated": "Tekoäly-yhteenveto luotu.",
+    "summaryGenerating": "Tekoäly-yhteenvetoa luodaan.",
     "surpassedPreviousWeek": "Ohitit edellisen viikon tuloksen (@:general.veggieNominative)!",
     "title": "Viikko {0} paketissa!"
   }

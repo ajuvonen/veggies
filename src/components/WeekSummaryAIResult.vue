@@ -10,19 +10,23 @@ const props = defineProps<{
 
 const summaryText = ref('');
 const error = ref(false);
-const isStreaming = ref(true);
+const isGenerating = ref(true);
 const controller = new AbortController();
 
 onMounted(async () => {
   try {
     const data: AIWeekData = omit(props.weekData, ['promotedAchievement']);
-    await getAISummary(data, (text) => {
-      summaryText.value = text;
-    }, controller.signal);
+    await getAISummary(
+      data,
+      (text) => {
+        summaryText.value = text;
+      },
+      controller.signal,
+    );
   } catch {
     error.value = true;
   } finally {
-    isStreaming.value = false;
+    isGenerating.value = false;
   }
 });
 
@@ -33,8 +37,21 @@ onUnmounted(() => controller.abort());
   <p v-if="error">{{ $t('weekSummaryDialog.AISummaryUnavailable') }}</p>
   <div v-else class="flex-container flex-col">
     <p>{{ $t('weekSummaryDialog.AIMayContainErrors') }}</p>
-    <div :class="{'ai-content--streaming': isStreaming}" class="ai-content">
-      <p :aria-description="$t('weekSummaryDialog.AIGeneratedContent')" data-test-id="ai-summary">
+    <div class="sr-only" aria-live="polite">
+      {{
+        $t(
+          isGenerating
+            ? 'weekSummaryDialog.summaryGenerating'
+            : 'weekSummaryDialog.summaryGenerated',
+        )
+      }}
+    </div>
+    <div :class="{'ai-content--streaming': isGenerating}" class="ai-content">
+      <p
+        :aria-busy="isGenerating"
+        :aria-description="$t('weekSummaryDialog.AIGeneratedContent')"
+        data-test-id="ai-summary"
+      >
         {{ summaryText }}
       </p>
     </div>
@@ -47,7 +64,11 @@ onUnmounted(() => controller.abort());
   &--streaming::after {
     @apply absolute bottom-0 left-0 right-0 h-12 pointer-events-none;
     content: '';
-    background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--color-bg-alternative) 60%, transparent));
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      color-mix(in srgb, var(--color-bg-alternative) 60%, transparent)
+    );
   }
 }
 </style>
