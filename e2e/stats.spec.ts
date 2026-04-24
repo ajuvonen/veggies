@@ -1,4 +1,4 @@
-import {test, expect} from './fixtures';
+import {test, expect, defaultSettings} from './fixtures';
 
 test('shows all time stats', async ({page}) => {
   await page.goto('/');
@@ -71,20 +71,44 @@ test('shows veggie list', async ({page}) => {
   await expect(page.getByTestId('veggie-list-status-apricot')).toHaveText('(complete)');
 });
 
-test('shows achievements', async ({page}) => {
+test('shows achievements', async ({browser}) => {
+  const browserContext = await browser.newContext({
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: 'http://localhost:5173',
+          localStorage: [
+            {
+              name: 'veggies-settings',
+              value: JSON.stringify(defaultSettings),
+            },
+            {
+              name: 'veggies-weeks',
+              value: JSON.stringify([
+                {
+                  veggies: [
+                    'apple', 'apricot', 'asian pear', 'banana', 'bilberry',
+                    'blackberry', 'blackcurrant', 'blood grapefruit', 'blood orange',
+                    'blueberry', 'boysenberry', 'calamansi', 'cantaloupe', 'cape gooseberry',
+                    'cherry',
+                  ],
+                  startDate: defaultSettings.startDate,
+                  challenge: 'apple',
+                },
+              ]),
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  const page = await browserContext.newPage();
   await page.goto('/');
-  await page.getByTestId('home-start-button').click();
-  await page.getByTestId('veggie-search-toggle-button').click();
-  const elements = (
-    await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
-  ).slice(0, 15);
-  for (const element of elements) {
-    await element.click();
-  }
-  await page.getByTestId('dialog-close-button').click();
-  await expect(page.getByTestId('dialog')).toBeHidden();
   await page.getByTestId('navbar-stats-link').click();
   await page.getByTestId('stats-tab-4').click();
   await expect(page.getByTestId('badge-experimenterFruit-3')).not.toContainClass('badge--locked');
   await expect(page.getByTestId('badge-experimenterRoot-3')).toContainClass('badge--locked');
+  await browserContext.close();
 });
