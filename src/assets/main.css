@@ -96,6 +96,7 @@
     @apply truncate h-12 button-like rounded-none;
     @apply justify-between;
     @apply text-[--color-text-alternative] fill-[--color-text-alternative];
+    touch-action: manipulation;
     &[data-state='checked'] {
       @apply bg-[--color-primary-active] text-[--color-text] fill-[--color-text];
     }

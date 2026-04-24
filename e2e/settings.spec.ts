@@ -1,4 +1,4 @@
-import {test, expect} from './fixtures';
+import {test, expect, defaultSettings} from './fixtures';
 import {readFileSync} from 'fs';
 import {fileURLToPath} from 'node:url';
 
@@ -80,13 +80,9 @@ test('export works', async ({browser}) => {
             {
               name: 'veggies-settings',
               value: JSON.stringify({
-                AIAllowed: null,
+                ...defaultSettings,
                 allergens: ['peanut'],
-                locale: 'en',
-                migrationVersion: 4,
-                showChartAnimations: true,
                 startDate: '2025-08-04',
-                suggestionCount: 10,
                 summaryViewedDate: thisWeek,
               }),
             },

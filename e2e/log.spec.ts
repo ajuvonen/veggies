@@ -1,4 +1,4 @@
-import {test, expect} from './fixtures';
+import {test, expect, defaultSettings} from './fixtures';
 
 // See here how to get started:
 // https://playwright.dev/docs/intro
@@ -63,42 +63,127 @@ test('weekly challenges work', async ({page}) => {
   await expect(page.getByText(/^You have completed your weekly challenge!/)).toBeVisible();
 });
 
-test('achievement notifications work', async ({page}) => {
+test('achievement notifications work', async ({browser}) => {
+  const browserContext = await browser.newContext({
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: 'http://localhost:5173',
+          localStorage: [
+            {
+              name: 'veggies-settings',
+              value: JSON.stringify(defaultSettings),
+            },
+            {
+              name: 'veggies-weeks',
+              value: JSON.stringify([
+                {
+                  veggies: [
+                    'apple',
+                    'apricot',
+                    'asian pear',
+                    'banana',
+                    'bilberry',
+                    'blackberry',
+                    'blackcurrant',
+                    'blood grapefruit',
+                    'blood orange',
+                    'blueberry',
+                    'boysenberry',
+                    'calamansi',
+                    'cantaloupe',
+                    'cape gooseberry',
+                  ],
+                  startDate: defaultSettings.startDate,
+                  challenge: 'apple',
+                },
+              ]),
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  const page = await browserContext.newPage();
   await page.goto('/');
-  await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-toggle-button').click();
-  const elements = (
-    await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
-  ).slice(0, 15);
-  for (const element of elements) {
-    await element.click();
-  }
+  await page.getByTestId('veggie-search-option-cherry').click();
   await expect(page.getByTestId('dialog')).toBeVisible();
   await expect(page.getByTestId('badge-experimenterFruit-3')).toBeVisible();
   await page.getByTestId('dialog-close-button').click();
   await expect(page.getByTestId('dialog')).toBeHidden();
+  await browserContext.close();
 });
 
-test('weekly achievement works', async ({page}) => {
+test('weekly achievement works', async ({browser}) => {
+  const browserContext = await browser.newContext({
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: 'http://localhost:5173',
+          localStorage: [
+            {
+              name: 'veggies-settings',
+              value: JSON.stringify(defaultSettings),
+            },
+            {
+              name: 'veggies-weeks',
+              value: JSON.stringify([
+                {
+                  veggies: [
+                    'apple',
+                    'banana',
+                    'cherry',
+                    'kiwi',
+                    'lemon',
+                    'lime',
+                    'mango',
+                    'orange',
+                    'peach',
+                    'pear',
+                    'pineapple',
+                    'raspberry',
+                    'strawberry',
+                    'watermelon',
+                    'blueberry',
+                    'tomato',
+                    'bell pepper',
+                    'broccoli',
+                    'cucumber',
+                    'spinach',
+                    'kale',
+                    'lettuce',
+                    'arugula',
+                    'carrot',
+                    'potato',
+                    'onion',
+                    'chickpea',
+                    'green bean',
+                    'almond',
+                  ],
+                  startDate: defaultSettings.startDate,
+                  challenge: 'apple',
+                },
+              ]),
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  const page = await browserContext.newPage();
   await page.goto('/');
-  await page.getByTestId('home-start-button').click();
   await page.getByTestId('veggie-search-toggle-button').click();
-  const fruits = (
-    await page.getByTestId('veggie-search-group-Fruit').locator('.dropdown-list-option').all()
-  ).slice(0, 10);
-  const vegetables = (
-    await page.getByTestId('veggie-search-group-Vegetable').locator('.dropdown-list-option').all()
-  ).slice(0, 10);
-  const grains = (
-    await page.getByTestId('veggie-search-group-Grain').locator('.dropdown-list-option').all()
-  ).slice(0, 10);
-  for (const element of fruits.concat(vegetables, grains)) {
-    await element.click();
-  }
+  await page.getByTestId('veggie-search-option-apricot').click();
   await expect(page.getByTestId('dialog')).toBeVisible();
   await expect(page.getByTestId('badge-thirtyVeggies-3')).toBeVisible();
   await page.getByTestId('dialog-close-button').click();
   await expect(page.getByTestId('dialog')).toBeHidden();
+  await browserContext.close();
 });
 
 test('shows week summary dialog for previous week data', async ({browser}) => {
@@ -114,15 +199,7 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
           localStorage: [
             {
               name: 'veggies-settings',
-              value: JSON.stringify({
-                AIAllowed: null,
-                allergens: [],
-                locale: 'en',
-                showChartAnimations: true,
-                startDate: previousWeekStart,
-                suggestionCount: 10,
-                summaryViewedDate: null,
-              }),
+              value: JSON.stringify({...defaultSettings, startDate: previousWeekStart}),
             },
             {
               name: 'veggies-weeks',
