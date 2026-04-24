@@ -86,7 +86,7 @@ watch(
         firstTimeVeggies,
         firstWeek: weeks.value.length === 1,
         hotStreak: hotStreak.value,
-        mean: Math.round(mean(pastVeggies) as number),
+        mean: Math.round(mean(pastVeggies) ?? 0),
         previousWeekCount: veggiesForWeek.value(currentWeekStart.value.subtract({weeks: 2})).length,
         promotedAchievement: getRandomItem(weeklyAchievements)!,
         veggies: lastWeekVeggies,
