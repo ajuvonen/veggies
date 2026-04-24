@@ -5,7 +5,7 @@ import {test, expect} from '@playwright/test';
 const today = Temporal.Now.plainDateISO();
 
 export const defaultSettings = {
-  AIAllowed: null as null,
+  AIAllowed: null,
   allergens: [] as string[],
   locale: 'en' as const,
   migrationVersion: 4,
@@ -13,7 +13,7 @@ export const defaultSettings = {
   showVeggieFacts: true,
   startDate: today.subtract({days: today.dayOfWeek - 1}),
   suggestionCount: 10,
-  summaryViewedDate: null as null,
+  summaryViewedDate: null,
 };
 
 export {test, expect};
