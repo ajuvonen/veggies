@@ -10,10 +10,12 @@ import {AchievementLevel, Category, type Achievements, type WeekData} from '@/ty
 import {areDatesEqual, getCategoryForVeggie, getRandomItem} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import AIPermissionDialog from '@/components/AIPermissionDialog.vue';
-import WeekSummaryAIResult from '@/components/WeekSummaryAIResult.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
+);
+const WeekSummaryAIResult = defineAsyncComponent(
+  () => import('@/components/WeekSummaryAIResult.vue'),
 );
 
 const {
@@ -155,8 +157,10 @@ defineExpose({
           @update:modelValue="handleAISummaryToggle"
         />
       </ContentElement>
-      <WeekSummaryAIResult v-if="showAISummary" :weekData="lastWeekData" />
-      <div v-else class="grid grid-cols-[auto_1fr] gap-2">
+      <AsyncLoader>
+        <WeekSummaryAIResult v-if="showAISummary" :weekData="lastWeekData" />
+      </AsyncLoader>
+      <div v-if="!showAISummary" class="grid grid-cols-[auto_1fr] gap-2">
         <template
           v-for="{emoji, translationKey, translationParameters} in summary"
           :key="`${translationKey}-${JSON.stringify(translationParameters)}`"
