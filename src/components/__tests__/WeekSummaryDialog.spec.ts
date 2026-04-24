@@ -1,5 +1,5 @@
-import {describe, it, expect, beforeEach, vi} from 'vitest';
-import {mount, flushPromises} from '@vue/test-utils';
+import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
+import {mount, flushPromises, enableAutoUnmount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import type {WeekData} from '@/types';
 import {take} from '@/test-utils';
@@ -32,6 +32,7 @@ describe('WeekSummaryDialog', () => {
     appStateStore = useAppStateStore();
     mocks.getAISummary.mockClear();
   });
+  enableAutoUnmount(afterEach);
 
   it('does not show dialog when no startDate is set', async () => {
     const wrapper = mount(WeekSummaryDialog);
@@ -397,7 +398,7 @@ Try it out:`;
       .find((d) => d.findByTestId('ai-permission-allow-button').exists())!;
 
     await permissionDialog.findByTestId('ai-permission-allow-button').trigger('click');
-    await flushPromises();
+    await vi.dynamicImportSettled();
 
     expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');
     expect(mocks.getAISummary).toHaveBeenCalledExactlyOnceWith(
@@ -428,7 +429,7 @@ Try it out:`;
 
     const dialog = wrapper.getComponent(DialogContent);
     await dialog.findByTestId('show-ai-summary-button').trigger('click');
-    await flushPromises();
+    await vi.dynamicImportSettled();
 
     expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');
     expect(mocks.getAISummary).toHaveBeenCalledExactlyOnceWith(
