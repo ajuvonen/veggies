@@ -9,7 +9,6 @@ defineProps<{
   showControls: boolean;
 }>();
 </script>
-
 <template>
   <ComboboxGroup v-if="items.length" :data-test-id="`veggie-search-group-${category}`" role="group">
     <div class="dropdown-list-heading">

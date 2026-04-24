@@ -26,7 +26,6 @@ const translatedVeggies = useMemoize(() =>
 
 const specialCases = ['cloudberry', 'raspberry'];
 </script>
-
 <template>
   <VeggieCompletionChart :veggies="uniqueVeggies" />
   <section v-for="category in Category" :key="category" class="flex gap-4 flex-col">

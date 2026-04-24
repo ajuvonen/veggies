@@ -88,9 +88,20 @@ test('shows achievements', async ({browser}) => {
               value: JSON.stringify([
                 {
                   veggies: [
-                    'apple', 'apricot', 'asian pear', 'banana', 'bilberry',
-                    'blackberry', 'blackcurrant', 'blood grapefruit', 'blood orange',
-                    'blueberry', 'boysenberry', 'calamansi', 'cantaloupe', 'cape gooseberry',
+                    'apple',
+                    'apricot',
+                    'asian pear',
+                    'banana',
+                    'bilberry',
+                    'blackberry',
+                    'blackcurrant',
+                    'blood grapefruit',
+                    'blood orange',
+                    'blueberry',
+                    'boysenberry',
+                    'calamansi',
+                    'cantaloupe',
+                    'cape gooseberry',
                     'cherry',
                   ],
                   startDate: defaultSettings.startDate,
