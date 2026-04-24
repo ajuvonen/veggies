@@ -15,7 +15,6 @@ withDefaults(
 
 const model = defineModel<T>({required: true});
 </script>
-
 <template>
   <ContentElement :title="label" :labelAttrs="{for: `${prefix}-button`}" labelTag="label">
     <SelectRoot v-model="model" v-slot="{open}" :by="by" :data-test-id="prefix">

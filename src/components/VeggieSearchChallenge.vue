@@ -4,7 +4,6 @@ import {KEYS} from '@/utils/constants';
 
 const challenge = inject(KEYS.challenge, undefined);
 </script>
-
 <template>
   <ComboboxGroup v-if="challenge" data-test-id="veggie-search-challenge">
     <div class="dropdown-list-heading">

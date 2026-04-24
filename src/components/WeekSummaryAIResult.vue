@@ -32,7 +32,6 @@ onMounted(async () => {
 
 onUnmounted(() => controller.abort());
 </script>
-
 <template>
   <p v-if="error">{{ $t('weekSummaryDialog.AISummaryUnavailable') }}</p>
   <div v-else class="flex-container flex-col">

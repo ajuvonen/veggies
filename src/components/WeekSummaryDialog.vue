@@ -127,7 +127,6 @@ defineExpose({
   lastWeekData,
 });
 </script>
-
 <template>
   <ModalDialog
     v-if="lastWeekData"
