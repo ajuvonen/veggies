@@ -115,11 +115,14 @@ test('shows achievements', async ({browser}) => {
     },
   });
 
-  const page = await browserContext.newPage();
-  await page.goto('/');
-  await page.getByTestId('navbar-stats-link').click();
-  await page.getByTestId('stats-tab-4').click();
-  await expect(page.getByTestId('badge-experimenterFruit-3')).not.toContainClass('badge--locked');
-  await expect(page.getByTestId('badge-experimenterRoot-3')).toContainClass('badge--locked');
-  await browserContext.close();
+  try {
+    const page = await browserContext.newPage();
+    await page.goto('/');
+    await page.getByTestId('navbar-stats-link').click();
+    await page.getByTestId('stats-tab-4').click();
+    await expect(page.getByTestId('badge-experimenterFruit-3')).not.toContainClass('badge--locked');
+    await expect(page.getByTestId('badge-experimenterRoot-3')).toContainClass('badge--locked');
+  } finally {
+    await browserContext.close();
+  }
 });

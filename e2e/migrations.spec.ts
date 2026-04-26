@@ -59,24 +59,27 @@ test('Migrations work', async ({browser}) => {
     },
   });
 
-  const page = await browserContext.newPage();
-  await page.goto('/');
-  await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
-    'This Week 4 Veggies',
-  );
-  await page.getByTestId('navbar-stats-link').click();
-  await expect(page.getByTestId('all-time-status-totalWeeks')).toHaveText('In Total 2 Weeks');
-  await expect(page.getByTestId('all-time-status-over30Veggies')).toHaveText(
-    'Over 30 Veggies in 0 Weeks',
-  );
-  await expect(page.getByTestId('all-time-status-uniqueVeggies')).toHaveText(
-    'In Total 8 Unique Veggies',
-  );
-  await expect(page.getByTestId('all-time-status-atMostVeggies')).toHaveText(
-    'At Most 4 Weekly Veggies',
-  );
-  await expect(page.getByTestId('all-time-status-completedChallenges')).toHaveText(
-    'Completed 1 Weekly Challenge',
-  );
-  await browserContext.close();
+  try {
+    const page = await browserContext.newPage();
+    await page.goto('/');
+    await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
+      'This Week 4 Veggies',
+    );
+    await page.getByTestId('navbar-stats-link').click();
+    await expect(page.getByTestId('all-time-status-totalWeeks')).toHaveText('In Total 2 Weeks');
+    await expect(page.getByTestId('all-time-status-over30Veggies')).toHaveText(
+      'Over 30 Veggies in 0 Weeks',
+    );
+    await expect(page.getByTestId('all-time-status-uniqueVeggies')).toHaveText(
+      'In Total 8 Unique Veggies',
+    );
+    await expect(page.getByTestId('all-time-status-atMostVeggies')).toHaveText(
+      'At Most 4 Weekly Veggies',
+    );
+    await expect(page.getByTestId('all-time-status-completedChallenges')).toHaveText(
+      'Completed 1 Weekly Challenge',
+    );
+  } finally {
+    await browserContext.close();
+  }
 });
