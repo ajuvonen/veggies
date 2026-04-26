@@ -107,15 +107,18 @@ test('export works', async ({browser}) => {
     },
   });
 
-  const page = await browserContext.newPage();
-  await page.goto('/');
-  await page.getByTestId('navbar-settings-link').click();
-  const downloadPromise = page.waitForEvent('download');
-  await page.getByTestId('export-button').click();
-  const download = await downloadPromise;
+  try {
+    const page = await browserContext.newPage();
+    await page.goto('/');
+    await page.getByTestId('navbar-settings-link').click();
+    const downloadPromise = page.waitForEvent('download');
+    await page.getByTestId('export-button').click();
+    const download = await downloadPromise;
 
-  const downloadPath = await download.path();
-  const exportedData = JSON.parse(readFileSync(downloadPath, 'utf8'));
-  expect(exportedData).toEqual(expectedData);
-  await browserContext.close();
+    const downloadPath = await download.path();
+    const exportedData = JSON.parse(readFileSync(downloadPath, 'utf8'));
+    expect(exportedData).toEqual(expectedData);
+  } finally {
+    await browserContext.close();
+  }
 });

@@ -106,15 +106,18 @@ test('achievement notifications work', async ({browser}) => {
     },
   });
 
-  const page = await browserContext.newPage();
-  await page.goto('/');
-  await page.getByTestId('veggie-search-toggle-button').click();
-  await page.getByTestId('veggie-search-option-cherry').click();
-  await expect(page.getByTestId('dialog')).toBeVisible();
-  await expect(page.getByTestId('badge-experimenterFruit-3')).toBeVisible();
-  await page.getByTestId('dialog-close-button').click();
-  await expect(page.getByTestId('dialog')).toBeHidden();
-  await browserContext.close();
+  try {
+    const page = await browserContext.newPage();
+    await page.goto('/');
+    await page.getByTestId('veggie-search-toggle-button').click();
+    await page.getByTestId('veggie-search-option-cherry').click();
+    await expect(page.getByTestId('dialog')).toBeVisible();
+    await expect(page.getByTestId('badge-experimenterFruit-3')).toBeVisible();
+    await page.getByTestId('dialog-close-button').click();
+    await expect(page.getByTestId('dialog')).toBeHidden();
+  } finally {
+    await browserContext.close();
+  }
 });
 
 test('weekly achievement works', async ({browser}) => {
@@ -175,15 +178,18 @@ test('weekly achievement works', async ({browser}) => {
     },
   });
 
-  const page = await browserContext.newPage();
-  await page.goto('/');
-  await page.getByTestId('veggie-search-toggle-button').click();
-  await page.getByTestId('veggie-search-option-apricot').click();
-  await expect(page.getByTestId('dialog')).toBeVisible();
-  await expect(page.getByTestId('badge-thirtyVeggies-3')).toBeVisible();
-  await page.getByTestId('dialog-close-button').click();
-  await expect(page.getByTestId('dialog')).toBeHidden();
-  await browserContext.close();
+  try {
+    const page = await browserContext.newPage();
+    await page.goto('/');
+    await page.getByTestId('veggie-search-toggle-button').click();
+    await page.getByTestId('veggie-search-option-apricot').click();
+    await expect(page.getByTestId('dialog')).toBeVisible();
+    await expect(page.getByTestId('badge-thirtyVeggies-3')).toBeVisible();
+    await page.getByTestId('dialog-close-button').click();
+    await expect(page.getByTestId('dialog')).toBeHidden();
+  } finally {
+    await browserContext.close();
+  }
 });
 
 test('shows week summary dialog for previous week data', async ({browser}) => {
@@ -217,17 +223,20 @@ test('shows week summary dialog for previous week data', async ({browser}) => {
     },
   });
 
-  const page = await browserContext.newPage();
-  await page.goto('/');
-  await expect(page.getByTestId('dialog')).toBeVisible();
-  await expect(page.getByTestId('dialog-title')).toContainText(
-    `All done for week ${previousWeekStart.weekOfYear}!`,
-  );
-  await expect(page.getByTestId('category-status-chart-center-label')).toContainText(
-    'Last Week 4 Veggies',
-  );
-  await page.getByTestId('week-summary-dialog-close-button').click();
-  await expect(page.getByTestId('dialog')).toBeHidden();
-  await expect(page.getByTestId('front-page-animation')).toBeVisible();
-  await browserContext.close();
+  try {
+    const page = await browserContext.newPage();
+    await page.goto('/');
+    await expect(page.getByTestId('dialog')).toBeVisible();
+    await expect(page.getByTestId('dialog-title')).toContainText(
+      `All done for week ${previousWeekStart.weekOfYear}!`,
+    );
+    await expect(page.getByTestId('category-status-chart-center-label')).toContainText(
+      'Last Week 4 Veggies',
+    );
+    await page.getByTestId('week-summary-dialog-close-button').click();
+    await expect(page.getByTestId('dialog')).toBeHidden();
+    await expect(page.getByTestId('front-page-animation')).toBeVisible();
+  } finally {
+    await browserContext.close();
+  }
 });
