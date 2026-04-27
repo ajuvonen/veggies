@@ -31,7 +31,6 @@ const tabIcons: IconString[] = [
         <ButtonComponent
           v-tippy="{content: $t(`stats.${index}`), placement: 'bottom', offset: [0, -8]}"
           :class="{'!bg-[--color-primary-active]': modelValue === index}"
-          :aria-label="$t(`stats.${index}`)"
           :data-test-id="`stats-tab-${index}`"
           class="justify-center"
         >
