@@ -47,16 +47,7 @@ The correct script for unit tests is `npm run test:unit testFileNameHere`.
 Test composables with `withSetup` pattern:
 
 ```typescript
-const withSetup = () =>
-  new Promise<ReturnType<typeof useHook>>((resolve) => {
-    mount({
-      shallow: true,
-      template: '<div />',
-      setup() {
-        resolve(useHook());
-      },
-    });
-  });
+const {weeklyCompletion} = withSetup(useAchievementCompletion, veggies, challenge);
 ```
 
 ### Suppressing Errors
@@ -166,7 +157,7 @@ Add `data-test-id` for reliable test selectors:
 
 - All test files are located in `/__tests__/` subfolders
 - Use descriptive test file names that match the component/hook/utility being tested
-- Test helper components (like `ScreenTestComponent.vue`) are co-located in the same directory
+- Test helper components (like `ScreenTestComponent.vue`) are located in the `src/test-utils` directory
 - Avoid nested subdirectories in `/__tests__/` to prevent path resolution issues
 
 ## Storage & Persistence
