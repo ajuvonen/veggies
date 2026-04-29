@@ -139,26 +139,31 @@
   },
   "allTimeStatus": {
     "atMostVeggies": {
+      "ariaLabel": "kasviksia enimmillään -saavutus",
       "bottomLabel": "Kasvista viikossa|Kasvis viikossa|Kasvista viikossa",
       "shareText": "Viikossa syömieni erilaisten kasvisten enimmäismäärä on nyt {0}! Kokeile itse:\n{1}",
       "topLabel": "Enimmillään"
     },
     "completedChallenges": {
+      "ariaLabel": "suoritettujen haasteiden saavutus",
       "bottomLabel": "Viikkohaastetta|Viikkohaaste|Viikkohaastetta",
       "shareText": "Olen suorittanut {0} Eat Your Veggies -viikkohaastetta! Kokeile itse:\n{1}",
       "topLabel": "Suoritettu"
     },
     "over30Veggies": {
+      "ariaLabel": "yli 30 kasvista -saavutus",
       "topLabel": "Yli 30 kasvista",
       "shareText": "Olen syönyt yli 30 kasvista viikossa {0} kertaa! Kokeile itse:\n{1}",
       "bottomLabel": "Viikolla"
     },
     "totalWeeks": {
+      "ariaLabel": "viikkojen kokonaismäärä -saavutus",
       "bottomLabel": "Viikkoa|Viikko|Viikkoa",
       "shareText": "Olen käyttänyt Eat Your Veggies -sovellusta {0} viikkoa! Kokeile itse:\n{1}",
       "topLabel": "Yhteensä"
     },
     "uniqueVeggies": {
+      "ariaLabel": "erilaisten kasvisten saavutus",
       "bottomLabel": "Erilaista kasvista|Erilainen kasvis|Erilaista kasvista",
       "shareText": "Olen syönyt yhteensä {0} uniikkia kasvista! Kokeile itse:\n{1}",
       "topLabel": "Yhteensä"
@@ -204,6 +209,8 @@
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
     "closeList": "Sulje lista",
+    "ariaCopy": "Kopioi {0} leikepöydälle",
+    "ariaShare": "Jaa {0}",
     "copy": "Kopioi",
     "follow": "Seuraa Blueskyssä",
     "openList": "Avaa lista",
@@ -696,6 +703,7 @@
     "promotedAchievement": "Kokeile tähdätä tällä viikolla saavutukseen \"{0}\".",
     "recordAchieved": "Uusi ennätys! Söit @:general.veggie viime viikolla!",
     "roomForImprovement": "Kehitettävää löytyy: söit @:general.veggie viime viikolla.",
+    "ariaLabel": "viikon yhteenveto",
     "shareText": "Söin {0} erilaista kasvista viime viikolla:\n{1}\nKokeile itse:\n{2}",
     "summaryGenerated": "Tekoäly-yhteenveto luotu.",
     "summaryGenerating": "Tekoäly-yhteenvetoa luodaan.",

@@ -139,26 +139,31 @@
   },
   "allTimeStatus": {
     "atMostVeggies": {
+      "ariaLabel": "most veggies in a week achievement",
       "bottomLabel": "Weekly Veggies|Weekly Veggie|Weekly Veggies",
       "shareText": "I've eaten as many as {0} different vegetables in one week! Try it out:\n{1}",
       "topLabel": "At Most"
     },
     "completedChallenges": {
+      "ariaLabel": "completed challenges achievement",
       "bottomLabel": "Weekly Challenges|Weekly Challenge|Weekly Challenges",
       "shareText": "I've completed {0} weekly Eat Your Veggies -challenges! Try it out:\n{1}",
       "topLabel": "Completed"
     },
     "over30Veggies": {
+      "ariaLabel": "over 30 veggies achievement",
       "bottomLabel": "Weeks|Week|Weeks",
       "shareText": "I've eaten over 30 veggies in a week {0} times! Try it out:\n{1}",
       "topLabel": "Over 30 Veggies in"
     },
     "totalWeeks": {
+      "ariaLabel": "total weeks achievement",
       "bottomLabel": "Weeks|Week|Weeks",
       "shareText": "I've used Eat Your Veggies for {0} weeks! Try it out:\n{1}",
       "topLabel": "In Total"
     },
     "uniqueVeggies": {
+      "ariaLabel": "unique veggies achievement",
       "bottomLabel": "Unique Veggies|Unique Veggie|Unique Veggies",
       "shareText": "I've eaten {0} unique veggies so far! Try it out:\n{1}",
       "topLabel": "In Total"
@@ -204,6 +209,8 @@
     "clickToRemove": "Remove {0}",
     "close": "Close",
     "closeList": "Close list",
+    "ariaCopy": "Copy {0} to clipboard",
+    "ariaShare": "Share {0}",
     "copy": "Copy",
     "follow": "Follow on Bluesky",
     "openList": "Open list",
@@ -696,6 +703,7 @@
     "promotedAchievement": "Try aiming for the achievement \"{0}\" this week.",
     "recordAchieved": "New personal record! You ate @:general.veggie last week!",
     "roomForImprovement": "Room for improvement: you tried @:general.veggie last week.",
+    "ariaLabel": "week summary",
     "shareText": "I ate {0} different veggies last week\n{1}\nTry it out:\n{2}",
     "summaryGenerated": "AI summary generated.",
     "summaryGenerating": "AI summary is being generated.",

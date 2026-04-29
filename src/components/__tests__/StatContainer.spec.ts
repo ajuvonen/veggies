@@ -1,8 +1,8 @@
 import {describe, it, expect, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
-import StatContainer from '@/components/StatContainer.vue';
+import AllTimeStatusItem from '@/components/AllTimeStatusItem.vue';
 
-describe('StatContainer', () => {
+describe('AllTimeStatusItem', () => {
   it('renders different keys', () => {
     const keys = {
       totalWeeks: 'In Total 0 Weeks',
@@ -12,15 +12,11 @@ describe('StatContainer', () => {
       completedChallenges: 'Completed 0 Weekly Challenges',
     };
     Object.entries(keys).forEach(([key, value]) => {
-      const wrapper = mount({
-        template: '<div><StatContainer :statAmount="statAmount" :statKey="statKey" /></div>',
-        components: {
-          StatContainer,
-        },
-        data: () => ({
+      const wrapper = mount(AllTimeStatusItem, {
+        props: {
           statAmount: 0,
           statKey: key,
-        }),
+        },
       });
       expect(wrapper.text()).toBe(value);
     });
@@ -35,15 +31,11 @@ describe('StatContainer', () => {
       completedChallenges: 'Completed 1 Weekly Challenge',
     };
     Object.entries(keys).forEach(([key, value]) => {
-      const wrapper = mount({
-        template: '<div><StatContainer :statAmount="statAmount" :statKey="statKey" /></div>',
-        components: {
-          StatContainer,
-        },
-        data: () => ({
+      const wrapper = mount(AllTimeStatusItem, {
+        props: {
           statAmount: 1,
           statKey: key,
-        }),
+        },
       });
       expect(wrapper.text()).toBe(value);
     });
@@ -58,15 +50,11 @@ describe('StatContainer', () => {
       completedChallenges: 'Completed 2 Weekly Challenges',
     };
     Object.entries(keys).forEach(([key, value]) => {
-      const wrapper = mount({
-        template: '<div><StatContainer :statAmount="statAmount" :statKey="statKey" /></div>',
-        components: {
-          StatContainer,
-        },
-        data: () => ({
+      const wrapper = mount(AllTimeStatusItem, {
+        props: {
           statAmount: 2,
           statKey: key,
-        }),
+        },
       });
       expect(wrapper.text()).toBe(value);
     });
@@ -80,14 +68,14 @@ describe('StatContainer', () => {
       },
     });
 
-    const wrapper = mount(StatContainer, {
+    const wrapper = mount(AllTimeStatusItem, {
       props: {
         statAmount: 0,
         statKey: 'totalWeeks',
       },
     });
 
-    await wrapper.findByTestId('stat-container-copy-button-totalWeeks').trigger('click');
+    await wrapper.findByTestId('all-time-status-item-copy-button-totalWeeks').trigger('click');
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith(
       "I've used Eat Your Veggies for 0 weeks! Try it out:\nhttps://eatyourveggies.app",
     );
@@ -100,14 +88,14 @@ describe('StatContainer', () => {
       share: vi.fn(),
     });
 
-    const wrapper = mount(StatContainer, {
+    const wrapper = mount(AllTimeStatusItem, {
       props: {
         statAmount: 0,
         statKey: 'totalWeeks',
       },
     });
 
-    await wrapper.findByTestId('stat-container-share-button-totalWeeks').trigger('click');
+    await wrapper.findByTestId('all-time-status-item-share-button-totalWeeks').trigger('click');
     expect(navigator.share).toHaveBeenCalledWith({
       url: 'https://eatyourveggies.app',
       text: "I've used Eat Your Veggies for 0 weeks! Try it out:",

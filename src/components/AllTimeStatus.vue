@@ -23,15 +23,13 @@ const sections = computed(() => ({
 </script>
 <template>
   <div class="all-time-status__container">
-    <div
+    <AllTimeStatusItem
       v-for="([key, value], index) in Object.entries(sections)"
       :key="key"
       :class="{'col-span-2': index === 4}"
-      :data-test-id="`all-time-status-${key}`"
-      class="all-time-status__item"
-    >
-      <StatContainer :statAmount="value" :statKey="key" />
-    </div>
+      :statAmount="value"
+      :statKey="key"
+    />
   </div>
   <CategoryStatusChart
     :favorites="favorites"
@@ -46,10 +44,5 @@ const sections = computed(() => ({
   @apply grid grid-cols-2 grid-rows-3;
   @apply text-center;
   row-gap: 1rem;
-}
-
-.all-time-status__item {
-  @apply label-like relative;
-  @apply flex flex-col items-center justify-center;
 }
 </style>
