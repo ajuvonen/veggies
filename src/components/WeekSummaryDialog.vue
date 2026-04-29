@@ -190,7 +190,11 @@ defineExpose({
       <ButtonComponent
         v-if="lastWeekData.veggies.length"
         :icon="shareSupported ? 'shareVariant' : 'contentCopy'"
-        :aria-label="shareSupported ? $t('general.share') : $t('general.copy')"
+        :aria-label="
+          shareSupported
+            ? $t('general.ariaShare', [$t('weekSummaryDialog.ariaLabel')])
+            : $t('general.ariaCopy', [$t('weekSummaryDialog.ariaLabel')])
+        "
         variant="secondary"
         :data-test-id="
           shareSupported ? 'week-summary-dialog-share-button' : 'week-summary-dialog-copy-button'
