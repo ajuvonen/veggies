@@ -1,17 +1,84 @@
-import {computed, toValue, type MaybeRefOrGetter} from 'vue';
+import {computed, ref, watch} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {countBy, sample} from 'remeda';
-import type {WeekData, SummaryItem} from '@/types';
+import {computedWithControl} from '@vueuse/core';
+import {storeToRefs} from 'pinia';
+import {countBy, mean, sample} from 'remeda';
+import type {Achievements, WeekData, SummaryItem} from '@/types';
 import {Category} from '@/types';
-import {getCategoryForVeggie, setIntersection} from '@/utils/helpers';
+import {getCategoryForVeggie, getRandomItem, setIntersection} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {NUTRIENTS} from '@/utils/veggieDetails';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
+import {useActivityStore} from '@/stores/activityStore';
 
-export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
+const weeklyAchievements: (keyof Achievements)[] = [
+  'allOnRed',
+  'botanicalBerries',
+  'goNuts',
+  'lemons',
+  'overachiever',
+  'rainbow',
+  'tearnado',
+];
+
+export const useWeekSummary = () => {
   const {t} = useI18n();
-
   const {availableVeggies} = useAvailableVeggies();
+  const {
+    currentWeekStart,
+    veggiesForWeek,
+    challengeForWeek,
+    hotStreak,
+    atMostVeggies,
+    weeks,
+    allVeggies,
+  } = storeToRefs(useActivityStore());
+
+  const weekData = computedWithControl(currentWeekStart, (): WeekData => {
+    const lastWeekStart = currentWeekStart.value.subtract({weeks: 1});
+    const veggies = veggiesForWeek.value(lastWeekStart);
+    const categoryCounts = countBy(veggies, getCategoryForVeggie);
+    const missingCategories = Object.values(Category).filter(
+      (category) => !categoryCounts[category],
+    );
+
+    const categoryEntries = Object.entries(categoryCounts) as [Category, number][];
+    const favoriteCategory =
+      categoryEntries.length > 0
+        ? categoryEntries.reduce((max, entry) => (entry[1] > max[1] ? entry : max))[0]
+        : null;
+
+    const pastVeggies = Array.from(
+      {length: Math.min(5, weeks.value.length)},
+      (_, weekIndex) =>
+        veggiesForWeek.value(currentWeekStart.value.subtract({weeks: weekIndex + 1})).length,
+    );
+
+    const veggieCounts = countBy(allVeggies.value, (veggie) => veggie);
+    const firstTimeVeggies =
+      weeks.value.length >= 2 ? veggies.filter((veggie) => veggieCounts[veggie] === 1) : [];
+
+    return {
+      atMostVeggies: atMostVeggies.value,
+      categoryCounts,
+      challenge: challengeForWeek.value(lastWeekStart) || null,
+      favoriteCategory,
+      firstTimeVeggies,
+      firstWeek: weeks.value.length === 1,
+      hotStreak: hotStreak.value,
+      mean: Math.round(mean(pastVeggies) ?? 0),
+      missingCategories,
+      previousWeekCount: veggiesForWeek.value(currentWeekStart.value.subtract({weeks: 2})).length,
+      veggies,
+      weekNumber: lastWeekStart.weekOfYear!,
+    };
+  });
+
+  const promotedAchievement = ref<keyof Achievements>(getRandomItem(weeklyAchievements)!);
+
+  watch(currentWeekStart, () => {
+    promotedAchievement.value = getRandomItem(weeklyAchievements)!;
+  });
 
   const createNutrientMessages = (data: WeekData): SummaryItem[] => {
     const messages: SummaryItem[] = [];
@@ -134,7 +201,6 @@ export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
       });
     }
 
-    // Create individual message for each first-time veggie
     data.firstTimeVeggies.forEach((veggie) => {
       messages.push({
         emoji: '🆕',
@@ -148,27 +214,22 @@ export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
 
   const createCategoryMessages = (data: WeekData): SummaryItem[] => {
     const messages: SummaryItem[] = [];
-    const categoryCounts = countBy(data.veggies, getCategoryForVeggie);
 
-    // Favorite category
-    const [favoriteCategory, favoriteCount] = Object.entries(categoryCounts).reduce(
-      (max, [category, count]) => (count > max[1] ? [category, count] : max),
-    ) as [Category, number];
-
-    if (favoriteCount >= 4) {
-      messages.push({
-        emoji: '⭐',
-        translationKey: 'weekSummaryDialog.favoriteCategory',
-        translationParameters: [favoriteCount, t(`categories.${favoriteCategory}`).toLowerCase()],
-      });
+    if (data.favoriteCategory !== null) {
+      const favoriteCount = data.categoryCounts[data.favoriteCategory] ?? 0;
+      if (favoriteCount >= 4) {
+        messages.push({
+          emoji: '⭐',
+          translationKey: 'weekSummaryDialog.favoriteCategory',
+          translationParameters: [
+            favoriteCount,
+            t(`categories.${data.favoriteCategory}`).toLowerCase(),
+          ],
+        });
+      }
     }
 
-    // All categories achievement
-    const missingCategories = Object.values(Category).filter(
-      (category) => !categoryCounts[category],
-    );
-
-    if (missingCategories.length === 0) {
+    if (data.missingCategories.length === 0) {
       messages.push({
         emoji: '🤹',
         translationKey: 'weekSummaryDialog.allCategories',
@@ -176,8 +237,7 @@ export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
       });
     }
 
-    // Low category counts
-    Object.entries(categoryCounts).forEach(([category, count]) => {
+    Object.entries(data.categoryCounts).forEach(([category, count]) => {
       if (count < 3) {
         messages.push({
           emoji: '🤔',
@@ -187,8 +247,7 @@ export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
       }
     });
 
-    // Missing categories
-    missingCategories.forEach((category) => {
+    data.missingCategories.forEach((category) => {
       messages.push({
         emoji: CATEGORY_EMOJI[category],
         translationKey: 'weekSummaryDialog.missingCategory',
@@ -200,10 +259,8 @@ export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
   };
 
   const summaryMessages = computed<SummaryItem[]>(() => {
-    const valueForData = toValue(weekData);
-    if (!valueForData) {
-      return [];
-    } else if (!valueForData.veggies.length) {
+    const data = weekData.value;
+    if (!data.veggies.length) {
       return [
         {
           emoji: '🍽️',
@@ -214,16 +271,18 @@ export const useWeekSummary = (weekData: MaybeRefOrGetter<WeekData | null>) => {
     }
 
     return [
-      ...createProgressMessages(valueForData),
-      ...createComparisonMessages(valueForData),
-      ...createStatisticsMessages(valueForData),
-      ...createChallengeMessages(valueForData),
-      ...createCategoryMessages(valueForData),
-      ...createNutrientMessages(valueForData),
+      ...createProgressMessages(data),
+      ...createComparisonMessages(data),
+      ...createStatisticsMessages(data),
+      ...createChallengeMessages(data),
+      ...createCategoryMessages(data),
+      ...createNutrientMessages(data),
     ];
   });
 
   return {
+    weekData,
     summaryMessages,
+    promotedAchievement,
   };
 };

@@ -76,18 +76,18 @@ export type Achievements = {
 
 export type WeekData = {
   atMostVeggies: number;
-  challenge: string | undefined;
+  categoryCounts: Partial<Record<Category, number>>;
+  challenge: string | null;
+  favoriteCategory: Category | null;
   firstTimeVeggies: string[];
   firstWeek: boolean;
   hotStreak: number;
   mean: number;
+  missingCategories: Category[];
   previousWeekCount: number;
-  promotedAchievement: keyof Achievements;
   veggies: string[];
   weekNumber: number;
 };
-
-export type AIWeekData = Omit<WeekData, 'promotedAchievement'>;
 
 export type SummaryItem = {
   emoji: string;
