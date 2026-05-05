@@ -1,9 +1,9 @@
 import {EventSourceParserStream} from 'eventsource-parser/stream';
-import type {AIWeekData} from '@/types';
+import type {WeekData} from '@/types';
 import {AI_SUMMARY_URL} from '@/utils/constants';
 
 export async function getAISummary(
-  weekData: AIWeekData,
+  weekData: WeekData,
   onChunk: (text: string) => void,
   signal: AbortSignal,
 ): Promise<string> {

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import {ref, onMounted, onUnmounted} from 'vue';
-import {omit} from 'remeda';
 import {getAISummary} from '@/api';
-import type {AIWeekData, WeekData} from '@/types';
+import type {WeekData} from '@/types';
 
 const props = defineProps<{
   weekData: WeekData;
@@ -15,9 +14,8 @@ const controller = new AbortController();
 
 onMounted(async () => {
   try {
-    const data: AIWeekData = omit(props.weekData, ['promotedAchievement']);
     await getAISummary(
-      data,
+      props.weekData,
       (text) => {
         summaryText.value = text;
       },
