@@ -17,7 +17,7 @@ const {shareSupported, shareOrCopy} = useShare();
     </i18n-t>
     <ButtonComponent
       v-if="shareSupported"
-      v-tippy="{content: $t('general.share'), aria: {content: null, expanded: false}}"
+      v-tippy="$t('general.share')"
       :aria-label="$t('general.ariaShare', [$t(`allTimeStatus.${statKey}.ariaLabel`)])"
       :data-test-id="`all-time-status-item-share-button-${statKey}`"
       icon="shareVariant"
@@ -27,7 +27,7 @@ const {shareSupported, shareOrCopy} = useShare();
     />
     <ButtonComponent
       v-else
-      v-tippy="{content: $t('general.copy'), aria: {content: null, expanded: false}}"
+      v-tippy="$t('general.copy')"
       :aria-label="$t('general.ariaCopy', [$t(`allTimeStatus.${statKey}.ariaLabel`)])"
       :data-test-id="`all-time-status-item-copy-button-${statKey}`"
       icon="contentCopy"

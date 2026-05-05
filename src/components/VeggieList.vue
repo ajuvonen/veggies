@@ -39,10 +39,6 @@ const specialCases = ['cloudberry', 'raspberry'];
             specialCases.includes(veggie)
               ? {
                   content: '❤️',
-                  aria: {
-                    content: null,
-                    expanded: false,
-                  },
                   placement: 'top',
                 }
               : undefined

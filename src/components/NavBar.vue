@@ -30,6 +30,7 @@ const headerTitle = computed(() => {
       <RouterLink
         v-if="route.name !== 'log'"
         v-tippy="$t('views.log')"
+        :aria-label="$t('views.log')"
         to="/log"
         class="navbar__log-link"
         data-test-id="navbar-log-link"
@@ -39,12 +40,18 @@ const headerTitle = computed(() => {
       <RouterLink
         v-if="showStats"
         v-tippy="$t('views.stats')"
+        :aria-label="$t('views.stats')"
         to="/stats"
         data-test-id="navbar-stats-link"
       >
         <IconComponent icon="chart" size="6vw" class="navbar__link-icon" />
       </RouterLink>
-      <RouterLink v-tippy="$t('views.settings')" to="/settings" data-test-id="navbar-settings-link">
+      <RouterLink
+        v-tippy="$t('views.settings')"
+        :aria-label="$t('views.settings')"
+        to="/settings"
+        data-test-id="navbar-settings-link"
+      >
         <IconComponent icon="cog" size="6vw" class="navbar__link-icon" />
       </RouterLink>
     </div>
