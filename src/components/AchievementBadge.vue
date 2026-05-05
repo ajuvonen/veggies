@@ -212,16 +212,12 @@ const labelSuffix = computed(() => {
 </script>
 <template>
   <Component
-    v-tippy="{
-      content: $t(`achievements.${achievement}.ariaLabel`, [
+    v-tippy="
+      $t(`achievements.${achievement}.ariaLabel`, [
         ...badgeProps[achievement][level]!.textProps,
         labelSuffix,
-      ]),
-      aria: {
-        content: null,
-        expanded: false,
-      },
-    }"
+      ])
+    "
     :is="as"
     :aria-label="
       $t(`achievements.${achievement}.ariaLabel`, [

@@ -36,5 +36,9 @@ app
     defaultProps: {
       hideOnClick: true,
     },
+    aria: {
+      content: null,
+      expanded: false,
+    },
   })
   .mount('#app');
