@@ -2,6 +2,7 @@
   "extends": "@tsconfig/node24/tsconfig.json",
   "include": ["e2e/**/*", "playwright.config.*"],
   "compilerOptions": {
+    "types": ["node"],
     "noEmit": true,
     "module": "esnext",
     "moduleResolution": "bundler",
