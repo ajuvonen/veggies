@@ -4,7 +4,6 @@ import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {groupByProp} from 'remeda';
 import {type ScaleOptions, type ScriptableContext} from 'chart.js';
-import type {MatrixDataPoint} from 'chartjs-chart-matrix';
 import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
@@ -32,16 +31,13 @@ const chartData = computed(() => {
     {
       data: Object.values(props.weekStarts).flatMap((weekStart) => {
         const veggies = veggiesForWeek.value(weekStart);
-        return Object.values(Category).map(
-          (category) =>
-            ({
-              x: formatWeekNumber(weekStart),
-              y: CATEGORY_EMOJI[category],
-              v: veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length,
-              weekString: formatWeekString(weekStart),
-              category,
-            }) as unknown as MatrixDataPoint,
-        );
+        return Object.values(Category).map((category) => ({
+          x: formatWeekNumber(weekStart),
+          y: CATEGORY_EMOJI[category],
+          v: veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length,
+          weekString: formatWeekString(weekStart),
+          category,
+        }));
       }),
       backgroundColor: ({dataset, dataIndex}: ScriptableContext<'matrix'>) => {
         const value = dataset.data[dataIndex]?.v ?? 0;
@@ -62,7 +58,7 @@ const chartData = computed(() => {
     accessibleData: {
       rowHeaders: Object.values(Category).map((category) => t(`categories.${category}`)),
       data: Object.values(groupByProp(datasets[0]!.data, 'category')).map((items) =>
-        items.map(({v}) => `${Math.round((v / 6) * 100)} %`),
+        items.map(({v}) => `${Math.round(((v || 0) / 6) * 100)} %`),
       ),
     },
   };
