@@ -66,7 +66,7 @@ export const useWeekSummary = () => {
       firstTimeVeggies,
       firstWeek: weeks.value.length === 1,
       hotStreak: hotStreak.value,
-      mean: Math.round(mean(pastVeggies) ?? 0),
+      mean: Math.round((mean(pastVeggies) ?? 0) * 10) / 10,
       missingCategories,
       previousWeekCount: veggiesForWeek.value(currentWeekStart.value.subtract({weeks: 2})).length,
       veggies,
