@@ -154,7 +154,7 @@ export const getImportSchema = async () => {
       startDate: plainDateSchema,
       suggestionCount: z._default(
         z.catch(
-          z.number().check(z.refine((val) => [0, 5, 10, 15, 20].includes(val))),
+          z.int().check(z.refine((val) => [0, 5, 10, 15, 20].includes(val))),
           DEFAULT_SETTINGS.suggestionCount,
         ),
         DEFAULT_SETTINGS.suggestionCount,
