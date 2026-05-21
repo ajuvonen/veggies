@@ -614,7 +614,7 @@ describe('activityStore', () => {
       },
     ];
 
-    expect(activityStore.favorites).toEqual({
+    expect(activityStore.categoryFavorites).toEqual({
       [Category.Fruit]: [
         [[...FRUITS][0], 3],
         [[...FRUITS][1], 2],
@@ -622,6 +622,7 @@ describe('activityStore', () => {
         [[...FRUITS][3], 1],
         [[...FRUITS][4], 1],
         [[...FRUITS][5], 1],
+        [[...FRUITS][6], 1],
       ],
       [Category.Vegetable]: [
         [[...VEGETABLES][0], 3],
@@ -630,6 +631,7 @@ describe('activityStore', () => {
         [[...VEGETABLES][3], 1],
         [[...VEGETABLES][4], 1],
         [[...VEGETABLES][5], 1],
+        [[...VEGETABLES][6], 1],
       ],
       [Category.Leafy]: [
         [[...LEAFIES][0], 3],
@@ -638,6 +640,7 @@ describe('activityStore', () => {
         [[...LEAFIES][3], 1],
         [[...LEAFIES][4], 1],
         [[...LEAFIES][5], 1],
+        [[...LEAFIES][6], 1],
       ],
       [Category.Root]: [
         [[...ROOTS][0], 3],
@@ -646,6 +649,7 @@ describe('activityStore', () => {
         [[...ROOTS][3], 1],
         [[...ROOTS][4], 1],
         [[...ROOTS][5], 1],
+        [[...ROOTS][6], 1],
       ],
       [Category.Bean]: [
         [[...BEANS][0], 3],
@@ -654,6 +658,7 @@ describe('activityStore', () => {
         [[...BEANS][3], 1],
         [[...BEANS][4], 1],
         [[...BEANS][5], 1],
+        [[...BEANS][6], 1],
       ],
       [Category.Grain]: [
         [[...GRAINS][0], 3],
@@ -662,6 +667,7 @@ describe('activityStore', () => {
         [[...GRAINS][3], 1],
         [[...GRAINS][4], 1],
         [[...GRAINS][5], 1],
+        [[...GRAINS][6], 1],
       ],
       [Category.Mushroom]: [
         [[...MUSHROOMS][0], 3],
@@ -670,8 +676,29 @@ describe('activityStore', () => {
         [[...MUSHROOMS][3], 1],
         [[...MUSHROOMS][4], 1],
         [[...MUSHROOMS][5], 1],
+        [[...MUSHROOMS][6], 1],
       ],
     });
+  });
+
+  it('appends the bottom veggie to category favorites when a category has more than 6 unique veggies', () => {
+    appStateStore.settings.startDate = lastWeek;
+    activityStore.weeks = [
+      {
+        startDate: lastWeek,
+        veggies: [...take(FRUITS, 7), [...FRUITS][8]],
+        challenge: 'jicama',
+      },
+      {
+        startDate: thisWeek,
+        veggies: [...take(FRUITS, 7), ...take(VEGETABLES, 6)],
+        challenge: 'cucumber',
+      },
+    ];
+
+    expect(activityStore.categoryFavorites[Category.Fruit]).toHaveLength(7);
+    expect(activityStore.categoryFavorites[Category.Fruit][6]).toEqual([[...FRUITS][8], 1]);
+    expect(activityStore.categoryFavorites[Category.Vegetable]).toHaveLength(6);
   });
 
   it('resets the store', () => {

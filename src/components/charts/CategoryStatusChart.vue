@@ -4,7 +4,7 @@ import {useElementSize} from '@vueuse/core';
 import {Chart as ChartJS, ArcElement, Tooltip} from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy, entries, pipe, prop, sortBy} from 'remeda';
-import {Category, type Favorites} from '@/types';
+import {Category, type CategoryFavorites} from '@/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
@@ -17,7 +17,7 @@ ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 const props = withDefaults(
   defineProps<{
     veggies: string[];
-    favorites?: Favorites;
+    categoryFavorites?: CategoryFavorites;
     topLabelKey?: string;
     bottomLabelKey?: string;
     alternateColorScheme?: boolean;
@@ -33,7 +33,7 @@ const {t, collator} = useI18nWithCollator();
 const container = useTemplateRef('container');
 const {height} = useElementSize(container);
 
-const medalEmojis = ['🥇', '🥈', '🥉', '🍀', '🖐️', '🕕'];
+const medalEmojis = ['🥇', '🥈', '🥉', '🍀', '🖐️', '🕕', '👻'];
 
 const translateAndCapitalize = (veggie: string) => {
   const translation = t(`veggies.${veggie}`);
@@ -71,8 +71,8 @@ const {chartOptions} = useChartOptions<'doughnut'>(
         callbacks: {
           title: ([tooltip]) => t(`categories.${tooltip!.label}`),
           footer: ([tooltip]) =>
-            props.favorites
-              ? props.favorites[tooltip!.label as Category].map(([veggie, amount], index) => {
+            props.categoryFavorites
+              ? props.categoryFavorites[tooltip!.label as Category].map(([veggie, amount], index) => {
                   const translation = translateAndCapitalize(veggie);
                   return `${medalEmojis[index]} ${translation} (${amount})`;
                 })
@@ -91,7 +91,7 @@ const {chartOptions} = useChartOptions<'doughnut'>(
 );
 
 const chartTitle = computed(() =>
-  props.favorites ? t('categoryStatus.veggiesTotal') : t('categoryStatus.veggiesOfTheWeek'),
+  props.categoryFavorites ? t('categoryStatus.veggiesTotal') : t('categoryStatus.veggiesOfTheWeek'),
 );
 
 defineExpose({chartData});
@@ -107,7 +107,7 @@ defineExpose({chartData});
       data-test-id="category-status-chart-center-label"
     >
       <span>{{ $t(topLabelKey) }}</span>
-      <span :class="favorites ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
+      <span :class="categoryFavorites ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
       <span>{{ $t(bottomLabelKey, veggies.length) }}</span>
     </i18n-t>
     <Doughnut

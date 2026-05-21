@@ -20,7 +20,7 @@ describe('CategoryStatusChart', () => {
   it('renders with favorites (totals mode)', () => {
     const wrapper = mount(CategoryStatusChart, {
       props: {
-        favorites: {
+        categoryFavorites: {
           Fruit: [],
           Vegetable: [['chili', 3]],
           Leafy: [],
