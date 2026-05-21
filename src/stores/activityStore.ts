@@ -2,7 +2,13 @@ import {computed, ref} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
 import {debounceFilter, useIntervalFn, useLocalStorage} from '@vueuse/core';
 import {countBy, difference, entries, fromKeys, map, pipe, prop, sortBy, take} from 'remeda';
-import {Category, type Favorites, type Week, type Achievements, AchievementLevel} from '@/types';
+import {
+  Category,
+  type CategoryFavorites,
+  type Week,
+  type Achievements,
+  AchievementLevel,
+} from '@/types';
 import {
   achievementLevelHelper,
   areDatesEqual,
@@ -137,17 +143,19 @@ export const useActivityStore = defineStore('activity', () => {
     ),
   );
 
-  const favorites = computed(
+  const categoryFavorites = computed(
     () =>
-      fromKeys(Object.values(Category), (category) =>
-        pipe(
+      fromKeys(Object.values(Category), (category) => {
+        const sorted = pipe(
           veggiesByCategory.value[category],
           countBy((veggie) => veggie),
           entries(),
           sortBy([prop(1), 'desc']),
-          take(6),
-        ),
-      ) as Favorites,
+        );
+        const top = sorted.slice(0, 6);
+        const bottom = sorted.length > 6 ? [sorted[sorted.length - 1]] : [];
+        return [...top, ...bottom];
+      }) as CategoryFavorites,
   );
 
   const weeklyAchievements = computed(
@@ -327,7 +335,7 @@ export const useActivityStore = defineStore('activity', () => {
     currentChallenge,
     currentVeggies,
     currentWeekStart,
-    favorites,
+    categoryFavorites,
     getWeekStarts,
     hotStreak,
     over30Veggies,

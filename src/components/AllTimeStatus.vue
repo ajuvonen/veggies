@@ -10,7 +10,7 @@ const {
   uniqueVeggies,
   completedChallenges,
   allVeggies,
-  favorites,
+  categoryFavorites,
 } = storeToRefs(useActivityStore());
 
 const sections = computed(() => ({
@@ -32,7 +32,7 @@ const sections = computed(() => ({
     />
   </div>
   <CategoryStatusChart
-    :favorites="favorites"
+    :categoryFavorites="categoryFavorites"
     :veggies="allVeggies"
     alternateColorScheme
     topLabelKey="categoryStatus.topLabelTotal"

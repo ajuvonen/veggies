@@ -10,7 +10,7 @@ export enum Category {
   Mushroom = 'Mushroom',
 }
 
-export type Favorites = {
+export type CategoryFavorites = {
   [key in Category]: readonly [string, number][];
 };
 

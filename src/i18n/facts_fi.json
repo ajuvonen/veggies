@@ -20,11 +20,13 @@
     ],
     "apricot": [
       "Aprikoosit ovat tärkeä osa armenialaista kulttuuria, ja niitä on kutsuttu \"armenialaisiksi omenoiksi\".",
-      "Aprikoosit olivat ensimmäisten avaruuteen päässeiden hedelmien joukossa, osana astronauttien aterioita."
+      "Aprikoosit olivat ensimmäisten avaruuteen päässeiden hedelmien joukossa, osana astronauttien aterioita.",
+      "Lähes kaikki maailman kuivatut aprikoosit tuotetaan kolmessa Turkin maakunnassa."
     ],
     "artichoke": [
       "Latva-artisokat ovat yksi eniten antioksidantteja sisältävistä vihanneksista.",
-      "Italia on maailman suurin artisokantuottaja."
+      "Italia on maailman suurin artisokantuottaja.",
+      "Artisokan syötävä osa leikataan sen nupullaan olevasta kukasta ennen kuin se kukkii."
     ],
     "arugula": [
       "Rucola on hyvä A-, C- ja K-vitamiinien lähde.",
@@ -67,7 +69,8 @@
       "Ohraa on viljelty yli 10 000 vuotta, ja se on yksi ensimmäisistä ihmisten viljelemistä viljoista.",
       "Ohraa käytetään mallasjuomien, kuten oluen ja viskin, valmistuksessa.",
       "Ohra menestyy myös ankarammissa, kylmissä ilmastoissa.",
-      "Itä-Euroopassa ohraa käytetään tuhtien keittoruokien ainesosana."
+      "Itä-Euroopassa ohraa käytetään tuhtien keittoruokien ainesosana.",
+      "Ohrasta voidaan valmistaa ilmastoystävällistä riisin korvaajaa."
     ],
     "basil": [
       "30 gramman annos tuoretta basilikaa sisältää 90 % päivittäisestä K-vitamiinista.",
@@ -298,8 +301,9 @@
     ],
     "cherry": [
       "Kirsikat tunnetaan antioksidanttisista ominaisuuksistaan, ja niitä on viljelty antiikin ajoista lähtien.",
-      "Kirsikat ovat luumujen, ja toisaalta myös persikoiden ja nektariinien, sukulaishedelmiä.",
-      "Kirsikan kivessä ja kannassa on ainesosia, jotka ovat haitallisia lemmikeille."
+      "Kirsikat ovat luumujen, persikoiden ja nektariinien, sukulaishedelmiä.",
+      "Kirsikan kivessä ja kannassa on ainesosia, jotka ovat haitallisia lemmikeille.",
+      "Maailman johtava kirsikoiden tuottaja on Turkki."
     ],
     "chestnut": [
       "Useimpiin pähkinöihin verrattuna kastanjat ovat vähärasvaisempia ja sisältävät enemmän hiilihydraatteja.",
@@ -390,7 +394,8 @@
     "date": [
       "Yksi taateli sisältää noin 20 kaloria ja se on hyvä luonnollisten sokereiden lähde.",
       "Taateleita on viljelty Lähi-idässä tuhansien vuosien ajan.",
-      "Taatelit kestävät hyvin kuivuutta ja menestyvät suolaisessakin maaperässä."
+      "Taatelit kestävät hyvin kuivuutta ja menestyvät suolaisessakin maaperässä.",
+      "Egypti tuottaa vuosittain yli miljoona tonnia taateleita."
     ],
     "dill": [
       "Myös tillin siemenet ja kukat ovat syötäviä.",
@@ -441,7 +446,8 @@
     "fig": [
       "Viikunat ovat yksi vanhimmista viljellyistä hedelmistä, ja niitä pidettiin runsauden symbolina antiikin Kreikassa.",
       "Viikuna kukkii hedelmän sisällä, jonne ampiaiset ryömivät niitä pölyttämään.",
-      "Viikunoilla voi olla ruoansulatusta parantavia vaikutuksia."
+      "Viikunoilla voi olla ruoansulatusta parantavia vaikutuksia.",
+      "Turkki tuottaa eniten viikunoita maailmassa."
     ],
     "finger lime": [
       "Sormilimetti kasvaa luonnonvaraisena Itä-Australian sademetsissä.",
@@ -473,7 +479,8 @@
       "Valkosipulia on käytetty tuhansia vuosia sekä maustamiseen että perinteisessä lääketieteessä.",
       "Valkosipulilla uskotaan olevan antibakteerisia ja tulehdusta vähentäviä ominaisuuksia.",
       "Sipulit ovat haitallisia monille eläimille.",
-      "Mustaa valkosipulia valmistetaan ikäännyttämällä valkosipulia pitkään lämpimässä ja kosteassa ympäristössä."
+      "Mustaa valkosipulia valmistetaan ikäännyttämällä valkosipulia pitkään lämpimässä ja kosteassa ympäristössä.",
+      "Maailman suurin valkosipulin tuottaja on Kiina, jonka osuus on noin 75 %."
     ],
     "ginger": [
       "Inkivääriä on käytetty vuosisatojen ajan Aasian keittiöissä ja perinteisessä lääketieteessä.",
@@ -494,7 +501,8 @@
       "Rypäleitä on viljelty yli 8 000 vuotta, ja niitä käytetään myös viinin, rusinoiden ja mehujen valmistukseen.",
       "Rypäleitä esiintyy monissa eri väreissä, joilla jokaisella on ainutlaatuinen maku ja rakenne.",
       "Rypäleitä kasvatetaan kuudella seitsemästä maailman mantereesta.",
-      "Rypäleet ovat haitallisia lemmikkieläimille, erityisesti koirille."
+      "Rypäleet ovat haitallisia lemmikkieläimille, erityisesti koirille.",
+      "Kiina on maailman suurin rypäleiden tuottaja."
     ],
     "grapefruit": [
       "Yksi greippi sisältää noin 100 % päivittäisestä C-vitamiinista.",
@@ -548,7 +556,8 @@
     ],
     "horseradish": [
       "Piparjuuren terävä maku johtuu yhdisteistä, jotka vapautuvat juuren raastamisen yhteydessä.",
-      "Piparjuuresta on vaikea päästä eroon istuttamisen jälkeen."
+      "Piparjuuresta on vaikea päästä eroon istuttamisen jälkeen.",
+      "Halvemmat sushiravintolat käyttävät usein wasabin sijasta värjättyä piparjuurta."
     ],
     "iceberg lettuce": [
       "Jäävuorisalaatti on yksi suosituimmista salaattivihanneksista Yhdysvalloissa.",
@@ -596,7 +605,7 @@
       "Yksi kiivi sisältää enemmän kuin päivittäisen suositellun määrän C-vitamiinia.",
       "Kiivi tunnettiin alun perin \"kiinankarviaisena\", mutta nimi muutettiin markkinoinnin vuoksi Uudessa-Seelannissa.",
       "Kiivin karvainen kuori on syötävä, vaikka monet eivät pidä sen syömisestä.",
-      "Kiina on maailman suurin kiivintuottaja."
+      "Moni yhdistää kiivin Uuteen-Seelantiin, mutta Kiina on maailman suurin kiivin tuottaja."
     ],
     "kohlrabi": [
       "Kyssäkaali saapui Yhdysvaltoihin vasta 1800-luvulla.",
@@ -690,7 +699,8 @@
     "mango": [
       "Yhdestä mangosta saa 100 % päivittäisestä C-vitamiinista ja se sisältää noin 200 kaloria.",
       "Mango on kotoisin Etelä-Aasiasta, mutta sitä viljellään trooppisilla ja subtrooppisilla alueilla maailmanlaajuisesti.",
-      "Kolumbialainen mango rikkoi maailmanennätyksen vuonna 2021 painamalla 4,25 kiloa."
+      "Kolumbialainen mango rikkoi maailmanennätyksen vuonna 2021 painamalla 4,25 kiloa.",
+      "Maailman suurin mangojen tuottaja on Intia, mutta lähes kaikki tuotanto kulutetaan kotimaassa."
     ],
     "mangosteen": [
       "Mangostanipuiden kasvu hedelmiä tuottaviksi kestää kahdeksasta kymmeneen vuotta.",
@@ -700,7 +710,8 @@
     "manioc": [
       "Maniokki on merkittävä hiilihydraattien lähde trooppisilla alueilla ja siitä valmistetaan tapiokaa.",
       "Maniokki on kypsennettävä oikein, sillä raakana se voi olla myrkyllinen syanogeenisten yhdisteidensä vuoksi.",
-      "Maniokista valmistetut tapiokahelmet ja -vanukas ovat suosittuja välipaloja."
+      "Maniokista valmistetut tapiokahelmet ja -vanukas ovat suosittuja välipaloja.",
+      "Nigeria on maailman suurin maniokin tuottaja."
     ],
     "matsutake": [
       "Tuoksuvalmuska on arvostettu sieni Japanissa, ja harvinaisuutensa vuoksi se voi olla erittäin kallis.",
@@ -767,7 +778,8 @@
     "olive": [
       "Oliivit ovat hyvä terveellisten rasvojen lähde.",
       "Legendan mukaan jumalatar Athena antoi kreikkalaisille lahjaksi oliivipuun voittaakseen heidän uskollisuutensa.",
-      "Oliiveja kerätään oliivipuista, jotka symboloivat rauhaa ja pitkäikäisyyttä."
+      "Oliiveja kerätään oliivipuista, jotka symboloivat rauhaa ja pitkäikäisyyttä.",
+      "Espanja tuottaa eniten oliiveja maailmassa, jonka jälkeen tulevat Italia ja Kreikka."
     ],
     "onion": [
       "Sipulit ovat haitallisia monille eläimille.",
@@ -777,7 +789,8 @@
       "Yksi appelsiini sisältää noin 60 kaloria ja yli 100 % päivittäisestä C-vitamiinista.",
       "Appelsiinit ovat yksi maailman suosituimmista hedelmistä ja niitä kulutetaan usein mehuna.",
       "Appelsiinien uskotaan olevan peräisin Kaakkois-Aasiasta, josta kauppiaat levittivät niitä ympäri maailmaa.",
-      "Sitrushedelmät ovat haitallisia kissoille ja koirille."
+      "Sitrushedelmät ovat haitallisia kissoille ja koirille.",
+      "Brasilia on maailman suurin appelsiinin tuottaja."
     ],
     "oregano": [
       "Oreganon nimi tulee muinaiskreikan \"vuoren iloa\" tarkoittavista sanoista.",
@@ -889,7 +902,8 @@
     ],
     "pomegranate": [
       "Granaattiomenat tunnetaan pirteän punaisista siemenistään, joissa on runsaasti kuitua.",
-      "Granaattiomenilla on usein symbolinen merkitys muinaisissa kulttuureissa."
+      "Granaattiomenilla on usein symbolinen merkitys muinaisissa kulttuureissa.",
+      "Intia tuottaa enemmän granaattiomenia kuin Iran, joka on hedelmän oletettu alkukoti."
     ],
     "pomelo": [
       "Pomelo on suurin sitrushedelmä ja läheistä sukua greipille.",
@@ -917,7 +931,8 @@
       "Painavin punnittu peruna painoi lähes viisi kiloa.",
       "Keitä, muussaa, nakkaa pataan. Peruna on monikäyttöinen juures.",
       "Peruna, etenkin raaka sellainen, voi aiheuttaa lemmikille vakavia myrkytysoireita.",
-      "Peruna on maailman eniten tuotettu vihannes."
+      "Peruna on maailman eniten tuotettu vihannes.",
+      "Kiina tuottaa vuodessa yli 370 miljoonaa tonnia perunaa."
     ],
     "prickly pear": [
       "Kaktusviikunoita voidaan istuttaa hedelmiensä lisäksi aavikoitumisen estämiseksi.",
@@ -1006,7 +1021,8 @@
       "Basmati, jasmiini, arborio, bomba...valitse riisi käyttötarkoituksen mukaan.",
       "Riisin viljely on todennäköisesti saanut alkunsa Yangtze-joen laaksosta.",
       "Valko-Venäjällä kulutetaan väkilukuun suhteutettuna vähiten riisiä maailmassa.",
-      "Kiina ja Intia ovat maailman suurimmat riisin tuottajat, mutta väkilukuun suhteutettuna suurin tuottaja on Guyana."
+      "Kiina ja Intia ovat maailman suurimmat riisin tuottajat, mutta väkilukuun suhteutettuna suurin tuottaja on Guyana.",
+      "Riisinviljelyllä on merkittäviä ympäristövaikutuksia."
     ],
     "romaine": [
       "Roomansalaatti on caesar-salaatin pohja-aines.",
@@ -1100,7 +1116,8 @@
     ],
     "soybean": [
       "Soijapapuja käytetään tofun, soijamaidon ja muiden kasvipohjaisten tuotteiden valmistukseen.",
-      "Soijapavut ovat keskeinen ainesosa monissa kasvisruokavalioissa niiden korkean proteiinipitoisuuden vuoksi."
+      "Soijapavut ovat keskeinen ainesosa monissa kasvisruokavalioissa niiden korkean proteiinipitoisuuden vuoksi.",
+      "Noin 77 % maailman soijapavuista päätyy eläinten rehuksi."
     ],
     "spaghetti squash": [
       "Nauhamainen spagettikurpitsa on hiilihydraatiton pastan korvike.",
@@ -1116,7 +1133,8 @@
       "Kippari-Kallen suosituksesta pinaatin myynti nousi 1930-luvulla 33 % yhdessä päivässä.",
       "Pinaatilla saattaa olla verenpainetta laskevia vaikutuksia.",
       "Firenzen Catherine de Medici piti pinaatista tarinan mukaan niin paljon, että monen pinaattiannoksen nimi on edelleen \"à la Florentine\".",
-      "Pinaatin korkea oksalaattipitoisuus voi haitata kalsiumin ja raudan imeytymistä."
+      "Pinaatin korkea oksalaattipitoisuus voi haitata kalsiumin ja raudan imeytymistä.",
+      "Kiina tuottaa noin 90 % maailman pinaatista."
     ],
     "sprouts": [
       "Idut ovat nuoria kasveja, jotka korjataan heti kasvun alettua, ja syödään usein raakana.",
@@ -1145,7 +1163,8 @@
     "sweet potato": [
       "Bataatit sisältävät runsaasti beetakaroteenia, jonka elimistö muuttaa A-vitamiiniksi.",
       "Nimestä \"sweet potato\" huolimatta, bataatit eivät ole sukua perunoille.",
-      "Bataatista on monta värivaihtoehtoa: oranssi, purppura, jopa valkoinen."
+      "Bataatista on monta värivaihtoehtoa: oranssi, purppura, jopa valkoinen.",
+      "Kiina on maailman suurin bataattien tuottaja, mutta suurin osa tuosta tuotannosta käytetään rehuksi tai teollisuudessa."
     ],
     "taro": [
       "30 gramman annos taroa sisältää noin 10 % päivittäisestä kuidun tarpeesta.",
@@ -1219,7 +1238,8 @@
       "Vesimelonin kuori on myös syötävä ja siitä voidaan tehdä esimerkiksi säilykkeitä tai käyttää smoothieissa.",
       "Vesimelonia viljellään yli 90 maassa.",
       "Maailman painavin vesimeloni painoi 159 kiloa.",
-      "Vesimeloni on maailman toiseksi eniten tuotettu hedelmä."
+      "Vesimeloni on maailman toiseksi eniten tuotettu hedelmä.",
+      "Kiina on maailman suurin vesimelonin tuottaja."
     ],
     "wax gourd": [
       "Vahakurpitsa voi kavaa jopa 80 cm pitkäksi.",
@@ -1228,7 +1248,8 @@
     ],
     "wheat": [
       "Vehnä on yksi maailman laajimmin viljellyistä kasveista.",
-      "Täysjyvävehnä on jalostettua vehnää terveellisempi vaihtoehto, sillä se sisältää leseen ja alkion."
+      "Täysjyvävehnä on jalostettua vehnää terveellisempi vaihtoehto, sillä se sisältää leseen ja alkion.",
+      "Vehnälle on varattuna enemmän maa-alaa kuin millekään muulle viljelykasville."
     ],
     "white bean": [
       "Valkoiset pavut sisältävät runsaasti kuitua ja proteiinia.",
@@ -1253,7 +1274,8 @@
     ],
     "yam": [
       "Jamssi sekoitetaan usein bataatteihin, mutta ne ovat eri lajeja.",
-      "Jamssi sisältää runsaasti kuitua, C-vitamiinia ja kaliumia."
+      "Jamssi sisältää runsaasti kuitua, C-vitamiinia ja kaliumia.",
+      "Nigeria tuottaa yli kaksi kolmasosaa maailman jamssista."
     ],
     "yardlong bean": [
       "Parsapapu voi kasvaa jopa metrin pituiseksi.",
