@@ -11,54 +11,51 @@ describe('useWeekSummary', () => {
   const lastWeek = thisWeek.subtract({weeks: 1});
   const twoWeeksAgo = thisWeek.subtract({weeks: 2});
   const threeWeeksAgo = thisWeek.subtract({weeks: 3});
+  const fourWeeksAgo = thisWeek.subtract({weeks: 4});
+  const fiveWeeksAgo = thisWeek.subtract({weeks: 5});
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
     activityStore = useActivityStore();
     appStateStore = useAppStateStore();
-    activityStore.weeks.splice(0);
     // startDate must be set for getWeekStarts to cover past weeks (needed for hotStreak)
-    appStateStore.settings.startDate = twoWeeksAgo;
+    appStateStore.settings.startDate = fiveWeeksAgo;
   });
 
-  const addLastWeek = (veggies: string[], challenge = 'cucumber') => {
-    activityStore.weeks.push({startDate: lastWeek, veggies, challenge});
-  };
-
-  const addTwoWeeksAgo = (veggies: string[], challenge = 'cucumber') => {
-    activityStore.weeks.push({startDate: twoWeeksAgo, veggies, challenge});
+  const addWeek = (weekStart: Temporal.PlainDate, veggies: string[], challenge = 'cucumber') => {
+    activityStore.weeks.push({startDate: weekStart, veggies, challenge});
   };
 
   describe('weekData computation', () => {
     it('computes veggies for last week', () => {
-      addLastWeek(['apple', 'spinach', 'tomato']);
+      addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.veggies).toEqual(['apple', 'spinach', 'tomato']);
     });
 
     it('computes weekNumber correctly', () => {
-      addLastWeek(['apple']);
+      addWeek(lastWeek, ['apple']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.weekNumber).toBe(lastWeek.weekOfYear);
     });
 
     it('computes atMostVeggies as max across all weeks', () => {
-      addTwoWeeksAgo(['apple', 'spinach', 'tomato']);
-      addLastWeek(['apple', 'spinach']);
+      addWeek(twoWeeksAgo, ['apple', 'spinach', 'tomato']);
+      addWeek(lastWeek, ['apple', 'spinach']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.atMostVeggies).toBe(3);
     });
 
     it('identifies first week when only one week exists', () => {
-      addLastWeek(['apple']);
+      addWeek(lastWeek, ['apple']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.firstWeek).toBe(true);
     });
 
     it('identifies non-first week when multiple weeks exist', () => {
-      addTwoWeeksAgo(['spinach']);
-      addLastWeek(['apple']);
+      addWeek(twoWeeksAgo, ['spinach']);
+      addWeek(lastWeek, ['apple']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.firstWeek).toBe(false);
     });
@@ -78,8 +75,8 @@ describe('useWeekSummary', () => {
     });
 
     it('calculates mean from fewer than 5 weeks when less data exists', () => {
-      addTwoWeeksAgo(['apple', 'spinach']);
-      addLastWeek(['apple', 'spinach', 'tomato', 'carrot']);
+      addWeek(twoWeeksAgo, ['apple', 'spinach']);
+      addWeek(lastWeek, ['apple', 'spinach', 'tomato', 'carrot']);
       const {weekData} = withSetup(useWeekSummary);
       // 2 past weeks: 4 and 2 → mean = 3
       expect(weekData.value.mean).toBe(3);
@@ -91,8 +88,8 @@ describe('useWeekSummary', () => {
         veggies: ['apple', 'spinach', 'tomato', 'carrot'],
         challenge: 'cucumber',
       });
-      addTwoWeeksAgo(['apple', 'spinach', 'tomato']);
-      addLastWeek(['apple', 'spinach', 'tomato']);
+      addWeek(twoWeeksAgo, ['apple', 'spinach', 'tomato']);
+      addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
       const {weekData} = withSetup(useWeekSummary);
       // 3 past weeks: 3, 3 and 4 → mean = 3.333... → rounded to 3.3
       expect(weekData.value.mean).toBe(3.3);
@@ -114,21 +111,21 @@ describe('useWeekSummary', () => {
     });
 
     it('identifies first-time veggies when weeks >= 2', () => {
-      addTwoWeeksAgo(['apple', 'carrot']);
-      addLastWeek(['apple', 'spinach', 'broccoli']);
+      addWeek(twoWeeksAgo, ['apple', 'carrot']);
+      addWeek(lastWeek, ['apple', 'spinach', 'broccoli']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.firstTimeVeggies).toEqual(['spinach', 'broccoli']);
     });
 
     it('returns empty firstTimeVeggies when only one week exists', () => {
-      addLastWeek(['apple', 'spinach']);
+      addWeek(lastWeek, ['apple', 'spinach']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.firstTimeVeggies).toEqual([]);
     });
 
     it('calculates previousWeekCount', () => {
-      addTwoWeeksAgo(['apple', 'carrot', 'spinach']);
-      addLastWeek(['apple', 'spinach']);
+      addWeek(twoWeeksAgo, ['apple', 'carrot', 'spinach']);
+      addWeek(lastWeek, ['apple', 'spinach']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.previousWeekCount).toBe(3);
     });
@@ -150,13 +147,13 @@ describe('useWeekSummary', () => {
     });
 
     it('computes categoryCounts from veggies', () => {
-      addLastWeek(['apple', 'spinach', 'tomato']);
+      addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.categoryCounts).toMatchObject({Fruit: 1, Leafy: 1, Vegetable: 1});
     });
 
     it('computes missingCategories', () => {
-      addLastWeek(['apple', 'spinach']);
+      addWeek(lastWeek, ['apple', 'spinach']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.missingCategories).toEqual(
         expect.arrayContaining(['Vegetable', 'Root', 'Bean', 'Grain', 'Mushroom']),
@@ -166,7 +163,7 @@ describe('useWeekSummary', () => {
     });
 
     it('computes favoriteCategory as category with most veggies', () => {
-      addLastWeek(['apple', 'banana', 'grape', 'spinach']);
+      addWeek(lastWeek, ['apple', 'banana', 'grape', 'spinach']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.favoriteCategory).toBe('Fruit');
     });
@@ -175,11 +172,86 @@ describe('useWeekSummary', () => {
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.favoriteCategory).toBeNull();
     });
+
+    it('identifies staples as veggies eaten in 4 of 5 past weeks', () => {
+      addWeek(fiveWeeksAgo, ['spinach']);
+      addWeek(fourWeeksAgo, ['apple', 'spinach']);
+      addWeek(threeWeeksAgo, ['apple', 'spinach']);
+      addWeek(twoWeeksAgo, ['apple', 'spinach']);
+      addWeek(lastWeek, ['apple', 'spinach']);
+      const {weekData} = withSetup(useWeekSummary);
+      expect(weekData.value.staples).toContain('apple');
+      expect(weekData.value.staples).toContain('spinach');
+    });
+
+    it('does not include veggies eaten in only 3 of 5 past weeks', () => {
+      addWeek(fiveWeeksAgo, []);
+      addWeek(fourWeeksAgo, []);
+      addWeek(threeWeeksAgo, ['apple']);
+      addWeek(twoWeeksAgo, ['apple']);
+      addWeek(lastWeek, ['apple']);
+      const {weekData} = withSetup(useWeekSummary);
+      expect(weekData.value.staples).not.toContain('apple');
+    });
+
+    it('identifies staple when only 4 weeks recorded and veggie appears in all 4', () => {
+      appStateStore.settings.startDate = fourWeeksAgo;
+      addWeek(fourWeeksAgo, ['apple']);
+      addWeek(threeWeeksAgo, ['apple']);
+      addWeek(twoWeeksAgo, ['apple']);
+      addWeek(lastWeek, ['apple']);
+      const {weekData} = withSetup(useWeekSummary);
+      expect(weekData.value.staples).toContain('apple');
+    });
+
+    it('returns empty rarities when fewer than 5 weeks recorded', () => {
+      addWeek(threeWeeksAgo, ['carrot']);
+      addWeek(twoWeeksAgo, ['carrot']);
+      addWeek(lastWeek, ['apple', 'carrot']);
+      const {weekData} = withSetup(useWeekSummary);
+      expect(weekData.value.rarities).toEqual([]);
+    });
+
+    it('identifies rarity as veggie appearing only in last week out of 5, eaten before', () => {
+      addWeek(fiveWeeksAgo, ['carrot']);
+      addWeek(fourWeeksAgo, ['carrot']);
+      addWeek(threeWeeksAgo, ['carrot']);
+      addWeek(twoWeeksAgo, ['carrot']);
+      // apple was eaten long ago (allVeggies count > 1) but not in the past 5 weeks except now
+      activityStore.weeks.unshift({
+        startDate: thisWeek.subtract({weeks: 10}),
+        veggies: ['apple'],
+        challenge: 'cucumber',
+      });
+      addWeek(lastWeek, ['apple', 'carrot']);
+      const {weekData} = withSetup(useWeekSummary);
+      expect(weekData.value.rarities).toContain('apple');
+    });
+
+    it('does not include first-time veggies in rarities', () => {
+      addWeek(fiveWeeksAgo, ['carrot']);
+      addWeek(fourWeeksAgo, ['carrot']);
+      addWeek(threeWeeksAgo, ['carrot']);
+      addWeek(twoWeeksAgo, ['carrot']);
+      addWeek(lastWeek, ['apple', 'carrot']);
+      const {weekData} = withSetup(useWeekSummary);
+      expect(weekData.value.rarities).not.toContain('apple');
+    });
+
+    it('does not include veggies appearing 2+ times in past 5 weeks in rarities', () => {
+      addWeek(fiveWeeksAgo, ['apple']);
+      addWeek(fourWeeksAgo, ['apple']);
+      addWeek(threeWeeksAgo, []);
+      addWeek(twoWeeksAgo, []);
+      addWeek(lastWeek, ['apple']);
+      const {weekData} = withSetup(useWeekSummary);
+      expect(weekData.value.rarities).not.toContain('apple');
+    });
   });
 
   describe('summary messages', () => {
     it('returns no veggies message when veggies array is empty', () => {
-      addLastWeek([]);
+      addWeek(lastWeek, []);
       const {summaryMessages} = withSetup(useWeekSummary);
       expect(summaryMessages.value).toContainEqual({
         emoji: '🍽️',
@@ -190,51 +262,43 @@ describe('useWeekSummary', () => {
 
     describe('progress messages', () => {
       it('returns room for improvement message for less than 10 veggies', () => {
-        addLastWeek(['apple', 'spinach', 'tomato']);
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🍂',
-            translationKey: 'weekSummaryDialog.roomForImprovement',
-            translationParameters: [3],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🍂',
+          translationKey: 'weekSummaryDialog.roomForImprovement',
+          translationParameters: [3],
+        });
       });
 
       it('returns good start message for 10-19 veggies', () => {
-        addLastWeek(take(ALL_VEGGIES, 15));
+        addWeek(lastWeek, take(ALL_VEGGIES, 15));
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🌱',
-            translationKey: 'weekSummaryDialog.goodStart',
-            translationParameters: [15],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🌱',
+          translationKey: 'weekSummaryDialog.goodStart',
+          translationParameters: [15],
+        });
       });
 
       it('returns making progress message for 20-29 veggies', () => {
-        addLastWeek(take(ALL_VEGGIES, 25));
+        addWeek(lastWeek, take(ALL_VEGGIES, 25));
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🥗',
-            translationKey: 'weekSummaryDialog.makingProgress',
-            translationParameters: [25],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🥗',
+          translationKey: 'weekSummaryDialog.makingProgress',
+          translationParameters: [25],
+        });
       });
 
       it('returns accomplishment message for 30+ veggies when hotStreak is 1', () => {
-        addLastWeek(take(ALL_VEGGIES, 30));
+        addWeek(lastWeek, take(ALL_VEGGIES, 30));
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🎉',
-            translationKey: 'weekSummaryDialog.accomplishment',
-            translationParameters: [30],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🎉',
+          translationKey: 'weekSummaryDialog.accomplishment',
+          translationParameters: [30],
+        });
       });
 
       it('does not return accomplishment message for 30+ veggies when hotStreak is not 1', () => {
@@ -244,7 +308,7 @@ describe('useWeekSummary', () => {
           veggies: thirtyVeggies,
           challenge: 'cucumber',
         });
-        addLastWeek(take(ALL_VEGGIES, 35));
+        addWeek(lastWeek, take(ALL_VEGGIES, 35));
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(summaryMessages.value).not.toContainEqual(
           expect.objectContaining({translationKey: 'weekSummaryDialog.accomplishment'}),
@@ -254,34 +318,30 @@ describe('useWeekSummary', () => {
 
     describe('comparison messages', () => {
       it('returns surpassed previous week message when current count is higher', () => {
-        addTwoWeeksAgo(take(ALL_VEGGIES, 5));
-        addLastWeek(take(ALL_VEGGIES, 6));
+        addWeek(twoWeeksAgo, take(ALL_VEGGIES, 5));
+        addWeek(lastWeek, take(ALL_VEGGIES, 6));
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '📈',
-            translationKey: 'weekSummaryDialog.surpassedPreviousWeek',
-            translationParameters: [5],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '📈',
+          translationKey: 'weekSummaryDialog.surpassedPreviousWeek',
+          translationParameters: [5],
+        });
       });
 
       it('returns fell short message when current count is more than 3 less than previous', () => {
-        addTwoWeeksAgo(take(ALL_VEGGIES, 10));
-        addLastWeek(['apple', 'spinach', 'tomato']);
+        addWeek(twoWeeksAgo, take(ALL_VEGGIES, 10));
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '📉',
-            translationKey: 'weekSummaryDialog.fellShort',
-            translationParameters: [10],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '📉',
+          translationKey: 'weekSummaryDialog.fellShort',
+          translationParameters: [10],
+        });
       });
 
       it('does not return fell short message when difference is 3 or less', () => {
-        addTwoWeeksAgo(take(ALL_VEGGIES, 8));
-        addLastWeek(take(ALL_VEGGIES, 5));
+        addWeek(twoWeeksAgo, take(ALL_VEGGIES, 8));
+        addWeek(lastWeek, take(ALL_VEGGIES, 5));
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.filter(
@@ -291,7 +351,7 @@ describe('useWeekSummary', () => {
       });
 
       it('does not return comparison messages for first week', () => {
-        addLastWeek(take(ALL_VEGGIES, 6));
+        addWeek(lastWeek, take(ALL_VEGGIES, 6));
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.filter(
@@ -305,7 +365,7 @@ describe('useWeekSummary', () => {
 
     describe('statistics messages', () => {
       it('returns mean message when there are veggies', () => {
-        addLastWeek(['apple', 'spinach', 'tomato']);
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(summaryMessages.value).toContainEqual(
           expect.objectContaining({
@@ -316,15 +376,13 @@ describe('useWeekSummary', () => {
       });
 
       it('returns record achievement message when veggies count equals atMostVeggies', () => {
-        addLastWeek(['apple', 'spinach', 'tomato']);
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🥇',
-            translationKey: 'weekSummaryDialog.recordAchieved',
-            translationParameters: [3],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🥇',
+          translationKey: 'weekSummaryDialog.recordAchieved',
+          translationParameters: [3],
+        });
       });
 
       it('returns close to record message when 2 veggies away from record', () => {
@@ -333,15 +391,13 @@ describe('useWeekSummary', () => {
           veggies: take(ALL_VEGGIES, 10),
           challenge: 'cucumber',
         });
-        addLastWeek(take(ALL_VEGGIES, 8));
+        addWeek(lastWeek, take(ALL_VEGGIES, 8));
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🥈',
-            translationKey: 'weekSummaryDialog.closeToRecord',
-            translationParameters: [2, 10],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🥈',
+          translationKey: 'weekSummaryDialog.closeToRecord',
+          translationParameters: [2, 10],
+        });
       });
 
       it('does not return close to record message when 3 or more veggies away', () => {
@@ -350,7 +406,7 @@ describe('useWeekSummary', () => {
           veggies: take(ALL_VEGGIES, 10),
           challenge: 'cucumber',
         });
-        addLastWeek(['apple', 'spinach', 'tomato']);
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.filter(
@@ -360,7 +416,7 @@ describe('useWeekSummary', () => {
       });
 
       it('does not return close to record message when at record', () => {
-        addLastWeek(['apple', 'spinach', 'tomato']);
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.filter(
@@ -382,17 +438,15 @@ describe('useWeekSummary', () => {
           challenge: 'cucumber',
         });
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🔥',
-            translationKey: 'weekSummaryDialog.hotStreak',
-            translationParameters: [2],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🔥',
+          translationKey: 'weekSummaryDialog.hotStreak',
+          translationParameters: [2],
+        });
       });
 
       it('does not return hot streak message when hot streak is 1', () => {
-        addLastWeek(take(ALL_VEGGIES, 30));
+        addWeek(lastWeek, take(ALL_VEGGIES, 30));
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.find(
@@ -410,13 +464,11 @@ describe('useWeekSummary', () => {
           challenge: 'apple',
         });
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🎖️',
-            translationKey: 'weekSummaryDialog.challengeCompleted',
-            translationParameters: ['apple'],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🎖️',
+          translationKey: 'weekSummaryDialog.challengeCompleted',
+          translationParameters: ['apple'],
+        });
       });
 
       it('returns challenge missed message when challenge veggie is not in the week', () => {
@@ -426,13 +478,11 @@ describe('useWeekSummary', () => {
           challenge: 'apple',
         });
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '😶‍🌫️',
-            translationKey: 'weekSummaryDialog.challengeMissed',
-            translationParameters: ['apple'],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '😶‍🌫️',
+          translationKey: 'weekSummaryDialog.challengeMissed',
+          translationParameters: ['apple'],
+        });
       });
 
       it('does not return challenge message when no challenge is set', () => {
@@ -452,27 +502,23 @@ describe('useWeekSummary', () => {
       });
 
       it('returns individual messages for each first-time veggie', () => {
-        addTwoWeeksAgo(['tomato']);
-        addLastWeek(['apple', 'spinach', 'tomato']);
+        addWeek(twoWeeksAgo, ['tomato']);
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🆕',
-            translationKey: 'weekSummaryDialog.firstTimeVeggie',
-            translationParameters: ['apple'],
-          }),
-        );
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '🆕',
-            translationKey: 'weekSummaryDialog.firstTimeVeggie',
-            translationParameters: ['spinach'],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🆕',
+          translationKey: 'weekSummaryDialog.firstTimeVeggie',
+          translationParameters: ['apple'],
+        });
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🆕',
+          translationKey: 'weekSummaryDialog.firstTimeVeggie',
+          translationParameters: ['spinach'],
+        });
       });
 
       it('does not return first-time veggie messages when no first-time veggies', () => {
-        addLastWeek(['apple', 'spinach', 'tomato']);
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.filter(
@@ -484,19 +530,17 @@ describe('useWeekSummary', () => {
 
     describe('category messages', () => {
       it('returns favorite category message when one category has 4 or more veggies', () => {
-        addLastWeek(['apple', 'banana', 'grape', 'kiwi', 'spinach']);
+        addWeek(lastWeek, ['apple', 'banana', 'grape', 'kiwi', 'spinach']);
         const {summaryMessages} = withSetup(useWeekSummary);
-        expect(summaryMessages.value).toContainEqual(
-          expect.objectContaining({
-            emoji: '⭐',
-            translationKey: 'weekSummaryDialog.favoriteCategory',
-            translationParameters: [4, 'fruits and berries'],
-          }),
-        );
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '⭐',
+          translationKey: 'weekSummaryDialog.favoriteCategory',
+          translationParameters: [4, 'fruits and berries'],
+        });
       });
 
       it('does not return favorite category message when highest count is 3 or less', () => {
-        addLastWeek(['apple', 'banana', 'grape', 'spinach']);
+        addWeek(lastWeek, ['apple', 'banana', 'grape', 'spinach']);
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.filter(
@@ -506,7 +550,7 @@ describe('useWeekSummary', () => {
       });
 
       it('returns missing category messages for categories not represented', () => {
-        addLastWeek(['apple', 'spinach']);
+        addWeek(lastWeek, ['apple', 'spinach']);
         const {summaryMessages} = withSetup(useWeekSummary);
         const missingCategoryMessages = summaryMessages.value.filter(
           ({translationKey}) => translationKey === 'weekSummaryDialog.missingCategory',
@@ -526,7 +570,7 @@ describe('useWeekSummary', () => {
       });
 
       it('returns no missing category messages when all categories are present', () => {
-        addLastWeek(['apple', 'spinach', 'tomato', 'carrot', 'chickpea', 'rice', 'shiitake']);
+        addWeek(lastWeek, ['apple', 'spinach', 'tomato', 'carrot', 'chickpea', 'rice', 'shiitake']);
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.filter(
@@ -541,7 +585,7 @@ describe('useWeekSummary', () => {
       });
 
       it('returns low category count messages for categories with 1-2 veggies', () => {
-        addLastWeek(['apple', 'banana', 'spinach', 'kale', 'quinoa']);
+        addWeek(lastWeek, ['apple', 'banana', 'spinach', 'kale', 'quinoa']);
         const {summaryMessages} = withSetup(useWeekSummary);
         const lowCategoryMessages = summaryMessages.value.filter(
           ({translationKey}) => translationKey === 'weekSummaryDialog.lowCategoryCount',
@@ -565,7 +609,7 @@ describe('useWeekSummary', () => {
       });
 
       it('does not return low category count messages for categories with 3+ veggies', () => {
-        addLastWeek(['apple', 'banana', 'grape', 'spinach']);
+        addWeek(lastWeek, ['apple', 'banana', 'grape', 'spinach']);
         const {summaryMessages} = withSetup(useWeekSummary);
         const lowCategoryMessages = summaryMessages.value.filter(
           ({translationKey}) => translationKey === 'weekSummaryDialog.lowCategoryCount',
@@ -581,7 +625,7 @@ describe('useWeekSummary', () => {
 
     describe('nutrient messages', () => {
       it('returns message when 0 veggies from a nutrient group are consumed', () => {
-        addLastWeek(['apple']);
+        addWeek(lastWeek, ['apple']);
         const {summaryMessages} = withSetup(useWeekSummary);
         const vitaminAMessage = summaryMessages.value.find(
           ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.A',
@@ -591,7 +635,7 @@ describe('useWeekSummary', () => {
       });
 
       it('returns message when 1 veggie from a nutrient group is consumed', () => {
-        addLastWeek(['spinach']);
+        addWeek(lastWeek, ['spinach']);
         const {summaryMessages} = withSetup(useWeekSummary);
         const ironMessage = summaryMessages.value.find(
           ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.iron',
@@ -601,7 +645,7 @@ describe('useWeekSummary', () => {
       });
 
       it('does not return message when 2 veggies from a nutrient group are consumed', () => {
-        addLastWeek(['broccoli', 'spinach']);
+        addWeek(lastWeek, ['broccoli', 'spinach']);
         const {summaryMessages} = withSetup(useWeekSummary);
         expect(
           summaryMessages.value.find(
@@ -611,7 +655,7 @@ describe('useWeekSummary', () => {
       });
 
       it('returns specific nutrient messages when multiple nutrients are unsatisfied', () => {
-        addLastWeek(['spinach', 'broccoli', 'guava', 'amaranth']);
+        addWeek(lastWeek, ['spinach', 'broccoli', 'guava', 'amaranth']);
         const {summaryMessages} = withSetup(useWeekSummary);
         const nutrientMessages = summaryMessages.value.filter(({translationKey}) =>
           translationKey.startsWith('weekSummaryDialog.nutrientMessages.'),
@@ -638,13 +682,45 @@ describe('useWeekSummary', () => {
           'portobello',
           'shiitake',
         ];
-        addLastWeek(['apple', 'cucumber']);
+        addWeek(lastWeek, ['apple', 'cucumber']);
         const {summaryMessages} = withSetup(useWeekSummary);
         const b7Message = summaryMessages.value.find(
           ({translationKey}) => translationKey === 'weekSummaryDialog.nutrientMessages.B7',
         );
         expect(b7Message).toBeDefined();
         expect(b7Message!.translationParameters).toEqual(['soybean, sunflower seed']);
+      });
+
+      it('returns staples message when a veggie appears in 4+ of the past 5 weeks', () => {
+        appStateStore.settings.startDate = thisWeek.subtract({weeks: 5});
+        for (let i = 1; i <= 5; i++) {
+          addWeek(thisWeek.subtract({weeks: i}), ['apple']);
+        }
+        const {summaryMessages} = withSetup(useWeekSummary);
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🔁',
+          translationKey: 'weekSummaryDialog.staples',
+          translationParameters: ['apple'],
+        });
+      });
+
+      it('returns rarities message when a previously-eaten veggie reappears after absence', () => {
+        appStateStore.settings.startDate = thisWeek.subtract({weeks: 10});
+        activityStore.weeks.unshift({
+          startDate: thisWeek.subtract({weeks: 10}),
+          veggies: ['apple'],
+          challenge: 'cucumber',
+        });
+        for (let i = 2; i <= 5; i++) {
+          addWeek(thisWeek.subtract({weeks: i}), ['carrot']);
+        }
+        addWeek(lastWeek, ['apple', 'carrot']);
+        const {summaryMessages} = withSetup(useWeekSummary);
+        expect(summaryMessages.value).toContainEqual({
+          emoji: '🦄',
+          translationKey: 'weekSummaryDialog.rarities',
+          translationParameters: ['apple'],
+        });
       });
     });
 
