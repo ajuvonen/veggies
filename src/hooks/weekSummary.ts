@@ -48,15 +48,25 @@ export const useWeekSummary = () => {
         ? categoryEntries.reduce((max, entry) => (entry[1] > max[1] ? entry : max))[0]
         : null;
 
-    const pastVeggies = Array.from(
+    const pastFiveWeeksVeggiesList = Array.from(
       {length: Math.min(5, weeks.value.length)},
       (_, weekIndex) =>
-        veggiesForWeek.value(currentWeekStart.value.subtract({weeks: weekIndex + 1})).length,
+        veggiesForWeek.value(currentWeekStart.value.subtract({weeks: weekIndex + 1})),
     );
+    const pastVeggies = pastFiveWeeksVeggiesList.map((v) => v.length);
 
     const veggieCounts = countBy(allVeggies.value, (veggie) => veggie);
     const firstTimeVeggies =
       weeks.value.length >= 2 ? veggies.filter((veggie) => veggieCounts[veggie] === 1) : [];
+
+    const pastFiveWeeksTotalCounts = countBy(pastFiveWeeksVeggiesList.flat(), (veggie) => veggie);
+    const staples = veggies.filter((veggie) => (pastFiveWeeksTotalCounts[veggie] ?? 0) >= 4);
+    const rarities =
+      weeks.value.length >= 5
+        ? veggies.filter(
+            (veggie) => pastFiveWeeksTotalCounts[veggie] === 1 && veggieCounts[veggie] > 1,
+          )
+        : [];
 
     return {
       atMostVeggies: atMostVeggies.value,
@@ -69,6 +79,8 @@ export const useWeekSummary = () => {
       mean: Math.round((mean(pastVeggies) ?? 0) * 10) / 10,
       missingCategories,
       previousWeekCount: veggiesForWeek.value(currentWeekStart.value.subtract({weeks: 2})).length,
+      rarities,
+      staples,
       veggies,
       weekNumber: lastWeekStart.weekOfYear!,
     };
@@ -96,6 +108,28 @@ export const useWeekSummary = () => {
         });
       }
     });
+
+    if (data.staples.length > 0) {
+      const veggieNames = sample(data.staples, 3)
+        .map((veggie) => t(`veggies.${veggie}`).toLowerCase())
+        .join(', ');
+      messages.push({
+        emoji: '🔁',
+        translationKey: 'weekSummaryDialog.staples',
+        translationParameters: [veggieNames],
+      });
+    }
+
+    if (data.rarities.length > 0) {
+      const veggieNames = sample(data.rarities, 3)
+        .map((veggie) => t(`veggies.${veggie}`).toLowerCase())
+        .join(', ');
+      messages.push({
+        emoji: '🦄',
+        translationKey: 'weekSummaryDialog.rarities',
+        translationParameters: [veggieNames],
+      });
+    }
 
     return messages;
   };

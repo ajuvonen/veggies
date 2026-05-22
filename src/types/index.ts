@@ -85,6 +85,8 @@ export type WeekData = {
   mean: number;
   missingCategories: Category[];
   previousWeekCount: number;
+  rarities: string[];
+  staples: string[];
   veggies: string[];
   weekNumber: number;
 };
