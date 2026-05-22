@@ -32,6 +32,7 @@ export const useWeekSummary = () => {
     atMostVeggies,
     weeks,
     allVeggies,
+    getWeekStarts,
   } = storeToRefs(useActivityStore());
 
   const weekData = computedWithControl(currentWeekStart, (): WeekData => {
@@ -49,7 +50,7 @@ export const useWeekSummary = () => {
         : null;
 
     const pastFiveWeeksVeggiesList = Array.from(
-      {length: Math.min(5, weeks.value.length)},
+      {length: Math.min(5, getWeekStarts.value.length - 1)},
       (_, weekIndex) =>
         veggiesForWeek.value(currentWeekStart.value.subtract({weeks: weekIndex + 1})),
     );
@@ -62,7 +63,7 @@ export const useWeekSummary = () => {
     const pastFiveWeeksTotalCounts = countBy(pastFiveWeeksVeggiesList.flat(), (veggie) => veggie);
     const staples = veggies.filter((veggie) => (pastFiveWeeksTotalCounts[veggie] ?? 0) >= 4);
     const rarities =
-      weeks.value.length >= 5
+      getWeekStarts.value.length - 1 >= 5
         ? veggies.filter(
             (veggie) => pastFiveWeeksTotalCounts[veggie] === 1 && veggieCounts[veggie] > 1,
           )
