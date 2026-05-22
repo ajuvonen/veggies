@@ -78,8 +78,8 @@ describe('useWeekSummary', () => {
       addWeek(twoWeeksAgo, ['apple', 'spinach']);
       addWeek(lastWeek, ['apple', 'spinach', 'tomato', 'carrot']);
       const {weekData} = withSetup(useWeekSummary);
-      // 2 past weeks: 4 and 2 → mean = 3
-      expect(weekData.value.mean).toBe(3);
+      // 5 calendar weeks (startDate = fiveWeeksAgo), but only 2 with data: [4, 2, 0, 0, 0] → mean = 1.2
+      expect(weekData.value.mean).toBe(1.2);
     });
 
     it('rounds mean to one decimal place', () => {
@@ -91,8 +91,8 @@ describe('useWeekSummary', () => {
       addWeek(twoWeeksAgo, ['apple', 'spinach', 'tomato']);
       addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
       const {weekData} = withSetup(useWeekSummary);
-      // 3 past weeks: 3, 3 and 4 → mean = 3.333... → rounded to 3.3
-      expect(weekData.value.mean).toBe(3.3);
+      // 5 calendar weeks: [3, 3, 4, 0, 0] → mean = 10/5 = 2 → rounded to 2
+      expect(weekData.value.mean).toBe(2);
     });
 
     it('finds challenge for last week', () => {
@@ -204,7 +204,7 @@ describe('useWeekSummary', () => {
       expect(weekData.value.staples).toContain('apple');
     });
 
-    it('returns empty rarities when fewer than 5 weeks recorded', () => {
+    it('returns empty rarities when veggie was not eaten before (only first-time appearance)', () => {
       addWeek(threeWeeksAgo, ['carrot']);
       addWeek(twoWeeksAgo, ['carrot']);
       addWeek(lastWeek, ['apple', 'carrot']);
