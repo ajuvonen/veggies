@@ -19,7 +19,6 @@ declare module 'vue' {
     AchievementBadge: typeof import('./../components/AchievementBadge.vue')['default']
     AchievementDialog: typeof import('./../components/AchievementDialog.vue')['default']
     AchievementList: typeof import('./../components/AchievementList.vue')['default']
-    AchievementListSection: typeof import('./../components/AchievementListSection.vue')['default']
     AIPermissionDialog: typeof import('./../components/AIPermissionDialog.vue')['default']
     AllTimeStatus: typeof import('./../components/AllTimeStatus.vue')['default']
     AllTimeStatusItem: typeof import('./../components/AllTimeStatusItem.vue')['default']

@@ -49,12 +49,29 @@ const standardAchievements: (keyof Achievements)[] = [
       />
     </ul>
   </ContentElement>
-  <AchievementListSection
+  <ContentElement
     v-for="achievement in standardAchievements"
     :key="achievement"
-    :achievement="achievement"
-    :achievementLevel="achievements[achievement]"
-  />
+    :title="$t(`achievements.${achievement}.title`)"
+  >
+    <ul class="achievement-list__badge-container">
+      <AchievementBadge
+        :active="achievements[achievement] >= AchievementLevel.Bronze"
+        :level="AchievementLevel.Bronze"
+        :achievement="achievement"
+      />
+      <AchievementBadge
+        :active="achievements[achievement] >= AchievementLevel.Silver"
+        :level="AchievementLevel.Silver"
+        :achievement="achievement"
+      />
+      <AchievementBadge
+        :active="achievements[achievement] >= AchievementLevel.Gold"
+        :level="AchievementLevel.Gold"
+        :achievement="achievement"
+      />
+    </ul>
+  </ContentElement>
   <ContentElement :title="$t('achievements.experimenterFruit.title')">
     <ul class="achievement-list__badge-container">
       <AchievementBadge
