@@ -105,21 +105,23 @@ const handleAISummaryToggle = (value: boolean) => {
             $t(translationKey, translationParameters, Number(translationParameters[0]))
           }}</span>
         </template>
-        <span class="flex items-center justify-center">
-          <AchievementBadge
-            as="div"
-            :achievement="promotedAchievement"
-            :level="AchievementLevel.Gold"
-            :active="true"
-            noLabel
-            data-test-id="promoted-achievement"
-          />
-        </span>
-        <span class="flex items-center">{{
-          $t('weekSummaryDialog.promotedAchievement', [
-            $t(`achievements.${promotedAchievement}.badgeText`).replace(/\"/g, ''),
-          ])
-        }}</span>
+        <template v-if="promotedAchievement">
+          <span class="flex items-center justify-center">
+            <AchievementBadge
+              as="div"
+              :achievement="promotedAchievement"
+              :level="AchievementLevel.Gold"
+              :active="true"
+              noLabel
+              data-test-id="promoted-achievement"
+            />
+          </span>
+          <span class="flex items-center">{{
+            $t('weekSummaryDialog.promotedAchievement', [
+              $t(`achievements.${promotedAchievement}.badgeText`).replace(/\"/g, ''),
+            ])
+          }}</span>
+        </template>
       </div>
     </template>
     <template #buttons>

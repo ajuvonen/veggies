@@ -50,9 +50,18 @@ export enum AchievementLevel {
   Platinum,
 }
 
-export type Achievements = {
+export type WeeklyAchievements = {
   allOnRed: AchievementLevel;
   botanicalBerries: AchievementLevel;
+  goNuts: AchievementLevel;
+  lemons: AchievementLevel;
+  overachiever: AchievementLevel;
+  rainbow: AchievementLevel;
+  tearnado: AchievementLevel;
+  thirtyVeggies: AchievementLevel;
+};
+
+export type Achievements = WeeklyAchievements & {
   challengeAccepted: AchievementLevel;
   committed: AchievementLevel;
   completionist: AchievementLevel;
@@ -63,13 +72,7 @@ export type Achievements = {
   experimenterMushroom: AchievementLevel;
   experimenterRoot: AchievementLevel;
   experimenterVegetable: AchievementLevel;
-  goNuts: AchievementLevel;
   hotStreak: AchievementLevel;
-  lemons: AchievementLevel;
-  overachiever: AchievementLevel;
-  rainbow: AchievementLevel;
-  tearnado: AchievementLevel;
-  thirtyVeggies: AchievementLevel;
   thousandsOdd: AchievementLevel;
   thousandsEven: AchievementLevel;
 };

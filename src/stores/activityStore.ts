@@ -8,6 +8,7 @@ import {
   type Week,
   type Achievements,
   AchievementLevel,
+  type WeeklyAchievements,
 } from '@/types';
 import {
   achievementLevelHelper,
@@ -205,7 +206,7 @@ export const useActivityStore = defineStore('activity', () => {
             ],
             veggies.length,
           ),
-        };
+        } satisfies WeeklyAchievements;
       },
   );
 
