@@ -234,7 +234,6 @@ describe('helpers', () => {
     it('fails on missing startDate', () => {
       const faultyData = {
         weeks: [],
-        challenges: [],
         settings: {
           ...DEFAULT_SETTINGS,
           startDate: null,
