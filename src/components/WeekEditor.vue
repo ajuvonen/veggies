@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 import {computed, provide, readonly, ref} from 'vue';
 import {storeToRefs} from 'pinia';
+import {entries} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
 import {areDatesEqual} from '@/utils/helpers';
 import {AchievementLevel, type Achievements} from '@/types';
+import {useAvailableWeeklyAchievements} from '@/hooks/availableWeeklyAchievements';
 import {useDateTime} from '@/hooks/dateTime';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
 
@@ -25,6 +27,13 @@ const {formatWeekString} = useDateTime();
 const selectedChallenge = computed(() => challengeForWeek.value(selectedWeekStart.value));
 
 const {weeklyCompletion} = useAchievementCompletion(veggies, selectedChallenge);
+const {availableWeeklyAchievements} = useAvailableWeeklyAchievements();
+
+const displayedWeeklyAchievements = computed(() =>
+  entries(weeklyAchievements.value(veggies.value, selectedWeekStart.value)).filter(([key]) =>
+    availableWeeklyAchievements.value.includes(key),
+  ),
+);
 
 provide(KEYS.challenge, readonly(selectedChallenge));
 </script>
@@ -49,7 +58,7 @@ provide(KEYS.challenge, readonly(selectedChallenge));
   <VeggieSearch v-model="veggies" />
   <ul class="flex-container flex-wrap justify-center" :aria-label="$t('stats.weeklyAchievements')">
     <AchievementBadge
-      v-for="[achievement, level] in Object.entries(weeklyAchievements(veggies, selectedWeekStart))"
+      v-for="[achievement, level] in displayedWeeklyAchievements"
       :key="achievement"
       :achievement="achievement as keyof Achievements"
       :level="level || AchievementLevel.Gold"

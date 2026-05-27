@@ -2,28 +2,20 @@ import {computed, ref, watch} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {computedWithControl} from '@vueuse/core';
 import {storeToRefs} from 'pinia';
-import {countBy, mean, sample} from 'remeda';
-import type {Achievements, WeekData, SummaryItem} from '@/types';
+import {countBy, entries, mean, sample} from 'remeda';
+import type {WeeklyAchievements, WeekData, SummaryItem} from '@/types';
 import {Category} from '@/types';
 import {getCategoryForVeggie, getRandomItem, setIntersection} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import {NUTRIENTS} from '@/utils/veggieDetails';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
+import {useAvailableWeeklyAchievements} from '@/hooks/availableWeeklyAchievements';
 import {useActivityStore} from '@/stores/activityStore';
-
-const weeklyAchievements: (keyof Achievements)[] = [
-  'allOnRed',
-  'botanicalBerries',
-  'goNuts',
-  'lemons',
-  'overachiever',
-  'rainbow',
-  'tearnado',
-];
 
 export const useWeekSummary = () => {
   const {t} = useI18n();
   const {availableVeggies} = useAvailableVeggies();
+  const {availableWeeklyAchievements} = useAvailableWeeklyAchievements();
   const {
     currentWeekStart,
     veggiesForWeek,
@@ -43,7 +35,7 @@ export const useWeekSummary = () => {
       (category) => !categoryCounts[category],
     );
 
-    const categoryEntries = Object.entries(categoryCounts) as [Category, number][];
+    const categoryEntries = entries(categoryCounts);
     const favoriteCategory =
       categoryEntries.length > 0
         ? categoryEntries.reduce((max, entry) => (entry[1] > max[1] ? entry : max))[0]
@@ -87,10 +79,12 @@ export const useWeekSummary = () => {
     };
   });
 
-  const promotedAchievement = ref<keyof Achievements>(getRandomItem(weeklyAchievements)!);
+  const promotedAchievement = ref<keyof WeeklyAchievements | null>(
+    getRandomItem(availableWeeklyAchievements.value) ?? null,
+  );
 
   watch(currentWeekStart, () => {
-    promotedAchievement.value = getRandomItem(weeklyAchievements)!;
+    promotedAchievement.value = getRandomItem(availableWeeklyAchievements.value) ?? null;
   });
 
   const createNutrientMessages = (data: WeekData): SummaryItem[] => {

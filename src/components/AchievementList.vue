@@ -1,19 +1,12 @@
 <script setup lang="ts">
 import {AchievementLevel, Category, type Achievements} from '@/types';
+import {useAvailableWeeklyAchievements} from '@/hooks/availableWeeklyAchievements';
 
 defineProps<{
   achievements: Achievements;
 }>();
 
-const weeklyAchievements: (keyof Achievements)[] = [
-  'goNuts',
-  'lemons',
-  'tearnado',
-  'allOnRed',
-  'botanicalBerries',
-  'overachiever',
-  'rainbow',
-];
+const {availableWeeklyAchievements} = useAvailableWeeklyAchievements();
 
 const standardAchievements: (keyof Achievements)[] = [
   'completionist',
@@ -48,16 +41,11 @@ const standardAchievements: (keyof Achievements)[] = [
   <ContentElement :title="$t('achievements.thirtyVeggies.title')">
     <ul class="achievement-list__badge-container">
       <AchievementBadge
-        v-for="achievement in weeklyAchievements"
+        v-for="achievement in availableWeeklyAchievements"
         :key="achievement"
-        :active="achievements[achievement] === AchievementLevel.Gold"
-        :level="AchievementLevel.Gold"
+        :active="achievements[achievement] >= AchievementLevel.Gold"
+        :level="Math.max(AchievementLevel.Gold, achievements[achievement])"
         :achievement="achievement"
-      />
-      <AchievementBadge
-        :active="achievements.thirtyVeggies >= AchievementLevel.Gold"
-        :level="achievements.thirtyVeggies || AchievementLevel.Gold"
-        achievement="thirtyVeggies"
       />
     </ul>
   </ContentElement>
