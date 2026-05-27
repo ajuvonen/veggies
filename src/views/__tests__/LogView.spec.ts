@@ -31,11 +31,13 @@ describe('LogView', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
   beforeEach(() => {
+    vi.useFakeTimers();
     activityStore = useActivityStore();
     appStateStore = useAppStateStore();
   });
   enableAutoUnmount(afterEach);
   afterEach(() => {
+    vi.useRealTimers();
     vi.restoreAllMocks();
   });
 
@@ -156,20 +158,16 @@ describe('LogView', () => {
     ];
     const wrapper = mounter();
     await vi.dynamicImportSettled();
-    try {
-      expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
+    expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
 
-      const nextDay = thisWeek.add({days: 1});
-      vi.setSystemTime(nextDay.toZonedDateTime(Temporal.Now.timeZoneId()).epochMilliseconds);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
+    const nextDay = thisWeek.add({days: 1});
+    vi.setSystemTime(nextDay.toZonedDateTime(Temporal.Now.timeZoneId()).epochMilliseconds);
+    await vi.advanceTimersByTimeAsync(2000);
+    expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);
 
-      const nextWeek = thisWeek.add({weeks: 1});
-      vi.setSystemTime(nextWeek.toZonedDateTime(Temporal.Now.timeZoneId()).epochMilliseconds);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      expect(wrapper.findByTestId('front-page-animation').exists()).toBe(true);
-    } finally {
-      vi.useRealTimers();
-    }
-  }, 6000);
+    const nextWeek = thisWeek.add({weeks: 1});
+    vi.setSystemTime(nextWeek.toZonedDateTime(Temporal.Now.timeZoneId()).epochMilliseconds);
+    await vi.advanceTimersByTimeAsync(2000);
+    expect(wrapper.findByTestId('front-page-animation').exists()).toBe(true);
+  });
 });

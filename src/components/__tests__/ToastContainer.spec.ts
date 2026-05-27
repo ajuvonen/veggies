@@ -70,6 +70,7 @@ describe('ToastContainer', () => {
   });
 
   it('hides toast message after timeout', async () => {
+    vi.useFakeTimers();
     mount(ToastContainer);
     const id = crypto.randomUUID();
     appStateStore.messages = [
@@ -78,7 +79,9 @@ describe('ToastContainer', () => {
         text: 'Test message',
       },
     ];
-    await new Promise((resolve) => setTimeout(resolve, 5600));
+    await nextTick();
+    await vi.advanceTimersByTimeAsync(5500);
     expect(appStateStore.removeToastMessage).toBeCalledWith(id);
-  }, 6000);
+    vi.useRealTimers();
+  });
 });
