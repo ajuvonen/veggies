@@ -81,7 +81,10 @@ describe('ToastContainer', () => {
     ];
     await nextTick();
     await vi.advanceTimersByTimeAsync(5500);
-    expect(appStateStore.removeToastMessage).toBeCalledWith(id);
-    vi.useRealTimers();
+    try {
+      expect(appStateStore.removeToastMessage).toBeCalledWith(id);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
