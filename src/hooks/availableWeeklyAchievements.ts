@@ -63,5 +63,9 @@ export const useAvailableWeeklyAchievements = () => {
     WEEKLY_ACHIEVEMENTS.filter((key) => achievementAvailability[key](availableVeggies.value)),
   );
 
-  return {availableWeeklyAchievements};
+  const promotableWeeklyAchievements = computed(() =>
+    availableWeeklyAchievements.value.filter((achievement) => achievement !== 'thirtyVeggies'),
+  );
+
+  return {availableWeeklyAchievements, promotableWeeklyAchievements};
 };

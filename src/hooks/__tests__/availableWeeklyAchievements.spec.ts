@@ -127,6 +127,12 @@ describe('availableWeeklyAchievements', () => {
     expect(availableWeeklyAchievements.value).toContain('rainbow');
   });
 
+  it('excludes thirtyVeggies from promotable achievements', () => {
+    const {promotableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
+    expect(promotableWeeklyAchievements.value.length).toEqual(WEEKLY_ACHIEVEMENTS.length - 1);
+    expect(promotableWeeklyAchievements.value).not.toContain('thirtyVeggies');
+  });
+
   it('is reactive to allergen changes', () => {
     const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
 
