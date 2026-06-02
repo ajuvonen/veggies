@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import {computed, defineAsyncComponent, ref} from 'vue';
+import {useI18n} from 'vue-i18n';
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import {useDateTime} from '@/hooks/dateTime';
@@ -12,6 +13,7 @@ const WeeklyHeatmap = defineAsyncComponent(() => import('@/components/charts/Wee
 const {getWeekStarts} = storeToRefs(useActivityStore());
 
 const {formatWeekNumber} = useDateTime();
+const {t} = useI18n();
 
 const selectedStatistic = ref(0);
 
@@ -19,35 +21,19 @@ const weekStarts = computed(() => getWeekStarts.value.slice().reverse());
 
 const labels = computed(() => weekStarts.value.map(formatWeekNumber));
 
-const statisticOptions = [
-  {value: 0, label: 'stats.weeklyAmounts'},
-  {value: 1, label: 'stats.weeklyCategories'},
-  {value: 2, label: 'stats.weeklyHeatmap'},
-];
+const statisticOptions = computed(() => [
+  {value: 0, label: t('stats.weeklyAmounts')},
+  {value: 1, label: t('stats.weeklyCategories')},
+  {value: 2, label: t('stats.weeklyHeatmap')},
+]);
 </script>
 <template>
-  <RadioGroupRoot v-model="selectedStatistic" asChild>
-    <ContentElement
-      :title="$t('stats.selectStatistic')"
-      :labelAttrs="{id: 'statistic-selector-title'}"
-      labelTag="h2"
-      aria-labelledby="statistic-selector-title"
-    >
-      <RadioGroupItem
-        v-for="option in statisticOptions"
-        :key="option.value"
-        :value="option.value"
-        asChild
-      >
-        <ButtonComponent
-          :icon="selectedStatistic === option.value ? 'radioboxMarked' : 'radioboxBlank'"
-          :data-test-id="`statistic-selector-${option.value}`"
-        >
-          {{ $t(option.label) }}
-        </ButtonComponent>
-      </RadioGroupItem>
-    </ContentElement>
-  </RadioGroupRoot>
+  <RadioGroupComponent
+    v-model="selectedStatistic"
+    :title="$t('stats.selectStatistic')"
+    :options="statisticOptions"
+    prefix="statistics"
+  />
   <WeeklyAmountsChart v-if="selectedStatistic === 0" :labels="labels" :weekStarts="weekStarts" />
   <AsyncLoader>
     <WeeklyCategoriesChart

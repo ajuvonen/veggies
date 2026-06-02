@@ -1,26 +1,22 @@
 <script setup lang="ts">
+import {computed} from 'vue';
 import {storeToRefs} from 'pinia';
+import {useI18n} from 'vue-i18n';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {LOCALES} from '@/utils/constants';
 
 const {settings} = storeToRefs(useAppStateStore());
+const {t} = useI18n();
+
+const options = computed(() =>
+  LOCALES.map((locale) => ({value: locale, label: t(`locales.${locale}`)})),
+);
 </script>
 <template>
-  <RadioGroupRoot v-model="settings.locale" asChild>
-    <ContentElement
-      :title="$t('settings.locale')"
-      :labelAttrs="{id: 'locale-changer-title'}"
-      labelTag="h2"
-      aria-labelledby="locale-changer-title"
-    >
-      <RadioGroupItem v-for="locale in LOCALES" :key="locale" :value="locale" asChild>
-        <ButtonComponent
-          :icon="settings.locale === locale ? 'radioboxMarked' : 'radioboxBlank'"
-          :data-test-id="`locale-button-${locale}`"
-        >
-          {{ $t(`locales.${locale}`) }}
-        </ButtonComponent>
-      </RadioGroupItem>
-    </ContentElement>
-  </RadioGroupRoot>
+  <RadioGroupComponent
+    v-model="settings.locale"
+    :title="$t('settings.locale')"
+    :options="options"
+    prefix="locales"
+  />
 </template>
