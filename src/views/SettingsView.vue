@@ -31,22 +31,14 @@ const removeAllergen = (veggie: string) => {
 <template>
   <div class="flex flex-col gap-4 has-scroll">
     <LocaleChanger />
-    <ContentElement
+    <SliderComponent
+      v-model="settings.suggestionCount"
       :title="$t('settings.suggestionCount')"
-      :labelAttrs="{for: 'suggestions-count-slider'}"
-      labelTag="label"
-    >
-      <input
-        id="suggestions-count-slider"
-        v-model.number="settings.suggestionCount"
-        type="range"
-        min="0"
-        max="20"
-        step="5"
-      />
-      <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
-      <output for="suggestions-count-slider">{{ settings.suggestionCount }}</output>
-    </ContentElement>
+      :min="0"
+      :max="20"
+      :step="5"
+      prefix="suggestions-count"
+    />
     <ContentElement
       :title="$t('settings.showChartAnimations')"
       :labelAttrs="{for: 'show-animations-button'}"
@@ -139,18 +131,3 @@ const removeAllergen = (veggie: string) => {
     </template>
   </ModalDialog>
 </template>
-<style scoped>
-#suggestions-count-slider {
-  @apply appearance-none h-4 rounded-md outline-offset-4;
-  @apply bg-[--color-ui-dark];
-
-  &::-webkit-slider-thumb {
-    @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
-    @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
-  }
-  &::-moz-range-thumb {
-    @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
-    @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
-  }
-}
-</style>
