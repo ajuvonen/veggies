@@ -22,6 +22,7 @@ describe('DropdownList', () => {
         modelValue: options[1],
         options,
         label: 'Select Item',
+        prefix: 'dropdown',
       },
       slots: {
         option:
@@ -66,6 +67,7 @@ describe('DropdownList', () => {
         modelValue: 'Apple',
         options: stringOptions,
         label: 'Select Fruit',
+        prefix: 'dropdown',
       },
     });
 
@@ -107,11 +109,13 @@ describe('DropdownList', () => {
 
     await flushPromises();
     const viewport = wrapper.getComponent(SelectViewport);
-    await wrapper.findByTestId('dropdown-button').trigger('pointerdown');
+    const button = wrapper.find('[data-test-id$="-button"]');
+    const prefix = button.attributes('data-test-id')!.replace(/-button$/, '');
+    await button.trigger('pointerdown');
 
-    expect(viewport.findByTestId('dropdown-option-0').isVisible()).toBe(true);
-    expect(viewport.findByTestId('dropdown-option-1').isVisible()).toBe(true);
-    expect(viewport.findByTestId('dropdown-option-2').isVisible()).toBe(true);
+    expect(viewport.findByTestId(`${prefix}-option-0`).isVisible()).toBe(true);
+    expect(viewport.findByTestId(`${prefix}-option-1`).isVisible()).toBe(true);
+    expect(viewport.findByTestId(`${prefix}-option-2`).isVisible()).toBe(true);
   });
 
   it('renders custom selected slot content', async () => {
@@ -120,6 +124,7 @@ describe('DropdownList', () => {
         modelValue: objectOptions[0],
         options: objectOptions,
         label: 'Select Item',
+        prefix: 'dropdown',
       },
       slots: {
         option:
@@ -137,6 +142,7 @@ describe('DropdownList', () => {
         modelValue: objectOptions[0],
         options: objectOptions,
         label: 'Select Item',
+        prefix: 'dropdown',
       },
       slots: {
         option:
@@ -159,6 +165,7 @@ describe('DropdownList', () => {
         modelValue: '',
         options: [],
         label: 'Empty Dropdown',
+        prefix: 'dropdown',
       },
     });
 
@@ -175,6 +182,7 @@ describe('DropdownList', () => {
         modelValue: 'Only',
         options: ['Only'],
         label: 'Single Option',
+        prefix: 'dropdown',
       },
     });
 
@@ -195,6 +203,7 @@ describe('DropdownList', () => {
         modelValue: null,
         options: ['Only'],
         label: 'Single Option',
+        prefix: 'dropdown',
       },
     });
 

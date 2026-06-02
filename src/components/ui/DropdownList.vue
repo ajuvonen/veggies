@@ -9,7 +9,7 @@ withDefaults(
   }>(),
   {
     keyFn: (item: T) => JSON.stringify(item),
-    prefix: 'dropdown',
+    prefix: () => crypto.randomUUID(),
   },
 );
 
