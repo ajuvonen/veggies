@@ -68,10 +68,10 @@ const getVariants = computed(() => {
 }
 
 .button--danger {
-  @apply bg-red-500 dark:bg-red-700 hover:bg-red-600 active:bg-red-800;
+  @apply bg-[--color-danger] hover:bg-[--color-danger-hover] active:bg-[--color-danger-active];
 }
 
 .button--remove {
-  @apply bg-green-500 dark:bg-green-700 hover:bg-red-600 active:bg-red-800;
+  @apply bg-[--color-success] hover:bg-[--color-danger-hover] active:bg-[--color-danger-active];
 }
 </style>

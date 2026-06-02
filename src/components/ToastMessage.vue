@@ -83,7 +83,7 @@ const emoji = getRandomEmojis()[0];
     0 2px 4px -2px rgb(0 0 0 / 0.1);
 
   &--remove {
-    @apply bg-red-500;
+    @apply bg-[--color-danger];
   }
 
   &--removing {
