@@ -107,7 +107,7 @@ onClickOutside(
     multiple
     ignoreFilter
   >
-    <ComboboxAnchor ref="anchorElement" class="relative">
+    <ComboboxAnchor ref="anchorElement" class="relative fill-[--color-text-alternative]">
       <ComboboxInput
         v-model="query"
         ref="searchInput"
@@ -128,7 +128,7 @@ onClickOutside(
       />
       <ButtonComponent
         v-if="query"
-        :variant="['text', 'alternative']"
+        variant="text"
         class="veggie-search__button right-12 outline-override"
         icon="close"
         data-test-id="veggie-search-clear-button"
@@ -138,8 +138,8 @@ onClickOutside(
       <ComboboxTrigger asChild>
         <ButtonComponent
           :class="{'rotate-180': listOpen}"
-          :variant="['text', 'alternative']"
-          class="veggie-search__button right-2 outline-override transition duration-200"
+          variant="text"
+          class="veggie-search__button right-4 outline-override transition duration-200"
           icon="chevronDown"
           data-test-id="veggie-search-toggle-button"
           @click="listOpen = !listOpen"
@@ -181,7 +181,7 @@ onClickOutside(
 }
 
 .veggie-search__button {
-  @apply absolute top-1/2 -translate-y-1/2 p-2 -outline-offset-4;
+  @apply absolute top-1/2 -translate-y-1/2;
 }
 
 .veggie-search__no-results {
