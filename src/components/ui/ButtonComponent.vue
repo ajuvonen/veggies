@@ -2,14 +2,7 @@
 import {computed} from 'vue';
 import type {IconString} from '@/components/ui/IconComponent.vue';
 
-export type ButtonVariant =
-  | 'primary'
-  | 'secondary'
-  | 'danger'
-  | 'tag'
-  | 'remove'
-  | 'text'
-  | 'alternative';
+export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'tag' | 'remove' | 'text';
 
 defineEmits(['click']);
 const props = withDefaults(
@@ -44,11 +37,6 @@ const getVariants = computed(() => {
 .button {
   @apply text-[--color-text] fill-[--color-text];
 }
-
-.button--alternative {
-  @apply text-[--color-text-alternative] fill-[--color-text-alternative];
-}
-
 .button--primary,
 .button--tag {
   @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
@@ -58,8 +46,8 @@ const getVariants = computed(() => {
   @apply bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] active:text-[--color-text] active:fill-[--color-text] hover:text-[--color-text] hover:fill-[--color-text];
 }
 
-.button--text {
-  @apply bg-transparent;
+.button.button--text {
+  @apply bg-transparent text-inherit fill-inherit;
   @apply p-0 hover:underline;
 }
 
