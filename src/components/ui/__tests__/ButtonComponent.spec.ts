@@ -8,7 +8,7 @@ describe('ButtonComponent', () => {
       slots: {default: 'test button'},
     });
 
-    expect(wrapper.find('.button-like').text()).toBe('test button');
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('shows icon', () => {

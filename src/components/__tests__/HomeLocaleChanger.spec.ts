@@ -12,7 +12,7 @@ describe('HomeLocaleChanger', () => {
 
   it('renders', () => {
     const wrapper = mount(HomeLocaleChanger);
-    expect(wrapper).toBeTruthy();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('shows available languages', () => {

@@ -14,8 +14,7 @@ describe('TagsComponent', () => {
       },
     });
 
-    expect(wrapper.findByText('.button-like', 'tomato').exists()).toBe(true);
-    expect(wrapper.findByText('.button-like', 'pineapple').exists()).toBe(true);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('works with variant string', () => {
