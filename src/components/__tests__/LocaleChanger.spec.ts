@@ -12,7 +12,7 @@ describe('LocaleChanger', () => {
 
   it('renders', () => {
     const wrapper = mount(LocaleChanger);
-    expect(wrapper).toBeTruthy();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('shows available languages', () => {
