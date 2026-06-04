@@ -2,10 +2,10 @@
 
 exports[`SettingsView > renders 1`] = `
 "<div class="flex flex-col gap-4 has-scroll">
-  <div class="flex-col flex-container" tabindex="-1" dir="ltr" style="outline: none;" role="radiogroup" aria-required="false" aria-labelledby="locales-label"><label class="label-like" id="locales-label">Language</label><button data-v-ee781121="" class="button-like button button--primary" type="button" data-reka-collection-item="" tabindex="-1" data-active="" role="radio" aria-checked="true" data-state="checked" required="false" data-test-id="locales-en" value="en"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+  <div class="flex-col flex-container" tabindex="-1" dir="ltr" style="outline: none;" role="radiogroup" aria-required="false" aria-labelledby="locales-label"><label class="label-like" id="locales-label">Language</label><button class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" data-reka-collection-item="" tabindex="-1" data-active="" role="radio" aria-checked="true" data-state="checked" required="false" data-test-id="locales-en" value="en"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7Z" class="transition-all"></path>
       </svg>English</button>
-    <!--v-if--><button data-v-ee781121="" class="button-like button button--primary" type="button" data-reka-collection-item="" tabindex="-1" role="radio" aria-checked="false" data-state="unchecked" required="false" data-test-id="locales-fi" value="fi"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    <!--v-if--><button class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" data-reka-collection-item="" tabindex="-1" role="radio" aria-checked="false" data-state="unchecked" required="false" data-test-id="locales-fi" value="fi"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" class="transition-all"></path>
       </svg>Suomi</button>
     <!--v-if-->
@@ -22,7 +22,7 @@ exports[`SettingsView > renders 1`] = `
   <div class="flex-col flex-container"><label class="label-like" for="veggie-search-input">Allergens</label>
     <div dir="ltr">
       <div data-v-487fdf11="" class="relative fill-[--color-text-alternative]"><input data-v-487fdf11="" aria-disabled="false" type="text" aria-expanded="false" aria-controls="" aria-autocomplete="list" role="combobox" autocomplete="off" id="veggie-search-input" aria-label="Select allergens" placeholder="Select allergens" class="veggie-search__input" inputmode="search" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="">
-        <!--v-if--><button data-v-ee781121="" data-v-487fdf11="" class="button-like button button--text veggie-search__button right-4 outline-override transition duration-200" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" data-test-id="veggie-search-toggle-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        <!--v-if--><button data-v-487fdf11="" class="button-like bg-transparent text-inherit fill-inherit p-0 hover:underline veggie-search__button right-4 outline-override transition duration-200" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" data-test-id="veggie-search-toggle-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg></button>
       </div>
@@ -35,7 +35,7 @@ exports[`SettingsView > renders 1`] = `
   <div data-v-bcc04aab="" class="flex-col flex-container">
     <h2 class="label-like">Common Questions</h2>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
-      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-2" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-appPurpose">
+      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-2" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-appPurpose">
           <!--v-if-->What's this app for? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg>
@@ -45,7 +45,7 @@ exports[`SettingsView > renders 1`] = `
       </div>
     </div>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
-      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-4" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-howToInstall">
+      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-4" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-howToInstall">
           <!--v-if-->How to install? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg>
@@ -55,7 +55,7 @@ exports[`SettingsView > renders 1`] = `
       </div>
     </div>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
-      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-6" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-studyDetails">
+      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-6" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-studyDetails">
           <!--v-if-->What's the science? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg>
@@ -65,7 +65,7 @@ exports[`SettingsView > renders 1`] = `
       </div>
     </div>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
-      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-8" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-whatCounts">
+      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-8" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-whatCounts">
           <!--v-if-->What counts as a portion? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg>
@@ -75,7 +75,7 @@ exports[`SettingsView > renders 1`] = `
       </div>
     </div>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
-      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-10" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-categories">
+      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-10" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-categories">
           <!--v-if-->But strawberry is a... <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg>
@@ -85,7 +85,7 @@ exports[`SettingsView > renders 1`] = `
       </div>
     </div>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
-      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-12" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-isItFree">
+      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-12" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-isItFree">
           <!--v-if-->Is the app monetized? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg>
@@ -95,7 +95,7 @@ exports[`SettingsView > renders 1`] = `
       </div>
     </div>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
-      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-14" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-isMyDataSafe">
+      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-14" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-isMyDataSafe">
           <!--v-if-->Is my data safe? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg>
@@ -105,7 +105,7 @@ exports[`SettingsView > renders 1`] = `
       </div>
     </div>
     <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
-      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-ee781121="" data-v-bcc04aab="" class="button-like button button--primary w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-16" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-contact">
+      <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-16" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-contact">
           <!--v-if-->How to get in touch? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
           </svg>
@@ -118,13 +118,13 @@ exports[`SettingsView > renders 1`] = `
   <div class="flex-col flex-container">
     <h2 class="label-like">Export or import app data</h2>
     <p id="export-description">Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.</p>
-    <div class="flex-container justify-end"><button data-v-ee781121="" class="button-like button button--secondary" type="button" aria-describedby="export-description" data-test-id="export-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    <div class="flex-container justify-end"><button class="button-like bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:text-[--color-text] hover:fill-[--color-text] active:text-[--color-text] active:fill-[--color-text] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active]" type="button" aria-describedby="export-description" data-test-id="export-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C12.5,11 13,10.97 13.5,10.92V9.5H16.39L15.39,8.5L18.9,5C17.5,3.8 14.94,3 12,3M18.92,7.08L17.5,8.5L20,11H15V13H20L17.5,15.5L18.92,16.92L23.84,12M4,9V12C4,14.21 7.58,16 12,16C13.17,16 14.26,15.85 15.25,15.63L16.38,14.5H13.5V12.92C13,12.97 12.5,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C14.94,21 17.5,20.2 18.9,19L17,17.1C15.61,17.66 13.9,18 12,18C7.58,18 4,16.21 4,14Z" class="transition-all"></path>
-        </svg>Export</button><button data-v-ee781121="" class="button-like button button--secondary" type="button" aria-describedby="export-description" data-test-id="import-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+        </svg>Export</button><button class="button-like bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:text-[--color-text] hover:fill-[--color-text] active:text-[--color-text] active:fill-[--color-text] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active]" type="button" aria-describedby="export-description" data-test-id="import-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12,3C8.59,3 5.69,4.07 4.54,5.57L9.79,10.82C10.5,10.93 11.22,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M3.92,7.08L2.5,8.5L5,11H0V13H5L2.5,15.5L3.92,16.92L8.84,12M20,9C20,11.21 16.42,13 12,13C11.34,13 10.7,12.95 10.09,12.87L7.62,15.34C8.88,15.75 10.38,16 12,16C16.42,16 20,14.21 20,12M20,14C20,16.21 16.42,18 12,18C9.72,18 7.67,17.5 6.21,16.75L4.53,18.43C5.68,19.93 8.59,21 12,21C16.42,21 20,19.21 20,17" class="transition-all"></path>
         </svg>Import</button></div>
   </div>
-  <div class="flex-col flex-container"><label class="label-like" for="reset-button">Remove all data from the app</label><button data-v-ee781121="" class="button-like button button--danger self-end" type="button" id="reset-button" data-test-id="reset-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+  <div class="flex-col flex-container"><label class="label-like" for="reset-button">Remove all data from the app</label><button class="button-like bg-[--color-danger] text-[--color-text] fill-[--color-text] hover:bg-[--color-danger-hover] active:bg-[--color-danger-active] self-end" type="button" id="reset-button" data-test-id="reset-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" class="transition-all"></path>
       </svg>Reset</button></div>
   <build-time-stub></build-time-stub>

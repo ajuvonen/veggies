@@ -3,7 +3,7 @@
 exports[`LogView > renders 1`] = `
 "<div dir="ltr">
   <div data-v-487fdf11="" class="relative fill-[--color-text-alternative]"><input data-v-487fdf11="" aria-disabled="false" type="text" aria-expanded="false" aria-controls="" aria-autocomplete="list" role="combobox" autocomplete="off" id="veggie-search-input" aria-label="Add Weekly Veggies" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="">
-    <!--v-if--><button data-v-ee781121="" data-v-487fdf11="" class="button-like button button--text veggie-search__button right-4 outline-override transition duration-200" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" data-test-id="veggie-search-toggle-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    <!--v-if--><button data-v-487fdf11="" class="button-like bg-transparent text-inherit fill-inherit p-0 hover:underline veggie-search__button right-4 outline-override transition duration-200" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" data-test-id="veggie-search-toggle-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg></button>
   </div>
@@ -24,7 +24,7 @@ exports[`LogView > renders 1`] = `
 exports[`LogView > renders with data 1`] = `
 "<div dir="ltr">
   <div data-v-487fdf11="" class="relative fill-[--color-text-alternative]"><input data-v-487fdf11="" aria-disabled="false" type="text" aria-expanded="false" aria-controls="" aria-autocomplete="list" role="combobox" autocomplete="off" id="veggie-search-input" aria-label="Add Weekly Veggies" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocorrect="off" autocapitalize="none" maxlength="20" data-test-id="veggie-search-input" value="">
-    <!--v-if--><button data-v-ee781121="" data-v-487fdf11="" class="button-like button button--text veggie-search__button right-4 outline-override transition duration-200" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" data-test-id="veggie-search-toggle-button"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+    <!--v-if--><button data-v-487fdf11="" class="button-like bg-transparent text-inherit fill-inherit p-0 hover:underline veggie-search__button right-4 outline-override transition duration-200" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" data-test-id="veggie-search-toggle-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
       </svg></button>
   </div>
@@ -53,10 +53,10 @@ exports[`LogView > renders with data 1`] = `
 </div>
 <!--v-if-->
 <transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" aria-label="Suggestions" tabindex="-1" class="tags__container">
-  <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-ee781121="" data-v-cd627eac="" class="button-like button button--tag button--primary" type="button" id="tag-button-rice" aria-label="Add rice"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+  <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-cd627eac="" class="button-like bg-[--color-primary] rounded-full text-xs hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" id="tag-button-rice" aria-label="Add rice"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
       </svg>rice</button></li>
-  <li data-v-cd627eac="" data-test-id="tag-rye" class="z-10"><button data-v-ee781121="" data-v-cd627eac="" class="button-like button button--tag button--primary" type="button" id="tag-button-rye" aria-label="Add rye"><svg data-v-ee781121="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+  <li data-v-cd627eac="" data-test-id="tag-rye" class="z-10"><button data-v-cd627eac="" class="button-like bg-[--color-primary] rounded-full text-xs hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" id="tag-button-rye" aria-label="Add rye"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
       </svg>rye</button></li>
 </transition-group-stub>

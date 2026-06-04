@@ -14,7 +14,7 @@ const resolve = (value: boolean) => {
     </template>
     <template #buttons>
       <ButtonComponent
-        variant="secondary"
+        color="secondary"
         data-test-id="ai-permission-deny-button"
         @click="resolve(false)"
       >

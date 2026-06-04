@@ -69,10 +69,10 @@ provide(KEYS.challenge, readonly(selectedChallenge));
   </ul>
   <TagsComponent
     :veggies="veggies"
-    :variant="['tag', 'remove']"
     :toggleFn="(veggie) => toggleVeggieForWeek(veggie, selectedWeekStart)"
     :ariaLabel="$t('stats.veggiesForWeek')"
     ariaTagKey="general.clickToRemove"
+    color="selected"
     icon="minus"
   />
 </template>

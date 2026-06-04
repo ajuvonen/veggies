@@ -83,7 +83,7 @@ onChange(async (files) => {
     <div class="flex-container justify-end">
       <ButtonComponent
         icon="databaseExport"
-        variant="secondary"
+        color="secondary"
         aria-describedby="export-description"
         data-test-id="export-button"
         @click="exportData"
@@ -91,7 +91,7 @@ onChange(async (files) => {
       >
       <ButtonComponent
         icon="databaseImport"
-        variant="secondary"
+        color="secondary"
         aria-describedby="export-description"
         data-test-id="import-button"
         @click="open"

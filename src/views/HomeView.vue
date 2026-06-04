@@ -38,7 +38,7 @@ onMounted(() => {
         $t('general.start')
       }}</ButtonComponent>
       <ButtonComponent
-        variant="secondary"
+        color="secondary"
         data-test-id="home-info-button"
         @click="dialogOpen = true"
         >{{ $t('home.info') }}</ButtonComponent

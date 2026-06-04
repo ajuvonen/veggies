@@ -16,8 +16,8 @@
   --color-danger: #ef4444;
   --color-danger-hover: #dc2626;
   --color-danger-active: #991b1b;
-  --color-success: #22c55e;
-  --color-success-hover: #16a34a;
+  --color-selected: #22c55e;
+  --color-selected-hover: #16a34a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,8 +35,8 @@
     --color-danger: #b91c1c;
     --color-danger-hover: #dc2626;
     --color-danger-active: #991b1b;
-    --color-success: #15803d;
-    --color-success-hover: #16a34a;
+    --color-selected: #15803d;
+    --color-selected-hover: #16a34a;
   }
 }
 

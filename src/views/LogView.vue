@@ -87,7 +87,6 @@ provide(KEYS.challenge, readonly(currentChallenge));
   <FrontPageAnimation v-if="!currentVeggies.length" />
   <TagsComponent
     :veggies="suggestions"
-    :variant="['tag', 'primary']"
     :toggleFn="toggleVeggie"
     :ariaLabel="$t('veggieSearch.suggestions')"
     ariaTagKey="general.clickToAdd"

@@ -2,21 +2,16 @@
 import {computed, nextTick, useTemplateRef} from 'vue';
 import {useI18nWithCollator} from '@/hooks/i18n';
 import type {IconString} from '@/components/ui/IconComponent.vue';
-import type {ButtonVariant} from '@/components/ui/ButtonComponent.vue';
+import type {ButtonVariants} from '@/components/ui/ButtonComponent.vue';
 
-const props = withDefaults(
-  defineProps<{
-    veggies: string[];
-    icon: IconString;
-    variant?: ButtonVariant | ButtonVariant[];
-    ariaLabel: string;
-    ariaTagKey: string;
-    toggleFn: (veggie: string) => void;
-  }>(),
-  {
-    variant: () => ['primary'],
-  },
-);
+const props = defineProps<{
+  ariaLabel: string;
+  ariaTagKey: string;
+  icon: IconString;
+  toggleFn: (veggie: string) => void;
+  veggies: string[];
+  color?: ButtonVariants['color'];
+}>();
 
 const {t, collator} = useI18nWithCollator();
 
@@ -57,8 +52,9 @@ const toggle = async (veggie: string, index: number) => {
     >
       <ButtonComponent
         :id="`tag-button-${veggie}`"
-        :variant="variant"
+        :color="color"
         :icon="icon"
+        :tag="true"
         :aria-label="$t(ariaTagKey, [translation])"
         @click="toggle(veggie, index)"
       >

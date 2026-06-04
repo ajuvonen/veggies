@@ -20,7 +20,7 @@ const availableLocales = computed(() =>
       :key="availableLocale"
       :data-test-id="`home-locale-button-${availableLocale}`"
       :aria-label="$t('home.changeLocale', [$t(`locales.${availableLocale}`)])"
-      variant="text"
+      color="transparent"
       @click="settings.locale = availableLocale"
       >{{ availableLocale }}</ButtonComponent
     >

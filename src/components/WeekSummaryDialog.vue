@@ -133,7 +133,7 @@ const handleAISummaryToggle = (value: boolean) => {
             ? $t('general.ariaShare', [$t('weekSummaryDialog.ariaLabel')])
             : $t('general.ariaCopy', [$t('weekSummaryDialog.ariaLabel')])
         "
-        variant="secondary"
+        color="secondary"
         :data-test-id="
           shareSupported ? 'week-summary-dialog-share-button' : 'week-summary-dialog-copy-button'
         "

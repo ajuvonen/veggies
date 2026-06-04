@@ -82,10 +82,10 @@ const removeAllergen = (veggie: string) => {
       <VeggieSearch v-model="settings.allergens" :placeholder="$t('settings.selectAllergens')" />
       <TagsComponent
         :veggies="settings.allergens"
-        :variant="['tag', 'remove']"
         :toggleFn="(veggie) => removeAllergen(veggie)"
         :class="{hidden: !settings.allergens.length}"
         :ariaLabel="$t('settings.selectedAllergens')"
+        color="selected"
         ariaTagKey="general.clickToRemove"
         icon="minus"
       />
@@ -100,7 +100,7 @@ const removeAllergen = (veggie: string) => {
     >
       <ButtonComponent
         id="reset-button"
-        variant="danger"
+        color="danger"
         icon="trashCan"
         data-test-id="reset-button"
         class="self-end"
@@ -116,14 +116,14 @@ const removeAllergen = (veggie: string) => {
     </template>
     <template #buttons>
       <ButtonComponent
-        variant="secondary"
+        color="secondary"
         data-test-id="cancel-button"
         @click="resetDialogOpen = false"
         >{{ $t('general.cancel') }}</ButtonComponent
       >
       <ButtonComponent
         data-test-id="confirm-button"
-        variant="danger"
+        color="danger"
         icon="trashCan"
         @click="reset()"
         >{{ $t('settings.reset.button') }}</ButtonComponent
