@@ -2,7 +2,7 @@ import {describe, it, expect, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import TagsComponent from '@/components/TagsComponent.vue';
 
-describe('ButtonComponent', () => {
+describe('TagsComponent', () => {
   it('renders', () => {
     const wrapper = mount(TagsComponent, {
       props: {
@@ -22,7 +22,7 @@ describe('ButtonComponent', () => {
     const wrapper = mount(TagsComponent, {
       props: {
         veggies: ['tomato', 'pineapple'],
-        variant: 'danger',
+        color: 'danger',
         icon: 'minus',
         ariaTagKey: 'general.clickToRemove',
         ariaLabel: 'Suggestions',
@@ -30,26 +30,10 @@ describe('ButtonComponent', () => {
       },
     });
 
-    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('button--danger');
-    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes('button--danger');
-  });
-
-  it('works with variant array', () => {
-    const wrapper = mount(TagsComponent, {
-      props: {
-        veggies: ['tomato', 'pineapple'],
-        variant: ['tag', 'primary'],
-        icon: 'plus',
-        ariaTagKey: 'general.clickToAdd',
-        ariaLabel: 'Suggestions',
-        toggleFn: () => {},
-      },
-    });
-
-    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('button--tag');
-    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('button--primary');
-    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes('button--tag');
-    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes('button--primary');
+    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('bg-[--color-danger]');
+    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes(
+      'bg-[--color-danger]',
+    );
   });
 
   it('emits click', async () => {
@@ -57,7 +41,6 @@ describe('ButtonComponent', () => {
     const wrapper = mount(TagsComponent, {
       props: {
         veggies: ['tomato', 'pineapple'],
-        variant: ['tag', 'primary'],
         icon: 'minus',
         ariaTagKey: 'general.clickToRemove',
         ariaLabel: 'Suggestions',

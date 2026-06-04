@@ -28,7 +28,7 @@ const checkIfModalClick = (event: Event) => {
           <DialogClose v-if="!$slots.buttons" asChild>
             <ButtonComponent
               :aria-label="$t('general.close')"
-              variant="text"
+              color="transparent"
               icon="close"
               data-test-id="dialog-close-button"
             />

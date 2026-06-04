@@ -21,7 +21,7 @@ const {shareSupported, shareOrCopy} = useShare();
       :aria-label="$t('general.ariaShare', [$t(`allTimeStatus.${statKey}.ariaLabel`)])"
       :data-test-id="`all-time-status-item-share-button-${statKey}`"
       icon="shareVariant"
-      variant="text"
+      color="transparent"
       class="absolute left-[calc(50%+3rem)]"
       @click="shareOrCopy(`allTimeStatus.${statKey}.shareText`, [statAmount])"
     />
@@ -31,7 +31,7 @@ const {shareSupported, shareOrCopy} = useShare();
       :aria-label="$t('general.ariaCopy', [$t(`allTimeStatus.${statKey}.ariaLabel`)])"
       :data-test-id="`all-time-status-item-copy-button-${statKey}`"
       icon="contentCopy"
-      variant="text"
+      color="transparent"
       class="absolute left-[calc(50%+3rem)]"
       @click="shareOrCopy(`allTimeStatus.${statKey}.shareText`, [statAmount])"
     />

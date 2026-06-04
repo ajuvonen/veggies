@@ -128,7 +128,7 @@ onClickOutside(
       />
       <ButtonComponent
         v-if="query"
-        variant="text"
+        color="transparent"
         class="veggie-search__button right-12 outline-override"
         icon="close"
         data-test-id="veggie-search-clear-button"
@@ -138,7 +138,7 @@ onClickOutside(
       <ComboboxTrigger asChild>
         <ButtonComponent
           :class="{'rotate-180': listOpen}"
-          variant="text"
+          color="transparent"
           class="veggie-search__button right-4 outline-override transition duration-200"
           icon="chevronDown"
           data-test-id="veggie-search-toggle-button"

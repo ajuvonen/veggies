@@ -21,7 +21,7 @@ defineProps<{
           :aria-label="$t('veggieSearch.previousCategory')"
           :data-test-id="`veggie-search-previous-${category}`"
           icon="chevronDoubleUp"
-          variant="text"
+          color="transparent"
           class="hover:fill-[--color-link-hover]"
           @click="$emit('previous')"
         />
@@ -29,7 +29,7 @@ defineProps<{
           :aria-label="$t('veggieSearch.nextCategory')"
           :data-test-id="`veggie-search-next-${category}`"
           icon="chevronDoubleDown"
-          variant="text"
+          color="transparent"
           class="hover:fill-[--color-link-hover]"
           @click="$emit('next')"
         />

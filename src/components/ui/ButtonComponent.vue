@@ -1,65 +1,52 @@
 <script setup lang="ts">
-import {computed} from 'vue';
+import {tv, type VariantProps} from 'tailwind-variants/lite';
 import type {IconString} from '@/components/ui/IconComponent.vue';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'tag' | 'remove' | 'text';
-
-defineEmits(['click']);
-const props = withDefaults(
-  defineProps<{
-    variant?: ButtonVariant | ButtonVariant[];
-    icon?: IconString;
-  }>(),
-  {
-    variant: 'primary',
+const button = tv({
+  base: 'button-like',
+  variants: {
+    color: {
+      primary: 'bg-[--color-primary]',
+      secondary:
+        'bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:text-[--color-text] hover:fill-[--color-text] active:text-[--color-text] active:fill-[--color-text]',
+      danger: 'bg-[--color-danger]',
+      selected: 'bg-[--color-selected]',
+      transparent: 'bg-transparent text-inherit fill-inherit p-0 hover:underline',
+    },
+    tag: {
+      true: 'rounded-full text-xs',
+    },
   },
-);
-
-const getVariants = computed(() => {
-  if (Array.isArray(props.variant)) {
-    return props.variant.map((variant) => `button--${variant}`).join(' ');
-  }
-
-  return `button--${props.variant}`;
+  compoundVariants: [
+    {
+      color: ['primary', 'secondary'],
+      class: 'hover:bg-[--color-primary-hover] active:bg-[--color-primary-active]',
+    },
+    {
+      color: ['primary', 'danger', 'selected'],
+      class: 'text-[--color-text] fill-[--color-text]',
+    },
+    {
+      color: ['danger', 'selected'],
+      class: 'hover:bg-[--color-danger-hover] active:bg-[--color-danger-active]',
+    },
+  ],
+  defaultVariants: {
+    color: 'primary',
+    tag: false,
+  },
 });
+
+export type ButtonVariants = VariantProps<typeof button>;
+const props = defineProps<{
+  color?: ButtonVariants['color'];
+  tag?: ButtonVariants['tag'];
+  icon?: IconString;
+}>();
 </script>
 <template>
-  <button
-    :class="`button-like button ${getVariants}`"
-    type="button"
-    @click="$emit('click', $event)"
-  >
+  <button :class="button(props)" type="button">
     <IconComponent v-if="icon" :icon="icon" />
-    <slot></slot>
+    <slot />
   </button>
 </template>
-<style scoped>
-.button {
-  @apply text-[--color-text] fill-[--color-text];
-}
-.button--primary,
-.button--tag {
-  @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
-}
-
-.button--secondary {
-  @apply bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] active:text-[--color-text] active:fill-[--color-text] hover:text-[--color-text] hover:fill-[--color-text];
-}
-
-.button.button--text {
-  @apply bg-transparent text-inherit fill-inherit;
-  @apply p-0 hover:underline;
-}
-
-.button--tag {
-  @apply rounded-full text-xs;
-}
-
-.button--danger {
-  @apply bg-[--color-danger] hover:bg-[--color-danger-hover] active:bg-[--color-danger-active];
-}
-
-.button--remove {
-  @apply bg-[--color-success] hover:bg-[--color-danger-hover] active:bg-[--color-danger-active];
-}
-</style>

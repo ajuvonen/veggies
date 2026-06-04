@@ -21,23 +21,24 @@ describe('ButtonComponent', () => {
     expect(wrapper.find('svg').exists()).toBe(true);
   });
 
-  it('works with variant string', () => {
+  it('works with color string', () => {
     const wrapper = mount(ButtonComponent, {
       slots: {default: 'test button'},
-      props: {variant: 'danger'},
+      props: {color: 'danger'},
     });
 
-    expect(wrapper.find('.button-like').classes()).includes('button--danger');
+    expect(wrapper.find('.button-like').classes()).includes('bg-[--color-danger]');
   });
 
-  it('works with variant array', () => {
+  it('creates tags', () => {
     const wrapper = mount(ButtonComponent, {
       slots: {default: 'test button'},
-      props: {variant: ['danger', 'tag']},
+      props: {color: 'selected', tag: true},
     });
 
-    expect(wrapper.find('.button-like').classes()).includes('button--danger');
-    expect(wrapper.find('.button-like').classes()).includes('button--tag');
+    expect(wrapper.find('.button-like').classes()).includes('bg-[--color-selected]');
+    expect(wrapper.find('.button-like').classes()).includes('rounded-full');
+    expect(wrapper.find('.button-like').classes()).includes('text-xs');
   });
 
   it('emits click', async () => {
