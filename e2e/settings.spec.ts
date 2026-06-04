@@ -7,7 +7,7 @@ test('locale settings work', async ({page}) => {
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('navbar-settings-link').click();
   await expect(page).toHaveURL('settings');
-  await page.getByTestId('locale-button-fi').click();
+  await page.getByTestId('locales-fi').click();
   await expect(page.getByText('Tyhjennä')).toBeVisible();
   await page.getByTestId('navbar-log-link').click();
   await expect(page.getByTestId('veggie-search-input')).toHaveAttribute(
@@ -42,7 +42,7 @@ test('reset works', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('navbar-settings-link').click();
-  await page.getByTestId('locale-button-fi').click();
+  await page.getByTestId('locales-fi').click();
   await page.getByTestId('reset-button').click();
   await page.getByTestId('confirm-button').click();
   await expect(page).toHaveURL('');

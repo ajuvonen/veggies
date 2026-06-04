@@ -31,10 +31,10 @@ test('shows weekly statistics', async ({page}) => {
   await page.getByTestId('stats-tab-1').click();
   await expect(page.getByTestId('weekly-amounts-chart')).toBeVisible();
   await expect(page.getByTestId('weekly-amounts-table')).toBeAttached();
-  await page.getByTestId('statistic-selector-1').click();
+  await page.getByTestId('statistics-1').click();
   await expect(page.getByTestId('weekly-categories-chart')).toBeVisible();
   await expect(page.getByTestId('weekly-categories-table')).toBeAttached();
-  await page.getByTestId('statistic-selector-2').click();
+  await page.getByTestId('statistics-2').click();
   await expect(page.getByTestId('weekly-heatmap')).toBeVisible();
   await expect(page.getByTestId('weekly-heatmap-table')).toBeAttached();
 });
