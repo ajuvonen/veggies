@@ -53,6 +53,6 @@ jobs:
           key: ${{ runner.os }}-playwright-browsers-${{ hashFiles('package-lock.json') }}
 
       - name: Install Playwright Browsers
-        run: playwright install --with-deps
+        run: npx --no-install playwright install --with-deps
       - name: Run Playwright tests
         run: npm run test:e2e
