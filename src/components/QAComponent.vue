@@ -10,7 +10,7 @@ const questionKeysAndLinks = {
   isItFree: '',
   isMyDataSafe: '',
   contact: BLUESKY_URL,
-} as const;
+} as const satisfies Record<string, string>;
 </script>
 <template>
   <AccordionRoot asChild :collapsible="true" type="multiple">

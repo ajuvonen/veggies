@@ -2,7 +2,7 @@ import 'chartjs-chart-matrix';
 
 declare module 'chartjs-chart-matrix' {
   interface MatrixDataPoint {
-    weekString: string;
-    category: string;
+    readonly weekString: string;
+    readonly category: string;
   }
 }

@@ -15,25 +15,25 @@ export const BUILD_TIME = __VITE_BUILD_TIME__;
 export const MINIMUM_MIGRATION_VERSION = 1;
 export const CURRENT_MIGRATION_VERSION = 4;
 
-export const DEFAULT_LOCALE: Locale = 'en';
+export const DEFAULT_LOCALE = 'en' satisfies Locale;
 
 export const DEFAULT_SETTINGS = {
-  AIAllowed: null as boolean | null,
+  AIAllowed: null,
   allergens: [] as string[],
   locale: DEFAULT_LOCALE,
   migrationVersion: CURRENT_MIGRATION_VERSION,
   showChartAnimations: true,
   showVeggieFacts: true,
-  startDate: null as Temporal.PlainDate | null,
+  startDate: null,
   suggestionCount: 10,
-  summaryViewedDate: null as Temporal.PlainDate | null,
+  summaryViewedDate: null,
 } as const satisfies Settings;
 
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
 } as const;
 
-export const LOCALES: readonly Locale[] = ['en', 'fi'] as const;
+export const LOCALES = ['en', 'fi'] as const satisfies readonly Locale[];
 
 export const COLORS = {
   chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49', '#0B1623'],

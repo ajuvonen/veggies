@@ -17,7 +17,7 @@ const translatedVeggies = useMemoize(() =>
   availableVeggies.value
     .map<TranslatedListing>((veggie) => ({
       veggie,
-      category: getCategoryForVeggie(veggie) as Category,
+      category: getCategoryForVeggie(veggie)!,
       translation: t(`veggies.${veggie}`),
       synonyms: [],
     }))

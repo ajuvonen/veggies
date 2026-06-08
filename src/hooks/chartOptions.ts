@@ -109,7 +109,7 @@ export function useChartOptions<T extends ChartType>(
         },
       },
       toValue(overrides),
-    ) as ChartOptions<T>;
+    ) as Partial<ChartOptions<T>>;
   });
 
   return {

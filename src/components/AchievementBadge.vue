@@ -26,7 +26,7 @@ type BadgeProps = Record<
     Record<
       AchievementLevel,
       {
-        readonly textProps: number[];
+        readonly textProps: readonly number[];
         readonly emoji: string;
       }
     >
@@ -245,7 +245,9 @@ const labelSuffix = computed(() => {
       :style="`mask-image: conic-gradient(transparent 0deg ${degree}deg, black ${degree}deg 360deg)`"
     ></div>
     <div v-if="!noLabel" aria-hidden="true" class="badge__text">
-      {{ $t(`achievements.${achievement}.badgeText`, badgeProps[achievement][level]!.textProps) }}
+      {{
+        $t(`achievements.${achievement}.badgeText`, [...badgeProps[achievement][level]!.textProps])
+      }}
     </div>
   </Component>
 </template>

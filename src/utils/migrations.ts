@@ -36,9 +36,9 @@ function sanitizeStorageData(data: StorageData): StorageData {
 type StorageData = Record<string, unknown>;
 
 type Migration = {
-  version: number;
-  name: string;
-  migrate: (data: StorageData) => StorageData;
+  readonly version: number;
+  readonly name: string;
+  readonly migrate: (data: StorageData) => StorageData;
 };
 
 // When adding new migrations, remember to sync settings export test to latest localStorage version

@@ -2,7 +2,7 @@ import {computed, toValue, type MaybeRefOrGetter} from 'vue';
 import {countBy} from 'remeda';
 import {BOTANICAL_BERRIES, CITRUSES, NUTS, ONIONS, RED_VEGGIES} from '@/utils/veggieDetails';
 import {getCategoryForVeggie, setIntersection} from '@/utils/helpers';
-import {Category, type Achievements} from '@/types';
+import {Category, type WeeklyAchievements} from '@/types';
 
 export function useAchievementCompletion(
   veggies: MaybeRefOrGetter<string[]>,
@@ -10,7 +10,7 @@ export function useAchievementCompletion(
 ) {
   const degreeFormatter = (multiplier: number) => Math.floor(Math.min(multiplier * 360, 360));
 
-  const weeklyCompletion = computed<Partial<Record<keyof Achievements, number>>>(() => {
+  const weeklyCompletion = computed<Record<keyof WeeklyAchievements, number>>(() => {
     const valueForVeggies = toValue(veggies);
     const valueForChallenge = toValue(challenge);
     const groupedVeggies = countBy(valueForVeggies, getCategoryForVeggie);

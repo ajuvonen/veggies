@@ -1,26 +1,5 @@
 export type Locale = 'en' | 'fi';
 
-/** 'true' | 'false' literal keys → boolean, everything else unchanged. */
-type BoolKey<T> = T extends 'true' | 'false' ? boolean : T;
-
-/**
- * Vue-SFC-resolvable replacement for tailwind-variants' `VariantProps`.
- *
- * Pass a `tv` config's `variants` object (`typeof variants`), NOT the `tv()`
- * function. The keys come from `keyof V` (a plain object literal, so Vue's
- * compiler can enumerate them) and only the value position uses a conditional,
- * which the compiler tolerates. `tailwind-variants`' own `VariantProps` derives
- * the props object via top-level conditional types that the SFC compiler cannot
- * evaluate, triggering "Unresolvable type: TSConditionalType" in `defineProps`.
- *
- * Access per-prop (`VariantProps<typeof variants>['color']`) rather than via
- * `extends`/intersection — the SFC compiler can't enumerate the generic mapped
- * type's full key set, but resolves indexed access in value position leniently.
- */
-export type VariantProps<V> = {
-  [K in keyof V]?: BoolKey<keyof V[K]>;
-};
-
 export enum Category {
   Fruit = 'Fruit',
   Vegetable = 'Vegetable',

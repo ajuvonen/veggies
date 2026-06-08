@@ -21,7 +21,7 @@ const start = () => {
 onMounted(() => {
   const startupLocale =
     navigator.languages
-      .map((language) => language.split('-')[0] as string)
+      .map((language) => language.split('-')[0])
       .find((language: string): language is Locale => LOCALES.includes(language as Locale)) ||
     DEFAULT_LOCALE;
   settings.value.locale = startupLocale;

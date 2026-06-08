@@ -17,7 +17,7 @@ import {setIntersection} from '@/utils/helpers';
 import {Category, type WeeklyAchievements} from '@/types';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 
-export const WEEKLY_ACHIEVEMENTS: (keyof WeeklyAchievements)[] = [
+export const WEEKLY_ACHIEVEMENTS = [
   'allOnRed',
   'botanicalBerries',
   'goNuts',
@@ -26,9 +26,9 @@ export const WEEKLY_ACHIEVEMENTS: (keyof WeeklyAchievements)[] = [
   'rainbow',
   'tearnado',
   'thirtyVeggies',
-];
+] as const satisfies (keyof WeeklyAchievements)[];
 
-const CATEGORY_SETS: Record<Category, ReadonlySet<string>> = {
+const categorySets = {
   [Category.Fruit]: FRUITS,
   [Category.Vegetable]: VEGETABLES,
   [Category.Leafy]: LEAFIES,
@@ -36,7 +36,7 @@ const CATEGORY_SETS: Record<Category, ReadonlySet<string>> = {
   [Category.Bean]: BEANS,
   [Category.Grain]: GRAINS,
   [Category.Mushroom]: MUSHROOMS,
-};
+} as const satisfies Record<Category, ReadonlySet<string>>;
 
 const achievementAvailability: Record<
   keyof WeeklyAchievements,
@@ -50,7 +50,7 @@ const achievementAvailability: Record<
   overachiever: (availableVeggies) => availableVeggies.length >= 30,
   rainbow: (availableVeggies) =>
     Object.values(Category).every(
-      (category) => setIntersection(CATEGORY_SETS[category], availableVeggies).length >= 3,
+      (category) => setIntersection(categorySets[category], availableVeggies).length >= 3,
     ),
   tearnado: (availableVeggies) => setIntersection(ONIONS, availableVeggies).length >= 5,
   thirtyVeggies: (availableVeggies) => availableVeggies.length >= 30,

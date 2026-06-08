@@ -5,8 +5,10 @@ defineProps<{
 }>();
 
 const checkIfModalClick = (event: Event) => {
-  const element = event.target as HTMLElement;
-  if (element.closest('.modal-dialog, .toast-container') !== null) {
+  if (
+    event.target instanceof HTMLElement &&
+    event.target.closest('.modal-dialog, .toast-container') !== null
+  ) {
     event.preventDefault();
   }
 };
