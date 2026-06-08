@@ -8,7 +8,7 @@ defineProps<{
 
 const {availableWeeklyAchievements} = useAvailableWeeklyAchievements();
 
-const standardAchievements: (keyof Achievements)[] = [
+const standardAchievements: Readonly<(keyof Achievements)[]> = [
   'completionist',
   'challengeAccepted',
   'committed',

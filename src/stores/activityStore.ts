@@ -1,4 +1,4 @@
-import {computed, ref} from 'vue';
+import {computed, shallowRef} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
 import {debounceFilter, useIntervalFn, useLocalStorage} from '@vueuse/core';
 import {countBy, difference, entries, fromKeys, map, pipe, prop, sortBy, take} from 'remeda';
@@ -39,7 +39,7 @@ import {useAvailableVeggies} from '@/hooks/availableVeggies';
 export const useActivityStore = defineStore('activity', () => {
   const {settings} = storeToRefs(useAppStateStore());
   const {availableVeggies} = useAvailableVeggies();
-  const currentDate = ref(Temporal.Now.plainDateISO());
+  const currentDate = shallowRef(Temporal.Now.plainDateISO());
   useIntervalFn(() => {
     const now = Temporal.Now.plainDateISO();
     if (!areDatesEqual(currentDate.value, now)) {
@@ -164,7 +164,7 @@ export const useActivityStore = defineStore('activity', () => {
       (
         veggies: string[] = currentVeggies.value,
         weekStart: Temporal.PlainDate = currentWeekStart.value,
-      ) => {
+      ): WeeklyAchievements => {
         const groupedVeggies = countBy(veggies, getCategoryForVeggie);
         const challenge = challengeForWeek.value(weekStart);
         const challengeCompleted = challenge && veggies.includes(challenge);
@@ -206,7 +206,7 @@ export const useActivityStore = defineStore('activity', () => {
             ],
             veggies.length,
           ),
-        } satisfies WeeklyAchievements;
+        };
       },
   );
 

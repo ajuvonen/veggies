@@ -1,4 +1,4 @@
-import {ref} from 'vue';
+import {shallowRef} from 'vue';
 import {defineStore} from 'pinia';
 import {useLocalStorage} from '@vueuse/core';
 import type {Settings} from '@/types';
@@ -6,8 +6,8 @@ import {DEFAULT_SETTINGS} from '@/utils/constants';
 import {dateParser} from '@/utils/helpers';
 
 type Message = {
-  id: string;
-  text: string;
+  readonly id: string;
+  readonly text: string;
 };
 
 export const useAppStateStore = defineStore('appState', () => {
@@ -26,7 +26,7 @@ export const useAppStateStore = defineStore('appState', () => {
     },
   );
 
-  const messages = ref<Message[]>([]);
+  const messages = shallowRef<Message[]>([]);
 
   // Actions
   const addToastMessage = (text: string) => {

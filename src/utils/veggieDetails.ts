@@ -401,7 +401,7 @@ export const ONIONS: ReadonlySet<string> = new Set([
   'white onion',
 ]);
 
-export const NUTRIENTS: Record<string, ReadonlySet<string>> = {
+export const NUTRIENTS = {
   A: new Set([
     'apricot',
     'bell pepper',
@@ -792,4 +792,4 @@ export const NUTRIENTS: Record<string, ReadonlySet<string>> = {
     'white bean',
     'yellow lentil',
   ]),
-};
+} satisfies Record<string, ReadonlySet<string>>;

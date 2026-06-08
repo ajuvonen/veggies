@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import {computed, provide, readonly, ref} from 'vue';
+import {computed, provide, readonly, shallowRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {entries} from 'remeda';
 import {useActivityStore} from '@/stores/activityStore';
 import {KEYS} from '@/utils/constants';
 import {areDatesEqual} from '@/utils/helpers';
-import {AchievementLevel, type Achievements} from '@/types';
+import {AchievementLevel} from '@/types';
 import {useAvailableWeeklyAchievements} from '@/hooks/availableWeeklyAchievements';
 import {useDateTime} from '@/hooks/dateTime';
 import {useAchievementCompletion} from '@/hooks/achievementCompletion';
@@ -15,7 +15,7 @@ const {getWeekStarts, veggiesForWeek, challengeForWeek, weeklyAchievements} =
   storeToRefs(activityStore);
 const {toggleVeggieForWeek, setVeggiesForWeek} = activityStore;
 
-const selectedWeekStart = ref(getWeekStarts.value[0]!);
+const selectedWeekStart = shallowRef(getWeekStarts.value[0]!);
 
 const veggies = computed({
   get: () => veggiesForWeek.value(selectedWeekStart.value),
@@ -60,10 +60,10 @@ provide(KEYS.challenge, readonly(selectedChallenge));
     <AchievementBadge
       v-for="[achievement, level] in displayedWeeklyAchievements"
       :key="achievement"
-      :achievement="achievement as keyof Achievements"
+      :achievement="achievement"
       :level="level || AchievementLevel.Gold"
       :active="level >= AchievementLevel.Gold"
-      :degree="weeklyCompletion[achievement as keyof Achievements]"
+      :degree="weeklyCompletion[achievement]"
       noLabel
     />
   </ul>
