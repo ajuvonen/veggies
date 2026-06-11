@@ -2,7 +2,7 @@
 import {tv} from 'tailwind-variants/lite';
 
 const model = defineModel<boolean>({required: true});
-const props = defineProps<{disabled?: boolean}>();
+defineProps<{disabled?: boolean}>();
 
 const toggle = tv({
   slots: {
