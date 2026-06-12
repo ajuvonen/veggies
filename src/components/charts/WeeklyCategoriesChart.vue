@@ -88,7 +88,7 @@ defineExpose({chartData});
         data-test-id="weekly-categories-chart"
       />
     </div>
-    <ChartScreenReaderTable
+    <MatrixScreenReaderTable
       :title="$t('stats.weeklyCategories')"
       :columnHeaders="labels"
       :rowHeaders="chartData.accessibleData.rowHeaders"

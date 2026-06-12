@@ -9,7 +9,6 @@ exports[`VeggieList > renders 1`] = `
       <caption>Unique Veggies</caption>
       <thead>
         <tr>
-          <!--v-if-->
           <th>Fruits And Berries</th>
           <th>Vegetables</th>
           <th>Leafy Greens And Herbs</th>

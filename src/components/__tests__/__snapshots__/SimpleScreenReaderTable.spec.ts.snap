@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SimpleScreenReaderTable > draws a complete table with missing data 1`] = `
+"<table class="sr-only">
+  <caption>Spotty data</caption>
+  <thead>
+    <tr>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A</td>
+      <td>B</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>"
+`;
+
+exports[`SimpleScreenReaderTable > mounts 1`] = `
+"<table class="sr-only">
+  <caption>Amount of veggies</caption>
+  <thead>
+    <tr>
+      <th>Grains</th>
+      <th>Vegetables</th>
+      <th>Roots &amp; Bulbs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>"
+`;

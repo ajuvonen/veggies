@@ -118,7 +118,7 @@ defineExpose({chartData});
         data-test-id="weekly-heatmap"
       />
     </div>
-    <ChartScreenReaderTable
+    <MatrixScreenReaderTable
       :title="$t('stats.weeklyHeatmap')"
       :columnHeaders="labels"
       :rowHeaders="chartData.accessibleData.rowHeaders"

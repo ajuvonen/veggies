@@ -40,7 +40,6 @@ exports[`LogView > renders with data 1`] = `
     <caption>Veggies of the Week</caption>
     <thead>
       <tr>
-        <!--v-if-->
         <th>Grains, Nuts, And Seeds</th>
       </tr>
     </thead>
