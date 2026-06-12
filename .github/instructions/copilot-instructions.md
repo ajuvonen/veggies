@@ -125,7 +125,7 @@ The project uses [Reka UI](https://reka-ui.com) for accessible primitives (Selec
 ### Chart Components
 
 Charts use these hooks: `useChartContainer`, `useChartAnimations`, `useChartOptions`.
-Include `ChartScreenReaderTable` for a11y.
+Include `SimpleScreenReaderTable` (for single-row data) or `MatrixScreenReaderTable` (for multi-row data) for a11y.
 
 ### Icon System
 

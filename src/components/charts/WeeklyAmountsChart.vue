@@ -102,7 +102,7 @@ defineExpose({chartData});
         data-test-id="weekly-amounts-chart"
       />
     </div>
-    <ChartScreenReaderTable
+    <SimpleScreenReaderTable
       :title="$t('stats.weeklyAmounts')"
       :columnHeaders="labels"
       :data="chartData.accessibleData.data"

@@ -118,7 +118,7 @@ defineExpose({chartData});
       class="z-10"
       data-test-id="category-status-chart"
     />
-    <ChartScreenReaderTable
+    <SimpleScreenReaderTable
       :title="chartTitle"
       :columnHeaders="chartData.accessibleData.columnHeaders"
       :data="chartData.accessibleData.data"

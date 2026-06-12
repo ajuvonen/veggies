@@ -114,7 +114,7 @@ defineExpose({chartData});
         :aria-description="$t('general.seeTableBelow')"
         data-test-id="veggie-completion-chart"
       />
-      <ChartScreenReaderTable
+      <SimpleScreenReaderTable
         :title="$t('veggieList.chartTitle')"
         :columnHeaders="chartData.accessibleData.columnHeaders"
         :data="chartData.accessibleData.data"

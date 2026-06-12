@@ -25,9 +25,7 @@ exports[`AllTimeStatus > renders 1`] = `
   <table data-v-38bd5fcc="" class="sr-only" data-test-id="category-status-table">
     <caption>All Actions in Total</caption>
     <thead>
-      <tr>
-        <!--v-if-->
-      </tr>
+      <tr></tr>
     </thead>
     <tbody>
       <tr></tr>
