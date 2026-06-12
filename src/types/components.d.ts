@@ -81,7 +81,7 @@ declare module 'vue' {
     SwitchThumb: typeof import('reka-ui')['SwitchThumb']
     TagsComponent: typeof import('./../components/TagsComponent.vue')['default']
     ToastContainer: typeof import('./../components/ToastContainer.vue')['default']
-    ToastMessage: typeof import('./../components/ToastMessage.vue')['default']
+    ToastMessage: typeof import('./../components/ui/ToastMessage.vue')['default']
     ToggleComponent: typeof import('./../components/ui/ToggleComponent.vue')['default']
     VeggieCompletionChart: typeof import('./../components/charts/VeggieCompletionChart.vue')['default']
     VeggieList: typeof import('./../components/VeggieList.vue')['default']
