@@ -1,12 +1,15 @@
 <script setup lang="ts" generic="T extends string | number">
 const model = defineModel<T>({required: true});
-withDefaults(defineProps<{
-  options: {value: T; label: string}[];
-  title: string;
-  prefix?: string;
-}>(), {
-  prefix: () => crypto.randomUUID(),
-});
+withDefaults(
+  defineProps<{
+    options: {value: T; label: string}[];
+    title: string;
+    prefix?: string;
+  }>(),
+  {
+    prefix: () => crypto.randomUUID(),
+  },
+);
 </script>
 <template>
   <RadioGroupRoot v-model="model" asChild>

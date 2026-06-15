@@ -72,10 +72,12 @@ const {chartOptions} = useChartOptions<'doughnut'>(
           title: ([tooltip]) => t(`categories.${tooltip!.label}`),
           footer: ([tooltip]) =>
             props.categoryFavorites
-              ? props.categoryFavorites[tooltip!.label as Category].map(([veggie, amount], index) => {
-                  const translation = translateAndCapitalize(veggie);
-                  return `${medalEmojis[index]} ${translation} (${amount})`;
-                })
+              ? props.categoryFavorites[tooltip!.label as Category].map(
+                  ([veggie, amount], index) => {
+                    const translation = translateAndCapitalize(veggie);
+                    return `${medalEmojis[index]} ${translation} (${amount})`;
+                  },
+                )
               : props.veggies
                   .filter((veggie) => getCategoryForVeggie(veggie) === tooltip!.label)
                   .map(translateAndCapitalize)
