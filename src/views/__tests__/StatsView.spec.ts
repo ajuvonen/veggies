@@ -1,9 +1,10 @@
 import {describe, it, expect, beforeEach, vi} from 'vitest';
-import {mount} from '@vue/test-utils';
+import {flushPromises, mount} from '@vue/test-utils';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {getWeekStart} from '@/utils/helpers';
 import StatsView from '@/views/StatsView.vue';
+import {SelectViewport} from 'reka-ui';
 
 describe('StatsView', () => {
   const thisWeek = getWeekStart();
@@ -38,19 +39,31 @@ describe('StatsView', () => {
       },
     ];
     const wrapper = mount(StatsView);
-
+    await flushPromises();
     await wrapper.findByTestId('stats-tab-1').trigger('mousedown');
     await vi.dynamicImportSettled();
+
+    const selectorButton = wrapper.findByTestId('statistics-button');
+    const viewport = wrapper.getComponent(SelectViewport);
+
     expect(wrapper.findByTestId('weekly-amounts-chart').exists()).toBe(true);
+    expect(selectorButton.text()).toBe('Veggie Count');
     expect(wrapper.findByTestId('weekly-amounts-table').exists()).toBe(true);
-    await wrapper.findByTestId('statistics-1').trigger('click');
+    await selectorButton.trigger('pointerdown');
+    await viewport.findByTestId('statistics-option-1').trigger('pointerup');
     await vi.dynamicImportSettled();
     expect(wrapper.findByTestId('weekly-categories-chart').exists()).toBe(true);
     expect(wrapper.findByTestId('weekly-categories-table').exists()).toBe(true);
-    await wrapper.findByTestId('statistics-2').trigger('click');
+    await selectorButton.trigger('pointerdown');
+    await viewport.findByTestId('statistics-option-2').trigger('pointerup');
     await vi.dynamicImportSettled();
     expect(wrapper.findByTestId('weekly-heatmap').exists()).toBe(true);
     expect(wrapper.findByTestId('weekly-heatmap-table').exists()).toBe(true);
+    await selectorButton.trigger('pointerdown');
+    await viewport.findByTestId('statistics-option-3').trigger('pointerup');
+    await vi.dynamicImportSettled();
+    expect(wrapper.findByTestId('weekly-achievements-chart').exists()).toBe(true);
+    expect(wrapper.findByTestId('weekly-achievements-table').exists()).toBe(true);
   });
 
   it('renders week editor', async () => {

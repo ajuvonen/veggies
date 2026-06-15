@@ -307,6 +307,7 @@
     "3": "Kasvislista",
     "4": "Saavutukset",
     "editWeek": "Muokkaa viikkoa",
+    "noWeeklyAchievements": "Ei saavutuksia",
     "selectStatistic": "Valitse tilasto",
     "selectedWeek": "Viikko {0} ({1}-{2})",
     "veggiesForWeek": "Viikon kasvikset",

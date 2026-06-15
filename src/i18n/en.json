@@ -307,6 +307,7 @@
     "3": "Veggie list",
     "4": "Achievements",
     "editWeek": "Edit Week",
+    "noWeeklyAchievements": "No achievements",
     "selectStatistic": "Select Statistic",
     "selectedWeek": "Week {0} ({1}-{2})",
     "veggiesForWeek": "Veggies for Week",
