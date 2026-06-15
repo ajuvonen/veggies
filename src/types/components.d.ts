@@ -91,6 +91,7 @@ declare module 'vue' {
     VeggieSearchGroup: typeof import('./../components/VeggieSearchGroup.vue')['default']
     VeggieSearchOption: typeof import('./../components/VeggieSearchOption.vue')['default']
     WeekEditor: typeof import('./../components/WeekEditor.vue')['default']
+    WeeklyAchievementsChart: typeof import('./../components/charts/WeeklyAchievementsChart.vue')['default']
     WeeklyAmountsChart: typeof import('./../components/charts/WeeklyAmountsChart.vue')['default']
     WeeklyCategoriesChart: typeof import('./../components/charts/WeeklyCategoriesChart.vue')['default']
     WeeklyCharts: typeof import('./../components/WeeklyCharts.vue')['default']
