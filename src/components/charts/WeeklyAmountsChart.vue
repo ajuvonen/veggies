@@ -76,11 +76,6 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
       },
     },
   },
-  layout: {
-    padding: {
-      right: 5,
-    },
-  },
   elements: {
     point: {
       hitRadius: 15,
