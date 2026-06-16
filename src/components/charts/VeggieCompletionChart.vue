@@ -66,7 +66,7 @@ const {chartOptions} = useChartOptions<'polarArea'>(false, false, false, {
   plugins: {
     tooltip: {
       callbacks: {
-        title: ([tooltip]) => t(`categories.${tooltip!.label}`),
+        title: ([{label}]) => t(`categories.${label}`),
         label: ({formattedValue}) => t('veggieList.chartLabel', [formattedValue]),
       },
     },
@@ -81,7 +81,7 @@ const {chartOptions} = useChartOptions<'polarArea'>(false, false, false, {
   scales: {
     r: {
       beginAtZero: true,
-      max: Math.max(...chartData.value.datasets[0]!.data) + 20,
+      max: Math.max(...chartData.value.datasets[0].data) + 20,
       ticks: {
         count: 5,
         display: false,

@@ -1,7 +1,16 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import {take} from '@/test-utils';
-import {BEANS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
+import {take, makeWeekString} from '@/test-utils';
+import {
+  BEANS,
+  GRAINS,
+  LEAFIES,
+  MUSHROOMS,
+  ROOTS,
+  VEGETABLES,
+  BOTANICAL_BERRIES,
+  CITRUSES,
+} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import {getWeekStart} from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -10,22 +19,18 @@ import WeeklyCategoriesChart from '@/components/charts/WeeklyCategoriesChart.vue
 import WeeklyAmountsChart from '@/components/charts/WeeklyAmountsChart.vue';
 import VeggieCompletionChart from '@/components/charts/VeggieCompletionChart.vue';
 import WeeklyHeatmap from '@/components/charts/WeeklyHeatmap.vue';
+import WeeklyAchievementsChart from '@/components/charts/WeeklyAchievementsChart.vue';
 
 describe('charts', () => {
   const thisWeek = getWeekStart();
   const lastWeek = thisWeek.subtract({weeks: 1});
   const twoWeeksAgo = thisWeek.subtract({weeks: 2});
-  const fiveWeeksAgo = thisWeek.subtract({weeks: 5});
+  const labelProps = [twoWeeksAgo, lastWeek, thisWeek].map(
+    (w) => `${w.weekOfYear}/${w.yearOfWeek}`,
+  );
+  const weekStartProps = [twoWeeksAgo, lastWeek, thisWeek];
+  const weekStringProps = [twoWeeksAgo, lastWeek, thisWeek].map(makeWeekString);
 
-  const weekStartProps = [
-    fiveWeeksAgo,
-    fiveWeeksAgo.add({weeks: 1}),
-    fiveWeeksAgo.add({weeks: 2}),
-    twoWeeksAgo,
-    lastWeek,
-    thisWeek,
-  ];
-  const labelProps = weekStartProps.map((w) => `${w.weekOfYear}/${w.yearOfWeek}`);
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
@@ -57,13 +62,8 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyCategoriesChart', () => {
-    appStateStore.settings.startDate = fiveWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
-      {
-        startDate: fiveWeeksAgo,
-        veggies: ['endive'],
-        challenge: 'cucumber',
-      },
       {
         startDate: twoWeeksAgo,
         veggies: ['oat', 'wheat'],
@@ -83,21 +83,24 @@ describe('charts', () => {
 
     const wrapper = mount(WeeklyCategoriesChart, {
       props: {
-        weekStarts: weekStartProps,
-        labels: labelProps,
+        weekData: {
+          weekStarts: weekStartProps,
+          labels: labelProps,
+          weekStrings: weekStringProps,
+        },
       },
     });
 
     const {labels, accessibleData, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual(labelProps);
     expect(accessibleData.data).toEqual([
-      [0, 0, 0, 0, 0, 2],
-      [0, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 1, 1],
-      [0, 0, 0, 0, 1, 0],
-      [0, 0, 0, 2, 0, 0],
-      [0, 0, 0, 0, 0, 0],
+      [0, 0, 2],
+      [0, 0, 1],
+      [0, 0, 0],
+      [0, 1, 1],
+      [0, 1, 0],
+      [2, 0, 0],
+      [0, 0, 0],
     ]);
     expect(accessibleData.rowHeaders).toEqual([
       'Fruits And Berries',
@@ -110,32 +113,27 @@ describe('charts', () => {
     ]);
     expect(datasets).toHaveLength(7);
     expect(datasets[0].label).toBe('Fruit');
-    expect(datasets[0].data).toEqual([0, 0, 0, 0, 0, 2]);
+    expect(datasets[0].data).toEqual([0, 0, 2]);
     expect(datasets[1].label).toBe('Vegetable');
-    expect(datasets[1].data).toEqual([0, 0, 0, 0, 0, 1]);
+    expect(datasets[1].data).toEqual([0, 0, 1]);
     expect(datasets[2].label).toBe('Leafy');
-    expect(datasets[2].data).toEqual([1, 0, 0, 0, 0, 0]);
+    expect(datasets[2].data).toEqual([0, 0, 0]);
     expect(datasets[3].label).toBe('Root');
-    expect(datasets[3].data).toEqual([0, 0, 0, 0, 1, 1]);
+    expect(datasets[3].data).toEqual([0, 1, 1]);
     expect(datasets[4].label).toBe('Bean');
-    expect(datasets[4].data).toEqual([0, 0, 0, 0, 1, 0]);
+    expect(datasets[4].data).toEqual([0, 1, 0]);
     expect(datasets[5].label).toBe('Grain');
-    expect(datasets[5].data).toEqual([0, 0, 0, 2, 0, 0]);
+    expect(datasets[5].data).toEqual([2, 0, 0]);
     expect(datasets[6].label).toBe('Mushroom');
-    expect(datasets[6].data).toEqual([0, 0, 0, 0, 0, 0]);
+    expect(datasets[6].data).toEqual([0, 0, 0]);
   });
 
   it('prepares data for WeeklyAmountsChart', () => {
-    appStateStore.settings.startDate = fiveWeeksAgo;
+    appStateStore.settings.startDate = twoWeeksAgo;
     activityStore.weeks = [
       {
-        startDate: fiveWeeksAgo,
-        veggies: ['endive'],
-        challenge: 'cucumber',
-      },
-      {
         startDate: twoWeeksAgo,
-        veggies: ['oat', 'wheat'],
+        veggies: [],
         challenge: 'cucumber',
       },
       {
@@ -152,16 +150,19 @@ describe('charts', () => {
 
     const wrapper = mount(WeeklyAmountsChart, {
       props: {
-        weekStarts: weekStartProps,
-        labels: labelProps,
+        weekData: {
+          weekStarts: weekStartProps,
+          labels: labelProps,
+          weekStrings: weekStringProps,
+        },
       },
     });
 
     const {labels, accessibleData, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual(labelProps);
-    expect(accessibleData.data).toEqual([1, 0, 0, 2, 2, 4]);
+    expect(accessibleData.data).toEqual([0, 2, 4]);
     expect(datasets).toHaveLength(1);
-    expect(datasets[0].data).toEqual([1, 0, 0, 2, 2, 4]);
+    expect(datasets[0].data).toEqual([0, 2, 4]);
   });
 
   const getPercentage = (group: ReadonlySet<string>, amount: number) =>
@@ -195,13 +196,13 @@ describe('charts', () => {
       'Mushrooms',
     ]);
     expect(accessibleData.data).toEqual([
-      `${0} %`,
+      `0 %`,
       `${getPercentage(VEGETABLES, 10)} %`,
       `${getPercentage(LEAFIES, 20)} %`,
-      `${100} %`,
+      `100 %`,
       `${getPercentage(BEANS, 20)} %`,
       `${getPercentage(GRAINS, 20)} %`,
-      `${100} %`,
+      `100 %`,
     ]);
     expect(data).toEqual([
       0,
@@ -243,11 +244,15 @@ describe('charts', () => {
 
     const heatmapWeeks = [week1, week2, week3];
     const heatmapLabels = heatmapWeeks.map((w) => `${w.weekOfYear}/${w.yearOfWeek}`);
+    const heatmapWeekStrings = heatmapWeeks.map(makeWeekString);
 
     const wrapper = mount(WeeklyHeatmap, {
       props: {
-        weekStarts: heatmapWeeks,
-        labels: heatmapLabels,
+        weekData: {
+          weekStarts: heatmapWeeks,
+          labels: heatmapLabels,
+          weekStrings: heatmapWeekStrings,
+        },
       },
     });
 
@@ -272,5 +277,54 @@ describe('charts', () => {
     ]);
     expect(datasets).toHaveLength(1);
     expect(datasets[0].data).toMatchSnapshot();
+  });
+
+  it('prepares data for WeeklyAchievementsChart', () => {
+    appStateStore.settings.startDate = twoWeeksAgo;
+    activityStore.weeks = [
+      {
+        startDate: twoWeeksAgo,
+        veggies: take(BOTANICAL_BERRIES, 15),
+        challenge: 'cucumber',
+      },
+      {
+        startDate: lastWeek,
+        veggies: [...take(BOTANICAL_BERRIES, 15), ...take(CITRUSES, 5)],
+        challenge: 'lychee',
+      },
+      {
+        startDate: thisWeek,
+        veggies: [],
+        challenge: 'pineapple',
+      },
+    ];
+
+    const wrapper = mount(WeeklyAchievementsChart, {
+      props: {
+        weekData: {
+          weekStarts: weekStartProps,
+          labels: labelProps,
+          weekStrings: weekStringProps,
+        },
+      },
+    });
+
+    const {accessibleData, datasets} = wrapper.vm.chartData;
+    expect(datasets).toHaveLength(1);
+    expect(datasets[0].data).toHaveLength(3);
+
+    expect(datasets[0].data[0].x).toBe(labelProps[0]);
+    expect(datasets[0].data[0].y).toBe(1);
+    expect(datasets[0].data[0].items).toHaveLength(1);
+
+    expect(datasets[0].data[1].x).toBe(labelProps[1]);
+    expect(datasets[0].data[1].y).toBe(2);
+    expect(datasets[0].data[1].items).toHaveLength(2);
+
+    expect(datasets[0].data[2].x).toBe(labelProps[2]);
+    expect(datasets[0].data[2].y).toBe(0);
+    expect(datasets[0].data[2].items).toEqual([]);
+
+    expect(accessibleData.data).toEqual(['"Berries"', '"Berries", Lemons', 'No achievements']);
   });
 });

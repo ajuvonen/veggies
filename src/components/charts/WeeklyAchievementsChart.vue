@@ -11,19 +11,17 @@ import {
   Tooltip,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
-import {AchievementLevel, type WeeklyAchievements} from '@/types';
+import {type WeeklyChartData, AchievementLevel, type WeeklyAchievements} from '@/types';
 import {COLORS} from '@/utils/constants';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartDataLabels);
 
 const props = defineProps<{
-  labels: string[];
-  weekStarts: Temporal.PlainDate[];
+  weekData: WeeklyChartData;
 }>();
 
 const {weeklyAchievements, veggiesForWeek} = storeToRefs(useActivityStore());
@@ -32,10 +30,8 @@ const {t} = useI18n();
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
-const {formatWeekString} = useDateTime();
-
 const chartData = computed(() => {
-  const data = props.weekStarts.map((weekStart, index) => {
+  const data = props.weekData.weekStarts.map((weekStart, index) => {
     const achievements = weeklyAchievements.value(veggiesForWeek.value(weekStart), weekStart);
     const items = (Object.entries(achievements) as [keyof WeeklyAchievements, AchievementLevel][])
       .filter(([, level]) => level >= AchievementLevel.Gold)
@@ -49,7 +45,7 @@ const chartData = computed(() => {
       });
 
     return {
-      x: props.labels[index],
+      x: props.weekData.labels[index],
       y: items.length,
       items,
     };
@@ -73,7 +69,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
   scales: {
     y: {
       min: 0,
-      max: Object.keys(weeklyAchievements.value()).length,
+      max: 8,
     },
   },
   plugins: {
@@ -81,10 +77,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
       yAlign,
       xAlign,
       callbacks: {
-        title: ([tooltip]) => {
-          const weekStart = props.weekStarts[tooltip!.dataIndex!];
-          return formatWeekString(weekStart!);
-        },
+        title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
         label: ({raw}) => {
           const {items} = raw as {x: string; y: number; items: string[]};
           if (items.length === 0) {
@@ -100,7 +93,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
         size: 25,
       },
       formatter: ({items}) => {
-        if (Array.isArray(items) && items.length >= 1) {
+        if (items.length >= 1) {
           return '🏅';
         }
         return '';
@@ -118,7 +111,10 @@ defineExpose({chartData});
 </script>
 <template>
   <div ref="chartContainer" class="has-scroll has-scroll--flush">
-    <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
+    <div
+      :style="{width: `max(100%, ${weekData.weekStarts.length * 60}px)`}"
+      class="relative h-full"
+    >
       <Line
         id="weekly-achievements-chart"
         :options="chartOptions"
@@ -130,7 +126,7 @@ defineExpose({chartData});
     </div>
     <SimpleScreenReaderTable
       :title="$t('stats.weeklyAchievements')"
-      :columnHeaders="labels"
+      :columnHeaders="weekData.labels"
       :data="chartData.accessibleData.data"
       data-test-id="weekly-achievements-table"
     />

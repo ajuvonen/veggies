@@ -3,6 +3,7 @@ import {computed, defineAsyncComponent, ref} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useActivityStore} from '@/stores/activityStore';
 import {useDateTime} from '@/hooks/dateTime';
+import type {WeeklyChartData} from '@/types';
 
 const WeeklyCategoriesChart = defineAsyncComponent(
   () => import('@/components/charts/WeeklyCategoriesChart.vue'),
@@ -14,13 +15,18 @@ const WeeklyAchievementsChart = defineAsyncComponent(
 
 const {getWeekStarts} = storeToRefs(useActivityStore());
 
-const {formatWeekNumber} = useDateTime();
+const {formatWeekNumber, formatWeekString} = useDateTime();
 
 const selectedStatistic = ref('weeklyAmounts');
 
-const weekStarts = computed(() => getWeekStarts.value.slice().reverse());
-
-const labels = computed(() => weekStarts.value.map(formatWeekNumber));
+const weekData = computed<WeeklyChartData>(() => {
+  const weekStarts = getWeekStarts.value.slice().reverse();
+  return {
+    weekStarts,
+    labels: weekStarts.map(formatWeekNumber),
+    weekStrings: weekStarts.map(formatWeekString),
+  };
+});
 
 const statisticOptions = [
   'weeklyAmounts',
@@ -40,30 +46,17 @@ const statisticOptions = [
       {{ $t(`stats.${item}`) }}
     </template>
   </DropdownList>
-  <WeeklyAmountsChart
-    v-if="selectedStatistic === 'weeklyAmounts'"
-    :labels="labels"
-    :weekStarts="weekStarts"
-  />
+  <WeeklyAmountsChart v-if="selectedStatistic === 'weeklyAmounts'" :weekData="weekData" />
   <AsyncLoader>
-    <WeeklyCategoriesChart
-      v-if="selectedStatistic === 'weeklyCategories'"
-      :labels="labels"
-      :weekStarts="weekStarts"
-    />
+    <WeeklyCategoriesChart v-if="selectedStatistic === 'weeklyCategories'" :weekData="weekData" />
   </AsyncLoader>
   <AsyncLoader>
-    <WeeklyHeatmap
-      v-if="selectedStatistic === 'weeklyHeatmap'"
-      :labels="labels"
-      :weekStarts="weekStarts"
-    />
+    <WeeklyHeatmap v-if="selectedStatistic === 'weeklyHeatmap'" :weekData="weekData" />
   </AsyncLoader>
   <AsyncLoader>
     <WeeklyAchievementsChart
       v-if="selectedStatistic === 'weeklyAchievements'"
-      :labels="labels"
-      :weekStarts="weekStarts"
+      :weekData="weekData"
     />
   </AsyncLoader>
 </template>
