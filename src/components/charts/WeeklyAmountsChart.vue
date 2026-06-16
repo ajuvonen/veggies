@@ -11,18 +11,17 @@ import {
 } from 'chart.js';
 import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean} from 'remeda';
-import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
+import {type WeeklyChartData} from '@/types';
 import {COLORS} from '@/utils/constants';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
 
 const props = defineProps<{
-  labels: string[];
-  weekStarts: Temporal.PlainDate[];
+  weekData: WeeklyChartData;
 }>();
 
 const {veggiesForWeek} = storeToRefs(useActivityStore());
@@ -30,10 +29,8 @@ const {veggiesForWeek} = storeToRefs(useActivityStore());
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
-const {formatWeekString} = useDateTime();
-
 const chartData = computed(() => {
-  const data = props.weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length);
+  const data = props.weekData.weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length);
 
   return {
     datasets: [
@@ -43,7 +40,7 @@ const chartData = computed(() => {
         backgroundColor: COLORS.chartColorsAlternate[2],
       },
     ],
-    labels: props.labels,
+    labels: props.weekData.labels,
     accessibleData: {
       data,
     },
@@ -61,7 +58,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
           borderDashOffset: 0,
           borderWidth: 3,
           scaleID: 'y',
-          value: (ctx) => mean(ctx.chart.data.datasets[0]!.data as number[]) ?? 0,
+          value: (ctx) => mean(ctx.chart.data.datasets[0].data as number[]) ?? 0,
         },
       },
     },
@@ -69,10 +66,7 @@ const {chartOptions} = useChartOptions<'line'>(true, false, false, {
       yAlign,
       xAlign,
       callbacks: {
-        title: ([tooltip]) => {
-          const weekStart = props.weekStarts[tooltip!.dataIndex!];
-          return formatWeekString(weekStart!);
-        },
+        title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
       },
     },
   },
@@ -87,7 +81,10 @@ defineExpose({chartData});
 </script>
 <template>
   <div ref="chartContainer" class="has-scroll has-scroll--flush">
-    <div :style="{width: `max(100%, ${weekStarts.length * 60}px)`}" class="relative h-full">
+    <div
+      :style="{width: `max(100%, ${weekData.weekStarts.length * 60}px)`}"
+      class="relative h-full"
+    >
       <Line
         id="weekly-amounts-chart"
         :options="chartOptions"
@@ -99,7 +96,7 @@ defineExpose({chartData});
     </div>
     <SimpleScreenReaderTable
       :title="$t('stats.weeklyAmounts')"
-      :columnHeaders="labels"
+      :columnHeaders="weekData.labels"
       :data="chartData.accessibleData.data"
       data-test-id="weekly-amounts-table"
     />

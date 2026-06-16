@@ -32,6 +32,12 @@ export type Settings = {
   summaryViewedDate: Temporal.PlainDate | null;
 };
 
+export type WeeklyChartData = {
+  readonly weekStarts: Temporal.PlainDate[];
+  readonly labels: string[];
+  readonly weekStrings: string[];
+};
+
 export type Listing = {
   readonly veggie: string;
   readonly category: Category;

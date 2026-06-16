@@ -4,9 +4,9 @@ import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import {useDateTime} from '@/hooks/dateTime';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
+import {type WeeklyChartData} from '@/types';
 import {COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useActivityStore} from '@/stores/activityStore';
@@ -16,15 +16,12 @@ ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
 
 const props = defineProps<{
-  labels: string[];
-  weekStarts: Temporal.PlainDate[];
+  weekData: WeeklyChartData;
 }>();
 
 const {t} = useI18n();
 
 const {veggiesForWeek} = storeToRefs(useActivityStore());
-
-const {formatWeekString} = useDateTime();
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
@@ -32,7 +29,7 @@ const {xAlign, yAlign} = useChartContainer(chartContainer);
 const chartData = computed(() => {
   const datasets = Object.values(Category).map((category, index) => ({
     label: category,
-    data: props.weekStarts.map(
+    data: props.weekData.weekStarts.map(
       (weekStart) =>
         veggiesForWeek
           .value(weekStart)
@@ -43,7 +40,7 @@ const chartData = computed(() => {
 
   return {
     datasets,
-    labels: props.labels,
+    labels: props.weekData.labels,
     accessibleData: {
       rowHeaders: datasets.map(({label}) => t(`categories.${label}`)),
       data: datasets.map(({data}) => data),
@@ -62,10 +59,7 @@ const {chartOptions} = useChartOptions<'bar'>(true, true, true, {
       xAlign,
       yAlign,
       callbacks: {
-        title: ([tooltip]) => {
-          const weekStart = props.weekStarts[tooltip!.dataIndex!];
-          return formatWeekString(weekStart!);
-        },
+        title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
         label: ({dataset, formattedValue}) => {
           return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
         },
@@ -78,7 +72,10 @@ defineExpose({chartData});
 </script>
 <template>
   <div ref="chartContainer" class="has-scroll has-scroll--flush">
-    <div :style="{width: `max(100%, ${props.weekStarts.length * 60}px)`}" class="relative h-full">
+    <div
+      :style="{width: `max(100%, ${weekData.weekStarts.length * 60}px)`}"
+      class="relative h-full"
+    >
       <Bar
         id="weekly-categories-chart"
         :options="chartOptions"
@@ -90,7 +87,7 @@ defineExpose({chartData});
     </div>
     <MatrixScreenReaderTable
       :title="$t('stats.weeklyCategories')"
-      :columnHeaders="labels"
+      :columnHeaders="weekData.labels"
       :rowHeaders="chartData.accessibleData.rowHeaders"
       :data="chartData.accessibleData.data"
       data-test-id="weekly-categories-table"

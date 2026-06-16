@@ -18,6 +18,12 @@ export const withSetup = <T, Args extends any[]>(
 
 export const take = <T>(collection: Iterable<T>, count: number) => [...collection].slice(0, count);
 
+export const makeWeekString = (weekStart: Temporal.PlainDate) => {
+  const weekEnd = weekStart.add({days: 6});
+  const formatDate = (d: Temporal.PlainDate) => d.toLocaleString('en-GB', {month: 'numeric', day: 'numeric'});
+  return `Week ${weekStart.weekOfYear}/${weekStart.yearOfWeek} (${formatDate(weekStart)}-${formatDate(weekEnd)})`;
+};
+
 export const getAchievements = (achievements: Partial<Achievements> = {}): Achievements => ({
   allOnRed: AchievementLevel.NoAchievement,
   botanicalBerries: AchievementLevel.NoAchievement,
