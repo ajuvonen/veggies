@@ -15,7 +15,9 @@ describe('RadioGroupComponent', () => {
         modelValue: 'a',
         options,
         label: 'Test Group',
-        prefix: 'group',
+      },
+      attrs: {
+        id: 'group',
       },
     });
     await flushPromises();
@@ -63,7 +65,9 @@ describe('RadioGroupComponent', () => {
         modelValue: 1,
         options: numberOptions,
         label: 'Number Group',
-        prefix: 'num',
+      },
+      attrs: {
+        id: 'num',
       },
     });
     await flushPromises();

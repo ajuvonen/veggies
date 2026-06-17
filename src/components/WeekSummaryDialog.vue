@@ -77,21 +77,15 @@ const handleAISummaryToggle = (value: boolean) => {
         topLabelKey="categoryStatus.topLabelLastWeek"
         class="shrink-0"
       />
-      <ContentElement
+      <ToggleComponent
         v-if="settings.AIAllowed !== false"
+        id="show-ai-summary-button"
         :label="$t('weekSummaryDialog.AISummary')"
-        :labelAttrs="{for: 'show-ai-summary-button'}"
+        :modelValue="showAISummary"
+        :disabled="showAISummary"
         inline
-        labelTag="label"
-      >
-        <ToggleComponent
-          id="show-ai-summary-button"
-          :modelValue="showAISummary"
-          :disabled="showAISummary"
-          data-test-id="show-ai-summary-button"
-          @update:modelValue="handleAISummaryToggle"
-        />
-      </ContentElement>
+        @update:modelValue="handleAISummaryToggle"
+      />
       <AsyncLoader>
         <WeekSummaryAIResult v-if="showAISummary" :weekData="weekData" />
       </AsyncLoader>

@@ -22,7 +22,9 @@ describe('DropdownList', () => {
         modelValue: options[1],
         options,
         label: 'Select Item',
-        prefix: 'dropdown',
+      },
+      attrs: {
+        id: 'dropdown',
       },
       slots: {
         option:
@@ -67,7 +69,9 @@ describe('DropdownList', () => {
         modelValue: 'Apple',
         options: stringOptions,
         label: 'Select Fruit',
-        prefix: 'dropdown',
+      },
+      attrs: {
+        id: 'dropdown',
       },
     });
 
@@ -85,7 +89,9 @@ describe('DropdownList', () => {
         modelValue: 'Apple',
         options: stringOptions,
         label: 'Select Fruit',
-        prefix: 'fruit-select',
+      },
+      attrs: {
+        id: 'fruit-select',
       },
     });
 
@@ -124,7 +130,9 @@ describe('DropdownList', () => {
         modelValue: objectOptions[0],
         options: objectOptions,
         label: 'Select Item',
-        prefix: 'dropdown',
+      },
+      attrs: {
+        id: 'dropdown',
       },
       slots: {
         option:
@@ -142,7 +150,9 @@ describe('DropdownList', () => {
         modelValue: objectOptions[0],
         options: objectOptions,
         label: 'Select Item',
-        prefix: 'dropdown',
+      },
+      attrs: {
+        id: 'dropdown',
       },
       slots: {
         option:
@@ -165,7 +175,9 @@ describe('DropdownList', () => {
         modelValue: '',
         options: [],
         label: 'Empty Dropdown',
-        prefix: 'dropdown',
+      },
+      attrs: {
+        id: 'dropdown',
       },
     });
 
@@ -182,7 +194,9 @@ describe('DropdownList', () => {
         modelValue: 'Only',
         options: ['Only'],
         label: 'Single Option',
-        prefix: 'dropdown',
+      },
+      attrs: {
+        id: 'dropdown',
       },
     });
 
@@ -203,7 +217,9 @@ describe('DropdownList', () => {
         modelValue: null,
         options: ['Only'],
         label: 'Single Option',
-        prefix: 'dropdown',
+      },
+      attrs: {
+        id: 'dropdown',
       },
     });
 

@@ -1,15 +1,16 @@
 <script setup lang="ts" generic="T extends string | number">
+import {computed, useAttrs} from 'vue';
+
+defineOptions({inheritAttrs: false});
+
+defineProps<{
+  options: {value: T; label: string}[];
+  label: string;
+}>();
+
 const model = defineModel<T>({required: true});
-withDefaults(
-  defineProps<{
-    options: {value: T; label: string}[];
-    label: string;
-    prefix?: string;
-  }>(),
-  {
-    prefix: () => crypto.randomUUID(),
-  },
-);
+const attrs = useAttrs();
+const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomUUID());
 </script>
 <template>
   <RadioGroupRoot v-model="model" asChild>

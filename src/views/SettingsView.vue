@@ -33,47 +33,29 @@ const removeAllergen = (veggie: string) => {
     <LocaleChanger />
     <SliderComponent
       v-model="settings.suggestionCount"
+      id="suggestions-count-input"
       :label="$t('settings.suggestionCount')"
       :min="0"
       :max="20"
       :step="5"
-      prefix="suggestions-count"
     />
-    <ContentElement
+    <ToggleComponent
+      v-model="showChartAnimations"
+      id="show-animations-button"
       :label="$t('settings.showChartAnimations')"
-      :labelAttrs="{for: 'show-animations-button'}"
-      labelTag="label"
-    >
-      <ToggleComponent
-        id="show-animations-button"
-        v-model="showChartAnimations"
-        :disabled="reduceMotion"
-        data-test-id="show-animations-button"
-      />
-    </ContentElement>
-    <ContentElement
+      :disabled="reduceMotion"
+    />
+    <ToggleComponent
+      v-model="settings.showVeggieFacts"
+      id="show-veggie-facts-button"
       :label="$t('settings.showVeggieFacts')"
-      :labelAttrs="{for: 'show-veggie-facts-button'}"
-      labelTag="label"
-    >
-      <ToggleComponent
-        id="show-veggie-facts-button"
-        v-model="settings.showVeggieFacts"
-        data-test-id="show-veggie-facts-button"
-      />
-    </ContentElement>
-    <ContentElement
+    />
+    <ToggleComponent
       v-if="settings.AIAllowed !== null"
+      v-model="settings.AIAllowed"
+      id="ai-enabled-button"
       :label="$t('settings.AIAllowed')"
-      :labelAttrs="{for: 'ai-enabled-button'}"
-      labelTag="label"
-    >
-      <ToggleComponent
-        id="ai-enabled-button"
-        v-model="settings.AIAllowed"
-        data-test-id="ai-enabled-button"
-      />
-    </ContentElement>
+    />
     <ContentElement
       :label="$t('settings.allergens')"
       :labelAttrs="{for: 'veggie-search-input'}"

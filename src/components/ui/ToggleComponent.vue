@@ -1,8 +1,24 @@
 <script setup lang="ts">
+import {computed, useAttrs} from 'vue';
 import {tv} from 'tailwind-variants/lite';
 
+defineOptions({inheritAttrs: false});
+
+withDefaults(
+  defineProps<{
+    label: string;
+    inline?: boolean;
+    disabled?: boolean;
+  }>(),
+  {
+    inline: false,
+    disabled: false,
+  },
+);
+
 const model = defineModel<boolean>({required: true});
-defineProps<{disabled?: boolean}>();
+const attrs = useAttrs();
+const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomUUID());
 
 const toggle = tv({
   slots: {
@@ -37,9 +53,17 @@ const toggle = tv({
 const {root, thumb} = toggle();
 </script>
 <template>
-  <SwitchRoot v-model="model" :disabled="disabled" :class="root({disabled, checked: model})">
-    <SwitchThumb :class="thumb({disabled, checked: model})">
-      <IconComponent :icon="model ? 'check' : 'close'" />
-    </SwitchThumb>
-  </SwitchRoot>
+  <ContentElement :label :inline :labelAttrs="{for: prefix}" labelTag="label">
+    <SwitchRoot
+      :id="prefix"
+      :data-test-id="prefix"
+      v-model="model"
+      :disabled="disabled"
+      :class="root({disabled, checked: model})"
+    >
+      <SwitchThumb :class="thumb({disabled, checked: model})">
+        <IconComponent :icon="model ? 'check' : 'close'" />
+      </SwitchThumb>
+    </SwitchRoot>
+  </ContentElement>
 </template>
