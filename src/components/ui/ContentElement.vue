@@ -3,7 +3,7 @@ import type {Component, LabelHTMLAttributes} from 'vue';
 
 withDefaults(
   defineProps<{
-    title: string;
+    label: string;
     inline?: boolean;
     labelAttrs?: LabelHTMLAttributes;
     labelTag?: Component | keyof HTMLElementTagNameMap;
@@ -20,7 +20,7 @@ withDefaults(
     :class="{'flex-col': !inline, 'items-center': inline, 'justify-between': inline}"
     class="flex-container"
   >
-    <component :is="labelTag" class="label-like" v-bind="labelAttrs">{{ title }}</component>
+    <component :is="labelTag" class="label-like" v-bind="labelAttrs">{{ label }}</component>
     <slot />
   </div>
 </template>

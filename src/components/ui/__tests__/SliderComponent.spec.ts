@@ -7,7 +7,7 @@ describe('SliderComponent', () => {
     const wrapper = mount(SliderComponent, {
       props: {
         modelValue: 10,
-        title: 'Test Slider',
+        label: 'Test Slider',
         min: 0,
         max: 100,
         step: 5,
@@ -21,7 +21,7 @@ describe('SliderComponent', () => {
     const wrapper = mount(SliderComponent, {
       props: {
         modelValue: 10,
-        title: 'Test Slider',
+        label: 'Test Slider',
         min: 0,
         max: 100,
         step: 5,
@@ -39,7 +39,7 @@ describe('SliderComponent', () => {
     const wrapper = mount(SliderComponent, {
       props: {
         modelValue: 10,
-        title: 'Test Slider',
+        label: 'Test Slider',
         min: 0,
         max: 100,
         step: 5,
@@ -54,7 +54,7 @@ describe('SliderComponent', () => {
     const wrapper = mount(SliderComponent, {
       props: {
         modelValue: 10,
-        title: 'Test Slider',
+        label: 'Test Slider',
         min: 0,
         max: 100,
         step: 5,

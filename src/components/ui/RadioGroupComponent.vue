@@ -3,7 +3,7 @@ const model = defineModel<T>({required: true});
 withDefaults(
   defineProps<{
     options: {value: T; label: string}[];
-    title: string;
+    label: string;
     prefix?: string;
   }>(),
   {
@@ -14,7 +14,7 @@ withDefaults(
 <template>
   <RadioGroupRoot v-model="model" asChild>
     <ContentElement
-      :title="title"
+      :label="label"
       :labelAttrs="{id: `${prefix}-label`}"
       :aria-labelledby="`${prefix}-label`"
       labelTag="label"

@@ -102,7 +102,7 @@ defineExpose({chartData});
 </script>
 <template>
   <ContentElement
-    :title="$t('veggieList.chartTitle')"
+    :label="$t('veggieList.chartTitle')"
     :labelAttrs="{for: 'veggie-completion-chart'}"
     labelTag="label"
   >

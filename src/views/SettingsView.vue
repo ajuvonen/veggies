@@ -33,14 +33,14 @@ const removeAllergen = (veggie: string) => {
     <LocaleChanger />
     <SliderComponent
       v-model="settings.suggestionCount"
-      :title="$t('settings.suggestionCount')"
+      :label="$t('settings.suggestionCount')"
       :min="0"
       :max="20"
       :step="5"
       prefix="suggestions-count"
     />
     <ContentElement
-      :title="$t('settings.showChartAnimations')"
+      :label="$t('settings.showChartAnimations')"
       :labelAttrs="{for: 'show-animations-button'}"
       labelTag="label"
     >
@@ -52,7 +52,7 @@ const removeAllergen = (veggie: string) => {
       />
     </ContentElement>
     <ContentElement
-      :title="$t('settings.showVeggieFacts')"
+      :label="$t('settings.showVeggieFacts')"
       :labelAttrs="{for: 'show-veggie-facts-button'}"
       labelTag="label"
     >
@@ -64,7 +64,7 @@ const removeAllergen = (veggie: string) => {
     </ContentElement>
     <ContentElement
       v-if="settings.AIAllowed !== null"
-      :title="$t('settings.AIAllowed')"
+      :label="$t('settings.AIAllowed')"
       :labelAttrs="{for: 'ai-enabled-button'}"
       labelTag="label"
     >
@@ -75,7 +75,7 @@ const removeAllergen = (veggie: string) => {
       />
     </ContentElement>
     <ContentElement
-      :title="$t('settings.allergens')"
+      :label="$t('settings.allergens')"
       :labelAttrs="{for: 'veggie-search-input'}"
       labelTag="label"
     >
@@ -94,7 +94,7 @@ const removeAllergen = (veggie: string) => {
     <QAComponent />
     <ExportImport />
     <ContentElement
-      :title="$t('settings.reset.label')"
+      :label="$t('settings.reset.label')"
       :labelAttrs="{for: 'reset-button'}"
       labelTag="label"
     >

@@ -79,7 +79,7 @@ const handleAISummaryToggle = (value: boolean) => {
       />
       <ContentElement
         v-if="settings.AIAllowed !== false"
-        :title="$t('weekSummaryDialog.AISummary')"
+        :label="$t('weekSummaryDialog.AISummary')"
         :labelAttrs="{for: 'show-ai-summary-button'}"
         inline
         labelTag="label"

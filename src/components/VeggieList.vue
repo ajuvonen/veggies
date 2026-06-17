@@ -29,7 +29,7 @@ const specialCases = ['cloudberry', 'raspberry'];
 <template>
   <VeggieCompletionChart :veggies="uniqueVeggies" />
   <section v-for="category in Category" :key="category" class="flex gap-4 flex-col">
-    <ContentElement :title="$t(`categories.${category}`)">
+    <ContentElement :label="$t(`categories.${category}`)">
       <ul class="columns-2 md:columns-3">
         <li
           v-for="{veggie, translation} in translatedVeggies().filter(

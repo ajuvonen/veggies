@@ -18,7 +18,7 @@ const standardAchievements: Readonly<(keyof Achievements)[]> = [
 <template>
   <ContentElement
     v-if="achievements.thousandsOdd !== achievements.thousandsEven"
-    :title="$t('achievements.thousandsOdd.title')"
+    :label="$t('achievements.thousandsOdd.title')"
     data-test-id="thousands-container"
   >
     <ul class="achievement-list__badge-container">
@@ -38,7 +38,7 @@ const standardAchievements: Readonly<(keyof Achievements)[]> = [
       />
     </ul>
   </ContentElement>
-  <ContentElement :title="$t('achievements.thirtyVeggies.title')">
+  <ContentElement :label="$t('achievements.thirtyVeggies.title')">
     <ul class="achievement-list__badge-container">
       <AchievementBadge
         v-for="achievement in availableWeeklyAchievements"
@@ -52,7 +52,7 @@ const standardAchievements: Readonly<(keyof Achievements)[]> = [
   <ContentElement
     v-for="achievement in standardAchievements"
     :key="achievement"
-    :title="$t(`achievements.${achievement}.title`)"
+    :label="$t(`achievements.${achievement}.title`)"
   >
     <ul class="achievement-list__badge-container">
       <AchievementBadge
@@ -72,7 +72,7 @@ const standardAchievements: Readonly<(keyof Achievements)[]> = [
       />
     </ul>
   </ContentElement>
-  <ContentElement :title="$t('achievements.experimenterFruit.title')">
+  <ContentElement :label="$t('achievements.experimenterFruit.title')">
     <ul class="achievement-list__badge-container">
       <AchievementBadge
         v-for="category in Category"

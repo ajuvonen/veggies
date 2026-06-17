@@ -14,7 +14,7 @@ describe('RadioGroupComponent', () => {
       props: {
         modelValue: 'a',
         options,
-        title: 'Test Group',
+        label: 'Test Group',
         prefix: 'group',
       },
     });
@@ -27,7 +27,7 @@ describe('RadioGroupComponent', () => {
       props: {
         modelValue: 'a',
         options,
-        title: 'Test Group',
+        label: 'Test Group',
       },
     });
     await flushPromises();
@@ -43,7 +43,7 @@ describe('RadioGroupComponent', () => {
       props: {
         modelValue: 'a',
         options,
-        title: 'Test Group',
+        label: 'Test Group',
       },
     });
     await flushPromises();
@@ -62,7 +62,7 @@ describe('RadioGroupComponent', () => {
       props: {
         modelValue: 1,
         options: numberOptions,
-        title: 'Number Group',
+        label: 'Number Group',
         prefix: 'num',
       },
     });
@@ -86,7 +86,7 @@ describe('RadioGroupComponent', () => {
       props: {
         modelValue: 'a',
         options,
-        title: 'Test Group',
+        label: 'Test Group',
       },
     });
     await flushPromises();
