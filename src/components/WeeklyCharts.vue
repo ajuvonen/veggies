@@ -37,10 +37,10 @@ const statisticOptions = [
 </script>
 <template>
   <DropdownList
+    id="statistics"
+    :label="$t('stats.selectStatistic')"
     v-model="selectedStatistic"
     :options="statisticOptions"
-    :label="$t('stats.selectStatistic')"
-    prefix="statistics"
   >
     <template #option="{item}">
       {{ $t(`stats.${item}`) }}

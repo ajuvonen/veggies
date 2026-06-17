@@ -15,8 +15,8 @@ const options = computed(() =>
 <template>
   <RadioGroupComponent
     v-model="settings.locale"
+    id="locales"
     :label="$t('settings.locale')"
     :options="options"
-    prefix="locales"
   />
 </template>

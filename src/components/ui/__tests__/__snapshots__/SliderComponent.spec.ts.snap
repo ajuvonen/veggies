@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SliderComponent > renders correctly 1`] = `"<div data-v-94878dbe="" class="flex-col flex-container"><label class="label-like" for="slider-input">Test Slider</label><input data-v-94878dbe="" id="slider-input" type="range" min="0" max="100" step="5"><!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label --><output data-v-94878dbe="" for="slider-input">10</output></div>"`;
+exports[`SliderComponent > renders correctly 1`] = `"<div data-v-94878dbe="" class="flex-col flex-container"><label class="label-like" for="slider">Test Slider</label><input data-v-94878dbe="" id="slider" type="range" min="0" max="100" step="5"><!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label --><output data-v-94878dbe="" for="slider">10</output></div>"`;

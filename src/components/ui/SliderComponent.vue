@@ -1,30 +1,24 @@
 <script setup lang="ts">
+import {computed, useAttrs} from 'vue';
+
+defineOptions({inheritAttrs: false});
+
+defineProps<{
+  label: string;
+  min: number;
+  max: number;
+  step: number;
+}>();
+
 const model = defineModel<number>({required: true});
-withDefaults(
-  defineProps<{
-    label: string;
-    min: number;
-    max: number;
-    step: number;
-    prefix?: string;
-  }>(),
-  {
-    prefix: () => crypto.randomUUID(),
-  },
-);
+const attrs = useAttrs();
+const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomUUID());
 </script>
 <template>
-  <ContentElement :label="label" :labelAttrs="{for: `${prefix}-input`}" labelTag="label">
-    <input
-      :id="`${prefix}-input`"
-      v-model.number="model"
-      type="range"
-      :min="min"
-      :max="max"
-      :step="step"
-    />
+  <ContentElement :label :labelAttrs="{for: prefix}" labelTag="label">
+    <input v-model.number="model" :id="prefix" type="range" :min :max :step />
     <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
-    <output :for="`${prefix}-input`">{{ model }}</output>
+    <output :for="prefix">{{ model }}</output>
   </ContentElement>
 </template>
 <style scoped>

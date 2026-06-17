@@ -6,8 +6,12 @@ describe('ToggleComponent', () => {
   it('renders correctly', () => {
     const wrapper = mount(ToggleComponent, {
       props: {
+        label: 'Test Label',
         modelValue: false,
         disabled: false,
+      },
+      attrs: {
+        id: 'test-toggle',
       },
     });
 
@@ -17,8 +21,12 @@ describe('ToggleComponent', () => {
   it('changes model value when toggle button is clicked', async () => {
     const wrapper = mount(ToggleComponent, {
       props: {
+        label: 'Test Label',
         modelValue: false,
         disabled: false,
+      },
+      attrs: {
+        id: 'test-toggle',
       },
     });
 
@@ -34,8 +42,12 @@ describe('ToggleComponent', () => {
   it('is disabled when disabled prop is true', async () => {
     const wrapper = mount(ToggleComponent, {
       props: {
+        label: 'Test Label',
         modelValue: false,
         disabled: true,
+      },
+      attrs: {
+        id: 'test-toggle',
       },
     });
 
@@ -49,7 +61,11 @@ describe('ToggleComponent', () => {
   it('shows correct icon based on model value', async () => {
     const wrapper = mount(ToggleComponent, {
       props: {
+        label: 'Test Label',
         modelValue: false,
+      },
+      attrs: {
+        id: 'test-toggle',
       },
     });
 

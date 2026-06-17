@@ -31,12 +31,18 @@ test('shows weekly statistics', async ({page}) => {
   await page.getByTestId('stats-tab-1').click();
   await expect(page.getByTestId('weekly-amounts-chart')).toBeVisible();
   await expect(page.getByTestId('weekly-amounts-table')).toBeAttached();
-  await page.getByTestId('statistics-1').click();
+  await page.getByTestId('statistics-button').click();
+  await page.getByTestId('statistics-option-1').click();
   await expect(page.getByTestId('weekly-categories-chart')).toBeVisible();
   await expect(page.getByTestId('weekly-categories-table')).toBeAttached();
-  await page.getByTestId('statistics-2').click();
+  await page.getByTestId('statistics-button').click();
+  await page.getByTestId('statistics-option-2').click();
   await expect(page.getByTestId('weekly-heatmap')).toBeVisible();
   await expect(page.getByTestId('weekly-heatmap-table')).toBeAttached();
+  await page.getByTestId('statistics-button').click();
+  await page.getByTestId('statistics-option-3').click();
+  await expect(page.getByTestId('weekly-achievements-chart')).toBeVisible();
+  await expect(page.getByTestId('weekly-achievements-table')).toBeAttached();
 });
 
 test("shows current week's veggies", async ({page}) => {

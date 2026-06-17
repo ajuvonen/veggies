@@ -1,25 +1,33 @@
 <script setup lang="ts" generic="T extends string | number | object | null">
+import {computed, useAttrs} from 'vue';
+
+defineOptions({inheritAttrs: false});
+
 withDefaults(
   defineProps<{
     options: T[];
     label: string;
     keyFn?: (item: T) => string | number;
-    prefix?: string;
     by?: ((a: T, b: T) => boolean) | string;
   }>(),
   {
     keyFn: (item: T) => JSON.stringify(item),
-    prefix: () => crypto.randomUUID(),
   },
 );
 
 const model = defineModel<T>({required: true});
+const attrs = useAttrs();
+const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomUUID());
 </script>
 <template>
-  <ContentElement :label="label" :labelAttrs="{for: `${prefix}-button`}" labelTag="label">
-    <SelectRoot v-model="model" v-slot="{open}" :by="by" :data-test-id="prefix">
-      <SelectTrigger :id="`${prefix}-button`" asChild>
-        <ButtonComponent :data-test-id="`${prefix}-button`" class="justify-between">
+  <ContentElement :label :labelAttrs="{for: `${prefix}-button`}" labelTag="label">
+    <SelectRoot v-model="model" v-slot="{open}" :by="by">
+      <SelectTrigger asChild>
+        <ButtonComponent
+          :id="`${prefix}-button`"
+          :data-test-id="`${prefix}-button`"
+          class="justify-between"
+        >
           <SelectValue />
           <SelectIcon asChild>
             <IconComponent
