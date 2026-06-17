@@ -6,7 +6,7 @@ describe('ContentElement', () => {
   it('renders', () => {
     const wrapper = mount(ContentElement, {
       props: {
-        title: 'Test',
+        label: 'Test',
       },
       slots: {default: '<div>Content</div>'},
     });
@@ -16,7 +16,7 @@ describe('ContentElement', () => {
   it('renders title as label', () => {
     const wrapper = mount(ContentElement, {
       props: {
-        title: 'Test',
+        label: 'Test',
         labelTag: 'label',
       },
     });
@@ -27,7 +27,7 @@ describe('ContentElement', () => {
   it('passes attributes to label', () => {
     const wrapper = mount(ContentElement, {
       props: {
-        title: 'Test',
+        label: 'Test',
         labelAttrs: {'aria-hidden': true},
       },
     });
@@ -38,7 +38,7 @@ describe('ContentElement', () => {
   it('passes attributes to container', () => {
     const wrapper = mount(ContentElement, {
       props: {
-        title: 'Test',
+        label: 'Test',
       },
       attrs: {
         style: 'height: 100%;',
@@ -51,7 +51,7 @@ describe('ContentElement', () => {
   it('merges label classes', () => {
     const wrapper = mount(ContentElement, {
       props: {
-        title: 'Test',
+        label: 'Test',
         labelAttrs: {
           class: 'truncate',
         },
@@ -64,7 +64,7 @@ describe('ContentElement', () => {
   it('merges container classes', () => {
     const wrapper = mount(ContentElement, {
       props: {
-        title: 'Test',
+        label: 'Test',
       },
       attrs: {
         class: 'min-h-0',
@@ -77,7 +77,7 @@ describe('ContentElement', () => {
   it('supports inline mode', () => {
     const wrapper = mount(ContentElement, {
       props: {
-        title: 'Test',
+        label: 'Test',
         inline: true,
       },
       attrs: {

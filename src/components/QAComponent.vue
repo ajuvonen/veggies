@@ -14,7 +14,7 @@ const questionKeysAndLinks = {
 </script>
 <template>
   <AccordionRoot asChild :collapsible="true" type="multiple">
-    <ContentElement :title="$t('qa.title')">
+    <ContentElement :label="$t('qa.title')">
       <AccordionItem
         v-for="[key, url] in Object.entries(questionKeysAndLinks)"
         :key="key"

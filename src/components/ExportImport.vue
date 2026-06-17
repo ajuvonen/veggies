@@ -78,7 +78,7 @@ onChange(async (files) => {
 });
 </script>
 <template>
-  <ContentElement :title="$t('settings.exportImport.label')">
+  <ContentElement :label="$t('settings.exportImport.label')">
     <p id="export-description">{{ $t('settings.exportImport.description') }}</p>
     <div class="flex-container justify-end">
       <ButtonComponent

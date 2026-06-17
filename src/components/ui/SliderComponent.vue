@@ -2,7 +2,7 @@
 const model = defineModel<number>({required: true});
 withDefaults(
   defineProps<{
-    title: string;
+    label: string;
     min: number;
     max: number;
     step: number;
@@ -14,7 +14,7 @@ withDefaults(
 );
 </script>
 <template>
-  <ContentElement :title="title" :labelAttrs="{for: `${prefix}-input`}" labelTag="label">
+  <ContentElement :label="label" :labelAttrs="{for: `${prefix}-input`}" labelTag="label">
     <input
       :id="`${prefix}-input`"
       v-model.number="model"
