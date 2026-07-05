@@ -4,6 +4,7 @@ import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {groupByProp} from 'remeda';
 import {type ScaleOptions, type ScriptableContext} from 'chart.js';
+import type {MatrixDataPoint} from 'chartjs-chart-matrix';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
@@ -33,6 +34,7 @@ const chartData = computed(() => {
           y: CATEGORY_EMOJI[category],
           v: veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length,
           category,
+          weekIndex,
         }));
       }),
       backgroundColor: ({dataset, dataIndex}: ScriptableContext<'matrix'>) => {
@@ -92,7 +94,10 @@ const {chartOptions} = useChartOptions<'matrix'>(true, false, false, {
       xAlign,
       yAlign,
       callbacks: {
-        title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
+        title: ([tooltip]) => {
+          const {weekIndex} = tooltip.raw as MatrixDataPoint;
+          return props.weekData.weekStrings[weekIndex];
+        },
         label: ({dataset, dataIndex}) =>
           `${t(`categories.${dataset.data[dataIndex].category}`)}: ${dataset.data[dataIndex].v}`,
       },
