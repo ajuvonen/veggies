@@ -55,11 +55,11 @@ const {root, thumb} = toggle();
 <template>
   <ContentElement :label :inline :labelAttrs="{for: prefix}" labelTag="label">
     <SwitchRoot
-      :id="prefix"
-      :data-test-id="prefix"
       v-model="model"
+      :id="prefix"
       :disabled="disabled"
       :class="root({disabled, checked: model})"
+      :data-test-id="prefix"
     >
       <SwitchThumb :class="thumb({disabled, checked: model})">
         <IconComponent :icon="model ? 'check' : 'close'" />

@@ -37,9 +37,9 @@ const statisticOptions = [
 </script>
 <template>
   <DropdownList
+    v-model="selectedStatistic"
     id="statistics"
     :label="$t('stats.selectStatistic')"
-    v-model="selectedStatistic"
     :options="statisticOptions"
   >
     <template #option="{item}">
