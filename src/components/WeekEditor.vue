@@ -39,9 +39,9 @@ provide(KEYS.challenge, readonly(selectedChallenge));
 </script>
 <template>
   <DropdownList
+    v-model="selectedWeekStart"
     id="week-editor"
     :label="$t('stats.editWeek')"
-    v-model="selectedWeekStart"
     :options="getWeekStarts"
     :keyFn="(date) => date.toString()"
     :by="areDatesEqual"
