@@ -48,35 +48,40 @@ const chartData = computed(() => {
   };
 });
 
-const {chartOptions} = useChartOptions<'line'>(true, false, false, {
-  plugins: {
-    annotation: {
-      annotations: {
-        mean: {
-          type: 'line',
-          borderColor: COLORS.chartColorsAlternate[2],
-          borderDash: [2, 6],
-          borderDashOffset: 0,
-          borderWidth: 3,
-          scaleID: 'y',
-          value: (ctx) => mean(ctx.chart.data.datasets[0].data as number[]) ?? 0,
+const {chartOptions} = useChartOptions<'line'>(
+  true,
+  false,
+  false,
+  computed(() => ({
+    plugins: {
+      annotation: {
+        annotations: {
+          mean: {
+            type: 'line',
+            borderColor: COLORS.chartColorsAlternate[2],
+            borderDash: [2, 6],
+            borderDashOffset: 0,
+            borderWidth: 3,
+            scaleID: 'y',
+            value: (ctx) => mean(ctx.chart.data.datasets[0].data as number[]) ?? 0,
+          },
+        },
+      },
+      tooltip: {
+        yAlign,
+        xAlign,
+        callbacks: {
+          title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
         },
       },
     },
-    tooltip: {
-      yAlign,
-      xAlign,
-      callbacks: {
-        title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
+    elements: {
+      point: {
+        hitRadius: 15,
       },
     },
-  },
-  elements: {
-    point: {
-      hitRadius: 15,
-    },
-  },
-});
+  })),
+);
 
 defineExpose({chartData});
 </script>

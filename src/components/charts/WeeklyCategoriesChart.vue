@@ -48,25 +48,30 @@ const chartData = computed(() => {
   };
 });
 
-const {chartOptions} = useChartOptions<'bar'>(true, true, true, {
-  layout: {
-    padding: {
-      right: 5,
+const {chartOptions} = useChartOptions<'bar'>(
+  true,
+  true,
+  true,
+  computed(() => ({
+    layout: {
+      padding: {
+        right: 5,
+      },
     },
-  },
-  plugins: {
-    tooltip: {
-      xAlign,
-      yAlign,
-      callbacks: {
-        title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
-        label: ({dataset, formattedValue}) => {
-          return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
+    plugins: {
+      tooltip: {
+        xAlign,
+        yAlign,
+        callbacks: {
+          title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
+          label: ({dataset, formattedValue}) => {
+            return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
+          },
         },
       },
     },
-  },
-});
+  })),
+);
 
 defineExpose({chartData});
 </script>
