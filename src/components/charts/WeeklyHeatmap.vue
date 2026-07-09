@@ -33,7 +33,7 @@ const chartData = computed(() => {
           x: props.weekData.labels[weekIndex],
           y: CATEGORY_EMOJI[category],
           v: veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length,
-          category,
+          rawData: category,
           weekIndex,
         }));
       }),
@@ -55,7 +55,7 @@ const chartData = computed(() => {
     datasets,
     accessibleData: {
       rowHeaders: Object.values(Category).map((category) => t(`categories.${category}`)),
-      data: Object.values(groupByProp(datasets[0]!.data, 'category')).map((items) =>
+      data: Object.values(groupByProp(datasets[0]!.data, 'rawData')).map((items) =>
         items.map(({v}) => `${Math.round(((v || 0) / 6) * 100)} %`),
       ),
     },
@@ -94,12 +94,14 @@ const {chartOptions} = useChartOptions<'matrix'>(true, false, false, {
       xAlign,
       yAlign,
       callbacks: {
-        title: ([tooltip]) => {
-          const {weekIndex} = tooltip.raw as MatrixDataPoint;
+        title: ([{raw}]) => {
+          const {weekIndex} = raw as MatrixDataPoint;
           return props.weekData.weekStrings[weekIndex];
         },
-        label: ({dataset, dataIndex}) =>
-          `${t(`categories.${dataset.data[dataIndex].category}`)}: ${dataset.data[dataIndex].v}`,
+        label: ({raw}) => {
+          const {v, rawData} = raw as MatrixDataPoint;
+          return `${t(`categories.${rawData}`)}: ${v}`;
+        },
       },
     },
   },
