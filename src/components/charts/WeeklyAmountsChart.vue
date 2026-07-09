@@ -38,6 +38,7 @@ const chartData = computed(() => {
         data,
         borderColor: COLORS.chartColorsAlternate[2],
         backgroundColor: COLORS.chartColorsAlternate[2],
+        tension: 0.4,
       },
     ],
     labels: props.weekData.labels,
