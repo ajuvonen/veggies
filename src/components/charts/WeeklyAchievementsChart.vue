@@ -2,28 +2,24 @@
 import {computed, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-} from 'chart.js';
+import {groupByProp} from 'remeda';
+import {Chart as ChartJS, type ScaleOptions, type ScriptableContext} from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import type {MatrixDataPoint} from 'chartjs-chart-matrix';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
+import {useAvailableWeeklyAchievements} from '@/hooks/availableWeeklyAchievements';
 import {useActivityStore} from '@/stores/activityStore';
-import {type WeeklyChartData, AchievementLevel, type WeeklyAchievements} from '@/types';
-import {COLORS} from '@/utils/constants';
+import {type WeeklyChartData, AchievementLevel} from '@/types';
+import {WEEKLY_ACHIEVEMENT_EMOJI} from '@/utils/constants';
 
-ChartJS.defaults.font.family = 'Nunito';
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartDataLabels);
+ChartJS.register(ChartDataLabels);
 
 const props = defineProps<{
   weekData: WeeklyChartData;
 }>();
 
+const {availableWeeklyAchievements} = useAvailableWeeklyAchievements();
 const {weeklyAchievements, veggiesForWeek} = storeToRefs(useActivityStore());
 const {t} = useI18n();
 
@@ -31,81 +27,105 @@ const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {
-  const data = props.weekData.weekStarts.map((weekStart, index) => {
-    const achievements = weeklyAchievements.value(veggiesForWeek.value(weekStart), weekStart);
-    const items = (Object.entries(achievements) as [keyof WeeklyAchievements, AchievementLevel][])
-      .filter(([, level]) => level >= AchievementLevel.Gold)
-      .map(([key, level]) => {
-        const translationParams = [];
-        if (key === 'thirtyVeggies') {
-          const veggieCount = level === AchievementLevel.Platinum ? 40 : 30;
-          translationParams.push(veggieCount);
-        }
-        return t(`achievements.${key}.badgeText`, translationParams);
-      });
+  const data: MatrixDataPoint[] = [];
 
-    return {
-      x: props.weekData.labels[index],
-      y: items.length,
-      items,
-    };
+  props.weekData.weekStarts.forEach((weekStart, weekIndex) => {
+    const achievements = weeklyAchievements.value(veggiesForWeek.value(weekStart), weekStart);
+
+    availableWeeklyAchievements.value.forEach((achievement) => {
+      const earned = achievements[achievement] >= AchievementLevel.Gold;
+      data.push({
+        x: props.weekData.labels[weekIndex],
+        y: WEEKLY_ACHIEVEMENT_EMOJI[achievement],
+        v: earned ? 1 : 0,
+        rawData: achievement,
+        weekIndex,
+      });
+    });
   });
 
   return {
     datasets: [
       {
         data,
-        borderColor: COLORS.chartColorsAlternate[2],
-        backgroundColor: COLORS.chartColorsAlternate[2],
+        backgroundColor: 'transparent',
+        width: ({chart}: ScriptableContext<'matrix'>) =>
+          chart.chartArea.width / props.weekData.weekStarts.length - 1,
+        height: ({chart}: ScriptableContext<'matrix'>) =>
+          chart.chartArea.height / availableWeeklyAchievements.value.length - 1,
       },
     ],
     accessibleData: {
-      data: data.map(({items}) => items.join(', ') || t('stats.noWeeklyAchievements')),
+      rowHeaders: availableWeeklyAchievements.value.map((achievement) => {
+        const translationProps = achievement === 'thirtyVeggies' ? [30] : [];
+        return t(`achievements.${achievement}.badgeText`, translationProps);
+      }),
+      data: Object.values(groupByProp(data, 'rawData')).map((items) =>
+        items.map(({v}) => (v === 1 ? t('stats.earned') : t('stats.notEarned'))),
+      ),
     },
   };
 });
 
-const {chartOptions} = useChartOptions<'line'>(true, false, false, {
-  scales: {
-    y: {
-      min: 0,
-      max: 8,
+const yScale: ScaleOptions = {
+  type: 'category',
+  offset: true,
+  ticks: {
+    font: {
+      size: 25,
     },
   },
-  plugins: {
-    tooltip: {
-      yAlign,
-      xAlign,
-      callbacks: {
-        title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
-        label: ({raw}) => {
-          const {items} = raw as {x: string; y: number; items: string[]};
-          if (items.length === 0) {
-            return t('stats.noWeeklyAchievements');
-          }
-          return items;
+  grid: {
+    display: false,
+  },
+};
+
+const {chartOptions} = useChartOptions<'matrix'>(
+  true,
+  false,
+  false,
+  computed(() => ({
+    normalized: false,
+    scales: {
+      x: {
+        type: 'category',
+        labels: props.weekData.labels,
+        grid: {
+          display: false,
+        },
+      },
+      y: yScale,
+      y1: yScale,
+    },
+    plugins: {
+      tooltip: {
+        xAlign,
+        yAlign,
+        callbacks: {
+          title: ([tooltip]) => {
+            const {weekIndex} = tooltip.raw as MatrixDataPoint;
+            return props.weekData.weekStrings[weekIndex];
+          },
+          label: ({raw}) => {
+            const {rawData, v} = raw as MatrixDataPoint;
+            const translationProps = rawData === 'thirtyVeggies' ? [30] : [];
+            return `${t(`achievements.${rawData}.badgeText`, translationProps)}: ${v === 0 ? t('stats.notEarned') : t('stats.earned')}`;
+          },
+        },
+      },
+      datalabels: {
+        display: ({dataset, dataIndex}) => {
+          const {v} = dataset.data[dataIndex] as MatrixDataPoint;
+          return v === 1;
+        },
+        formatter: () => '🏅',
+        font: {
+          size: 25,
         },
       },
     },
-    datalabels: {
-      display: true,
-      font: {
-        size: 25,
-      },
-      formatter: ({items}) => {
-        if (items.length >= 1) {
-          return '🏅';
-        }
-        return '';
-      },
-    },
-  },
-  elements: {
-    point: {
-      hitRadius: 15,
-    },
-  },
-});
+  })),
+);
 
 defineExpose({chartData});
 </script>
@@ -115,18 +135,19 @@ defineExpose({chartData});
       :style="{width: `max(100%, ${weekData.weekStarts.length * 60}px)`}"
       class="relative h-full"
     >
-      <Line
+      <HeatmapChart
         id="weekly-achievements-chart"
         :options="chartOptions"
-        :data="chartData as any"
+        :data="chartData"
         :aria-label="$t('stats.weeklyAchievements')"
         :aria-description="$t('general.seeTableBelow')"
         data-test-id="weekly-achievements-chart"
       />
     </div>
-    <SimpleScreenReaderTable
+    <MatrixScreenReaderTable
       :title="$t('stats.weeklyAchievements')"
       :columnHeaders="weekData.labels"
+      :rowHeaders="chartData.accessibleData.rowHeaders"
       :data="chartData.accessibleData.data"
       data-test-id="weekly-achievements-table"
     />

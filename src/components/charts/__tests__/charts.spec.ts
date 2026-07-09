@@ -10,6 +10,7 @@ import {
   VEGETABLES,
   BOTANICAL_BERRIES,
   CITRUSES,
+  NUTS,
 } from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import {getWeekStart} from '@/utils/helpers';
@@ -311,20 +312,48 @@ describe('charts', () => {
 
     const {accessibleData, datasets} = wrapper.vm.chartData;
     expect(datasets).toHaveLength(1);
-    expect(datasets[0].data).toHaveLength(3);
+    expect(datasets[0].data).toMatchSnapshot();
+    expect(accessibleData.rowHeaders).toHaveLength(8);
+    expect(accessibleData.data).toHaveLength(8); // 8 achievements
+    expect(accessibleData.data[0]).toHaveLength(3); // 3 weeks per achievement
+  });
 
-    expect(datasets[0].data[0].x).toBe(labelProps[0]);
-    expect(datasets[0].data[0].y).toBe(1);
-    expect(datasets[0].data[0].items).toHaveLength(1);
+  it('hides achievements for allergenic veggies in WeeklyAchievementsChart', () => {
+    appStateStore.settings.startDate = twoWeeksAgo;
+    appStateStore.settings.allergens = Array.from(NUTS);
 
-    expect(datasets[0].data[1].x).toBe(labelProps[1]);
-    expect(datasets[0].data[1].y).toBe(2);
-    expect(datasets[0].data[1].items).toHaveLength(2);
+    activityStore.weeks = [
+      {
+        startDate: twoWeeksAgo,
+        veggies: [],
+        challenge: 'chives',
+      },
+      {
+        startDate: lastWeek,
+        veggies: [],
+        challenge: 'garlic',
+      },
+      {
+        startDate: thisWeek,
+        veggies: [],
+        challenge: 'raspberry',
+      },
+    ];
 
-    expect(datasets[0].data[2].x).toBe(labelProps[2]);
-    expect(datasets[0].data[2].y).toBe(0);
-    expect(datasets[0].data[2].items).toEqual([]);
+    const wrapper = mount(WeeklyAchievementsChart, {
+      props: {
+        weekData: {
+          weekStarts: weekStartProps,
+          labels: labelProps,
+          weekStrings: weekStringProps,
+        },
+      },
+    });
 
-    expect(accessibleData.data).toEqual(['"Berries"', '"Berries", Lemons', 'No achievements']);
+    const {accessibleData, datasets} = wrapper.vm.chartData;
+    expect(accessibleData.rowHeaders).toHaveLength(7);
+    expect(accessibleData.data).toHaveLength(7);
+    expect(accessibleData.rowHeaders.every((header) => header !== 'Go nuts')).toBe(true);
+    expect(datasets[0].data.every((point) => point.rawData !== 'goNuts')).toBe(true);
   });
 });
