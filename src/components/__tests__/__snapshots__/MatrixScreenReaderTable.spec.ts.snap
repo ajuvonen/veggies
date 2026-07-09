@@ -5,7 +5,7 @@ exports[`MatrixScreenReaderTable > draws a complete table with row headers and m
   <caption>Spotty data</caption>
   <thead>
     <tr>
-      <td></td>
+      <th></th>
       <th>1</th>
       <th>2</th>
       <th>3</th>
@@ -45,7 +45,7 @@ exports[`MatrixScreenReaderTable > mounts with row headers 1`] = `
   <caption>Amount of veggies</caption>
   <thead>
     <tr>
-      <td></td>
+      <th></th>
       <th>Fruits</th>
       <th>Grains</th>
       <th>Leafy Greens</th>
