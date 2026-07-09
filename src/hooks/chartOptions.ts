@@ -83,6 +83,7 @@ export function useChartOptions<T extends ChartType>(
                       value ? CATEGORY_EMOJI[label as Category] : '',
                   }
                 : {
+                    color: textColor.value,
                     display: false,
                   }),
             },
