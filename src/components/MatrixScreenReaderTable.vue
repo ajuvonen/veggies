@@ -15,7 +15,7 @@ defineProps<{
     </caption>
     <thead>
       <tr>
-        <td v-if="rowHeaders.length"></td>
+        <th />
         <th v-for="header in columnHeaders" :key="header">{{ header }}</th>
       </tr>
     </thead>
