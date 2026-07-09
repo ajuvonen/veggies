@@ -1,5 +1,5 @@
 import type {InjectionKey, Ref} from 'vue';
-import {Category, type Locale, type Settings} from '@/types';
+import {Category, type Locale, type Settings, type WeeklyAchievements} from '@/types';
 
 export const APP_URL = 'https://eatyourveggies.app';
 
@@ -34,6 +34,17 @@ export const KEYS = {
 } as const;
 
 export const LOCALES = ['en', 'fi'] as const satisfies readonly Locale[];
+
+export const WEEKLY_ACHIEVEMENT_EMOJI = {
+  allOnRed: '♥️',
+  botanicalBerries: '🍅',
+  goNuts: '🥜',
+  lemons: '🍋',
+  overachiever: '💪',
+  rainbow: '🌈',
+  tearnado: '🧅',
+  thirtyVeggies: '🎉',
+} as const satisfies Record<keyof WeeklyAchievements, string>;
 
 export const COLORS = {
   chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49', '#0B1623'],

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
-import {CATEGORY_EMOJI} from '@/utils/constants';
+import {CATEGORY_EMOJI, WEEKLY_ACHIEVEMENT_EMOJI} from '@/utils/constants';
 import {AchievementLevel, type Achievements} from '@/types';
 
 const props = withDefaults(
@@ -39,13 +39,13 @@ const badgeProps: BadgeProps = {
   allOnRed: {
     [AchievementLevel.Gold]: {
       textProps: [10],
-      emoji: '♥️',
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.allOnRed,
     },
   },
   botanicalBerries: {
     [AchievementLevel.Gold]: {
       textProps: [15],
-      emoji: '🍅',
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.botanicalBerries,
     },
   },
   challengeAccepted: {
@@ -135,19 +135,19 @@ const badgeProps: BadgeProps = {
   goNuts: {
     [AchievementLevel.Gold]: {
       textProps: [5],
-      emoji: '🥜',
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.goNuts,
     },
   },
   lemons: {
     [AchievementLevel.Gold]: {
       textProps: [5],
-      emoji: '🍋',
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.lemons,
     },
   },
   overachiever: {
     [AchievementLevel.Gold]: {
       textProps: [30],
-      emoji: '💪',
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.overachiever,
     },
   },
   hotStreak: {
@@ -167,19 +167,19 @@ const badgeProps: BadgeProps = {
   rainbow: {
     [AchievementLevel.Gold]: {
       textProps: [3],
-      emoji: '🌈',
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.rainbow,
     },
   },
   tearnado: {
     [AchievementLevel.Gold]: {
       textProps: [5],
-      emoji: '🧅',
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.tearnado,
     },
   },
   thirtyVeggies: {
     [AchievementLevel.Gold]: {
       textProps: [30],
-      emoji: '🎉',
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.thirtyVeggies,
     },
     [AchievementLevel.Platinum]: {
       textProps: [40],
