@@ -15,9 +15,9 @@ export const BUILD_TIME = __VITE_BUILD_TIME__;
 export const MINIMUM_MIGRATION_VERSION = 1;
 export const CURRENT_MIGRATION_VERSION = 4;
 
-export const DEFAULT_LOCALE = 'en' satisfies Locale;
+export const DEFAULT_LOCALE = 'en' as const satisfies Locale;
 
-export const DEFAULT_SETTINGS = {
+export const DEFAULT_SETTINGS: Settings = {
   AIAllowed: null,
   allergens: [] as string[],
   locale: DEFAULT_LOCALE,
@@ -27,13 +27,13 @@ export const DEFAULT_SETTINGS = {
   startDate: null,
   suggestionCount: 10,
   summaryViewedDate: null,
-} as const satisfies Settings;
+};
 
 export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
 } as const;
 
-export const LOCALES = ['en', 'fi'] as const satisfies readonly Locale[];
+export const LOCALES = ['en', 'fi'] as const satisfies ReadonlyArray<Locale>;
 
 export const WEEKLY_ACHIEVEMENT_EMOJI = {
   allOnRed: '♥️',

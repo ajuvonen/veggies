@@ -8,12 +8,12 @@ defineProps<{
 
 const {availableWeeklyAchievements} = useAvailableWeeklyAchievements();
 
-const standardAchievements: Readonly<(keyof Achievements)[]> = [
+const standardAchievements = [
   'completionist',
   'challengeAccepted',
   'committed',
   'hotStreak',
-];
+] as const satisfies ReadonlyArray<keyof Achievements>;
 </script>
 <template>
   <ContentElement
