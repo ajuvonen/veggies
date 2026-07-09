@@ -25,18 +25,20 @@ const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {
+  const data: MatrixDataPoint[] = props.weekData.weekStarts.flatMap((weekStart, weekIndex) => {
+    const veggies = veggiesForWeek.value(weekStart);
+    return Object.values(Category).map((category) => ({
+      x: props.weekData.labels[weekIndex],
+      y: CATEGORY_EMOJI[category],
+      v: veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length,
+      rawData: category,
+      weekIndex,
+    }));
+  });
+
   const datasets = [
     {
-      data: props.weekData.weekStarts.flatMap((weekStart, weekIndex) => {
-        const veggies = veggiesForWeek.value(weekStart);
-        return Object.values(Category).map((category) => ({
-          x: props.weekData.labels[weekIndex],
-          y: CATEGORY_EMOJI[category],
-          v: veggies.filter((veggie) => getCategoryForVeggie(veggie) === category).length,
-          rawData: category,
-          weekIndex,
-        }));
-      }),
+      data,
       backgroundColor: ({dataset, dataIndex}: ScriptableContext<'matrix'>) => {
         const value = dataset.data[dataIndex]?.v ?? 0;
         // Scale from 0 (opacity 10) to 6+ (opacity FF)
@@ -55,7 +57,7 @@ const chartData = computed(() => {
     datasets,
     accessibleData: {
       rowHeaders: Object.values(Category).map((category) => t(`categories.${category}`)),
-      data: Object.values(groupByProp(datasets[0]!.data, 'rawData')).map((items) =>
+      data: Object.values(groupByProp(data, 'rawData')).map((items) =>
         items.map(({v}) => `${Math.round(((v || 0) / 6) * 100)} %`),
       ),
     },
@@ -76,36 +78,41 @@ const yScale: ScaleOptions = {
   },
 };
 
-const {chartOptions} = useChartOptions<'matrix'>(true, false, false, {
-  normalized: false,
-  scales: {
-    x: {
-      type: 'category',
-      labels: props.weekData.labels,
-      grid: {
-        display: false,
-      },
-    },
-    y: yScale,
-    y1: yScale,
-  },
-  plugins: {
-    tooltip: {
-      xAlign,
-      yAlign,
-      callbacks: {
-        title: ([{raw}]) => {
-          const {weekIndex} = raw as MatrixDataPoint;
-          return props.weekData.weekStrings[weekIndex];
-        },
-        label: ({raw}) => {
-          const {v, rawData} = raw as MatrixDataPoint;
-          return `${t(`categories.${rawData}`)}: ${v}`;
+const {chartOptions} = useChartOptions<'matrix'>(
+  true,
+  false,
+  false,
+  computed(() => ({
+    normalized: false,
+    scales: {
+      x: {
+        type: 'category',
+        labels: props.weekData.labels,
+        grid: {
+          display: false,
         },
       },
+      y: yScale,
+      y1: yScale,
     },
-  },
-});
+    plugins: {
+      tooltip: {
+        xAlign,
+        yAlign,
+        callbacks: {
+          title: ([{raw}]) => {
+            const {weekIndex} = raw as MatrixDataPoint;
+            return props.weekData.weekStrings[weekIndex];
+          },
+          label: ({raw}) => {
+            const {v, rawData} = raw as MatrixDataPoint;
+            return `${t(`categories.${rawData}`)}: ${v}`;
+          },
+        },
+      },
+    },
+  })),
+);
 
 defineExpose({chartData});
 </script>

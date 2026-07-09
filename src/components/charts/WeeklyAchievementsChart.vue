@@ -27,21 +27,15 @@ const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {
-  const data: MatrixDataPoint[] = [];
-
-  props.weekData.weekStarts.forEach((weekStart, weekIndex) => {
+  const data: MatrixDataPoint[] = props.weekData.weekStarts.flatMap((weekStart, weekIndex) => {
     const achievements = weeklyAchievements.value(veggiesForWeek.value(weekStart), weekStart);
-
-    availableWeeklyAchievements.value.forEach((achievement) => {
-      const earned = achievements[achievement] >= AchievementLevel.Gold;
-      data.push({
-        x: props.weekData.labels[weekIndex],
-        y: WEEKLY_ACHIEVEMENT_EMOJI[achievement],
-        v: earned ? 1 : 0,
-        rawData: achievement,
-        weekIndex,
-      });
-    });
+    return availableWeeklyAchievements.value.map((achievement) => ({
+      x: props.weekData.labels[weekIndex],
+      y: WEEKLY_ACHIEVEMENT_EMOJI[achievement],
+      v: achievements[achievement] >= AchievementLevel.Gold ? 1 : 0,
+      rawData: achievement,
+      weekIndex,
+    }));
   });
 
   return {

@@ -62,41 +62,45 @@ const chartData = computed(() => {
   };
 });
 
-const {chartOptions} = useChartOptions<'polarArea'>(false, false, false, {
-  plugins: {
-    tooltip: {
-      callbacks: {
-        title: ([{label}]) => t(`categories.${label}`),
-        label: ({formattedValue}) => t('veggieList.chartLabel', [formattedValue]),
-      },
-    },
-    datalabels: {
-      display: true,
-      color: getComputedStyle(document.documentElement).getPropertyValue('--color-text'),
-      formatter: (value) => `${value} %`,
-      anchor: 'end',
-      align: 'end',
-    },
-  },
-  scales: {
-    r: {
-      beginAtZero: true,
-      max: Math.max(...chartData.value.datasets[0].data) + 20,
-      ticks: {
-        count: 5,
-        display: false,
-      },
-      pointLabels: {
-        display: true,
-        centerPointLabels: true,
-        font: {
-          size: 25,
+const {chartOptions} = useChartOptions<'polarArea'>(
+  false,
+  false,
+  false,
+  computed(() => ({
+    plugins: {
+      tooltip: {
+        callbacks: {
+          title: ([{label}]) => t(`categories.${label}`),
+          label: ({formattedValue}) => t('veggieList.chartLabel', [formattedValue]),
         },
-        callback: (value) => CATEGORY_EMOJI[value as Category],
+      },
+      datalabels: {
+        display: true,
+        formatter: (value) => `${value} %`,
+        anchor: 'end',
+        align: 'end',
       },
     },
-  },
-});
+    scales: {
+      r: {
+        beginAtZero: true,
+        max: Math.max(...chartData.value.datasets[0].data) + 20,
+        ticks: {
+          count: 5,
+          display: false,
+        },
+        pointLabels: {
+          display: true,
+          centerPointLabels: true,
+          font: {
+            size: 25,
+          },
+          callback: (value) => CATEGORY_EMOJI[value as Category],
+        },
+      },
+    },
+  })),
+);
 
 defineExpose({chartData});
 </script>
