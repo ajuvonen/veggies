@@ -95,15 +95,20 @@ const {chartOptions} = useChartOptions<'matrix'>(
       tooltip: {
         xAlign,
         yAlign,
+        filter: ({dataset, dataIndex}) => {
+          const {v} = dataset.data[dataIndex] as MatrixDataPoint;
+          return v === 1;
+        },
         callbacks: {
           title: ([tooltip]) => {
+            if (!tooltip) return undefined;
             const {weekIndex} = tooltip.raw as MatrixDataPoint;
             return props.weekData.weekStrings[weekIndex];
           },
           label: ({raw}) => {
-            const {rawData, v} = raw as MatrixDataPoint;
+            const {rawData} = raw as MatrixDataPoint;
             const translationProps = rawData === 'thirtyVeggies' ? [30] : [];
-            return `${t(`achievements.${rawData}.badgeText`, translationProps)}: ${v === 0 ? t('stats.notEarned') : t('stats.earned')}`;
+            return `${t(`achievements.${rawData}.badgeText`, translationProps)}: ${t('stats.earned').toLowerCase()}`;
           },
         },
       },
