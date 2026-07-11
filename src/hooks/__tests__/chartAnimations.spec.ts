@@ -23,7 +23,7 @@ describe('chartAnimations', () => {
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
+    vi.resetAllMocks();
   });
 
   it('returns chart animations from store', () => {

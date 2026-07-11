@@ -38,6 +38,7 @@ describe('LogView', () => {
   enableAutoUnmount(afterEach);
   afterEach(() => {
     vi.useRealTimers();
+    vi.resetAllMocks();
     vi.restoreAllMocks();
   });
 

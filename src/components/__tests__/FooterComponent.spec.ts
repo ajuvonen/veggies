@@ -1,9 +1,13 @@
-import {describe, it, expect, vi} from 'vitest';
+import {describe, it, expect, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {BLUESKY_URL, PLAY_STORE_URL} from '@/utils/constants';
 import FooterComponent from '@/components/FooterComponent.vue';
 
 describe('FooterComponent', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   it('renders', () => {
     const wrapper = mount(FooterComponent);
     expect(wrapper.html()).toMatchSnapshot();
@@ -49,7 +53,6 @@ describe('FooterComponent', () => {
       expect(wrapper.findByTestId('bluesky-link').exists()).toBe(true);
       expect(wrapper.findByTestId('play-store-link').exists()).toBe(false);
     } finally {
-      vi.unstubAllGlobals();
       Object.defineProperty(navigator, 'userAgent', {
         value: originalNavigator,
         configurable: true,

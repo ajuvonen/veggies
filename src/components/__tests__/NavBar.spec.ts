@@ -16,7 +16,7 @@ vi.mock('vue-router', async () => {
 
 describe('NavBar', () => {
   afterEach(() => {
-    vi.restoreAllMocks();
+    vi.resetAllMocks();
   });
 
   it('renders for home', async () => {
