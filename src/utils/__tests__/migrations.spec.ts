@@ -1,4 +1,4 @@
-import {describe, it, expect, vi} from 'vitest';
+import {describe, it, expect, vi, afterEach} from 'vitest';
 import {
   CURRENT_MIGRATION_VERSION,
   DEFAULT_SETTINGS,
@@ -271,6 +271,10 @@ describe('writeStorageData', () => {
 });
 
 describe('runMigrations', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('does not run when fromVersion equals toVersion', async () => {
     const initialData = {
       ...dataV1.settings,
@@ -284,9 +288,6 @@ describe('runMigrations', () => {
 
     expect(getItemSpy).not.toHaveBeenCalled();
     expect(setItemSpy).not.toHaveBeenCalled();
-
-    getItemSpy.mockRestore();
-    setItemSpy.mockRestore();
 
     const stored = JSON.parse(localStorage.getItem('veggies-settings')!, dateParser);
     expect(stored).toEqual(initialData);
@@ -305,9 +306,6 @@ describe('runMigrations', () => {
 
     expect(getItemSpy).not.toHaveBeenCalled();
     expect(setItemSpy).not.toHaveBeenCalled();
-
-    getItemSpy.mockRestore();
-    setItemSpy.mockRestore();
 
     const stored = JSON.parse(localStorage.getItem('veggies-settings')!, dateParser);
     expect(stored).toEqual(initialData);

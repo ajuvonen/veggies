@@ -1,8 +1,12 @@
-import {describe, it, expect, vi} from 'vitest';
+import {describe, it, expect, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import ScreenTestComponent from '@/test-utils/ScreenTestComponent.vue';
 
 describe('screen', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('detects window resizes', async () => {
     const wrapper = mount(ScreenTestComponent);
     expect(wrapper.vm.visualHeight).toBe(window.innerHeight);
@@ -32,6 +36,5 @@ describe('screen', () => {
 
     const wrapper = mount(ScreenTestComponent);
     expect(wrapper.vm.maxHeight).toBe(window.innerHeight - 100);
-    vi.restoreAllMocks();
   });
 });

@@ -28,7 +28,7 @@ describe('SettingsView', () => {
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
+    vi.resetAllMocks();
   });
 
   it('renders', () => {

@@ -24,7 +24,7 @@ describe('ToastContainer', () => {
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
+    vi.resetAllMocks();
   });
 
   it('shows toast message', async () => {
