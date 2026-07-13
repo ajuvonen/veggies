@@ -1,8 +1,8 @@
 import {computed, toValue, type MaybeRefOrGetter} from 'vue';
 import {mergeDeep} from 'remeda';
 import type {ChartOptions, ChartType, Scale} from 'chart.js';
-import {useCssVar} from '@vueuse/core';
 import {useChartAnimations} from '@/hooks/chartAnimations';
+import {useCssColors} from '@/hooks/cssColors';
 import {CATEGORY_EMOJI} from '@/utils/constants';
 import type {Category} from '@/types';
 
@@ -13,8 +13,7 @@ export function useChartOptions<T extends ChartType>(
   overrides: MaybeRefOrGetter<Partial<ChartOptions<T>>>,
 ) {
   const {showChartAnimations} = useChartAnimations();
-  const textColor = useCssVar('--color-text');
-  const uiDarkColor = useCssVar('--color-ui-dark');
+  const [textColor, uiDarkColor] = useCssColors(['--color-text', '--color-ui-dark']);
   const chartOptions = computed(
     () =>
       mergeDeep(
