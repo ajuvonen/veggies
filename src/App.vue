@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import {defineAsyncComponent, watch, watchEffect} from 'vue';
+import {defineAsyncComponent, watchEffect} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {useRoute} from 'vue-router';
 import {useRegisterSW} from 'virtual:pwa-register/vue';
-import {onKeyStroke, useEventListener, usePreferredDark} from '@vueuse/core';
+import {onKeyStroke, useEventListener} from '@vueuse/core';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {useCssColors} from '@/hooks/cssColors';
 import {LOCALES} from '@/utils/constants';
 
 const ToastContainer = defineAsyncComponent(() => import('@/components/ToastContainer.vue'));
@@ -16,7 +17,7 @@ const {t, locale, setLocaleMessage} = useI18n();
 
 const route = useRoute();
 
-const isDark = usePreferredDark();
+const [themeColor] = useCssColors(['--color-theme']);
 
 useEventListener('touchstart', () => document.body.setAttribute('data-input', 'touch'), {
   passive: true,
@@ -56,20 +57,9 @@ watchEffect(() => {
   }
 });
 
-watch(
-  isDark,
-  () => {
-    try {
-      const highlightColor = getComputedStyle(document.documentElement).getPropertyValue(
-        '--color-theme',
-      );
-      document.querySelector('[name="theme-color"]')?.setAttribute('content', highlightColor);
-    } catch (e) {
-      console.error(e);
-    }
-  },
-  {immediate: true},
-);
+watchEffect(() => {
+  document.querySelector('[name="theme-color"]')?.setAttribute('content', themeColor.value);
+});
 </script>
 
 <template>
