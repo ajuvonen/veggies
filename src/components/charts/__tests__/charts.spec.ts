@@ -1,4 +1,4 @@
-import {describe, it, expect, beforeEach} from 'vitest';
+import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {take, makeWeekString} from '@/test-utils';
 import {
@@ -281,31 +281,38 @@ describe('charts', () => {
   });
 
   it('prepares data for WeeklyAchievementsChart', () => {
-    appStateStore.settings.startDate = twoWeeksAgo;
+    const week1 = Temporal.PlainDate.from('2026-06-22');
+    const week2 = week1.add({weeks: 1});
+    const week3 = week2.add({weeks: 1});
+    appStateStore.settings.startDate = week1;
     activityStore.weeks = [
       {
-        startDate: twoWeeksAgo,
+        startDate: week1,
         veggies: take(BOTANICAL_BERRIES, 15),
         challenge: 'cucumber',
       },
       {
-        startDate: lastWeek,
+        startDate: week2,
         veggies: [...take(BOTANICAL_BERRIES, 15), ...take(CITRUSES, 5)],
         challenge: 'lychee',
       },
       {
-        startDate: thisWeek,
+        startDate: week3,
         veggies: [],
         challenge: 'pineapple',
       },
     ];
 
+    const heatmapWeeks = [week1, week2, week3];
+    const heatmapLabels = heatmapWeeks.map((w) => `${w.weekOfYear}/${w.yearOfWeek}`);
+    const heatmapWeekStrings = heatmapWeeks.map(makeWeekString);
+
     const wrapper = mount(WeeklyAchievementsChart, {
       props: {
         weekData: {
-          weekStarts: weekStartProps,
-          labels: labelProps,
-          weekStrings: weekStringProps,
+          weekStarts: heatmapWeeks,
+          labels: heatmapLabels,
+          weekStrings: heatmapWeekStrings,
         },
       },
     });
