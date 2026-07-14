@@ -7,7 +7,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {type WeeklyChartData} from '@/types';
-import {COLORS} from '@/utils/constants';
+import {CHART_COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useActivityStore} from '@/stores/activityStore';
 import {Category} from '@/types';
@@ -35,7 +35,14 @@ const chartData = computed(() => {
           .value(weekStart)
           .filter((veggie) => getCategoryForVeggie(veggie) === category).length,
     ),
-    backgroundColor: COLORS.chartColorsAlternate[index],
+    backgroundColor: CHART_COLORS[index],
+    borderColor: '#fff',
+    borderWidth: {
+      top: 0,
+      left: 2,
+      right: 2,
+      bottom: 0,
+    },
   }));
 
   return {

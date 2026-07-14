@@ -9,7 +9,7 @@ import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
 import {type WeeklyChartData} from '@/types';
-import {CATEGORY_EMOJI, COLORS} from '@/utils/constants';
+import {CATEGORY_EMOJI, CHART_COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {Category} from '@/types';
 
@@ -39,12 +39,12 @@ const chartData = computed(() => {
   const datasets = [
     {
       data,
-      backgroundColor: ({dataset, dataIndex}: ScriptableContext<'matrix'>) => {
-        const value = dataset.data[dataIndex]?.v ?? 0;
+      backgroundColor: ({raw}: ScriptableContext<'matrix'>) => {
+        const value = (raw as MatrixDataPoint).v ?? 0;
         // Scale from 0 (opacity 10) to 6+ (opacity FF)
         const opacityDecimal = Math.min(16 + Math.round((value * 239) / 6), 255);
         const opacityHex = opacityDecimal.toString(16).toUpperCase().padStart(2, '0');
-        return COLORS.chartColorsAlternate[2] + opacityHex;
+        return CHART_COLORS[4] + opacityHex;
       },
       width: ({chart}: ScriptableContext<'matrix'>) =>
         chart.chartArea.width / props.weekData.weekStarts.length - 1,

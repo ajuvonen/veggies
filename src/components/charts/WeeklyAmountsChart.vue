@@ -15,7 +15,7 @@ import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useActivityStore} from '@/stores/activityStore';
 import {type WeeklyChartData} from '@/types';
-import {COLORS} from '@/utils/constants';
+import {CHART_COLORS} from '@/utils/constants';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
@@ -36,8 +36,8 @@ const chartData = computed(() => {
     datasets: [
       {
         data,
-        borderColor: COLORS.chartColorsAlternate[2],
-        backgroundColor: COLORS.chartColorsAlternate[2],
+        borderColor: CHART_COLORS[4],
+        backgroundColor: CHART_COLORS[4],
         tension: 0.4,
       },
     ],
@@ -58,7 +58,7 @@ const {chartOptions} = useChartOptions<'line'>(
         annotations: {
           mean: {
             type: 'line',
-            borderColor: COLORS.chartColorsAlternate[2],
+            borderColor: CHART_COLORS[6],
             borderDash: [2, 6],
             borderDashOffset: 0,
             borderWidth: 3,

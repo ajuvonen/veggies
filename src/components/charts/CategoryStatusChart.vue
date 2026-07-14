@@ -6,7 +6,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy, entries, pipe, prop, sortBy} from 'remeda';
 import {Category, type CategoryFavorites} from '@/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
-import {COLORS} from '@/utils/constants';
+import {CHART_COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useI18nWithCollator} from '@/hooks/i18n';
 import {useChartOptions} from '@/hooks/chartOptions';
@@ -48,9 +48,7 @@ const chartData = computed(() => {
     datasets: [
       {
         data,
-        backgroundColor: props.alternateColorScheme
-          ? COLORS.chartColorsAlternate
-          : COLORS.chartColors,
+        backgroundColor: props.alternateColorScheme ? CHART_COLORS : CHART_COLORS,
       },
     ],
     accessibleData: {
