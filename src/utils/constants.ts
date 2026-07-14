@@ -46,18 +46,15 @@ export const WEEKLY_ACHIEVEMENT_EMOJI = {
   thirtyVeggies: '🎉',
 } as const satisfies Record<keyof WeeklyAchievements, string>;
 
-export const COLORS = {
-  chartColors: ['#f0f9ff', '#bae6fd', '#38bdf8', '#0284c7', '#075985', '#082f49', '#0B1623'],
-  chartColorsAlternate: [
-    '#fdc5f5',
-    '#f7aef8',
-    '#b388eb',
-    '#8093f1',
-    '#79b8f4',
-    '#72ddf7',
-    '#bae6fd',
-  ],
-} as const;
+export const CHART_COLORS = [
+  '#0c3d66',
+  '#075985',
+  '#0369a1',
+  '#0284c7',
+  '#0ea5e9',
+  '#38bdf8',
+  '#7dd3fc',
+] as const;
 
 export const CATEGORY_EMOJI = {
   [Category.Fruit]: '🍎',

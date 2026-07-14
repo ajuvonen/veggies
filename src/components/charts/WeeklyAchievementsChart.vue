@@ -11,7 +11,7 @@ import {useChartOptions} from '@/hooks/chartOptions';
 import {useAvailableWeeklyAchievements} from '@/hooks/availableWeeklyAchievements';
 import {useActivityStore} from '@/stores/activityStore';
 import {type WeeklyChartData, AchievementLevel} from '@/types';
-import {WEEKLY_ACHIEVEMENT_EMOJI} from '@/utils/constants';
+import {CHART_COLORS, WEEKLY_ACHIEVEMENT_EMOJI} from '@/utils/constants';
 
 ChartJS.register(ChartDataLabels);
 
@@ -42,7 +42,12 @@ const chartData = computed(() => {
     datasets: [
       {
         data,
-        backgroundColor: 'transparent',
+        backgroundColor: ({raw}: ScriptableContext<'matrix'>) => {
+          const value = (raw as MatrixDataPoint).v ?? 0;
+          const opacityDecimal = Math.round(128 + value * 127);
+          const opacityHex = opacityDecimal.toString(16).toUpperCase().padStart(2, '0');
+          return CHART_COLORS[4] + opacityHex;
+        },
         width: ({chart}: ScriptableContext<'matrix'>) =>
           chart.chartArea.width / props.weekData.weekStarts.length - 1,
         height: ({chart}: ScriptableContext<'matrix'>) =>

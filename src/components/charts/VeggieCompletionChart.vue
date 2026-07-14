@@ -6,7 +6,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {countBy} from 'remeda';
 import {Category} from '@/types';
 import {CATEGORY_EMOJI} from '@/utils/constants';
-import {COLORS} from '@/utils/constants';
+import {CHART_COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useChartOptions} from '@/hooks/chartOptions';
@@ -52,7 +52,7 @@ const chartData = computed(() => {
     datasets: [
       {
         data: veggies.map(([, percentage]) => percentage),
-        backgroundColor: COLORS.chartColorsAlternate,
+        backgroundColor: CHART_COLORS,
       },
     ],
     accessibleData: {
