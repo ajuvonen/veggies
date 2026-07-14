@@ -8,8 +8,9 @@ export function useCssColors(variables: string[]) {
   watch(
     isDark,
     () => {
+      const styles = getComputedStyle(document.documentElement);
       variables.forEach((name, index) => {
-        colors[index].value = getComputedStyle(document.documentElement).getPropertyValue(name);
+        colors[index].value = styles.getPropertyValue(name).trim();
       });
     },
     {immediate: true},
