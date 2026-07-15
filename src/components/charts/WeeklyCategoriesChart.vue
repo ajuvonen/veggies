@@ -11,6 +11,7 @@ import {CHART_COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useActivityStore} from '@/stores/activityStore';
 import {Category} from '@/types';
+import {countBy, groupBy} from 'remeda';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
@@ -27,22 +28,19 @@ const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
 
 const chartData = computed(() => {
+  const countsByWeek = props.weekData.weekStarts.map((weekStart) => {
+    const veggies = veggiesForWeek.value(weekStart);
+    const counts = countBy(veggies, getCategoryForVeggie);
+    return {counts, total: veggies.length};
+  });
+
   const datasets = Object.values(Category).map((category, index) => ({
     label: category,
-    data: props.weekData.weekStarts.map(
-      (weekStart) =>
-        veggiesForWeek
-          .value(weekStart)
-          .filter((veggie) => getCategoryForVeggie(veggie) === category).length,
-    ),
+    data: countsByWeek.map(({counts, total}) => {
+      const count = counts[category] ?? 0;
+      return total > 0 ? (count / total) * 100 : 0;
+    }),
     backgroundColor: CHART_COLORS[index],
-    borderColor: '#fff',
-    borderWidth: {
-      top: 0,
-      left: 2,
-      right: 2,
-      bottom: 0,
-    },
   }));
 
   return {
@@ -50,7 +48,7 @@ const chartData = computed(() => {
     labels: props.weekData.labels,
     accessibleData: {
       rowHeaders: datasets.map(({label}) => t(`categories.${label}`)),
-      data: datasets.map(({data}) => data),
+      data: datasets.map(({data}) => data.map((value) => `${Math.round(value)} %`)),
     },
   };
 });
@@ -60,9 +58,9 @@ const {chartOptions} = useChartOptions<'bar'>(
   true,
   true,
   computed(() => ({
-    layout: {
-      padding: {
-        right: 5,
+    scales: {
+      y: {
+        max: 100,
       },
     },
     plugins: {
@@ -71,8 +69,8 @@ const {chartOptions} = useChartOptions<'bar'>(
         yAlign,
         callbacks: {
           title: ([{dataIndex}]) => props.weekData.weekStrings[dataIndex],
-          label: ({dataset, formattedValue}) => {
-            return `${t(`categories.${dataset.label}`)}: ${formattedValue}`;
+          label: ({dataset, raw}) => {
+            return `${t(`categories.${dataset.label}`)}: ${Math.round(Number(raw))} %`;
           },
         },
       },
