@@ -95,13 +95,13 @@ describe('charts', () => {
     const {labels, accessibleData, datasets} = wrapper.vm.chartData;
     expect(labels).toEqual(labelProps);
     expect(accessibleData.data).toEqual([
-      [0, 0, 2],
-      [0, 0, 1],
-      [0, 0, 0],
-      [0, 1, 1],
-      [0, 1, 0],
-      [2, 0, 0],
-      [0, 0, 0],
+      ['0 %', '0 %', '50 %'],
+      ['0 %', '0 %', '25 %'],
+      ['0 %', '0 %', '0 %'],
+      ['0 %', '50 %', '25 %'],
+      ['0 %', '50 %', '0 %'],
+      ['100 %', '0 %', '0 %'],
+      ['0 %', '0 %', '0 %'],
     ]);
     expect(accessibleData.rowHeaders).toEqual([
       'Fruits And Berries',
@@ -114,19 +114,23 @@ describe('charts', () => {
     ]);
     expect(datasets).toHaveLength(7);
     expect(datasets[0].label).toBe('Fruit');
-    expect(datasets[0].data).toEqual([0, 0, 2]);
+    expect(datasets[0].data).toEqual([0, 0, 50]);
     expect(datasets[1].label).toBe('Vegetable');
-    expect(datasets[1].data).toEqual([0, 0, 1]);
+    expect(datasets[1].data).toEqual([0, 0, 25]);
     expect(datasets[2].label).toBe('Leafy');
     expect(datasets[2].data).toEqual([0, 0, 0]);
     expect(datasets[3].label).toBe('Root');
-    expect(datasets[3].data).toEqual([0, 1, 1]);
+    expect(datasets[3].data).toEqual([0, 50, 25]);
     expect(datasets[4].label).toBe('Bean');
-    expect(datasets[4].data).toEqual([0, 1, 0]);
+    expect(datasets[4].data).toEqual([0, 50, 0]);
     expect(datasets[5].label).toBe('Grain');
-    expect(datasets[5].data).toEqual([2, 0, 0]);
+    expect(datasets[5].data).toEqual([100, 0, 0]);
     expect(datasets[6].label).toBe('Mushroom');
     expect(datasets[6].data).toEqual([0, 0, 0]);
+    // Verify datasets sum to 100 per week
+    expect(datasets.reduce((sum, ds) => sum + (ds.data[0] || 0), 0)).toBe(100);
+    expect(datasets.reduce((sum, ds) => sum + (ds.data[1] || 0), 0)).toBe(100);
+    expect(datasets.reduce((sum, ds) => sum + (ds.data[2] || 0), 0)).toBe(100);
   });
 
   it('prepares data for WeeklyAmountsChart', () => {
