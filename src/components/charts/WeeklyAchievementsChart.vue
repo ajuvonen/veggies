@@ -9,9 +9,10 @@ import type {MatrixDataPoint} from 'chartjs-chart-matrix';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
 import {useAvailableWeeklyAchievements} from '@/hooks/availableWeeklyAchievements';
+import {useCssColors} from '@/hooks/cssColors';
 import {useActivityStore} from '@/stores/activityStore';
 import {type WeeklyChartData, AchievementLevel} from '@/types';
-import {CHART_COLORS, WEEKLY_ACHIEVEMENT_EMOJI} from '@/utils/constants';
+import {WEEKLY_ACHIEVEMENT_EMOJI} from '@/utils/constants';
 
 ChartJS.register(ChartDataLabels);
 
@@ -25,6 +26,7 @@ const {t} = useI18n();
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
+const [primaryColor] = useCssColors(['--color-primary']);
 
 const chartData = computed(() => {
   const data: MatrixDataPoint[] = props.weekData.weekStarts.flatMap((weekStart, weekIndex) => {
@@ -46,7 +48,7 @@ const chartData = computed(() => {
           const value = (raw as MatrixDataPoint).v ?? 0;
           const opacityDecimal = Math.round(128 + value * 127);
           const opacityHex = opacityDecimal.toString(16).toUpperCase().padStart(2, '0');
-          return CHART_COLORS[4] + opacityHex;
+          return primaryColor.value + opacityHex;
         },
         width: ({chart}: ScriptableContext<'matrix'>) =>
           chart.chartArea.width / props.weekData.weekStarts.length - 1,

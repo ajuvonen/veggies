@@ -7,9 +7,10 @@ import {type ScaleOptions, type ScriptableContext} from 'chart.js';
 import type {MatrixDataPoint} from 'chartjs-chart-matrix';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
+import {useCssColors} from '@/hooks/cssColors';
 import {useActivityStore} from '@/stores/activityStore';
 import {type WeeklyChartData} from '@/types';
-import {CATEGORY_EMOJI, CHART_COLORS} from '@/utils/constants';
+import {CATEGORY_EMOJI} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {Category} from '@/types';
 
@@ -23,6 +24,7 @@ const {veggiesForWeek} = storeToRefs(useActivityStore());
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
+const [primaryColor] = useCssColors(['--color-primary']);
 
 const chartData = computed(() => {
   const data: MatrixDataPoint[] = props.weekData.weekStarts.flatMap((weekStart, weekIndex) => {
@@ -44,7 +46,7 @@ const chartData = computed(() => {
         // Scale from 0 (opacity 10) to 6+ (opacity FF)
         const opacityDecimal = Math.min(16 + Math.round((value * 239) / 6), 255);
         const opacityHex = opacityDecimal.toString(16).toUpperCase().padStart(2, '0');
-        return CHART_COLORS[4] + opacityHex;
+        return primaryColor.value + opacityHex;
       },
       width: ({chart}: ScriptableContext<'matrix'>) =>
         chart.chartArea.width / props.weekData.weekStarts.length - 1,

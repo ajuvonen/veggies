@@ -13,6 +13,7 @@ import ChartAnnotation from 'chartjs-plugin-annotation';
 import {mean} from 'remeda';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
+import {useCssColors} from '@/hooks/cssColors';
 import {useActivityStore} from '@/stores/activityStore';
 import {type WeeklyChartData} from '@/types';
 import {CHART_COLORS} from '@/utils/constants';
@@ -28,6 +29,7 @@ const {veggiesForWeek} = storeToRefs(useActivityStore());
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
+const [primaryColor] = useCssColors(['--color-primary']);
 
 const chartData = computed(() => {
   const data = props.weekData.weekStarts.map((weekStart) => veggiesForWeek.value(weekStart).length);
@@ -36,8 +38,8 @@ const chartData = computed(() => {
     datasets: [
       {
         data,
-        borderColor: CHART_COLORS[4],
-        backgroundColor: CHART_COLORS[4],
+        borderColor: primaryColor.value,
+        backgroundColor: primaryColor.value,
         tension: 0.4,
       },
     ],
