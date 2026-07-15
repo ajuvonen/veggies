@@ -11,7 +11,7 @@ import {CHART_COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
 import {useActivityStore} from '@/stores/activityStore';
 import {Category} from '@/types';
-import {countBy, groupBy} from 'remeda';
+import {countBy} from 'remeda';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
