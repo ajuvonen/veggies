@@ -20,12 +20,10 @@ const props = withDefaults(
     categoryFavorites?: CategoryFavorites;
     topLabelKey?: string;
     bottomLabelKey?: string;
-    alternateColorScheme?: boolean;
   }>(),
   {
     topLabelKey: 'categoryStatus.topLabel',
     bottomLabelKey: 'categoryStatus.bottomLabel',
-    alternateColorScheme: false,
   },
 );
 
@@ -48,7 +46,7 @@ const chartData = computed(() => {
     datasets: [
       {
         data,
-        backgroundColor: props.alternateColorScheme ? CHART_COLORS : CHART_COLORS,
+        backgroundColor: CHART_COLORS,
       },
     ],
     accessibleData: {
