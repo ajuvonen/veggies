@@ -1,5 +1,5 @@
 import {useMemoize} from '@vueuse/core';
-import {sample} from 'remeda';
+import {mean, sample} from 'remeda';
 import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {CURRENT_MIGRATION_VERSION, DEFAULT_SETTINGS, LOCALES} from '@/utils/constants';
 import {AchievementLevel, Category} from '@/types';
@@ -84,6 +84,11 @@ const veggieEmojis: readonly string[] = [
   '🌰',
 ];
 export const getRandomEmojis = (amount: number = 1) => sample(veggieEmojis, amount);
+
+export const standardDeviation = (values: readonly number[]): number => {
+  const average = mean(values) ?? 0;
+  return Math.sqrt(mean(values.map((value) => (value - average) ** 2)) ?? 0);
+};
 
 export const achievementLevelHelper = (levels: [number, AchievementLevel][], value: number) =>
   levels.find(([threshold]) => value >= threshold)?.[1] ?? AchievementLevel.NoAchievement;

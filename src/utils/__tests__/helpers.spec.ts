@@ -13,6 +13,7 @@ import {
   getWeekStart,
   normalizeForSearch,
   setIntersection,
+  standardDeviation,
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Week} from '@/types';
 
@@ -208,6 +209,30 @@ describe('helpers', () => {
       expect(normalizeForSearch('machê')).toBe('mache');
       expect(normalizeForSearch('kookospähkinä')).toBe('kookospähkinä');
       expect(normalizeForSearch('blood grapefruit')).toBe('bloodgrapefruit');
+    });
+  });
+
+  describe('standardDeviation', () => {
+    it('returns 0 for empty array', () => {
+      expect(standardDeviation([])).toBe(0);
+    });
+
+    it('returns 0 for single value', () => {
+      expect(standardDeviation([5])).toBe(0);
+    });
+
+    it('returns 0 for identical values', () => {
+      expect(standardDeviation([3, 3, 3, 3])).toBe(0);
+    });
+
+    it('calculates population standard deviation correctly', () => {
+      const values = [2, 4, 4, 4, 5, 5, 7, 9];
+      expect(standardDeviation(values)).toBe(2);
+    });
+
+    it('returns positive value for negative data', () => {
+      const result = standardDeviation([-1, -5, -10, -15, -20]);
+      expect(result).toBeGreaterThan(0);
     });
   });
 
