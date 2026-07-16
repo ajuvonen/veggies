@@ -26,7 +26,10 @@ const {t} = useI18n();
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
-const [primaryColor] = useCssColors(['--color-primary']);
+const [primaryColor, primaryHoverColor] = useCssColors([
+  '--color-primary',
+  '--color-primary-hover',
+]);
 
 const chartData = computed(() => {
   const data: MatrixDataPoint[] = props.weekData.weekStarts.flatMap((weekStart, weekIndex) => {
@@ -46,10 +49,11 @@ const chartData = computed(() => {
         data,
         backgroundColor: ({raw}: ScriptableContext<'matrix'>) => {
           const value = (raw as MatrixDataPoint).v ?? 0;
-          const opacityDecimal = Math.round(128 + value * 127);
+          const opacityDecimal = Math.round(32 + value * 222);
           const opacityHex = opacityDecimal.toString(16).toUpperCase().padStart(2, '0');
           return primaryColor.value + opacityHex;
         },
+        hoverBackgroundColor: primaryHoverColor.value,
         width: ({chart}: ScriptableContext<'matrix'>) =>
           chart.chartArea.width / props.weekData.weekStarts.length - 1,
         height: ({chart}: ScriptableContext<'matrix'>) =>
