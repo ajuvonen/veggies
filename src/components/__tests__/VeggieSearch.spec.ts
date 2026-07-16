@@ -1,5 +1,5 @@
 import {describe, it, expect} from 'vitest';
-import {mount} from '@vue/test-utils';
+import {mount, flushPromises} from '@vue/test-utils';
 import {ComboboxViewport} from 'reka-ui';
 import {KEYS} from '@/utils/constants';
 import VeggieSearch from '@/components/VeggieSearch.vue';
@@ -213,5 +213,138 @@ describe('VeggieSearch', () => {
     expect(wrapper.findByTestId('veggie-search-input').attributes('placeholder')).toBe(
       'Add things',
     );
+  });
+
+  it('filters veggies using live composition text before compositionend', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    const element = input.element as HTMLInputElement;
+
+    await input.trigger('compositionstart');
+    element.value = 'cherry tomato';
+    await input.trigger('compositionupdate', {data: 'cherry tomato'});
+
+    const viewport = wrapper.getComponent(ComboboxViewport);
+    expect(viewport.findByText('.dropdown-list-option', 'cherry tomato').isVisible()).toBe(true);
+    expect(viewport.findAll('.dropdown-list-option').length).toBe(1);
+  });
+
+  it('updates results as composition text changes', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    const element = input.element as HTMLInputElement;
+
+    await input.trigger('compositionstart');
+    element.value = 'p';
+    await input.trigger('compositionupdate', {data: 'p'});
+    const viewport = wrapper.getComponent(ComboboxViewport);
+    let options = viewport.findAll('.dropdown-list-option');
+    const firstUpdate = options.length;
+    expect(firstUpdate).toBeGreaterThan(1);
+
+    element.value = 'pomelo';
+    await input.trigger('compositionupdate', {data: 'pomelo'});
+    options = viewport.findAll('.dropdown-list-option');
+    const secondUpdate = options.length;
+    expect(secondUpdate).toBe(1);
+    expect(viewport.findByText('.dropdown-list-option', 'pomelo').isVisible()).toBe(true);
+  });
+
+  it('keeps correct results once composition ends', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    const element = input.element as HTMLInputElement;
+
+    await input.trigger('compositionstart');
+    element.value = 'cherry tomato';
+    await input.trigger('compositionupdate', {data: 'cherry tomato'});
+    await input.trigger('compositionend');
+    await flushPromises();
+
+    const viewport = wrapper.getComponent(ComboboxViewport);
+    expect(viewport.findByText('.dropdown-list-option', 'cherry tomato').isVisible()).toBe(true);
+    expect(viewport.findAll('.dropdown-list-option').length).toBe(1);
+  });
+
+  it('shows clear button while composing', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    const element = input.element as HTMLInputElement;
+
+    await input.trigger('compositionstart');
+    element.value = 'cherry tomato';
+    await input.trigger('compositionupdate', {data: 'cherry tomato'});
+
+    const clearButton = wrapper.findByTestId('veggie-search-clear-button');
+    expect(clearButton.exists()).toBe(true);
+  });
+
+  it('hides jump controls while composing', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    const element = input.element as HTMLInputElement;
+
+    await input.trigger('compositionstart');
+    element.value = 'cherry tomato';
+    await input.trigger('compositionupdate', {data: 'cherry tomato'});
+
+    const viewport = wrapper.getComponent(ComboboxViewport);
+    expect(viewport.findByTestId('veggie-search-previous-Fruit').exists()).toBe(false);
+    expect(viewport.findByTestId('veggie-search-next-Fruit').exists()).toBe(false);
+  });
+
+  it('shows challenge panel when composition ends with empty input', async () => {
+    const wrapper = mounter([], 'raspberry');
+    const input = wrapper.findByTestId('veggie-search-input');
+    const element = input.element as HTMLInputElement;
+
+    await input.trigger('compositionstart');
+    element.value = 'cherry tomato';
+    await input.trigger('compositionupdate', {data: 'cherry tomato'});
+
+    let viewport = wrapper.getComponent(ComboboxViewport);
+    expect(viewport.findByTestId('veggie-search-challenge').exists()).toBe(false);
+
+    element.value = '';
+    await input.trigger('compositionend');
+    await flushPromises();
+
+    viewport = wrapper.getComponent(ComboboxViewport);
+    expect(viewport.findByTestId('veggie-search-challenge').isVisible()).toBe(true);
+  });
+
+  it('clears input mid-composition resets to unfiltered view', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    const element = input.element as HTMLInputElement;
+
+    await input.trigger('compositionstart');
+    element.value = 'cherry tomato';
+    await input.trigger('compositionupdate', {data: 'cherry tomato'});
+
+    const clearButton = wrapper.findByTestId('veggie-search-clear-button');
+    await clearButton.trigger('click');
+
+    const viewport = wrapper.getComponent(ComboboxViewport);
+    expect(viewport.findByTestId('veggie-search-previous-Fruit').isVisible()).toBe(true);
+    expect(viewport.findByTestId('veggie-search-next-Fruit').isVisible()).toBe(true);
+  });
+
+  it('closes list on escape during composition', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    const element = input.element as HTMLInputElement;
+
+    await input.trigger('focus');
+    await input.trigger('compositionstart');
+    element.value = 'cherry tomato';
+    await input.trigger('compositionupdate', {data: 'cherry tomato'});
+
+    expect(
+      wrapper.getComponent(ComboboxViewport).findByTestId('veggie-search-options').isVisible(),
+    ).toBe(true);
+
+    await input.trigger('keydown', {key: 'Escape'});
+    expect(wrapper.findComponent(ComboboxViewport).exists()).toBe(false);
   });
 });

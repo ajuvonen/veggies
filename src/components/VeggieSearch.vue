@@ -77,6 +77,11 @@ const clearQuery = () => {
   }
 };
 
+const handleInput = (event: Event) => {
+  query.value = (event.target as HTMLInputElement).value;
+  listOpen.value = true;
+};
+
 const handleInputBlur = (event: FocusEvent) => {
   if (
     event.relatedTarget instanceof Node &&
@@ -114,14 +119,17 @@ onClickOutside(
         id="veggie-search-input"
         :aria-label="placeholder || $t('veggieSearch.search')"
         :placeholder="placeholder || $t('veggieSearch.search')"
-        :value="query"
         class="veggie-search__input"
         inputmode="search"
         autocorrect="off"
         autocapitalize="none"
+        spellcheck="false"
         maxlength="20"
         data-test-id="veggie-search-input"
-        @input="listOpen = true"
+        @input="handleInput"
+        @compositionstart="handleInput"
+        @compositionupdate="handleInput"
+        @compositionend="handleInput"
         @focus="listOpen = true"
         @blur="handleInputBlur"
         @keydown.escape.stop.prevent="listOpen = false"
