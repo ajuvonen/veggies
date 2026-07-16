@@ -308,6 +308,7 @@
     "4": "Saavutukset",
     "earned": "Ansaittu",
     "editWeek": "Muokkaa viikkoa",
+    "mean": "Keskiarvo: {0}",
     "notEarned": "Ei ansaittu",
     "noWeeklyAchievements": "Ei saavutuksia",
     "selectStatistic": "Valitse tilasto",

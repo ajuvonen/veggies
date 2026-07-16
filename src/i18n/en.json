@@ -308,6 +308,7 @@
     "4": "Achievements",
     "earned": "Earned",
     "editWeek": "Edit Week",
+    "mean": "Mean: {0}",
     "notEarned": "Not earned",
     "noWeeklyAchievements": "No achievements",
     "selectStatistic": "Select Statistic",
