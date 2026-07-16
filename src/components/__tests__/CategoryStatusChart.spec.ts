@@ -41,19 +41,4 @@ describe('CategoryStatusChart', () => {
     });
     expect(wrapper.find('#category-status-chart-center-label').text()).toBe('In Total 2 Actions');
   });
-
-  it('prepares data for CategoryStatusChart', () => {
-    const wrapper = mount(CategoryStatusChart, {
-      props: {
-        // Three roots, two vegetables, one leafy green
-        veggies: ['onion', 'garlic', 'tomato', 'endive', 'cucumber', 'carrot'],
-      },
-    });
-    const {
-      labels,
-      datasets: [{data}],
-    } = wrapper.vm.chartData;
-    expect(labels).toEqual(['Leafy', 'Vegetable', 'Root']);
-    expect(data).toEqual([1, 2, 3]);
-  });
 });

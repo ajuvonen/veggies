@@ -73,7 +73,6 @@ const handleAISummaryToggle = (value: boolean) => {
       <CategoryStatusChart
         v-if="weekData.veggies.length"
         :veggies="weekData.veggies"
-        alternateColorScheme
         topLabelKey="categoryStatus.topLabelLastWeek"
         class="shrink-0"
       />

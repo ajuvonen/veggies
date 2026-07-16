@@ -34,7 +34,6 @@ const sections = computed(() => ({
   <CategoryStatusChart
     :categoryFavorites="categoryFavorites"
     :veggies="allVeggies"
-    alternateColorScheme
     topLabelKey="categoryStatus.topLabelTotal"
     bottomLabelKey="categoryStatus.bottomLabelTotal"
   />
