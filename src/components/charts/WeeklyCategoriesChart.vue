@@ -2,16 +2,16 @@
 import {computed, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
+import {countBy} from 'remeda';
 import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip} from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {useChartContainer} from '@/hooks/chartContainer';
 import {useChartOptions} from '@/hooks/chartOptions';
-import {type WeeklyChartData} from '@/types';
+import {useCssColors} from '@/hooks/cssColors';
 import {CHART_COLORS} from '@/utils/constants';
 import {getCategoryForVeggie} from '@/utils/helpers';
+import {Category, type WeeklyChartData} from '@/types';
 import {useActivityStore} from '@/stores/activityStore';
-import {Category} from '@/types';
-import {countBy} from 'remeda';
 
 ChartJS.defaults.font.family = 'Nunito';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
@@ -26,6 +26,7 @@ const {veggiesForWeek} = storeToRefs(useActivityStore());
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
+const [textColor] = useCssColors(['--color-text']);
 
 const chartData = computed(() => {
   const countsByWeek = props.weekData.weekStarts.map((weekStart) => {
@@ -40,7 +41,11 @@ const chartData = computed(() => {
       const count = counts[category] ?? 0;
       return total > 0 ? (count / total) * 100 : 0;
     }),
+    barPercentage: 1,
     backgroundColor: CHART_COLORS[index],
+    borderSkipped: 'middle' as const,
+    borderColor: textColor.value,
+    borderWidth: 2,
   }));
 
   return {
