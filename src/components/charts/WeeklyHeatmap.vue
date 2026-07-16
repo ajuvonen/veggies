@@ -24,7 +24,10 @@ const {veggiesForWeek} = storeToRefs(useActivityStore());
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
-const [primaryColor] = useCssColors(['--color-primary']);
+const [primaryColor, primaryHoverColor] = useCssColors([
+  '--color-primary',
+  '--color-primary-hover',
+]);
 
 const chartData = computed(() => {
   const data: MatrixDataPoint[] = props.weekData.weekStarts.flatMap((weekStart, weekIndex) => {
@@ -44,10 +47,11 @@ const chartData = computed(() => {
       backgroundColor: ({raw}: ScriptableContext<'matrix'>) => {
         const value = (raw as MatrixDataPoint).v ?? 0;
         // Scale from 0 (opacity 10) to 6+ (opacity FF)
-        const opacityDecimal = Math.min(16 + Math.round((value * 239) / 6), 255);
+        const opacityDecimal = Math.min(32 + Math.round((value * 222) / 7), 255);
         const opacityHex = opacityDecimal.toString(16).toUpperCase().padStart(2, '0');
         return primaryColor.value + opacityHex;
       },
+      hoverBackgroundColor: primaryHoverColor.value,
       width: ({chart}: ScriptableContext<'matrix'>) =>
         chart.chartArea.width / props.weekData.weekStarts.length - 1,
       height: ({chart}: ScriptableContext<'matrix'>) =>
