@@ -15,7 +15,7 @@ import {useActivityStore} from '@/stores/activityStore';
 export const useWeekSummary = () => {
   const {t} = useI18n();
   const {availableVeggies} = useAvailableVeggies();
-  const {promotableWeeklyAchievements} = useAvailableWeeklyAchievements();
+  const {availableWeeklyAchievements} = useAvailableWeeklyAchievements();
   const {
     currentWeekStart,
     veggiesForWeek,
@@ -80,11 +80,11 @@ export const useWeekSummary = () => {
   });
 
   const promotedAchievement = ref<keyof WeeklyAchievements | null>(
-    getRandomItem(promotableWeeklyAchievements.value) ?? null,
+    getRandomItem(availableWeeklyAchievements.value) ?? null,
   );
 
   watch(currentWeekStart, () => {
-    promotedAchievement.value = getRandomItem(promotableWeeklyAchievements.value) ?? null;
+    promotedAchievement.value = getRandomItem(availableWeeklyAchievements.value) ?? null;
   });
 
   const createNutrientMessages = (data: WeekData): SummaryItem[] => {

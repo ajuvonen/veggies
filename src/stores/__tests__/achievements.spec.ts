@@ -12,7 +12,6 @@ import {
   MUSHROOMS,
   NUTS,
   ONIONS,
-  RED_VEGGIES,
   ROOTS,
   VEGETABLES,
 } from '@/utils/veggieDetails';
@@ -39,7 +38,6 @@ describe('achievements', () => {
 
   it('sets initial status', async () => {
     const defaultAchievements: Achievements = {
-      allOnRed: AchievementLevel.NoAchievement,
       botanicalBerries: AchievementLevel.NoAchievement,
       challengeAccepted: AchievementLevel.NoAchievement,
       committed: AchievementLevel.NoAchievement,
@@ -195,13 +193,6 @@ describe('achievements', () => {
     expect(activityStore.achievements.tearnado).toEqual(AchievementLevel.NoAchievement);
     activityStore.weeks = createWeeks(1, take(ONIONS, 5));
     expect(activityStore.achievements.tearnado).toEqual(AchievementLevel.Gold);
-  });
-
-  it('advances all on red', async () => {
-    activityStore.weeks = createWeeks(1, take(RED_VEGGIES, 9));
-    expect(activityStore.achievements.allOnRed).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(RED_VEGGIES, 10));
-    expect(activityStore.achievements.allOnRed).toEqual(AchievementLevel.Gold);
   });
 
   it('advances botanical berries', async () => {

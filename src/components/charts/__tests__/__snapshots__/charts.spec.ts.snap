@@ -3,13 +3,6 @@
 exports[`charts > prepares data for WeeklyAchievementsChart 1`] = `
 [
   {
-    "rawData": "allOnRed",
-    "v": 0,
-    "weekIndex": 0,
-    "x": "26/2026",
-    "y": "♥️",
-  },
-  {
     "rawData": "botanicalBerries",
     "v": 1,
     "weekIndex": 0,
@@ -59,13 +52,6 @@ exports[`charts > prepares data for WeeklyAchievementsChart 1`] = `
     "y": "🎉",
   },
   {
-    "rawData": "allOnRed",
-    "v": 0,
-    "weekIndex": 1,
-    "x": "27/2026",
-    "y": "♥️",
-  },
-  {
     "rawData": "botanicalBerries",
     "v": 1,
     "weekIndex": 1,
@@ -113,13 +99,6 @@ exports[`charts > prepares data for WeeklyAchievementsChart 1`] = `
     "weekIndex": 1,
     "x": "27/2026",
     "y": "🎉",
-  },
-  {
-    "rawData": "allOnRed",
-    "v": 0,
-    "weekIndex": 2,
-    "x": "28/2026",
-    "y": "♥️",
   },
   {
     "rawData": "botanicalBerries",

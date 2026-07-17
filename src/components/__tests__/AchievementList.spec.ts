@@ -12,14 +12,13 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge--locked').length).toBe(27);
+    expect(wrapper.findAll('.badge--locked').length).toBe(26);
   });
 
   it('renders with some badges enabled', async () => {
     const wrapper = mount(AchievementList, {
       props: {
         achievements: getAchievements({
-          allOnRed: AchievementLevel.Gold,
           botanicalBerries: AchievementLevel.Gold,
           completionist: AchievementLevel.Silver,
           experimenterBean: AchievementLevel.Gold,

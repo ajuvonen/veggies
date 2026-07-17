@@ -6,18 +6,11 @@ import {
   NUTRIENTS,
   NUTS,
   ONIONS,
-  RED_VEGGIES,
 } from '@/utils/veggieDetails';
 
 describe('veggieDetails', () => {
   it('all CITRUSES are in ALL_VEGGIES', () => {
     CITRUSES.forEach((veggie) => {
-      expect.soft(ALL_VEGGIES).toContain(veggie);
-    });
-  });
-
-  it('all RED_VEGGIES are in ALL_VEGGIES', () => {
-    RED_VEGGIES.forEach((veggie) => {
       expect.soft(ALL_VEGGIES).toContain(veggie);
     });
   });

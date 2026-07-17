@@ -715,7 +715,6 @@ describe('activityStore', () => {
 
     expect(activityStore.weeks).toHaveLength(0);
     expect(activityStore.achievements).toEqual({
-      allOnRed: AchievementLevel.NoAchievement,
       botanicalBerries: AchievementLevel.NoAchievement,
       challengeAccepted: AchievementLevel.NoAchievement,
       committed: AchievementLevel.NoAchievement,
