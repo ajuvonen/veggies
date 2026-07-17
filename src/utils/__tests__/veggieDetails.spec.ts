@@ -3,6 +3,7 @@ import {
   ALL_VEGGIES,
   BOTANICAL_BERRIES,
   CITRUSES,
+  HERBS,
   NUTRIENTS,
   NUTS,
   ONIONS,
@@ -29,6 +30,12 @@ describe('veggieDetails', () => {
 
   it('all ONIONS are in ALL_VEGGIES', () => {
     ONIONS.forEach((veggie) => {
+      expect.soft(ALL_VEGGIES).toContain(veggie);
+    });
+  });
+
+  it('all HERBS are in ALL_VEGGIES', () => {
+    HERBS.forEach((veggie) => {
       expect.soft(ALL_VEGGIES).toContain(veggie);
     });
   });

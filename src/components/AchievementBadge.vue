@@ -132,6 +132,12 @@ const badgeProps: BadgeProps = {
       emoji: WEEKLY_ACHIEVEMENT_EMOJI.goNuts,
     },
   },
+  herbal: {
+    [AchievementLevel.Gold]: {
+      textProps: [5],
+      emoji: WEEKLY_ACHIEVEMENT_EMOJI.herbal,
+    },
+  },
   lemons: {
     [AchievementLevel.Gold]: {
       textProps: [5],

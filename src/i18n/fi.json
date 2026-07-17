@@ -76,6 +76,11 @@
       "badgeText": "Pähkinöinä",
       "3": "Olet lisännyt viisi erilaista pähkinää tällä viikolla!"
     },
+    "herbal": {
+      "ariaLabel": "{0} erilaista yrttiä tällä viikolla {1}",
+      "badgeText": "Yrttinen",
+      "3": "Omistatko yrttitarhan? Olet lisännyt viisi erilaista yrttiä tällä viikolla!"
+    },
     "hotStreak": {
       "title": "Putki päällä",
       "ariaLabel": "{0} viikon putki yli 30 kasvista viikossa {1}",

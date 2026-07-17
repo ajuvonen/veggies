@@ -10,6 +10,7 @@ import {
   CITRUSES,
   FRUITS,
   GRAINS,
+  HERBS,
   LEAFIES,
   MUSHROOMS,
   NUTS,
@@ -42,6 +43,18 @@ describe('availableWeeklyAchievements', () => {
     appStateStore.settings.allergens = take(NUTS, NUTS.size - 5);
     const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
     expect(availableWeeklyAchievements.value).toContain('goNuts');
+  });
+
+  it('excludes herbal when fewer than 5 herbs are available', () => {
+    appStateStore.settings.allergens = take(HERBS, HERBS.size - 4);
+    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
+    expect(availableWeeklyAchievements.value).not.toContain('herbal');
+  });
+
+  it('includes herbal when exactly 5 herbs are available', () => {
+    appStateStore.settings.allergens = take(HERBS, HERBS.size - 5);
+    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
+    expect(availableWeeklyAchievements.value).toContain('herbal');
   });
 
   it('excludes tearnado when fewer than 5 onions are available', () => {

@@ -76,6 +76,11 @@
       "badgeText": "Go nuts",
       "3": "You have added five unique nuts this week!"
     },
+    "herbal": {
+      "ariaLabel": "{0} varieties of herbs this week {1}",
+      "badgeText": "Herbal",
+      "3": "Do you have your own herb garden? You've added five unique herbs this week!"
+    },
     "hotStreak": {
       "title": "Hot Streak",
       "ariaLabel": "{0} week streak of over 30 veggies {1}",

@@ -35,6 +35,13 @@ exports[`WeekEditor > renders 1`] = `
     <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
     <!--v-if-->
   </li>
+  <li data-v-06381b3c="" aria-label="5 varieties of herbs this week (locked)" data-test-id="badge-herbal-3" class="badge--herbal badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
+      <div data-v-06381b3c="" class="badge__emoji">🌿</div>
+    </div>
+    <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
+    <!--v-if-->
+  </li>
   <li data-v-06381b3c="" aria-label="5 different citrus fruits this week (locked)" data-test-id="badge-lemons-3" class="badge--lemons badge--noLabel badge--locked badge" role="img">
     <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
       <div data-v-06381b3c="" class="badge__emoji">🍋</div>

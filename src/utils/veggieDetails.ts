@@ -376,6 +376,25 @@ export const ONIONS: ReadonlySet<string> = new Set([
   'white onion',
 ]);
 
+export const HERBS: ReadonlySet<string> = new Set([
+  'basil',
+  'cilantro',
+  'dill',
+  'holy basil',
+  'lemon balm',
+  'lemongrass',
+  'mint',
+  'oregano',
+  'parsley',
+  'rosemary',
+  'sage',
+  'shiso',
+  'sorrel',
+  'tarragon',
+  'thai basil',
+  'thyme',
+]);
+
 export const NUTRIENTS: Record<string, ReadonlySet<string>> = {
   A: new Set([
     'apricot',
