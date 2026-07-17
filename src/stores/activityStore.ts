@@ -26,6 +26,7 @@ import {
   CITRUSES,
   FRUITS,
   GRAINS,
+  HERBS,
   LEAFIES,
   MUSHROOMS,
   NUTS,
@@ -176,6 +177,10 @@ export const useActivityStore = defineStore('activity', () => {
           goNuts: achievementLevelHelper(
             [[5, AchievementLevel.Gold]],
             setIntersection(NUTS, veggies).length,
+          ),
+          herbal: achievementLevelHelper(
+            [[5, AchievementLevel.Gold]],
+            setIntersection(HERBS, veggies).length,
           ),
           lemons: achievementLevelHelper(
             [[5, AchievementLevel.Gold]],

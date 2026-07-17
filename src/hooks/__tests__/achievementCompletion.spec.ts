@@ -19,6 +19,7 @@ describe('achievementCompletion', () => {
     expect(weeklyCompletion.value).toEqual({
       botanicalBerries: 120,
       goNuts: 72,
+      herbal: 0,
       lemons: 72,
       overachiever: 72,
       rainbow: 51,
@@ -34,6 +35,7 @@ describe('achievementCompletion', () => {
     expect(weeklyCompletion.value).toEqual({
       botanicalBerries: 0,
       goNuts: 72,
+      herbal: 0,
       lemons: 0,
       overachiever: 12,
       rainbow: 0,
@@ -44,6 +46,7 @@ describe('achievementCompletion', () => {
     expect(weeklyCompletion.value).toEqual({
       botanicalBerries: 0,
       goNuts: 216,
+      herbal: 0,
       lemons: 0,
       overachiever: 36,
       rainbow: 51,

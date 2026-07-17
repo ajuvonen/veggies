@@ -8,6 +8,7 @@ import {
   CITRUSES,
   FRUITS,
   GRAINS,
+  HERBS,
   LEAFIES,
   MUSHROOMS,
   NUTS,
@@ -50,6 +51,7 @@ describe('achievements', () => {
       experimenterRoot: AchievementLevel.NoAchievement,
       experimenterVegetable: AchievementLevel.NoAchievement,
       goNuts: AchievementLevel.NoAchievement,
+      herbal: AchievementLevel.NoAchievement,
       hotStreak: AchievementLevel.NoAchievement,
       lemons: AchievementLevel.NoAchievement,
       overachiever: AchievementLevel.NoAchievement,
@@ -179,6 +181,13 @@ describe('achievements', () => {
     expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.NoAchievement);
     activityStore.weeks = createWeeks(1, take(NUTS, 5));
     expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.Gold);
+  });
+
+  it('advances herbal', async () => {
+    activityStore.weeks = createWeeks(1, take(HERBS, 4));
+    expect(activityStore.achievements.herbal).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(HERBS, 5));
+    expect(activityStore.achievements.herbal).toEqual(AchievementLevel.Gold);
   });
 
   it('advances lemons', async () => {

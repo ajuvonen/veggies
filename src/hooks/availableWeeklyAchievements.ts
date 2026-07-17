@@ -5,6 +5,7 @@ import {
   CITRUSES,
   FRUITS,
   GRAINS,
+  HERBS,
   LEAFIES,
   MUSHROOMS,
   NUTS,
@@ -19,6 +20,7 @@ import {useAvailableVeggies} from '@/hooks/availableVeggies';
 export const WEEKLY_ACHIEVEMENTS = [
   'botanicalBerries',
   'goNuts',
+  'herbal',
   'lemons',
   'overachiever',
   'rainbow',
@@ -43,6 +45,7 @@ const achievementAvailability: Record<
   botanicalBerries: (availableVeggies) =>
     setIntersection(BOTANICAL_BERRIES, availableVeggies).length >= 15,
   goNuts: (availableVeggies) => setIntersection(NUTS, availableVeggies).length >= 5,
+  herbal: (availableVeggies) => setIntersection(HERBS, availableVeggies).length >= 5,
   lemons: (availableVeggies) => setIntersection(CITRUSES, availableVeggies).length >= 5,
   overachiever: (availableVeggies) => availableVeggies.length >= 30,
   rainbow: (availableVeggies) =>

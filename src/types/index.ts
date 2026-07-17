@@ -59,6 +59,7 @@ export enum AchievementLevel {
 export type WeeklyAchievements = {
   botanicalBerries: AchievementLevel;
   goNuts: AchievementLevel;
+  herbal: AchievementLevel;
   lemons: AchievementLevel;
   overachiever: AchievementLevel;
   rainbow: AchievementLevel;

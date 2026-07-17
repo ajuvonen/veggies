@@ -12,7 +12,7 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge--locked').length).toBe(26);
+    expect(wrapper.findAll('.badge--locked').length).toBe(27);
   });
 
   it('renders with some badges enabled', async () => {
@@ -36,7 +36,7 @@ describe('AchievementList', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.findAll('.badge--locked').length).toBe(13);
+    expect(wrapper.findAll('.badge--locked').length).toBe(14);
   });
 
   it('renders the thousands achievement correctly', async () => {
