@@ -36,12 +36,6 @@ type BadgeProps = Record<
 const {t} = useI18n();
 
 const badgeProps: BadgeProps = {
-  allOnRed: {
-    [AchievementLevel.Gold]: {
-      textProps: [10],
-      emoji: WEEKLY_ACHIEVEMENT_EMOJI.allOnRed,
-    },
-  },
   botanicalBerries: {
     [AchievementLevel.Gold]: {
       textProps: [15],
@@ -277,8 +271,7 @@ const labelSuffix = computed(() => {
 .badge__emoji {
   mix-blend-mode: luminosity;
 
-  .badge__background--Platinum > &,
-  .badge--allOnRed & {
+  .badge__background--Platinum > & {
     mix-blend-mode: normal;
   }
 

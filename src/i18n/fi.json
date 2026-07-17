@@ -1,10 +1,5 @@
 {
   "achievements": {
-    "allOnRed": {
-      "ariaLabel": "{0} punaista kasvista tällä viikolla {1}",
-      "badgeText": "Punoitus",
-      "3": "Näetkö punaista? Olet lisännyt kymmenen punaista kasvista tällä viikolla!"
-    },
     "botanicalBerries": {
       "ariaLabel": "{0} kasvitieteellistä marjaa tällä viikolla {1}",
       "badgeText": "\"Marjat\"",

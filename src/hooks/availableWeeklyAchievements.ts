@@ -9,7 +9,6 @@ import {
   MUSHROOMS,
   NUTS,
   ONIONS,
-  RED_VEGGIES,
   ROOTS,
   VEGETABLES,
 } from '@/utils/veggieDetails';
@@ -18,7 +17,6 @@ import {Category, type WeeklyAchievements} from '@/types';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 
 export const WEEKLY_ACHIEVEMENTS = [
-  'allOnRed',
   'botanicalBerries',
   'goNuts',
   'lemons',
@@ -42,7 +40,6 @@ const achievementAvailability: Record<
   keyof WeeklyAchievements,
   (availableVeggies: string[]) => boolean
 > = {
-  allOnRed: (availableVeggies) => setIntersection(RED_VEGGIES, availableVeggies).length >= 10,
   botanicalBerries: (availableVeggies) =>
     setIntersection(BOTANICAL_BERRIES, availableVeggies).length >= 15,
   goNuts: (availableVeggies) => setIntersection(NUTS, availableVeggies).length >= 5,
@@ -63,9 +60,5 @@ export const useAvailableWeeklyAchievements = () => {
     WEEKLY_ACHIEVEMENTS.filter((key) => achievementAvailability[key](availableVeggies.value)),
   );
 
-  const promotableWeeklyAchievements = computed(() =>
-    availableWeeklyAchievements.value.filter((achievement) => achievement !== 'thirtyVeggies'),
-  );
-
-  return {availableWeeklyAchievements, promotableWeeklyAchievements};
+  return {availableWeeklyAchievements};
 };

@@ -324,8 +324,8 @@ describe('charts', () => {
     const {accessibleData, datasets} = wrapper.vm.chartData;
     expect(datasets).toHaveLength(1);
     expect(datasets[0].data).toMatchSnapshot();
-    expect(accessibleData.rowHeaders).toHaveLength(8);
-    expect(accessibleData.data).toHaveLength(8); // 8 achievements
+    expect(accessibleData.rowHeaders).toHaveLength(7);
+    expect(accessibleData.data).toHaveLength(7); // 8 achievements
     expect(accessibleData.data[0]).toHaveLength(3); // 3 weeks per achievement
   });
 
@@ -362,8 +362,8 @@ describe('charts', () => {
     });
 
     const {accessibleData, datasets} = wrapper.vm.chartData;
-    expect(accessibleData.rowHeaders).toHaveLength(7);
-    expect(accessibleData.data).toHaveLength(7);
+    expect(accessibleData.rowHeaders).toHaveLength(6);
+    expect(accessibleData.data).toHaveLength(6);
     expect(accessibleData.rowHeaders.every((header) => header !== 'Go nuts')).toBe(true);
     expect(datasets[0].data.every((point) => point.rawData !== 'goNuts')).toBe(true);
   });

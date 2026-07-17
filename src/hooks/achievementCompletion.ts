@@ -1,6 +1,6 @@
 import {computed, toValue, type MaybeRefOrGetter} from 'vue';
 import {countBy} from 'remeda';
-import {BOTANICAL_BERRIES, CITRUSES, NUTS, ONIONS, RED_VEGGIES} from '@/utils/veggieDetails';
+import {BOTANICAL_BERRIES, CITRUSES, NUTS, ONIONS} from '@/utils/veggieDetails';
 import {getCategoryForVeggie, setIntersection} from '@/utils/helpers';
 import {Category, type WeeklyAchievements} from '@/types';
 
@@ -26,7 +26,6 @@ export function useAchievementCompletion(
       : Math.min(valueForVeggies.length / 30, 1) * 0.5;
 
     return {
-      allOnRed: degreeFormatter(setIntersection(RED_VEGGIES, valueForVeggies).length / 10),
       botanicalBerries: degreeFormatter(
         setIntersection(BOTANICAL_BERRIES, valueForVeggies).length / 15,
       ),

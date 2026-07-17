@@ -30,7 +30,6 @@ import {
   MUSHROOMS,
   NUTS,
   ONIONS,
-  RED_VEGGIES,
   ROOTS,
   VEGETABLES,
 } from '@/utils/veggieDetails';
@@ -170,10 +169,6 @@ export const useActivityStore = defineStore('activity', () => {
         const challengeCompleted = challenge && veggies.includes(challenge);
 
         return {
-          allOnRed: achievementLevelHelper(
-            [[10, AchievementLevel.Gold]],
-            setIntersection(RED_VEGGIES, veggies).length,
-          ),
           botanicalBerries: achievementLevelHelper(
             [[15, AchievementLevel.Gold]],
             setIntersection(BOTANICAL_BERRIES, veggies).length,

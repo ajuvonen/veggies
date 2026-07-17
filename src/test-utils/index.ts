@@ -20,12 +20,12 @@ export const take = <T>(collection: Iterable<T>, count: number) => [...collectio
 
 export const makeWeekString = (weekStart: Temporal.PlainDate) => {
   const weekEnd = weekStart.add({days: 6});
-  const formatDate = (d: Temporal.PlainDate) => d.toLocaleString('en-GB', {month: 'numeric', day: 'numeric'});
+  const formatDate = (d: Temporal.PlainDate) =>
+    d.toLocaleString('en-GB', {month: 'numeric', day: 'numeric'});
   return `Week ${weekStart.weekOfYear}/${weekStart.yearOfWeek} (${formatDate(weekStart)}-${formatDate(weekEnd)})`;
 };
 
 export const getAchievements = (achievements: Partial<Achievements> = {}): Achievements => ({
-  allOnRed: AchievementLevel.NoAchievement,
   botanicalBerries: AchievementLevel.NoAchievement,
   challengeAccepted: AchievementLevel.NoAchievement,
   committed: AchievementLevel.NoAchievement,

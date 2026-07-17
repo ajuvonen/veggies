@@ -305,31 +305,6 @@ export const CITRUSES: ReadonlySet<string> = new Set([
   'yuzu',
 ]);
 
-export const RED_VEGGIES: ReadonlySet<string> = new Set([
-  'apple',
-  'beet',
-  'bell pepper',
-  'blood grapefruit',
-  'blood orange',
-  'cherry tomato',
-  'cherry',
-  'chili pepper',
-  'cranberry',
-  'goji berry',
-  'lingonberry',
-  'pointed pepper',
-  'pomegranate',
-  'radish',
-  'raspberry',
-  'red bean',
-  'red cabbage',
-  'red onion',
-  'redcurrant',
-  'strawberry',
-  'tomato',
-  'watermelon',
-]);
-
 export const NUTS: ReadonlySet<string> = new Set([
   'almond',
   'brazil nut',

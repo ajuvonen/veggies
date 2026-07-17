@@ -14,7 +14,6 @@ import {
   MUSHROOMS,
   NUTS,
   ONIONS,
-  RED_VEGGIES,
   ROOTS,
   VEGETABLES,
 } from '@/utils/veggieDetails';
@@ -69,18 +68,6 @@ describe('availableWeeklyAchievements', () => {
     expect(availableWeeklyAchievements.value).toContain('lemons');
   });
 
-  it('excludes allOnRed when fewer than 10 red veggies are available', () => {
-    appStateStore.settings.allergens = take(RED_VEGGIES, RED_VEGGIES.size - 9);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).not.toContain('allOnRed');
-  });
-
-  it('includes allOnRed when exactly 10 red veggies are available', () => {
-    appStateStore.settings.allergens = take(RED_VEGGIES, RED_VEGGIES.size - 10);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).toContain('allOnRed');
-  });
-
   it('excludes botanicalBerries when fewer than 15 botanical berries are available', () => {
     appStateStore.settings.allergens = take(BOTANICAL_BERRIES, BOTANICAL_BERRIES.size - 14);
     const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
@@ -125,12 +112,6 @@ describe('availableWeeklyAchievements', () => {
     ];
     const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
     expect(availableWeeklyAchievements.value).toContain('rainbow');
-  });
-
-  it('excludes thirtyVeggies from promotable achievements', () => {
-    const {promotableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(promotableWeeklyAchievements.value.length).toEqual(WEEKLY_ACHIEVEMENTS.length - 1);
-    expect(promotableWeeklyAchievements.value).not.toContain('thirtyVeggies');
   });
 
   it('is reactive to allergen changes', () => {

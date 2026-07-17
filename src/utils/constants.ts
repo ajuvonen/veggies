@@ -36,7 +36,6 @@ export const KEYS = {
 export const LOCALES = ['en', 'fi'] as const satisfies ReadonlyArray<Locale>;
 
 export const WEEKLY_ACHIEVEMENT_EMOJI = {
-  allOnRed: '♥️',
   botanicalBerries: '🍅',
   goNuts: '🥜',
   lemons: '🍋',
