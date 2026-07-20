@@ -45,16 +45,16 @@ describe('availableWeeklyAchievements', () => {
     expect(availableWeeklyAchievements.value).toContain('goNuts');
   });
 
-  it('excludes herbal when fewer than 5 herbs are available', () => {
+  it('excludes herbalist when fewer than 5 herbs are available', () => {
     appStateStore.settings.allergens = take(HERBS, HERBS.size - 4);
     const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).not.toContain('herbal');
+    expect(availableWeeklyAchievements.value).not.toContain('herbalist');
   });
 
-  it('includes herbal when exactly 5 herbs are available', () => {
+  it('includes herbalist when exactly 5 herbs are available', () => {
     appStateStore.settings.allergens = take(HERBS, HERBS.size - 5);
     const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).toContain('herbal');
+    expect(availableWeeklyAchievements.value).toContain('herbalist');
   });
 
   it('excludes tearnado when fewer than 5 onions are available', () => {

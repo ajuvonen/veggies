@@ -38,7 +38,7 @@ export const LOCALES = ['en', 'fi'] as const satisfies ReadonlyArray<Locale>;
 export const WEEKLY_ACHIEVEMENT_EMOJI = {
   botanicalBerries: '🍅',
   goNuts: '🥜',
-  herbal: '🌿',
+  herbalist: '🌿',
   lemons: '🍋',
   overachiever: '💪',
   rainbow: '🌈',

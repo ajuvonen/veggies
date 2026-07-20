@@ -51,7 +51,7 @@ describe('achievements', () => {
       experimenterRoot: AchievementLevel.NoAchievement,
       experimenterVegetable: AchievementLevel.NoAchievement,
       goNuts: AchievementLevel.NoAchievement,
-      herbal: AchievementLevel.NoAchievement,
+      herbalist: AchievementLevel.NoAchievement,
       hotStreak: AchievementLevel.NoAchievement,
       lemons: AchievementLevel.NoAchievement,
       overachiever: AchievementLevel.NoAchievement,
@@ -183,11 +183,11 @@ describe('achievements', () => {
     expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.Gold);
   });
 
-  it('advances herbal', async () => {
+  it('advances herbalist', async () => {
     activityStore.weeks = createWeeks(1, take(HERBS, 4));
-    expect(activityStore.achievements.herbal).toEqual(AchievementLevel.NoAchievement);
+    expect(activityStore.achievements.herbalist).toEqual(AchievementLevel.NoAchievement);
     activityStore.weeks = createWeeks(1, take(HERBS, 5));
-    expect(activityStore.achievements.herbal).toEqual(AchievementLevel.Gold);
+    expect(activityStore.achievements.herbalist).toEqual(AchievementLevel.Gold);
   });
 
   it('advances lemons', async () => {

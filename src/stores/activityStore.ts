@@ -178,7 +178,7 @@ export const useActivityStore = defineStore('activity', () => {
             [[5, AchievementLevel.Gold]],
             setIntersection(NUTS, veggies).length,
           ),
-          herbal: achievementLevelHelper(
+          herbalist: achievementLevelHelper(
             [[5, AchievementLevel.Gold]],
             setIntersection(HERBS, veggies).length,
           ),
