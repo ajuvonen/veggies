@@ -30,7 +30,7 @@ export function useAchievementCompletion(
         setIntersection(BOTANICAL_BERRIES, valueForVeggies).length / 15,
       ),
       goNuts: degreeFormatter(setIntersection(NUTS, valueForVeggies).length / 5),
-      herbal: degreeFormatter(setIntersection(HERBS, valueForVeggies).length / 5),
+      herbalist: degreeFormatter(setIntersection(HERBS, valueForVeggies).length / 5),
       lemons: degreeFormatter(setIntersection(CITRUSES, valueForVeggies).length / 5),
       overachiever: degreeFormatter(overachieverProgress),
       rainbow: degreeFormatter(

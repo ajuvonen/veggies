@@ -17,7 +17,7 @@ exports[`charts > prepares data for WeeklyAchievementsChart 1`] = `
     "y": "🥜",
   },
   {
-    "rawData": "herbal",
+    "rawData": "herbalist",
     "v": 0,
     "weekIndex": 0,
     "x": "26/2026",
@@ -73,7 +73,7 @@ exports[`charts > prepares data for WeeklyAchievementsChart 1`] = `
     "y": "🥜",
   },
   {
-    "rawData": "herbal",
+    "rawData": "herbalist",
     "v": 0,
     "weekIndex": 1,
     "x": "27/2026",
@@ -129,7 +129,7 @@ exports[`charts > prepares data for WeeklyAchievementsChart 1`] = `
     "y": "🥜",
   },
   {
-    "rawData": "herbal",
+    "rawData": "herbalist",
     "v": 0,
     "weekIndex": 2,
     "x": "28/2026",

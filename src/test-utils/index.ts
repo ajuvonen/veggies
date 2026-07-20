@@ -38,7 +38,7 @@ export const getAchievements = (achievements: Partial<Achievements> = {}): Achie
   experimenterRoot: AchievementLevel.NoAchievement,
   experimenterVegetable: AchievementLevel.NoAchievement,
   goNuts: AchievementLevel.NoAchievement,
-  herbal: AchievementLevel.NoAchievement,
+  herbalist: AchievementLevel.NoAchievement,
   hotStreak: AchievementLevel.NoAchievement,
   lemons: AchievementLevel.NoAchievement,
   overachiever: AchievementLevel.NoAchievement,

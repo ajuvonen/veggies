@@ -76,9 +76,9 @@
       "badgeText": "Pähkinöinä",
       "3": "Olet lisännyt viisi erilaista pähkinää tällä viikolla!"
     },
-    "herbal": {
+    "herbalist": {
       "ariaLabel": "{0} erilaista yrttiä tällä viikolla {1}",
-      "badgeText": "Yrttinen",
+      "badgeText": "Yrttitarhuri",
       "3": "Omistatko yrttitarhan? Olet lisännyt viisi erilaista yrttiä tällä viikolla!"
     },
     "hotStreak": {
