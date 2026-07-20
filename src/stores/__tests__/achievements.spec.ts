@@ -1,6 +1,6 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {take} from '@/test-utils';
-import {AchievementLevel, type Achievements, type Week} from '@/types';
+import {AchievementLevel, type Week} from '@/types';
 import {
   ALL_VEGGIES,
   BEANS,
@@ -16,6 +16,7 @@ import {
   ROOTS,
   VEGETABLES,
 } from '@/utils/veggieDetails';
+import {getAchievements} from '@/test-utils';
 import {getWeekStart} from '@/utils/helpers';
 import {useActivityStore} from '@/stores/activityStore';
 
@@ -38,30 +39,7 @@ describe('achievements', () => {
   });
 
   it('sets initial status', async () => {
-    const defaultAchievements: Achievements = {
-      botanicalBerries: AchievementLevel.NoAchievement,
-      challengeAccepted: AchievementLevel.NoAchievement,
-      committed: AchievementLevel.NoAchievement,
-      completionist: AchievementLevel.NoAchievement,
-      experimenterBean: AchievementLevel.NoAchievement,
-      experimenterFruit: AchievementLevel.NoAchievement,
-      experimenterGrain: AchievementLevel.NoAchievement,
-      experimenterLeafy: AchievementLevel.NoAchievement,
-      experimenterMushroom: AchievementLevel.NoAchievement,
-      experimenterRoot: AchievementLevel.NoAchievement,
-      experimenterVegetable: AchievementLevel.NoAchievement,
-      goNuts: AchievementLevel.NoAchievement,
-      herbalist: AchievementLevel.NoAchievement,
-      hotStreak: AchievementLevel.NoAchievement,
-      lemons: AchievementLevel.NoAchievement,
-      overachiever: AchievementLevel.NoAchievement,
-      rainbow: AchievementLevel.NoAchievement,
-      tearnado: AchievementLevel.NoAchievement,
-      thirtyVeggies: AchievementLevel.NoAchievement,
-      thousandsEven: AchievementLevel.NoAchievement,
-      thousandsOdd: AchievementLevel.NoAchievement,
-    };
-    expect(activityStore.achievements).toEqual(defaultAchievements);
+    expect(activityStore.achievements).toEqual(getAchievements());
   });
 
   it('advances completionist', async () => {

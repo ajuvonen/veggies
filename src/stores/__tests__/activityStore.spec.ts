@@ -2,12 +2,13 @@ import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {createPinia, setActivePinia} from 'pinia';
 import {take} from '@/test-utils';
-import {AchievementLevel, Category, type Week} from '@/types';
+import {Category, type Week} from '@/types';
 import {BEANS, FRUITS, GRAINS, LEAFIES, MUSHROOMS, ROOTS, VEGETABLES} from '@/utils/veggieDetails';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {DEFAULT_SETTINGS} from '@/utils/constants';
 import {areDatesEqual, getWeekStart} from '@/utils/helpers';
+import {getAchievements} from '@/test-utils';
 
 describe('activityStore', () => {
   const thisWeek = getWeekStart();
@@ -714,28 +715,6 @@ describe('activityStore', () => {
     activityStore.$reset();
 
     expect(activityStore.weeks).toHaveLength(0);
-    expect(activityStore.achievements).toEqual({
-      botanicalBerries: AchievementLevel.NoAchievement,
-      challengeAccepted: AchievementLevel.NoAchievement,
-      committed: AchievementLevel.NoAchievement,
-      completionist: AchievementLevel.NoAchievement,
-      experimenterBean: AchievementLevel.NoAchievement,
-      experimenterFruit: AchievementLevel.NoAchievement,
-      experimenterGrain: AchievementLevel.NoAchievement,
-      experimenterLeafy: AchievementLevel.NoAchievement,
-      experimenterMushroom: AchievementLevel.NoAchievement,
-      experimenterRoot: AchievementLevel.NoAchievement,
-      experimenterVegetable: AchievementLevel.NoAchievement,
-      goNuts: AchievementLevel.NoAchievement,
-      herbalist: AchievementLevel.NoAchievement,
-      hotStreak: AchievementLevel.NoAchievement,
-      lemons: AchievementLevel.NoAchievement,
-      overachiever: AchievementLevel.NoAchievement,
-      rainbow: AchievementLevel.NoAchievement,
-      tearnado: AchievementLevel.NoAchievement,
-      thirtyVeggies: AchievementLevel.NoAchievement,
-      thousandsOdd: AchievementLevel.NoAchievement,
-      thousandsEven: AchievementLevel.NoAchievement,
-    });
+    expect(activityStore.achievements).toEqual(getAchievements());
   });
 });
