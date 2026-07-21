@@ -299,6 +299,11 @@
       "Kirsikkatomaatit maistuivat myös Denethorille, Gondorin käskynhaltijalle.",
       "Kirsikkatomaatteja tavataan punaisina, keltaisina, oransseina, vihreinä, mustina ja jopa raidallisina."
     ],
+    "chervil": [
+      "Kirveli kuuluu ranskalaisen keittiön \"fines herbes\"-sekoitukseen.",
+      "Kirvelin maku kitkeröityy kun kasvi kukkii - korjaa lehdet ajoissa.",
+      "Entisaikaan uskottiin kirvelin voivan parantaa hikan."
+    ],
     "cherry": [
       "Kirsikat tunnetaan antioksidanttisista ominaisuuksistaan, ja niitä on viljelty antiikin ajoista lähtien.",
       "Kirsikat ovat luumujen, persikoiden ja nektariinien, sukulaishedelmiä.",
@@ -328,6 +333,7 @@
       "Myös ruohosipulin kukat ovat syötäviä.",
       "Ruohosipuli on monivuotinen kasvi, joka tuottaa joka vuosi uuden sadon.",
       "Lisää ruohosipuli vasta ruoanlaiton loppuvaiheessa säilyttääksesi sen maun.",
+      "Ruohosipuli kuuluu ranskalaisen keittiön \"fines herbes\"-sekoitukseen.",
       "Sipulit ovat haitallisia monille eläimille."
     ],
     "choy sum": [
@@ -338,6 +344,11 @@
     "cilantro": [
       "Jotkut kokevat korianterin maun saippuaiseksi geneettisen, makuaistimukseen vaikuttavan ominaisuutensa vuoksi.",
       "Korianterin siemeniä käytetään mausteena ja niitä löydettiin väitetysti jopa Tutankhamonin haudasta."
+    ],
+    "cipollini": [
+      "Cipollini on italiaa ja tarkoittaa \"pientä sipulia\".",
+      "Cipollinit on italialainen sipulin perinnelajike.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "clementine": [
       "Klementiini sisältää noin 60 % päivittäisestä C-vitamiinista, joten se on immuunijärjestelmää tukeva välipala.",
@@ -480,7 +491,8 @@
       "Valkosipulilla uskotaan olevan antibakteerisia ja tulehdusta vähentäviä ominaisuuksia.",
       "Sipulit ovat haitallisia monille eläimille.",
       "Mustaa valkosipulia valmistetaan ikäännyttämällä valkosipulia pitkään lämpimässä ja kosteassa ympäristössä.",
-      "Maailman suurin valkosipulin tuottaja on Kiina, jonka osuus on noin 75 %."
+      "Maailman suurin valkosipulin tuottaja on Kiina, jonka osuus on noin 75 %.",
+      "Toisin kuin monet muut sipulit, valkosipuli ei aiheuta kyyneliä leikattaessa."
     ],
     "ginger": [
       "Inkivääriä on käytetty vuosisatojen ajan Aasian keittiöissä ja perinteisessä lääketieteessä.",
@@ -783,7 +795,9 @@
     ],
     "onion": [
       "Sipulit ovat haitallisia monille eläimille.",
-      "Suurin tähän asti tavattu sipuli painoi lähes yhdeksän kiloa."
+      "Suurin tähän asti tavattu sipuli painoi lähes yhdeksän kiloa.",
+      "Sipulin kyyneliä aiheuttava mekanismi on monimutkainen kemiallinen reaktio.",
+      "Tiedemiehet ovat yrittäneet kehittää sipulia joka ei itkettäisi, mutta niiden maku jäi vaatimattomaksi."
     ],
     "orange": [
       "Yksi appelsiini sisältää noin 60 kaloria ja yli 100 % päivittäisestä C-vitamiinista.",
@@ -814,7 +828,8 @@
     ],
     "parsley": [
       "Persilja on hyvä A-, C- ja K-vitamiinien lähde, joten se on ravitseva lisä aterioihin.",
-      "Lehtipersilja on lähinnä koristeena käytettyä kähäräpersiljaa suositumpaa ruoanlaitossa."
+      "Lehtipersilja on lähinnä koristeena käytettyä kähäräpersiljaa suositumpaa ruoanlaitossa.",
+      "Persilja kuuluu ranskalaisen keittiön \"fines herbes\"-sekoitukseen."
     ],
     "parsnip": [
       "Pisimmän palsternakan maailmanennätys on tällä hetkellä 6,5 metriä.",
@@ -843,6 +858,11 @@
     "peanut": [
       "Maapähkinät ovat runsas terveellisten rasvojen ja proteiinin lähde, sisältäen runsaasti energiaa.",
       "Teknisesti maapähkinät ovat palkokasveja."
+    ],
+    "pearl onion": [
+      "Intian Kashmirin alue on tunnettu helmisipulien viljelystä.",
+      "Helmisipuleita käytetään usein säilykkeissä.",
+      "Sipulit ovat haitallisia monille eläimille."
     ],
     "pear": [
       "Maailmassa tavataan yli 3 000 päärynälajiketta.",
@@ -1063,7 +1083,8 @@
       "Kevätsipuli sopii muita sipuleita paremmin herkkävatsaisille.",
       "Kevätsipulin valkoinen osa sopii kypsennettäväksi, vihreät osat koristeeksi.",
       "Kevätsipulin uudelleenistutus ja kasvatus onnistuu myös kotikonstein.",
-      "Sipulit ovat haitallisia monille eläimille."
+      "Sipulit ovat haitallisia monille eläimille.",
+      "Toisin kuin monet muut sipulit, kevätsipuli ei aiheuta kyyneliä leikattaessa."
     ],
     "scarlet runner bean": [
       "Ruusupavun varret voivat kasvaa yli kolmimetrisiksi.",

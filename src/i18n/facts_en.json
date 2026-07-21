@@ -299,6 +299,11 @@
       "Also Denethor, steward of Gondor, was fond of cherry tomatoes.",
       "Cherry tomatoes come in red, yellow, orange, green, black, and even striped varieties."
     ],
+    "chervil": [
+      "Chervil belongs in the \"fines herbes\" blend of French cooking.",
+      "Chervil turns bitter once it blooms - harvest the leaves in time.",
+      "In the past, chervil was believed to cure hiccups."
+    ],
     "cherry": [
       "Cherries are known for their antioxidant properties and have been cultivated since ancient times.",
       "Cherries are relatives of plums, peaches, and nectarines.",
@@ -327,7 +332,9 @@
     "chives": [
       "Also the flowers of chives are edible.",
       "Chives are perennials, so they produce fresh harvest every year.",
-      "Add chives only at the last stages of cooking, to preserve their flavor."
+      "Add chives only at the last stages of cooking, to preserve their flavor.",
+      "Chives belong in the \"fines herbes\" blend of French cooking.",
+      "Onions are harmful to many animals."
     ],
     "choy sum": [
       "The yellow flowers of choy sum are also edible.",
@@ -337,6 +344,11 @@
     "cilantro": [
       "Some find cilantro's flavor soapy due to a genetic trait affecting taste perception.",
       "Seeds of cilantro (or coriander) are used as spice and were supposedly found also from King Tut's tomb."
+    ],
+    "cipollini": [
+      "Cipollini translates to \"little onions\" in Italian.",
+      "Cipollini are an Italian heirloom variety of onion.",
+      "Onions are harmful to many animals."
     ],
     "clementine": [
       "A clementine provides about 60% of the daily vitamin C requirement, making it an immune-boosting snack.",
@@ -479,7 +491,8 @@
       "Garlic is believed to have antimicrobial and anti-inflammatory properties.",
       "Onions are harmful to many animals.",
       "Black garlic is made by ageing garlic under warm, humid conditions over a prolonged period.",
-      "The world's largest garlic producer is China, with about 75 % share."
+      "The world's largest garlic producer is China, with about 75 % share.",
+      "Unlike many other onions, garlic does not cause tears when chopped."
     ],
     "ginger": [
       "Ginger has been used for centuries in Asian cuisine and traditional medicine.",
@@ -782,6 +795,8 @@
     ],
     "onion": [
       "Onions are harmful to many animals.",
+      "The tear-inducing effect of onion is a complex chemical reaction.",
+      "Scientists have tried to create onions that wouldn't cause tears, but their taste was bland.",
       "The largest onion to date weighed almost nine kilos."
     ],
     "orange": [
@@ -792,7 +807,7 @@
       "Brazil is the largest producer of oranges."
     ],
     "oregano": [
-      "The name oregano comes from ancient Greek words meaning \"mountain joy.\"",
+      "The name oregano comes from ancient Greek words meaning \"mountain joy\".",
       "Olive oil infused with oregano is a popular condiment in Mediterranean cuisine.",
       "Crush oregano leaves before adding them to dishes to release their flavor."
     ],
@@ -813,7 +828,8 @@
     ],
     "parsley": [
       "Parsley is a good source of vitamins A, C, and K, making it a nutritious addition to meals.",
-      "Flat-leaf parsley is often preferred in cooking to its curly cousin, which is usually used as garnish."
+      "Flat-leaf parsley is often preferred in cooking to its curly cousin, which is usually used as garnish.",
+      "Parsley belongs in the \"fines herbes\" blend of French cooking."
     ],
     "parsnip": [
       "The world record for the longest parsnip is currently set at 6.5 metres.",
@@ -842,6 +858,11 @@
     "peanut": [
       "Peanuts are rich in healthy fats and protein, providing sustained energy.",
       "Peanuts are technically legumes."
+    ],
+    "pearl onion": [
+      "India's Kashmir region is known for producing pearl onions.",
+      "Pearl onions are often used in pickling.",
+      "Onions are harmful to many animals."
     ],
     "pear": [
       "There are over 3,000 varieties of pear wordlwide.",
@@ -1062,7 +1083,8 @@
       "Scallion is more suitable than other onions for people with sensitive stomachs.",
       "The white part of scallion is fit for cooking, the green for garnish.",
       "Replanting and growing scallions can also be done at home.",
-      "Onions are harmful to many animals."
+      "Onions are harmful to many animals.",
+      "Unlike many other onions, scallion does not cause tears when chopped."
     ],
     "scarlet runner bean": [
       "The stems of scarlet runner beans can grow over three meters tall.",

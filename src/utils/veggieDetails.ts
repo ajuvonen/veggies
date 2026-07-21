@@ -73,6 +73,7 @@ export const LEAFIES: ReadonlySet<string> = new Set([
   'bok choy',
   'cabbage',
   'chard',
+  'chervil',
   'choy sum',
   'cilantro',
   'collard greens',
@@ -124,6 +125,7 @@ export const ROOTS: ReadonlySet<string> = new Set([
   'carrot',
   'celeriac',
   'chives',
+  'cipollini',
   'daikon',
   'fennel',
   'garlic',
@@ -138,6 +140,7 @@ export const ROOTS: ReadonlySet<string> = new Set([
   'onion',
   'parsley root',
   'parsnip',
+  'pearl onion',
   'potato',
   'radish',
   'red onion',
@@ -378,9 +381,11 @@ export const BOTANICAL_BERRIES: ReadonlySet<string> = new Set([
 
 export const ONIONS: ReadonlySet<string> = new Set([
   'chives',
+  'cipollini',
   'garlic',
   'leek',
   'onion',
+  'pearl onion',
   'red onion',
   'scallion',
   'shallot',
@@ -389,6 +394,7 @@ export const ONIONS: ReadonlySet<string> = new Set([
 
 export const HERBS: ReadonlySet<string> = new Set([
   'basil',
+  'chervil',
   'cilantro',
   'dill',
   'holy basil',
