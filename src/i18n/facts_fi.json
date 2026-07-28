@@ -103,19 +103,24 @@
     ],
     "black bean": [
       "Mustapapuja on viljelty Amerikassa yli 7 000 vuoden ajan.",
-      "Mustapapu sisältää paitsi rautaa, magnesiumia ja folaattia, myös proteiinia ja kuitua."
+      "Mustapapu sisältää paitsi rautaa, magnesiumia ja folaattia, myös proteiinia ja kuitua.",
+      "Mustapapuja käytetään useissa latinalaisen Amerikan keskeisissä ruoissa ."
     ],
     "black lentil": [
       "Mustia linssejä kutsutaan myös beluga-linsseiksi, ja ne muistuttavatkin ulkomuodoltaan kaviaaria.",
-      "Muiden linssien tavoin mustat linssit parantavat maaperän laatua kasvaessaan. Ne pärjäävät myös vähällä kastelulla."
+      "Muiden linssien tavoin mustat linssit parantavat maaperän laatua kasvaessaan. Ne pärjäävät myös vähällä kastelulla.",
+      "Mustat linssit pysyvät kypsennettäessä kiinteinä."
     ],
     "black radish": [
       "Perinteisessä lääketieteessä mausteista retikkaa käytetään usein flunssan oireisiin.",
-      "Retikka on tavallisesti pienempää punaista retiisiä mausteisempi."
+      "Retikka on tavallisesti pienempää punaista retiisiä mausteisempi.",
+      "Retikka kestää hyvin äärimmäisiä sääolosuhteita.",
+      "Retikalla oli perinteisessä lääketieteessä maine maksa- ja sappivaivojen hoitajana."
     ],
     "black salsify": [
       "Mustajuuren karu ulkoasu pettää. Sen miellyttävä maku muistuttaa maa-artisokkaa.",
-      "Mustajuuri voi tuntua tahmaiselta kuorittaessa. Käsineiden pitäminen tai veden alla kuoriminen auttaa."
+      "Mustajuuri voi tuntua tahmaiselta kuorittaessa. Käsineiden pitäminen tai veden alla kuoriminen auttaa.",
+      "Kuorittu mustajuuri on väriltään valkoista, mutta se tummuu nopeasti."
     ],
     "black trumpet mushroom": [
       "Mustatorvisienen maku on intensiivisen umaminen. Se on arvostettu ruokasieni.",
@@ -124,7 +129,8 @@
     ],
     "black-eyed pea": [
       "Mustasilmäpavut ovat alunperin kotoisin Länsi-Afrikasta.",
-      "Mustasilmäpavut pystyvät kasvamaan ankarissakin olosuhteissa ja ne parantavat maaperän laatua."
+      "Mustasilmäpavut pystyvät kasvamaan ankarissakin olosuhteissa ja ne parantavat maaperän laatua.",
+      "Englanninkielisestä nimestään huolimatta mustasilmäpavut ovat papuja, eivät herneitä."
     ],
     "blackberry": [
       "Karhunvatukka on helppo sekoittaa mustiin vadelmiin, jotka ovat kuitenkin selkeästi makeampia.",
@@ -162,15 +168,20 @@
     ],
     "boysenberry": [
       "Rudolph Boysen kehitti boysenmarjan 1920-luvulla risteyttämällä kolme eri marjaa.",
-      "Boysenmarjojen kasvukausi on lyhyt, mutta niitä on vaikea kuljettaa kokonaisina."
+      "Boysenmarjojen kasvukausi on lyhyt, mutta niitä on vaikea kuljettaa kokonaisina.",
+      "Kalifornia ja Uusi-Seelanti ovat merkittäviä boysenmarjan tuottajia."
     ],
     "brazil nut": [
-      "30 gramman annos brasilianpähkinöitä sisältää yli 700 % päivittäisestä seleenistä.",
-      "Brasilianpähkinät kasvavat Amazonin sademetsässä jättimäisissä, yli 500-vuotiaaksi elävissä puissa."
+      "30 gramman annos parapähkinöitä sisältää yli 700 % päivittäisestä seleenistä.",
+      "Parapähkinät kasvavat Amazonin sademetsässä jättimäisissä, yli 500-vuotiaaksi elävissä puissa.",
+      "Brasilia, Bolivia ja Peru ovat suurimpia parapähkinöiden tuottajia.",
+      "Parapähkinöiden kaupallinen tuotanto on vaikeaa, koska se vaatii tiettyjä mehiläisiä ja jyrsijöitä ekosysteemiinsä."
     ],
     "broccoli": [
       "Parsakaalin nimi tulee italian sanasta \"broccolo\", joka tarkoittaa \"kaalin kukintoa\".",
-      "Parsakaalia pidetään superruokana korkeiden vitamiini- ja antioksidanttipitoisuuksiensa vuoksi."
+      "Parsakaalia pidetään superruokana korkeiden vitamiini- ja antioksidanttipitoisuuksiensa vuoksi.",
+      "Kiina ja Intia ovat maailman suurimpia parsakaalin tuottajia.",
+      "Myös parsakaalin varsia voidaan syödä."
     ],
     "broccolini": [
       "Broccolini on hybridi, joka on luotu risteyttämällä parsakaali ja kiinalainen parsakaali.",
@@ -184,11 +195,14 @@
     ],
     "brown lentil": [
       "Ruskeita linssejä on käytetty jo antiikin Kreikassa ja Egyptissä.",
-      "Ruskeita linssejä käytetään keitoissa ja pataruoissa, koska ne säilyttävät muotonsa kypsennyksen aikana."
+      "Ruskeita linssejä käytetään keitoissa ja pataruoissa, koska ne säilyttävät muotonsa kypsennyksen aikana.",
+      "Kanada, Intia ja Australia lukeutuvat maailman suurimpiin ruskeiden linssien tuottajiin."
     ],
     "brussels sprouts": [
       "Ruusukaalia viljeltiin laajasti Belgian pääkaupungissa 1500-luvulla.",
-      "Ruusukaali on usein esillä perinteisissä eurooppalaisissa juhla-aterioissa."
+      "Ruusukaali on usein esillä perinteisissä eurooppalaisissa juhla-aterioissa.",
+      "Hollanti ja Meksiko ovat suurimmat ruusukaalin viejät maailmassa.",
+      "Tutkijat onnistuivat 1990-luvulla risteyttämään ruusukaalilajikkeista vähemmän kitkeriä."
     ],
     "buckwheat": [
       "Tattari on suosittu gluteeniton viljavalmiste.",
@@ -230,22 +244,30 @@
     ],
     "cantaloupe": [
       "Verkkomelonia viljeltiin ensimmäisen kerran muinaisessa Egyptissä.",
-      "Verkkomelonin englanninkielinen nimi \"cantaloupe\" tulee Cantalupon kaupungista Italiasta."
+      "Verkkomelonin englanninkielinen nimi \"cantaloupe\" tulee Cantalupon kaupungista Italiasta.",
+      "Verkkomelonin suurimmat tuottajamaat ovat Kiina, Intia ja Turkki.",
+      "Verkkomeloni ja prosciutto ovat suosittu antipasto.",
+      "Yhdysvalloissa ja Euroopassa myydään eri lajiketta verkkomelonina."
     ],
     "cape gooseberry": [
       "Ananaskirsikoita kasvaa luonnossa erityisesti Perun, Kolumbian ja Ecuadorin vuoristoalueilla.",
-      "Nimestään huolimatta ananaskirsikka ei ole sukua ananakselle eikä kirsikalle."
+      "Nimestään huolimatta ananaskirsikka ei ole sukua ananakselle eikä kirsikalle.",
+      "Hyvin säilyvä ananaskirsikka oli historiallisesti hyödyllinen pitkien merimatkojen aikana.",
+      "Raa'at ananaskirsikat ja niiden lehdet ovat myrkyllisiä, mutta kypsä hedelmä on turvallista syödä."
     ],
     "caper": [
       "Kaprikset ovat kaprispensaan aukeamattomia kukkanuppuja, jotka säilötään etikkaan tai suolaan.",
-      "Kaprikset ovat olleet käytössä Välimeren ja Lähi-idän keittiöissä tuhansien vuosien ajan."
+      "Kaprikset ovat olleet käytössä Välimeren ja Lähi-idän keittiöissä tuhansien vuosien ajan.",
+      "Kaprikset kasvavat karuissa, kivikkoisissa ympäristöissä ja ne kerätään täysin käsin.",
+      "Jättikaprikset ovat yksinkertaisesti kaprispensaan marjoja, jotka ovat myös syötäviä."
     ],
     "carrot": [
       "Yksi porkkana sisältää yli 100 % päivän A-vitamiinista.",
       "Porkkanat olivat joko violetteja tai valkoisia, kunnes hollantilaiset maanviljelijät kehittivät oranssin lajikkeen 1600-luvulla.",
       "Painavin koskaan punnittu porkkana painoi yli kymmenen kiloa.",
       "Toisin kuin yleisesti luullaan, porkkana ei ole hyväksi kaneille liiallisen sokeripitoisuutensa vuoksi.",
-      "Japanilaiset manpukuji-porkkanat voivat kasvaa jopa metrin pituisiksi."
+      "Japanilaiset manpukuji-porkkanat voivat kasvaa jopa metrin pituisiksi.",
+      "Porkkana on osa ranskalaisen keittiön mirepoix-sekoitusta, italialaisittain soffrittoa."
     ],
     "cashew nut": [
       "30 gramman annos cashewpähkinöitä sisältää noin 5 g proteiinia ja 13 g terveellisiä rasvoja.",
@@ -266,7 +288,9 @@
     ],
     "celery": [
       "30 gramman annos selleriä sisältää vain noin 5 kaloria, joten se on terveellinen välipala.",
-      "Selleriä on viljelty yli 3 000 vuoden ajan sekä ruoaksi että lääketieteellisiin tarkoituksiin."
+      "Selleriä on viljelty yli 3 000 vuoden ajan sekä ruoaksi että lääketieteellisiin tarkoituksiin.",
+      "Kiina tuottaa noin puolet maailman selleristä.",
+      "Selleri on osa ranskalaisen keittiön mirepoix-sekoitusta, italialaisittain soffrittoa."
     ],
     "champignon": [
       "Herkkusieni on yksi maailman laajimmin viljellyistä ja kulutetuista sienistä.",
@@ -312,11 +336,17 @@
     ],
     "chestnut": [
       "Useimpiin pähkinöihin verrattuna kastanjat ovat vähärasvaisempia ja sisältävät enemmän hiilihydraatteja.",
-      "Monissa kulttuureissa kastanjat paahdetaan ja nautitaan talviherkkuna."
+      "Monissa kulttuureissa kastanjat paahdetaan ja nautitaan talviherkkuna.",
+      "Englanninkielisestä nimestään \"chestnut\" huolimatta kastanjat eivät ole oikeasti pähkinöitä.",
+      "Ravitsemusmielessä kastanja muistuttaa enemmän perunaa kuin pähkinää.",
+      "Kastanjan kuori on viillettävä ennen paahtamista, jotta se ei räjähdä."
     ],
     "chia seed": [
       "30 gramman annos chiasiemeniä sisältää noin 11 g kuitua ja runsaasti omega-3-rasvahappoja.",
-      "Chiasiemenet olivat tärkeä ravinnonlähde muinaisille atsteekeille ja mayoille."
+      "Chiasiemenet olivat tärkeä ravinnonlähde muinaisille atsteekeille ja mayoille.",
+      "Chia on salvian, basilikan ja mintun sukulainen.",
+      "Noin 70 % Euroopan chiasiemenistä tuotetaan Paraguayssa.",
+      "Chiasiemeniä käytetään vanukkaissa, smoothieissa ja kananmunan korvikkeena vegaanileivonnassa."
     ],
     "chickpea": [
       "Kikherne on yksi kolmesta eniten käytetystä palkokasvista maailmassa.",
@@ -343,7 +373,9 @@
     ],
     "cilantro": [
       "Jotkut kokevat korianterin maun saippuaiseksi geneettisen, makuaistimukseen vaikuttavan ominaisuutensa vuoksi.",
-      "Korianterin siemeniä käytetään mausteena ja niitä löydettiin väitetysti jopa Tutankhamonin haudasta."
+      "Korianterin siemeniä käytetään mausteena ja niitä löydettiin väitetysti jopa Tutankhamonin haudasta.",
+      "Korianteri on persiljan, tillin ja fenkolin sukulainen.",
+      "Korianteri on yksi maailman eniten käytetyistä tuoreista yrteistä."
     ],
     "cipollini": [
       "Cipollini on italiaa ja tarkoittaa \"pientä sipulia\".",
@@ -357,19 +389,27 @@
     ],
     "cloudberry": [
       "30 gramman annos hilloja sisältää yli 50 % päivittäisestä C-vitamiinista.",
-      "Hillat kasvavat kylmissä ilmastoissa ja ovat erittäin arvostettuja Pohjoismaissa."
+      "Hillat kasvavat kylmissä ilmastoissa ja ovat erittäin arvostettuja Pohjoismaissa.",
+      "Hillaa ei ole pystytty viljelemään kaupallisesti, joten se kerätään luonnosta.",
+      "Hilloista valmistettu hillo leipäjuuston kanssa on suomalainen perinneherkku."
     ],
     "coconut": [
       "Kookospähkinöitä käytetään monissa eri muodoissa, mukaan lukien vesi, maito, öljy ja hedelmäliha.",
-      "Elokuvassa Monty Pythonin Hullu Maailma käytettiin budjettisyistä kookospähkinän kuoria hevosen äänten tuottamiseen."
+      "Elokuvassa Monty Pythonin Hullu Maailma käytettiin budjettisyistä kookospähkinän kuoria hevosen äänten tuottamiseen.",
+      "Indonesia, Filippiinit ja Intia ovat suurimpia kookospähkinöiden tuottajia.",
+      "Kookosvesi on luonnollinen elektrolyyttijuoma, jota voidaan käyttää nesteytyksessä.",
+      "Kookospähkinät voivat kellua merivirtojen mukana pitkiäkin matkoja uusille rannoille."
     ],
     "collard greens": [
-      "30 gramman annos lehtikaalia sisältää yli 100 % päivittäisestä K-vitamiinista.",
-      "Lehtikaalia on viljelty tuhansien vuosien ajan ja se oli suosittu vihannes antiikin Kreikassa ja Roomassa."
+      "30 gramman annos rehuydinkaalia sisältää yli 100 % päivittäisestä K-vitamiinista.",
+      "Rehuydinkaalia on viljelty tuhansien vuosien ajan ja se oli suosittu vihannes antiikin Kreikassa ja Roomassa.",
+      "Rehuydinkaali on erityisen suosittu eteläisen Yhdysvaltojen keittiössä."
     ],
     "corn": [
       "Maissi, jonka viljely on peräisin Meksikosta, on yksi maailman tärkeimmistä viljakasveista.",
-      "Noin 60-70 % maailmassa tuotetusta maissista päätyy eläinten rehuksi."
+      "Noin 60-70 % maailmassa tuotetusta maissista päätyy eläinten rehuksi.",
+      "Yhdysvallat on maailman suurin maissintuottaja.",
+      "Maissinjyvien \"räjähtäminen\" popcorniksi johtuu niiden sisältämästä vedestä, joka höyrystyy kuumennettaessa."
     ],
     "couscous": [
       "Kuskus, joka valmistetaan mannasuurimoista, on yleinen Pohjois-Afrikan keittiössä.",
@@ -797,7 +837,8 @@
       "Sipulit ovat haitallisia monille eläimille.",
       "Suurin tähän asti tavattu sipuli painoi lähes yhdeksän kiloa.",
       "Sipulin kyyneliä aiheuttava mekanismi on monimutkainen kemiallinen reaktio.",
-      "Tiedemiehet ovat yrittäneet kehittää sipulia joka ei itkettäisi, mutta niiden maku jäi vaatimattomaksi."
+      "Tiedemiehet ovat yrittäneet kehittää sipulia joka ei itkettäisi, mutta niiden maku jäi vaatimattomaksi.",
+      "Sipuli on osa ranskalaisen keittiön mirepoix-sekoitusta, italialaisittain soffrittoa."
     ],
     "orange": [
       "Yksi appelsiini sisältää noin 60 kaloria ja yli 100 % päivittäisestä C-vitamiinista.",
