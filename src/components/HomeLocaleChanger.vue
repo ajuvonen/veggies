@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import {computed} from 'vue';
-import {useI18n} from 'vue-i18n';
 import {storeToRefs} from 'pinia';
 import {LOCALES} from '@/utils/constants';
 import {useAppStateStore} from '@/stores/appStateStore';
 
 const {settings} = storeToRefs(useAppStateStore());
-const {locale} = useI18n();
 
 const availableLocales = computed(() =>
-  LOCALES.filter((availableLocale) => availableLocale !== locale.value),
+  LOCALES.filter((availableLocale) => availableLocale !== settings.value.locale),
 );
 </script>
 <template>
