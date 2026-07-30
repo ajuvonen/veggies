@@ -3,7 +3,7 @@ import {useI18n} from 'vue-i18n';
 import {computedWithControl} from '@vueuse/core';
 import {storeToRefs} from 'pinia';
 import {countBy, entries, mean, sample} from 'remeda';
-import type {WeeklyAchievements, WeekData, SummaryItem} from '@/types';
+import type {WeeklyAchievements, WeekData} from '@/types';
 import {Category} from '@/types';
 import {getCategoryForVeggie, getRandomItem, setIntersection} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
@@ -11,6 +11,12 @@ import {NUTRIENTS} from '@/utils/veggieDetails';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useAvailableWeeklyAchievements} from '@/hooks/availableWeeklyAchievements';
 import {useActivityStore} from '@/stores/activityStore';
+
+type SummaryItem = {
+  emoji: string;
+  translationKey: string;
+  translationParameters: (string | number)[];
+};
 
 export const useWeekSummary = () => {
   const {t} = useI18n();
