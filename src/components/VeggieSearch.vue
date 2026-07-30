@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {type ComponentPublicInstance, ref, useTemplateRef} from 'vue';
+import {ref, useTemplateRef} from 'vue';
 import {onClickOutside, useMemoize} from '@vueuse/core';
 import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie, normalizeForSearch} from '@/utils/helpers';
@@ -25,8 +25,8 @@ const {availableVeggies} = useAvailableVeggies();
 const listOpen = ref(false);
 const query = ref('');
 const groups = useTemplateRef('groups');
-const searchInput = useTemplateRef<ComponentPublicInstance>('searchInput');
-const anchorElement = useTemplateRef<ComponentPublicInstance>('anchorElement');
+const searchInput = useTemplateRef('searchInput');
+const anchorElement = useTemplateRef('anchorElement');
 const optionsElement = useTemplateRef('optionsElement');
 
 const translatedVeggies = useMemoize(() =>
