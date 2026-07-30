@@ -14,7 +14,7 @@ const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
 );
 
-const {t, tm, locale} = useI18n();
+const {t, tm} = useI18n();
 
 const ensureFactsLoaded = useFactsLoader();
 
@@ -55,7 +55,7 @@ watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
       addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, cheer]));
       showConfetti();
     } else if (settings.value.showVeggieFacts && Math.random() <= 0.5) {
-      await ensureFactsLoaded(locale.value as Locale);
+      await ensureFactsLoaded(settings.value.locale as Locale);
 
       const facts = [
         ...Object.values<string>(tm(`facts.${addedVeggie}`)),
