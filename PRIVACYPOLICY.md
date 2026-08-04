@@ -1,10 +1,12 @@
 # Privacy Policy
 
-Last updated 20.4.2026
+Last updated 4.8.2026
 
-Your data stays on your device. All information you create or store within this app is saved locally, and we do not operate any servers that collect or store your personal data. We do not sell or share your data for advertising or marketing purposes.
+By default, your data stays on your device. All information you create or store within this app is saved locally, and we do not operate any servers that collect or store your personal data. We do not sell or share your data for advertising or marketing purposes.
 
-If you choose to enable AI-powered features, certain usage data and your IP address will be transmitted to our third-party AI service provider to process your requests. Your IP address is used solely for rate limiting purposes and is not retained, linked to your identity, or used for any other purpose. AI features are strictly opt-in — if you do not enable them, no data leaves your device.
+If you choose to enable AI-powered features, certain usage data will be transmitted to our third-party AI service provider to process your requests. AI features are strictly opt-in — if you do not enable them, no data leaves your device.
+
+To protect our services from automated abuse, we use IP-based rate limiting and Cloudflare Turnstile, which may derive signals from your device to verify you're an actual user. Cloudflare's use of Turnstile is described in the [Turnstile Privacy Addendum](https://www.cloudflare.com/turnstile-privacy-policy/).
 
 You may at any time remove your data from your device using the in-app feature.
 

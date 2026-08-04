@@ -2,6 +2,7 @@ import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
 import {mount, flushPromises, enableAutoUnmount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import {take} from '@/test-utils';
+import TurnstileWidgetStub from '@/test-utils/TurnstileWidgetStub.vue';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {getWeekStart} from '@/utils/helpers';
 import {Category} from '@/types';
@@ -10,7 +11,7 @@ import {useAppStateStore} from '@/stores/appStateStore';
 import WeekSummaryDialog from '@/components/WeekSummaryDialog.vue';
 
 const mocks = vi.hoisted(() => ({
-  getAISummary: vi.fn((_, onChunk: (text: string) => void) => {
+  getAISummary: vi.fn((_weekData, _token, onChunk: (text: string) => void) => {
     onChunk('Test AI summary');
     return Promise.resolve('Test AI summary');
   }),
@@ -18,6 +19,10 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock('@/api', () => ({
   getAISummary: mocks.getAISummary,
+}));
+
+vi.mock('@/components/ui/TurnstileWidget.vue', () => ({
+  default: TurnstileWidgetStub,
 }));
 
 describe('WeekSummaryDialog', () => {
@@ -267,6 +272,7 @@ Try it out:`;
         veggies: ['apple', 'spinach'],
         weekNumber: lastWeek.weekOfYear,
       },
+      'test-turnstile-token',
       expect.any(Function),
       expect.any(AbortSignal),
     );
@@ -309,6 +315,7 @@ Try it out:`;
         veggies: ['apple', 'spinach'],
         weekNumber: lastWeek.weekOfYear,
       },
+      'test-turnstile-token',
       expect.any(Function),
       expect.any(AbortSignal),
     );

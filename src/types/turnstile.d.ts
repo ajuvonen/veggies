@@ -1,0 +1,22 @@
+declare global {
+  interface TurnstileRenderOptions {
+    sitekey: string;
+    action?: string;
+    callback: (token: string) => void;
+    'error-callback': (code: string) => void;
+    'expired-callback': () => void;
+    'unsupported-callback': () => void;
+  }
+
+  interface TurnstileApi {
+    render: (container: HTMLElement, options: TurnstileRenderOptions) => string;
+    reset: (widgetId?: string) => void;
+    remove: (widgetId: string) => void;
+  }
+
+  interface Window {
+    turnstile?: TurnstileApi;
+  }
+}
+
+export {};

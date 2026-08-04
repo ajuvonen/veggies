@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, onMounted, onUnmounted} from 'vue';
+import {ref, watchEffect} from 'vue';
 import {getAISummary} from '@/api';
 import type {WeekData} from '@/types';
 
@@ -10,27 +10,47 @@ const props = defineProps<{
 const summaryText = ref('');
 const error = ref(false);
 const isGenerating = ref(true);
-const controller = new AbortController();
+const turnstileToken = ref('');
 
-onMounted(async () => {
-  try {
-    await getAISummary(
-      props.weekData,
-      (text) => {
-        summaryText.value = text;
-      },
-      controller.signal,
-    );
-  } catch {
-    error.value = true;
-  } finally {
-    isGenerating.value = false;
+watchEffect((onCleanup) => {
+  if (!turnstileToken.value) {
+    return;
   }
-});
 
-onUnmounted(() => controller.abort());
+  const controller = new AbortController();
+  onCleanup(() => controller.abort());
+
+  isGenerating.value = true;
+  error.value = false;
+  summaryText.value = '';
+
+  void (async () => {
+    try {
+      await getAISummary(
+        props.weekData,
+        turnstileToken.value,
+        (text) => {
+          summaryText.value = text;
+        },
+        controller.signal,
+      );
+    } catch {
+      if (!controller.signal.aborted) {
+        error.value = true;
+      }
+    } finally {
+      isGenerating.value = false;
+    }
+  })();
+});
 </script>
 <template>
+  <TurnstileWidget
+    v-model="turnstileToken"
+    action="summarize"
+    @error="error = true"
+    @unsupported="error = true"
+  />
   <p v-if="error">{{ $t('weekSummaryDialog.AISummaryUnavailable') }}</p>
   <div v-else class="flex-container flex-col">
     <p>{{ $t('weekSummaryDialog.AIMayContainErrors') }}</p>
