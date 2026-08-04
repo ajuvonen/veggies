@@ -1,6 +1,6 @@
 import {describe, it, expect, vi, afterEach} from 'vitest';
 import {mount} from '@vue/test-utils';
-import ScreenTestComponent from '@/test-utils/ScreenTestComponent.vue';
+import ScreenStub from '@/test-utils/ScreenStub.vue';
 
 describe('screen', () => {
   afterEach(() => {
@@ -8,7 +8,7 @@ describe('screen', () => {
   });
 
   it('detects window resizes', async () => {
-    const wrapper = mount(ScreenTestComponent);
+    const wrapper = mount(ScreenStub);
     expect(wrapper.vm.visualHeight).toBe(window.innerHeight);
     const originalHeight = window.innerHeight;
     window.innerHeight = originalHeight + 100;
@@ -34,7 +34,7 @@ describe('screen', () => {
       toJSON: () => ({}),
     });
 
-    const wrapper = mount(ScreenTestComponent);
+    const wrapper = mount(ScreenStub);
     expect(wrapper.vm.maxHeight).toBe(window.innerHeight - 100);
   });
 });
