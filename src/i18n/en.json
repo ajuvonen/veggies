@@ -259,7 +259,7 @@
     },
     "isMyDataSafe": {
       "title": "Is my data safe?",
-      "text": "The data is stored in your browser's local storage and is not shared with any third parties. You can at any time you wish reset the app using the button below."
+      "text": "By default the data is stored in your browser's local storage and is not shared with any third parties. If you wish, you can enable separate AI features, in which case anonymous data is shared with the AI service provider. You can at any time reset the app using the button below."
     },
     "studyDetails": {
       "linkText": "American Society for Microbiology (ASM)",
