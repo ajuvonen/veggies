@@ -259,7 +259,7 @@
     },
     "isMyDataSafe": {
       "title": "Ovatko tietoni turvassa?",
-      "text": "Tietoja säilytetään ainoastaan selaimesi paikallisessa tallennustilassa laitteellasi, eikä niitä jaeta kolmansille osapuolille. Voit milloin vain tyhjentää tietosi alla olevalla napilla."
+      "text": "Oletuksena tietoja säilytetään ainoastaan selaimesi paikallisessa tallennustilassa laitteellasi, eikä niitä jaeta kolmansille osapuolille. Halutessasi voit ottaa erillisiä AI-toimintoja käyttöön, jolloin anonyymiä dataa jaetaan AI-palveluntarjoajalle. Voit milloin vain tyhjentää tietosi alla olevalla napilla."
     },
     "studyDetails": {
       "linkText": "American Society for Microbiology (ASM)",
