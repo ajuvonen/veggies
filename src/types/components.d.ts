@@ -84,6 +84,7 @@ declare module 'vue' {
     ToastContainer: typeof import('./../components/ToastContainer.vue')['default']
     ToastMessage: typeof import('./../components/ui/ToastMessage.vue')['default']
     ToggleComponent: typeof import('./../components/ui/ToggleComponent.vue')['default']
+    TurnstileWidget: typeof import('./../components/ui/TurnstileWidget.vue')['default']
     VeggieCompletionChart: typeof import('./../components/charts/VeggieCompletionChart.vue')['default']
     VeggieList: typeof import('./../components/VeggieList.vue')['default']
     VeggieSearch: typeof import('./../components/VeggieSearch.vue')['default']
