@@ -26,9 +26,10 @@ exports[`HomeView > shows dialog 1`] = `
       </svg></button>
   </div>
   <div data-v-9ec8a7f3="" class="modal-dialog__content outline-override">
+    <p data-v-b4e148ca="">Track your meals without being tracked.</p>
+    <p data-v-b4e148ca="">Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app has no ads, requires no registration, and data is kept in your own device's browser cache by default.</p>
     <p data-v-b4e148ca="">A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. According to the study, by steadily incorporating a wide range of vegetables into your diet, you can reduce inflammation, improve nutrient absorption, and boost your overall vitality.</p>
-    <p data-v-b4e148ca="">Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app requires no registration and the data is kept in your own device's browser cache.</p>
-    <p data-v-b4e148ca="">Don't miss out on the benefits of a diverse diet. Transform your health today with the help of Eat Your Veggies and experience the difference that plant diversity can make.</p>
+    <p data-v-b4e148ca="">Increase your wellbeing with the help of Eat Your Veggies!</p>
   </div>
   <div data-v-9ec8a7f3="" class="modal-dialog__buttons outline-override"></div>
 </div>"
