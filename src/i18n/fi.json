@@ -224,9 +224,9 @@
   "home": {
     "changeLocale": "Vaihda kieleksi {0}",
     "info": "Lue lisää",
-    "infoP1": "Vuonna 2018 julkaistun The American Gut Project -tutkimuksen mullistavat tulokset paljastivat, että vähintään 30 erilaisen kasviksen nauttiminen viikossa monipuolistaa suoliston mikrobitasapainoa. Tämä monimuotoisuus voi olla avain parempaan ruoansulatukseen, vahvempaan immuunijärjestelmään ja jopa parempaan aivojen toimintakykyyn. Tutkimuksen mukaan säännöllisen monipuolinen kasvisten sisällyttäminen ruokavalioon voi vähentää tulehduksia, parantaa ravinteiden imeytymistä ja lisätä yleistä elinvoimaisuutta.",
-    "infoP2": "Eat Your Veggies on ilmainen sovellus aterioidesi kasvipohjaisten ruoka-aineiden seuraamiseen. Sovellus ei vaadi rekisteröitymistä ja tietoja säilytetään ainoastaan oman laitteesi selaimen välimuistissa.",
-    "infoP3": "Älä menetä monipuolisen ruokavalion hyötyjä. Ota sen sijaan Eat Your Veggies tänään avuksesi terveytesi mullistamisessa ja koe sen tuomat edut.",
+    "infoP1": "Seuraa ruokavaliotasi ilman että sinua seurataan. Eat Your Veggies on ilmainen sovellus aterioidesi kasvipohjaisten ruoka-aineiden seuraamiseen. Sovellus ei sisällä mainoksia tai vaadi rekisteröitymistä, ja tietoja säilytetään oletuksena ainoastaan oman laitteesi selaimen välimuistissa.",
+    "infoP2": "Vuonna 2018 julkaistun The American Gut Project -tutkimuksen mullistavat tulokset paljastivat, että vähintään 30 erilaisen kasviksen nauttiminen viikossa monipuolistaa suoliston mikrobitasapainoa. Tämä monimuotoisuus voi olla avain parempaan ruoansulatukseen, vahvempaan immuunijärjestelmään ja jopa parempaan aivojen toimintakykyyn. Tutkimuksen mukaan säännöllisen monipuolinen kasvisten sisällyttäminen ruokavalioon voi vähentää tulehduksia, parantaa ravinteiden imeytymistä ja lisätä yleistä elinvoimaisuutta.",
+    "infoP3": "Ylläpidä hyvinvointiasi Eat Your Veggiesin avulla!",
     "infoTitle": "Mistä on kyse?",
     "callout": "Elä terveellisemmin syömällä 30 kasvipohjaista ruoka-ainetta joka viikko. Seuraa onnistumistasi tämän ilmaisen sovelluksen avulla."
   },
