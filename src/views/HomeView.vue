@@ -45,13 +45,7 @@ onMounted(() => {
       >
     </div>
     <FooterComponent />
-    <ModalDialog v-model="dialogOpen" :title="$t('home.infoTitle')">
-      <template #content>
-        <p>{{ $t('home.infoP1') }}</p>
-        <p>{{ $t('home.infoP2') }}</p>
-        <p>{{ $t('home.infoP3') }}</p>
-      </template>
-    </ModalDialog>
+    <HomeInfoDialog v-model="dialogOpen" />
   </div>
 </template>
 <style scoped>
