@@ -51,4 +51,34 @@ describe('ButtonComponent', () => {
     await wrapper.find('.button-like').trigger('click');
     expect(wrapper.emitted('click')?.length).toBe(3);
   });
+
+  it('does not set aria-disabled by default', () => {
+    const wrapper = mount(ButtonComponent, {
+      slots: {default: 'test button'},
+    });
+
+    expect(wrapper.find('.button-like').attributes('aria-disabled')).toBeUndefined();
+  });
+
+  it('sets aria-disabled and disabled styling when disabled', () => {
+    const wrapper = mount(ButtonComponent, {
+      slots: {default: 'test button'},
+      props: {disabled: true},
+    });
+
+    expect(wrapper.find('.button-like').attributes('disabled')).toBeUndefined();
+    expect(wrapper.find('.button-like').attributes('aria-disabled')).toBe('true');
+    expect(wrapper.find('.button-like').classes()).includes('opacity-50');
+    expect(wrapper.find('.button-like').classes()).includes('cursor-not-allowed');
+  });
+
+  it('does not emit click when disabled', async () => {
+    const wrapper = mount(ButtonComponent, {
+      slots: {default: 'test button'},
+      props: {disabled: true},
+    });
+
+    await wrapper.find('.button-like').trigger('click');
+    expect(wrapper.emitted('click')).toBeUndefined();
+  });
 });
