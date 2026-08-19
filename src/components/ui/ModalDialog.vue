@@ -1,8 +1,17 @@
 <script setup lang="ts">
+import {computed, useTemplateRef} from 'vue';
+import {useElementSize} from '@vueuse/core';
+
 const model = defineModel<boolean>({required: true});
 defineProps<{
   title: string;
 }>();
+
+const contentRef = useTemplateRef('contentRef');
+const {height: contentHeight} = useElementSize(contentRef);
+const contentWrapperStyle = computed(() => ({
+  height: contentHeight.value ? `${contentHeight.value}px` : 'auto',
+}));
 
 const checkIfModalClick = (event: Event) => {
   if (
@@ -36,8 +45,10 @@ const checkIfModalClick = (event: Event) => {
             />
           </DialogClose>
         </div>
-        <div class="modal-dialog__content outline-override">
-          <slot name="content" />
+        <div class="modal-dialog__content outline-override" :style="contentWrapperStyle">
+          <div ref="contentRef" class="modal-dialog__content-inner">
+            <slot name="content" />
+          </div>
         </div>
         <div class="modal-dialog__buttons outline-override">
           <slot name="buttons" />
@@ -75,8 +86,17 @@ const checkIfModalClick = (event: Event) => {
 
 .modal-dialog__content {
   @apply has-scroll;
-  @apply flex flex-col gap-4;
+  @apply transition-[height] duration-200 ease-out;
+  box-sizing: content-box;
   scrollbar-color: initial;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.modal-dialog__content-inner {
+  @apply flex flex-col gap-4;
 }
 
 .modal-dialog__buttons {
