@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
   mdiArrowLeftBoldOutline,
+  mdiBookOpenOutline,
   mdiCalendarWeekOutline,
   mdiChartBar,
   mdiChartLine,
@@ -18,11 +19,13 @@ import {
   mdiEarth,
   mdiFormatListChecks,
   mdiHistory,
+  mdiHumanGreeting,
   mdiMinus,
   mdiPlus,
   mdiRadioboxBlank,
   mdiRadioboxMarked,
   mdiShareVariant,
+  mdiStarCircleOutline,
   mdiTrashCan,
   mdiTrophyOutline,
 } from '@mdi/js';
@@ -41,6 +44,7 @@ withDefaults(
 const icons = {
   arrowLeft: mdiArrowLeftBoldOutline,
   bluesky: siBluesky.path,
+  bookOpen: mdiBookOpenOutline,
   calendarWeek: mdiCalendarWeekOutline,
   chart: mdiChartBar,
   chartLine: mdiChartLine,
@@ -57,13 +61,15 @@ const icons = {
   databaseImport: mdiDatabaseImport,
   earth: mdiEarth,
   formatListChecks: mdiFormatListChecks,
-  history: mdiHistory,
-  minus: mdiMinus,
   googlePlay: siGoogleplay.path,
+  history: mdiHistory,
+  humanGreeting: mdiHumanGreeting,
+  minus: mdiMinus,
   plus: mdiPlus,
   radioboxBlank: mdiRadioboxBlank,
   radioboxMarked: mdiRadioboxMarked,
   shareVariant: mdiShareVariant,
+  starCircle: mdiStarCircleOutline,
   trashCan: mdiTrashCan,
   trophy: mdiTrophyOutline,
 } as const;

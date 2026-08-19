@@ -5,6 +5,7 @@ import IconComponent, {type IconString} from '@/components/ui/IconComponent.vue'
 const icons: IconString[] = [
   'arrowLeft',
   'bluesky',
+  'bookOpen',
   'calendarWeek',
   'chart',
   'chartLine',
@@ -23,11 +24,13 @@ const icons: IconString[] = [
   'formatListChecks',
   'googlePlay',
   'history',
+  'humanGreeting',
   'minus',
   'plus',
   'radioboxBlank',
   'radioboxMarked',
   'shareVariant',
+  'starCircle',
   'trashCan',
   'trophy',
 ];
