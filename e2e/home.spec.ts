@@ -16,7 +16,9 @@ test('home page actions work', async ({page}) => {
   await expect(page.getByTestId('home-locale-button-en')).toBeVisible();
   await page.getByTestId('home-info-button').click();
   await expect(page.getByTestId('dialog')).toBeVisible();
-  await page.getByTestId('dialog-close-button').click();
+  await page.getByTestId('home-info-next-button').click();
+  await page.getByTestId('home-info-next-button').click();
+  await page.getByTestId('home-info-close-button').click();
   await expect(page.getByTestId('dialog')).toBeHidden();
 });
 
