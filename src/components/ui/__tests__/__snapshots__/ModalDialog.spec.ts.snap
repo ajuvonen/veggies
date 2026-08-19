@@ -7,7 +7,9 @@ exports[`ModalDialog > shows dialog 1`] = `
         <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" class="transition-all"></path>
       </svg></button>
   </div>
-  <div data-v-9ec8a7f3="" class="modal-dialog__content outline-override"></div>
+  <div data-v-9ec8a7f3="" class="modal-dialog__content outline-override" style="height: auto;">
+    <div data-v-9ec8a7f3="" class="modal-dialog__content-inner"></div>
+  </div>
   <div data-v-9ec8a7f3="" class="modal-dialog__buttons outline-override"></div>
 </div>"
 `;
