@@ -79,6 +79,7 @@ declare module 'vue' {
     SelectViewport: typeof import('reka-ui')['SelectViewport']
     SimpleScreenReaderTable: typeof import('./../components/SimpleScreenReaderTable.vue')['default']
     SliderComponent: typeof import('./../components/ui/SliderComponent.vue')['default']
+    SpinnerComponent: typeof import('./../components/ui/SpinnerComponent.vue')['default']
     SwitchRoot: typeof import('reka-ui')['SwitchRoot']
     SwitchThumb: typeof import('reka-ui')['SwitchThumb']
     TagsComponent: typeof import('./../components/TagsComponent.vue')['default']
