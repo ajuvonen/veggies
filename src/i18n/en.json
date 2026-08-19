@@ -208,18 +208,16 @@
     "clickToAdd": "Add {0}",
     "clickToRemove": "Remove {0}",
     "close": "Close",
-    "closeList": "Close list",
     "ariaCopy": "Copy {0} to clipboard",
     "ariaShare": "Share {0}",
     "copy": "Copy",
     "follow": "Follow on Bluesky",
+    "loading": "Loading",
     "next": "Next",
-    "openList": "Open list",
     "playStore": "Google Play",
     "previous": "Previous",
     "seeTableBelow": "See table below for details.",
     "share": "Share",
-    "start": "Start",
     "veggie": "0 veggies | one veggie | {n} veggies",
     "veggieNominative": "0 veggies | one veggie | {n} veggies"
   },
@@ -250,8 +248,8 @@
         "text": "A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. By steadily incorporating a wide range of vegetables into your diet, you may reduce inflammation, improve nutrient absorption, and boost your overall vitality."
       }
     },
-    "infoTitle": "What is this about?",
-    "callout": "Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app."
+    "callout": "Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app.",
+    "start": "Start"
   },
   "locales": {
     "en": "English",
@@ -320,8 +318,7 @@
     "selectedAllergens": "Selected allergens",
     "showChartAnimations": "Show charts' animations",
     "showVeggieFacts": "Show veggie facts",
-    "suggestionCount": "Suggestions on the front page",
-    "title": "Settings"
+    "suggestionCount": "Suggestions on the front page"
   },
   "stats": {
     "0": "All time statistics",
@@ -333,7 +330,6 @@
     "editWeek": "Edit Week",
     "mean": "Mean: {0}",
     "notEarned": "Not earned",
-    "noWeeklyAchievements": "No achievements",
     "selectStatistic": "Select Statistic",
     "selectedWeek": "Week {0} ({1}-{2})",
     "veggiesForWeek": "Veggies for Week",

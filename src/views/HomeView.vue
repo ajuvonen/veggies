@@ -35,7 +35,7 @@ onMounted(() => {
     </p>
     <div class="flex-container justify-center">
       <ButtonComponent data-test-id="home-start-button" @click="start()">{{
-        $t('general.start')
+        $t('home.start')
       }}</ButtonComponent>
       <ButtonComponent
         color="secondary"

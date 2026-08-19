@@ -208,18 +208,16 @@
     "clickToAdd": "Lisää {0}",
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
-    "closeList": "Sulje lista",
     "ariaCopy": "Kopioi {0} leikepöydälle",
     "ariaShare": "Jaa {0}",
     "copy": "Kopioi",
     "follow": "Seuraa Blueskyssä",
+    "loading": "Ladataan",
     "next": "Seuraava",
-    "openList": "Avaa lista",
     "playStore": "Google Play",
     "previous": "Edellinen",
     "seeTableBelow": "Lisätietoja alla olevassa taulukossa.",
     "share": "Jaa",
-    "start": "Aloita",
     "veggie": "0 kasvista | yhden kasviksen | {n} kasvista",
     "veggieNominative": "0 kasvista | yksi kasvis | {n} kasvista"
   },
@@ -250,8 +248,8 @@
         "text": "Vuonna 2018 julkaistun The American Gut Project -tutkimuksen tulokset osoittivat, että vähintään 30 erilaisen kasviksen nauttiminen viikossa monipuolistaa suoliston mikrobitasapainoa. Tämä monimuotoisuus voi olla avain parempaan ruoansulatukseen, vahvempaan immuunijärjestelmään ja jopa parempaan aivojen toimintakykyyn. Säännöllisen monipuolinen kasvisten sisällyttäminen ruokavalioon voi vähentää tulehduksia, parantaa ravinteiden imeytymistä ja lisätä yleistä elinvoimaisuutta."
       }
     },
-    "infoTitle": "Mistä on kyse?",
-    "callout": "Elä terveellisemmin syömällä 30 kasvipohjaista ruoka-ainetta joka viikko. Seuraa onnistumistasi tämän ilmaisen sovelluksen avulla."
+    "callout": "Elä terveellisemmin syömällä 30 kasvipohjaista ruoka-ainetta joka viikko. Seuraa onnistumistasi tämän ilmaisen sovelluksen avulla.",
+    "start": "Aloita"
   },
   "locales": {
     "en": "English",
@@ -320,8 +318,7 @@
     "selectedAllergens": "Valitut allergeenit",
     "showChartAnimations": "Näytä graafien animaatiot",
     "showVeggieFacts": "Näytä kasvisfaktat",
-    "suggestionCount": "Etusivulla näytettävät ehdotukset",
-    "title": "Asetukset"
+    "suggestionCount": "Etusivulla näytettävät ehdotukset"
   },
   "stats": {
     "0": "Kokonaistilastot",
@@ -333,7 +330,6 @@
     "editWeek": "Muokkaa viikkoa",
     "mean": "Keskiarvo: {0}",
     "notEarned": "Ei ansaittu",
-    "noWeeklyAchievements": "Ei saavutuksia",
     "selectStatistic": "Valitse tilasto",
     "selectedWeek": "Viikko {0} ({1}-{2})",
     "veggiesForWeek": "Viikon kasvikset",
