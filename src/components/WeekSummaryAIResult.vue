@@ -52,6 +52,7 @@ watchEffect((onCleanup) => {
     @unsupported="error = true"
   />
   <p v-if="error">{{ $t('weekSummaryDialog.AISummaryUnavailable') }}</p>
+  <SpinnerComponent v-else-if="!turnstileToken" />
   <div v-else class="flex-container flex-col">
     <p>{{ $t('weekSummaryDialog.AIMayContainErrors') }}</p>
     <div class="sr-only" aria-live="polite">
