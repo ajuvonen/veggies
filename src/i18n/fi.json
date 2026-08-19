@@ -213,8 +213,10 @@
     "ariaShare": "Jaa {0}",
     "copy": "Kopioi",
     "follow": "Seuraa Blueskyssä",
+    "next": "Seuraava",
     "openList": "Avaa lista",
     "playStore": "Google Play",
+    "previous": "Edellinen",
     "seeTableBelow": "Lisätietoja alla olevassa taulukossa.",
     "share": "Jaa",
     "start": "Aloita",
@@ -224,9 +226,30 @@
   "home": {
     "changeLocale": "Vaihda kieleksi {0}",
     "info": "Lue lisää",
-    "infoP1": "Seuraa ruokavaliotasi ilman että sinua seurataan. Eat Your Veggies on ilmainen sovellus aterioidesi kasvipohjaisten ruoka-aineiden seuraamiseen. Sovellus ei sisällä mainoksia tai vaadi rekisteröitymistä, ja tietoja säilytetään oletuksena ainoastaan oman laitteesi selaimen välimuistissa.",
-    "infoP2": "Vuonna 2018 julkaistun The American Gut Project -tutkimuksen mullistavat tulokset paljastivat, että vähintään 30 erilaisen kasviksen nauttiminen viikossa monipuolistaa suoliston mikrobitasapainoa. Tämä monimuotoisuus voi olla avain parempaan ruoansulatukseen, vahvempaan immuunijärjestelmään ja jopa parempaan aivojen toimintakykyyn. Tutkimuksen mukaan säännöllisen monipuolinen kasvisten sisällyttäminen ruokavalioon voi vähentää tulehduksia, parantaa ravinteiden imeytymistä ja lisätä yleistä elinvoimaisuutta.",
-    "infoP3": "Ylläpidä hyvinvointiasi Eat Your Veggiesin avulla!",
+    "infoSteps": {
+      "ariaLabel": "Vaihe {0} / {1}: {2}",
+      "briefly": {
+        "title": "Lyhyesti",
+        "text": "Seuraa ruokavaliotasi ilman että sinua seurataan. Eat Your Veggies on ilmainen sovellus aterioidesi kasvipohjaisten ruoka-aineiden seuraamiseen. Sovellus ei sisällä mainoksia tai vaadi rekisteröitymistä, ja tietoja säilytetään oletuksena ainoastaan oman laitteesi tallennustilassa."
+      },
+      "features": {
+        "title": "Ominaisuudet",
+        "list": [
+          "Seuraa uniikkien kasvisten määrää kohti 30 kasviksen viikkotavoitetta.",
+          "Kirjaa ateriasi valitsemalla yli 260 kasvista seitsemästä eri kategoriasta.",
+          "Suorita haasteita ja ansaitse saavutuksia edistymisestäsi.",
+          "Tarkastele tilastojasi helposti luettavien graafien avulla.",
+          "Vastaanota ehdotuksia aiemmin syömiesi kasvisten perusteella, ja sulje allergeenit pois.",
+          "Nauti viikkoyhteenvedoista valinnaisin tekoälyominaisuuksin edistymisesi varmistamiseksi.",
+          "Vie tai tuo tietosi, ja asenna sovellus kotiruudullesi tai Android-sovelluksena.",
+          "Ei mainoksia, ei rekisteröitymistä, ei seurantaohjelmia. Kehitetty yksityisyytesi huomioiden."
+        ]
+      },
+      "background": {
+        "title": "Tausta",
+        "text": "Vuonna 2018 julkaistun The American Gut Project -tutkimuksen tulokset osoittivat, että vähintään 30 erilaisen kasviksen nauttiminen viikossa monipuolistaa suoliston mikrobitasapainoa. Tämä monimuotoisuus voi olla avain parempaan ruoansulatukseen, vahvempaan immuunijärjestelmään ja jopa parempaan aivojen toimintakykyyn. Säännöllisen monipuolinen kasvisten sisällyttäminen ruokavalioon voi vähentää tulehduksia, parantaa ravinteiden imeytymistä ja lisätä yleistä elinvoimaisuutta."
+      }
+    },
     "infoTitle": "Mistä on kyse?",
     "callout": "Elä terveellisemmin syömällä 30 kasvipohjaista ruoka-ainetta joka viikko. Seuraa onnistumistasi tämän ilmaisen sovelluksen avulla."
   },
@@ -276,7 +299,7 @@
     "allergens": "Allergeenit",
     "allergensInfo": "Allergeeneiksi merkittyjä kasviksia ei näytetä sovelluksessa.",
     "exportImport": {
-      "description": "Luo datastasi varmuuskopio tai palauta se tällä toiminnolla. Käyttökohteita ovat esimerkiksi tilanteet, jolloin haluat pyyhkiä selaimesi välimuistin, tai vaihdat puhelinta tai oletusselaintasi.",
+      "description": "Luo datastasi varmuuskopio tai palauta se tällä toiminnolla. Käyttökohteita ovat esimerkiksi tilanteet, jolloin haluat pyyhkiä selaimesi tallennustilan, tai vaihdat puhelinta tai oletusselaintasi.",
       "export": "Vie",
       "exportSuccess": "Tiedot viety onnistuneesti.",
       "failure": "Odottamaton virhe. Data voi olla vioittunut.",
