@@ -213,8 +213,10 @@
     "ariaShare": "Share {0}",
     "copy": "Copy",
     "follow": "Follow on Bluesky",
+    "next": "Next",
     "openList": "Open list",
     "playStore": "Google Play",
+    "previous": "Previous",
     "seeTableBelow": "See table below for details.",
     "share": "Share",
     "start": "Start",
@@ -224,9 +226,30 @@
   "home": {
     "changeLocale": "Change language to {0}",
     "info": "Learn more",
-    "infoP1": "Track your meals without being tracked. Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app has no ads, requires no registration, and data is kept in your own device's browser cache by default.",
-    "infoP2": "A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. According to the study, by steadily incorporating a wide range of vegetables into your diet, you can reduce inflammation, improve nutrient absorption, and boost your overall vitality.",
-    "infoP3": "Increase your wellbeing with the help of Eat Your Veggies!",
+    "infoSteps": {
+      "ariaLabel": "Step {0} of {1}: {2}",
+      "briefly": {
+        "title": "Briefly",
+        "text": "Track your meals without being tracked. Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app has no ads, requires no registration, and data is kept in your own device's storage by default."
+      },
+      "features": {
+        "title": "Features",
+        "list": [
+          "Track your unique veggie count towards the 30-a-week goal.",
+          "Choose from over 260 veggies across seven categories to log your meals.",
+          "Aim for challenges and earn achievements for your progress.",
+          "Inspect your stats with the help of various easy-to-read charts.",
+          "Get suggestions based on what you've already eaten, with allergens excluded.",
+          "Enjoy weekly summaries with optional AI-powered features to ensure your progress.",
+          "Export or import your data, and install the app on your home screen or as an Android app.",
+          "No ads, no registration, no trackers. Built with your privacy in mind."
+        ]
+      },
+      "background": {
+        "title": "Background",
+        "text": "A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. By steadily incorporating a wide range of vegetables into your diet, you may reduce inflammation, improve nutrient absorption, and boost your overall vitality."
+      }
+    },
     "infoTitle": "What is this about?",
     "callout": "Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app."
   },
@@ -276,7 +299,7 @@
     "allergens": "Allergens",
     "allergensInfo": "Veggies marked as allergens won't show up in the app.",
     "exportImport": {
-      "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's cache, or change your phone or default browser.",
+      "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's storage, or change your phone or default browser.",
       "export": "Export",
       "exportSuccess": "Data exported successfully.",
       "failure": "Unexpected error. Data may be corrupted.",
