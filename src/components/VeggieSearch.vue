@@ -28,6 +28,7 @@ const query = ref('');
 const groups = useTemplateRef('groups');
 const searchInput = useTemplateRef('searchInput');
 const anchorElement = useTemplateRef('anchorElement');
+const contentElement = useTemplateRef('contentElement');
 const optionsElement = useTemplateRef('optionsElement');
 
 const translatedVeggies = useMemoize(() =>
@@ -87,7 +88,7 @@ const handleInputBlur = (event: FocusEvent) => {
   if (
     event.relatedTarget instanceof Node &&
     (anchorElement.value?.$el?.contains(event.relatedTarget) ||
-      optionsElement.value?.$el?.contains(event.relatedTarget))
+      contentElement.value?.$el?.contains(event.relatedTarget))
   ) {
     return;
   }
@@ -156,7 +157,7 @@ onClickOutside(
       </ComboboxTrigger>
     </ComboboxAnchor>
     <ComboboxPortal>
-      <ComboboxContent class="z-20" position="popper">
+      <ComboboxContent ref="contentElement" class="z-20" position="popper">
         <ComboboxViewport
           ref="optionsElement"
           id="veggie-search-options"
