@@ -5,8 +5,8 @@ exports[`QAComponent > renders 1`] = `
   <h2 class="label-like">Common Questions</h2>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-0" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-appPurpose">
-        <!--v-if-->What's this app for? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->What's this app for? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-0" data-state="closed" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-appPurpose" id="reka-collapsible-content-v-1" hidden="">
@@ -15,8 +15,8 @@ exports[`QAComponent > renders 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-2" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-howToInstall">
-        <!--v-if-->How to install? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->How to install? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-2" data-state="closed" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-howToInstall" id="reka-collapsible-content-v-3" hidden="">
@@ -25,8 +25,8 @@ exports[`QAComponent > renders 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-4" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-studyDetails">
-        <!--v-if-->What's the science? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->What's the science? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-4" data-state="closed" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-studyDetails" id="reka-collapsible-content-v-5" hidden="">
@@ -35,8 +35,8 @@ exports[`QAComponent > renders 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-6" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-whatCounts">
-        <!--v-if-->What counts as a portion? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->What counts as a portion? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-6" data-state="closed" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-whatCounts" id="reka-collapsible-content-v-7" hidden="">
@@ -45,8 +45,8 @@ exports[`QAComponent > renders 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-8" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-categories">
-        <!--v-if-->But strawberry is a... <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->But strawberry is a... <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-8" data-state="closed" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-categories" id="reka-collapsible-content-v-9" hidden="">
@@ -55,8 +55,8 @@ exports[`QAComponent > renders 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-10" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-isItFree">
-        <!--v-if-->Is the app monetized? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->Is the app monetized? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-10" data-state="closed" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-isItFree" id="reka-collapsible-content-v-11" hidden="">
@@ -65,8 +65,8 @@ exports[`QAComponent > renders 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-12" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-isMyDataSafe">
-        <!--v-if-->Is my data safe? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->Is my data safe? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-12" data-state="closed" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-isMyDataSafe" id="reka-collapsible-content-v-13" hidden="">
@@ -75,8 +75,8 @@ exports[`QAComponent > renders 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="closed" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="closed"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="" aria-expanded="false" data-state="closed" id="reka-accordion-trigger-v-14" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-contact">
-        <!--v-if-->How to get in touch? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->How to get in touch? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-14" data-state="closed" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-contact" id="reka-collapsible-content-v-15" hidden="">
@@ -91,8 +91,8 @@ exports[`QAComponent > renders answers 1`] = `
   <h2 class="label-like">Common Questions</h2>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-1" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-0" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-appPurpose">
-        <!--v-if-->What's this app for? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->What's this app for? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200 rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-0" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-appPurpose" id="reka-collapsible-content-v-1">
@@ -101,8 +101,8 @@ exports[`QAComponent > renders answers 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-3" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-2" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-howToInstall">
-        <!--v-if-->How to install? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->How to install? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200 rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-2" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-howToInstall" id="reka-collapsible-content-v-3">
@@ -113,8 +113,8 @@ exports[`QAComponent > renders answers 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-5" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-4" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-studyDetails">
-        <!--v-if-->What's the science? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->What's the science? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200 rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-4" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-studyDetails" id="reka-collapsible-content-v-5">
@@ -123,8 +123,8 @@ exports[`QAComponent > renders answers 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-7" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-6" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-whatCounts">
-        <!--v-if-->What counts as a portion? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->What counts as a portion? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200 rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-6" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-whatCounts" id="reka-collapsible-content-v-7">
@@ -133,8 +133,8 @@ exports[`QAComponent > renders answers 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-9" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-8" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-categories">
-        <!--v-if-->But strawberry is a... <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->But strawberry is a... <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200 rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-8" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-categories" id="reka-collapsible-content-v-9">
@@ -143,8 +143,8 @@ exports[`QAComponent > renders answers 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-11" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-10" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-isItFree">
-        <!--v-if-->Is the app monetized? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->Is the app monetized? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200 rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-10" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-isItFree" id="reka-collapsible-content-v-11">
@@ -153,8 +153,8 @@ exports[`QAComponent > renders answers 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-13" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-12" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-isMyDataSafe">
-        <!--v-if-->Is my data safe? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->Is my data safe? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200 rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-12" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-isMyDataSafe" id="reka-collapsible-content-v-13">
@@ -163,8 +163,8 @@ exports[`QAComponent > renders answers 1`] = `
   </div>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">
     <h3 data-v-bcc04aab="" data-orientation="vertical" data-state="open"><button data-v-bcc04aab="" class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text] w-full justify-between" type="button" aria-controls="reka-collapsible-content-v-15" aria-expanded="true" data-state="open" id="reka-accordion-trigger-v-14" data-reka-collection-item="" data-orientation="vertical" data-test-id="qa-button-contact">
-        <!--v-if-->How to get in touch? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 rotate-180 transition duration-200" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+        <!--v-if-->How to get in touch? <svg data-v-bcc04aab="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200 rotate-180" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-14" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-contact" id="reka-collapsible-content-v-15">

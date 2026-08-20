@@ -77,7 +77,12 @@ const icons = {
 export type IconString = keyof typeof icons;
 </script>
 <template>
-  <svg :style="{width: size, height: size}" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-    <path :d="icons[icon]" class="transition-all"></path>
+  <svg
+    :style="{width: size, height: size}"
+    class="shrink-0 motion-safe:duration-200"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path :d="icons[icon]"></path>
   </svg>
 </template>

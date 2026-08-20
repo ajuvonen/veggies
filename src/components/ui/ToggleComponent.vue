@@ -24,7 +24,7 @@ const toggle = tv({
   slots: {
     root: 'relative inline-flex h-4 w-12 items-center rounded-md outline-offset-4 bg-[--color-ui-dark]',
     thumb: [
-      'inline-flex w-6 h-6 items-center justify-center transform rounded-md shadow-lg transition-transform duration-200',
+      'inline-flex w-6 h-6 items-center justify-center transform rounded-md shadow-lg motion-safe:duration-200',
       'bg-[--color-bg-alternative] fill-[--color-text-alternative]',
     ],
   },

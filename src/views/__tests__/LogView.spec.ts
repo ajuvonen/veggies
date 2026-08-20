@@ -60,7 +60,7 @@ describe('LogView', () => {
   });
 
   it('renders without animation when reduced motion is preferred', async () => {
-    mocks.usePreferredReducedMotion.mockReturnValueOnce(computed(() => 'reduce'));
+    mocks.usePreferredReducedMotion.mockReturnValue(computed(() => 'reduce'));
     const wrapper = mounter();
     await vi.dynamicImportSettled();
     expect(wrapper.findByTestId('front-page-animation').exists()).toBe(false);

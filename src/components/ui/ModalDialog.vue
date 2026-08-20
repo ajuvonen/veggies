@@ -67,12 +67,14 @@ const checkIfModalClick = (event: Event) => {
   @apply fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100%-2rem)] rounded-md p-4 shadow-xl !pointer-events-auto;
   @apply flex flex-col gap-4;
   @apply bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative];
-  &[data-state='open'] {
-    animation: fadeIn 200ms ease-out;
-  }
+  @media (prefers-reduced-motion: no-preference) {
+    &[data-state='open'] {
+      animation: fadeIn 200ms ease-out;
+    }
 
-  &[data-state='closed'] {
-    animation: fadeOut 200ms ease-out;
+    &[data-state='closed'] {
+      animation: fadeOut 200ms ease-out;
+    }
   }
 }
 
@@ -85,14 +87,9 @@ const checkIfModalClick = (event: Event) => {
 }
 
 .modal-dialog__content {
-  @apply has-scroll;
-  @apply transition-[height] duration-200 ease-out;
+  @apply has-scroll motion-safe:duration-200;
   box-sizing: content-box;
   scrollbar-color: initial;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 .modal-dialog__content-inner {

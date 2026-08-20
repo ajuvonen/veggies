@@ -3,8 +3,8 @@
 exports[`LogView > renders 1`] = `
 "<div dir="ltr">
   <div data-v-487fdf11="" class="relative fill-[--color-text-alternative]"><input data-v-487fdf11="" aria-disabled="false" type="text" aria-expanded="false" aria-controls="" aria-autocomplete="list" role="combobox" autocomplete="off" id="veggie-search-input" aria-label="Add Weekly Veggies" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocorrect="off" autocapitalize="none" spellcheck="false" maxlength="20" data-test-id="veggie-search-input" value="">
-    <!--v-if--><button data-v-487fdf11="" class="button-like bg-transparent text-inherit fill-inherit p-0 hover:underline veggie-search__button right-4 outline-override transition duration-200" aria-disabled="false" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" data-test-id="veggie-search-toggle-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+    <!--v-if--><button data-v-487fdf11="" class="button-like bg-transparent text-inherit fill-inherit p-0 hover:underline veggie-search__button right-4 outline-override motion-safe:duration-200" aria-disabled="false" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" data-test-id="veggie-search-toggle-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
       </svg></button>
   </div>
   <!--v-if-->
@@ -12,8 +12,8 @@ exports[`LogView > renders 1`] = `
 </div>
 <front-page-animation-stub></front-page-animation-stub>
 <transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" aria-label="Suggestions" tabindex="-1" class="tags__container"></transition-group-stub>
-<footer data-v-7490b180=""><a data-v-7490b180="" class="flex-container items-center" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener="" data-test-id="bluesky-link"><svg data-v-7490b180="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026" class="transition-all"></path>
+<footer data-v-7490b180=""><a data-v-7490b180="" class="flex-container items-center" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener="" data-test-id="bluesky-link"><svg data-v-7490b180="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"></path>
     </svg> Follow on Bluesky</a>
   <!--v-if-->
 </footer>
@@ -24,8 +24,8 @@ exports[`LogView > renders 1`] = `
 exports[`LogView > renders with data 1`] = `
 "<div dir="ltr">
   <div data-v-487fdf11="" class="relative fill-[--color-text-alternative]"><input data-v-487fdf11="" aria-disabled="false" type="text" aria-expanded="false" aria-controls="" aria-autocomplete="list" role="combobox" autocomplete="off" id="veggie-search-input" aria-label="Add Weekly Veggies" placeholder="Add Weekly Veggies" class="veggie-search__input" inputmode="search" autocorrect="off" autocapitalize="none" spellcheck="false" maxlength="20" data-test-id="veggie-search-input" value="">
-    <!--v-if--><button data-v-487fdf11="" class="button-like bg-transparent text-inherit fill-inherit p-0 hover:underline veggie-search__button right-4 outline-override transition duration-200" aria-disabled="false" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" data-test-id="veggie-search-toggle-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" class="transition-all"></path>
+    <!--v-if--><button data-v-487fdf11="" class="button-like bg-transparent text-inherit fill-inherit p-0 hover:underline veggie-search__button right-4 outline-override motion-safe:duration-200" aria-disabled="false" type="button" tabindex="-1" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" data-test-id="veggie-search-toggle-button"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
       </svg></button>
   </div>
   <!--teleport start-->
@@ -52,15 +52,15 @@ exports[`LogView > renders with data 1`] = `
 </div>
 <!--v-if-->
 <transition-group-stub data-v-cd627eac="" name="tags" tag="ul" appear="false" persisted="false" css="true" aria-label="Suggestions" tabindex="-1" class="tags__container">
-  <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-cd627eac="" class="button-like bg-[--color-primary] rounded-full text-xs hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" id="tag-button-rice" aria-label="Add rice"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
+  <li data-v-cd627eac="" data-test-id="tag-rice" class="z-10"><button data-v-cd627eac="" class="button-like bg-[--color-primary] rounded-full text-xs hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" id="tag-button-rice" aria-label="Add rice"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path>
       </svg>rice</button></li>
-  <li data-v-cd627eac="" data-test-id="tag-rye" class="z-10"><button data-v-cd627eac="" class="button-like bg-[--color-primary] rounded-full text-xs hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" id="tag-button-rye" aria-label="Add rye"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" class="transition-all"></path>
+  <li data-v-cd627eac="" data-test-id="tag-rye" class="z-10"><button data-v-cd627eac="" class="button-like bg-[--color-primary] rounded-full text-xs hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" id="tag-button-rye" aria-label="Add rye"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path>
       </svg>rye</button></li>
 </transition-group-stub>
-<footer data-v-7490b180=""><a data-v-7490b180="" class="flex-container items-center" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener="" data-test-id="bluesky-link"><svg data-v-7490b180="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026" class="transition-all"></path>
+<footer data-v-7490b180=""><a data-v-7490b180="" class="flex-container items-center" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener="" data-test-id="bluesky-link"><svg data-v-7490b180="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"></path>
     </svg> Follow on Bluesky</a>
   <!--v-if-->
 </footer>
