@@ -72,5 +72,5 @@ onBeforeUnmount(remove);
 defineExpose({reset});
 </script>
 <template>
-  <div ref="container" class="hidden"></div>
+  <div ref="container" class="hidden" />
 </template>
