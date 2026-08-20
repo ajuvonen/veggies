@@ -23,7 +23,7 @@ let emojis = getRandomEmojis(4);
       <template v-for="index in 2" :key="index">
         <div v-for="emoji in emojis" :key="emoji" class="front-page-animation__icon-container">
           <span class="front-page-animation__icon">{{ emoji }}</span>
-          <span class="front-page-animation__shadow"></span>
+          <span class="front-page-animation__shadow" />
         </div>
       </template>
     </div>

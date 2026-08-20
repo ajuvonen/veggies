@@ -83,6 +83,6 @@ export type IconString = keyof typeof icons;
     viewBox="0 0 24 24"
     aria-hidden="true"
   >
-    <path :d="icons[icon]"></path>
+    <path :d="icons[icon]" />
   </svg>
 </template>
