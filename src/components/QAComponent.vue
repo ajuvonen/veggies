@@ -25,11 +25,7 @@ const questionKeysAndLinks = {
           <AccordionTrigger asChild>
             <ButtonComponent :data-test-id="`qa-button-${key}`" class="w-full justify-between">
               {{ $t(`qa.${key}.title`) }}
-              <IconComponent
-                :class="{'rotate-180': open}"
-                class="transition duration-200"
-                icon="chevronDown"
-              />
+              <IconComponent :class="{'rotate-180': open}" icon="chevronDown" />
             </ButtonComponent>
           </AccordionTrigger>
         </AccordionHeader>
@@ -52,11 +48,13 @@ const questionKeysAndLinks = {
 <style scoped>
 .collapsible-content {
   @apply overflow-hidden;
-  &[data-state='open'] {
-    animation: slideDown 200ms ease-in-out;
-  }
-  &[data-state='closed'] {
-    animation: slideUp 200ms ease-in-out;
+  @media (prefers-reduced-motion: no-preference) {
+    &[data-state='open'] {
+      animation: slideDown 200ms ease-in-out;
+    }
+    &[data-state='closed'] {
+      animation: slideUp 200ms ease-in-out;
+    }
   }
 }
 

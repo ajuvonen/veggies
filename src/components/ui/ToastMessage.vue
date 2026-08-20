@@ -87,7 +87,7 @@ const emoji = getRandomEmojis()[0];
   }
 
   &--removing {
-    @apply opacity-0 transition-all duration-200;
+    @apply opacity-0 motion-safe:duration-200;
   }
 }
 

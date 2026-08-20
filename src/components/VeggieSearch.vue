@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref, useTemplateRef} from 'vue';
-import {onClickOutside, useMemoize} from '@vueuse/core';
+import {onClickOutside, useMemoize, usePreferredReducedMotion} from '@vueuse/core';
 import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie, normalizeForSearch} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
@@ -19,6 +19,7 @@ withDefaults(
   },
 );
 
+const reducedMotion = usePreferredReducedMotion();
 const {t, tm, collator} = useI18nWithCollator();
 const {availableVeggies} = useAvailableVeggies();
 
@@ -64,7 +65,7 @@ const jumpToCategory = (index: number) => {
     if (targetGroup) {
       optionsElement.value.$el.scrollTo({
         top: targetGroup.offsetTop,
-        behavior: 'smooth',
+        behavior: reducedMotion.value === 'reduce' ? 'instant' : 'smooth',
       });
     }
   }
@@ -147,7 +148,7 @@ onClickOutside(
         <ButtonComponent
           :class="{'rotate-180': listOpen}"
           color="transparent"
-          class="veggie-search__button right-4 outline-override transition duration-200"
+          class="veggie-search__button right-4 outline-override motion-safe:duration-200"
           icon="chevronDown"
           data-test-id="veggie-search-toggle-button"
           @click="listOpen = !listOpen"

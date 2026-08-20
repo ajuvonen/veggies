@@ -9,8 +9,8 @@ exports[`HomeView > renders 1`] = `
     </button><button data-v-b4e148ca="" class="button-like bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] hover:text-[--color-text] hover:fill-[--color-text] active:text-[--color-text] active:fill-[--color-text]" type="button" data-test-id="home-info-button">
       <!--v-if-->Learn more
     </button></div>
-  <footer data-v-7490b180="" data-v-b4e148ca=""><a data-v-7490b180="" class="flex-container items-center" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener="" data-test-id="bluesky-link"><svg data-v-7490b180="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026" class="transition-all"></path>
+  <footer data-v-7490b180="" data-v-b4e148ca=""><a data-v-7490b180="" class="flex-container items-center" href="https://bsky.app/profile/eatyourveggies.app" target="_blank" noreferrer="" noopener="" data-test-id="bluesky-link"><svg data-v-7490b180="" style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"></path>
       </svg> Follow on Bluesky</a>
     <!--v-if-->
   </footer>
@@ -28,14 +28,14 @@ exports[`HomeView > shows dialog 1`] = `
     <div data-v-9ec8a7f3="" class="modal-dialog__content-inner">
       <p data-v-85f3ab1e="" aria-live="polite" class="sr-only">Step 1 of 3: Briefly</p>
       <div data-v-85f3ab1e="" aria-hidden="true" class="flex">
-        <div data-v-85f3ab1e="" class="home-info-dialog__step"><svg data-v-85f3ab1e="" style="width: 2rem; height: 2rem;" class="shrink-0 fill-[--color-text]" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2C13.1 2 14 2.9 14 4S13.1 6 12 6 10 5.1 10 4 10.9 2 12 2M15.9 8.1C15.5 7.7 14.8 7 13.5 7H11C8.2 7 6 4.8 6 2H4C4 5.2 6.1 7.8 9 8.7V22H11V16H13V22H15V10.1L19 14L20.4 12.6L15.9 8.1Z" class="transition-all"></path>
+        <div data-v-85f3ab1e="" class="home-info-dialog__step"><svg data-v-85f3ab1e="" style="width: 2rem; height: 2rem;" class="shrink-0 motion-safe:duration-200 fill-[--color-text]" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C13.1 2 14 2.9 14 4S13.1 6 12 6 10 5.1 10 4 10.9 2 12 2M15.9 8.1C15.5 7.7 14.8 7 13.5 7H11C8.2 7 6 4.8 6 2H4C4 5.2 6.1 7.8 9 8.7V22H11V16H13V22H15V10.1L19 14L20.4 12.6L15.9 8.1Z"></path>
           </svg></div>
-        <div data-v-85f3ab1e="" class="opacity-50 home-info-dialog__step"><svg data-v-85f3ab1e="" style="width: 2rem; height: 2rem;" class="shrink-0 fill-[--color-text]" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M3,19V6H11V19H3M21,19H13V6H21V19M14,9.5H20V11H14V9.5M14,12H20V13.5H14V12M14,14.5H20V16H14V14.5Z" class="transition-all"></path>
+        <div data-v-85f3ab1e="" class="opacity-50 home-info-dialog__step"><svg data-v-85f3ab1e="" style="width: 2rem; height: 2rem;" class="shrink-0 motion-safe:duration-200 fill-[--color-text]" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M3,19V6H11V19H3M21,19H13V6H21V19M14,9.5H20V11H14V9.5M14,12H20V13.5H14V12M14,14.5H20V16H14V14.5Z"></path>
           </svg></div>
-        <div data-v-85f3ab1e="" class="opacity-50 home-info-dialog__step"><svg data-v-85f3ab1e="" style="width: 2rem; height: 2rem;" class="shrink-0 fill-[--color-text]" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8.58,17.25L9.5,13.36L6.5,10.78L10.45,10.41L12,6.8L13.55,10.45L17.5,10.78L14.5,13.36L15.42,17.25L12,15.19L8.58,17.25M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" class="transition-all"></path>
+        <div data-v-85f3ab1e="" class="opacity-50 home-info-dialog__step"><svg data-v-85f3ab1e="" style="width: 2rem; height: 2rem;" class="shrink-0 motion-safe:duration-200 fill-[--color-text]" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8.58,17.25L9.5,13.36L6.5,10.78L10.45,10.41L12,6.8L13.55,10.45L17.5,10.78L14.5,13.36L15.42,17.25L12,15.19L8.58,17.25M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"></path>
           </svg></div>
       </div>
       <p data-v-85f3ab1e="">Track your meals without being tracked. Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app has no ads, requires no registration, and data is kept in your own device's storage by default.</p>

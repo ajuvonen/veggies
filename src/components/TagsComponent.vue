@@ -72,7 +72,7 @@ const toggle = async (veggie: string, index: number) => {
 .tags-enter-active,
 .tags-leave-active,
 .tags-move {
-  @apply transition-all duration-200 ease-out;
+  @apply motion-safe:duration-200 ease-out;
 }
 
 .tags-enter-from,

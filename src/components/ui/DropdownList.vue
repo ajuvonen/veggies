@@ -30,11 +30,7 @@ const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomU
         >
           <SelectValue />
           <SelectIcon asChild>
-            <IconComponent
-              :class="{'rotate-180': open}"
-              class="transition duration-200"
-              icon="chevronDown"
-            />
+            <IconComponent :class="{'rotate-180': open}" icon="chevronDown" />
           </SelectIcon>
         </ButtonComponent>
       </SelectTrigger>
