@@ -1,5 +1,5 @@
 import {describe, it, expect, vi, afterEach, beforeEach} from 'vitest';
-import {mount, enableAutoUnmount} from '@vue/test-utils';
+import {mount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import {areDatesEqual, getWeekStart} from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -16,7 +16,6 @@ describe('HomeView', () => {
   afterEach(() => {
     vi.restoreAllMocks();
   });
-  enableAutoUnmount(afterEach);
 
   it('renders', () => {
     const wrapper = mount(HomeView);
