@@ -68,8 +68,8 @@ describe('ButtonComponent', () => {
 
     expect(wrapper.find('.button-like').attributes('disabled')).toBeUndefined();
     expect(wrapper.find('.button-like').attributes('aria-disabled')).toBe('true');
-    expect(wrapper.find('.button-like').classes()).includes('opacity-50');
-    expect(wrapper.find('.button-like').classes()).includes('cursor-not-allowed');
+    expect(wrapper.find('.button-like').classes()).toContain('opacity-50');
+    expect(wrapper.find('.button-like').classes()).toContain('cursor-not-allowed');
   });
 
   it('does not emit click when disabled', async () => {

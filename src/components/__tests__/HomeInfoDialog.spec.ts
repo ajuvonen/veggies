@@ -1,11 +1,9 @@
-import {describe, it, expect, afterEach} from 'vitest';
-import {mount, flushPromises, enableAutoUnmount} from '@vue/test-utils';
+import {describe, it, expect} from 'vitest';
+import {mount, flushPromises} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import HomeInfoDialog from '@/components/HomeInfoDialog.vue';
 
 describe('HomeInfoDialog', () => {
-  enableAutoUnmount(afterEach);
-
   it('opens at first step with previous button disabled', async () => {
     const wrapper = mount(HomeInfoDialog, {
       props: {modelValue: true},

@@ -1,11 +1,9 @@
-import {describe, it, expect, afterEach} from 'vitest';
-import {mount, flushPromises, enableAutoUnmount} from '@vue/test-utils';
+import {describe, it, expect} from 'vitest';
+import {mount, flushPromises} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import ModalDialog from '@/components/ui/ModalDialog.vue';
 
 describe('ModalDialog', () => {
-  enableAutoUnmount(afterEach);
-
   it('renders closed', async () => {
     const wrapper = mount(ModalDialog, {
       props: {title: 'Test dialog', modelValue: false},

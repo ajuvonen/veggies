@@ -1,6 +1,6 @@
 import {computed} from 'vue';
-import {describe, it, expect, beforeEach, afterEach} from 'vitest';
-import {flushPromises, mount, enableAutoUnmount} from '@vue/test-utils';
+import {describe, it, expect, beforeEach} from 'vitest';
+import {flushPromises, mount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import {useActivityStore} from '@/stores/activityStore';
 import {AchievementLevel} from '@/types';
@@ -13,7 +13,6 @@ describe('AchievementDialog', () => {
   beforeEach(() => {
     activityStore = useActivityStore();
   });
-  enableAutoUnmount(afterEach);
 
   it('shows dialog when achievements change', async () => {
     const wrapper = mount(AchievementDialog);
