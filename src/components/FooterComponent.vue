@@ -21,8 +21,7 @@ const showPlayStoreLink =
         class="flex-container items-center"
         :href="BLUESKY_URL"
         target="_blank"
-        noreferrer
-        noopener
+        rel="noopener noreferrer"
         data-test-id="bluesky-link"
       >
         <IconComponent icon="bluesky" />
@@ -33,8 +32,7 @@ const showPlayStoreLink =
         class="flex-container items-center"
         :href="PLAY_STORE_URL"
         target="_blank"
-        noreferrer
-        noopener
+        rel="noopener noreferrer"
         data-test-id="play-store-link"
       >
         <IconComponent icon="googlePlay" />
