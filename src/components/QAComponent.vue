@@ -36,9 +36,17 @@ const questionKeysAndLinks = {
             scope="global"
             class="whitespace-pre-line p-2"
           >
-            <a v-if="url" :href="url" class="text-link" target="_blank" rel="noopener noreferrer">{{
-              $t(`qa.${key}.linkText`)
-            }}</a>
+            <RouterLink v-if="key === 'isMyDataSafe'" to="/privacy" class="text-link">{{
+              $t(`qa.isMyDataSafe.linkText`)
+            }}</RouterLink>
+            <a
+              v-else-if="url"
+              :href="url"
+              class="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ $t(`qa.${key}.linkText`) }}</a
+            >
           </i18n-t>
         </AccordionContent>
       </AccordionItem>

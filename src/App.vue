@@ -5,7 +5,6 @@ import {useI18n} from 'vue-i18n';
 import {useRoute} from 'vue-router';
 import {useRegisterSW} from 'virtual:pwa-register/vue';
 import {onKeyStroke, useEventListener} from '@vueuse/core';
-import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useCssColors} from '@/hooks/cssColors';
 import {LOCALES} from '@/utils/constants';
@@ -26,7 +25,6 @@ useEventListener('mousedown', () => document.body.setAttribute('data-input', 'mo
 onKeyStroke(true, () => document.body.setAttribute('data-input', 'keyboard'), {dedupe: true});
 
 const {settings} = storeToRefs(useAppStateStore());
-const {allVeggies} = storeToRefs(useActivityStore());
 
 const {updateServiceWorker} = useRegisterSW({
   immediate: true,
@@ -64,7 +62,7 @@ watchEffect(() => {
 
 <template>
   <ToastContainer v-if="settings.startDate" />
-  <NavBar :showStats="!!allVeggies.length" />
+  <NavBar />
   <main>
     <RouterView />
   </main>
