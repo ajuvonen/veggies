@@ -9,7 +9,7 @@ test('locale settings work', async ({page}) => {
   await expect(page).toHaveURL('settings');
   await page.getByTestId('locales-fi').click();
   await expect(page.getByText('Tyhjennä')).toBeVisible();
-  await page.getByTestId('navbar-log-link').click();
+  await page.getByTestId('navbar-back-link').click();
   await expect(page.getByTestId('veggie-search-input')).toHaveAttribute(
     'placeholder',
     'Kirjaa viikon kasvikset',
@@ -30,7 +30,7 @@ test('allergens work', async ({page}) => {
   await page.getByTestId('veggie-search-option-apple').click();
   await page.getByTestId('veggie-search-input').press('Escape');
   await expect(page.getByTestId('tag-apple')).toBeVisible();
-  await page.getByTestId('navbar-log-link').click();
+  await page.getByTestId('navbar-back-link').click();
   await page.getByTestId('veggie-search-toggle-button').click();
   await expect(page.getByTestId('veggie-search-option-apple')).toBeHidden();
   await page.getByTestId('navbar-stats-link').click();

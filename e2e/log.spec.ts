@@ -18,7 +18,7 @@ test('logs veggies', async ({page}) => {
   );
 
   await page.getByTestId('navbar-settings-link').click();
-  await page.getByTestId('navbar-log-link').click();
+  await page.getByTestId('navbar-back-link').click();
   await expect(page.getByTestId('category-status-chart-center-label')).toHaveText(
     'This Week 2 Veggies',
   );
