@@ -106,7 +106,7 @@ exports[`QAComponent > renders answers 1`] = `
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-2" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-howToInstall" id="reka-collapsible-content-v-3">
-      <div data-v-bcc04aab="" class="whitespace-pre-line p-2">Android users can install our app from <a data-v-bcc04aab="" href="https://play.google.com/store/apps/details?id=app.eatyourveggies.twa" class="text-link" target="_blank" rel="noopener noreferrer">Google Play</a>.
+      <div data-v-bcc04aab="" class="whitespace-pre-line p-2">Android users can install the app from <a data-v-bcc04aab="" href="https://play.google.com/store/apps/details?id=app.eatyourveggies.twa" class="text-link" target="_blank" rel="noopener noreferrer">Google Play</a>.
 
         Others can install the app from a browser that supports Progressive Web Apps (PWAs). Select "Add to start screen" from your browser's menu or click the install icon on the location bar. On mobile Safari, click "Share" and then "Add to home screen". Installing on device allows offline use, but keeps the app within your browser's sandbox.</div>
     </div>
@@ -158,7 +158,7 @@ exports[`QAComponent > renders answers 1`] = `
         </svg>
       </button></h3>
     <div data-v-bcc04aab="" role="region" aria-labelledby="reka-accordion-trigger-v-12" data-state="open" data-orientation="vertical" style="--reka-accordion-content-width: var(--reka-collapsible-content-width); --reka-accordion-content-height: var(--reka-collapsible-content-height); --reka-collapsible-content-height: 0px; --reka-collapsible-content-width: 0px;" class="collapsible-content" data-test-id="qa-panel-isMyDataSafe" id="reka-collapsible-content-v-13">
-      <div data-v-bcc04aab="" class="whitespace-pre-line p-2">By default the data is stored in your browser's local storage and is not shared with any third parties. If you wish, you can enable separate AI features, in which case anonymous data is shared with the AI service provider. You can at any time reset the app using the button below.</div>
+      <div data-v-bcc04aab="" class="whitespace-pre-line p-2">By default the data is stored in your browser's local storage and is not shared with any third parties. If you wish, you can enable separate AI features, in which case anonymous data is shared with the AI service provider. You can at any time reset the app using the button below. Read more from the current privacy policy <a data-v-bcc04aab="" href="/veggies/privacy" class="text-link">here</a>.</div>
     </div>
   </div>
   <div data-v-bcc04aab="" data-state="open" data-orientation="vertical">

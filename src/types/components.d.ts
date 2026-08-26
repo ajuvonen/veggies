@@ -53,7 +53,6 @@ declare module 'vue' {
     FrontPageAnimation: typeof import('./../components/FrontPageAnimation.vue')['default']
     HeatmapChart: typeof import('./../components/charts/HeatmapChart.vue')['default']
     HomeInfoDialog: typeof import('./../components/HomeInfoDialog.vue')['default']
-    HomeLocaleChanger: typeof import('./../components/HomeLocaleChanger.vue')['default']
     IconComponent: typeof import('./../components/ui/IconComponent.vue')['default']
     Line: typeof import('vue-chartjs')['Line']
     LocaleChanger: typeof import('./../components/LocaleChanger.vue')['default']

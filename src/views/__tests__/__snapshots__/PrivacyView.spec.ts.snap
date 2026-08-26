@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PrivacyView > renders 1`] = `
+"<div class="flex flex-col gap-4 has-scroll">
+  <p class="text-xs uppercase">Last updated 04/08/2026</p>
+  <h2 class="label-like">Privacy Policy</h2>
+  <p>By default, your data stays on your device. All information you create or store within this app is saved locally, and we do not operate any servers that collect or store your personal data. We do not sell or share your data for advertising or marketing purposes.</p>
+  <!--v-if-->
+  <p>If you choose to enable AI-powered features, certain usage data will be transmitted to our third-party AI service provider to process your requests. AI features are strictly opt-in — if you do not enable them, no data leaves your device.</p>
+  <!--v-if-->
+  <p>To protect our services from automated abuse, we use IP-based rate limiting and Cloudflare Turnstile, which may derive signals from your device to verify you're an actual user. Cloudflare's use of Turnstile is described in the <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer" class="text-link">Turnstile Privacy Addendum</a>.</p>
+  <!--v-if-->
+  <p>You may at any time remove your data from your device using the in-app feature.</p>
+  <h2 class="label-like">Changes to This Policy</h2>
+  <p>We may update this policy from time to time. Continued use of the app after changes are posted constitutes your acceptance of the revised policy. If you have questions, please contact us at <a href="mailto:develop@eatyourveggies.app" target="_blank" rel="noopener noreferrer" class="text-link">develop@eatyourveggies.app</a>.</p>
+  <!--v-if-->
+  <p>By using Eat Your Veggies, you agree to this privacy policy.</p>
+</div>"
+`;

@@ -256,6 +256,35 @@
     "en": "English",
     "fi": "Suomi"
   },
+  "privacy": {
+    "lastUpdated": "Päivitetty viimeksi {0}",
+    "paragraphs": [
+      {
+        "text": "Oletuksena tietosi pysyvät laitteellasi. Kaikki sovelluksessa luomasi tai tallentamasi tiedot säilytetään paikallisesti, emmekä ylläpidä palvelimia, jotka keräisivät tai tallentaisivat henkilötietojasi. Emme myy tai jaa tietojasi mainonta- tai markkinointitarkoituksiin.",
+        "title": "Tietosuojaseloste"
+      },
+      {
+        "text": "Jos otat käyttöön tekoälyominaisuudet, tiettyä käyttödataa lähetetään kolmannen osapuolen tekoälypalveluntarjoajalle pyyntöjesi käsittelyä varten. Tekoälyominaisuudet ovat täysin valinnaisia - jos et ota niitä käyttöön, mitään tietoa ei lähde laitteeltasi."
+      },
+      {
+        "link": "https://www.cloudflare.com/turnstile-privacy-policy/",
+        "linkText": "Turnstilen tietosuojaliitteessä",
+        "text": "Suojataksemme palvelujamme automatisoidulta väärinkäytöltä käytämme IP-pohjaista pyyntöjen rajoittamista ja Cloudflare Turnstilea, joka saattaa hyödyntää laitteesi tietoja varmistaakseen, että olet oikea käyttäjä. Cloudflaren Turnstilen käyttöä kuvataan {0}."
+      },
+      {
+        "text": "Voit milloin tahansa poistaa tietosi laitteeltasi sovelluksen sisäisen toiminnon avulla."
+      },
+      {
+        "link": "mailto:develop@eatyourveggies.app",
+        "linkText": "develop@eatyourveggies.app",
+        "title": "Muutokset tähän selosteeseen",
+        "text": "Saatamme päivittää tätä selostetta ajoittain. Sovelluksen käytön jatkaminen muutosten julkaisun jälkeen tarkoittaa, että hyväksyt päivitetyn selosteen. Jos sinulla on kysyttävää, ota yhteyttä osoitteeseen {0}."
+      },
+      {
+        "text": "Käyttämällä Eat Your Veggies -sovellusta hyväksyt tämän tietosuojaselosteen."
+      }
+    ]
+  },
   "qa": {
     "appPurpose": {
       "title": "Mitä sovelluksella tehdään?",
@@ -280,8 +309,9 @@
       "text": "Sovellus on ilmainen eikä sisällä mainoksia. Mukaan on tulossa mahdollisuus tehdä lahjoitus, mutta se ei ole pakollista."
     },
     "isMyDataSafe": {
+      "linkText": "täällä",
       "title": "Ovatko tietoni turvassa?",
-      "text": "Oletuksena tietoja säilytetään ainoastaan selaimesi paikallisessa tallennustilassa laitteellasi, eikä niitä jaeta kolmansille osapuolille. Halutessasi voit ottaa erillisiä AI-toimintoja käyttöön, jolloin anonyymiä dataa jaetaan AI-palveluntarjoajalle. Voit milloin vain tyhjentää tietosi alla olevalla napilla."
+      "text": "Oletuksena tietoja säilytetään ainoastaan selaimesi paikallisessa tallennustilassa laitteellasi, eikä niitä jaeta kolmansille osapuolille. Halutessasi voit ottaa erillisiä AI-toimintoja käyttöön, jolloin anonyymiä dataa jaetaan AI-palveluntarjoajalle. Voit milloin vain tyhjentää tietosi alla olevalla napilla. Lue lisää ajantasaisesta tietosuojaselosteesta {0}."
     },
     "studyDetails": {
       "linkText": "American Society for Microbiology (ASM)",
@@ -689,6 +719,7 @@
   "views": {
     "home": "Etusivu",
     "log": "Viikkoseuranta",
+    "privacy": "Yksityisyys",
     "settings": "Asetukset",
     "stats": "Tilastot"
   },

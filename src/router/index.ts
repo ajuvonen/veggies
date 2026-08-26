@@ -31,13 +31,18 @@ const router = createRouter({
       name: 'stats',
       component: () => import('@/views/StatsView.vue'),
     },
+    {
+      path: '/privacy',
+      name: 'privacy',
+      component: () => import('@/views/PrivacyView.vue'),
+    },
     {path: '/:pathMatch(.*)*', redirect: '/'},
   ],
 });
 
 router.beforeEach((to) => {
   const {settings} = useAppStateStore();
-  if (to.name !== 'home' && !settings.startDate) {
+  if (!['home', 'privacy'].includes(to.name as string) && !settings.startDate) {
     return {name: 'home', replace: true};
   }
 });

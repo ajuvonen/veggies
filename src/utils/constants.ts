@@ -15,6 +15,8 @@ export const BLUESKY_URL = 'https://bsky.app/profile/eatyourveggies.app';
 export const PLAY_STORE_URL =
   'https://play.google.com/store/apps/details?id=app.eatyourveggies.twa';
 
+export const PRIVACY_POLICY_UPDATED = Temporal.PlainDate.from('2026-08-04');
+
 export const BUILD_TIME = __VITE_BUILD_TIME__;
 
 export const MINIMUM_MIGRATION_VERSION = 1;

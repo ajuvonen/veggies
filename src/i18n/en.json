@@ -256,6 +256,35 @@
     "en": "English",
     "fi": "Suomi"
   },
+  "privacy": {
+    "lastUpdated": "Last updated {0}",
+    "paragraphs": [
+      {
+        "text": "By default, your data stays on your device. All information you create or store within this app is saved locally, and we do not operate any servers that collect or store your personal data. We do not sell or share your data for advertising or marketing purposes.",
+        "title": "Privacy Policy"
+      },
+      {
+        "text": "If you choose to enable AI-powered features, certain usage data will be transmitted to our third-party AI service provider to process your requests. AI features are strictly opt-in — if you do not enable them, no data leaves your device."
+      },
+      {
+        "link": "https://www.cloudflare.com/turnstile-privacy-policy/",
+        "linkText": "Turnstile Privacy Addendum",
+        "text": "To protect our services from automated abuse, we use IP-based rate limiting and Cloudflare Turnstile, which may derive signals from your device to verify you're an actual user. Cloudflare's use of Turnstile is described in the {0}."
+      },
+      {
+        "text": "You may at any time remove your data from your device using the in-app feature."
+      },
+      {
+        "link": "mailto:develop@eatyourveggies.app",
+        "linkText": "develop@eatyourveggies.app",
+        "title": "Changes to This Policy",
+        "text": "We may update this policy from time to time. Continued use of the app after changes are posted constitutes your acceptance of the revised policy. If you have questions, please contact us at {0}."
+      },
+      {
+        "text": "By using Eat Your Veggies, you agree to this privacy policy."
+      }
+    ]
+  },
   "qa": {
     "appPurpose": {
       "title": "What's this app for?",
@@ -273,15 +302,16 @@
     "howToInstall": {
       "linkText": "Google Play",
       "title": "How to install?",
-      "text": "Android users can install our app from {0}.\n\nOthers can install the app from a browser that supports Progressive Web Apps (PWAs). Select \"Add to start screen\" from your browser's menu or click the install icon on the location bar. On mobile Safari, click \"Share\" and then \"Add to home screen\". Installing on device allows offline use, but keeps the app within your browser's sandbox."
+      "text": "Android users can install the app from {0}.\n\nOthers can install the app from a browser that supports Progressive Web Apps (PWAs). Select \"Add to start screen\" from your browser's menu or click the install icon on the location bar. On mobile Safari, click \"Share\" and then \"Add to home screen\". Installing on device allows offline use, but keeps the app within your browser's sandbox."
     },
     "isItFree": {
       "title": "Is the app monetized?",
       "text": "The app is free to use, and it has no advertisements. There will be a possibility to donate, but don't feel obliged."
     },
     "isMyDataSafe": {
+      "linkText": "here",
       "title": "Is my data safe?",
-      "text": "By default the data is stored in your browser's local storage and is not shared with any third parties. If you wish, you can enable separate AI features, in which case anonymous data is shared with the AI service provider. You can at any time reset the app using the button below."
+      "text": "By default the data is stored in your browser's local storage and is not shared with any third parties. If you wish, you can enable separate AI features, in which case anonymous data is shared with the AI service provider. You can at any time reset the app using the button below. Read more from the current privacy policy {0}."
     },
     "studyDetails": {
       "linkText": "American Society for Microbiology (ASM)",
@@ -689,6 +719,7 @@
   "views": {
     "home": "Home",
     "log": "Track Weekly Progress",
+    "privacy": "Privacy",
     "settings": "Settings",
     "stats": "Statistics"
   },
