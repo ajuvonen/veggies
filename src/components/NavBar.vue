@@ -35,7 +35,7 @@ const headerTitle = computed(() => {
         v-if="!['log', 'home'].includes(route.name as string)"
         v-tippy="$t(`views.${backRoute}`)"
         :aria-label="$t(`views.${backRoute}`)"
-        :to="`/${backRoute}`"
+        :to="{name: backRoute}"
         data-test-id="navbar-back-link"
       >
         <IconComponent icon="arrowLeft" size="6vw" class="navbar__link-icon" />
