@@ -35,4 +35,40 @@ describe('dateTime', () => {
 
     expect(result).toBe('38/2025');
   });
+
+  it('formats date for en locale without year', () => {
+    appStateStore.settings.locale = 'en';
+    const {formatDate} = withSetup(useDateTime);
+    const date = Temporal.PlainDate.from('2026-08-04');
+    const result = formatDate(date);
+
+    expect(result).toBe('04/08');
+  });
+
+  it('formats date for en locale with year', () => {
+    appStateStore.settings.locale = 'en';
+    const {formatDate} = withSetup(useDateTime);
+    const date = Temporal.PlainDate.from('2026-08-04');
+    const result = formatDate(date, true);
+
+    expect(result).toBe('04/08/2026');
+  });
+
+  it('formats date for fi locale without year', () => {
+    appStateStore.settings.locale = 'fi';
+    const {formatDate} = withSetup(useDateTime);
+    const date = Temporal.PlainDate.from('2026-08-04');
+    const result = formatDate(date);
+
+    expect(result).toBe('4.8.');
+  });
+
+  it('formats date for fi locale with year', () => {
+    appStateStore.settings.locale = 'fi';
+    const {formatDate} = withSetup(useDateTime);
+    const date = Temporal.PlainDate.from('2026-08-04');
+    const result = formatDate(date, true);
+
+    expect(result).toBe('4.8.2026');
+  });
 });

@@ -9,18 +9,27 @@ export function useDateTime() {
   const formatWeekNumber = (weekStart: Temporal.PlainDate) =>
     `${weekStart.weekOfYear}/${weekStart.yearOfWeek}`;
 
-  const formatWeekString = (weekStart: Temporal.PlainDate) => {
+  const formatDate = (date: Temporal.PlainDate, includeYear = false) => {
     const locale = settings.value.locale === 'en' ? 'en-GB' : settings.value.locale;
+    return date.toLocaleString(locale, {
+      month: 'numeric',
+      day: 'numeric',
+      year: includeYear ? 'numeric' : undefined,
+    });
+  };
+
+  const formatWeekString = (weekStart: Temporal.PlainDate) => {
     const weekEnd = weekStart.add({days: 6});
     return t('stats.selectedWeek', [
       formatWeekNumber(weekStart),
-      weekStart.toLocaleString(locale, {month: 'numeric', day: 'numeric'}),
-      weekEnd.toLocaleString(locale, {month: 'numeric', day: 'numeric'}),
+      formatDate(weekStart),
+      formatDate(weekEnd),
     ]);
   };
 
   return {
     formatWeekNumber,
     formatWeekString,
+    formatDate,
   };
 }
