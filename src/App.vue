@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {defineAsyncComponent, watchEffect} from 'vue';
+import {watchEffect} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {useRoute} from 'vue-router';
@@ -8,9 +8,6 @@ import {onKeyStroke, useEventListener} from '@vueuse/core';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useCssColors} from '@/hooks/cssColors';
 import {LOCALES} from '@/utils/constants';
-
-const ToastContainer = defineAsyncComponent(() => import('@/components/ToastContainer.vue'));
-const AchievementDialog = defineAsyncComponent(() => import('@/components/AchievementDialog.vue'));
 
 const {t, locale, setLocaleMessage} = useI18n();
 
@@ -61,12 +58,12 @@ watchEffect(() => {
 </script>
 
 <template>
-  <ToastContainer v-if="settings.startDate" />
+  <ToastContainer />
   <NavBar />
   <main>
     <RouterView />
   </main>
-  <AchievementDialog v-if="settings.startDate" />
+  <AchievementDialog />
 </template>
 
 <style scoped>
