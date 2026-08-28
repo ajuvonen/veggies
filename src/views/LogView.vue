@@ -5,7 +5,7 @@ import {useI18n} from 'vue-i18n';
 import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {KEYS} from '@/utils/constants';
-import {getRandomItem} from '@/utils/helpers';
+import {getRandomItem, showConfetti} from '@/utils/helpers';
 import {useFactsLoader} from '@/hooks/factsLoader';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import type {Locale} from '@/types';
@@ -28,16 +28,6 @@ const {addToastMessage} = appStateStore;
 
 const {availableVeggies} = useAvailableVeggies();
 
-const showConfetti = async () => {
-  const {default: confetti} = await import('canvas-confetti');
-  confetti({
-    disableForReducedMotion: true,
-    particleCount: 150,
-    spread: 70,
-    origin: {x: 0.5, y: 0.7},
-  });
-};
-
 watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
   const addedVeggie = newCurrentVeggies.find((veggie) => !oldCurrentVeggies.includes(veggie));
   if (addedVeggie) {
@@ -45,15 +35,15 @@ watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
     const cheer = getRandomItem(cheers);
     if (allVeggies.value.length === 1) {
       addToastMessage(t('toasts.firstVeggie', [cheer]));
-      showConfetti();
+      void showConfetti();
     } else if (currentChallenge.value && newCurrentVeggies.length && !oldCurrentVeggies.length) {
       addToastMessage(t('toasts.newChallenge', [t(`veggies.${currentChallenge.value}`)]));
     } else if (addedVeggie === currentChallenge.value) {
       addToastMessage(t('toasts.challengeCompleted', [cheer]));
-      showConfetti();
+      void showConfetti();
     } else if (allVeggies.value.length % 100 === 0) {
       addToastMessage(t('toasts.totalVeggies', [allVeggies.value.length, cheer]));
-      showConfetti();
+      void showConfetti();
     } else if (settings.value.showVeggieFacts && Math.random() <= 0.5) {
       await ensureFactsLoaded(settings.value.locale as Locale);
 
