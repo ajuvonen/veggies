@@ -4,26 +4,21 @@ import {storeToRefs} from 'pinia';
 import {omitBy} from 'remeda';
 import {AchievementLevel, type Achievements} from '@/types';
 import {useActivityStore} from '@/stores/activityStore';
+import {showConfetti} from '@/utils/helpers';
 
 const {achievements} = storeToRefs(useActivityStore());
 
 const newAchievements = ref<Partial<Achievements>>({});
 const dialogOpen = ref(false);
 
-watch(achievements, async (newValue, oldValue) => {
+watch(achievements, (newValue, oldValue) => {
   newAchievements.value = omitBy(
     newValue,
     (value, key) => value === AchievementLevel.NoAchievement || oldValue[key] >= value,
   );
   if (Object.keys(newAchievements.value).length) {
-    const {default: confetti} = await import('canvas-confetti');
     dialogOpen.value = true;
-    confetti({
-      disableForReducedMotion: true,
-      particleCount: 150,
-      spread: 70,
-      origin: {x: 0.5, y: 0.7},
-    });
+    void showConfetti();
   }
 });
 </script>

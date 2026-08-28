@@ -33,6 +33,16 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
 export const getRandomItem = <T>(availableItems: readonly T[] = []): T | undefined =>
   availableItems[Math.floor(Math.random() * availableItems.length)];
 
+export const showConfetti = async () => {
+  const {default: confetti} = await import('canvas-confetti');
+  confetti({
+    disableForReducedMotion: true,
+    particleCount: 150,
+    spread: 70,
+    origin: {x: 0.5, y: 0.7},
+  });
+};
+
 export const setIntersection = <T>(set: ReadonlySet<T>, collection: Iterable<T>): T[] =>
   [...collection].filter((item) => set.has(item));
 
