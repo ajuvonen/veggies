@@ -2,7 +2,7 @@
 import {computed} from 'vue';
 import {useI18n} from 'vue-i18n';
 import {useDateTime} from '@/hooks/dateTime';
-import {PRIVACY_POLICY_UPDATED} from '@/utils/constants';
+import {getPrivacyPolicyUpdated} from '@/utils/constants';
 
 type PrivacyParagraph = {
   title?: string;
@@ -15,7 +15,7 @@ const {tm} = useI18n();
 const {formatDate} = useDateTime();
 
 const paragraphs = computed(() => tm('privacy.paragraphs') as PrivacyParagraph[]);
-const formattedDate = computed(() => formatDate(PRIVACY_POLICY_UPDATED, true));
+const formattedDate = computed(() => formatDate(getPrivacyPolicyUpdated(), true));
 </script>
 <template>
   <div class="flex flex-col gap-4 has-scroll">

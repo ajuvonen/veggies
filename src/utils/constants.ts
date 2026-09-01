@@ -15,7 +15,9 @@ export const BLUESKY_URL = 'https://bsky.app/profile/eatyourveggies.app';
 export const PLAY_STORE_URL =
   'https://play.google.com/store/apps/details?id=app.eatyourveggies.twa';
 
-export const PRIVACY_POLICY_UPDATED = Temporal.PlainDate.from('2026-08-04');
+// Called lazily so the Temporal polyfill (installed in main.ts) has run before this
+// executes — a module-scope call here can race the polyfill under code-splitting.
+export const getPrivacyPolicyUpdated = () => Temporal.PlainDate.from('2026-08-04');
 
 export const BUILD_TIME = __VITE_BUILD_TIME__;
 
