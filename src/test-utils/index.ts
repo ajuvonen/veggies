@@ -1,5 +1,5 @@
 import {mount} from '@vue/test-utils';
-import {AchievementLevel, type Achievements} from '@/types';
+import {AchievementLevel, type Achievements, type WeekData} from '@/types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const withSetup = <T, Args extends any[]>(
@@ -48,4 +48,22 @@ export const getAchievements = (achievements: Partial<Achievements> = {}): Achie
   thousandsEven: AchievementLevel.NoAchievement,
   thousandsOdd: AchievementLevel.NoAchievement,
   ...achievements,
+});
+
+export const getWeekData = (overrides: Partial<WeekData> = {}): WeekData => ({
+  atMostVeggies: 10,
+  categoryCounts: {},
+  challenge: null,
+  favoriteCategory: null,
+  firstTimeVeggies: [],
+  firstWeek: false,
+  hotStreak: 0,
+  mean: 0,
+  missingCategories: [],
+  previousWeekCount: 0,
+  rarities: [],
+  staples: [],
+  veggies: [],
+  weekNumber: 1,
+  ...overrides,
 });
