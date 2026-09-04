@@ -45,7 +45,7 @@ const badgeProps: BadgeProps = {
   challengeAccepted: {
     [AchievementLevel.Bronze]: {
       textProps: [5],
-      emoji: '🚁',
+      emoji: '🪁',
     },
     [AchievementLevel.Silver]: {
       textProps: [10],

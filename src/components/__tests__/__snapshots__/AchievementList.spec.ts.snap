@@ -94,7 +94,7 @@ exports[`AchievementList > renders 1`] = `
   <ul data-v-1c120264="" class="achievement-list__badge-container">
     <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-1" class="badge--challengeAccepted badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-        <div data-v-06381b3c="" class="badge__emoji">🚁</div>
+        <div data-v-06381b3c="" class="badge__emoji">🪁</div>
       </div>
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
@@ -329,7 +329,7 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
   <ul data-v-1c120264="" class="achievement-list__badge-container">
     <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 completed weekly challenges (locked)" data-test-id="badge-challengeAccepted-1" class="badge--challengeAccepted badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Bronze" aria-hidden="true">
-        <div data-v-06381b3c="" class="badge__emoji">🚁</div>
+        <div data-v-06381b3c="" class="badge__emoji">🪁</div>
       </div>
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">5 challenges</div>
