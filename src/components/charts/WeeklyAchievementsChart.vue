@@ -119,7 +119,7 @@ const {chartOptions} = useChartOptions<'matrix'>(
           label: ({raw}) => {
             const {rawData} = raw as MatrixDataPoint;
             const translationProps = rawData === 'thirtyVeggies' ? [30] : [];
-            return `${t(`achievements.${rawData}.badgeText`, translationProps)}: ${t('stats.earned').toLowerCase()}`;
+            return `${t(`achievements.${rawData}.badgeText`, translationProps)}`;
           },
         },
       },

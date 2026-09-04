@@ -28,14 +28,14 @@ exports[`WeekEditor > renders 1`] = `
     <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 48deg, black 48deg 360deg);"></div>
     <!--v-if-->
   </li>
-  <li data-v-06381b3c="" aria-label="5 varieties of nuts this week (locked)" data-test-id="badge-goNuts-3" class="badge--goNuts badge--noLabel badge--locked badge" role="img">
+  <li data-v-06381b3c="" aria-label="5 different nuts this week (locked)" data-test-id="badge-goNuts-3" class="badge--goNuts badge--noLabel badge--locked badge" role="img">
     <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
       <div data-v-06381b3c="" class="badge__emoji">🥜</div>
     </div>
     <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
     <!--v-if-->
   </li>
-  <li data-v-06381b3c="" aria-label="5 varieties of herbs this week (locked)" data-test-id="badge-herbalist-3" class="badge--herbalist badge--noLabel badge--locked badge" role="img">
+  <li data-v-06381b3c="" aria-label="5 different herbs this week (locked)" data-test-id="badge-herbalist-3" class="badge--herbalist badge--noLabel badge--locked badge" role="img">
     <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
       <div data-v-06381b3c="" class="badge__emoji">🌿</div>
     </div>
@@ -63,7 +63,7 @@ exports[`WeekEditor > renders 1`] = `
     <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
     <!--v-if-->
   </li>
-  <li data-v-06381b3c="" aria-label="5 onion family veggies this week (locked)" data-test-id="badge-tearnado-3" class="badge--tearnado badge--noLabel badge--locked badge" role="img">
+  <li data-v-06381b3c="" aria-label="5 different onions this week (locked)" data-test-id="badge-tearnado-3" class="badge--tearnado badge--noLabel badge--locked badge" role="img">
     <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
       <div data-v-06381b3c="" class="badge__emoji">🧅</div>
     </div>

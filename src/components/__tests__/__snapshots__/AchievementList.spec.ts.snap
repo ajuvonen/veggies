@@ -12,14 +12,14 @@ exports[`AchievementList > renders 1`] = `
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">"Berries"</div>
     </li>
-    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 varieties of nuts this week (locked)" data-test-id="badge-goNuts-3" class="badge--goNuts badge--locked badge" role="img">
+    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 different nuts this week (locked)" data-test-id="badge-goNuts-3" class="badge--goNuts badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🥜</div>
       </div>
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Go nuts</div>
     </li>
-    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 varieties of herbs this week (locked)" data-test-id="badge-herbalist-3" class="badge--herbalist badge--locked badge" role="img">
+    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 different herbs this week (locked)" data-test-id="badge-herbalist-3" class="badge--herbalist badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🌿</div>
       </div>
@@ -47,7 +47,7 @@ exports[`AchievementList > renders 1`] = `
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Rainbow</div>
     </li>
-    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 onion family veggies this week (locked)" data-test-id="badge-tearnado-3" class="badge--tearnado badge--locked badge" role="img">
+    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 different onions this week (locked)" data-test-id="badge-tearnado-3" class="badge--tearnado badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🧅</div>
       </div>
@@ -247,14 +247,14 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
       <!--v-if-->
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">"Berries"</div>
     </li>
-    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 varieties of nuts this week " data-test-id="badge-goNuts-3" class="badge--goNuts badge" role="img">
+    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 different nuts this week " data-test-id="badge-goNuts-3" class="badge--goNuts badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🥜</div>
       </div>
       <!--v-if-->
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Go nuts</div>
     </li>
-    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 varieties of herbs this week (locked)" data-test-id="badge-herbalist-3" class="badge--herbalist badge--locked badge" role="img">
+    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 different herbs this week (locked)" data-test-id="badge-herbalist-3" class="badge--herbalist badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🌿</div>
       </div>
@@ -282,7 +282,7 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Rainbow</div>
     </li>
-    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 onion family veggies this week (locked)" data-test-id="badge-tearnado-3" class="badge--tearnado badge--locked badge" role="img">
+    <li data-v-06381b3c="" data-v-1c120264="" aria-label="5 different onions this week (locked)" data-test-id="badge-tearnado-3" class="badge--tearnado badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🧅</div>
       </div>
