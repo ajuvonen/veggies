@@ -72,12 +72,12 @@
       "3": "You have enjoyed 15 unique vegetables!"
     },
     "goNuts": {
-      "ariaLabel": "{0} varieties of nuts this week {1}",
+      "ariaLabel": "{0} different nuts this week {1}",
       "badgeText": "Go nuts",
       "3": "You have added five unique nuts this week!"
     },
     "herbalist": {
-      "ariaLabel": "{0} varieties of herbs this week {1}",
+      "ariaLabel": "{0} different herbs this week {1}",
       "badgeText": "Herbalist",
       "3": "Do you have your own herb garden? You've added five unique herbs this week!"
     },
@@ -108,7 +108,7 @@
       "3": "No discrimination! You have tried at least three veggies from each category this week!"
     },
     "tearnado": {
-      "ariaLabel": "{0} onion family veggies this week {1}",
+      "ariaLabel": "{0} different onions this week {1}",
       "badgeText": "Tearnado",
       "3": "You have added five types of onions this week!"
     },
