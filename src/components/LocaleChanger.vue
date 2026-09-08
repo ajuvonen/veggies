@@ -9,7 +9,7 @@ const {settings} = storeToRefs(useAppStateStore());
 const {t} = useI18n();
 
 const options = computed(() =>
-  LOCALES.map((locale) => ({value: locale, label: t(`locales.${locale}`)})),
+  LOCALES.map((locale) => ({value: locale, label: t(`locales.${locale}`), attrs: {lang: locale}})),
 );
 </script>
 <template>

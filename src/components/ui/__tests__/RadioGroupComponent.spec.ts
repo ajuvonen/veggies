@@ -85,6 +85,27 @@ describe('RadioGroupComponent', () => {
     expect(updatedIcons[1].props('icon')).toBe('radioboxMarked');
   });
 
+  it('binds option attrs to the corresponding button', async () => {
+    const optionsWithAttrs = [
+      {value: 'a', label: 'Option A', attrs: {'aria-label': 'First option', lang: 'en'}},
+      {value: 'b', label: 'Option B'},
+    ];
+    const wrapper = mount(RadioGroupComponent, {
+      props: {
+        modelValue: 'a',
+        options: optionsWithAttrs,
+        label: 'Test Group',
+      },
+    });
+    await flushPromises();
+
+    const buttons = wrapper.findAll('button');
+    expect(buttons[0].attributes('aria-label')).toBe('First option');
+    expect(buttons[0].attributes('lang')).toBe('en');
+    expect(buttons[1].attributes('aria-label')).toBeUndefined();
+    expect(buttons[1].attributes('lang')).toBeUndefined();
+  });
+
   it('shows correct icon state and emits model update on click', async () => {
     const wrapper = mount(RadioGroupComponent, {
       props: {
