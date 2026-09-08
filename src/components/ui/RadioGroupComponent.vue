@@ -4,7 +4,7 @@ import {computed, useAttrs} from 'vue';
 defineOptions({inheritAttrs: false});
 
 defineProps<{
-  options: {value: T; label: string}[];
+  options: {value: T; label: string; attrs?: Record<string, string>}[];
   label: string;
 }>();
 
@@ -24,6 +24,7 @@ const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomU
         v-for="option in options"
         :key="String(option.value)"
         :value="option.value"
+        v-bind="option.attrs"
         asChild
       >
         <ButtonComponent

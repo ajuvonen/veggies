@@ -1,6 +1,7 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {LOCALES} from '@/utils/constants';
 import LocaleChanger from '@/components/LocaleChanger.vue';
 
 describe('LocaleChanger', () => {
@@ -18,7 +19,7 @@ describe('LocaleChanger', () => {
   it('shows available languages', () => {
     const wrapper = mount(LocaleChanger);
     const options = wrapper.findAll('.button-like');
-    expect(options).toHaveLength(2);
+    expect(options).toHaveLength(LOCALES.length);
     expect(options.some((button) => button.text() === 'English')).toBe(true);
     expect(options.some((button) => button.text() === 'Suomi')).toBe(true);
   });
