@@ -1,3 +1,4 @@
+// Not needed after Node 26?
 import 'temporal-polyfill-lite/global';
 import 'temporal-polyfill-lite/types/global';
 import {beforeEach, vi} from 'vitest';
