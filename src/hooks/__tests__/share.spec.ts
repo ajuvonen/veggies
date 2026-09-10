@@ -21,7 +21,6 @@ describe('share', () => {
       Object.assign(navigator, {share: originalShare});
     }
     Object.assign(navigator, {clipboard: originalClipboard});
-    vi.restoreAllMocks();
   });
 
   describe('share', () => {

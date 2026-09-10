@@ -1,4 +1,4 @@
-import {describe, it, expect, vi, afterEach, beforeEach} from 'vitest';
+import {describe, it, expect, vi, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import {areDatesEqual, getWeekStart} from '@/utils/helpers';
@@ -11,10 +11,6 @@ describe('HomeView', () => {
 
   beforeEach(() => {
     appStateStore = useAppStateStore();
-  });
-
-  afterEach(() => {
-    vi.restoreAllMocks();
   });
 
   it('renders', () => {

@@ -1,4 +1,4 @@
-import {describe, it, expect, beforeEach, vi} from 'vitest';
+import {describe, it, expect, beforeEach, afterEach, vi} from 'vitest';
 import {getAISummary} from '@/api';
 import {getWeekData} from '@/test-utils';
 import {AI_SUMMARY_URL} from '@/utils/constants';
@@ -32,7 +32,11 @@ describe('getAISummary', () => {
     };
 
     mockFetch = vi.fn();
-    global.fetch = mockFetch;
+    vi.stubGlobal('fetch', mockFetch);
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
   });
 
   const createMockResponse = (ok: boolean, body: unknown = null): Response =>
