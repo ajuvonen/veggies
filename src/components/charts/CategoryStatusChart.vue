@@ -11,7 +11,7 @@ import {getCategoryForVeggie} from '@/utils/helpers';
 import {useI18nWithCollator} from '@/hooks/i18n';
 import {useChartOptions} from '@/hooks/chartOptions';
 
-ChartJS.defaults.font.family = 'Nunito';
+ChartJS.defaults.font.family = '"Open Sans", sans-serif';
 ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 
 const props = withDefaults(
@@ -19,11 +19,9 @@ const props = withDefaults(
     veggies: string[];
     categoryFavorites?: CategoryFavorites;
     topLabelKey?: string;
-    bottomLabelKey?: string;
   }>(),
   {
     topLabelKey: 'categoryStatus.topLabel',
-    bottomLabelKey: 'categoryStatus.bottomLabel',
   },
 );
 
@@ -103,8 +101,10 @@ defineExpose({chartData});
       data-test-id="category-status-chart-center-label"
     >
       <span>{{ $t(topLabelKey) }}</span>
-      <span :class="categoryFavorites ? 'text-5xl' : 'text-6xl'">{{ veggies.length }}</span>
-      <span>{{ $t(bottomLabelKey, veggies.length) }}</span>
+      <span class="visual-number" :class="categoryFavorites ? 'text-5xl' : 'text-6xl'">{{
+        veggies.length
+      }}</span>
+      <span>{{ $t('categoryStatus.bottomLabel', veggies.length) }}</span>
     </i18n-t>
     <Doughnut
       :data="chartData"

@@ -38,7 +38,7 @@ describe('NavBar', () => {
     appStateStore.settings.startDate = getWeekStart();
     mocks.useRoute.mockImplementation(() => ({name: 'log'}));
     const wrapper = mount(NavBar);
-    expect(wrapper.findByText('h1', 'Eat Your Veggies').exists()).toBe(true);
+    expect(wrapper.findByText('h1', 'Eat Your Veggies')).toBeDefined();
     expect(wrapper.findByTestId('navbar-back-link').exists()).toBe(false);
     expect(wrapper.findByTestId('navbar-stats-link').exists()).toBe(true);
     expect(wrapper.findByTestId('navbar-settings-link').exists()).toBe(true);
@@ -51,7 +51,7 @@ describe('NavBar', () => {
     expect(wrapper.findByTestId('navbar-back-link').exists()).toBe(true);
     expect(wrapper.findByTestId('navbar-stats-link').exists()).toBe(true);
     expect(wrapper.findByTestId('navbar-settings-link').exists()).toBe(true);
-    expect(wrapper.findByText('h1', 'Statistics').exists()).toBe(true);
+    expect(wrapper.findByText('h1', 'Statistics')).toBeDefined();
   });
 
   it('renders settings route', async () => {
@@ -61,7 +61,7 @@ describe('NavBar', () => {
     expect(wrapper.findByTestId('navbar-back-link').exists()).toBe(true);
     expect(wrapper.findByTestId('navbar-stats-link').exists()).toBe(true);
     expect(wrapper.findByTestId('navbar-settings-link').exists()).toBe(true);
-    expect(wrapper.findByText('h1', 'Settings').exists()).toBe(true);
+    expect(wrapper.findByText('h1', 'Settings')).toBeDefined();
   });
 
   it('renders privacy route', async () => {
@@ -70,7 +70,7 @@ describe('NavBar', () => {
     expect(wrapper.findByTestId('navbar-back-link').exists()).toBe(true);
     expect(wrapper.findByTestId('navbar-stats-link').exists()).toBe(false);
     expect(wrapper.findByTestId('navbar-settings-link').exists()).toBe(false);
-    expect(wrapper.findByText('h1', 'Privacy').exists()).toBe(true);
+    expect(wrapper.findByText('h1', 'Privacy')).toBeDefined();
   });
 
   it('renders privacy route with start date', async () => {
@@ -80,15 +80,16 @@ describe('NavBar', () => {
     expect(wrapper.findByTestId('navbar-back-link').exists()).toBe(true);
     expect(wrapper.findByTestId('navbar-stats-link').exists()).toBe(true);
     expect(wrapper.findByTestId('navbar-settings-link').exists()).toBe(true);
-    expect(wrapper.findByText('h1', 'Privacy').exists()).toBe(true);
+    expect(wrapper.findByText('h1', 'Privacy')).toBeDefined();
   });
 
   it('shows available languages', () => {
     mocks.useRoute.mockImplementation(() => ({name: 'home'}));
     const wrapper = mount(NavBar);
     const buttons = wrapper.findAll('button');
-    expect(buttons).toHaveLength(1);
-    expect(buttons.some((button) => button.text() === 'fi')).toBe(true);
+    expect(buttons).toHaveLength(2);
+    expect(wrapper.findByText('button', 'fi')).toBeDefined();
+    expect(wrapper.findByText('button', 'ελ')).toBeDefined();
   });
 
   it('changes language', async () => {
@@ -97,5 +98,6 @@ describe('NavBar', () => {
     expect(appStateStore.settings.locale).toBe('en');
     await wrapper.findByText('button', 'fi').trigger('click');
     expect(appStateStore.settings.locale).toBe('fi');
+    expect(wrapper.findByText('button', 'fi')).toBeUndefined();
   });
 });

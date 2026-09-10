@@ -180,7 +180,6 @@
   },
   "categoryStatus": {
     "bottomLabel": "Veggies|Veggie|Veggies",
-    "bottomLabelTotal": "Actions|Action|Actions",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "This Week",
     "topLabelLastWeek": "Last Week",
@@ -226,6 +225,10 @@
     "info": "Learn more",
     "infoSteps": {
       "ariaLabel": "Step {0} of {1}: {2}",
+      "background": {
+        "title": "Background",
+        "text": "A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. By steadily incorporating a wide range of vegetables into your diet, you may reduce inflammation, improve nutrient absorption, and boost your overall vitality."
+      },
       "briefly": {
         "title": "Briefly",
         "text": "Track your meals without being tracked. Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app has no ads, requires no registration, and data is kept in your own device's storage by default."
@@ -243,10 +246,6 @@
           "No Internet connection required.",
           "No ads, no registration, no trackers. Built with your privacy in mind."
         ]
-      },
-      "background": {
-        "title": "Background",
-        "text": "A groundbreaking 2018 study called The American Gut Project revealed that people who consume at least 30 different types of plant-based foods each week enjoy a more diverse gut microbiome. This diversity could be key to better digestion, stronger immune system, and even enhanced brain function. By steadily incorporating a wide range of vegetables into your diet, you may reduce inflammation, improve nutrient absorption, and boost your overall vitality."
       }
     },
     "callout": "Adopt a healthy lifestyle by eating 30 plant-based ingredients each week. Track your progress easily with this free app.",
@@ -254,7 +253,8 @@
   },
   "locales": {
     "en": "English",
-    "fi": "Suomi"
+    "fi": "Suomi",
+    "el": "Ελληνικα"
   },
   "privacy": {
     "lastUpdated": "Last updated {0}",
@@ -374,6 +374,7 @@
     "asian pear": ["chinese pear", "nashi"],
     "black lentil": ["beluga lentil"],
     "blackcurrant": [""],
+    "blood orange": [""],
     "bok choy": ["pak choi"],
     "brazil nut": ["para nut"],
     "butter bean": ["lima bean"],
@@ -396,15 +397,18 @@
     "finger lime": ["lime caviar"],
     "frisee": ["curly endive"],
     "gai lan": ["chinese broccoli"],
+    "ginger": [""],
     "goji berry": ["wolfberry"],
     "grape": [""],
     "green bean": ["string bean"],
     "holy basil": ["tulsi"],
     "jicama": ["yam bean"],
+    "kidney bean": [""],
     "lacinato kale": ["dinosaur kale", "black kale", "cavolo nero"],
     "mandarin": ["satsuma"],
     "manioc": ["cassava", "tapioca"],
     "matsutake": [""],
+    "mint": [""],
     "mizuna": [""],
     "napa cabbage": ["chinese cabbage"],
     "onion": ["yellow onion"],
@@ -415,6 +419,7 @@
     "plum": ["prune"],
     "porcini": ["king bolete"],
     "radicchio": ["leaf chicory"],
+    "raspberry": [""],
     "red bean": ["adzuki bean"],
     "redcurrant": [""],
     "romaine": [""],

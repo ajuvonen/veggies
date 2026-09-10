@@ -11,7 +11,7 @@ import {getCategoryForVeggie} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useChartOptions} from '@/hooks/chartOptions';
 
-ChartJS.defaults.font.family = 'Nunito';
+ChartJS.defaults.font.family = '"Open Sans", sans-serif';
 ChartJS.register(Tooltip, RadialLinearScale, ArcElement, ChartDataLabels);
 
 const props = defineProps<{

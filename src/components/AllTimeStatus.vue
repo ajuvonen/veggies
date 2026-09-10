@@ -35,7 +35,6 @@ const sections = computed(() => ({
     :categoryFavorites="categoryFavorites"
     :veggies="allVeggies"
     topLabelKey="categoryStatus.topLabelTotal"
-    bottomLabelKey="categoryStatus.bottomLabelTotal"
   />
 </template>
 <style scoped>

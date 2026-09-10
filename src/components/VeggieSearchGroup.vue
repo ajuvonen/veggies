@@ -13,7 +13,7 @@ defineProps<{
   <ComboboxGroup v-if="items.length" :data-test-id="`veggie-search-group-${category}`" role="group">
     <div class="dropdown-list-heading">
       <ComboboxLabel class="flex-container">
-        <span aria-hidden="true">{{ CATEGORY_EMOJI[category] }}</span>
+        <span class="flex items-center" aria-hidden="true">{{ CATEGORY_EMOJI[category] }}</span>
         <span>{{ $t(`categories.${category}`) }} ({{ items.length }})</span>
       </ComboboxLabel>
       <div v-if="showControls" class="flex-container">

@@ -20,8 +20,9 @@ describe('LocaleChanger', () => {
     const wrapper = mount(LocaleChanger);
     const options = wrapper.findAll('.button-like');
     expect(options).toHaveLength(LOCALES.length);
-    expect(options.some((button) => button.text() === 'English')).toBe(true);
-    expect(options.some((button) => button.text() === 'Suomi')).toBe(true);
+    expect(wrapper.findByText('button', 'English')).toBeDefined();
+    expect(wrapper.findByText('button', 'Suomi')).toBeDefined();
+    expect(wrapper.findByText('button', 'Ελληνικα')).toBeDefined();
   });
 
   it('changes language', async () => {

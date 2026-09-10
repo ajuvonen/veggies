@@ -180,7 +180,6 @@
   },
   "categoryStatus": {
     "bottomLabel": "Kasvista|Kasvis|Kasvista",
-    "bottomLabelTotal": "Lisäystä|Lisäys|Lisäystä",
     "centerLabel": "{0} {1} {2}",
     "topLabel": "Tällä Viikolla",
     "topLabelLastWeek": "Viime Viikolla",
@@ -226,6 +225,10 @@
     "info": "Lue lisää",
     "infoSteps": {
       "ariaLabel": "Vaihe {0} / {1}: {2}",
+      "background": {
+        "title": "Tausta",
+        "text": "Vuonna 2018 julkaistun The American Gut Project -tutkimuksen tulokset osoittivat, että vähintään 30 erilaisen kasviksen nauttiminen viikossa monipuolistaa suoliston mikrobitasapainoa. Tämä monimuotoisuus voi olla avain parempaan ruoansulatukseen, vahvempaan immuunijärjestelmään ja jopa parempaan aivojen toimintakykyyn. Säännöllisen monipuolinen kasvisten sisällyttäminen ruokavalioon voi vähentää tulehduksia, parantaa ravinteiden imeytymistä ja lisätä yleistä elinvoimaisuutta."
+      },
       "briefly": {
         "title": "Lyhyesti",
         "text": "Seuraa ruokavaliotasi ilman että sinua seurataan. Eat Your Veggies on ilmainen sovellus aterioidesi kasvipohjaisten ruoka-aineiden seuraamiseen. Sovellus ei sisällä mainoksia tai vaadi rekisteröitymistä, ja tietoja säilytetään oletuksena ainoastaan oman laitteesi tallennustilassa."
@@ -243,10 +246,6 @@
           "Toimii ilman Internet-yhteyttä.",
           "Ei mainoksia, ei rekisteröitymistä, ei seurantaohjelmia. Kehitetty yksityisyytesi huomioiden."
         ]
-      },
-      "background": {
-        "title": "Tausta",
-        "text": "Vuonna 2018 julkaistun The American Gut Project -tutkimuksen tulokset osoittivat, että vähintään 30 erilaisen kasviksen nauttiminen viikossa monipuolistaa suoliston mikrobitasapainoa. Tämä monimuotoisuus voi olla avain parempaan ruoansulatukseen, vahvempaan immuunijärjestelmään ja jopa parempaan aivojen toimintakykyyn. Säännöllisen monipuolinen kasvisten sisällyttäminen ruokavalioon voi vähentää tulehduksia, parantaa ravinteiden imeytymistä ja lisätä yleistä elinvoimaisuutta."
       }
     },
     "callout": "Elä terveellisemmin syömällä 30 kasvipohjaista ruoka-ainetta joka viikko. Seuraa onnistumistasi tämän ilmaisen sovelluksen avulla.",
@@ -254,7 +253,8 @@
   },
   "locales": {
     "en": "English",
-    "fi": "Suomi"
+    "fi": "Suomi",
+    "el": "Ελληνικα"
   },
   "privacy": {
     "lastUpdated": "Päivitetty viimeksi {0}",
@@ -374,6 +374,7 @@
     "asian pear": ["nashi"],
     "black lentil": [""],
     "blackcurrant": ["mustaviinimarja", "viinimarja"],
+    "blood orange": [""],
     "bok choy": [""],
     "brazil nut": ["brasilianpähkinä"],
     "butter bean": ["limanpapu"],
@@ -396,15 +397,18 @@
     "finger lime": ["limekaviaari", "finger lime"],
     "frisee": [""],
     "gai lan": ["kiinalainen parsakaali"],
+    "ginger": [""],
     "goji berry": [""],
     "grape": ["rusina"],
     "green bean": ["haricot"],
     "holy basil": [""],
     "jicama": [""],
+    "kidney bean": [""],
     "lacinato kale": [""],
     "mandarin": ["satsuma"],
     "manioc": ["kassava", "tapioka"],
     "matsutake": ["matsutake"],
+    "mint": [""],
     "mizuna": ["mizuna"],
     "napa cabbage": [""],
     "onion": ["keltasipuli"],
@@ -415,6 +419,7 @@
     "plum": [""],
     "porcini": [""],
     "radicchio": ["punasalaatti"],
+    "raspberry": [""],
     "red bean": ["adsukipapu"],
     "redcurrant": ["punaviinimarja", "viinimarja"],
     "romaine": ["romaine"],

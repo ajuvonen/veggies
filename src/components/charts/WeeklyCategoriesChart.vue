@@ -13,7 +13,7 @@ import {getCategoryForVeggie} from '@/utils/helpers';
 import {Category, type WeeklyChartData} from '@/types';
 import {useActivityStore} from '@/stores/activityStore';
 
-ChartJS.defaults.font.family = 'Nunito';
+ChartJS.defaults.font.family = '"Open Sans", sans-serif';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, ChartDataLabels);
 
 const props = defineProps<{

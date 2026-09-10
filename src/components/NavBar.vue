@@ -27,7 +27,12 @@ const headerTitle = computed(() => {
 </script>
 <template>
   <nav class="navbar">
-    <h1 v-if="!isHome" :aria-label="headerTitle.ariaLabel" class="navbar__header">
+    <h1
+      v-if="!isHome"
+      :class="{'navbar__header--decorative': route.name === 'log'}"
+      :aria-label="headerTitle.ariaLabel"
+      class="navbar__header"
+    >
       {{ headerTitle.name }}
     </h1>
     <div class="flex-container justify-end w-full">
@@ -58,8 +63,8 @@ const headerTitle = computed(() => {
       >
         <IconComponent icon="cog" size="6vw" class="navbar__link-icon" />
       </RouterLink>
-      <IconComponent v-if="isHome" icon="earth" />
       <template v-if="isHome">
+        <IconComponent icon="earth" />
         <ButtonComponent
           v-for="availableLocale in availableLocales"
           :key="availableLocale"
@@ -67,7 +72,7 @@ const headerTitle = computed(() => {
           :data-test-id="`home-locale-button-${availableLocale}`"
           color="transparent"
           @click="settings.locale = availableLocale"
-          >{{ availableLocale }}</ButtonComponent
+          >{{ availableLocale === 'el' ? 'ελ' : availableLocale }}</ButtonComponent
         >
       </template>
     </div>
@@ -80,10 +85,13 @@ const headerTitle = computed(() => {
 }
 
 .navbar__header {
-  font-family: 'Bungee Shade', system-ui;
   font-size: 5.8vw;
   line-height: 2.5rem;
-  @apply whitespace-nowrap uppercase sm:text-4xl rounded-md select-none;
+  @apply whitespace-nowrap tracking-wider uppercase sm:text-4xl rounded-md select-none;
+}
+
+.navbar__header--decorative {
+  font-family: 'Bungee Shade';
 }
 
 .navbar__link-icon {

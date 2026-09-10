@@ -338,7 +338,7 @@ describe('helpers', () => {
       const faultyData = {
         settings: {
           startDate: thisWeek,
-          locale: 'el',
+          locale: 'sv',
           suggestionCount: 100,
           showChartAnimations: 0,
           migrationVersion: CURRENT_MIGRATION_VERSION,
