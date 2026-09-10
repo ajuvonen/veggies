@@ -35,8 +35,8 @@ describe('ModalDialog', () => {
     await flushPromises();
     const dialog = wrapper.getComponent(DialogContent);
     expect(dialog.isVisible()).toBe(true);
-    expect(dialog.findByText('p', 'Test content').isVisible()).toBe(true);
-    expect(dialog.findByText('p', 'Test buttons').isVisible()).toBe(true);
+    expect(dialog.findByText('p', 'Test content')).toBeDefined();
+    expect(dialog.findByText('p', 'Test buttons')).toBeDefined();
     expect(dialog.findByTestId('dialog-close-button').exists()).toBe(false);
   });
 

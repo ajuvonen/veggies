@@ -21,7 +21,7 @@ const dataTestIdPlugin = (wrapper: ReturnType<typeof mount>) => ({
   findByTestId: (testId: string) => wrapper.find(`[data-test-id='${testId}']`),
   findByText: (selector: string, text: string) =>
     wrapper.findAll(selector).find((node) => {
-      return node.text() === text;
+      return node.text() === text && node.isVisible();
     }),
 });
 
