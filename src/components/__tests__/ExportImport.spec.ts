@@ -80,8 +80,6 @@ describe('ExportImport', () => {
   });
 
   afterEach(() => {
-    vi.resetAllMocks();
-    vi.restoreAllMocks();
     vi.unstubAllGlobals();
   });
 

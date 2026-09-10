@@ -1,12 +1,8 @@
-import {describe, it, expect, vi, afterEach} from 'vitest';
+import {describe, it, expect, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import ScreenStub from '@/test-utils/ScreenStub.vue';
 
 describe('screen', () => {
-  afterEach(() => {
-    vi.restoreAllMocks();
-  });
-
   it('detects window resizes', async () => {
     const wrapper = mount(ScreenStub);
     expect(wrapper.vm.visualHeight).toBe(window.innerHeight);

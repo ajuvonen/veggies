@@ -39,7 +39,6 @@ describe('LogView', () => {
   afterEach(() => {
     vi.useRealTimers();
     vi.resetAllMocks();
-    vi.restoreAllMocks();
   });
 
   it('renders', () => {

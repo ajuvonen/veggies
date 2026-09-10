@@ -1,4 +1,4 @@
-import {describe, it, expect, vi, beforeEach} from 'vitest';
+import {describe, it, expect, vi} from 'vitest';
 import {useFactsLoader} from '@/hooks/factsLoader';
 import {withSetup} from '@/test-utils';
 import type {Locale} from '@/types';
@@ -45,10 +45,6 @@ vi.mock('@/i18n/facts_el.json', () => ({
 }));
 
 describe('useFactsLoader', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
-
   it('does not load facts when they are already present', async () => {
     mocks.te.mockReturnValueOnce(true);
 
