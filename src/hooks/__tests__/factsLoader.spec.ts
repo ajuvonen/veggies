@@ -1,6 +1,7 @@
 import {describe, it, expect, vi, beforeEach} from 'vitest';
 import {useFactsLoader} from '@/hooks/factsLoader';
 import {withSetup} from '@/test-utils';
+import type {Locale} from '@/types';
 
 const mocks = vi.hoisted(() => ({
   te: vi.fn(),
@@ -34,24 +35,18 @@ vi.mock('@/i18n/facts_fi.json', () => ({
   },
 }));
 
+vi.mock('@/i18n/facts_el.json', () => ({
+  default: {
+    facts: {
+      almond: ['γεγονός 1', 'γεγονός 2'],
+      apple: ['γεγονός 1', 'γεγονός 2'],
+    },
+  },
+}));
+
 describe('useFactsLoader', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-  });
-
-  it('loads facts when they are not present', async () => {
-    mocks.te.mockReturnValueOnce(false);
-
-    const ensureFactsLoaded = withSetup(useFactsLoader);
-    await ensureFactsLoaded('en');
-
-    expect(mocks.te).toHaveBeenCalledWith('facts', 'en');
-    expect(mocks.mergeLocaleMessage).toHaveBeenCalledWith('en', {
-      facts: {
-        almond: ['fact 1', 'fact 2'],
-        apple: ['fact 1', 'fact 2'],
-      },
-    });
   });
 
   it('does not load facts when they are already present', async () => {
@@ -64,17 +59,21 @@ describe('useFactsLoader', () => {
     expect(mocks.mergeLocaleMessage).not.toHaveBeenCalled();
   });
 
-  it('loads correct locale facts', async () => {
+  it.each<[Locale, string]>([
+    ['en', 'fact'],
+    ['fi', 'fakta'],
+    ['el', 'γεγονός'],
+  ])('loads facts for locale %s', async (locale, localizedString) => {
     mocks.te.mockReturnValueOnce(false);
 
     const ensureFactsLoaded = withSetup(useFactsLoader);
-    await ensureFactsLoaded('fi');
+    await ensureFactsLoaded(locale);
 
-    expect(mocks.te).toHaveBeenCalledWith('facts', 'fi');
-    expect(mocks.mergeLocaleMessage).toHaveBeenCalledWith('fi', {
+    expect(mocks.te).toHaveBeenCalledWith('facts', locale);
+    expect(mocks.mergeLocaleMessage).toHaveBeenCalledWith(locale, {
       facts: {
-        almond: ['fakta 1', 'fakta 2'],
-        apple: ['fakta 1', 'fakta 2'],
+        almond: [`${localizedString} 1`, `${localizedString} 2`],
+        apple: [`${localizedString} 1`, `${localizedString} 2`],
       },
     });
   });

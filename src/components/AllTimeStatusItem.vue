@@ -12,7 +12,7 @@ const {shareSupported, shareOrCopy} = useShare();
   <div class="all-time-status__item" :data-test-id="`all-time-status-${statKey}`">
     <i18n-t scope="global" keypath="categoryStatus.centerLabel">
       <span>{{ $t(`allTimeStatus.${statKey}.topLabel`) }}</span>
-      <span class="text-5xl">{{ statAmount }}</span>
+      <span class="visual-number text-5xl">{{ statAmount }}</span>
       <span>{{ $t(`allTimeStatus.${statKey}.bottomLabel`, statAmount) }}</span>
     </i18n-t>
     <ButtonComponent

@@ -12,6 +12,8 @@ import {runMigrations} from '@/utils/migrations';
 
 import '@fontsource/bungee-shade/latin-400.css';
 import '@fontsource/nunito/latin-400.css';
+import '@fontsource/open-sans/latin-400.css';
+import '@fontsource/open-sans/greek-400.css';
 import 'tippy.js/dist/tippy.css';
 import '@/assets/main.css';
 

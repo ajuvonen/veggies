@@ -19,7 +19,7 @@ import {useActivityStore} from '@/stores/activityStore';
 import {type WeeklyChartData} from '@/types';
 import {standardDeviation} from '@/utils/helpers';
 
-ChartJS.defaults.font.family = 'Nunito';
+ChartJS.defaults.font.family = '"Open Sans", sans-serif';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ChartAnnotation);
 
 const props = defineProps<{

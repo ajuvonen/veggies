@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'fi';
+export type Locale = 'en' | 'fi' | 'el';
 
 export enum Category {
   Fruit = 'Fruit',

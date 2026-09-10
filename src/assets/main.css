@@ -65,7 +65,7 @@
 
   body {
     @apply text-[--color-text] fill-[--color-text] h-full;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   a {
@@ -122,6 +122,10 @@
 
   .flex-container {
     @apply flex gap-2;
+  }
+
+  .visual-number {
+    font-family: 'Nunito', sans-serif;
   }
 
   .has-scroll {

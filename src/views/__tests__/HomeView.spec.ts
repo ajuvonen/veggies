@@ -34,6 +34,12 @@ describe('HomeView', () => {
     expect(appStateStore.settings.locale).toBe('fi');
   });
 
+  it('renders in Greek if preferred', async () => {
+    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['el', 'en']);
+    mount(HomeView);
+    expect(appStateStore.settings.locale).toBe('el');
+  });
+
   it('renders in English if no languages match locales preferred', () => {
     vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['sv-SE', 'no']);
     mount(HomeView);

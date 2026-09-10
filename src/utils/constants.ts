@@ -41,7 +41,7 @@ export const KEYS = {
   challenge: Symbol() as InjectionKey<Ref<string | undefined>>,
 } as const;
 
-export const LOCALES = ['en', 'fi'] as const satisfies ReadonlyArray<Locale>;
+export const LOCALES = ['en', 'fi', 'el'] as const satisfies ReadonlyArray<Locale>;
 
 export const WEEKLY_ACHIEVEMENT_EMOJI = {
   botanicalBerries: '🍅',

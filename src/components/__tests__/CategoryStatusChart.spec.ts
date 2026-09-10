@@ -31,7 +31,6 @@ describe('CategoryStatusChart', () => {
         },
         veggies: ['potato', 'chili'],
         topLabelKey: 'categoryStatus.topLabelTotal',
-        bottomLabelKey: 'categoryStatus.bottomLabelTotal',
       },
       global: {
         stubs: {
@@ -39,6 +38,6 @@ describe('CategoryStatusChart', () => {
         },
       },
     });
-    expect(wrapper.find('#category-status-chart-center-label').text()).toBe('In Total 2 Actions');
+    expect(wrapper.find('#category-status-chart-center-label').text()).toBe('In Total 2 Veggies');
   });
 });
