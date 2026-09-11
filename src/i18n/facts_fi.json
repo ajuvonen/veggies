@@ -2,7 +2,7 @@
   "facts": {
     "almond": [
       "Mantelimaito on suosittu kasvipohjainen vaihtoehto lehmänmaidolle.",
-      "30 gramman annos manteleita sisältää 37 % päivittäisestä E-vitamiinista.",
+      "30 gramman annos manteleita sisältää 37\u00a0\u00a0% päivittäisestä E-vitamiinista.",
       "Villit karvasmantelit ovat myrkyllisiä. Kaupassa myytävät lajikkeet ovat mutaation ja jalostuksen turvallinen lopputulos."
     ],
     "amaranth": [
@@ -12,9 +12,9 @@
       "Amaranttia keitetään usein puuroksi tai lisätään keittoihin ja patoihin."
     ],
     "apple": [
-      "Keskikokoinen omena sisältää noin 14 % päivittäisestä C-vitamiinista.",
-      "Maailmassa viljellään yli 7500 omenalajiketta.",
-      "Omenoissa on noin 25% ilmaa, minkä vuoksi ne kelluvat vedessä.",
+      "Keskikokoinen omena sisältää noin 14\u00a0\u00a0% päivittäisestä C-vitamiinista.",
+      "Maailmassa viljellään yli 7\u00a0500 omenalajiketta.",
+      "Omenoissa on noin 25\u00a0% ilmaa, minkä vuoksi ne kelluvat vedessä.",
       "Kiina tuottaa eniten omenoita maailmassa.",
       "Omena on maailman kolmanneksi eniten tuotettu hedelmä."
     ],
@@ -35,7 +35,7 @@
     ],
     "asian pear": [
       "Nimestään huolimatta omenapäärynä ei ole omenan hybridilajike.",
-      "Omenapäärynöitä on viljelty Kiinassa ja Japanissa yli 3 000 vuotta.",
+      "Omenapäärynöitä on viljelty Kiinassa ja Japanissa yli 3\u00a0000 vuotta.",
       "Japanissa ja Etelä-Koreassa käsinpakattu omenapäärynä voi olla tyylikäs lahja.",
       "Omenapäärynä sopii hyvin juusto- ja leikkeletarjottimelle."
     ],
@@ -59,26 +59,26 @@
     ],
     "banana": [
       "Banaanit ovat kasvitieteellisessä mielessä marjoja.",
-      "Yksi banaani sisältää noin 12 % päivittäisestä kaliumista.",
+      "Yksi banaani sisältää noin 12\u00a0\u00a0% päivittäisestä kaliumista.",
       "Banaanit ovat yksi parhaista B6-vitamiinin lähteistä, tukien kognitiivista terveyttä.",
       "Banaanien sisältämä tryptofaani muuttuu elimistössä serotoniiniksi ja voi parantaa mielialaa.",
       "Intia on maailman suurin banaanien tuottaja.",
       "Banaani on maailman eniten tuotettu hedelmä."
     ],
     "barley": [
-      "Ohraa on viljelty yli 10 000 vuotta, ja se on yksi ensimmäisistä ihmisten viljelemistä viljoista.",
+      "Ohraa on viljelty yli 10\u00a0000 vuotta, ja se on yksi ensimmäisistä ihmisten viljelemistä viljoista.",
       "Ohraa käytetään mallasjuomien, kuten oluen ja viskin, valmistuksessa.",
       "Ohra menestyy myös ankarammissa, kylmissä ilmastoissa.",
       "Itä-Euroopassa ohraa käytetään tuhtien keittoruokien ainesosana.",
       "Ohrasta voidaan valmistaa ilmastoystävällistä riisin korvaajaa."
     ],
     "basil": [
-      "30 gramman annos tuoretta basilikaa sisältää 90 % päivittäisestä K-vitamiinista.",
+      "30 gramman annos tuoretta basilikaa sisältää 90\u00a0\u00a0% päivittäisestä K-vitamiinista.",
       "Kokeile thai- tai purppurabasilikaa saadaksesi uutta twistiä ruoanlaittoon.",
       "Muinaisessa Egyptissä basilikaa käytettiin balsamointirituaaleissa."
     ],
     "beet": [
-      "Yksi punajuuri sisältää noin 20 % päivittäisestä folaatista, joka on tärkeää sydämen ja aivojen terveydelle.",
+      "Yksi punajuuri sisältää noin 20\u00a0\u00a0% päivittäisestä folaatista, joka on tärkeää sydämen ja aivojen terveydelle.",
       "Punajuuret voivat parantaa urheilusuoritusta lisäämällä hapen hyödyntämistä liikunnan aikana.",
       "Ei hävikkiä! Punajuuri on kokonaan syötävä vihannes.",
       "Kirkkaan väristä punajuurta on käytetty tekstiilien ja ruokien väriaineena.",
@@ -102,7 +102,7 @@
       "Karvaskurkku voi auttaa laskemaan verensokeria, koska se sisältää insuliinin tavoin vaikuttavia yhdisteitä."
     ],
     "black bean": [
-      "Mustapapuja on viljelty Amerikassa yli 7 000 vuoden ajan.",
+      "Mustapapuja on viljelty Amerikassa yli 7\u00a0000 vuoden ajan.",
       "Mustapapu sisältää paitsi rautaa, magnesiumia ja folaattia, myös proteiinia ja kuitua.",
       "Mustapapuja käytetään useissa latinalaisen Amerikan keskeisissä ruoissa."
     ],
@@ -149,7 +149,7 @@
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "blood orange": [
-      "Yksi veriappelsiini sisältää noin 78 % päivittäisestä C-vitamiinista.",
+      "Yksi veriappelsiini sisältää noin 78\u00a0\u00a0% päivittäisestä C-vitamiinista.",
       "Veriappelsiinit saavat punaisen värinsä antosyaaneista, jotka ovat harvinaisia sitrushedelmissä.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
@@ -164,7 +164,7 @@
     "bok choy": [
       "Paksoista voidaan syödä sekä rapeat varret, että pehmeämmät lehdet.",
       "Paksoi sisältää paljon A-, C-, ja K-vitamiinia.",
-      "Paksoita on viljelty Kiinassa yli 5 000 vuotta."
+      "Paksoita on viljelty Kiinassa yli 5\u00a0000 vuotta."
     ],
     "boysenberry": [
       "Rudolph Boysen kehitti boysenmarjan 1920-luvulla risteyttämällä kolme eri marjaa.",
@@ -172,7 +172,7 @@
       "Kalifornia ja Uusi-Seelanti ovat merkittäviä boysenmarjan tuottajia."
     ],
     "brazil nut": [
-      "30 gramman annos parapähkinöitä sisältää yli 700 % päivittäisestä seleenistä.",
+      "30 gramman annos parapähkinöitä sisältää yli 700\u00a0\u00a0% päivittäisestä seleenistä.",
       "Parapähkinät kasvavat Amazonin sademetsässä jättimäisissä, yli 500-vuotiaaksi elävissä puissa.",
       "Brasilia, Bolivia ja Peru ovat suurimpia parapähkinöiden tuottajia.",
       "Parapähkinöiden kaupallinen tuotanto on vaikeaa, koska se vaatii tiettyjä mehiläisiä ja jyrsijöitä ekosysteemiinsä."
@@ -227,7 +227,7 @@
       "Myskikurpitsaa sopii hyvin mausteisiinkin ruokiin."
     ],
     "cabbage": [
-      "Kaalia on viljelty yli 4 000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
+      "Kaalia on viljelty yli 4\u00a0000 vuotta, ja se oli peruselintarvike antiikin Roomassa ja Kreikassa.",
       "Kaalia käytetään usein hapankaaliksi, joka on suosittu lisuke liharuokien kanssa.",
       "Usko tai älä, mutta painavin koskaan kasvatettu kaali painoi melkein 63 kiloa."
     ],
@@ -262,7 +262,7 @@
       "Jättikaprikset ovat yksinkertaisesti kaprispensaan marjoja, jotka ovat myös syötäviä."
     ],
     "carrot": [
-      "Yksi porkkana sisältää yli 100 % päivän A-vitamiinista.",
+      "Yksi porkkana sisältää yli 100\u00a0\u00a0% päivän A-vitamiinista.",
       "Porkkanat olivat joko violetteja tai valkoisia, kunnes hollantilaiset maanviljelijät kehittivät oranssin lajikkeen 1600-luvulla.",
       "Painavin koskaan punnittu porkkana painoi yli kymmenen kiloa.",
       "Toisin kuin yleisesti luullaan, porkkana ei ole hyväksi kaneille liiallisen sokeripitoisuutensa vuoksi.",
@@ -288,7 +288,7 @@
     ],
     "celery": [
       "30 gramman annos selleriä sisältää vain noin 5 kaloria, joten se on terveellinen välipala.",
-      "Selleriä on viljelty yli 3 000 vuoden ajan sekä ruoaksi että lääketieteellisiin tarkoituksiin.",
+      "Selleriä on viljelty yli 3\u00a0000 vuoden ajan sekä ruoaksi että lääketieteellisiin tarkoituksiin.",
       "Kiina tuottaa noin puolet maailman selleristä.",
       "Selleri on osa ranskalaisen keittiön mirepoix-sekoitusta, italialaisittain soffrittoa."
     ],
@@ -305,7 +305,7 @@
     "chard": [
       "Lehtimangoldi on peräisin Välimeren alueelta.",
       "Lehtimangoldin sisältämä oksalaatti voi haitata kalsiumin imeytymistä.",
-      "30 gramman annos lehtimangoldia sisältää noin 40 % päivän K-vitamiinista."
+      "30 gramman annos lehtimangoldia sisältää noin 40\u00a0\u00a0% päivän K-vitamiinista."
     ],
     "chayote": [
       "Kajottikurpitsa on kurpitsan ja melonin kaukainen sukulainen.",
@@ -345,13 +345,13 @@
       "30 gramman annos chiasiemeniä sisältää noin 11 g kuitua ja runsaasti omega-3-rasvahappoja.",
       "Chiasiemenet olivat tärkeä ravinnonlähde muinaisille atsteekeille ja mayoille.",
       "Chia on salvian, basilikan ja mintun sukulainen.",
-      "Noin 70 % Euroopan chiasiemenistä tuotetaan Paraguayssa.",
+      "Noin 70\u00a0\u00a0% Euroopan chiasiemenistä tuotetaan Paraguayssa.",
       "Chiasiemeniä käytetään vanukkaissa, smoothieissa ja kananmunan korvikkeena vegaanileivonnassa."
     ],
     "chickpea": [
       "Kikherne on yksi kolmesta eniten käytetystä palkokasvista maailmassa.",
       "Hummuksen, falafelin ja chana masalan yhteinen tähti on kikherne.",
-      "Intia tuottaa ja kuluttaa noin 70 % maailman kikherneistä.",
+      "Intia tuottaa ja kuluttaa noin 70\u00a0\u00a0% maailman kikherneistä.",
       "Kikhernevesi, tai aquafaba, voi korvata kananmunanvalkuaiset vegaanileivonnassa."
     ],
     "chili pepper": [
@@ -383,12 +383,12 @@
       "Sipulit ovat haitallisia monille eläimille."
     ],
     "clementine": [
-      "Klementiini sisältää noin 60 % päivittäisestä C-vitamiinista, joten se on immuunijärjestelmää tukeva välipala.",
+      "Klementiini sisältää noin 60\u00a0\u00a0% päivittäisestä C-vitamiinista, joten se on immuunijärjestelmää tukeva välipala.",
       "Klementiinit ovat mandariinin ja pomeranssin hybridi.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "cloudberry": [
-      "30 gramman annos hilloja sisältää yli 50 % päivittäisestä C-vitamiinista.",
+      "30 gramman annos hilloja sisältää yli 50\u00a0\u00a0% päivittäisestä C-vitamiinista.",
       "Hillat kasvavat kylmissä ilmastoissa ja ovat erittäin arvostettuja Pohjoismaissa.",
       "Hillaa ei ole pystytty viljelemään kaupallisesti, joten se kerätään luonnosta.",
       "Hilloista valmistettu hillo leipäjuuston kanssa on suomalainen perinneherkku."
@@ -401,13 +401,13 @@
       "Kookospähkinät voivat kellua merivirtojen mukana pitkiäkin matkoja uusille rannoille."
     ],
     "collard greens": [
-      "30 gramman annos rehuydinkaalia sisältää yli 100 % päivittäisestä K-vitamiinista.",
+      "30 gramman annos rehuydinkaalia sisältää yli 100\u00a0\u00a0% päivittäisestä K-vitamiinista.",
       "Rehuydinkaalia on viljelty tuhansien vuosien ajan ja se oli suosittu vihannes antiikin Kreikassa ja Roomassa.",
       "Rehuydinkaali on erityisen suosittu eteläisen Yhdysvaltojen keittiössä."
     ],
     "corn": [
       "Maissi, jonka viljely on peräisin Meksikosta, on yksi maailman tärkeimmistä viljakasveista.",
-      "Noin 60-70 % maailmassa tuotetusta maissista päätyy eläinten rehuksi.",
+      "Noin 60-70\u00a0\u00a0% maailmassa tuotetusta maissista päätyy eläinten rehuksi.",
       "Yhdysvallat on maailman suurin maissintuottaja.",
       "Maissinjyvien \"räjähtäminen\" popcorniksi johtuu niiden sisältämästä vedestä, joka höyrystyy kuumennettaessa."
     ],
@@ -428,8 +428,8 @@
       "Karpalosato korjataan usein upottamalla niiden kasvualue veteen ja keräämällä kelluvat marjat."
     ],
     "cucumber": [
-      "Kurkun viljelyn uskotaan alkaneen Etelä-Aasiassa yli 3 000 vuotta sitten.",
-      "96 % kurkun painosta on vettä.",
+      "Kurkun viljelyn uskotaan alkaneen Etelä-Aasiassa yli 3\u00a0000 vuotta sitten.",
+      "96\u00a0\u00a0% kurkun painosta on vettä.",
       "Koska kurkku kasvaa kukasta ja sisältää siemeniä, se on kasvitieteellisesti hedelmä.",
       "Kurkkuja tuotetaan maailmanlaajuisesti lähes 95 miljoonaa tonnia vuodessa."
     ],
@@ -439,7 +439,7 @@
       "Etelä-Koreassa daikonista tehty mehua käytetään krapulalääkkeenä."
     ],
     "dandelion greens": [
-      "30 gramman annos voikukanlehtiä sisältää noin 25 % päivittäisestä A-vitamiinista sekä kuitua.",
+      "30 gramman annos voikukanlehtiä sisältää noin 25\u00a0\u00a0% päivittäisestä A-vitamiinista sekä kuitua.",
       "Vaikka voikukkaa pidetään usein rikkaruohona, sen lehdet ovat ravitsevia."
     ],
     "date": [
@@ -531,7 +531,7 @@
       "Valkosipulilla uskotaan olevan antibakteerisia ja tulehdusta vähentäviä ominaisuuksia.",
       "Sipulit ovat haitallisia monille eläimille.",
       "Mustaa valkosipulia valmistetaan ikäännyttämällä valkosipulia pitkään lämpimässä ja kosteassa ympäristössä.",
-      "Maailman suurin valkosipulin tuottaja on Kiina, jonka osuus on noin 75 %.",
+      "Maailman suurin valkosipulin tuottaja on Kiina, jonka osuus on noin 75\u00a0\u00a0%.",
       "Toisin kuin monet muut sipulit, valkosipuli ei aiheuta kyyneliä leikattaessa."
     ],
     "ginger": [
@@ -546,18 +546,18 @@
       "Monet gojimarjojen terveysvaikutuksista ovat liioiteltuja tai muuten virheellisiä."
     ],
     "gooseberry": [
-      "30 gramman annos karviaisia sisältää noin 30 % päivittäisestä C-vitamiinista.",
+      "30 gramman annos karviaisia sisältää noin 30\u00a0\u00a0% päivittäisestä C-vitamiinista.",
       "Karviaisia on monia värejä; vihreät ovat tyypillisesti happamia ja punaiset makeampia."
     ],
     "grape": [
-      "Rypäleitä on viljelty yli 8 000 vuotta, ja niitä käytetään myös viinin, rusinoiden ja mehujen valmistukseen.",
+      "Rypäleitä on viljelty yli 8\u00a0000 vuotta, ja niitä käytetään myös viinin, rusinoiden ja mehujen valmistukseen.",
       "Rypäleitä esiintyy monissa eri väreissä, joilla jokaisella on ainutlaatuinen maku ja rakenne.",
       "Rypäleitä kasvatetaan kuudella seitsemästä maailman mantereesta.",
       "Rypäleet ovat haitallisia lemmikkieläimille, erityisesti koirille.",
       "Kiina on maailman suurin rypäleiden tuottaja."
     ],
     "grapefruit": [
-      "Yksi greippi sisältää noin 100 % päivittäisestä C-vitamiinista.",
+      "Yksi greippi sisältää noin 100\u00a0\u00a0% päivittäisestä C-vitamiinista.",
       "Greipit löydettiin Barbadokselta 1700-luvulla ja niiden uskotaan olevan pomelon ja appelsiinin hybridi.",
       "Greippiä suositellaan vältettävän tiettyjen lääkekuurien aikana.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
@@ -578,12 +578,12 @@
       "Linssit ovat kuuluneet Lähi-idän ja Intian keittiöihin tuhansien vuosien ajan."
     ],
     "guava": [
-      "Yksi guava sisältää yli 200 % päivittäisestä C-vitamiinista.",
+      "Yksi guava sisältää yli 200\u00a0\u00a0% päivittäisestä C-vitamiinista.",
       "Guava on kotoisin Amerikan trooppisilta alueilta."
     ],
     "hazelnut": [
       "Hasselpähkinöitä käytetään usein suklaalevitteissä ja ne ovat tärkeä ainesosa praliineissa.",
-      "Turkki on maailman suurin hasselpähkinöiden tuottaja, vastaten lähes 70 %:sta maailman tarjonnasta."
+      "Turkki on maailman suurin hasselpähkinöiden tuottaja, vastaten lähes 70\u00a0\u00a0%:sta maailman tarjonnasta."
     ],
     "hedgehog mushroom": [
       "Vaaleaorakkaan englanninkielinen nimi \"hedgehog mushroom\" tulee sen piikikkäistä heltoista.",
@@ -622,7 +622,7 @@
     ],
     "jalapeno": [
       "Jalapenon nimi tulee meksikolaisesta Xalapan kaupungista Veracruzissa.",
-      "Jalapeno voi yltää 8 000 pisteeseen Scovillen tulisuusasteikolla, joten se on tulisen monipuolinen chili.",
+      "Jalapeno voi yltää 8\u00a0000 pisteeseen Scovillen tulisuusasteikolla, joten se on tulisen monipuolinen chili.",
       "Savustettu ja kuivattu jalapeno tunnetaan paremmin chipotlena."
     ],
     "jerusalem artichoke": [
@@ -635,7 +635,7 @@
     ],
     "kale": [
       "Lehtikaali sisältää runsaasti K-, A- ja C-vitamiineja.",
-      "Lehtikaalia on viljelty yli 2 000 vuotta ja se oli yleinen vihannes Euroopassa keskiajalla."
+      "Lehtikaalia on viljelty yli 2\u00a0000 vuotta ja se oli yleinen vihannes Euroopassa keskiajalla."
     ],
     "kamut": [
       "Kamutia uskotaan löytyneen egyptiläisistä haudoista, mikä antoi sille lempinimen \"faaraon vilja\".",
@@ -680,7 +680,7 @@
       "Sipulit ovat haitallisia monille eläimille."
     ],
     "lemon": [
-      "Yksi sitruuna sisältää noin 50 % päivittäisestä C-vitamiinista.",
+      "Yksi sitruuna sisältää noin 50\u00a0\u00a0% päivittäisestä C-vitamiinista.",
       "Sitruunoiden uskotaan olevan peräisin Aasiasta, ja merimiehet käyttivät niitä keripukin estämiseen.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
@@ -695,11 +695,11 @@
       "Liian pitkä haudutus voi saada sitruunamelissan maun katoamaan."
     ],
     "lettuce": [
-      "Salaatti on yksi vanhimmista viljellyistä kasveista, ja sitä on kasvatettu yli 4 000 vuotta.",
+      "Salaatti on yksi vanhimmista viljellyistä kasveista, ja sitä on kasvatettu yli 4\u00a0000 vuotta.",
       "Muinaiset salaattilajikkeet olivat kitkerämpiä. Jalostustyö on johtanut miedompien lajikkeiden kehittämiseen."
     ],
     "lime": [
-      "Yksi limetti sisältää noin 30 % päivittäisestä C-vitamiinista.",
+      "Yksi limetti sisältää noin 30\u00a0\u00a0% päivittäisestä C-vitamiinista.",
       "Limetin mehua käytettiin historiallisesti merimiesten keskuudessa keripukin estämiseen.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
@@ -723,8 +723,8 @@
       "Lootusjuuren viipaleiden reiät ovat ilmakanavia, jotka auttavat kasvia selviytymään veden alla."
     ],
     "lychee": [
-      "Litsi on kotoisin Kiinasta, ja sitä on viljelty yli 2 000 vuotta.",
-      "Kiina tuottaa noin 65% maailman litseistä."
+      "Litsi on kotoisin Kiinasta, ja sitä on viljelty yli 2\u00a0000 vuotta.",
+      "Kiina tuottaa noin 65\u00a0% maailman litseistä."
     ],
     "macadamia nut": [
       "30 gramman annos macadamiapähkinöitä sisältää noin 21 g terveellisiä rasvoja ja 2 g proteiinia.",
@@ -749,7 +749,7 @@
       "Sitrushedelmät ovat haitallisia kissoille ja koirille."
     ],
     "mango": [
-      "Yhdestä mangosta saa 100 % päivittäisestä C-vitamiinista ja se sisältää noin 200 kaloria.",
+      "Yhdestä mangosta saa 100\u00a0\u00a0% päivittäisestä C-vitamiinista ja se sisältää noin 200 kaloria.",
       "Mango on kotoisin Etelä-Aasiasta, mutta sitä viljellään trooppisilla ja subtrooppisilla alueilla maailmanlaajuisesti.",
       "Kolumbialainen mango rikkoi maailmanennätyksen vuonna 2021 painamalla 4,25 kiloa.",
       "Maailman suurin mangojen tuottaja on Intia, mutta lähes kaikki tuotanto kulutetaan kotimaassa."
@@ -781,8 +781,8 @@
     ],
     "mizuna": [
       "Japaninkaali on nopeasti kasvava lehtivihannes, joka kerätään tyypillisesti nuorena parhaan maun saavuttamiseksi.",
-      "Japaninkaalia on kasvatettu Kiotossa jo yli 2 000 vuoden ajan.",
-      "Japaninkaalin sisällöstä noin 89 % on vettä.",
+      "Japaninkaalia on kasvatettu Kiotossa jo yli 2\u00a0000 vuoden ajan.",
+      "Japaninkaalin sisällöstä noin 89\u00a0\u00a0% on vettä.",
       "Japaninkaalia on kasvatettu myös kansainvälisellä avaruusasemalla."
     ],
     "morel": [
@@ -841,7 +841,7 @@
       "Sipuli on osa ranskalaisen keittiön mirepoix-sekoitusta, italialaisittain soffrittoa."
     ],
     "orange": [
-      "Yksi appelsiini sisältää noin 60 kaloria ja yli 100 % päivittäisestä C-vitamiinista.",
+      "Yksi appelsiini sisältää noin 60 kaloria ja yli 100\u00a0\u00a0% päivittäisestä C-vitamiinista.",
       "Appelsiinit ovat yksi maailman suosituimmista hedelmistä ja niitä kulutetaan usein mehuna.",
       "Appelsiinien uskotaan olevan peräisin Kaakkois-Aasiasta, josta kauppiaat levittivät niitä ympäri maailmaa.",
       "Sitrushedelmät ovat haitallisia kissoille ja koirille.",
@@ -912,7 +912,7 @@
       "Sipulit ovat haitallisia monille eläimille."
     ],
     "pear": [
-      "Maailmassa tavataan yli 3 000 päärynälajiketta.",
+      "Maailmassa tavataan yli 3\u00a0000 päärynälajiketta.",
       "Päärynät kypsyvät usein vasta poimimisen jälkeen.",
       "Kiina, Italia, Argentiina ja Yhdysvallat ovat suuria päärynöiden tuottajamaita."
     ],
@@ -945,7 +945,7 @@
       "Pintopavut ovat satoisia ja kestävät hyvin kuivuutta."
     ],
     "pistachio nut": [
-      "Pistaasipähkinöitä on viljelty yli 9 000 vuotta, alun perin Lähi-idässä.",
+      "Pistaasipähkinöitä on viljelty yli 9\u00a0000 vuotta, alun perin Lähi-idässä.",
       "Pistaasit halkeavat luonnostaan kypsinä, mikä tekee niiden syömisestä helpompaa."
     ],
     "plantain": [
@@ -964,7 +964,7 @@
       "Meksikossa poblano-chilejä tarjoillaan usein lihalla tai juustolla täytettynä."
     ],
     "pointed pepper": [
-      "Suippopaprika sisältää jopa 200 % päivittäisestä C-vitamiinin tarpeesta.",
+      "Suippopaprika sisältää jopa 200\u00a0\u00a0% päivittäisestä C-vitamiinin tarpeesta.",
       "Kuten muutkin capsicum-perheen kasvit, suippopaprikat ovat kasvitieteellisessä mielessä marjoja."
     ],
     "pomegranate": [
@@ -994,7 +994,7 @@
     "potato": [
       "Perunat ovat kotoisin Etelä-Amerikasta, jossa inkat viljelivät niitä ensimmäisenä.",
       "Preussin kuningas Frederick kutsui tarinan mukaan perunaa \"kuninkaalliseksi vihannekseksi\" lisätäkseen niiden arvostusta.",
-      "Maailmanlaajuisesti viljellään noin 5 000:ta erilaista perunalajiketta.",
+      "Maailmanlaajuisesti viljellään noin 5\u00a0000:ta erilaista perunalajiketta.",
       "Painavin punnittu peruna painoi lähes viisi kiloa.",
       "Keitä, muussaa, nakkaa pataan. Peruna on monikäyttöinen juures.",
       "Peruna, etenkin raaka sellainen, voi aiheuttaa lemmikille vakavia myrkytysoireita.",
@@ -1014,7 +1014,7 @@
     "pumpkin": [
       "Kurpitsat ovat runsaasti beetakaroteenia, jonka elimistö muuntaa A-vitamiiniksi.",
       "Kurpitsat liitetään usein Halloweeniin, ja niistä valmistetaan piirakoita ja keittoja.",
-      "Painavin punnittu kurpitsa painoi 1 226 kiloa. Se kasvatettiin vuonna 2021."
+      "Painavin punnittu kurpitsa painoi 1\u00a0226 kiloa. Se kasvatettiin vuonna 2021."
     ],
     "quince": [
       "Kvitteni sisältää runsaasti C-vitamiinia, mutta se on yleensä liian hapan syötäväksi raakana.",
@@ -1083,7 +1083,7 @@
     ],
     "rice": [
       "Riisi on peruselintarvike yli puolelle maailman väestöstä.",
-      "Maailmassa tavataan yli 40 000 riisilajiketta.",
+      "Maailmassa tavataan yli 40\u00a0000 riisilajiketta.",
       "Ruskea kokojyväriisi on valkoista riisiä terveellisempää.",
       "Basmati, jasmiini, arborio, bomba...valitse riisi käyttötarkoituksen mukaan.",
       "Riisin viljely on todennäköisesti saanut alkunsa Yangtze-joen laaksosta.",
@@ -1165,7 +1165,7 @@
     ],
     "shiso": [
       "Shisosta tunnetaan kaksi päätyyppiä, vihreä ja punainen. Kummallakin on oma makuprofiilinsa.",
-      "Shison lehdet tuotiin Japaniin Kiinasta yli 2 000 vuotta sitten.",
+      "Shison lehdet tuotiin Japaniin Kiinasta yli 2\u00a0000 vuotta sitten.",
       "Shiso-infuusiota voidaan käyttää trendikkäissä cocktaileissa."
     ],
     "snow pea": [
@@ -1185,7 +1185,7 @@
     "soybean": [
       "Soijapapuja käytetään tofun, soijamaidon ja muiden kasvipohjaisten tuotteiden valmistukseen.",
       "Soijapavut ovat keskeinen ainesosa monissa kasvisruokavalioissa niiden korkean proteiinipitoisuuden vuoksi.",
-      "Noin 77 % maailman soijapavuista päätyy eläinten rehuksi."
+      "Noin 77\u00a0\u00a0% maailman soijapavuista päätyy eläinten rehuksi."
     ],
     "spaghetti squash": [
       "Nauhamainen spagettikurpitsa on hiilihydraatiton pastan korvike.",
@@ -1198,11 +1198,11 @@
     ],
     "spinach": [
       "Pinaatti sisältää A- ja K-vitamiineja.",
-      "Kippari-Kallen suosituksesta pinaatin myynti nousi 1930-luvulla 33 % yhdessä päivässä.",
+      "Kippari-Kallen suosituksesta pinaatin myynti nousi 1930-luvulla 33\u00a0\u00a0% yhdessä päivässä.",
       "Pinaatilla saattaa olla verenpainetta laskevia vaikutuksia.",
       "Firenzen Catherine de Medici piti pinaatista tarinan mukaan niin paljon, että monen pinaattiannoksen nimi on edelleen \"à la Florentine\".",
       "Pinaatin korkea oksalaattipitoisuus voi haitata kalsiumin ja raudan imeytymistä.",
-      "Kiina tuottaa noin 90 % maailman pinaatista."
+      "Kiina tuottaa noin 90\u00a0\u00a0% maailman pinaatista."
     ],
     "sprouts": [
       "Idut ovat nuoria kasveja, jotka korjataan heti kasvun alettua, ja syödään usein raakana.",
@@ -1235,7 +1235,7 @@
       "Kiina on maailman suurin bataattien tuottaja, mutta suurin osa tuosta tuotannosta käytetään rehuksi tai teollisuudessa."
     ],
     "taro": [
-      "30 gramman annos taroa sisältää noin 10 % päivittäisestä kuidun tarpeesta.",
+      "30 gramman annos taroa sisältää noin 10\u00a0\u00a0% päivittäisestä kuidun tarpeesta.",
       "Taron lehdet ovat syötäviä kypsennettyinä ja tarjoavat hyvän A-vitamiinin lähteen."
     ],
     "tarragon": [
@@ -1264,7 +1264,7 @@
     ],
     "tomato": [
       "Vaikka tomaatti usein luokitellaan vihannekseksi, se on kasvitieteellisesti hedelmä.",
-      "Maailmassa tavataan yli 10 000 tomaattilajiketta.",
+      "Maailmassa tavataan yli 10\u00a0000 tomaattilajiketta.",
       "Tomaatin lehdet tuoksuvat ihanalle, mutta ne sisältävät joillekin eläimille haitallisia yhdisteitä.",
       "Tomaatti on maailman kolmanneksi eniten viljelty vihannes."
     ],
@@ -1284,7 +1284,7 @@
     ],
     "walnut": [
       "Saksanpähkinät ovat erinomainen omega-3-rasvahappojen lähde, tukien aivojen terveyttä.",
-      "Saksanpähkinät ovat yksi vanhimmista puissa kasvavista ruoista. Niiden käyttö juontaa vuoteen 7 000 eaa."
+      "Saksanpähkinät ovat yksi vanhimmista puissa kasvavista ruoista. Niiden käyttö juontaa vuoteen 7\u00a0000 eaa."
     ],
     "wasabi": [
       "Wasabia käytetään mausteena japanilaisessa keittiössä ja sillä on vahva maku.",
@@ -1302,7 +1302,7 @@
       "Vesikrassia kutsuttiin \"köyhän leiväksi\" 1800-luvun Britanniassa."
     ],
     "watermelon": [
-      "Osuvasti nimetty vesimeloni sisältää yli 90 % vettä.",
+      "Osuvasti nimetty vesimeloni sisältää yli 90\u00a0\u00a0% vettä.",
       "Vesimelonin kuori on myös syötävä ja siitä voidaan tehdä esimerkiksi säilykkeitä tai käyttää smoothieissa.",
       "Vesimelonia viljellään yli 90 maassa.",
       "Maailman painavin vesimeloni painoi 159 kiloa.",
@@ -1328,7 +1328,7 @@
       "Sipulit ovat haitallisia monille eläimille."
     ],
     "wild mushroom": [
-      "Vaihtelevien arvioiden mukaan maailmassa on noin 2 000 syötävää sienilajiketta.",
+      "Vaihtelevien arvioiden mukaan maailmassa on noin 2\u00a0000 syötävää sienilajiketta.",
       "Jotkin sienet pitää esikäsitellä ennen syömistä niissä esiintyvien myrkkyjen poistamiseksi."
     ],
     "wild rice": [
