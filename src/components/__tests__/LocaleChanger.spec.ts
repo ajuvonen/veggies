@@ -22,7 +22,7 @@ describe('LocaleChanger', () => {
     expect(options).toHaveLength(LOCALES.length);
     expect(wrapper.findByText('button', 'English')).toBeDefined();
     expect(wrapper.findByText('button', 'Suomi')).toBeDefined();
-    expect(wrapper.findByText('button', 'Ελληνικα')).toBeDefined();
+    expect(wrapper.findByText('button', 'Ελληνικά')).toBeDefined();
   });
 
   it('changes language', async () => {

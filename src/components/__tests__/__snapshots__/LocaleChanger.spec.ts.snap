@@ -9,7 +9,7 @@ exports[`LocaleChanger > renders 1`] = `
     </svg>Suomi</button>
   <!--v-if--><button class="button-like bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active] text-[--color-text] fill-[--color-text]" type="button" role="radio" aria-checked="false" data-state="unchecked" required="false" data-reka-collection-item="" tabindex="-1" lang="el" data-test-id="locales-el" value="el"><svg style="width: 1.25rem; height: 1.25rem;" class="shrink-0 motion-safe:duration-200" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
-    </svg>Ελληνικα</button>
+    </svg>Ελληνικά</button>
   <!--v-if-->
 </div>
 <!--v-if-->"
