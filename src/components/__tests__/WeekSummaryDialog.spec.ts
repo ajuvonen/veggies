@@ -35,7 +35,6 @@ describe('WeekSummaryDialog', () => {
   beforeEach(() => {
     activityStore = useActivityStore();
     appStateStore = useAppStateStore();
-    mocks.getAISummary.mockClear();
   });
   enableAutoUnmount(afterEach);
 

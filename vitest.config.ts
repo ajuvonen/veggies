@@ -13,6 +13,9 @@ export default mergeConfig(
       exclude: [...configDefaults.exclude, 'e2e/*'],
       root: fileURLToPath(new URL('./', import.meta.url)),
       globals: true,
+      clearMocks: true,
+      mockReset: true,
+      restoreMocks: true,
       setupFiles: ['./vitest.setup.ts'],
       coverage: {
         provider: 'istanbul',
