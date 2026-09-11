@@ -1,4 +1,4 @@
-import {describe, it, expect, vi, afterEach, beforeEach} from 'vitest';
+import {describe, it, expect, vi, beforeEach} from 'vitest';
 import {mount} from '@vue/test-utils';
 import NavBar from '@/components/NavBar.vue';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -20,10 +20,6 @@ describe('NavBar', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
   beforeEach(() => {
     appStateStore = useAppStateStore();
-  });
-
-  afterEach(() => {
-    vi.resetAllMocks();
   });
 
   it('renders home route', async () => {

@@ -1,5 +1,5 @@
 import {nextTick, ref} from 'vue';
-import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
+import {describe, it, expect, beforeEach, vi} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {useAppStateStore} from '@/stores/appStateStore';
 import ToastContainer from '@/components/ToastContainer.vue';
@@ -21,10 +21,6 @@ describe('ToastContainer', () => {
 
   beforeEach(() => {
     appStateStore = useAppStateStore();
-  });
-
-  afterEach(() => {
-    vi.resetAllMocks();
   });
 
   it('shows toast message', async () => {

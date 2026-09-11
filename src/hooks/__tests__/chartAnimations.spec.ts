@@ -1,5 +1,5 @@
 import {computed} from 'vue';
-import {vi, describe, it, expect, afterEach, beforeEach} from 'vitest';
+import {vi, describe, it, expect, beforeEach} from 'vitest';
 import {useChartAnimations} from '@/hooks/chartAnimations';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {withSetup} from '@/test-utils';
@@ -20,10 +20,6 @@ describe('chartAnimations', () => {
   let appStateStore: ReturnType<typeof useAppStateStore>;
   beforeEach(() => {
     appStateStore = useAppStateStore();
-  });
-
-  afterEach(() => {
-    vi.resetAllMocks();
   });
 
   it('returns chart animations from store', () => {

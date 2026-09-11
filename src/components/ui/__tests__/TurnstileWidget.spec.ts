@@ -15,7 +15,6 @@ vi.mock('@vueuse/core', () => ({
 
 interface TurnstileWidgetInstance {
   reset: () => Promise<string>;
-  widgetId?: string;
 }
 
 type MockTurnstile = {
@@ -26,7 +25,7 @@ type MockTurnstile = {
   remove: ReturnType<typeof vi.fn<TurnstileApi['remove']>>;
 };
 
-describe('TurnstileWidget.vue', () => {
+describe('TurnstileWidget', () => {
   let mockTurnstile: MockTurnstile;
   let capturedCallback: ((token: string) => void) | undefined;
   let capturedErrorCallback: ((code: string) => void) | undefined;
@@ -168,9 +167,15 @@ describe('TurnstileWidget.vue', () => {
     expect(token).toBe('new-token');
 
     // Reset without widget ID: immediate rejection
-    const vm = wrapper.vm as unknown as TurnstileWidgetInstance;
-    vm.widgetId = undefined;
-    const resetPromise3 = vm.reset();
+    mockTurnstile.render.mockReturnValueOnce(undefined);
+    const wrapperNoWidget = mount(TurnstileWidget, {
+      props: {action: 'test', modelValue: ''},
+    });
+    await wrapperNoWidget.vm.$nextTick();
+
+    const resetPromise3 = (
+      wrapperNoWidget.vm as unknown as TurnstileWidgetInstance
+    ).reset();
     await expect(resetPromise3).rejects.toBeUndefined();
   });
 

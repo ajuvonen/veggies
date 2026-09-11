@@ -27,9 +27,6 @@ describe('SettingsView', () => {
     appStateStore = useAppStateStore();
   });
 
-  afterEach(() => {
-    vi.resetAllMocks();
-  });
   enableAutoUnmount(afterEach);
 
   it('renders', () => {
