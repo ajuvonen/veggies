@@ -1,5 +1,5 @@
-import {describe, it, expect, vi, beforeEach} from 'vitest';
-import {mount} from '@vue/test-utils';
+import {describe, it, expect, vi, beforeEach, afterEach} from 'vitest';
+import {mount, enableAutoUnmount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import {areDatesEqual, getWeekStart} from '@/utils/helpers';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -12,6 +12,7 @@ describe('HomeView', () => {
   beforeEach(() => {
     appStateStore = useAppStateStore();
   });
+  enableAutoUnmount(afterEach);
 
   it('renders', () => {
     const wrapper = mount(HomeView);
@@ -45,9 +46,10 @@ describe('HomeView', () => {
   it('shows dialog', async () => {
     vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['en']);
     const wrapper = mount(HomeView);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
     await wrapper.findByTestId('home-info-button').trigger('click');
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
     expect(dialog.html()).toMatchSnapshot();
   });
 

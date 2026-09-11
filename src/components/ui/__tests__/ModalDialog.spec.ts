@@ -1,16 +1,17 @@
-import {describe, it, expect} from 'vitest';
-import {mount, flushPromises} from '@vue/test-utils';
+import {describe, it, expect, afterEach} from 'vitest';
+import {mount, flushPromises, enableAutoUnmount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import ModalDialog from '@/components/ui/ModalDialog.vue';
 
 describe('ModalDialog', () => {
+  enableAutoUnmount(afterEach);
+
   it('renders closed', async () => {
-    const wrapper = mount(ModalDialog, {
+    mount(ModalDialog, {
       props: {title: 'Test dialog', modelValue: false},
     });
     await flushPromises();
-    const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
   });
 
   it('shows dialog', async () => {
@@ -19,7 +20,7 @@ describe('ModalDialog', () => {
     });
     await flushPromises();
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     expect(dialog.html()).toMatchSnapshot();
     expect(dialog.findByTestId('dialog-close-button').isVisible()).toBe(true);
   });
@@ -34,7 +35,7 @@ describe('ModalDialog', () => {
     });
     await flushPromises();
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     expect(dialog.findByText('p', 'Test content')).toBeDefined();
     expect(dialog.findByText('p', 'Test buttons')).toBeDefined();
     expect(dialog.findByTestId('dialog-close-button').exists()).toBe(false);

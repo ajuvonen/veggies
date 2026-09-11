@@ -40,49 +40,47 @@ describe('WeekSummaryDialog', () => {
   enableAutoUnmount(afterEach);
 
   it('does not show dialog when no startDate is set', async () => {
-    const wrapper = mount(WeekSummaryDialog);
+    mount(WeekSummaryDialog);
     await flushPromises();
-    expect(wrapper.findComponent(DialogContent).isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
   });
 
   it('does not show dialog when in the first week (startDate equals thisWeekStart)', async () => {
     appStateStore.settings.startDate = thisWeek;
-    const wrapper = mount(WeekSummaryDialog);
+    mount(WeekSummaryDialog);
     await flushPromises();
-    expect(wrapper.findComponent(DialogContent).isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
   });
 
   it('shows dialog when not in first week and summaryViewedDate is null', async () => {
     appStateStore.settings.startDate = lastWeek;
-    const wrapper = mount(WeekSummaryDialog);
+    mount(WeekSummaryDialog);
     await flushPromises();
-    const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
   });
 
   it('shows dialog when not in first week and summaryViewedDate is from previous week', async () => {
     appStateStore.settings.startDate = twoWeeksAgo;
     appStateStore.settings.summaryViewedDate = twoWeeksAgo;
-    const wrapper = mount(WeekSummaryDialog);
+    mount(WeekSummaryDialog);
     await flushPromises();
-    const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
   });
 
   it('does not show dialog when summaryViewedDate is current week', async () => {
     appStateStore.settings.startDate = lastWeek;
     appStateStore.settings.summaryViewedDate = thisWeek;
-    const wrapper = mount(WeekSummaryDialog);
+    mount(WeekSummaryDialog);
     await flushPromises();
-    expect(wrapper.findComponent(DialogContent).isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
   });
 
   it('does not show dialog when summaryViewedDate is in a future week', async () => {
     appStateStore.settings.startDate = lastWeek;
     appStateStore.settings.summaryViewedDate = thisWeek.add({weeks: 1});
-    const wrapper = mount(WeekSummaryDialog);
+    mount(WeekSummaryDialog);
     await flushPromises();
-    expect(wrapper.findComponent(DialogContent).isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
   });
 
   it('displays three summary messages and a promoted achievement', async () => {
@@ -97,7 +95,7 @@ describe('WeekSummaryDialog', () => {
     await flushPromises();
     const dialog = wrapper.getComponent(DialogContent);
 
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     expect(dialog.findAll('.weekSummaryBadge').length).toBe(3);
     expect(dialog.findAll('.weekSummaryDialog__message').length).toBe(3);
     expect(dialog.findByTestId('promoted-achievement').isVisible()).toBe(true);
@@ -110,7 +108,7 @@ describe('WeekSummaryDialog', () => {
     const wrapper = mount(WeekSummaryDialog);
     await flushPromises();
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
 
     expect(dialog.findByTestId('week-summary-dialog-share-button').exists()).toBe(false);
     expect(dialog.findByTestId('week-summary-dialog-copy-button').exists()).toBe(false);
@@ -122,10 +120,10 @@ describe('WeekSummaryDialog', () => {
     await flushPromises();
 
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     await dialog.findByTestId('week-summary-dialog-close-button').trigger('click');
-
-    expect(wrapper.findComponent(DialogContent).isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
+    expect(appStateStore.settings.summaryViewedDate).toEqual(thisWeek);
   });
 
   it('copies to clipboard', async () => {
@@ -148,7 +146,7 @@ describe('WeekSummaryDialog', () => {
     const wrapper = mount(WeekSummaryDialog);
     await flushPromises();
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     await dialog.findByTestId('week-summary-dialog-copy-button').trigger('click');
 
     const expectedText = `I ate 5 different veggies last week
@@ -182,7 +180,7 @@ https://eatyourveggies.app`;
     const wrapper = mount(WeekSummaryDialog);
     await flushPromises();
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     await dialog.findByTestId('week-summary-dialog-share-button').trigger('click');
 
     const expectedText = `I ate 5 different veggies last week
