@@ -1,6 +1,6 @@
 import {computed} from 'vue';
 import {describe, it, expect, beforeEach, vi, afterEach} from 'vitest';
-import {mount, flushPromises} from '@vue/test-utils';
+import {mount, flushPromises, enableAutoUnmount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useActivityStore} from '@/stores/activityStore';
@@ -30,6 +30,7 @@ describe('SettingsView', () => {
   afterEach(() => {
     vi.resetAllMocks();
   });
+  enableAutoUnmount(afterEach);
 
   it('renders', () => {
     const wrapper = mount(SettingsView, {
@@ -98,10 +99,11 @@ describe('SettingsView', () => {
 
   it('resets the app', async () => {
     const wrapper = mount(SettingsView);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
     await wrapper.findByTestId('reset-button').trigger('click');
     await flushPromises();
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
     await dialog.findByTestId('confirm-button').trigger('click');
     expect(appStateStore.$reset).toHaveBeenCalledTimes(1);
     expect(activityStore.$reset).toHaveBeenCalledTimes(1);
@@ -109,11 +111,14 @@ describe('SettingsView', () => {
 
   it('cancels reset', async () => {
     const wrapper = mount(SettingsView);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
     await wrapper.findByTestId('reset-button').trigger('click');
     await flushPromises();
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(true);
     await dialog.findByTestId('cancel-button').trigger('click');
+    await flushPromises();
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
     expect(appStateStore.$reset).not.toHaveBeenCalled();
     expect(activityStore.$reset).not.toHaveBeenCalled();
   });

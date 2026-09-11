@@ -1,17 +1,19 @@
-import {describe, it, expect} from 'vitest';
-import {mount, flushPromises} from '@vue/test-utils';
+import {describe, it, expect, afterEach} from 'vitest';
+import {mount, flushPromises, enableAutoUnmount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import HomeInfoDialog from '@/components/HomeInfoDialog.vue';
 
 describe('HomeInfoDialog', () => {
+  enableAutoUnmount(afterEach);
+
   it('opens at first step with previous button disabled', async () => {
     const wrapper = mount(HomeInfoDialog, {
       props: {modelValue: true},
     });
     await flushPromises();
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
     const dialog = wrapper.getComponent(DialogContent);
 
-    expect(dialog.isVisible()).toBe(true);
     expect(dialog.findByTestId('dialog-title').text()).toBe('Briefly');
     expect(dialog.findByTestId('home-info-previous-button').attributes('aria-disabled')).toBe(
       'true',
@@ -55,8 +57,11 @@ describe('HomeInfoDialog', () => {
 
     await wrapper.setProps({modelValue: false});
     await flushPromises();
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
+
     await wrapper.setProps({modelValue: true});
     await flushPromises();
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
 
     expect(dialog.findByTestId('dialog-title').text()).toBe('Briefly');
     expect(dialog.findByTestId('home-info-previous-button').attributes('aria-disabled')).toBe(

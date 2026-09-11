@@ -1,6 +1,6 @@
 import {computed} from 'vue';
-import {describe, it, expect, beforeEach} from 'vitest';
-import {flushPromises, mount} from '@vue/test-utils';
+import {describe, it, expect, beforeEach, afterEach} from 'vitest';
+import {flushPromises, mount, enableAutoUnmount} from '@vue/test-utils';
 import {DialogContent} from 'reka-ui';
 import {useActivityStore} from '@/stores/activityStore';
 import {AchievementLevel} from '@/types';
@@ -13,13 +13,13 @@ describe('AchievementDialog', () => {
   beforeEach(() => {
     activityStore = useActivityStore();
   });
+  enableAutoUnmount(afterEach);
 
   it('shows dialog when achievements change', async () => {
-    const wrapper = mount(AchievementDialog);
+    mount(AchievementDialog);
     await flushPromises();
-    const dialog = wrapper.getComponent(DialogContent);
 
-    expect(dialog.isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
 
     // @ts-expect-error - Getters are writable in tests
     activityStore.achievements = computed(() =>
@@ -29,7 +29,7 @@ describe('AchievementDialog', () => {
     );
     await flushPromises();
 
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
   });
 
   it('does not show dialog if levels go down', async () => {
@@ -40,10 +40,9 @@ describe('AchievementDialog', () => {
         thirtyVeggies: AchievementLevel.Platinum,
       }),
     );
-    const wrapper = mount(AchievementDialog);
+    mount(AchievementDialog);
     await flushPromises();
-    const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
 
     // @ts-expect-error - Getters are writable in tests
     activityStore.achievements = computed(() =>
@@ -54,7 +53,7 @@ describe('AchievementDialog', () => {
     );
     await flushPromises();
 
-    expect(dialog.isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
   });
 
   it('renders all new achievements', async () => {
@@ -68,8 +67,7 @@ describe('AchievementDialog', () => {
 
     const wrapper = mount(AchievementDialog);
     await flushPromises();
-    const dialog = wrapper.getComponent(DialogContent);
-    expect(dialog.isVisible()).toBe(false);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();
 
     // @ts-expect-error Getters are writable in tests
     activityStore.achievements = computed(() =>
@@ -82,7 +80,8 @@ describe('AchievementDialog', () => {
     );
     await flushPromises();
 
-    expect(dialog.isVisible()).toBe(true);
+    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
+    const dialog = wrapper.getComponent(DialogContent);
     expect(dialog.find('.badge--experimenterBean').exists()).toBe(true);
     expect(dialog.find('.badge--goNuts').exists()).toBe(true);
     expect(dialog.find('.badge--thirtyVeggies').exists()).toBe(true);
