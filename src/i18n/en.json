@@ -131,12 +131,6 @@
       "4": "You have logged a thousand veggies!"
     }
   },
-  "AIPermissionDialog": {
-    "allow": "Allow",
-    "deny": "Deny",
-    "message": "To generate AI summaries, limited usage data is sent to an AI service provider. No personal information is included. If you change your mind, you can adjust this in the app settings.",
-    "title": "Enable functionality?"
-  },
   "allTimeStatus": {
     "atMostVeggies": {
       "ariaLabel": "most veggies in a week achievement",
@@ -207,6 +201,7 @@
     "clickToAdd": "Add {0}",
     "clickToRemove": "Remove {0}",
     "close": "Close",
+    "confirm": "Confirm",
     "ariaCopy": "Copy {0} to clipboard",
     "ariaShare": "Share {0}",
     "copy": "Copy",
@@ -285,6 +280,13 @@
       }
     ]
   },
+  "permissionDialog": {
+    "AIPermissionMessage": "To generate AI summaries, limited usage data is sent to an AI service provider. No personal information is included. You can adjust this setting also in the app settings.",
+    "allow": "Allow",
+    "deny": "Deny",
+    "title": "Enable functionality?",
+    "voicePermissionMessage": "To recognize veggies from your voice, microphone audio is sent to an AI service provider for translation. The service does not store your recording. You can adjust this setting also in the app settings."
+  },
   "qa": {
     "appPurpose": {
       "title": "What's this app for?",
@@ -349,7 +351,9 @@
     "selectedAllergens": "Selected allergens",
     "showChartAnimations": "Show charts' animations",
     "showVeggieFacts": "Show veggie facts",
-    "suggestionCount": "Suggestions on the front page"
+    "suggestionCount": "Suggestions on the front page",
+    "title": "Settings",
+    "voiceRecordingAllowed": "Voice recording allowed"
   },
   "stats": {
     "0": "All time statistics",
@@ -727,6 +731,15 @@
     "privacy": "Privacy",
     "settings": "Settings",
     "stats": "Statistics"
+  },
+  "voiceInput": {
+    "error": "Something went wrong while listening. Please try again.",
+    "idle": "Stopped listening.",
+    "listenAgain": "Listen again",
+    "listening": "Listening...",
+    "prompt": "List the veggies clearly and one at a time.",
+    "requesting": "Requesting microphone access...",
+    "title": "Add veggies by voice"
   },
   "weekSummaryDialog": {
     "accomplishment": "Congratulations! You tried @:general.veggie last week!",

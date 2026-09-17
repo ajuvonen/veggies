@@ -220,7 +220,7 @@ Try it out:`;
 
     const permissionDialog = wrapper
       .findAllComponents(DialogContent)
-      .find((d) => d.findByTestId('ai-permission-allow-button').exists())!;
+      .find((d) => d.findByTestId('permission-allow-button').exists())!;
     expect(permissionDialog.isVisible()).toBe(true);
     expect(mocks.getAISummary).not.toHaveBeenCalled();
   });
@@ -240,9 +240,9 @@ Try it out:`;
 
     const permissionDialog = wrapper
       .findAllComponents(DialogContent)
-      .find((d) => d.findByTestId('ai-permission-allow-button').exists())!;
+      .find((d) => d.findByTestId('permission-allow-button').exists())!;
 
-    await permissionDialog.findByTestId('ai-permission-allow-button').trigger('click');
+    await permissionDialog.findByTestId('permission-allow-button').trigger('click');
     await vi.dynamicImportSettled();
 
     expect(dialog.findByTestId('ai-summary').text()).toContain('Test AI summary');

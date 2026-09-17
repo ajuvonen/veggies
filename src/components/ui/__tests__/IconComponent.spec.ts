@@ -25,6 +25,8 @@ const icons: IconString[] = [
   'googlePlay',
   'history',
   'humanGreeting',
+  'microphone',
+  'microphoneOff',
   'minus',
   'plus',
   'radioboxBlank',

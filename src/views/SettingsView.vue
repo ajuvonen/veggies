@@ -56,6 +56,12 @@ const removeAllergen = (veggie: string) => {
       id="ai-enabled-button"
       :label="$t('settings.AIAllowed')"
     />
+    <ToggleComponent
+      v-if="settings.voiceRecordingAllowed !== null"
+      v-model="settings.voiceRecordingAllowed"
+      id="voice-recording-enabled-button"
+      :label="$t('settings.voiceRecordingAllowed')"
+    />
     <ContentElement
       :label="$t('settings.allergens')"
       :labelAttrs="{for: 'veggie-search-input'}"

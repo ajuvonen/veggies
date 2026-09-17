@@ -1,6 +1,6 @@
 import {EventSourceParserStream} from 'eventsource-parser/stream';
 import type {WeekData} from '@/types';
-import {AI_SUMMARY_URL} from '@/utils/constants';
+import {AI_SUMMARY_URL, TRANSCRIBE_TOKEN_URL} from '@/utils/constants';
 
 export async function getAISummary(
   weekData: WeekData,
@@ -55,4 +55,26 @@ export async function getAISummary(
   }
 
   return fullText;
+}
+
+export async function getTranscribeToken(
+  turnstileToken: string,
+  signal: AbortSignal,
+): Promise<string> {
+  if (import.meta.env.VITE_TRANSCRIBE_TOKEN) {
+    return import.meta.env.VITE_TRANSCRIBE_TOKEN;
+  }
+
+  const res = await fetch(TRANSCRIBE_TOKEN_URL, {
+    method: 'POST',
+    headers: {'CF-Turnstile-Token': turnstileToken},
+    signal: AbortSignal.any([AbortSignal.timeout(3000), signal]),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Transcribe token request failed: ${res.status}.`);
+  }
+
+  const {apiKey} = (await res.json()) as {apiKey: string};
+  return apiKey;
 }

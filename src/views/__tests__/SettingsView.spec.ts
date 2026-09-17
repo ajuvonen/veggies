@@ -100,7 +100,7 @@ describe('SettingsView', () => {
     await wrapper.findByTestId('reset-button').trigger('click');
     await flushPromises();
     expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
-    const dialog = wrapper.getComponent(DialogContent);
+    const dialog = wrapper.findAllComponents(DialogContent).find((d) => d.isVisible())!;
     await dialog.findByTestId('confirm-button').trigger('click');
     expect(appStateStore.$reset).toHaveBeenCalledTimes(1);
     expect(activityStore.$reset).toHaveBeenCalledTimes(1);
@@ -112,7 +112,7 @@ describe('SettingsView', () => {
     await wrapper.findByTestId('reset-button').trigger('click');
     await flushPromises();
     expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
-    const dialog = wrapper.getComponent(DialogContent);
+    const dialog = wrapper.findAllComponents(DialogContent).find((d) => d.isVisible())!;
     await dialog.findByTestId('cancel-button').trigger('click');
     await flushPromises();
     expect(document.body.querySelector('[data-test-id="dialog"]')).toBeFalsy();

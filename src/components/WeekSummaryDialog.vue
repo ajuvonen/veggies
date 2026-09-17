@@ -9,7 +9,7 @@ import {useShare} from '@/hooks/share';
 import {AchievementLevel, Category} from '@/types';
 import {areDatesEqual} from '@/utils/helpers';
 import {CATEGORY_EMOJI} from '@/utils/constants';
-import AIPermissionDialog from '@/components/AIPermissionDialog.vue';
+import PermissionDialog from '@/components/PermissionDialog.vue';
 
 const CategoryStatusChart = defineAsyncComponent(
   () => import('@/components/charts/CategoryStatusChart.vue'),
@@ -143,9 +143,9 @@ const handleAISummaryToggle = (value: boolean) => {
       </ButtonComponent>
     </template>
   </ModalDialog>
-  <AIPermissionDialog
-    v-if="settings.AIAllowed === null"
+  <PermissionDialog
     v-model="showPermissionDialog"
+    :message="$t('permissionDialog.AIPermissionMessage')"
     @resolve="
       (value) => {
         settings.AIAllowed = value;

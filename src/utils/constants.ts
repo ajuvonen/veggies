@@ -10,6 +10,9 @@ export const TURNSTILE_SITE_KEY = '0x4AAAAAAEC2L_-WSZsTI8MK';
 export const TURNSTILE_SCRIPT_URL =
   'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 
+export const TRANSCRIBE_TOKEN_URL =
+  'https://veggies-api.ajuvonen.workers.dev/administer-transcribe-token';
+
 export const BLUESKY_URL = 'https://bsky.app/profile/eatyourveggies.app';
 
 export const PLAY_STORE_URL =
@@ -35,6 +38,7 @@ export const DEFAULT_SETTINGS: Settings = {
   startDate: null,
   suggestionCount: 10,
   summaryViewedDate: null,
+  voiceRecordingAllowed: null,
 };
 
 export const KEYS = {

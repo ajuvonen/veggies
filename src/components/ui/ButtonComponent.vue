@@ -58,8 +58,8 @@ export type ButtonVariants = VariantProps<typeof button>;
 const props = defineProps<{
   color?: ButtonVariants['color'];
   tag?: ButtonVariants['tag'];
+  disabled?: ButtonVariants['disabled'];
   icon?: IconString;
-  disabled?: boolean;
 }>();
 
 const guardClick = (event: MouseEvent) => {

@@ -29,8 +29,8 @@ const {addToastMessage} = appStateStore;
 const {availableVeggies} = useAvailableVeggies();
 
 watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
-  const addedVeggie = newCurrentVeggies.find((veggie) => !oldCurrentVeggies.includes(veggie));
-  if (addedVeggie) {
+  const addedVeggies = newCurrentVeggies.filter((veggie) => !oldCurrentVeggies.includes(veggie));
+  if (addedVeggies.length) {
     const cheers: string[] = tm('cheers');
     const cheer = getRandomItem(cheers);
     if (allVeggies.value.length === 1) {
@@ -38,7 +38,7 @@ watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
       void showConfetti();
     } else if (currentChallenge.value && newCurrentVeggies.length && !oldCurrentVeggies.length) {
       addToastMessage(t('toasts.newChallenge', [t(`veggies.${currentChallenge.value}`)]));
-    } else if (addedVeggie === currentChallenge.value) {
+    } else if (currentChallenge.value && addedVeggies.includes(currentChallenge.value)) {
       addToastMessage(t('toasts.challengeCompleted', [cheer]));
       void showConfetti();
     } else if (allVeggies.value.length % 100 === 0) {
@@ -48,7 +48,7 @@ watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
       await ensureFactsLoaded(settings.value.locale as Locale);
 
       const facts = [
-        ...Object.values<string>(tm(`facts.${addedVeggie}`)),
+        ...addedVeggies.flatMap((veggie) => Object.values<string>(tm(`facts.${veggie}`))),
         t('toasts.uniqueVeggies', [
           uniqueVeggies.value.length,
           availableVeggies.value.length,
@@ -57,9 +57,11 @@ watch(currentVeggies, async (newCurrentVeggies, oldCurrentVeggies) => {
         t('toasts.totalVeggies', [allVeggies.value.length, cheer]),
       ];
 
-      const occurrences = allVeggies.value.filter((veggie) => veggie === addedVeggie).length;
-      if (occurrences > 1) {
-        facts.push(t('toasts.occurrences', [occurrences, cheer]));
+      if (addedVeggies.length === 1) {
+        const occurrences = allVeggies.value.filter((veggie) => veggie === addedVeggies[0]).length;
+        if (occurrences > 1) {
+          facts.push(t('toasts.occurrences', [occurrences, cheer]));
+        }
       }
 
       addToastMessage(getRandomItem(facts)!);

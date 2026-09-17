@@ -131,12 +131,6 @@
       "4": "Olet kirjannut täydet tuhat kasvista!"
     }
   },
-  "AIPermissionDialog": {
-    "allow": "Salli",
-    "deny": "Kiellä",
-    "message": "Tekoäly-yhteenvedon luomiseksi rajoitettuja käyttötietoja lähetetään AI-palveluntarjoajalle. Henkilökohtaisia tietoja ei lähetetä. Mikäli muutat mielesi, voit vaihtaa valintaasi sovelluksen asetuksissa.",
-    "title": "Otetaanko toiminto käyttöön?"
-  },
   "allTimeStatus": {
     "atMostVeggies": {
       "ariaLabel": "kasviksia enimmillään -saavutus",
@@ -207,6 +201,7 @@
     "clickToAdd": "Lisää {0}",
     "clickToRemove": "Poista {0}",
     "close": "Sulje",
+    "confirm": "Vahvista",
     "ariaCopy": "Kopioi {0} leikepöydälle",
     "ariaShare": "Jaa {0}",
     "copy": "Kopioi",
@@ -285,6 +280,13 @@
       }
     ]
   },
+  "permissionDialog": {
+    "AIPermissionMessage": "Tekoäly-yhteenvedon luomiseksi rajoitettuja käyttötietoja lähetetään tekoälypalveluntarjoajalle. Henkilökohtaisia tietoja ei lähetetä. Voit vaihtaa valintaasi myös sovelluksen asetuksissa.",
+    "allow": "Salli",
+    "deny": "Kiellä",
+    "title": "Otetaanko toiminto käyttöön?",
+    "voicePermissionMessage": "Kasvisten tunnistamiseksi puheesta mikrofonin äänitallenne lähetetään tekoälypalveluntarjoajalle. Palvelu ei tallenna ääntä. Voit vaihtaa valintaasi myös sovelluksen asetuksissa."
+  },
   "qa": {
     "appPurpose": {
       "title": "Mitä sovelluksella tehdään?",
@@ -349,7 +351,9 @@
     "selectedAllergens": "Valitut allergeenit",
     "showChartAnimations": "Näytä graafien animaatiot",
     "showVeggieFacts": "Näytä kasvisfaktat",
-    "suggestionCount": "Etusivulla näytettävät ehdotukset"
+    "suggestionCount": "Etusivulla näytettävät ehdotukset",
+    "title": "Asetukset",
+    "voiceRecordingAllowed": "Äänitallenteet sallittu"
   },
   "stats": {
     "0": "Kokonaistilastot",
@@ -727,6 +731,15 @@
     "privacy": "Yksityisyys",
     "settings": "Asetukset",
     "stats": "Tilastot"
+  },
+  "voiceInput": {
+    "error": "Kuuntelussa tapahtui virhe. Yritä uudelleen.",
+    "idle": "Kuuntelu päättyi.",
+    "listenAgain": "Kuuntele uudelleen",
+    "listening": "Kuunnellaan...",
+    "prompt": "Listaa kasvikset selkeästi, yksi kerrallaan.",
+    "requesting": "Pyydetään mikrofonin käyttöoikeutta...",
+    "title": "Lisää kasviksia puheella"
   },
   "weekSummaryDialog": {
     "accomplishment": "Onnittelut! Söit @:general.veggie viime viikolla!",

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+defineProps<{message: string}>();
 const model = defineModel<boolean>({required: true});
 const emit = defineEmits<{resolve: [value: boolean]}>();
 
@@ -8,20 +9,20 @@ const resolve = (value: boolean) => {
 };
 </script>
 <template>
-  <ModalDialog v-model="model" :title="$t('AIPermissionDialog.title')">
+  <ModalDialog v-model="model" :title="$t('permissionDialog.title')">
     <template #content>
-      <p>{{ $t('AIPermissionDialog.message') }}</p>
+      <p>{{ message }}</p>
     </template>
     <template #buttons>
       <ButtonComponent
         color="secondary"
-        data-test-id="ai-permission-deny-button"
+        data-test-id="permission-deny-button"
         @click="resolve(false)"
       >
-        {{ $t('AIPermissionDialog.deny') }}
+        {{ $t('permissionDialog.deny') }}
       </ButtonComponent>
-      <ButtonComponent data-test-id="ai-permission-allow-button" @click="resolve(true)">
-        {{ $t('AIPermissionDialog.allow') }}
+      <ButtonComponent data-test-id="permission-allow-button" @click="resolve(true)">
+        {{ $t('permissionDialog.allow') }}
       </ButtonComponent>
     </template>
   </ModalDialog>

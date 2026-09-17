@@ -30,6 +30,7 @@ export type Settings = {
   startDate: Temporal.PlainDate | null;
   suggestionCount: number;
   summaryViewedDate: Temporal.PlainDate | null;
+  voiceRecordingAllowed: boolean | null;
 };
 
 export type WeeklyChartData = {

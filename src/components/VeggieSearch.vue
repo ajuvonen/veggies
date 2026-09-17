@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import {ref, useTemplateRef} from 'vue';
 import {onClickOutside, useMemoize, usePreferredReducedMotion} from '@vueuse/core';
+import {storeToRefs} from 'pinia';
 import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie, normalizeForSearch} from '@/utils/helpers';
 import {useAvailableVeggies} from '@/hooks/availableVeggies';
 import {useI18nWithCollator} from '@/hooks/i18n';
+import {useAppStateStore} from '@/stores/appStateStore';
+import PermissionDialog from '@/components/PermissionDialog.vue';
+import VoiceInputDialog from '@/components/VoiceInputDialog.vue';
 
 const model = defineModel<string[]>({
   required: true,
@@ -22,9 +26,12 @@ withDefaults(
 const reducedMotion = usePreferredReducedMotion();
 const {t, tm, collator} = useI18nWithCollator();
 const {availableVeggies} = useAvailableVeggies();
+const {settings} = storeToRefs(useAppStateStore());
 
 const listOpen = ref(false);
 const query = ref('');
+const showVoicePermissionDialog = ref(false);
+const showVoiceInputDialog = ref(false);
 const groups = useTemplateRef('groups');
 const searchInput = useTemplateRef('searchInput');
 const anchorElement = useTemplateRef('anchorElement');
@@ -84,6 +91,23 @@ const handleInput = (event: Event) => {
   listOpen.value = true;
 };
 
+const openVoiceInput = () => {
+  listOpen.value = false;
+  if (settings.value.AIAllowed === null || settings.value.voiceRecordingAllowed === null) {
+    showVoicePermissionDialog.value = true;
+  } else if (settings.value.voiceRecordingAllowed) {
+    showVoiceInputDialog.value = true;
+  }
+};
+
+const handleVoicePermissionResolved = (value: boolean) => {
+  settings.value.AIAllowed = value;
+  settings.value.voiceRecordingAllowed = value;
+  if (value) {
+    showVoiceInputDialog.value = true;
+  }
+};
+
 const handleInputBlur = (event: FocusEvent) => {
   if (
     event.relatedTarget instanceof Node &&
@@ -115,6 +139,20 @@ onClickOutside(
     ignoreFilter
   >
     <ComboboxAnchor ref="anchorElement" class="relative fill-[--color-text-alternative]">
+      <ButtonComponent
+        color="transparent"
+        :disabled="settings.AIAllowed === false || settings.voiceRecordingAllowed === false"
+        :icon="
+          settings.AIAllowed !== false && settings.voiceRecordingAllowed !== false
+            ? 'microphone'
+            : 'microphoneOff'
+        "
+        :aria-label="$t('voiceInput.title')"
+        class="veggie-search__button left-4 outline-override"
+        data-test-id="veggie-search-voice-button"
+        @click="openVoiceInput"
+        @blur="handleInputBlur"
+      />
       <ComboboxInput
         v-model="query"
         ref="searchInput"
@@ -183,10 +221,20 @@ onClickOutside(
       </ComboboxContent>
     </ComboboxPortal>
   </ComboboxRoot>
+  <PermissionDialog
+    v-model="showVoicePermissionDialog"
+    :message="$t('permissionDialog.voicePermissionMessage')"
+    @resolve="handleVoicePermissionResolved"
+  />
+  <VoiceInputDialog
+    v-if="settings.AIAllowed && settings.voiceRecordingAllowed"
+    v-model:open="showVoiceInputDialog"
+    v-model:veggies="model"
+  />
 </template>
 <style scoped>
 .veggie-search__input {
-  @apply w-full py-2 pl-4 pr-24 rounded-full;
+  @apply w-full py-2 pl-12 pr-24 rounded-full;
   @apply text-[--color-text-alternative] bg-[--color-bg-alternative] placeholder-gray-500;
 }
 

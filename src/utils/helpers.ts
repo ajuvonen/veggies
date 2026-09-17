@@ -103,7 +103,7 @@ export const standardDeviation = (values: readonly number[]): number => {
 export const achievementLevelHelper = (levels: [number, AchievementLevel][], value: number) =>
   levels.find(([threshold]) => value >= threshold)?.[1] ?? AchievementLevel.NoAchievement;
 
-export const normalizeForSearch = useMemoize((text: string): string => {
+export const normalizeText = (text: string): string => {
   return (
     text
       .toLowerCase()
@@ -113,7 +113,9 @@ export const normalizeForSearch = useMemoize((text: string): string => {
       .normalize('NFC')
       .replace(/\s+/g, '')
   );
-});
+};
+
+export const normalizeForSearch = useMemoize(normalizeText);
 
 export const getStorageKeys = (): string[] => {
   const keys: string[] = [];
@@ -177,6 +179,10 @@ export const getImportSchema = async () => {
       summaryViewedDate: z._default(
         z.nullable(plainDateSchema),
         DEFAULT_SETTINGS.summaryViewedDate,
+      ),
+      voiceRecordingAllowed: z._default(
+        z.catch(z.nullable(z.boolean()), DEFAULT_SETTINGS.voiceRecordingAllowed),
+        DEFAULT_SETTINGS.voiceRecordingAllowed,
       ),
     }),
   });

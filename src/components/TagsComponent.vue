@@ -9,7 +9,7 @@ const props = defineProps<{
   ariaTagKey: string;
   icon: IconString;
   toggleFn: (veggie: string) => void;
-  veggies: string[];
+  veggies: Iterable<string>;
   color?: ButtonVariants['color'];
 }>();
 
@@ -18,7 +18,7 @@ const {t, collator} = useI18nWithCollator();
 const listElement = useTemplateRef('listElement');
 
 const translatedVeggies = computed(() =>
-  props.veggies
+  Array.from(props.veggies)
     .map((veggie) => ({
       veggie,
       translation: t(`veggies.${veggie}`),
