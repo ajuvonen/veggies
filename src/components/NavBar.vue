@@ -46,7 +46,7 @@ const headerTitle = computed(() => {
         <IconComponent icon="arrowLeft" size="6vw" class="navbar__link-icon" />
       </RouterLink>
       <RouterLink
-        v-if="settings.startDate"
+        v-if="!isHome && settings.startDate"
         v-tippy="$t('views.stats')"
         :aria-label="$t('views.stats')"
         to="/stats"
@@ -55,7 +55,7 @@ const headerTitle = computed(() => {
         <IconComponent icon="chart" size="6vw" class="navbar__link-icon" />
       </RouterLink>
       <RouterLink
-        v-if="settings.startDate"
+        v-if="!isHome && settings.startDate"
         v-tippy="$t('views.settings')"
         :aria-label="$t('views.settings')"
         to="/settings"
@@ -81,7 +81,7 @@ const headerTitle = computed(() => {
 <style scoped>
 .navbar {
   @apply w-full;
-  @apply flex justify-between items-center;
+  @apply flex-container gap-4 justify-between items-center;
 }
 
 .navbar__header {
