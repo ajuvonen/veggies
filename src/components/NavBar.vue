@@ -35,7 +35,7 @@ const headerTitle = computed(() => {
     >
       {{ headerTitle.name }}
     </h1>
-    <div class="flex-container justify-end w-full">
+    <div class="flex-container gap-4 justify-end w-full">
       <RouterLink
         v-if="!['log', 'home'].includes(route.name as string)"
         v-tippy="$t(`views.${backRoute}`)"
@@ -43,25 +43,25 @@ const headerTitle = computed(() => {
         :to="{name: backRoute}"
         data-test-id="navbar-back-link"
       >
-        <IconComponent icon="arrowLeft" size="6vw" class="navbar__link-icon" />
+        <IconComponent icon="arrowLeft" />
       </RouterLink>
       <RouterLink
-        v-if="settings.startDate"
+        v-if="!isHome && settings.startDate"
         v-tippy="$t('views.stats')"
         :aria-label="$t('views.stats')"
         to="/stats"
         data-test-id="navbar-stats-link"
       >
-        <IconComponent icon="chart" size="6vw" class="navbar__link-icon" />
+        <IconComponent icon="chart" />
       </RouterLink>
       <RouterLink
-        v-if="settings.startDate"
+        v-if="!isHome && settings.startDate"
         v-tippy="$t('views.settings')"
         :aria-label="$t('views.settings')"
         to="/settings"
         data-test-id="navbar-settings-link"
       >
-        <IconComponent icon="cog" size="6vw" class="navbar__link-icon" />
+        <IconComponent icon="cog" />
       </RouterLink>
       <template v-if="isHome">
         <IconComponent icon="earth" />
@@ -81,20 +81,15 @@ const headerTitle = computed(() => {
 <style scoped>
 .navbar {
   @apply w-full;
-  @apply flex justify-between items-center;
+  @apply flex-container gap-4 items-center;
 }
 
 .navbar__header {
-  font-size: 5.8vw;
-  line-height: 2.5rem;
-  @apply whitespace-nowrap tracking-wider uppercase sm:text-4xl rounded-md select-none;
+  @apply whitespace-nowrap tracking-wider uppercase text-xl rounded-md select-none;
 }
 
 .navbar__header--decorative {
   font-family: 'Bungee Shade';
-}
-
-.navbar__link-icon {
-  @apply m-1 max-h-7 min-h-5 max-w-7 min-w-5;
+  font-size: clamp(1.2rem, 4vw, 1.7rem);
 }
 </style>
