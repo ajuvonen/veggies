@@ -86,11 +86,11 @@ export const useWeekSummary = () => {
   });
 
   const promotedAchievement = ref<keyof WeeklyAchievements | null>(
-    getRandomItem(availableWeeklyAchievements.value) ?? null,
+    getRandomItem(availableWeeklyAchievements.value.filter((achievement) => achievement !== 'thirtyVeggies')) ?? null,
   );
 
   watch(currentWeekStart, () => {
-    promotedAchievement.value = getRandomItem(availableWeeklyAchievements.value) ?? null;
+    promotedAchievement.value = getRandomItem(availableWeeklyAchievements.value.filter((achievement) => achievement !== 'thirtyVeggies')) ?? null;
   });
 
   const createNutrientMessages = (data: WeekData): SummaryItem[] => {
