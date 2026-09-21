@@ -1,5 +1,6 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {useWeekSummary} from '@/hooks/weekSummary';
+import {WEEKLY_ACHIEVEMENTS} from '@/hooks/availableWeeklyAchievements';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import {getWeekStart} from '@/utils/helpers';
 import {useActivityStore} from '@/stores/activityStore';
@@ -246,6 +247,22 @@ describe('useWeekSummary', () => {
       addWeek(lastWeek, ['apple']);
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.rarities).not.toContain('apple');
+    });
+  });
+
+  describe('promotedAchievement', () => {
+    it('never promotes thirtyVeggies and eventually promotes every other achievement', () => {
+      addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
+      const promoted = new Set<string>();
+      for (let i = 0; i < 100; i++) {
+        const {promotedAchievement} = withSetup(useWeekSummary);
+        expect(promotedAchievement.value).not.toBe('thirtyVeggies');
+        promoted.add(promotedAchievement.value!);
+      }
+      const otherAchievements = WEEKLY_ACHIEVEMENTS.filter(
+        (achievement) => achievement !== 'thirtyVeggies',
+      );
+      expect(promoted).toEqual(new Set(otherAchievements));
     });
   });
 
