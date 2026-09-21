@@ -20,7 +20,7 @@ export default mergeConfig(
       coverage: {
         provider: 'istanbul',
         include: ['src/**/*'],
-        exclude: ['src/App.vue', 'src/main.ts', 'src/router/index.ts'],
+        exclude: ['src/App.vue', 'src/main.ts', 'src/router/index.ts', 'src/**/*.snap'],
         reporter: ['text'],
       },
     },
