@@ -212,7 +212,7 @@ exports[`AchievementList > renders 1`] = `
       <div data-v-06381b3c="" class="badge__overlay" style="mask-image: conic-gradient(transparent 0deg 0deg, black 0deg 360deg);"></div>
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
     </li>
-    <li data-v-06381b3c="" data-v-1c120264="" aria-label="10 unique mushrooms (locked)" data-test-id="badge-experimenterMushroom-3" class="badge--experimenterMushroom badge--locked badge" role="img">
+    <li data-v-06381b3c="" data-v-1c120264="" aria-label="15 unique mushrooms (locked)" data-test-id="badge-experimenterMushroom-3" class="badge--experimenterMushroom badge--locked badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🍄‍🟫</div>
       </div>
@@ -447,7 +447,7 @@ exports[`AchievementList > renders with some badges enabled 1`] = `
       <!--v-if-->
       <div data-v-06381b3c="" aria-hidden="true" class="badge__text">Grains</div>
     </li>
-    <li data-v-06381b3c="" data-v-1c120264="" aria-label="10 unique mushrooms " data-test-id="badge-experimenterMushroom-3" class="badge--experimenterMushroom badge" role="img">
+    <li data-v-06381b3c="" data-v-1c120264="" aria-label="15 unique mushrooms " data-test-id="badge-experimenterMushroom-3" class="badge--experimenterMushroom badge" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🍄‍🟫</div>
       </div>
