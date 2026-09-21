@@ -110,7 +110,7 @@ const badgeProps: BadgeProps = {
   },
   experimenterMushroom: {
     [AchievementLevel.Gold]: {
-      textProps: [10],
+      textProps: [15],
       emoji: CATEGORY_EMOJI.Mushroom,
     },
   },
