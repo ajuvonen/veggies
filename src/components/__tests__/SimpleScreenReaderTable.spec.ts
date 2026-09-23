@@ -12,7 +12,7 @@ describe('SimpleScreenReaderTable', () => {
       },
     });
     expect(wrapper.html()).toMatchSnapshot();
-    expect(wrapper.find('table').classes()).toContain('sr-only');
+    expect(wrapper.classes()).toContain('sr-only');
   });
 
   it('draws a complete table with missing data', () => {

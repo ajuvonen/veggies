@@ -38,6 +38,8 @@ const sections = computed(() => ({
   />
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .all-time-status__container {
   @apply grid grid-cols-2 grid-rows-3;
   @apply text-center;

@@ -30,6 +30,8 @@ let emojis = getRandomEmojis(4);
   </div>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .front-page-animation__container {
   @apply h-1/2;
   @apply flex items-center justify-end;
@@ -85,9 +87,9 @@ let emojis = getRandomEmojis(4);
 }
 
 .front-page-animation__icon {
-  @apply text-9xl w-[175px] static z-50;
+  @apply text-9xl w-43.75 static z-50;
   @apply flex items-center justify-center;
-  animation: bounce 0.5s cubic-bezier(0.5, 0.05, 1, 0.5) infinite alternate;
+  animation: icon-bounce 0.5s cubic-bezier(0.5, 0.05, 1, 0.5) infinite alternate;
 }
 
 .front-page-animation__shadow {
@@ -115,7 +117,7 @@ let emojis = getRandomEmojis(4);
   }
 }
 
-@keyframes bounce {
+@keyframes icon-bounce {
   0% {
     transform: translate3d(0, 0, 0) scaleX(1) scaleY(1);
   }

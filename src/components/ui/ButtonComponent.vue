@@ -6,11 +6,10 @@ const button = tv({
   base: 'button-like',
   variants: {
     color: {
-      primary: 'bg-[--color-primary]',
-      secondary:
-        'bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative]',
-      danger: 'bg-[--color-danger]',
-      selected: 'bg-[--color-selected]',
+      primary: 'bg-primary',
+      secondary: 'bg-surface text-fg-inverse fill-fg-inverse',
+      danger: 'bg-danger',
+      selected: 'bg-selected',
       transparent: 'bg-transparent text-inherit fill-inherit p-0',
     },
     tag: {
@@ -24,22 +23,21 @@ const button = tv({
     {
       color: ['primary', 'secondary'],
       disabled: false,
-      class: 'hover:bg-[--color-primary-hover] active:bg-[--color-primary-active]',
+      class: 'hover:bg-primary-hover active:bg-primary-active',
     },
     {
       color: ['primary', 'danger', 'selected'],
-      class: 'text-[--color-text] fill-[--color-text]',
+      class: 'text-fg fill-fg',
     },
     {
       color: ['danger', 'selected'],
       disabled: false,
-      class: 'hover:bg-[--color-danger-hover] active:bg-[--color-danger-active]',
+      class: 'hover:bg-danger-hover active:bg-danger-active',
     },
     {
       color: 'secondary',
       disabled: false,
-      class:
-        'hover:text-[--color-text] hover:fill-[--color-text] active:text-[--color-text] active:fill-[--color-text]',
+      class: 'hover:text-fg hover:fill-fg active:text-fg active:fill-fg',
     },
     {
       color: 'transparent',

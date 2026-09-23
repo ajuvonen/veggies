@@ -30,9 +30,11 @@ const {maxHeight} = useScreen(toasts);
   </TransitionGroup>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .toast-container {
   @apply absolute inset-0 m-0 w-full z-40 pointer-events-none;
-  @apply flex-container flex-col-reverse;
+  @apply cluster flex-col-reverse;
 }
 
 .toasts-move,

@@ -85,8 +85,10 @@ const standardAchievements = [
   </ContentElement>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 :deep(.achievement-list__badge-container) {
   @apply px-2;
-  @apply flex-container justify-evenly flex-wrap;
+  @apply cluster justify-evenly flex-wrap;
 }
 </style>

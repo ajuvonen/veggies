@@ -1,36 +1,38 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --color-bg-alternative: #f9fafb;
-  --color-text: #fff;
-  --color-text-alternative: #1f2937;
+@theme static {
+  --color-surface: #f9fafb;
+  --color-fg: #fff;
+  --color-fg-inverse: #1f2937;
   --color-link-hover: #e5e7eb;
-  --color-focus-outline: #f9fafb;
+  --color-focus: #f9fafb;
   --color-primary: #0ea5e9;
   --color-primary-hover: #0284c7;
   --color-primary-active: #0369a1;
-  --color-ui-dark: #0c4a6e;
+  --color-surface-dark: #0c4a6e;
   --color-theme: #0284c7;
   --color-danger: #ef4444;
   --color-danger-hover: #dc2626;
   --color-danger-active: #991b1b;
   --color-selected: #22c55e;
   --color-selected-hover: #16a34a;
+
+  --font-sans: 'Open Sans', sans-serif;
+  --font-branding: 'Bungee Shade', cursive;
+  --font-numeric: 'Nunito', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg-alternative: #e5e7eb;
-    --color-text: #e5e7eb;
-    --color-text-alternative: #1f2937;
+    --color-surface: #e5e7eb;
+    --color-fg: #e5e7eb;
+    --color-fg-inverse: #1f2937;
     --color-link-hover: #f9fafb;
-    --color-focus-outline: #e5e7eb;
+    --color-focus: #e5e7eb;
     --color-primary: #0284c7;
     --color-primary-hover: #0369a1;
     --color-primary-active: #075985;
-    --color-ui-dark: #0c4a6e;
+    --color-surface-dark: #0c4a6e;
     --color-theme: #082f49;
     --color-danger: #b91c1c;
     --color-danger-hover: #dc2626;
@@ -40,127 +42,125 @@
   }
 }
 
-#app {
-  @apply h-full p-4 relative overflow-hidden;
-  @apply flex flex-col gap-4;
-  @apply bg-gradient-to-b from-sky-600 to-sky-800 to-80% dark:bg-none dark:bg-sky-950;
-}
-
-:focus-visible {
-  @apply outline outline-2 outline-offset-[3px];
-  @apply outline-[--color-focus-outline];
-
-  .outline-override > &,
-  &.outline-override {
-    @apply outline-[--color-theme];
-  }
-}
-
 @layer base {
   html {
     @apply h-full;
     scrollbar-width: none;
-    scrollbar-color: var(--color-text) transparent;
+    scrollbar-color: var(--color-fg) transparent;
+  }
+  
+  body {
+    @apply font-sans text-fg fill-fg h-full;
   }
 
-  body {
-    @apply text-[--color-text] fill-[--color-text] h-full;
-    font-family: 'Open Sans', sans-serif;
+  button:not(:disabled):not([aria-disabled='true']),
+  [role='button']:not(:disabled):not([aria-disabled='true']) {
+    cursor: pointer;
   }
 
   a {
     @apply rounded-md;
-    @apply text-[--color-text] fill-[--color-text] hover:text-[--color-link-hover] hover:fill-[--color-link-hover];
+    @apply text-fg fill-fg hover:text-link-hover hover:fill-link-hover;
   }
 
   canvas {
     image-rendering: pixelated;
   }
+
+  #app {
+    @apply h-full p-4 relative overflow-hidden;
+    @apply flex flex-col gap-4;
+    @apply bg-linear-to-b from-sky-600 to-sky-800 to-80% dark:bg-none dark:bg-sky-950;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-[3px];
+    @apply outline-focus;
+
+    .focus-themed > &,
+    &.focus-themed {
+      @apply outline-theme;
+    }
+  }
 }
 
-@layer components {
-  .button-like {
-    @apply flex-container items-center;
-    @apply text-nowrap px-4 py-2 text-sm uppercase rounded-md select-none tracking-wider cursor-pointer;
-  }
+@utility button-like {
+  @apply cluster items-center;
+  @apply text-nowrap px-4 py-2 label-like tracking-wider rounded-md select-none cursor-pointer;
+}
 
-  .label-like {
-    @apply text-sm uppercase;
-  }
+@utility label-like {
+  @apply text-sm uppercase;
+}
 
-  .dropdown-list-container {
-    @apply rounded-md mt-2 mb-2 shadow-lg;
-    @apply bg-[--color-bg-alternative];
-    scrollbar-width: thin !important;
-    scrollbar-color: initial !important;
-    width: var(--reka-select-trigger-width, var(--reka-combobox-trigger-width));
-  }
+@utility dropdown-list-container {
+  @apply rounded-md mt-2 mb-2 shadow-lg;
+  @apply bg-surface;
+  scrollbar-width: thin !important;
+  scrollbar-color: initial !important;
+  width: var(--reka-select-trigger-width, var(--reka-combobox-trigger-width));
+}
 
-  .dropdown-list-heading {
-    @apply flex-container justify-between;
-    @apply select-none p-2 pr-4;
-    @apply bg-[--color-ui-dark];
-  }
+@utility dropdown-list-heading {
+  @apply cluster justify-between;
+  @apply select-none p-2 pr-4;
+  @apply bg-surface-dark;
+}
 
-  .dropdown-list-option {
-    @apply truncate h-12 button-like rounded-none;
-    @apply justify-between;
-    @apply text-[--color-text-alternative] fill-[--color-text-alternative];
-    touch-action: manipulation;
-    &[data-state='checked'] {
-      @apply bg-[--color-primary-active] text-[--color-text] fill-[--color-text];
-    }
-    body:not([data-input='touch']) &[data-highlighted] {
-      @apply bg-[--color-primary-hover] text-[--color-text] fill-[--color-text];
-    }
+@utility dropdown-list-option {
+  @apply truncate h-12 button-like rounded-none;
+  @apply justify-between;
+  @apply text-fg-inverse fill-fg-inverse;
+  touch-action: manipulation;
+  &[data-state='checked'] {
+    @apply bg-primary-active text-fg fill-fg;
   }
-
-  .text-link {
-    @apply underline;
-    @apply text-gray-300 hover:text-[--color-text];
+  body:not([data-input='touch']) &[data-highlighted] {
+    @apply bg-primary-hover text-fg fill-fg;
   }
+}
 
-  .flex-container {
-    @apply flex gap-2;
-  }
+@utility link {
+  @apply underline;
+  @apply text-gray-300 hover:text-fg;
+}
 
-  .visual-number {
-    font-family: 'Nunito', sans-serif;
-  }
+@utility cluster {
+  @apply flex gap-2;
+}
 
-  .has-scroll {
-    @apply overflow-auto min-h-0 -m-2 p-2;
-    @apply grow;
-    scrollbar-width: thin;
+@utility scrollable {
+  @apply overflow-auto min-h-0 -m-2 p-2;
+  @apply grow;
+  scrollbar-width: thin;
+}
 
-    &--flush {
-      @apply -m-0 p-0;
-    }
-  }
+@utility scrollable-flush {
+  @apply m-0 p-0;
 }
 
 .tippy-content {
   @apply px-2 text-sm;
-  @apply text-[--color-text];
+  @apply text-fg;
 }
 
 .tippy-box {
   @apply mx-2;
-  @apply bg-[--color-ui-dark];
+  @apply bg-surface-dark;
 
   &[data-placement^='top'] > .tippy-arrow::before {
-    border-top-color: var(--color-ui-dark);
+    border-top-color: var(--color-surface-dark);
   }
 
   &[data-placement^='bottom'] > .tippy-arrow::before {
-    border-bottom-color: var(--color-ui-dark);
+    border-bottom-color: var(--color-surface-dark);
   }
 
   &[data-placement^='left'] > .tippy-arrow::before {
-    border-left-color: var(--color-ui-dark);
+    border-left-color: var(--color-surface-dark);
   }
 
   &[data-placement^='right'] > .tippy-arrow::before {
-    border-right-color: var(--color-ui-dark);
+    border-right-color: var(--color-surface-dark);
   }
 }

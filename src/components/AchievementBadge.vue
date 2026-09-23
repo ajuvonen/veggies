@@ -252,22 +252,21 @@ const labelSuffix = computed(() => {
   </Component>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+@reference '@/assets/badges.css';
+
 .badge {
-  @apply relative select-none aspect-square self-center max-w-32;
-  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3));
+  @apply badge-frame self-center max-w-32;
   &:not(.badge--noLabel) {
     flex: 0 0 calc(33% - 5px);
   }
 }
 
 .badge__background {
-  @apply relative w-full h-full rounded-full border-4 overflow-hidden text-[17cqmin] sm:text-[12cqmin];
-  @apply flex items-center justify-center;
+  @apply badge-face text-[17cqmin] sm:text-[12cqmin];
   .badge--noLabel > & {
-    @apply text-3xl p-[0.125rem];
+    @apply text-3xl p-0.5;
   }
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
-  text-shadow: 1px 1px 1px #334155;
 }
 
 .badge__overlay {
@@ -288,7 +287,7 @@ const labelSuffix = computed(() => {
 
 .badge__text {
   @apply absolute bottom-[2cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase;
-  @apply bg-[--color-ui-dark] text-[--color-text];
+  @apply bg-surface-dark text-fg;
 }
 
 .badge__background--Bronze {
@@ -309,19 +308,5 @@ const labelSuffix = computed(() => {
 .badge__background--Platinum {
   background: linear-gradient(135deg, #ffffff, #d9d9d9);
   border-color: #f0f0f0;
-}
-
-.badge__background::after {
-  content: '';
-  @apply absolute inset-0 rounded-full;
-  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent);
-  mask-image: radial-gradient(circle, white 30%, transparent 60%);
-  mask-size: 150%;
-  mask-position: 30% 30%;
-}
-
-.badge__background::before {
-  content: '';
-  @apply absolute w-full h-full rounded-full border-2 border-dotted border-inherit;
 }
 </style>

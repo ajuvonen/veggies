@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
 import Components from 'unplugin-vue-components/vite';
 import RekaResolver from 'reka-ui/resolver';
+import tailwindcss from '@tailwindcss/vite';
 
 // Plugin to intercept zod locales index.js and only load English
 function zodLocalesPlugin() {
@@ -25,6 +26,7 @@ export default defineConfig({
     __VITE_BUILD_TIME__: JSON.stringify(new Date().toISOString()),
   },
   plugins: [
+    tailwindcss(),
     vue(),
     Components({
       dts: 'src/types/components.d.ts',

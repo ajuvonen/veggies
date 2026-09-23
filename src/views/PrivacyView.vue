@@ -20,7 +20,7 @@ const formattedDate = computed(() =>
 );
 </script>
 <template>
-  <div class="flex flex-col gap-4 has-scroll">
+  <div class="flex flex-col gap-4 scrollable">
     <p class="text-xs uppercase">{{ $t('privacy.lastUpdated', [formattedDate]) }}</p>
     <template v-for="(paragraph, index) in paragraphs" :key="index">
       <h2 v-if="paragraph.title" class="label-like">{{ paragraph.title }}</h2>
@@ -30,7 +30,7 @@ const formattedDate = computed(() =>
           :href="paragraph.link"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-link"
+          class="link"
           >{{ paragraph.linkText }}</a
         >
       </i18n-t>

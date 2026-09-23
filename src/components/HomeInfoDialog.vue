@@ -38,7 +38,7 @@ watch(open, (isOpen) => {
           :class="{'opacity-50': index > currentStep}"
           class="home-info-dialog__step"
         >
-          <IconComponent :icon="icon" size="2rem" class="fill-[--color-text]" />
+          <IconComponent :icon="icon" size="2rem" class="fill-fg" />
         </div>
       </div>
       <p v-if="currentStep === 0">{{ $t('home.infoSteps.briefly.text') }}</p>
@@ -64,9 +64,11 @@ watch(open, (isOpen) => {
   </ModalDialog>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .home-info-dialog__step {
   @apply w-full py-2;
-  @apply bg-[--color-primary-active];
+  @apply bg-primary-active;
   @apply flex justify-center;
   clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%, 15% 50%);
 }

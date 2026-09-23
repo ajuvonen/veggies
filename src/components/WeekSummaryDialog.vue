@@ -155,6 +155,8 @@ const handleAISummaryToggle = (value: boolean) => {
   />
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .weekSummaryDialog__message {
   @apply flex items-center;
 }

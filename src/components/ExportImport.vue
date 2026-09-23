@@ -80,7 +80,7 @@ onChange(async (files) => {
 <template>
   <ContentElement :label="$t('settings.exportImport.label')">
     <p id="export-description">{{ $t('settings.exportImport.description') }}</p>
-    <div class="flex-container justify-end">
+    <div class="cluster justify-end">
       <ButtonComponent
         icon="databaseExport"
         color="secondary"

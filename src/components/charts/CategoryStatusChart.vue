@@ -101,7 +101,7 @@ defineExpose({chartData});
       data-test-id="category-status-chart-center-label"
     >
       <span>{{ $t(topLabelKey) }}</span>
-      <span class="visual-number" :class="categoryFavorites ? 'text-5xl' : 'text-6xl'">{{
+      <span class="font-numeric" :class="categoryFavorites ? 'text-5xl' : 'text-6xl'">{{
         veggies.length
       }}</span>
       <span>{{ $t('categoryStatus.bottomLabel', veggies.length) }}</span>
@@ -123,6 +123,8 @@ defineExpose({chartData});
   </div>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .category-status-chart__background {
   @apply relative overflow-hidden aspect-square;
   @apply flex justify-center grow-0 self-center;

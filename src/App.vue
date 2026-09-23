@@ -67,11 +67,14 @@ watchEffect(() => {
 </template>
 
 <style scoped>
+@reference '@/assets/main.css';
+
 main {
   @apply h-full min-h-0;
   @apply flex flex-col items-center gap-6;
-  > * {
-    @apply w-full max-w-xl;
-  }
+}
+
+main > * {
+  @apply w-full max-w-xl;
 }
 </style>

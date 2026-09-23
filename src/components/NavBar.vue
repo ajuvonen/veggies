@@ -35,7 +35,7 @@ const headerTitle = computed(() => {
     >
       {{ headerTitle.name }}
     </h1>
-    <div class="flex-container gap-4 justify-end w-full">
+    <div class="flex gap-4 justify-end w-full">
       <RouterLink
         v-if="!['log', 'home'].includes(route.name as string)"
         v-tippy="$t(`views.${backRoute}`)"
@@ -79,9 +79,11 @@ const headerTitle = computed(() => {
   </nav>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .navbar {
   @apply w-full;
-  @apply flex-container gap-4 items-center;
+  @apply flex gap-4 items-center;
 }
 
 .navbar__header {
@@ -89,7 +91,7 @@ const headerTitle = computed(() => {
 }
 
 .navbar__header--decorative {
-  font-family: 'Bungee Shade';
+  @apply font-branding;
   font-size: clamp(1.2rem, 4vw, 1.7rem);
 }
 </style>

@@ -22,10 +22,10 @@ const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomU
 
 const toggle = tv({
   slots: {
-    root: 'relative inline-flex h-4 w-12 items-center rounded-md outline-offset-4 bg-[--color-ui-dark]',
+    root: 'relative inline-flex h-4 w-12 items-center rounded-md outline-offset-4 bg-surface-dark',
     thumb: [
-      'inline-flex w-6 h-6 items-center justify-center transform rounded-md shadow-lg motion-safe:duration-200',
-      'bg-[--color-bg-alternative] fill-[--color-text-alternative]',
+      'inline-flex w-6 h-6 items-center justify-center rounded-md shadow-lg motion-safe:duration-200',
+      'bg-surface fill-fg-inverse',
     ],
   },
   variants: {
@@ -34,13 +34,12 @@ const toggle = tv({
         root: 'opacity-50 cursor-not-allowed',
       },
       false: {
-        thumb:
-          'hover:bg-[--color-primary-hover] hover:fill-[--color-text] active:bg-[--color-primary-active] active:fill-[--color-text]',
+        thumb: 'hover:bg-primary-hover hover:fill-fg active:bg-primary-active active:fill-fg',
       },
     },
     checked: {
       true: {
-        thumb: 'translate-x-6 bg-[--color-primary] fill-[--color-text]',
+        thumb: 'translate-x-6 bg-primary fill-fg',
       },
     },
   },
