@@ -21,16 +21,12 @@ const tabIcons: IconString[] = [
 ] as const;
 </script>
 <template>
-  <TabsRoot
-    :defaultValue="0"
-    class="flex flex-col flex-1 min-h-0 w-full gap-4"
-    v-slot="{modelValue}"
-  >
+  <TabsRoot :defaultValue="0" class="stats__root" v-slot="{modelValue}">
     <TabsList class="grid grid-cols-5 gap-2">
       <TabsTrigger v-for="(iconString, index) in tabIcons" :key="iconString" :value="index" asChild>
         <ButtonComponent
           v-tippy="{content: $t(`stats.${index}`), placement: 'bottom', offset: [0, -8]}"
-          :class="{'!bg-[--color-primary-active]': modelValue === index}"
+          :class="{'bg-primary-active': modelValue === index}"
           :aria-label="$t(`stats.${index}`)"
           :data-test-id="`stats-tab-${index}`"
           class="justify-center"
@@ -65,11 +61,18 @@ const tabIcons: IconString[] = [
   </TabsRoot>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
+.stats__root {
+  @apply w-full min-h-0;
+  @apply flex flex-col flex-1 gap-4;
+}
+
 .stats__tab[data-state='active'] {
   @apply flex flex-col grow min-h-0 gap-4;
 }
 
 .stats__tab--scrolling {
-  @apply has-scroll has-scroll--flush overflow-x-hidden;
+  @apply scrollable scrollable-flush overflow-x-hidden;
 }
 </style>

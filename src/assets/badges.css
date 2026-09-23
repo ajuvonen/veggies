@@ -1,0 +1,38 @@
+/*
+  Shared styling for the two achievement-badge components
+  (AchievementBadge.vue and WeekSummaryBadge.vue): the circular
+  frame + face with its sheen and dotted ring. @utility, not
+  @layer components, so it stays @apply-able — see main.css for
+  why that distinction matters.
+
+  Self-contained (imports Tailwind itself) so each badge component
+  can pull it in directly with `@reference '@/assets/badges.css';`
+  instead of main.css importing it project-wide.
+*/
+@import 'tailwindcss';
+
+@utility badge-frame {
+  @apply relative select-none aspect-square;
+  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3));
+}
+
+@utility badge-face {
+  @apply relative w-full h-full rounded-full border-4 overflow-hidden;
+  @apply flex items-center justify-center;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 1px #334155;
+
+  &::after {
+    content: '';
+    @apply absolute inset-0 rounded-full;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent);
+    mask-image: radial-gradient(circle, white 30%, transparent 60%);
+    mask-size: 150%;
+    mask-position: 30% 30%;
+  }
+
+  &::before {
+    content: '';
+    @apply absolute w-full h-full rounded-full border-2 border-dotted border-inherit;
+  }
+}

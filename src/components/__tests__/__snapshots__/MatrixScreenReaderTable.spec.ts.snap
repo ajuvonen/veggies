@@ -1,75 +1,79 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MatrixScreenReaderTable > draws a complete table with row headers and missing data 1`] = `
-"<table class="sr-only">
-  <caption>Spotty data</caption>
-  <thead>
-    <tr>
-      <th></th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>A</th>
-      <td>1A</td>
-      <td>2B</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>B</th>
-      <td>1A</td>
-      <td>2B</td>
-      <td>3C</td>
-    </tr>
-    <tr>
-      <th>C</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>D</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>"
+"<div class="sr-only">
+  <table>
+    <caption>Spotty data</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>A</th>
+        <td>1A</td>
+        <td>2B</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>B</th>
+        <td>1A</td>
+        <td>2B</td>
+        <td>3C</td>
+      </tr>
+      <tr>
+        <th>C</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>D</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>"
 `;
 
 exports[`MatrixScreenReaderTable > mounts with row headers 1`] = `
-"<table class="sr-only">
-  <caption>Amount of veggies</caption>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Fruits</th>
-      <th>Grains</th>
-      <th>Leafy Greens</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Week 1</th>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>Week 2</th>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Week 3</th>
-      <td>3</td>
-      <td>3</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>"
+"<div class="sr-only">
+  <table>
+    <caption>Amount of veggies</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Fruits</th>
+        <th>Grains</th>
+        <th>Leafy Greens</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Week 1</th>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <th>Week 2</th>
+        <td>1</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Week 3</th>
+        <td>3</td>
+        <td>3</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>"
 `;

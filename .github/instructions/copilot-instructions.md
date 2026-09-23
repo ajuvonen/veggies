@@ -9,7 +9,7 @@
 - **Vue 3** with Composition API (`<script setup>`)
 - **Pinia** stores for state management (`activityStore`, `appStateStore`)
 - **Vue Router** with lazy-loaded views
-- **TailwindCSS** with custom utility classes
+- **TailwindCSS v4** with custom utility classes
 - **Vite** bundler with PWA plugin
 - **i18n** with dynamic locale loading
 - **Temporal.PlainDate** for week-based Date operations
@@ -141,6 +141,13 @@ Add `data-test-id` for reliable test selectors:
 
 ### Styling
 
+- Use inline Tailwind utility classes for up to 3–4 classes. Beyond that, use `@apply` in the component's `<style scoped>` block (or in [main.css](../../src/assets/main.css) for shared styles), grouped into up to three lines: flex/grid definitions, colors, then other styles.
+- Any `<style>` block that uses `@apply` must start with `@reference '@/assets/main.css';` — Tailwind v4 compiles each Vue SFC style block as its own stylesheet with no access to the project theme or custom utilities otherwise.
+- Design tokens (colors, fonts) live in `@theme static` in [main.css](../../src/assets/main.css), consumed as plain utilities (`bg-primary`, `text-fg`, `font-numeric`) rather than arbitrary CSS-variable values.
+- Project-defined helper classes (`button-like`, `cluster`, `scrollable`, etc.) are declared with `@utility` in main.css so they remain `@apply`-able and participate in the utilities cascade layer — a class defined in `@layer components` cannot be `@apply`-ed in v4. Reserve `@layer components` for classes that are only ever used directly in markup, never composed via `@apply`.
+- Don't name a project utility after a Tailwind functional namespace (`flex-*`, `has-*`, `text-*`, `outline-*`, etc.) — it either collides with a real utility or reads as one. Prefer a semantic name instead (e.g. `cluster` rather than `flex-container`).
+- Only add a `@utility` to main.css (or a dedicated shared stylesheet, like [badges.css](../../src/assets/badges.css)) when it's genuinely reused across files. A helper used in exactly one component belongs in that component's own `<style scoped>` block.
+- Never `@apply` inside a vendor pseudo-element selector (`::-webkit-slider-thumb`, `::-moz-range-thumb`, etc.) in a scoped `<style>` block — in `vite dev` (not production), Tailwind's `@apply` output places the Vue scope attribute _after_ the pseudo-element (e.g. `::-webkit-slider-thumb[data-v-xxx]`), which is invalid CSS and gets silently dropped. Write plain CSS declarations referencing theme variables instead (`background-color: var(--color-primary)`), as in [SliderComponent.vue](../../src/components/ui/SliderComponent.vue). Nesting a pseudo-element inside a _class_ selector (e.g. `.badge-face { &::after {...} } `) is unaffected and works fine with `@apply`.
 - Use camelCase instead of hyphenated props in components, unless defining an HTML attribute such as aria-label.
 - Use the following order in props
   1. Vue directives such as v-if, v-for, and v-show etc.
@@ -151,6 +158,7 @@ Add `data-test-id` for reliable test selectors:
   1. :data-test-id as the last one
   1. any normal props or HTML attributes, but
   1. data-test-id as the last one
+  1. @click and other event listeners
 - Use `template strings with ${variable}` instead of concatenated strings.
 
 ### Test Organization

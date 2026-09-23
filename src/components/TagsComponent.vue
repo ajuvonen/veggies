@@ -64,9 +64,11 @@ const toggle = async (veggie: string, index: number) => {
   </TransitionGroup>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .tags__container {
-  @apply relative has-scroll;
-  @apply flex-container flex-wrap justify-center content-start;
+  @apply relative scrollable;
+  @apply cluster flex-wrap justify-center content-start;
 }
 
 .tags-enter-active,
@@ -81,6 +83,6 @@ const toggle = async (veggie: string, index: number) => {
 }
 
 .tags-leave-active {
-  @apply z-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply z-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 </style>

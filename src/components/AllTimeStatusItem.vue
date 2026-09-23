@@ -12,7 +12,7 @@ const {shareSupported, shareOrCopy} = useShare();
   <div class="all-time-status__item" :data-test-id="`all-time-status-${statKey}`">
     <i18n-t scope="global" keypath="categoryStatus.centerLabel">
       <span>{{ $t(`allTimeStatus.${statKey}.topLabel`) }}</span>
-      <span class="visual-number text-5xl">{{ statAmount }}</span>
+      <span class="font-numeric text-5xl">{{ statAmount }}</span>
       <span>{{ $t(`allTimeStatus.${statKey}.bottomLabel`, statAmount) }}</span>
     </i18n-t>
     <ButtonComponent
@@ -38,6 +38,8 @@ const {shareSupported, shareOrCopy} = useShare();
   </div>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .all-time-status__item {
   @apply label-like relative select-none;
   @apply flex flex-col items-center justify-center;

@@ -123,7 +123,7 @@ const {chartOptions} = useChartOptions<'matrix'>(
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="chartContainer" class="has-scroll has-scroll--flush">
+  <div ref="chartContainer" class="scrollable scrollable-flush">
     <div
       :style="{width: `max(100%, ${weekData.weekStarts.length * 60}px)`}"
       class="relative h-full"

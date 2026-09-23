@@ -27,7 +27,7 @@ describe('ButtonComponent', () => {
       props: {color: 'danger'},
     });
 
-    expect(wrapper.find('.button-like').classes()).includes('bg-[--color-danger]');
+    expect(wrapper.find('.button-like').classes()).includes('bg-danger');
   });
 
   it('creates tags', () => {
@@ -36,7 +36,7 @@ describe('ButtonComponent', () => {
       props: {color: 'selected', tag: true},
     });
 
-    expect(wrapper.find('.button-like').classes()).includes('bg-[--color-selected]');
+    expect(wrapper.find('.button-like').classes()).includes('bg-selected');
     expect(wrapper.find('.button-like').classes()).includes('rounded-full');
     expect(wrapper.find('.button-like').classes()).includes('text-xs');
   });

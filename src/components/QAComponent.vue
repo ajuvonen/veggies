@@ -36,17 +36,12 @@ const questionKeysAndLinks = {
             scope="global"
             class="whitespace-pre-line p-2"
           >
-            <RouterLink v-if="key === 'isMyDataSafe'" to="/privacy" class="text-link">{{
+            <RouterLink v-if="key === 'isMyDataSafe'" to="/privacy" class="link">{{
               $t(`qa.isMyDataSafe.linkText`)
             }}</RouterLink>
-            <a
-              v-else-if="url"
-              :href="url"
-              class="text-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              >{{ $t(`qa.${key}.linkText`) }}</a
-            >
+            <a v-else-if="url" :href="url" class="link" target="_blank" rel="noopener noreferrer">{{
+              $t(`qa.${key}.linkText`)
+            }}</a>
           </i18n-t>
         </AccordionContent>
       </AccordionItem>
@@ -54,6 +49,8 @@ const questionKeysAndLinks = {
   </AccordionRoot>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .collapsible-content {
   @apply overflow-hidden;
   @media (prefers-reduced-motion: no-preference) {

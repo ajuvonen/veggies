@@ -114,7 +114,7 @@ onClickOutside(
     multiple
     ignoreFilter
   >
-    <ComboboxAnchor ref="anchorElement" class="relative fill-[--color-text-alternative]">
+    <ComboboxAnchor ref="anchorElement" class="relative fill-fg-inverse">
       <ComboboxInput
         v-model="query"
         ref="searchInput"
@@ -139,7 +139,7 @@ onClickOutside(
       <ButtonComponent
         v-if="query"
         color="transparent"
-        class="veggie-search__button right-12 outline-override"
+        class="veggie-search__button right-12 focus-themed"
         icon="close"
         data-test-id="veggie-search-clear-button"
         @click="clearQuery"
@@ -149,7 +149,7 @@ onClickOutside(
         <ButtonComponent
           :class="{'rotate-180': listOpen}"
           color="transparent"
-          class="veggie-search__button right-4 outline-override motion-safe:duration-200"
+          class="veggie-search__button right-4 focus-themed motion-safe:duration-200"
           icon="chevronDown"
           data-test-id="veggie-search-toggle-button"
           @click="listOpen = !listOpen"
@@ -185,9 +185,11 @@ onClickOutside(
   </ComboboxRoot>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .veggie-search__input {
   @apply w-full py-2 pl-4 pr-24 rounded-full;
-  @apply text-[--color-text-alternative] bg-[--color-bg-alternative] placeholder-gray-500;
+  @apply text-fg-inverse bg-surface placeholder-gray-500;
 }
 
 .veggie-search__button {
@@ -196,6 +198,6 @@ onClickOutside(
 
 .veggie-search__no-results {
   @apply select-none px-4 py-2;
-  @apply bg-[--color-bg-alternative] text-[--color-text-alternative];
+  @apply bg-surface text-fg-inverse;
 }
 </style>

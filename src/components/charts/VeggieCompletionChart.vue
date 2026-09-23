@@ -128,6 +128,8 @@ defineExpose({chartData});
   </ContentElement>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .veggie-completion-chart__background {
   @apply relative overflow-hidden -my-4 max-h-[50vh];
   @apply self-center;

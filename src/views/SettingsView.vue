@@ -29,7 +29,7 @@ const removeAllergen = (veggie: string) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 has-scroll">
+  <div class="flex flex-col gap-4 scrollable">
     <LocaleChanger />
     <SliderComponent
       v-model="settings.suggestionCount"

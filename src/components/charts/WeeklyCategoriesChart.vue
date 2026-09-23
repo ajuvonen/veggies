@@ -26,7 +26,7 @@ const {veggiesForWeek} = storeToRefs(useActivityStore());
 
 const chartContainer = useTemplateRef('chartContainer');
 const {xAlign, yAlign} = useChartContainer(chartContainer);
-const [textColor] = useCssColors(['--color-text']);
+const [textColor] = useCssColors(['--color-fg']);
 
 const chartData = computed(() => {
   const countsByWeek = props.weekData.weekStarts.map((weekStart) => {
@@ -86,7 +86,7 @@ const {chartOptions} = useChartOptions<'bar'>(
 defineExpose({chartData});
 </script>
 <template>
-  <div ref="chartContainer" class="has-scroll has-scroll--flush">
+  <div ref="chartContainer" class="scrollable scrollable-flush">
     <div
       :style="{width: `max(100%, ${weekData.weekStarts.length * 60}px)`}"
       class="relative h-full"

@@ -29,10 +29,8 @@ describe('TagsComponent', () => {
       },
     });
 
-    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('bg-[--color-danger]');
-    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes(
-      'bg-[--color-danger]',
-    );
+    expect(wrapper.findByText('.button-like', 'tomato').classes()).includes('bg-danger');
+    expect(wrapper.findByText('.button-like', 'pineapple').classes()).includes('bg-danger');
   });
 
   it('emits click', async () => {

@@ -13,7 +13,7 @@ export function useChartOptions<T extends ChartType>(
   overrides: MaybeRefOrGetter<Partial<ChartOptions<T>>>,
 ) {
   const {showChartAnimations} = useChartAnimations();
-  const [textColor, uiDarkColor] = useCssColors(['--color-text', '--color-ui-dark']);
+  const [textColor, uiDarkColor] = useCssColors(['--color-fg', '--color-surface-dark']);
   const chartOptions = computed(
     () =>
       mergeDeep(

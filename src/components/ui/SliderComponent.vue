@@ -22,18 +22,46 @@ const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomU
   </ContentElement>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 input {
   @apply appearance-none h-4 rounded-md outline-offset-4;
-  @apply bg-[--color-ui-dark];
+  @apply bg-surface-dark;
+}
 
-  &::-webkit-slider-thumb {
-    @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
-    @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
-  }
+input::-webkit-slider-thumb {
+  appearance: none;
+  border-style: none;
+  border-radius: var(--radius-md);
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
+  cursor: pointer;
+  background-color: var(--color-primary);
+}
 
-  &::-moz-range-thumb {
-    @apply appearance-none rounded-md border-none w-6 h-6 cursor-pointer;
-    @apply bg-[--color-primary] hover:bg-[--color-primary-hover] active:bg-[--color-primary-active];
-  }
+input::-webkit-slider-thumb:hover {
+  background-color: var(--color-primary-hover);
+}
+
+input::-webkit-slider-thumb:active {
+  background-color: var(--color-primary-active);
+}
+
+input::-moz-range-thumb {
+  appearance: none;
+  border-style: none;
+  border-radius: var(--radius-md);
+  width: calc(var(--spacing) * 6);
+  height: calc(var(--spacing) * 6);
+  cursor: pointer;
+  background-color: var(--color-primary);
+}
+
+input::-moz-range-thumb:hover {
+  background-color: var(--color-primary-hover);
+}
+
+input::-moz-range-thumb:active {
+  background-color: var(--color-primary-active);
 }
 </style>

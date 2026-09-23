@@ -53,7 +53,7 @@ watchEffect((onCleanup) => {
   />
   <p v-if="error">{{ $t('weekSummaryDialog.AISummaryUnavailable') }}</p>
   <SpinnerComponent v-else-if="!turnstileToken" />
-  <div v-else class="flex-container flex-col">
+  <div v-else class="cluster flex-col">
     <p>{{ $t('weekSummaryDialog.AIMayContainErrors') }}</p>
     <div class="sr-only" aria-live="polite">
       {{
@@ -77,6 +77,8 @@ watchEffect((onCleanup) => {
 </template>
 
 <style scoped>
+@reference '@/assets/main.css';
+
 .ai-content {
   @apply relative;
   &--streaming::after {
@@ -85,7 +87,7 @@ watchEffect((onCleanup) => {
     background: linear-gradient(
       to bottom,
       transparent,
-      color-mix(in srgb, var(--color-bg-alternative) 60%, transparent)
+      color-mix(in srgb, var(--color-surface) 60%, transparent)
     );
   }
 }

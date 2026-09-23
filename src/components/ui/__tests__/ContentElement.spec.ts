@@ -71,7 +71,7 @@ describe('ContentElement', () => {
       },
     });
 
-    expect(wrapper.find('div').classes()).toEqual(['flex-col', 'flex-container', 'min-h-0']);
+    expect(wrapper.find('div').classes()).toEqual(['flex-col', 'cluster', 'min-h-0']);
   });
 
   it('supports inline mode', () => {
@@ -88,7 +88,7 @@ describe('ContentElement', () => {
     expect(wrapper.find('div').classes()).toEqual([
       'items-center',
       'justify-between',
-      'flex-container',
+      'cluster',
       'min-h-0',
     ]);
   });

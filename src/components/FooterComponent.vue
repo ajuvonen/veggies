@@ -18,7 +18,7 @@ const showPlayStoreLink =
   <footer>
     <div class="flex gap-4 justify-center">
       <a
-        class="flex-container items-center"
+        class="cluster items-center"
         :href="BLUESKY_URL"
         target="_blank"
         rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const showPlayStoreLink =
       </a>
       <a
         v-if="showPlayStoreLink"
-        class="flex-container items-center"
+        class="cluster items-center"
         :href="PLAY_STORE_URL"
         target="_blank"
         rel="noopener noreferrer"
@@ -47,8 +47,10 @@ const showPlayStoreLink =
   </footer>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 footer {
-  @apply flex-container flex-col;
+  @apply cluster flex-col;
   @apply uppercase text-xs;
 }
 </style>

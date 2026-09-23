@@ -75,15 +75,17 @@ const emoji = getRandomEmojis()[0];
   </div>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .toast-message {
   @apply w-full p-4 cursor-pointer pointer-events-auto;
-  @apply bg-[--color-primary];
+  @apply bg-primary;
   box-shadow:
     0 -4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(0 0 0 / 0.1);
 
   &--remove {
-    @apply bg-[--color-danger];
+    @apply bg-danger;
   }
 
   &--removing {
@@ -93,6 +95,6 @@ const emoji = getRandomEmojis()[0];
 
 .toast-message__content {
   @apply max-w-xl mx-auto;
-  @apply flex-container justify-center items-center;
+  @apply cluster justify-center items-center;
 }
 </style>

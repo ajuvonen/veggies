@@ -32,7 +32,7 @@ const checkIfModalClick = (event: Event) => {
         data-test-id="dialog"
         @interactOutside="checkIfModalClick"
       >
-        <div class="modal-dialog__header outline-override">
+        <div class="modal-dialog__header focus-themed">
           <DialogTitle class="modal-dialog__title" data-test-id="dialog-title">
             {{ title }}
           </DialogTitle>
@@ -45,12 +45,12 @@ const checkIfModalClick = (event: Event) => {
             />
           </DialogClose>
         </div>
-        <div class="modal-dialog__content outline-override" :style="contentWrapperStyle">
+        <div class="modal-dialog__content focus-themed" :style="contentWrapperStyle">
           <div ref="contentRef" class="modal-dialog__content-inner">
             <slot name="content" />
           </div>
         </div>
-        <div class="modal-dialog__buttons outline-override">
+        <div class="modal-dialog__buttons focus-themed">
           <slot name="buttons" />
         </div>
       </DialogContent>
@@ -58,15 +58,19 @@ const checkIfModalClick = (event: Event) => {
   </DialogRoot>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .modal-dialog__overlay {
-  @apply fixed inset-0 z-30 backdrop-blur-sm;
+  @apply fixed inset-0 z-30 backdrop-blur-xs;
   @apply bg-black/30;
 }
 
 .modal-dialog {
-  @apply fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100%-2rem)] rounded-md p-4 shadow-xl !pointer-events-auto;
+  @apply fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  @apply w-[calc(100%-2rem)] max-w-xl max-h-[calc(100%-2rem)];
+  @apply rounded-md p-4 shadow-xl pointer-events-auto!;
   @apply flex flex-col gap-4;
-  @apply bg-[--color-bg-alternative] text-[--color-text-alternative] fill-[--color-text-alternative];
+  @apply bg-surface text-fg-inverse fill-fg-inverse;
   @media (prefers-reduced-motion: no-preference) {
     &[data-state='open'] {
       animation: fadeIn 200ms ease-out;
@@ -83,11 +87,11 @@ const checkIfModalClick = (event: Event) => {
 }
 
 .modal-dialog__header {
-  @apply flex-container items-center justify-between;
+  @apply cluster items-center justify-between;
 }
 
 .modal-dialog__content {
-  @apply has-scroll motion-safe:duration-200;
+  @apply scrollable motion-safe:duration-200;
   box-sizing: content-box;
   scrollbar-color: initial;
 }
@@ -97,7 +101,7 @@ const checkIfModalClick = (event: Event) => {
 }
 
 .modal-dialog__buttons {
-  @apply flex-container justify-end;
+  @apply cluster justify-end;
 }
 
 @keyframes fadeIn {

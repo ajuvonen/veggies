@@ -44,7 +44,7 @@ const specialCases = ['cloudberry', 'raspberry'];
               : undefined
           "
           :key="veggie"
-          class="veggie-list__veggie"
+          class="cluster items-center"
         >
           <IconComponent
             :icon="uniqueVeggies.includes(veggie) ? 'checkboxMarked' : 'checkboxBlank'"
@@ -60,8 +60,3 @@ const specialCases = ['cloudberry', 'raspberry'];
     </ContentElement>
   </section>
 </template>
-<style scoped>
-.veggie-list__veggie {
-  @apply flex-container items-center;
-}
-</style>

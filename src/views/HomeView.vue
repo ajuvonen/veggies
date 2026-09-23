@@ -33,7 +33,7 @@ onMounted(() => {
     <p class="sm:text-center">
       {{ $t('home.callout') }}
     </p>
-    <div class="flex-container justify-center">
+    <div class="cluster justify-center">
       <ButtonComponent data-test-id="home-start-button" @click="start()">{{
         $t('home.start')
       }}</ButtonComponent>
@@ -49,6 +49,8 @@ onMounted(() => {
   </div>
 </template>
 <style scoped>
+@reference '@/assets/main.css';
+
 .home__container {
   @apply flex flex-col gap-6 items-center justify-center;
   @apply h-full;
