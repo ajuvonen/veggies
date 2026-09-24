@@ -32,6 +32,7 @@ const headerTitle = computed(() => {
       :class="{'navbar__header--decorative': route.name === 'log'}"
       :aria-label="headerTitle.ariaLabel"
       class="navbar__header"
+      tabindex="-1"
     >
       {{ headerTitle.name }}
     </h1>

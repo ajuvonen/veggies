@@ -1,3 +1,4 @@
+import {nextTick} from 'vue';
 import {createRouter, createWebHistory} from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import {useAppStateStore} from '@/stores/appStateStore';
@@ -44,6 +45,17 @@ router.beforeEach((to) => {
   const {settings} = useAppStateStore();
   if (!['home', 'privacy'].includes(to.name as string) && !settings.startDate) {
     return {name: 'home', replace: true};
+  }
+});
+
+router.afterEach(async (_to, from) => {
+  if (!from.matched.length) {
+    // Skip the initial navigation; the browser already handles focus on first load.
+    return;
+  }
+  await nextTick();
+  if (document.activeElement === document.body) {
+    document.querySelector<HTMLElement>('h1')?.focus({preventScroll: true});
   }
 });
 
