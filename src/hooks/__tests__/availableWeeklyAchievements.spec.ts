@@ -33,79 +33,33 @@ describe('availableWeeklyAchievements', () => {
     expect(availableWeeklyAchievements.value).toEqual(WEEKLY_ACHIEVEMENTS);
   });
 
-  it('excludes goNuts when fewer than 5 nuts are available', () => {
-    appStateStore.settings.allergens = take(NUTS, NUTS.size - 4);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).not.toContain('goNuts');
-  });
+  const thresholds: {achievement: string; veggies: Iterable<string>; threshold: number}[] = [
+    {achievement: 'goNuts', veggies: NUTS, threshold: 5},
+    {achievement: 'herbalist', veggies: HERBS, threshold: 5},
+    {achievement: 'tearnado', veggies: ONIONS, threshold: 5},
+    {achievement: 'lemons', veggies: CITRUSES, threshold: 5},
+    {achievement: 'botanicalBerries', veggies: BOTANICAL_BERRIES, threshold: 15},
+    {achievement: 'overachiever', veggies: ALL_VEGGIES, threshold: 30},
+    {achievement: 'thirtyVeggies', veggies: ALL_VEGGIES, threshold: 30},
+  ];
 
-  it('includes goNuts when exactly 5 nuts are available', () => {
-    appStateStore.settings.allergens = take(NUTS, NUTS.size - 5);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).toContain('goNuts');
-  });
+  it.each(thresholds)(
+    'excludes $achievement when fewer than $threshold veggies are available',
+    ({achievement, veggies, threshold}) => {
+      appStateStore.settings.allergens = take(veggies, [...veggies].length - (threshold - 1));
+      const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
+      expect(availableWeeklyAchievements.value).not.toContain(achievement);
+    },
+  );
 
-  it('excludes herbalist when fewer than 5 herbs are available', () => {
-    appStateStore.settings.allergens = take(HERBS, HERBS.size - 4);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).not.toContain('herbalist');
-  });
-
-  it('includes herbalist when exactly 5 herbs are available', () => {
-    appStateStore.settings.allergens = take(HERBS, HERBS.size - 5);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).toContain('herbalist');
-  });
-
-  it('excludes tearnado when fewer than 5 onions are available', () => {
-    appStateStore.settings.allergens = take(ONIONS, ONIONS.size - 4);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).not.toContain('tearnado');
-  });
-
-  it('includes tearnado when exactly 5 onions are available', () => {
-    appStateStore.settings.allergens = take(ONIONS, ONIONS.size - 5);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).toContain('tearnado');
-  });
-
-  it('excludes lemons when fewer than 5 citruses are available', () => {
-    appStateStore.settings.allergens = take(CITRUSES, CITRUSES.size - 4);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).not.toContain('lemons');
-  });
-
-  it('includes lemons when exactly 5 citruses are available', () => {
-    appStateStore.settings.allergens = take(CITRUSES, CITRUSES.size - 5);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).toContain('lemons');
-  });
-
-  it('excludes botanicalBerries when fewer than 15 botanical berries are available', () => {
-    appStateStore.settings.allergens = take(BOTANICAL_BERRIES, BOTANICAL_BERRIES.size - 14);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).not.toContain('botanicalBerries');
-  });
-
-  it('includes botanicalBerries when exactly 15 botanical berries are available', () => {
-    appStateStore.settings.allergens = take(BOTANICAL_BERRIES, BOTANICAL_BERRIES.size - 15);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).toContain('botanicalBerries');
-  });
-
-  it('excludes overachiever and thirtyVeggies when fewer than 30 veggies are available', () => {
-    appStateStore.settings.allergens = take(ALL_VEGGIES, ALL_VEGGIES.length - 29);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).not.toContain('overachiever');
-    expect(availableWeeklyAchievements.value).not.toContain('thirtyVeggies');
-  });
-
-  it('includes overachiever and thirtyVeggies when exactly 30 veggies are available', () => {
-    appStateStore.settings.allergens = take(ALL_VEGGIES, ALL_VEGGIES.length - 30);
-    const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
-    expect(availableWeeklyAchievements.value).toContain('overachiever');
-    expect(availableWeeklyAchievements.value).toContain('thirtyVeggies');
-  });
+  it.each(thresholds)(
+    'includes $achievement when exactly $threshold veggies are available',
+    ({achievement, veggies, threshold}) => {
+      appStateStore.settings.allergens = take(veggies, [...veggies].length - threshold);
+      const {availableWeeklyAchievements} = withSetup(useAvailableWeeklyAchievements);
+      expect(availableWeeklyAchievements.value).toContain(achievement);
+    },
+  );
 
   it('excludes rainbow when fewer than 3 items are available in a category', () => {
     appStateStore.settings.allergens = take(MUSHROOMS, MUSHROOMS.size - 2);

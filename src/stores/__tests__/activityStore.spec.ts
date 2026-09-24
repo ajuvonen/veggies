@@ -15,6 +15,9 @@ describe('activityStore', () => {
   const lastWeek = thisWeek.subtract({weeks: 1});
   const twoWeeksAgo = thisWeek.subtract({weeks: 2});
   const threeWeeksAgo = thisWeek.subtract({weeks: 3});
+  const emptyCategories = Object.fromEntries(
+    Object.values(Category).map((category) => [category, []]),
+  );
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
@@ -139,13 +142,7 @@ describe('activityStore', () => {
   it('returns empty arrays for all categories when no veggies', () => {
     activityStore.weeks = [];
 
-    expect(activityStore.veggiesByCategory[Category.Vegetable]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Root]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Fruit]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Bean]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Grain]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Leafy]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Mushroom]).toEqual([]);
+    expect(activityStore.veggiesByCategory).toEqual(emptyCategories);
   });
 
   it('veggies with no category are not added', () => {
@@ -157,13 +154,7 @@ describe('activityStore', () => {
       },
     ];
 
-    expect(activityStore.veggiesByCategory[Category.Vegetable]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Root]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Fruit]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Bean]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Grain]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Leafy]).toEqual([]);
-    expect(activityStore.veggiesByCategory[Category.Mushroom]).toEqual([]);
+    expect(activityStore.veggiesByCategory).toEqual(emptyCategories);
   });
 
   it('handles duplicate veggies in veggiesByCategory', () => {

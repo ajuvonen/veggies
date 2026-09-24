@@ -173,9 +173,7 @@ describe('TurnstileWidget', () => {
     });
     await wrapperNoWidget.vm.$nextTick();
 
-    const resetPromise3 = (
-      wrapperNoWidget.vm as unknown as TurnstileWidgetInstance
-    ).reset();
+    const resetPromise3 = (wrapperNoWidget.vm as unknown as TurnstileWidgetInstance).reset();
     await expect(resetPromise3).rejects.toBeUndefined();
   });
 
