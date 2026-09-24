@@ -82,6 +82,5 @@ provide(KEYS.challenge, readonly(currentChallenge));
     ariaTagKey="general.clickToAdd"
     icon="plus"
   />
-  <FooterComponent />
   <WeekSummaryDialog />
 </template>

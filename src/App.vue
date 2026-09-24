@@ -63,6 +63,7 @@ watchEffect(() => {
   <main>
     <RouterView />
   </main>
+  <FooterComponent v-if="route.name === 'log'" />
   <AchievementDialog />
 </template>
 
