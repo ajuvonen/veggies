@@ -83,7 +83,7 @@ const checkIfModalClick = (event: Event) => {
 }
 
 .modal-dialog__title {
-  @apply text-lg leading-6;
+  @apply text-lg;
 }
 
 .modal-dialog__header {
