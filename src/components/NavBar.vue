@@ -87,7 +87,7 @@ const headerTitle = computed(() => {
 }
 
 .navbar__header {
-  @apply whitespace-nowrap tracking-wider uppercase text-xl rounded-md select-none;
+  @apply whitespace-nowrap leading-5 tracking-wider uppercase text-xl rounded-md select-none;
 }
 
 .navbar__header--decorative {
