@@ -138,6 +138,7 @@ onClickOutside(
       />
       <ButtonComponent
         v-if="query"
+        :aria-label="$t('general.clear')"
         color="transparent"
         class="veggie-search__button right-12 focus-themed"
         icon="close"
@@ -148,6 +149,7 @@ onClickOutside(
       <ComboboxTrigger asChild>
         <ButtonComponent
           :class="{'rotate-180': listOpen}"
+          :aria-label="$t('veggieSearch.browse')"
           color="transparent"
           class="veggie-search__button right-4 focus-themed motion-safe:duration-200"
           icon="chevronDown"

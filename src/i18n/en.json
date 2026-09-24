@@ -715,6 +715,7 @@
     "zucchini": "zucchini"
   },
   "veggieSearch": {
+    "browse": "Browse Veggies",
     "challenge": "Your Weekly Challenge",
     "nextCategory": "Next Category",
     "noResults": "No Results",

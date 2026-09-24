@@ -715,6 +715,7 @@
     "zucchini": "kesäkurpitsa"
   },
   "veggieSearch": {
+    "browse": "Selaa kasviksia",
     "challenge": "Viikkohaasteesi",
     "nextCategory": "Seuraava ryhmä",
     "noResults": "Ei tuloksia",
