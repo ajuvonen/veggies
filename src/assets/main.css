@@ -48,7 +48,7 @@
     scrollbar-width: none;
     scrollbar-color: var(--color-fg) transparent;
   }
-  
+
   body {
     @apply font-sans text-fg fill-fg h-full;
   }
