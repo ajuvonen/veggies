@@ -107,8 +107,7 @@ defineExpose({chartData});
 <template>
   <ContentElement
     :label="$t('veggieList.chartTitle')"
-    :labelAttrs="{for: 'veggie-completion-chart'}"
-    labelTag="label"
+    :labelAttrs="{id: 'veggie-completion-chart-label'}"
   >
     <div class="veggie-completion-chart__background">
       <PolarArea
@@ -116,6 +115,7 @@ defineExpose({chartData});
         :data="chartData"
         :options="chartOptions"
         :aria-description="$t('general.seeTableBelow')"
+        aria-labelledby="veggie-completion-chart-label"
         data-test-id="veggie-completion-chart"
       />
       <SimpleScreenReaderTable
