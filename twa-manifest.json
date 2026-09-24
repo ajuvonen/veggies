@@ -17,11 +17,11 @@
   "maskableIconUrl": "https://eatyourveggies.app/pwa-512-maskable.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
-    "path": "C:\\Sources\\Personal\\play-store-veggies\\android.keystore",
+    "path": "C:\\Sources\\Personal\\veggies-play-store\\android.keystore",
     "alias": "android"
   },
-  "appVersionName": "5",
-  "appVersionCode": 5,
+  "appVersionName": "6",
+  "appVersionCode": 6,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://eatyourveggies.app/manifest.webmanifest",
@@ -43,5 +43,6 @@
   ],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "5"
+  "displayOverride": [],
+  "appVersion": "6"
 }
