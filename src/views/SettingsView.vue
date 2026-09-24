@@ -75,13 +75,8 @@ const removeAllergen = (veggie: string) => {
     </ContentElement>
     <QAComponent />
     <ExportImport />
-    <ContentElement
-      :label="$t('settings.reset.label')"
-      :labelAttrs="{for: 'reset-button'}"
-      labelTag="label"
-    >
+    <ContentElement :label="$t('settings.reset.label')">
       <ButtonComponent
-        id="reset-button"
         color="danger"
         icon="trashCan"
         data-test-id="reset-button"
