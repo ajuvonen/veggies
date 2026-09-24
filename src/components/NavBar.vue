@@ -26,7 +26,7 @@ const headerTitle = computed(() => {
 });
 </script>
 <template>
-  <nav class="navbar">
+  <div class="navbar">
     <h1
       v-if="!isHome"
       :class="{'navbar__header--decorative': route.name === 'log'}"
@@ -36,7 +36,7 @@ const headerTitle = computed(() => {
     >
       {{ headerTitle.name }}
     </h1>
-    <div class="flex gap-4 justify-end w-full">
+    <nav class="flex gap-4 justify-end w-full">
       <RouterLink
         v-if="!['log', 'home'].includes(route.name as string)"
         v-tippy="$t(`views.${backRoute}`)"
@@ -70,14 +70,15 @@ const headerTitle = computed(() => {
           v-for="availableLocale in availableLocales"
           :key="availableLocale"
           :aria-label="$t('home.changeLocale', [$t(`locales.${availableLocale}`)])"
+          :lang="availableLocale"
           :data-test-id="`home-locale-button-${availableLocale}`"
           color="transparent"
           @click="settings.locale = availableLocale"
           >{{ availableLocale === 'el' ? 'ελ' : availableLocale }}</ButtonComponent
         >
       </template>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 <style scoped>
 @reference '@/assets/main.css';
