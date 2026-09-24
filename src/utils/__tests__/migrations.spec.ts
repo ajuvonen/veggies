@@ -319,7 +319,17 @@ describe('runMigrations', () => {
     localStorage.setItem('veggies-startDate', thisWeek.toString());
 
     // Attempt to run migration from 0 to 1 (no-op migration)
-    await expect(runMigrations(0, 1)).rejects.toThrow();
+    await expect(runMigrations(0, 1)).rejects.toMatchObject({
+      issues: expect.arrayContaining([
+        expect.objectContaining({
+          code: 'invalid_value',
+          path: ['settings', 'migrationVersion'],
+          values: [CURRENT_MIGRATION_VERSION],
+        }),
+      ]),
+    });
+    // Nothing is written when validation fails
+    expect(JSON.parse(localStorage.getItem('veggies-settings')!)).toEqual(oldData);
   });
 
   it('runs complete migration pipeline from v1 to current version', async () => {

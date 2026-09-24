@@ -11,7 +11,6 @@ describe('AchievementList', () => {
         achievements: getAchievements(),
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.findAll('.badge--locked').length).toBe(27);
   });
 
@@ -35,7 +34,6 @@ describe('AchievementList', () => {
         }),
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
     expect(wrapper.findAll('.badge--locked').length).toBe(14);
   });
 

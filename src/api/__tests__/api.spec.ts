@@ -3,34 +3,33 @@ import {getAISummary} from '@/api';
 import {getWeekData} from '@/test-utils';
 import {AI_SUMMARY_URL} from '@/utils/constants';
 
-type MockReader = {
-  read: ReturnType<typeof vi.fn>;
-  cancel: ReturnType<typeof vi.fn>;
-  releaseLock: ReturnType<typeof vi.fn>;
-};
+const sseFrame = (data: string, event?: string) =>
+  `${event ? `event: ${event}\n` : ''}data: ${data}\n\n`;
 
-type MockStream = {
-  pipeThrough: ReturnType<typeof vi.fn>;
-  getReader: ReturnType<typeof vi.fn>;
+const delta = (text: string) =>
+  sseFrame(JSON.stringify({type: 'content_block_delta', delta: {text}}), 'content_block_delta');
+
+// Left open (close: false), the stream only ends if the consumer cancels it
+const createStream = (chunks: string[], {onCancel = vi.fn(), close = true} = {}) => {
+  const encoder = new TextEncoder();
+  const queue = [...chunks];
+  return new ReadableStream<Uint8Array>({
+    pull(controller) {
+      const chunk = queue.shift();
+      if (chunk !== undefined) {
+        controller.enqueue(encoder.encode(chunk));
+      } else if (close) {
+        controller.close();
+      }
+    },
+    cancel: onCancel,
+  });
 };
 
 describe('getAISummary', () => {
   let mockFetch: ReturnType<typeof vi.fn>;
-  let mockReader: MockReader;
-  let mockStream: MockStream;
 
   beforeEach(() => {
-    mockReader = {
-      read: vi.fn(),
-      cancel: vi.fn(),
-      releaseLock: vi.fn(),
-    };
-
-    mockStream = {
-      pipeThrough: vi.fn().mockReturnThis(),
-      getReader: vi.fn().mockReturnValue(mockReader),
-    };
-
     mockFetch = vi.fn();
     vi.stubGlobal('fetch', mockFetch);
   });
@@ -39,7 +38,7 @@ describe('getAISummary', () => {
     vi.unstubAllGlobals();
   });
 
-  const createMockResponse = (ok: boolean, body: unknown = null): Response =>
+  const createMockResponse = (ok: boolean, body: ReadableStream | null = null): Response =>
     ({
       ok,
       body,
@@ -48,34 +47,22 @@ describe('getAISummary', () => {
 
   it('handles successful stream with incremental chunks, skips malformed/wrong-type events, and cancels on [DONE]', async () => {
     const onChunk = vi.fn();
+    const onCancel = vi.fn();
     const weekData = getWeekData();
     const signal = new AbortController().signal;
+    const body = createStream(
+      [
+        delta('Hello '),
+        sseFrame('not valid json'),
+        sseFrame(JSON.stringify({type: 'message_start'}), 'message_start'),
+        delta('World'),
+        sseFrame('[DONE]'),
+        delta('ignored'),
+      ],
+      {onCancel, close: false},
+    );
 
-    // Sequence of events: valid delta, malformed JSON, wrong type, valid delta, [DONE]
-    mockReader.read
-      .mockResolvedValueOnce({
-        done: false,
-        value: {data: JSON.stringify({type: 'content_block_delta', delta: {text: 'Hello '}})},
-      })
-      .mockResolvedValueOnce({
-        done: false,
-        value: {data: 'not valid json'},
-      })
-      .mockResolvedValueOnce({
-        done: false,
-        value: {data: JSON.stringify({type: 'message_start'})},
-      })
-      .mockResolvedValueOnce({
-        done: false,
-        value: {data: JSON.stringify({type: 'content_block_delta', delta: {text: 'World'}})},
-      })
-      .mockResolvedValueOnce({
-        done: false,
-        value: {data: '[DONE]'},
-      })
-      .mockResolvedValueOnce({done: true});
-
-    mockFetch.mockResolvedValueOnce(createMockResponse(true, mockStream));
+    mockFetch.mockResolvedValueOnce(createMockResponse(true, body));
 
     const result = await getAISummary(weekData, 'test-token', onChunk, signal);
 
@@ -84,9 +71,8 @@ describe('getAISummary', () => {
     expect(onChunk).toHaveBeenNthCalledWith(1, 'Hello ');
     expect(onChunk).toHaveBeenNthCalledWith(2, 'Hello World');
 
-    // Reader cancelled on [DONE]
-    expect(mockReader.cancel).toHaveBeenCalled();
-    expect(mockReader.releaseLock).toHaveBeenCalled();
+    // Stream cancelled on [DONE]
+    await vi.waitFor(() => expect(onCancel).toHaveBeenCalled());
 
     expect(result).toBe('Hello World');
   });
@@ -96,16 +82,9 @@ describe('getAISummary', () => {
     const weekData = getWeekData();
     const controller = new AbortController();
 
-    mockReader.read.mockResolvedValueOnce({
-      done: false,
-      value: {data: JSON.stringify({type: 'content_block_delta', delta: {text: 'text'}})},
-    });
-    mockReader.read.mockResolvedValueOnce({
-      done: false,
-      value: {data: '[DONE]'},
-    });
-
-    mockFetch.mockResolvedValueOnce(createMockResponse(true, mockStream));
+    mockFetch.mockResolvedValueOnce(
+      createMockResponse(true, createStream([delta('text'), sseFrame('[DONE]')])),
+    );
 
     await getAISummary(weekData, 'test-token', onChunk, controller.signal);
 
@@ -120,6 +99,7 @@ describe('getAISummary', () => {
     expect(options.headers['Content-Type']).toBe('application/json');
     expect(options.headers['CF-Turnstile-Token']).toBe('test-token');
     expect(options.body).toBe(JSON.stringify(weekData));
+    expect(options.signal).toBeInstanceOf(AbortSignal);
   });
 
   it('throws when res.ok is false', async () => {
@@ -127,13 +107,13 @@ describe('getAISummary', () => {
     const weekData = getWeekData();
     const signal = new AbortController().signal;
 
-    mockFetch.mockResolvedValueOnce(createMockResponse(false));
+    mockFetch.mockResolvedValueOnce(createMockResponse(false, createStream([delta('text')])));
 
     await expect(getAISummary(weekData, 'token', onChunk, signal)).rejects.toThrow(
       'AI summary request failed: 500.',
     );
 
-    expect(mockStream.getReader).not.toHaveBeenCalled();
+    expect(onChunk).not.toHaveBeenCalled();
   });
 
   it('throws when res.body is null', async () => {
@@ -152,19 +132,15 @@ describe('getAISummary', () => {
     const onChunk = vi.fn();
     const weekData = getWeekData();
     const signal = new AbortController().signal;
+    const body = createStream([
+      sseFrame(JSON.stringify({type: 'message_start'}), 'message_start'),
+      delta('   '),
+    ]);
 
-    mockReader.read
-      .mockResolvedValueOnce({
-        done: false,
-        value: {data: JSON.stringify({type: 'message_start'})},
-      })
-      .mockResolvedValueOnce({done: true});
-
-    mockFetch.mockResolvedValueOnce(createMockResponse(true, mockStream));
+    mockFetch.mockResolvedValueOnce(createMockResponse(true, body));
 
     await expect(getAISummary(weekData, 'token', onChunk, signal)).rejects.toThrow(
       'No content received from API.',
     );
-    expect(mockReader.releaseLock).toHaveBeenCalled();
   });
 });

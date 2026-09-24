@@ -1,6 +1,6 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import {take} from '@/test-utils';
-import {AchievementLevel, type Week} from '@/types';
+import {AchievementLevel, type Achievements, type Week} from '@/types';
 import {
   ALL_VEGGIES,
   BEANS,
@@ -53,55 +53,24 @@ describe('achievements', () => {
     expect(activityStore.achievements.completionist).toBe(AchievementLevel.Gold);
   });
 
-  it('advances experimenterFruit', async () => {
-    activityStore.weeks = createWeeks(1, take(FRUITS, 14));
-    expect(activityStore.achievements.experimenterFruit).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(FRUITS, 15));
-    expect(activityStore.achievements.experimenterFruit).toBe(AchievementLevel.Gold);
-  });
-
-  it('advances experimenterVegetable', async () => {
-    activityStore.weeks = createWeeks(1, take(VEGETABLES, 14));
-    expect(activityStore.achievements.experimenterVegetable).toEqual(
-      AchievementLevel.NoAchievement,
-    );
-    activityStore.weeks = createWeeks(1, take(VEGETABLES, 15));
-    expect(activityStore.achievements.experimenterVegetable).toBe(AchievementLevel.Gold);
-  });
-
-  it('advances experimenterLeafy', async () => {
-    activityStore.weeks = createWeeks(1, take(LEAFIES, 14));
-    expect(activityStore.achievements.experimenterLeafy).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(LEAFIES, 15));
-    expect(activityStore.achievements.experimenterLeafy).toBe(AchievementLevel.Gold);
-  });
-
-  it('advances experimenterMushroom', async () => {
-    activityStore.weeks = createWeeks(1, take(MUSHROOMS, 14));
-    expect(activityStore.achievements.experimenterMushroom).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(MUSHROOMS, 15));
-    expect(activityStore.achievements.experimenterMushroom).toBe(AchievementLevel.Gold);
-  });
-
-  it('advances experimenterBean', async () => {
-    activityStore.weeks = createWeeks(1, take(BEANS, 14));
-    expect(activityStore.achievements.experimenterBean).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(BEANS, 15));
-    expect(activityStore.achievements.experimenterBean).toBe(AchievementLevel.Gold);
-  });
-
-  it('advances experimenterRoot', async () => {
-    activityStore.weeks = createWeeks(1, take(ROOTS, 14));
-    expect(activityStore.achievements.experimenterRoot).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(ROOTS, 15));
-    expect(activityStore.achievements.experimenterRoot).toBe(AchievementLevel.Gold);
-  });
-
-  it('advances experimenterGrain', async () => {
-    activityStore.weeks = createWeeks(1, take(GRAINS, 14));
-    expect(activityStore.achievements.experimenterGrain).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(GRAINS, 15));
-    expect(activityStore.achievements.experimenterGrain).toBe(AchievementLevel.Gold);
+  it.each<{achievement: keyof Achievements; veggies: ReadonlySet<string>; threshold: number}>([
+    {achievement: 'experimenterFruit', veggies: FRUITS, threshold: 15},
+    {achievement: 'experimenterVegetable', veggies: VEGETABLES, threshold: 15},
+    {achievement: 'experimenterLeafy', veggies: LEAFIES, threshold: 15},
+    {achievement: 'experimenterMushroom', veggies: MUSHROOMS, threshold: 15},
+    {achievement: 'experimenterBean', veggies: BEANS, threshold: 15},
+    {achievement: 'experimenterRoot', veggies: ROOTS, threshold: 15},
+    {achievement: 'experimenterGrain', veggies: GRAINS, threshold: 15},
+    {achievement: 'botanicalBerries', veggies: BOTANICAL_BERRIES, threshold: 15},
+    {achievement: 'goNuts', veggies: NUTS, threshold: 5},
+    {achievement: 'herbalist', veggies: HERBS, threshold: 5},
+    {achievement: 'lemons', veggies: CITRUSES, threshold: 5},
+    {achievement: 'tearnado', veggies: ONIONS, threshold: 5},
+  ])('advances $achievement at $threshold veggies', ({achievement, veggies, threshold}) => {
+    activityStore.weeks = createWeeks(1, take(veggies, threshold - 1));
+    expect(activityStore.achievements[achievement]).toEqual(AchievementLevel.NoAchievement);
+    activityStore.weeks = createWeeks(1, take(veggies, threshold));
+    expect(activityStore.achievements[achievement]).toEqual(AchievementLevel.Gold);
   });
 
   it('advances hot streak', async () => {
@@ -152,41 +121,6 @@ describe('achievements', () => {
     expect(activityStore.achievements.thirtyVeggies).toBe(AchievementLevel.Gold);
     activityStore.weeks = createWeeks(1, take(ALL_VEGGIES, 40));
     expect(activityStore.achievements.thirtyVeggies).toBe(AchievementLevel.Platinum);
-  });
-
-  it('advances go nuts', async () => {
-    activityStore.weeks = createWeeks(1, take(NUTS, 4));
-    expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(NUTS, 5));
-    expect(activityStore.achievements.goNuts).toEqual(AchievementLevel.Gold);
-  });
-
-  it('advances herbalist', async () => {
-    activityStore.weeks = createWeeks(1, take(HERBS, 4));
-    expect(activityStore.achievements.herbalist).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(HERBS, 5));
-    expect(activityStore.achievements.herbalist).toEqual(AchievementLevel.Gold);
-  });
-
-  it('advances lemons', async () => {
-    activityStore.weeks = createWeeks(1, take(CITRUSES, 4));
-    expect(activityStore.achievements.lemons).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(CITRUSES, 5));
-    expect(activityStore.achievements.lemons).toEqual(AchievementLevel.Gold);
-  });
-
-  it('advances tearnado', async () => {
-    activityStore.weeks = createWeeks(1, take(ONIONS, 4));
-    expect(activityStore.achievements.tearnado).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(ONIONS, 5));
-    expect(activityStore.achievements.tearnado).toEqual(AchievementLevel.Gold);
-  });
-
-  it('advances botanical berries', async () => {
-    activityStore.weeks = createWeeks(1, take(BOTANICAL_BERRIES, 14));
-    expect(activityStore.achievements.botanicalBerries).toEqual(AchievementLevel.NoAchievement);
-    activityStore.weeks = createWeeks(1, take(BOTANICAL_BERRIES, 15));
-    expect(activityStore.achievements.botanicalBerries).toEqual(AchievementLevel.Gold);
   });
 
   it('advances rainbow', async () => {

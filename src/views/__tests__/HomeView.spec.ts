@@ -19,28 +19,15 @@ describe('HomeView', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders in English if specific dialect preferred', () => {
-    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['en-UK', 'fi']);
+  it.each([
+    [['en-UK', 'fi'], 'en'],
+    [['fi', 'en'], 'fi'],
+    [['el', 'en'], 'el'],
+    [['sv-SE', 'no'], 'en'],
+  ])('resolves preferred languages %j to locale %s', (languages, expected) => {
+    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(languages);
     mount(HomeView);
-    expect(appStateStore.settings.locale).toBe('en');
-  });
-
-  it('renders in Finnish if preferred', async () => {
-    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['fi', 'en']);
-    mount(HomeView);
-    expect(appStateStore.settings.locale).toBe('fi');
-  });
-
-  it('renders in Greek if preferred', async () => {
-    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['el', 'en']);
-    mount(HomeView);
-    expect(appStateStore.settings.locale).toBe('el');
-  });
-
-  it('renders in English if no languages match locales preferred', () => {
-    vi.spyOn(navigator, 'languages', 'get').mockReturnValueOnce(['sv-SE', 'no']);
-    mount(HomeView);
-    expect(appStateStore.settings.locale).toBe('en');
+    expect(appStateStore.settings.locale).toBe(expected);
   });
 
   it('shows dialog', async () => {

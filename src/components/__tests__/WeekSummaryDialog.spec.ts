@@ -133,22 +133,23 @@ describe('WeekSummaryDialog', () => {
       },
     });
 
-    activityStore.weeks = [
-      {
-        startDate: lastWeek,
-        veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli'],
-        challenge: 'cucumber',
-      },
-    ];
-    appStateStore.settings.startDate = lastWeek;
+    try {
+      activityStore.weeks = [
+        {
+          startDate: lastWeek,
+          veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli'],
+          challenge: 'cucumber',
+        },
+      ];
+      appStateStore.settings.startDate = lastWeek;
 
-    const wrapper = mount(WeekSummaryDialog);
-    await flushPromises();
-    const dialog = wrapper.getComponent(DialogContent);
-    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
-    await dialog.findByTestId('week-summary-dialog-copy-button').trigger('click');
+      const wrapper = mount(WeekSummaryDialog);
+      await flushPromises();
+      const dialog = wrapper.getComponent(DialogContent);
+      expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
+      await dialog.findByTestId('week-summary-dialog-copy-button').trigger('click');
 
-    const expectedText = `I ate 5 different veggies last week
+      const expectedText = `I ate 5 different veggies last week
 🍎: 1
 🥦: 2
 🥬: 1
@@ -156,9 +157,10 @@ describe('WeekSummaryDialog', () => {
 Try it out:
 https://eatyourveggies.app`;
 
-    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(expectedText);
-
-    Object.assign(navigator, {clipboard});
+      expect(navigator.clipboard.writeText).toHaveBeenCalledWith(expectedText);
+    } finally {
+      Object.assign(navigator, {clipboard});
+    }
   });
 
   it('shares', async () => {
@@ -167,34 +169,36 @@ https://eatyourveggies.app`;
       share: vi.fn(),
     });
 
-    activityStore.weeks = [
-      {
-        startDate: lastWeek,
-        veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli'],
-        challenge: 'cucumber',
-      },
-    ];
-    appStateStore.settings.startDate = lastWeek;
+    try {
+      activityStore.weeks = [
+        {
+          startDate: lastWeek,
+          veggies: ['apple', 'spinach', 'carrot', 'tomato', 'broccoli'],
+          challenge: 'cucumber',
+        },
+      ];
+      appStateStore.settings.startDate = lastWeek;
 
-    const wrapper = mount(WeekSummaryDialog);
-    await flushPromises();
-    const dialog = wrapper.getComponent(DialogContent);
-    expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
-    await dialog.findByTestId('week-summary-dialog-share-button').trigger('click');
+      const wrapper = mount(WeekSummaryDialog);
+      await flushPromises();
+      const dialog = wrapper.getComponent(DialogContent);
+      expect(document.body.querySelector('[data-test-id="dialog"]')).toBeTruthy();
+      await dialog.findByTestId('week-summary-dialog-share-button').trigger('click');
 
-    const expectedText = `I ate 5 different veggies last week
+      const expectedText = `I ate 5 different veggies last week
 🍎: 1
 🥦: 2
 🥬: 1
 🥕: 1
 Try it out:`;
 
-    expect(navigator.share).toHaveBeenCalledWith({
-      text: expectedText,
-      url: 'https://eatyourveggies.app',
-    });
-
-    Object.assign(navigator, {share});
+      expect(navigator.share).toHaveBeenCalledWith({
+        text: expectedText,
+        url: 'https://eatyourveggies.app',
+      });
+    } finally {
+      Object.assign(navigator, {share});
+    }
   });
 
   it('does not show AI summary toggle when AIAllowed is false', async () => {

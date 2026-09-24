@@ -84,16 +84,13 @@ describe('useWeekSummary', () => {
     });
 
     it('rounds mean to one decimal place', () => {
-      activityStore.weeks.push({
-        startDate: threeWeeksAgo,
-        veggies: ['apple', 'spinach', 'tomato', 'carrot'],
-        challenge: 'cucumber',
-      });
-      addWeek(twoWeeksAgo, ['apple', 'spinach', 'tomato']);
-      addWeek(lastWeek, ['apple', 'spinach', 'tomato']);
+      appStateStore.settings.startDate = threeWeeksAgo;
+      addWeek(threeWeeksAgo, ['apple', 'spinach']);
+      addWeek(twoWeeksAgo, ['apple']);
+      addWeek(lastWeek, ['apple']);
       const {weekData} = withSetup(useWeekSummary);
-      // 5 calendar weeks: [3, 3, 4, 0, 0] → mean = 10/5 = 2 → rounded to 2
-      expect(weekData.value.mean).toBe(2);
+      // 3 past weeks: [1, 1, 2] → mean = 4/3 = 1.333… → rounded to 1.3
+      expect(weekData.value.mean).toBe(1.3);
     });
 
     it('finds challenge for last week', () => {

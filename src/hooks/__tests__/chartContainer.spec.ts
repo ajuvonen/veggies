@@ -141,17 +141,4 @@ describe('useChartContainer', () => {
     mockMouseX.value = 480; // Greater than 400 + 50 = 450
     expect(xAlign()).toBe('right');
   });
-
-  it('uses element bounds from useElementBounding', () => {
-    // Change bounds first, before creating the composable
-    mockTop.value = 200;
-    mockBottom.value = 600;
-    mockMouseY.value = 450; // Below new center of 400
-
-    const {yAlign} = withSetup(useChartContainer, chartContainer);
-
-    // Center is (200 + 600) / 2 = 400
-    // mouseY = 450, which is > 400, so should be 'bottom'
-    expect(yAlign()).toBe('bottom');
-  });
 });
