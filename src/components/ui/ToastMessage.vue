@@ -4,8 +4,10 @@ import {useElementHover, useTimeout, useSwipe, usePointer} from '@vueuse/core';
 import {getRandomEmojis} from '@/utils/helpers';
 
 const isCIMode = import.meta.env.MODE === 'ci';
-defineProps<{
+const props = defineProps<{
   text: string;
+  focused: boolean;
+  messageId: string;
 }>();
 
 const emit = defineEmits(['close']);
@@ -42,29 +44,39 @@ const {lengthX, isSwiping} = useSwipe(toastMessage, {
 const isHovered = useElementHover(toastMessage);
 
 watchEffect(() => {
-  if (!isCIMode && (isHovered.value || isSwiping.value || removing.value)) {
+  if (!isCIMode && (isHovered.value || isSwiping.value || removing.value || props.focused)) {
     stop();
   } else {
     start();
   }
 });
 
+const handleClick = (event: MouseEvent) => {
+  // event.detail is 0 for clicks synthesized by keyboard activation (Enter/Space) and
+  // >0 for real pointer clicks, including touch taps. Touch taps are excluded so the
+  // deliberate swipe gesture stays the only way to dismiss on touch, while keyboard
+  // activation always closes regardless of the last recorded pointer type.
+  if (event.detail === 0 || pointerType.value !== 'touch') {
+    emit('close');
+  }
+};
+
 const emoji = getRandomEmojis()[0];
 </script>
 <template>
-  <!-- eslint-disable-next-line vuejs-accessibility/no-static-element-interactions -->
-  <div
+  <button
+    :id="`toast-${messageId}`"
     ref="toastMessage"
     :style="{transform: `translateX(${offsetX}px)`}"
     :class="{
       'toast-message--remove': Math.abs(offsetX) > 50,
       'toast-message--removing': removing,
     }"
+    :aria-label="$t('general.ariaDismiss', [text])"
     class="toast-message"
-    role="status"
+    type="button"
     data-test-id="toast-message"
-    @click="pointerType !== 'touch' && emit('close')"
-    @keydown.enter="$emit('close')"
+    @click="handleClick"
   >
     <div class="toast-message__content">
       <span class="text-2xl" aria-hidden="true">
@@ -72,13 +84,13 @@ const emoji = getRandomEmojis()[0];
       </span>
       <span>{{ text }}</span>
     </div>
-  </div>
+  </button>
 </template>
 <style scoped>
 @reference '@/assets/main.css';
 
 .toast-message {
-  @apply w-full p-4 cursor-pointer pointer-events-auto;
+  @apply w-full p-4 cursor-pointer pointer-events-auto -outline-offset-2;
   @apply bg-primary;
   box-shadow:
     0 -4px 6px -1px rgb(0 0 0 / 0.1),

@@ -1,8 +1,10 @@
 <script lang="ts" setup>
-import {useTemplateRef} from 'vue';
+import {nextTick, useTemplateRef} from 'vue';
 import {storeToRefs} from 'pinia';
+import {useFocusWithin} from '@vueuse/core';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {useScreen} from '@/hooks/screen';
+import {focusPageHeading} from '@/utils/helpers';
 
 const appStateStore = useAppStateStore();
 const {messages} = storeToRefs(appStateStore);
@@ -11,6 +13,28 @@ const {removeToastMessage} = appStateStore;
 const toasts = useTemplateRef('toasts');
 
 const {maxHeight} = useScreen(toasts);
+const {focused} = useFocusWithin(toasts);
+
+// Mirrors TagsComponent's toggle(): checked and removed synchronously, so it doesn't need
+// to wait for the leave transition — only a toast that closes while it holds focus (not one
+// that times out unattended) hands focus on, to whichever toast is now at the same index, or
+// the previous one, or the page heading if none remain.
+const handleClose = async (id: string) => {
+  const wasFocused = document.activeElement === document.getElementById(`toast-${id}`);
+  const index = messages.value.findIndex((message) => message.id === id);
+  removeToastMessage(id);
+  if (!wasFocused) {
+    return;
+  }
+  await nextTick();
+  const nextMessage = messages.value[index] ?? messages.value[index - 1];
+  const nextElement = nextMessage && document.getElementById(`toast-${nextMessage.id}`);
+  if (nextElement) {
+    nextElement.focus({preventScroll: true});
+  } else {
+    focusPageHeading();
+  }
+};
 </script>
 <template>
   <TransitionGroup
@@ -25,7 +49,9 @@ const {maxHeight} = useScreen(toasts);
       v-for="message in messages"
       :key="message.id"
       :text="message.text"
-      @close="removeToastMessage(message.id)"
+      :focused="focused"
+      :messageId="message.id"
+      @close="handleClose(message.id)"
     />
   </TransitionGroup>
 </template>

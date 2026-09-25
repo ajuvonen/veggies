@@ -208,6 +208,7 @@
     "clickToRemove": "Remove {0}",
     "close": "Close",
     "ariaCopy": "Copy {0} to clipboard",
+    "ariaDismiss": "Dismiss: {0}",
     "ariaShare": "Share {0}",
     "copy": "Copy",
     "follow": "Follow on Bluesky",
