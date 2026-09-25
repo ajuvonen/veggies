@@ -63,7 +63,10 @@ watchEffect(() => {
   <main>
     <RouterView />
   </main>
-  <FooterComponent v-if="route.name === 'log'" />
+  <FooterComponent
+    v-if="['home', 'log'].includes(route.name?.toString() || '')"
+    :showPrivacyPolicyLink="route.name === 'home'"
+  />
   <AchievementDialog />
 </template>
 
