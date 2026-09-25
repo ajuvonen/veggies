@@ -29,6 +29,7 @@ const [primaryColor, primaryHoverColor] = useCssColors([
   '--color-primary-hover',
 ]);
 
+const MAX_VALUE = 7;
 const chartData = computed(() => {
   const data: MatrixDataPoint[] = props.weekData.weekStarts.flatMap((weekStart, weekIndex) => {
     const veggies = veggiesForWeek.value(weekStart);
@@ -46,8 +47,8 @@ const chartData = computed(() => {
       data,
       backgroundColor: ({raw}: ScriptableContext<'matrix'>) => {
         const value = (raw as MatrixDataPoint).v ?? 0;
-        // Scale from 0 (opacity 20) to 7+ (opacity FF)
-        const opacityDecimal = Math.min(32 + Math.round((value * 222) / 7), 255);
+        // Scale from 0 (opacity 20) to MAX_VALUE+ (opacity FF)
+        const opacityDecimal = Math.min(32 + Math.round((value * 222) / MAX_VALUE), 255);
         const opacityHex = opacityDecimal.toString(16).toUpperCase().padStart(2, '0');
         return primaryColor.value + opacityHex;
       },
@@ -64,7 +65,7 @@ const chartData = computed(() => {
     accessibleData: {
       rowHeaders: Object.values(Category).map((category) => t(`categories.${category}`)),
       data: Object.values(groupByProp(data, 'rawData')).map((items) =>
-        items.map(({v}) => `${Math.round(((v || 0) / 6) * 100)} %`),
+        items.map(({v}) => `${Math.round(((v || 0) / MAX_VALUE) * 100)} %`),
       ),
     },
   };
