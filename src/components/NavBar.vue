@@ -26,7 +26,7 @@ const headerTitle = computed(() => {
 });
 </script>
 <template>
-  <div class="navbar">
+  <header class="navbar">
     <h1
       v-if="!isHome"
       :class="{'navbar__header--decorative': route.name === 'log'}"
@@ -78,7 +78,7 @@ const headerTitle = computed(() => {
         >
       </template>
     </nav>
-  </div>
+  </header>
 </template>
 <style scoped>
 @reference '@/assets/main.css';
