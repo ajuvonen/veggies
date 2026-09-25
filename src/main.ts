@@ -2,7 +2,7 @@ import 'temporal-polyfill-lite/global';
 import 'temporal-polyfill-lite/types/global';
 import {createApp} from 'vue';
 import {createPinia} from 'pinia';
-import {plugin as VueTippy} from 'vue-tippy';
+import {plugin as VueTippy, hideAll} from 'vue-tippy';
 import App from '@/App.vue';
 import router from '@/router';
 import createI18n from '@/i18n';
@@ -29,6 +29,12 @@ if (storedSettings) {
   }
 }
 
+const closeTippy = (event: KeyboardEvent) => {
+  if (event.key === 'Escape') {
+    hideAll();
+  }
+};
+
 const app = createApp(App);
 app
   .use(createPinia())
@@ -36,11 +42,16 @@ app
   .use(createI18n())
   .use(VueTippy, {
     defaultProps: {
-      hideOnClick: true,
-    },
-    aria: {
-      content: null,
-      expanded: false,
+      onShow() {
+        document.addEventListener('keydown', closeTippy);
+      },
+      onHide() {
+        document.removeEventListener('keydown', closeTippy);
+      },
+      aria: {
+        content: null,
+        expanded: false,
+      },
     },
   })
   .mount('#app');
