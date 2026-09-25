@@ -44,7 +44,6 @@ onMounted(() => {
         >{{ $t('home.info') }}</ButtonComponent
       >
     </div>
-    <FooterComponent showPrivacyPolicyLink />
     <HomeInfoDialog v-model="dialogOpen" />
   </div>
 </template>
