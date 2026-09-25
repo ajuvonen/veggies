@@ -33,6 +33,10 @@ export const getCategoryForVeggie = useMemoize((veggie: string) => {
 export const getRandomItem = <T>(availableItems: readonly T[] = []): T | undefined =>
   availableItems[Math.floor(Math.random() * availableItems.length)];
 
+export const focusPageHeading = () => {
+  document.querySelector<HTMLElement>('h1')?.focus({preventScroll: true});
+};
+
 export const showConfetti = async () => {
   const {default: confetti} = await import('canvas-confetti');
   confetti({

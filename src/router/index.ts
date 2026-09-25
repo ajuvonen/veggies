@@ -2,6 +2,7 @@ import {nextTick} from 'vue';
 import {createRouter, createWebHistory} from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import {useAppStateStore} from '@/stores/appStateStore';
+import {focusPageHeading} from '@/utils/helpers';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -55,7 +56,7 @@ router.afterEach(async (_to, from) => {
   }
   await nextTick();
   if (document.activeElement === document.body) {
-    document.querySelector<HTMLElement>('h1')?.focus({preventScroll: true});
+    focusPageHeading();
   }
 });
 
