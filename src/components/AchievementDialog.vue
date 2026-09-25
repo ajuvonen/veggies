@@ -27,7 +27,7 @@ watch(achievements, (newValue, oldValue) => {
     <template #content>
       <ul class="achievement-container">
         <li v-for="(value, key) in newAchievements" :key="key" class="cluster flex-col">
-          <AchievementBadge as="div" active :achievement="key" :level="value!" />
+          <AchievementBadge active :achievement="key" :level="value!" />
           <p class="text-center">{{ $t(`achievements.${key}.${value}`) }}</p>
         </li>
       </ul>
