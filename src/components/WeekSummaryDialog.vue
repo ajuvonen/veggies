@@ -101,7 +101,6 @@ const handleAISummaryToggle = (value: boolean) => {
         <template v-if="promotedAchievement">
           <span class="flex items-center justify-center">
             <AchievementBadge
-              as="div"
               :achievement="promotedAchievement"
               :level="AchievementLevel.Gold"
               :active="true"

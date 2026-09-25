@@ -14,7 +14,6 @@ const props = withDefaults(
     degree?: number;
   }>(),
   {
-    as: 'li',
     noLabel: false,
     degree: 0,
   },
@@ -211,14 +210,13 @@ const labelSuffix = computed(() => {
 });
 </script>
 <template>
-  <Component
+  <div
     v-tippy="
       $t(`achievements.${achievement}.ariaLabel`, [
         ...badgeProps[achievement][level]!.textProps,
         labelSuffix,
       ])
     "
-    :is="as"
     :aria-label="
       $t(`achievements.${achievement}.ariaLabel`, [
         ...badgeProps[achievement][level]!.textProps,
@@ -249,7 +247,7 @@ const labelSuffix = computed(() => {
         $t(`achievements.${achievement}.badgeText`, [...badgeProps[achievement][level]!.textProps])
       }}
     </div>
-  </Component>
+  </div>
 </template>
 <style scoped>
 @reference '@/assets/main.css';
