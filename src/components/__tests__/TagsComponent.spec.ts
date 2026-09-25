@@ -47,8 +47,8 @@ describe('TagsComponent', () => {
 
     await wrapper.findByText('.button-like', 'tomato').trigger('click');
     await wrapper.findByText('.button-like', 'pineapple').trigger('click');
-    expect(toggleFn).toBeCalledTimes(2);
-    expect(toggleFn).toBeCalledWith('tomato');
-    expect(toggleFn).toBeCalledWith('pineapple');
+    expect(toggleFn).toHaveBeenCalledTimes(2);
+    expect(toggleFn).toHaveBeenCalledWith('tomato');
+    expect(toggleFn).toHaveBeenCalledWith('pineapple');
   });
 });
