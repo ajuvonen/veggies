@@ -225,6 +225,7 @@ const labelSuffix = computed(() => {
     "
     :data-test-id="`badge-${achievement}-${level}`"
     :class="[`badge--${achievement}`, {'badge--noLabel': noLabel, 'badge--locked': !active}]"
+    tabindex="0"
     class="badge"
     role="img"
   >
@@ -254,7 +255,7 @@ const labelSuffix = computed(() => {
 @reference '@/assets/badges.css';
 
 .badge {
-  @apply badge-frame self-center max-w-32;
+  @apply badge-frame self-center max-w-32 rounded-full;
   &:not(.badge--noLabel) {
     flex: 0 0 calc(33% - 5px);
   }
