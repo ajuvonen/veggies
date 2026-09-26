@@ -22,7 +22,7 @@ exports[`WeekEditor > renders 1`] = `
 </div>
 <ul class="cluster flex-wrap justify-center" aria-label="Weekly Achievements">
   <li>
-    <div data-v-06381b3c="" aria-label="15 botanical berries this week (13% done)" data-test-id="badge-botanicalBerries-3" class="badge--botanicalBerries badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" aria-label="15 botanical berries this week (13% done)" data-test-id="badge-botanicalBerries-3" class="badge--botanicalBerries badge--noLabel badge--locked badge" tabindex="0" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🍅</div>
       </div>
@@ -31,7 +31,7 @@ exports[`WeekEditor > renders 1`] = `
     </div>
   </li>
   <li>
-    <div data-v-06381b3c="" aria-label="5 different nuts this week (locked)" data-test-id="badge-goNuts-3" class="badge--goNuts badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" aria-label="5 different nuts this week (locked)" data-test-id="badge-goNuts-3" class="badge--goNuts badge--noLabel badge--locked badge" tabindex="0" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🥜</div>
       </div>
@@ -40,7 +40,7 @@ exports[`WeekEditor > renders 1`] = `
     </div>
   </li>
   <li>
-    <div data-v-06381b3c="" aria-label="5 different herbs this week (locked)" data-test-id="badge-herbalist-3" class="badge--herbalist badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" aria-label="5 different herbs this week (locked)" data-test-id="badge-herbalist-3" class="badge--herbalist badge--noLabel badge--locked badge" tabindex="0" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🌿</div>
       </div>
@@ -49,7 +49,7 @@ exports[`WeekEditor > renders 1`] = `
     </div>
   </li>
   <li>
-    <div data-v-06381b3c="" aria-label="5 different citrus fruits this week (locked)" data-test-id="badge-lemons-3" class="badge--lemons badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" aria-label="5 different citrus fruits this week (locked)" data-test-id="badge-lemons-3" class="badge--lemons badge--noLabel badge--locked badge" tabindex="0" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🍋</div>
       </div>
@@ -58,7 +58,7 @@ exports[`WeekEditor > renders 1`] = `
     </div>
   </li>
   <li>
-    <div data-v-06381b3c="" aria-label="30 veggies and weekly challenge completed (7% done)" data-test-id="badge-overachiever-3" class="badge--overachiever badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" aria-label="30 veggies and weekly challenge completed (7% done)" data-test-id="badge-overachiever-3" class="badge--overachiever badge--noLabel badge--locked badge" tabindex="0" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">💪</div>
       </div>
@@ -67,7 +67,7 @@ exports[`WeekEditor > renders 1`] = `
     </div>
   </li>
   <li>
-    <div data-v-06381b3c="" aria-label="3 veggies from each category this week (locked)" data-test-id="badge-rainbow-3" class="badge--rainbow badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" aria-label="3 veggies from each category this week (locked)" data-test-id="badge-rainbow-3" class="badge--rainbow badge--noLabel badge--locked badge" tabindex="0" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🌈</div>
       </div>
@@ -76,7 +76,7 @@ exports[`WeekEditor > renders 1`] = `
     </div>
   </li>
   <li>
-    <div data-v-06381b3c="" aria-label="5 different onions this week (locked)" data-test-id="badge-tearnado-3" class="badge--tearnado badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" aria-label="5 different onions this week (locked)" data-test-id="badge-tearnado-3" class="badge--tearnado badge--noLabel badge--locked badge" tabindex="0" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🧅</div>
       </div>
@@ -85,7 +85,7 @@ exports[`WeekEditor > renders 1`] = `
     </div>
   </li>
   <li>
-    <div data-v-06381b3c="" aria-label="30 unique veggies this week (7% done)" data-test-id="badge-thirtyVeggies-3" class="badge--thirtyVeggies badge--noLabel badge--locked badge" role="img">
+    <div data-v-06381b3c="" aria-label="30 unique veggies this week (7% done)" data-test-id="badge-thirtyVeggies-3" class="badge--thirtyVeggies badge--noLabel badge--locked badge" tabindex="0" role="img">
       <div data-v-06381b3c="" class="badge__background badge__background--Gold" aria-hidden="true">
         <div data-v-06381b3c="" class="badge__emoji">🎉</div>
       </div>
