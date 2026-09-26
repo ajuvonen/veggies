@@ -12,6 +12,6 @@ const challenge = inject(KEYS.challenge, undefined);
         <span>{{ $t('veggieSearch.challenge') }}</span>
       </ComboboxLabel>
     </div>
-    <VeggieSearchOption :veggie="challenge" />
+    <VeggieSearchOption :veggie="challenge" data-challenge="true" />
   </ComboboxGroup>
 </template>

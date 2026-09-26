@@ -10,7 +10,7 @@ defineProps<{
 }>();
 </script>
 <template>
-  <ComboboxGroup v-if="items.length" :data-test-id="`veggie-search-group-${category}`" role="group">
+  <ComboboxGroup v-if="items.length" :data-test-id="`veggie-search-group-${category}`">
     <div class="dropdown-list-heading">
       <ComboboxLabel class="cluster">
         <span class="flex items-center" aria-hidden="true">{{ CATEGORY_EMOJI[category] }}</span>
@@ -18,6 +18,8 @@ defineProps<{
       </ComboboxLabel>
       <div v-if="showControls" class="cluster">
         <ButtonComponent
+          aria-hidden="true"
+          tabindex="-1"
           :aria-label="$t('veggieSearch.previousCategory')"
           :data-test-id="`veggie-search-previous-${category}`"
           icon="chevronDoubleUp"
@@ -26,6 +28,8 @@ defineProps<{
           @click="$emit('previous')"
         />
         <ButtonComponent
+          aria-hidden="true"
+          tabindex="-1"
           :aria-label="$t('veggieSearch.nextCategory')"
           :data-test-id="`veggie-search-next-${category}`"
           icon="chevronDoubleDown"

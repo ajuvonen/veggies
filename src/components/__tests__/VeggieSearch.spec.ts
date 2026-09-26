@@ -1,9 +1,14 @@
-import {describe, it, expect} from 'vitest';
+import {describe, it, expect, vi} from 'vitest';
 import {mount, flushPromises} from '@vue/test-utils';
 import {ComboboxViewport} from 'reka-ui';
 import {KEYS} from '@/utils/constants';
+import {Category} from '@/types';
+import {getCategoryForVeggie} from '@/utils/helpers';
 import VeggieSearch from '@/components/VeggieSearch.vue';
 import IconComponent from '@/components/ui/IconComponent.vue';
+
+// jsdom doesn't implement scrollTo; jumpToCategory calls it to scroll the target group into view.
+window.HTMLElement.prototype.scrollTo = vi.fn();
 
 const mounter = (modelValue: string[] = [], inject?: string) =>
   mount(VeggieSearch, {
@@ -45,6 +50,123 @@ describe('VeggieSearch', () => {
     await input.setValue('a');
     expect(viewport.findByTestId('veggie-search-previous-Fruit').exists()).toBe(false);
     expect(viewport.findByTestId('veggie-search-next-Fruit').exists()).toBe(false);
+  });
+
+  it('moves the highlight to the next/previous category when clicking jump controls', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('');
+
+    await wrapper
+      .getComponent(ComboboxViewport)
+      .findByTestId('veggie-search-next-Fruit')
+      .trigger('click');
+    await flushPromises();
+    let highlighted = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(highlighted.exists()).toBe(true);
+    expect(getCategoryForVeggie(highlighted.attributes('data-veggie')!)).toBe(Category.Vegetable);
+
+    await wrapper
+      .getComponent(ComboboxViewport)
+      .findByTestId('veggie-search-previous-Vegetable')
+      .trigger('click');
+    await flushPromises();
+    highlighted = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(getCategoryForVeggie(highlighted.attributes('data-veggie')!)).toBe(Category.Fruit);
+  });
+
+  it('moves the highlight to the next/previous category with PageDown/PageUp', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('');
+
+    await input.trigger('keydown', {key: 'PageDown'});
+    await flushPromises();
+    let highlighted = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(highlighted.exists()).toBe(true);
+    expect(getCategoryForVeggie(highlighted.attributes('data-veggie')!)).toBe(Category.Vegetable);
+
+    await input.trigger('keydown', {key: 'PageDown'});
+    await flushPromises();
+    highlighted = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(getCategoryForVeggie(highlighted.attributes('data-veggie')!)).toBe(Category.Leafy);
+
+    await input.trigger('keydown', {key: 'PageUp'});
+    await flushPromises();
+    highlighted = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(getCategoryForVeggie(highlighted.attributes('data-veggie')!)).toBe(Category.Vegetable);
+  });
+
+  it('jumps to the first category on PageDown from the challenge card', async () => {
+    const wrapper = mounter([], 'raspberry');
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('');
+    await flushPromises();
+    const initial = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(initial.attributes('data-veggie')).toBe('raspberry');
+
+    await input.trigger('keydown', {key: 'PageDown'});
+    await flushPromises();
+    const highlighted = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(getCategoryForVeggie(highlighted.attributes('data-veggie')!)).toBe(Category.Fruit);
+  });
+
+  it('jumps to the last category on PageUp from the challenge card', async () => {
+    const wrapper = mounter([], 'raspberry');
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('');
+    await flushPromises();
+    const initial = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(initial.attributes('data-veggie')).toBe('raspberry');
+
+    await input.trigger('keydown', {key: 'PageUp'});
+    await flushPromises();
+    const highlighted = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(getCategoryForVeggie(highlighted.attributes('data-veggie')!)).toBe(Category.Mushroom);
+  });
+
+  it('uses its own category (not 0/6) when the highlight is on the real listed copy of the challenge veggie', async () => {
+    const wrapper = mounter([], 'raspberry');
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('');
+    await flushPromises();
+
+    // raspberry is a Fruit; jump there and hover its real, non-challenge list item.
+    const realRaspberry = wrapper
+      .getComponent(ComboboxViewport)
+      .findAll('[data-veggie="raspberry"]')
+      .find((option) => !option.attributes('data-challenge'));
+    expect(realRaspberry).toBeDefined();
+    await realRaspberry!.trigger('pointermove');
+    await flushPromises();
+    const beforeJump = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    expect(beforeJump.attributes('data-veggie')).toBe('raspberry');
+    expect(beforeJump.attributes('data-challenge')).toBeUndefined();
+
+    await input.trigger('keydown', {key: 'PageDown'});
+    await flushPromises();
+    const highlighted = wrapper.getComponent(ComboboxViewport).find('[data-highlighted]');
+    // Fruit's own next category is Vegetable, not category 0 (Fruit) as the challenge card would give.
+    expect(getCategoryForVeggie(highlighted.attributes('data-veggie')!)).toBe(Category.Vegetable);
+  });
+
+  it('does not jump categories with PageDown/PageUp while filtering', async () => {
+    const wrapper = mounter();
+    const input = wrapper.findByTestId('veggie-search-input');
+    await input.setValue('tom');
+    await flushPromises();
+    const highlightedBefore = wrapper
+      .getComponent(ComboboxViewport)
+      .find('[data-highlighted]')
+      .attributes('data-veggie');
+
+    await input.trigger('keydown', {key: 'PageDown'});
+    await flushPromises();
+    const highlightedAfter = wrapper
+      .getComponent(ComboboxViewport)
+      .find('[data-highlighted]')
+      .attributes('data-veggie');
+    expect(highlightedAfter).toBe(highlightedBefore);
   });
 
   it('filters veggies by synonyms', async () => {
