@@ -54,7 +54,8 @@ describe('ToggleComponent', () => {
     const toggleButton = wrapper.find('button');
     await wrapper.find('button').trigger('click');
 
-    expect(toggleButton.attributes('disabled')).toBeDefined();
+    expect(toggleButton.attributes('disabled')).toBeUndefined();
+    expect(toggleButton.attributes('aria-disabled')).toBe('true');
     expect(wrapper.emitted('update:modelValue')).toBeFalsy();
   });
 

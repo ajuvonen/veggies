@@ -4,7 +4,7 @@ import {tv} from 'tailwind-variants/lite';
 
 defineOptions({inheritAttrs: false});
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     label: string;
     inline?: boolean;
@@ -17,6 +17,14 @@ withDefaults(
 );
 
 const model = defineModel<boolean>({required: true});
+const guardedModel = computed({
+  get: () => model.value,
+  set: (value: boolean) => {
+    if (!props.disabled) {
+      model.value = value;
+    }
+  },
+});
 const attrs = useAttrs();
 const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomUUID());
 
@@ -54,9 +62,9 @@ const {root, thumb} = toggle();
 <template>
   <ContentElement :label :inline :labelAttrs="{for: prefix}" labelTag="label">
     <SwitchRoot
-      v-model="model"
+      v-model="guardedModel"
       :id="prefix"
-      :disabled="disabled"
+      :aria-disabled="disabled || undefined"
       :class="root({disabled, checked: model})"
       :data-test-id="prefix"
     >
