@@ -29,3 +29,13 @@ test('home is unreachable after start', async ({page}) => {
   await page.goto('/');
   await expect(page).toHaveURL('log');
 });
+
+test('focuses page heading after returning from stats', async ({page}) => {
+  await page.goto('/');
+  await page.getByTestId('home-start-button').click();
+  await page.getByTestId('navbar-stats-link').click();
+  await expect(page).toHaveURL('stats');
+  await page.getByTestId('navbar-back-link').click();
+  await expect(page).toHaveURL('log');
+  await expect(page.getByRole('heading', {level: 1})).toBeFocused();
+});
