@@ -2,6 +2,11 @@ import {test, expect, defaultSettings} from './fixtures';
 import {readFileSync} from 'fs';
 import {fileURLToPath} from 'node:url';
 
+const eatYourVeggiesPath = fileURLToPath(new URL('./fixtures/EatYourVeggies.json', import.meta.url));
+const eatYourVeggiesV3Path = fileURLToPath(
+  new URL('./fixtures/EatYourVeggiesV3.json', import.meta.url),
+);
+
 test('locale settings work', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
@@ -66,9 +71,7 @@ test('q&a works', async ({page}) => {
 test('export works', async ({browser}) => {
   const today = Temporal.Now.plainDateISO();
   const thisWeek = today.subtract({days: today.dayOfWeek - 1});
-  const expectedData = JSON.parse(
-    readFileSync(fileURLToPath(new URL('./fixtures/EatYourVeggies.json', import.meta.url)), 'utf8'),
-  );
+  const expectedData = JSON.parse(readFileSync(eatYourVeggiesPath, 'utf8'));
   expectedData.settings.summaryViewedDate = thisWeek.toString();
   const browserContext = await browser.newContext({
     storageState: {
@@ -121,4 +124,26 @@ test('export works', async ({browser}) => {
   } finally {
     await browserContext.close();
   }
+});
+
+test('importing a current migration version works', async ({page}) => {
+  await page.goto('/');
+  await page.getByTestId('home-start-button').click();
+  await page.getByTestId('navbar-settings-link').click();
+  const fileChooserPromise = page.waitForEvent('filechooser');
+  await page.getByTestId('import-button').click();
+  const fileChooser = await fileChooserPromise;
+  await fileChooser.setFiles(eatYourVeggiesPath);
+  await expect(page).toHaveURL('log');
+});
+
+test('importing an expired migration version works', async ({page}) => {
+  await page.goto('/');
+  await page.getByTestId('home-start-button').click();
+  await page.getByTestId('navbar-settings-link').click();
+  const fileChooserPromise = page.waitForEvent('filechooser');
+  await page.getByTestId('import-button').click();
+  const fileChooser = await fileChooserPromise;
+  await fileChooser.setFiles(eatYourVeggiesV3Path);
+  await expect(page).toHaveURL('log');
 });
