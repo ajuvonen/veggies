@@ -21,7 +21,6 @@ const headerTitle = computed(() => {
   const routeName = route.name?.toString();
   return {
     name: !routeName || routeName === 'log' ? t('general.appTitle') : t(`views.${routeName}`),
-    ariaLabel: !routeName ? t('general.appTitle') : t(`views.${routeName}`),
   };
 });
 </script>
@@ -30,7 +29,6 @@ const headerTitle = computed(() => {
     <h1
       v-if="!isHome"
       :class="{'navbar__header--decorative': route.name === 'log'}"
-      :aria-label="headerTitle.ariaLabel"
       class="navbar__header"
       tabindex="-1"
     >
