@@ -49,7 +49,7 @@ describe('RadioGroupComponent', () => {
       },
     });
     await flushPromises();
-    const labelId = wrapper.find('label').attributes('id');
+    const labelId = wrapper.find('div[id$=label]').attributes('id');
     expect(labelId).toBeTruthy();
     expect(wrapper.find('[role="radiogroup"]').attributes('aria-labelledby')).toBe(labelId);
   });
