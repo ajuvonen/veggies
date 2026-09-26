@@ -77,7 +77,7 @@
     @apply outline-2 outline-offset-[3px];
     @apply outline-focus;
 
-    .focus-themed > &,
+    .focus-themed &,
     &.focus-themed {
       @apply outline-theme;
     }

@@ -28,11 +28,11 @@ const checkIfModalClick = (event: Event) => {
       <DialogOverlay class="modal-dialog__overlay" />
       <DialogContent
         :aria-describedby="undefined"
-        class="modal-dialog"
+        class="modal-dialog focus-themed"
         data-test-id="dialog"
         @interactOutside="checkIfModalClick"
       >
-        <div class="modal-dialog__header focus-themed">
+        <div class="modal-dialog__header">
           <DialogTitle class="modal-dialog__title" data-test-id="dialog-title">
             {{ title }}
           </DialogTitle>
@@ -45,12 +45,12 @@ const checkIfModalClick = (event: Event) => {
             />
           </DialogClose>
         </div>
-        <div class="modal-dialog__content focus-themed" :style="contentWrapperStyle">
+        <div class="modal-dialog__content" :style="contentWrapperStyle">
           <div ref="contentRef" class="modal-dialog__content-inner">
             <slot name="content" />
           </div>
         </div>
-        <div class="modal-dialog__buttons focus-themed">
+        <div class="modal-dialog__buttons">
           <slot name="buttons" />
         </div>
       </DialogContent>

@@ -14,12 +14,12 @@ exports[`HomeView > renders 1`] = `
 `;
 
 exports[`HomeView > shows dialog 1`] = `
-"<div data-v-9ec8a7f3="" data-dismissable-layer="" tabindex="-1" class="modal-dialog" data-test-id="dialog" id="" role="dialog" aria-labelledby="reka-dialog-title-v-0" data-state="open" style="pointer-events: auto;">
-  <div data-v-9ec8a7f3="" class="modal-dialog__header focus-themed">
+"<div data-v-9ec8a7f3="" data-dismissable-layer="" tabindex="-1" class="modal-dialog focus-themed" data-test-id="dialog" id="" role="dialog" aria-labelledby="reka-dialog-title-v-0" data-state="open" style="pointer-events: auto;">
+  <div data-v-9ec8a7f3="" class="modal-dialog__header">
     <h2 data-v-9ec8a7f3="" id="reka-dialog-title-v-0" class="modal-dialog__title" data-test-id="dialog-title">Briefly</h2>
     <!--v-if-->
   </div>
-  <div data-v-9ec8a7f3="" class="modal-dialog__content focus-themed" style="height: auto;">
+  <div data-v-9ec8a7f3="" class="modal-dialog__content" style="height: auto;">
     <div data-v-9ec8a7f3="" class="modal-dialog__content-inner">
       <p data-v-85f3ab1e="" aria-live="polite" class="sr-only">Step 1 of 3: Briefly</p>
       <div data-v-85f3ab1e="" aria-hidden="true" class="flex">
@@ -36,7 +36,7 @@ exports[`HomeView > shows dialog 1`] = `
       <p data-v-85f3ab1e="">Track your meals without being tracked. Eat Your Veggies is a free app for tracking plant-based ingredients in your meals. The app has no ads, requires no registration, and data is kept in your own device's storage by default.</p>
     </div>
   </div>
-  <div data-v-9ec8a7f3="" class="modal-dialog__buttons focus-themed"><button data-v-85f3ab1e="" class="button-like bg-surface text-fg-inverse fill-fg-inverse opacity-50 cursor-not-allowed" aria-disabled="true" type="button" data-test-id="home-info-previous-button">
+  <div data-v-9ec8a7f3="" class="modal-dialog__buttons"><button data-v-85f3ab1e="" class="button-like bg-surface text-fg-inverse fill-fg-inverse opacity-50 cursor-not-allowed" aria-disabled="true" type="button" data-test-id="home-info-previous-button">
       <!--v-if-->Previous
     </button><button data-v-85f3ab1e="" class="button-like bg-primary hover:bg-primary-hover active:bg-primary-active text-fg fill-fg" type="button" data-test-id="home-info-next-button">
       <!--v-if-->Next
