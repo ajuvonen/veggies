@@ -17,12 +17,12 @@ defineProps<{
       <thead>
         <tr>
           <th />
-          <th v-for="header in columnHeaders" :key="header">{{ header }}</th>
+          <th v-for="header in columnHeaders" :key="header" scope="col">{{ header }}</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(header, headerIndex) in rowHeaders" :key="headerIndex">
-          <th>{{ header }}</th>
+          <th scope="row">{{ header }}</th>
           <td v-for="(_, dataIndex) in columnHeaders" :key="dataIndex">
             {{ data[headerIndex]?.[dataIndex] ?? '' }}
           </td>

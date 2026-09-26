@@ -7,32 +7,32 @@ exports[`MatrixScreenReaderTable > draws a complete table with row headers and m
     <thead>
       <tr>
         <th></th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
+        <th scope="col">1</th>
+        <th scope="col">2</th>
+        <th scope="col">3</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th>A</th>
+        <th scope="row">A</th>
         <td>1A</td>
         <td>2B</td>
         <td></td>
       </tr>
       <tr>
-        <th>B</th>
+        <th scope="row">B</th>
         <td>1A</td>
         <td>2B</td>
         <td>3C</td>
       </tr>
       <tr>
-        <th>C</th>
+        <th scope="row">C</th>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
-        <th>D</th>
+        <th scope="row">D</th>
         <td></td>
         <td></td>
         <td></td>
@@ -49,26 +49,26 @@ exports[`MatrixScreenReaderTable > mounts with row headers 1`] = `
     <thead>
       <tr>
         <th></th>
-        <th>Fruits</th>
-        <th>Grains</th>
-        <th>Leafy Greens</th>
+        <th scope="col">Fruits</th>
+        <th scope="col">Grains</th>
+        <th scope="col">Leafy Greens</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th>Week 1</th>
+        <th scope="row">Week 1</th>
         <td>1</td>
         <td>2</td>
         <td>3</td>
       </tr>
       <tr>
-        <th>Week 2</th>
+        <th scope="row">Week 2</th>
         <td>1</td>
         <td>1</td>
         <td>2</td>
       </tr>
       <tr>
-        <th>Week 3</th>
+        <th scope="row">Week 3</th>
         <td>3</td>
         <td>3</td>
         <td>0</td>
