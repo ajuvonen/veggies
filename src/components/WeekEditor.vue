@@ -57,9 +57,8 @@ provide(KEYS.challenge, readonly(selectedChallenge));
   </DropdownList>
   <VeggieSearch v-model="veggies" />
   <ul class="cluster flex-wrap justify-center" :aria-label="$t('stats.weeklyAchievements')">
-    <li v-for="[achievement, level] in displayedWeeklyAchievements">
+    <li v-for="[achievement, level] in displayedWeeklyAchievements" :key="achievement">
       <AchievementBadge
-        :key="achievement"
         :achievement="achievement"
         :level="level || AchievementLevel.Gold"
         :active="level >= AchievementLevel.Gold"

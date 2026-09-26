@@ -42,9 +42,8 @@ const standardAchievements = [
   </ContentElement>
   <ContentElement :label="$t('achievements.thirtyVeggies.title')">
     <ul class="achievement-list__badge-container">
-      <li v-for="achievement in availableWeeklyAchievements">
+      <li v-for="achievement in availableWeeklyAchievements" :key="achievement">
         <AchievementBadge
-          :key="achievement"
           :active="achievements[achievement] >= AchievementLevel.Gold"
           :level="Math.max(AchievementLevel.Gold, achievements[achievement])"
           :achievement="achievement"
@@ -83,9 +82,8 @@ const standardAchievements = [
   </ContentElement>
   <ContentElement :label="$t('achievements.experimenterFruit.title')">
     <ul class="achievement-list__badge-container">
-      <li v-for="category in Category">
+      <li v-for="category in Category" :key="category">
         <AchievementBadge
-          :key="category"
           :level="AchievementLevel.Gold"
           :achievement="`experimenter${category}`"
           :active="achievements[`experimenter${category}`] === AchievementLevel.Gold"
