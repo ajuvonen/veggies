@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {watchEffect} from 'vue';
+import {computed, watchEffect} from 'vue';
 import {storeToRefs} from 'pinia';
 import {useI18n} from 'vue-i18n';
 import {useRoute} from 'vue-router';
@@ -52,12 +52,15 @@ watchEffect(() => {
   }
 });
 
+const routeAnnouncement = computed(() => (route.name ? t(`views.${route.name.toString()}`) : ''));
+
 watchEffect(() => {
   document.querySelector('[name="theme-color"]')?.setAttribute('content', themeColor.value);
 });
 </script>
 
 <template>
+  <p aria-live="polite" class="sr-only">{{ routeAnnouncement }}</p>
   <ToastContainer />
   <NavBar />
   <main>
