@@ -254,7 +254,7 @@ exports[`charts > prepares data for WeeklyHeatmap 1`] = `
   },
   {
     "rawData": "Bean",
-    "v": 6,
+    "v": 8,
     "weekIndex": 1,
     "x": "50/2025",
     "y": "🫛",

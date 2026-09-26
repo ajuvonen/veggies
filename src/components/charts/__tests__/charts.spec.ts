@@ -237,6 +237,8 @@ describe('charts', () => {
           'cranberry bean',
           'adzuki bean',
           'edamame',
+          'black lentil',
+          'brown lentil',
         ],
         challenge: 'cucumber',
       },
@@ -276,7 +278,8 @@ describe('charts', () => {
       ['0 %', '0 %', '14 %'],
       ['0 %', '0 %', '0 %'],
       ['0 %', '14 %', '14 %'],
-      ['0 %', '86 %', '0 %'],
+      // 8 beans exceed MAX_VALUE (7), capped at 100 %
+      ['0 %', '100 %', '0 %'],
       ['0 %', '0 %', '0 %'],
       ['0 %', '0 %', '29 %'],
     ]);
