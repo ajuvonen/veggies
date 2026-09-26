@@ -44,7 +44,7 @@ describe('SettingsView', () => {
     const wrapper = mount(SettingsView);
     expect(appStateStore.settings.showChartAnimations).toBe(true);
     const toggle = wrapper.findByTestId('show-animations-button');
-    expect(toggle.attributes('disabled')).toBe(undefined);
+    expect(toggle.attributes('aria-disabled')).toBe(undefined);
     expect(toggle.attributes('data-state')).toBe('checked');
     await toggle.trigger('click');
     expect(appStateStore.settings.showChartAnimations).toBe(false);
@@ -76,7 +76,7 @@ describe('SettingsView', () => {
     const wrapper = mount(SettingsView);
     const toggle = wrapper.findByTestId('show-animations-button');
     expect(appStateStore.settings.showChartAnimations).toBe(true);
-    expect(toggle.attributes('disabled')).not.toBe(undefined);
+    expect(toggle.attributes('aria-disabled')).not.toBe(undefined);
     expect(toggle.attributes('data-state')).not.toBe('checked');
   });
 
