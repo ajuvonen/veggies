@@ -15,10 +15,6 @@ const toasts = useTemplateRef('toasts');
 const {maxHeight} = useScreen(toasts);
 const {focused} = useFocusWithin(toasts);
 
-// Mirrors TagsComponent's toggle(): checked and removed synchronously, so it doesn't need
-// to wait for the leave transition — only a toast that closes while it holds focus (not one
-// that times out unattended) hands focus on, to whichever toast is now at the same index, or
-// the previous one, or the page heading if none remain.
 const handleClose = async (id: string) => {
   const wasFocused = document.activeElement === document.getElementById(`toast-${id}`);
   const index = messages.value.findIndex((message) => message.id === id);
