@@ -55,9 +55,7 @@ router.afterEach(async (_to, from) => {
     return;
   }
   await nextTick();
-  if (document.activeElement === document.body) {
-    focusPageHeading();
-  }
+  focusPageHeading();
 });
 
 export default router;
