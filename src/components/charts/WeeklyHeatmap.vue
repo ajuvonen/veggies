@@ -65,7 +65,7 @@ const chartData = computed(() => {
     accessibleData: {
       rowHeaders: Object.values(Category).map((category) => t(`categories.${category}`)),
       data: Object.values(groupByProp(data, 'rawData')).map((items) =>
-        items.map(({v}) => `${Math.round(((v || 0) / MAX_VALUE) * 100)} %`),
+        items.map(({v}) => `${Math.round((Math.min(v || 0, MAX_VALUE) / MAX_VALUE) * 100)} %`),
       ),
     },
   };
