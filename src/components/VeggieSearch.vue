@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, useTemplateRef} from 'vue';
+import {nextTick, ref, useTemplateRef} from 'vue';
 import {onClickOutside, useMemoize, usePreferredReducedMotion} from '@vueuse/core';
 import {Category, type TranslatedListing} from '@/types';
 import {getCategoryForVeggie, normalizeForSearch} from '@/utils/helpers';
@@ -30,6 +30,7 @@ const searchInput = useTemplateRef('searchInput');
 const anchorElement = useTemplateRef('anchorElement');
 const contentElement = useTemplateRef('contentElement');
 const optionsElement = useTemplateRef('optionsElement');
+const comboboxRoot = useTemplateRef('comboboxRoot');
 
 const translatedVeggies = useMemoize(() =>
   availableVeggies.value
@@ -58,18 +59,34 @@ const filteredVeggies = useMemoize(
   },
 );
 
-const jumpToCategory = (index: number) => {
-  if (optionsElement.value && groups.value) {
+const jumpToCategory = async (index: number) => {
+  if (optionsElement.value && groups.value && comboboxRoot.value) {
     const parsedIndex =
       index < 0 ? groups.value.length - 1 : index > groups.value.length - 1 ? 0 : index;
-    const targetGroup = groups.value[parsedIndex]?.$el as HTMLElement | undefined;
-    if (targetGroup) {
-      optionsElement.value.$el.scrollTo({
-        top: targetGroup.offsetTop,
-        behavior: reducedMotion.value === 'reduce' ? 'instant' : 'smooth',
-      });
-    }
+    const targetGroup = groups.value[parsedIndex]?.$el as HTMLElement;
+    const firstVeggie = filteredVeggies(Object.values(Category)[parsedIndex])[0].veggie;
+    await nextTick();
+    comboboxRoot.value.highlightItem?.(firstVeggie);
+    optionsElement.value.$el.scrollTo({
+      top: targetGroup.offsetTop,
+      behavior: reducedMotion.value === 'reduce' ? 'instant' : 'smooth',
+    });
   }
+};
+
+const jumpToCategoryByKey = (offset: number) => {
+  if (query.value) {
+    return;
+  }
+  const highlightedElement = comboboxRoot.value?.highlightedElement;
+  if (highlightedElement?.dataset.challenge === 'true') {
+    jumpToCategory(-1 + offset);
+    return;
+  }
+  const highlightedVeggie = highlightedElement?.dataset.veggie;
+  const currentCategory = highlightedVeggie && getCategoryForVeggie(highlightedVeggie);
+  const currentIndex = currentCategory ? Object.values(Category).indexOf(currentCategory) : 0;
+  jumpToCategory(currentIndex + offset);
 };
 
 const clearQuery = () => {
@@ -108,6 +125,7 @@ onClickOutside(
 <template>
   <ComboboxRoot
     v-model="model"
+    ref="comboboxRoot"
     :open="listOpen"
     :resetSearchTermOnBlur="false"
     :resetSearchTermOnSelect="false"
@@ -135,6 +153,8 @@ onClickOutside(
         @focus="listOpen = true"
         @blur="handleInputBlur"
         @keydown.escape.stop.prevent="listOpen = false"
+        @keydown.page-up.prevent="jumpToCategoryByKey(-1)"
+        @keydown.page-down.prevent="jumpToCategoryByKey(1)"
       />
       <ButtonComponent
         v-if="query"

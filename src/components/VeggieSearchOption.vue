@@ -8,6 +8,7 @@ defineProps<{
   <ComboboxItem
     :value="veggie"
     :textValue="translation || $t(`veggies.${veggie}`)"
+    :data-veggie="veggie"
     :data-test-id="`veggie-search-option-${veggie}`"
     class="dropdown-list-option"
   >
