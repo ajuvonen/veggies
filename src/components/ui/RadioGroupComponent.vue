@@ -18,7 +18,7 @@ const prefix = computed(() => (attrs.id as string | undefined) ?? crypto.randomU
       :label="label"
       :labelAttrs="{id: `${prefix}-label`}"
       :aria-labelledby="`${prefix}-label`"
-      labelTag="label"
+      labelTag="div"
     >
       <RadioGroupItem
         v-for="option in options"
