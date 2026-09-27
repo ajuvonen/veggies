@@ -64,6 +64,7 @@ const handleClick = (event: MouseEvent) => {
 const emoji = getRandomEmojis()[0];
 </script>
 <template>
+  <!-- mousedown.prevent: clicking must not steal focus, e.g. from the veggie search input -->
   <button
     :id="`toast-${messageId}`"
     ref="toastMessage"
@@ -77,6 +78,7 @@ const emoji = getRandomEmojis()[0];
     type="button"
     data-test-id="toast-message"
     @click="handleClick"
+    @mousedown.prevent
   >
     <div class="toast-message__content">
       <span class="text-2xl" aria-hidden="true">
@@ -90,19 +92,19 @@ const emoji = getRandomEmojis()[0];
 @reference '@/assets/main.css';
 
 .toast-message {
-  @apply w-full p-4 cursor-pointer pointer-events-auto -outline-offset-2;
+  @apply w-full p-4 pointer-events-auto -outline-offset-2;
   @apply bg-primary;
   box-shadow:
     0 -4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
 
-  &--remove {
-    @apply bg-danger;
-  }
+.toast-message--remove {
+  @apply bg-danger;
+}
 
-  &--removing {
-    @apply opacity-0 motion-safe:duration-200;
-  }
+.toast-message--removing {
+  @apply opacity-0 motion-safe:duration-200;
 }
 
 .toast-message__content {
