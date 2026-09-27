@@ -97,6 +97,14 @@ const standardAchievements = [
 
 :deep(.achievement-list__badge-container) {
   @apply px-2;
-  @apply cluster justify-evenly flex-wrap;
+  @apply cluster justify-center flex-wrap;
+
+  & > li {
+    @apply flex justify-center basis-[calc((100%-1rem)/3)];
+  }
+
+  & .badge {
+    @apply w-full;
+  }
 }
 </style>
