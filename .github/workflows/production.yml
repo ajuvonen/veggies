@@ -13,9 +13,9 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 24.21
       - name: Install dependencies
@@ -34,7 +34,7 @@ jobs:
           rclone config create sftp-remote sftp host="${{ secrets.FTP_HOST }}" user="${{ secrets.FTP_USER }}" key_file=~/.ssh/deploy_key
           rclone sync ./dist/ sftp-remote:"${{ secrets.FTP_DIRECTORY }}" --verbose --log-file=rclone.log
       - name: Upload Log
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: deploy-log
           path: rclone.log
