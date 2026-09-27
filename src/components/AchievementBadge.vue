@@ -256,13 +256,10 @@ const labelSuffix = computed(() => {
 
 .badge {
   @apply badge-frame self-center max-w-32 rounded-full;
-  &:not(.badge--noLabel) {
-    flex: 0 0 calc(33% - 5px);
-  }
 }
 
 .badge__background {
-  @apply badge-face text-[17cqmin] sm:text-[12cqmin];
+  @apply badge-face text-[length:17svmin] sm:text-[length:12svmin];
   .badge--noLabel > & {
     @apply text-3xl p-0.5;
   }
@@ -285,7 +282,7 @@ const labelSuffix = computed(() => {
 }
 
 .badge__text {
-  @apply absolute bottom-[2cqmin] min-w-full whitespace-nowrap rounded-md text-center text-xs uppercase;
+  @apply absolute bottom-[2svmin] min-w-full whitespace-nowrap rounded-md text-center text-xs uppercase;
   @apply bg-surface-dark text-fg;
 }
 
