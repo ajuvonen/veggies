@@ -86,7 +86,7 @@
 
 @utility button-like {
   @apply cluster items-center;
-  @apply text-nowrap px-4 py-2 label-like tracking-wider rounded-md select-none cursor-pointer;
+  @apply whitespace-nowrap px-4 py-2 label-like tracking-wider rounded-md select-none cursor-pointer;
 }
 
 @utility label-like {
@@ -94,7 +94,7 @@
 }
 
 @utility dropdown-list-container {
-  @apply rounded-md mt-2 mb-2 shadow-lg;
+  @apply rounded-md my-2 shadow-lg;
   @apply bg-surface;
   scrollbar-width: thin !important;
   scrollbar-color: initial !important;
@@ -117,6 +117,9 @@
   }
   body:not([data-input='touch']) &[data-highlighted] {
     @apply bg-primary-hover text-fg fill-fg;
+  }
+  body:not([data-input='touch']) &:active {
+    @apply bg-primary-active text-fg fill-fg;
   }
 }
 
