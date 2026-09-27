@@ -269,7 +269,7 @@ const labelSuffix = computed(() => {
 }
 
 .badge__overlay {
-  @apply absolute inset-0 rounded-full bg-black opacity-40;
+  @apply absolute inset-0 rounded-full bg-black/40;
 }
 
 .badge__emoji {
@@ -285,7 +285,7 @@ const labelSuffix = computed(() => {
 }
 
 .badge__text {
-  @apply absolute bottom-[2cqmin] min-w-full text-nowrap rounded-md text-center text-xs uppercase;
+  @apply absolute bottom-[2cqmin] min-w-full whitespace-nowrap rounded-md text-center text-xs uppercase;
   @apply bg-surface-dark text-fg;
 }
 

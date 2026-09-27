@@ -55,7 +55,7 @@ const handleClose = async (id: string) => {
 @reference '@/assets/main.css';
 
 .toast-container {
-  @apply absolute inset-0 m-0 w-full z-40 pointer-events-none;
+  @apply absolute inset-0 z-40 pointer-events-none;
   @apply cluster flex-col-reverse;
 }
 

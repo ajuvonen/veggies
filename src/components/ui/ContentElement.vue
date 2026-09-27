@@ -16,10 +16,7 @@ withDefaults(
 );
 </script>
 <template>
-  <div
-    :class="{'flex-col': !inline, 'items-center': inline, 'justify-between': inline}"
-    class="cluster"
-  >
+  <div :class="inline ? 'items-center justify-between' : 'flex-col'" class="cluster">
     <component :is="labelTag" class="label-like" v-bind="labelAttrs">{{ label }}</component>
     <slot />
   </div>

@@ -81,14 +81,15 @@ watchEffect((onCleanup) => {
 
 .ai-content {
   @apply relative;
-  &--streaming::after {
-    @apply absolute bottom-0 left-0 right-0 h-12 pointer-events-none;
-    content: '';
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      color-mix(in srgb, var(--color-surface) 60%, transparent)
-    );
-  }
+}
+
+.ai-content--streaming::after {
+  @apply absolute inset-x-0 bottom-0 h-12 pointer-events-none;
+  content: '';
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--color-surface) 60%, transparent)
+  );
 }
 </style>

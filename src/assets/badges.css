@@ -17,7 +17,7 @@
 }
 
 @utility badge-face {
-  @apply relative w-full h-full rounded-full border-4 overflow-hidden;
+  @apply relative size-full rounded-full border-4 overflow-hidden;
   @apply flex items-center justify-center;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 1px #334155;
@@ -33,6 +33,6 @@
 
   &::before {
     content: '';
-    @apply absolute w-full h-full rounded-full border-2 border-dotted border-inherit;
+    @apply absolute size-full rounded-full border-2 border-dotted border-inherit;
   }
 }

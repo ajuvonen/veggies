@@ -30,38 +30,12 @@ input {
 }
 
 input::-webkit-slider-thumb {
-  appearance: none;
-  border-style: none;
-  border-radius: var(--radius-md);
-  width: calc(var(--spacing) * 6);
-  height: calc(var(--spacing) * 6);
-  cursor: pointer;
-  background-color: var(--color-primary);
-}
-
-input::-webkit-slider-thumb:hover {
-  background-color: var(--color-primary-hover);
-}
-
-input::-webkit-slider-thumb:active {
-  background-color: var(--color-primary-active);
+  @apply appearance-none border-none rounded-md size-6 cursor-pointer;
+  @apply bg-primary hover:bg-primary-hover active:bg-primary-active;
 }
 
 input::-moz-range-thumb {
-  appearance: none;
-  border-style: none;
-  border-radius: var(--radius-md);
-  width: calc(var(--spacing) * 6);
-  height: calc(var(--spacing) * 6);
-  cursor: pointer;
-  background-color: var(--color-primary);
-}
-
-input::-moz-range-thumb:hover {
-  background-color: var(--color-primary-hover);
-}
-
-input::-moz-range-thumb:active {
-  background-color: var(--color-primary-active);
+  @apply appearance-none border-none rounded-md size-6 cursor-pointer;
+  @apply bg-primary hover:bg-primary-hover active:bg-primary-active;
 }
 </style>

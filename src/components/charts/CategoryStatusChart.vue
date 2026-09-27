@@ -127,12 +127,12 @@ defineExpose({chartData});
 
 .category-status-chart__background {
   @apply relative overflow-hidden aspect-square;
-  @apply flex justify-center grow-0 self-center;
+  @apply flex justify-center self-center;
   width: min(100%, 400px, 50vh);
 }
 
 .category-status-chart__center-label {
   @apply flex flex-col items-center justify-center;
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 label-like;
+  @apply absolute top-1/2 left-1/2 -translate-1/2 label-like;
 }
 </style>

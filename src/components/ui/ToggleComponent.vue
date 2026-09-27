@@ -32,7 +32,7 @@ const toggle = tv({
   slots: {
     root: 'relative inline-flex h-4 w-12 items-center rounded-md outline-offset-4 bg-surface-dark',
     thumb: [
-      'inline-flex w-6 h-6 items-center justify-center rounded-md shadow-lg motion-safe:duration-200',
+      'inline-flex size-6 items-center justify-center rounded-md shadow-lg motion-safe:duration-200',
       'bg-surface fill-fg-inverse',
     ],
   },
