@@ -66,9 +66,7 @@ const checkIfModalClick = (event: Event) => {
 }
 
 .modal-dialog {
-  @apply fixed z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-  @apply w-[calc(100%-2rem)] max-w-xl max-h-[calc(100%-2rem)];
-  @apply rounded-md p-4 shadow-xl pointer-events-auto!;
+  @apply fixed z-30 top-1/2 left-1/2 -translate-1/2 w-[calc(100%-2rem)] max-w-xl max-h-[calc(100%-2rem)] rounded-md p-4 shadow-xl pointer-events-auto!;
   @apply flex flex-col gap-4;
   @apply bg-surface text-fg-inverse fill-fg-inverse;
   @media (prefers-reduced-motion: no-preference) {

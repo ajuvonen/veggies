@@ -56,8 +56,7 @@ onMounted(() => {
 }
 
 .home__title {
-  font-family: 'Bungee Shade', system-ui;
   font-size: 16vw;
-  @apply sm:text-7xl sm:text-center uppercase;
+  @apply font-branding sm:text-7xl sm:text-center uppercase;
 }
 </style>

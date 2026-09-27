@@ -41,8 +41,7 @@ const sections = computed(() => ({
 @reference '@/assets/main.css';
 
 .all-time-status__container {
-  @apply grid grid-cols-2 grid-rows-3;
+  @apply grid grid-cols-2 grid-rows-3 gap-y-4;
   @apply text-center;
-  row-gap: 1rem;
 }
 </style>

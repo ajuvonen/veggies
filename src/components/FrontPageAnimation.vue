@@ -87,7 +87,7 @@ let emojis = getRandomEmojis(4);
 }
 
 .front-page-animation__icon {
-  @apply text-9xl w-43.75 static z-50;
+  @apply text-9xl w-43.75 z-50;
   @apply flex items-center justify-center;
   animation: icon-bounce 0.5s cubic-bezier(0.5, 0.05, 1, 0.5) infinite alternate;
 }
