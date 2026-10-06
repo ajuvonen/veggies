@@ -245,6 +245,18 @@ describe('useWeekSummary', () => {
       const {weekData} = withSetup(useWeekSummary);
       expect(weekData.value.rarities).not.toContain('apple');
     });
+
+    it('rarities and firstTimeVeggies are mutually exclusive', () => {
+      addWeek(thisWeek.subtract({weeks: 10}), ['apple']);
+      addWeek(fiveWeeksAgo, ['carrot']);
+      addWeek(fourWeeksAgo, ['carrot']);
+      addWeek(threeWeeksAgo, ['carrot']);
+      addWeek(twoWeeksAgo, ['carrot']);
+      addWeek(lastWeek, ['apple', 'carrot', 'banana']);
+      const {weekData} = withSetup(useWeekSummary);
+      expect(weekData.value.firstTimeVeggies).toEqual(['banana']);
+      expect(weekData.value.rarities).toEqual(['apple']);
+    });
   });
 
   describe('promotedAchievement', () => {
