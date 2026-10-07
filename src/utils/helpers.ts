@@ -130,7 +130,7 @@ export const getStorageKeys = (): string[] => {
   return keys;
 };
 
-export const getImportSchema = async () => {
+export const getDataSchema = async () => {
   const z = await import('zod/mini');
   z.config(z.locales.en());
   const plainDateSchema = z.custom<Temporal.PlainDate>(

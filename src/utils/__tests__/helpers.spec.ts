@@ -6,7 +6,7 @@ import {
   areDatesEqual,
   dateParser,
   getCategoryForVeggie,
-  getImportSchema,
+  getDataSchema,
   getRandomEmojis,
   getRandomItem,
   getStorageKeys,
@@ -17,7 +17,7 @@ import {
 } from '@/utils/helpers';
 import {AchievementLevel, Category, type Week} from '@/types';
 
-const importSchema = await getImportSchema();
+const dataSchema = await getDataSchema();
 
 describe('helpers', () => {
   const thisWeek = getWeekStart();
@@ -255,7 +255,7 @@ describe('helpers', () => {
     });
   });
 
-  describe('getImportSchema', () => {
+  describe('getDataSchema', () => {
     it('fails on missing startDate', () => {
       const faultyData = {
         weeks: [],
@@ -264,7 +264,7 @@ describe('helpers', () => {
           startDate: null,
         },
       };
-      const result = importSchema.safeParse(faultyData);
+      const result = dataSchema.safeParse(faultyData);
       expect(result.success).toBe(false);
       const errorMessage = JSON.parse(result.error?.message ?? '');
       expect(errorMessage.length).toEqual(1);
@@ -285,7 +285,7 @@ describe('helpers', () => {
           startDate: thisWeek,
         },
       };
-      const result = importSchema.safeParse(faultyData);
+      const result = dataSchema.safeParse(faultyData);
       expect(result.success).toBe(false);
       const errorMessage = JSON.parse(result.error?.message ?? '');
       expect(errorMessage.length).toEqual(2);
@@ -302,7 +302,7 @@ describe('helpers', () => {
           migrationVersion: CURRENT_MIGRATION_VERSION,
         },
       };
-      const result = importSchema.safeParse(faultyData);
+      const result = dataSchema.safeParse(faultyData);
       expect(result.success).toBe(true);
       expect(result.data).toEqual({
         weeks: [],
@@ -326,7 +326,7 @@ describe('helpers', () => {
           baz: true,
         },
       };
-      const result = importSchema.safeParse(faultyData);
+      const result = dataSchema.safeParse(faultyData);
       expect(result.success).toBe(true);
       expect(result.data).toEqual({
         weeks: [{startDate: thisWeek, veggies: ['apple'], challenge: 'cucumber'}],
@@ -344,7 +344,7 @@ describe('helpers', () => {
           migrationVersion: CURRENT_MIGRATION_VERSION,
         },
       };
-      const result = importSchema.safeParse(faultyData);
+      const result = dataSchema.safeParse(faultyData);
       expect(result.success).toBe(true);
       expect(result.data).toEqual({
         weeks: [],

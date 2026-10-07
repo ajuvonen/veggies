@@ -3,7 +3,7 @@ import {
   dateParser,
   getStorageKeys,
   getRandomItem,
-  getImportSchema,
+  getDataSchema,
 } from '@/utils/helpers';
 import {ALL_VEGGIES} from '@/utils/veggieDetails';
 import type {Week, Settings} from '@/types';
@@ -41,7 +41,7 @@ type Migration = {
   readonly migrate: (data: StorageData) => StorageData;
 };
 
-// When adding new migrations, remember to sync settings export test to latest localStorage version
+// When adding new migrations, remember to sync settings backup test to latest localStorage version
 const migrations: Migration[] = [
   {
     version: 2,
@@ -227,7 +227,7 @@ export async function runMigrations(fromVersion: number, toVersion: number): Pro
   const migratedData = applyMigrations(currentData, fromVersion, toVersion);
 
   // Validate migrated data against schema
-  const schema = await getImportSchema();
+  const schema = await getDataSchema();
   const validatedData = schema.parse(migratedData);
 
   writeStorageData(validatedData, toVersion);

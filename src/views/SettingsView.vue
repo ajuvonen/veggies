@@ -74,7 +74,7 @@ const removeAllergen = (veggie: string) => {
       <p>{{ $t('settings.allergensInfo') }}</p>
     </ContentElement>
     <QAComponent />
-    <ExportImport />
+    <BackupRestore />
     <ContentElement :label="$t('settings.reset.label')" labelTag="div">
       <ButtonComponent
         color="danger"

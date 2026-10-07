@@ -243,7 +243,7 @@
           "Inspect your stats with the help of various easy-to-read charts.",
           "Get suggestions based on what you've already eaten, with allergens excluded.",
           "Enjoy weekly summaries with optional AI-powered features to ensure your progress.",
-          "Export or import your data, and install the app on your home screen or as an Android app.",
+          "Back up or restore your data, and install the app on your home screen or as an Android app.",
           "No Internet connection required.",
           "No ads, no registration, no trackers. Built with your privacy in mind."
         ]
@@ -328,20 +328,20 @@
   "settings": {
     "allergens": "Allergens",
     "allergensInfo": "Veggies marked as allergens won't show up in the app.",
-    "exportImport": {
+    "backupRestore": {
+      "backup": "Back up",
+      "backupSuccess": "Backup created successfully.",
       "description": "Use this feature to back up and restore your data. Common use cases are if you want to clear your browser's storage, or change your phone or default browser.",
-      "export": "Export",
-      "exportSuccess": "Data exported successfully.",
       "failure": "Unexpected error. Data may be corrupted.",
-      "fileName": "EatYourVeggies.json",
-      "import": "Import",
-      "importSuccess": "Data imported successfully.",
-      "label": "Export or import app data"
+      "fileName": "EatYourVeggies-{timestamp}.json",
+      "label": "Back up or restore data",
+      "restore": "Restore",
+      "restoreSuccess": "Data restored successfully."
     },
     "locale": "Language",
     "reset": {
       "button": "Reset",
-      "label": "Remove all data from the app",
+      "label": "Remove all data",
       "text": "Continuing with the reset will wipe all your previously saved data and start from scratch. This action cannot be undone.",
       "title": "Are you sure you want to reset?"
     },

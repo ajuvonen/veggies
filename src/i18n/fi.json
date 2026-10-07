@@ -243,7 +243,7 @@
           "Tarkastele tilastojasi helposti luettavien graafien avulla.",
           "Vastaanota ehdotuksia aiemmin syömiesi kasvisten perusteella, ja sulje allergeenit pois.",
           "Nauti viikkoyhteenvedoista valinnaisin tekoälyominaisuuksin edistymisesi varmistamiseksi.",
-          "Vie tai tuo tietosi, ja asenna sovellus kotiruudullesi tai Android-sovelluksena.",
+          "Varmuuskopioi tai palauta tietosi, ja asenna sovellus kotiruudullesi tai Android-sovelluksena.",
           "Toimii ilman Internet-yhteyttä.",
           "Ei mainoksia, ei rekisteröitymistä, ei seurantaohjelmia. Kehitetty yksityisyytesi huomioiden."
         ]
@@ -328,20 +328,20 @@
   "settings": {
     "allergens": "Allergeenit",
     "allergensInfo": "Allergeeneiksi merkittyjä kasviksia ei näytetä sovelluksessa.",
-    "exportImport": {
+    "backupRestore": {
+      "backup": "Varmuuskopioi",
+      "backupSuccess": "Varmuuskopio luotu onnistuneesti.",
       "description": "Luo datastasi varmuuskopio tai palauta se tällä toiminnolla. Käyttökohteita ovat esimerkiksi tilanteet, jolloin haluat pyyhkiä selaimesi tallennustilan, tai vaihdat puhelinta tai oletusselaintasi.",
-      "export": "Vie",
-      "exportSuccess": "Tiedot viety onnistuneesti.",
       "failure": "Odottamaton virhe. Data voi olla vioittunut.",
-      "fileName": "EatYourVeggies.json",
-      "import": "Tuo",
-      "importSuccess": "Tiedot tuotu onnistuneesti.",
-      "label": "Vie tai tuo sovelluksen tiedot"
+      "fileName": "EatYourVeggies-{timestamp}.json",
+      "label": "Varmuuskopioi tai palauta",
+      "restore": "Palauta",
+      "restoreSuccess": "Tiedot palautettu onnistuneesti."
     },
     "locale": "Kieli",
     "reset": {
       "button": "Tyhjennä",
-      "label": "Poista sovelluksen tiedot",
+      "label": "Poista kaikki tiedot",
       "text": "Tyhjennys poistaa kaikki sovellukseen tallennetut tiedot ja palauttaa sovelluksen alkutilaansa. Tätä toimenpidettä ei voi perua.",
       "title": "Haluatko tyhjentää sovelluksen?"
     },
