@@ -742,6 +742,7 @@
     "challengeCompleted": "Mission accomplished! You tried {0} for your weekly challenge!",
     "challengeMissed": "You didn't complete your challenge ({0}) last week. Maybe next time?",
     "closeToRecord": "Just @:general.veggieNominative away from your record of {1}!",
+    "createBackup": "Avoid accidental loss of your data by creating a backup file in the settings page.",
     "favoriteCategory": "Your favorite category last week was {1} with @:general.veggie{'!'}",
     "fellShort": "You fell short of previous week's @:general.veggieNominative{'.'} You can do better this week!",
     "firstTimeVeggie": "You tried {0} for the first time!",
