@@ -193,7 +193,7 @@ Auto-updates every 60 seconds in production. Build process creates Workbox SW.
 
 ### Build Modes
 
-`base` in [vite.config.ts](../../vite.config.ts) is hardcoded to `/veggies`; `--mode` flags themselves have no effect on output since the config never branches on `mode`. Deployment target is controlled by the `--base` CLI flag instead:
+`base` in [vite.config.ts](../../vite.config.ts) is hardcoded to `/veggies`; `--mode` flags do not change the deployment base since the config never branches on `mode`. They still affect runtime behavior via `import.meta.env.MODE`, including CI toast timeouts and hover/focus pausing. Deployment target is controlled by the `--base` CLI flag instead:
 
 - `npm run build` - GitHub Pages deployment, keeps the `/veggies` base from vite.config.ts
 - `npm run build:production` - Domain root deployment, overrides with `--base=/`
