@@ -742,6 +742,7 @@
     "challengeCompleted": "Tehtävä suoritettu! Viikkohaasteesi oli {0} ja onnistuit siinä!",
     "challengeMissed": "Et saanut viikkohaastettasi ({0}) suoritettua. Ehkä ensi kerralla?",
     "closeToRecord": "Vain @:general.veggieNominative ennätyksestäsi ({1})!",
+    "createBackup": "Luo varmuuskopio asetussivulla estääksesi tietojesi häviämisen vahingossa.",
     "favoriteCategory": "Suosikkikategoriasi viime viikolla oli {1}, josta söit @:general.veggie{'!'}",
     "fellShort": "Jäit edellisen viikon tuloksesta (@:general.veggieNominative). Onnistut varmasti tällä viikolla paremmin!",
     "firstTimeVeggie": "Kokeilit ensimmäistä kertaa kasvista {0}!",

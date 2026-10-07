@@ -286,6 +286,16 @@ describe('useWeekSummary', () => {
       });
     });
 
+    it.each([[[]], [['apple']]])('returns create backup message for veggies %j', (veggies) => {
+      addWeek(lastWeek, veggies);
+      const {summaryMessages} = withSetup(useWeekSummary);
+      expect(summaryMessages.value).toContainEqual({
+        emoji: '⛓️‍💥',
+        translationKey: 'weekSummaryDialog.createBackup',
+        translationParameters: [],
+      });
+    });
+
     describe('progress messages', () => {
       it('returns room for improvement message for less than 10 veggies', () => {
         addWeek(lastWeek, ['apple', 'spinach', 'tomato']);

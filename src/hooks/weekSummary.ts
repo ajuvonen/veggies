@@ -300,6 +300,12 @@ export const useWeekSummary = () => {
 
   const summaryMessages = computed<SummaryItem[]>(() => {
     const data = weekData.value;
+    const backupMessage: SummaryItem = {
+      emoji: '⛓️‍💥',
+      translationKey: 'weekSummaryDialog.createBackup',
+      translationParameters: [],
+    };
+
     if (!data.veggies.length) {
       return [
         {
@@ -307,10 +313,12 @@ export const useWeekSummary = () => {
           translationKey: 'weekSummaryDialog.noVeggies',
           translationParameters: [],
         },
+        backupMessage,
       ];
     }
 
     return [
+      backupMessage,
       ...createProgressMessages(data),
       ...createComparisonMessages(data),
       ...createStatisticsMessages(data),
