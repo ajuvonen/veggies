@@ -193,9 +193,11 @@ Auto-updates every 60 seconds in production. Build process creates Workbox SW.
 
 ### Build Modes
 
-- `staging` - GitHub Pages deployment (`/veggies` base)
-- `production` - Domain root deployment
-- `ci` - CI environment builds
+`base` in [vite.config.ts](../../vite.config.ts) is hardcoded to `/veggies`; `--mode` flags themselves have no effect on output since the config never branches on `mode`. Deployment target is controlled by the `--base` CLI flag instead:
+
+- `npm run build` - GitHub Pages deployment, keeps the `/veggies` base from vite.config.ts
+- `npm run build:production` - Domain root deployment, overrides with `--base=/`
+- `npm run build:ci` - CI environment builds, same `/veggies` base as `build`
 
 ### TWA Integration
 
@@ -225,4 +227,4 @@ There is a migration system in place for updating localStorage data structures. 
 
 After successful migration, the version number is updated and data validated against the most recent schema.
 
-Migrations are also run on data import.
+Migrations are also run when restoring a backup.

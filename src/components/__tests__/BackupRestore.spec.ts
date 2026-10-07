@@ -4,7 +4,7 @@ import {useActivityStore} from '@/stores/activityStore';
 import {useAppStateStore} from '@/stores/appStateStore';
 import {CURRENT_MIGRATION_VERSION} from '@/utils/constants';
 import {getWeekStart} from '@/utils/helpers';
-import ExportImport from '@/components/ExportImport.vue';
+import BackupRestore from '@/components/BackupRestore.vue';
 
 // Captures the onChange callback registered during component setup
 const fileDialog = {
@@ -31,7 +31,7 @@ vi.mock('@vueuse/core', async () => ({
   }),
 }));
 
-const triggerImport = (data: object) => {
+const triggerRestore = (data: object) => {
   const text = JSON.stringify(data);
   const file = {text: async () => text} as unknown as File;
   return fileDialog.onChange!([file] as unknown as FileList);
@@ -67,7 +67,7 @@ const validV3Data = {
   },
 };
 
-describe('ExportImport', () => {
+describe('BackupRestore', () => {
   let activityStore: ReturnType<typeof useActivityStore>;
   let appStateStore: ReturnType<typeof useAppStateStore>;
 
@@ -76,27 +76,27 @@ describe('ExportImport', () => {
     appStateStore = useAppStateStore();
     vi.spyOn(console, 'error').mockImplementationOnce(() => {});
     fileDialog.onChange = undefined;
-    mount(ExportImport);
+    mount(BackupRestore);
   });
 
   afterEach(() => {
     vi.unstubAllGlobals();
   });
 
-  describe('import', () => {
-    it('imports valid data, updates stores, and navigates to log', async () => {
-      await triggerImport(validV4Data);
+  describe('restore', () => {
+    it('restores valid data, updates stores, and navigates to log', async () => {
+      await triggerRestore(validV4Data);
       await flushPromises();
 
       expect(activityStore.weeks).toHaveLength(1);
       expect(activityStore.weeks[0]!.veggies).toEqual(['apple', 'carrot']);
       expect(appStateStore.settings.showChartAnimations).toBe(true);
       expect(mocks.push).toHaveBeenCalledWith({name: 'log'});
-      expect(appStateStore.addToastMessage).toHaveBeenCalledWith('Data imported successfully.');
+      expect(appStateStore.addToastMessage).toHaveBeenCalledWith('Data restored successfully.');
     });
 
-    it('migrates data from an older version before importing', async () => {
-      await triggerImport(validV3Data);
+    it('migrates data from an older version before restoring', async () => {
+      await triggerRestore(validV3Data);
       await flushPromises();
 
       // v3→v4 migration moves startDate into settings
@@ -120,7 +120,7 @@ describe('ExportImport', () => {
 
     it('shows an error toast and does not navigate when schema validation fails', async () => {
       const badData = {...validV4Data, settings: {...validV4Data.settings, migrationVersion: 99}};
-      await triggerImport(badData);
+      await triggerRestore(badData);
       await flushPromises();
 
       expect(mocks.push).not.toHaveBeenCalled();
@@ -140,9 +140,12 @@ describe('ExportImport', () => {
     });
   });
 
-  describe('export', () => {
-    it('starts file download', async () => {
-      const wrapper = mount(ExportImport);
+  describe('backup', () => {
+    it('starts file download with a timestamped file name', async () => {
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-10-07T14:03:22Z'));
+
+      const wrapper = mount(BackupRestore);
       const link = document.createElement('a');
       link.click = vi.fn();
       class MockURL {
@@ -156,21 +159,28 @@ describe('ExportImport', () => {
       vi.stubGlobal('URL', MockURL);
       vi.spyOn(document, 'createElement').mockImplementationOnce(() => link);
 
-      wrapper.findByTestId('export-button').trigger('click');
+      wrapper.findByTestId('backup-button').trigger('click');
       await flushPromises();
 
       expect(link.href).toBe('https://eatyourveggies.app/');
+      expect(link.download).toBe(
+        `EatYourVeggies-${Temporal.Now.plainDateTimeISO()
+          .toString({smallestUnit: 'minute'})
+          .replace(/:/g, '-')}.json`,
+      );
       expect(link.click).toHaveBeenCalledTimes(1);
+
+      vi.useRealTimers();
     });
 
-    it('shows an error toast when export fails', async () => {
-      const wrapper = mount(ExportImport);
+    it('shows an error toast when backup fails', async () => {
+      const wrapper = mount(BackupRestore);
 
       vi.spyOn(Storage.prototype, 'getItem').mockImplementationOnce(() => {
         throw new Error('Storage error');
       });
 
-      await wrapper.findByTestId('export-button').trigger('click');
+      await wrapper.findByTestId('backup-button').trigger('click');
       await flushPromises();
 
       expect(appStateStore.addToastMessage).toHaveBeenCalledWith(

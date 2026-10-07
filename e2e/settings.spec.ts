@@ -68,7 +68,7 @@ test('q&a works', async ({page}) => {
   await expect(page.getByTestId('qa-panel-contact')).toBeHidden();
 });
 
-test('export works', async ({browser}) => {
+test('backup works', async ({browser}) => {
   const today = Temporal.Now.plainDateISO();
   const thisWeek = today.subtract({days: today.dayOfWeek - 1});
   const expectedData = JSON.parse(readFileSync(eatYourVeggiesPath, 'utf8'));
@@ -115,34 +115,38 @@ test('export works', async ({browser}) => {
     await page.goto('/');
     await page.getByTestId('navbar-settings-link').click();
     const downloadPromise = page.waitForEvent('download');
-    await page.getByTestId('export-button').click();
+    await page.getByTestId('backup-button').click();
     const download = await downloadPromise;
 
+    expect(download.suggestedFilename()).toMatch(
+      /^EatYourVeggies-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}\.json$/,
+    );
+
     const downloadPath = await download.path();
-    const exportedData = JSON.parse(readFileSync(downloadPath, 'utf8'));
-    expect(exportedData).toEqual(expectedData);
+    const backupData = JSON.parse(readFileSync(downloadPath, 'utf8'));
+    expect(backupData).toEqual(expectedData);
   } finally {
     await browserContext.close();
   }
 });
 
-test('importing a current migration version works', async ({page}) => {
+test('restoring a current migration version works', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('navbar-settings-link').click();
   const fileChooserPromise = page.waitForEvent('filechooser');
-  await page.getByTestId('import-button').click();
+  await page.getByTestId('restore-button').click();
   const fileChooser = await fileChooserPromise;
   await fileChooser.setFiles(eatYourVeggiesPath);
   await expect(page).toHaveURL('log');
 });
 
-test('importing an expired migration version works', async ({page}) => {
+test('restoring an expired migration version works', async ({page}) => {
   await page.goto('/');
   await page.getByTestId('home-start-button').click();
   await page.getByTestId('navbar-settings-link').click();
   const fileChooserPromise = page.waitForEvent('filechooser');
-  await page.getByTestId('import-button').click();
+  await page.getByTestId('restore-button').click();
   const fileChooser = await fileChooserPromise;
   await fileChooser.setFiles(eatYourVeggiesV3Path);
   await expect(page).toHaveURL('log');
